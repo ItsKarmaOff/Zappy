@@ -43,7 +43,7 @@ if __name__ == "__main__":
     else:
         keywords_str = ", ".join(keywords)
         print(f"::error title=Invalid commit format::Commit message format is invalid")
-        print(f"::error::Expected format: <type>(<scope>): <description>")
-        print(f"::error::Allowed types: {keywords_str}")
-        print(f"::error::Received: {commit_message}")
+        print(f"::error title=Invalid commit format::Expected format: <type>(<scope>): <description>")
+        print(f"::error title=Invalid commit format::Allowed types: {keywords_str}")
+        print(f"::error title=Invalid commit format::Received: {commit_message}")
         exit(1)
