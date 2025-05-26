@@ -22,6 +22,9 @@ a.out
 *.gcov
 unit_tests
 
+# Documentation files
+docs/html
+
 # Valgrind files
 vgcore.*
 
