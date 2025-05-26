@@ -32,6 +32,7 @@ jobs:
         runs-on: ubuntu-latest
         container:
             image: ghcr.io/epitech/coding-style-checker:latest
+        needs: check_commit
 
         #################### STEPS ############################################
         steps:
