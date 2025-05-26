@@ -13,6 +13,20 @@ env:
 jobs:
 
     ######################## COMMIT ###########################################
+    protect_main_branch:
+        runs-on: ubuntu-latest
+
+        #################### STEPS ############################################
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+
+            - name: Launch commit name checker
+              run: |
+                .github/scripts/check_main_branch
+    ###########################################################################
+
+    ######################## COMMIT ###########################################
     check_commit:
         runs-on: ubuntu-latest
 

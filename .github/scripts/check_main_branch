@@ -1,0 +1,149 @@
+#!/bin/python3
+import os
+import subprocess
+import sys
+import re
+
+
+
+def run_git_command(command):
+    """Execute a git command and return the output"""
+    try:
+        result = subprocess.run(command, shell=True, capture_output=True, text=True, check=False)
+        return result.stdout.strip(), result.returncode
+    except Exception as e:
+        print(f"::error::Failed to execute git command: {e}")
+        return "", 1
+
+
+
+def get_commit_info():
+    """Get information about the current commit"""
+    # Get commit message
+    commit_msg_cmd = "git log -1 --pretty=format:'%s'"
+    commit_message, ret_code = run_git_command(commit_msg_cmd)
+    if ret_code != 0:
+        print("::error::Failed to get commit message")
+        return None, None, None
+
+    # Get parent count (number of parents for this commit)
+    parent_count_cmd = "git rev-list --count --parents HEAD^..HEAD"
+    parent_output, ret_code = run_git_command(parent_count_cmd)
+    if ret_code != 0:
+        print("::error::Failed to get parent count")
+        return None, None, None
+
+    # Extract parent count from output (format: "1 parent_hash" or "2 parent1 parent2")
+    parent_count = len(parent_output.split()) - 1 if parent_output else 0
+
+    # Get current branch
+    branch_cmd = "git branch --show-current"
+    current_branch, ret_code = run_git_command(branch_cmd)
+    if ret_code != 0:
+        print("::error::Failed to get current branch")
+        return None, None, None
+
+    return commit_message, parent_count, current_branch
+
+
+
+def is_merge_commit(parent_count):
+    """Check if the commit is a merge commit (has 2 parents)"""
+    return parent_count == 2
+
+def is_merge_from_dev(commit_message):
+    """Check if the merge comes from dev branch"""
+    # Common merge message patterns from dev
+    dev_patterns = [
+        #r"merge.*dev",
+        #r"merge.*from.*dev",
+        #r"pull request.*dev",
+        #r"^merge branch.*dev"
+        r"*dev*",
+    ]
+
+    commit_lower = commit_message.lower()
+    for pattern in dev_patterns:
+        if re.search(pattern, commit_lower):
+            return True
+    return False
+
+
+
+def check_merge_source():
+    """Check the source branch of the merge"""
+    # Try to get the merge source from git log
+    merge_source_cmd = "git log --merges -1 --pretty=format:'%s'"
+    merge_message, ret_code = run_git_command(merge_source_cmd)
+
+    if ret_code == 0 and merge_message:
+        return is_merge_from_dev(merge_message)
+
+    return False
+
+
+
+def validate_main_branch_push():
+    """Main validation logic for pushes to main branch"""
+    #print("::notice title=Branch Protection::Checking push to main branch...")
+
+    commit_message, parent_count, current_branch = get_commit_info()
+    if commit_message is None:
+        return False
+
+    #print(f"::debug::Commit message: {commit_message}")
+    #print(f"::debug::Parent count: {parent_count}")
+    #print(f"::debug::Current branch: {current_branch}")
+
+    # Check if it's a merge commit
+    if is_merge_commit(parent_count):
+        print("::notice title=Merge Detection::Merge commit detected")
+
+        # Check if merge comes from dev
+        if is_merge_from_dev(commit_message) or check_merge_source():
+            print("::notice title=Valid Merge::Merge from dev branch - allowed")
+            return True
+        else:
+            print("::error title=Invalid Merge::Merge detected but not from dev branch")
+            print("::error title=Invalid Merge::Please merge only from 'dev' to 'main'")
+            return False
+
+    # Check if it's a GitHub UI merge (starts with "Merge")
+    if commit_message.startswith("Merge"):
+        print("::notice title=GitHub Merge::Merge via GitHub UI detected - allowed")
+        return True
+
+    # Direct commit to main - not allowed
+    print("::error title=Direct Commit::Direct commit to main branch is not allowed!")
+    print("::error title=Direct Commit::Please create a branch from 'dev' and submit a Pull Request")
+    print(f"::error title=Direct Commit::Commit message: {commit_message}")
+    return False
+
+
+
+def main():
+    """Main function"""
+    try:
+        # Check if we're in a git repository
+        git_check_cmd = "git rev-parse --is-inside-work-tree"
+        _, ret_code = run_git_command(git_check_cmd)
+        if ret_code != 0:
+            print("::error::Not in a git repository")
+            sys.exit(1)
+
+        # Perform validation
+        if validate_main_branch_push():
+            print("::notice title=Success::Push to main branch is valid")
+            sys.exit(0)
+        else:
+            print("::error title=Validation Failed::Push to main branch validation failed")
+            sys.exit(1)
+
+    except Exception as e:
+        print(f"::error::Unexpected error: {e}")
+        sys.exit(1)
+
+
+
+if __name__ == "__main__":
+    main()

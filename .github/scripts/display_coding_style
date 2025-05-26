@@ -1,5 +1,7 @@
 #!/bin/python3
 
+
+
 if __name__ == "__main__":
     with open("coding-style-reports.log", "r") as f:
         file_content = f.readlines()

@@ -3,6 +3,8 @@ import os
 import re
 from sys import argv
 
+
+
 def load_keywords():
     keywords_file = ".github/commit-keywords.txt"
     keywords = []
@@ -19,11 +21,15 @@ def load_keywords():
     
     return keywords
 
+
+
 def validate_commit_format(commit_message, keywords):
     keywords_pattern = '|'.join(re.escape(keyword) for keyword in keywords)
     pattern = f"^({keywords_pattern})(\\(.+\\))?: .+"
     
     return re.match(pattern, commit_message) is not None
+
+
 
 if __name__ == "__main__":
     if len(argv) != 2:
