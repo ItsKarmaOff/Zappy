@@ -12,6 +12,21 @@ env:
 ############################ JOBS #############################################
 jobs:
 
+    ######################## COMMIT ###########################################
+    check_commit:
+        runs-on: ubuntu-latest
+
+        #################### STEPS ############################################
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+
+            - name: Launch commit name checker
+              run: |
+                COMMIT_MSG=$(git log --format="%s" -1)
+                .github/workflows/check_commit "$COMMIT_MSG"
+    ###########################################################################
+
     ######################## CODING-STYLE #####################################
     check_coding_style:
         runs-on: ubuntu-latest
@@ -26,14 +41,14 @@ jobs:
             - name: Launch coding style checker
               run: check.sh $(pwd) $(pwd)
             - name: Check coding style
-              run:
+              run: |
                 cat coding-style-reports.log;
                 .github/workflows/display_coding_style
     ###########################################################################
 
 
     ######################## PROGRAM-CHECK ####################################
-    check_program:
+    check_program_compilation:
         runs-on: ubuntu-latest
         container:
             image: epitechcontent/epitest-docker
