@@ -29,11 +29,11 @@ jobs:
               env:
                 COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
                 PUSHER: ${{ github.event.pusher.name }}
-                COMMITS_COUNT: ${{ github.event.commits }}
               run: |
                 echo "::debug::Commit message: $COMMIT_MESSAGE"
                 echo "::debug::Pusher: $PUSHER"
                 echo "::debug::Event: ${{ github.event_name }}"
+                echo "::debug::Commits in push: ${{ length(github.event.commits) }}"
                 
                 # Check if it's a merge commit based on message patterns
                 if [[ "$COMMIT_MESSAGE" =~ ^Merge.* ]]; then
@@ -53,7 +53,7 @@ jobs:
                 echo "::error title=Direct Commit::Please create a branch from 'dev' and submit a Pull Request"
                 echo "::error title=Direct Commit::Commit message: $COMMIT_MESSAGE"
                 exit 1
-    ###########################################################################
+          ###########################################################################
 
     ######################## COMMIT ###########################################
     check_commit:
