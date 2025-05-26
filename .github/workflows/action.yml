@@ -24,7 +24,7 @@ jobs:
             - name: Launch commit name checker
               run: |
                 COMMIT_MSG=$(git log --format="%s" -1)
-                .github/workflows/check_commit "$COMMIT_MSG"
+                .github/scripts/check_commit "$COMMIT_MSG"
     ###########################################################################
 
     ######################## CODING-STYLE #####################################
@@ -44,7 +44,7 @@ jobs:
             - name: Check coding style
               run: |
                 cat coding-style-reports.log;
-                .github/workflows/display_coding_style
+                .github/scripts/display_coding_style
     ###########################################################################
 
 
@@ -73,7 +73,7 @@ jobs:
             - name: Launch "make clean"
               run: make clean
             #- name: Check program compilation
-            #  run: .github/workflows/check_program_compilation ${{ env.EXECUTABLE }}
+            #  run: .github/scripts/check_program_compilation ${{ env.EXECUTABLE }}
 
             - name: Launch "make tests_run"
               run: make tests_run
