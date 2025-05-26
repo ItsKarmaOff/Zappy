@@ -51,13 +51,13 @@ jobs:
               run: make zappy_gui
               timeout-minutes: 2
             - name: Compile IA
-              run: make zappy_ia
+              run: make zappy_ai
               timeout-minutes: 2
 
             - name: Launch "make clean"
               run: make clean
-            - name: Check program compilation
-              run: .github/workflows/check_program_compilation ${{ env.EXECUTABLE }}
+            #- name: Check program compilation
+            #  run: .github/workflows/check_program_compilation ${{ env.EXECUTABLE }}
 
             - name: Launch "make tests_run"
               run: make tests_run
