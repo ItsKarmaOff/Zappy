@@ -1,0 +1,65 @@
+############################ CONFIGURATION ####################################
+name: Zappy
+
+on: [push, pull_request]
+
+env:
+    EXECUTABLE: zappy_server,zappy_gui,zappy_ia
+###############################################################################
+
+
+
+############################ JOBS #############################################
+jobs:
+
+    ######################## CODING-STYLE #####################################
+    check_coding_style:
+        runs-on: ubuntu-latest
+        container:
+            image: ghcr.io/epitech/coding-style-checker:latest
+
+        #################### STEPS ############################################
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+
+            - name: Launch coding style checker
+              run: check.sh $(pwd) $(pwd)
+            - name: Check coding style
+              run:
+                cat coding-style-reports.log;
+                .github/workflows/display_coding_style
+    ###########################################################################
+
+
+    ######################## PROGRAM-CHECK ####################################
+    check_program:
+        runs-on: ubuntu-latest
+        container:
+            image: epitechcontent/epitest-docker
+        needs: check_coding_style
+
+        #################### STEPS ############################################
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+
+            - name: Compile SERVER
+              run: make zappy_server
+              timeout-minutes: 2
+            - name: Compile GUI
+              run: make zappy_gui
+              timeout-minutes: 2
+            - name: Compile IA
+              run: make zappy_ia
+              timeout-minutes: 2
+
+            - name: Launch "make clean"
+              run: make clean
+            - name: Check program compilation
+              run: .github/workflows/check_program_compilation ${{ env.EXECUTABLE }}
+
+            - name: Launch "make tests_run"
+              run: make tests_run
+              timeout-minutes: 2
+###############################################################################
