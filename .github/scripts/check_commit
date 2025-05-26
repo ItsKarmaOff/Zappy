@@ -42,6 +42,10 @@ if __name__ == "__main__":
     if not keywords:
         print("::error::No keywords found in configuration")
         exit(1)
+
+    if commit_message.startswith("Merge"):
+        print("::notice title=Commit format::Merge commit detected, skipping validation")
+        exit(0)
     
     if validate_commit_format(commit_message, keywords):
         print("::notice title=Commit format::Commit message format is valid")
