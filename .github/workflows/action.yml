@@ -61,8 +61,8 @@ jobs:
     ######################## COMMIT ###########################################
     check_commit:
         runs-on: ubuntu-latest
-        needs: protect_main_branch
-        if: always() && (needs.protect-main.result == 'success' || needs.protect-main.result == 'skipped')
+        #needs: protect_main_branch
+        #if: always() && (needs.protect-main.result == 'success' || needs.protect-main.result == 'skipped')
 
         #################### STEPS ############################################
         steps:
