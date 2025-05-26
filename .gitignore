@@ -1,0 +1,38 @@
+# The files indicated will not be pushed
+#.gitignore
+
+# Temporary files
+temp
+tmp
+*~
+'#*#'
+.#*
+
+# Coding-style-checker files
+*.log
+
+# Compiled files or output files and lib
+*.o
+*.a
+a.out
+
+# Tests files
+*.gcda
+*.gcno
+*.gcov
+unit_tests
+
+# Valgrind files
+vgcore.*
+
+# Software folders
+.vscode
+.idea
+
+# Backup files
+*.old
+
+# Project binary files
+zappy_server
+zappy_gui
+zappy_ai
