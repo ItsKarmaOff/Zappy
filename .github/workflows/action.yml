@@ -34,7 +34,7 @@ jobs:
                 echo "::debug::Pusher: $PUSHER"
                 echo "::debug::Event: ${{ github.event_name }}"
                 
-                # Count commits in this push using git
+                ## Count commits in this push using git
                 COMMITS_COUNT=$(git rev-list --count HEAD^..HEAD 2>/dev/null || echo "1")
                 echo "::debug::Commits in push: $COMMITS_COUNT"
                 
