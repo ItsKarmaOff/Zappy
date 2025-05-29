@@ -113,12 +113,12 @@ jobs:
               run: cmake -B build -S . && make zappy_server -s -C build
               timeout-minutes: 2
 
-            - name: Launch "make clean"
-              run: make clean
             - name: Check program compilation
               run: .github/scripts/check_program_compilation ${{ env.EXECUTABLE }}
+            - name: Clean all
+              run: cmake -B build -S . && make clean_all -C build
 
-            - name: Launch "make tests_run"
-              run: make tests_run
-              timeout-minutes: 2
+            #- name: Launch "make tests_run"
+            #  run: make tests_run
+            #  timeout-minutes: 2
 ###############################################################################

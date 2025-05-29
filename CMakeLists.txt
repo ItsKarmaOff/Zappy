@@ -135,7 +135,7 @@ endif()
 
 
 
-############################ CLEAN ############################################
+############################ CLEAN ALL ########################################
 add_custom_target(clean_all
         COMMAND ${CMAKE_COMMAND} -E rm -rf ${CMAKE_BINARY_DIR}/*
         COMMAND ${CMAKE_COMMAND} -E rm -f ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/zappy_gui
