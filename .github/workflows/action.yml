@@ -121,4 +121,44 @@ jobs:
             #- name: Launch "make tests_run"
             #  run: make tests_run
             #  timeout-minutes: 2
+
+
+    ######################## GENERATE DOCUMENTATION ###########################
+    generate_documentation:
+        runs-on: ubuntu-latest
+        needs: [protect_main_branch, check_program_compilation]
+
+        #################### STEPS ############################################
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+
+            - name: Install doxygen
+              run: |
+                sudo apt-get update
+                sudo apt-get install -y cmake doxygen graphviz
+            - name: Generate documentation
+              run: cmake -B build -S . && make doc -s -C build -j
+
+            - name: Configure Git
+              run: |
+                git config --local user.email "action@github.com"
+                git config --local user.name "GitHub Actions"
+            - name: Check for changes
+              id: verify-changed-files
+              run: |
+                if [ -n "$(git status --porcelain docs/)" ]; then
+                  echo "changed=true" >> $GITHUB_OUTPUT
+                else
+                  echo "changed=false" >> $GITHUB_OUTPUT
+                fi
+
+            - name: Commit and push documentation
+              if: steps.verify-changed-files.outputs.changed == 'true'
+              run: |
+                git add docs/
+                git commit -m "DOCS: update documentation"
+                git push
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ###############################################################################
