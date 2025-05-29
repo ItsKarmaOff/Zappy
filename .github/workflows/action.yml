@@ -4,7 +4,7 @@ name: Zappy
 on: [push, pull_request]
 
 env:
-    EXECUTABLE: zappy_server,zappy_gui,zappy_ia
+    EXECUTABLE: zappy_server,zappy_gui,zappy_ai
 ###############################################################################
 
 
