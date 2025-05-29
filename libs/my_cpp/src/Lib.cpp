@@ -1,13 +1,18 @@
 /*
 ** EPITECH PROJECT, 2025
-** Lib.cpp
+** Libmy
 ** File description:
-** Lib in ~/Documents/EPITECH/TEK2/NWP/BNWP400_jetpack/src/utils
+** The Lib functions implementation
 */
+/**
+ * @file Lib.cpp
+ * @brief The Lib functions implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO and Nicolas TORO
+ */
 
 #include "Lib.hpp"
-namespace Lib
-{
+
+namespace Lib {
     std::vector<std::string> stringToVector(std::string str, std::string separator)
     {
         std::vector<std::string> array;
@@ -31,5 +36,29 @@ namespace Lib
             return true;
         }
         return false;
+    }
+
+    double random_double()
+    {
+        static std::uniform_real_distribution<double> distribution(0.0, 1.0);
+        static std::mt19937 generator;
+        return distribution(generator);
+    }
+
+    double random_double(double min, double max)
+    {
+        return min + (max - min) * random_double();
+    }
+
+    int random_int(int min, int max)
+    {
+        return int(random_double(min, max+1));
+    }
+
+    std::string toLower(const std::string& str) {
+        std::string result = str;
+        std::transform(result.begin(), result.end(), result.begin(),
+            [](unsigned char c) { return std::tolower(c); });
+        return result;
     }
 }
