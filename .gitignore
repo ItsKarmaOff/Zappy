@@ -31,6 +31,8 @@ vgcore.*
 # Software folders
 .vscode
 .idea
+.cache
+build
 
 # Backup files
 *.old
