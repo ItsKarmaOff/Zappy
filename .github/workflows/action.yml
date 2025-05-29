@@ -103,20 +103,20 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4.1.1
 
-            - name: Compile SERVER
-              run: make zappy_server
+            - name: Compile AI
+              run: cmake -B build -S . && make zappy_ai -s -C build
               timeout-minutes: 2
             - name: Compile GUI
-              run: make zappy_gui
+              run: cmake -B build -S . && make zappy_gui -s -C build
               timeout-minutes: 2
-            - name: Compile IA
-              run: make zappy_ai
+            - name: Compile SERVER
+              run: cmake -B build -S . && make zappy_server -s -C build
               timeout-minutes: 2
 
             - name: Launch "make clean"
               run: make clean
-            #- name: Check program compilation
-            #  run: .github/scripts/check_program_compilation ${{ env.EXECUTABLE }}
+            - name: Check program compilation
+              run: .github/scripts/check_program_compilation ${{ env.EXECUTABLE }}
 
             - name: Launch "make tests_run"
               run: make tests_run
