@@ -1,11 +1,19 @@
 /*
 ** EPITECH PROJECT, 2025
-** Main.cpp
+** Zappy
 ** File description:
-** Main in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src
+** The main function of the ai
 */
+/**
+ * @file Main.cpp
+ * @brief The main function of the ai
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
-int main(void)
+#include "Lib.hpp"
+
+int main(UNUSED int argc, UNUSED char **argv)
 {
     return 0;
 }

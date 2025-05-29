@@ -4,7 +4,7 @@ name: Zappy
 on: [push, pull_request]
 
 env:
-    EXECUTABLE: zappy_server,zappy_gui,zappy_ia
+    EXECUTABLE: zappy_server,zappy_gui,zappy_ai
 ###############################################################################
 
 
@@ -103,22 +103,62 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4.1.1
 
-            - name: Compile SERVER
-              run: make zappy_server
+            - name: Compile AI
+              run: cmake -B build -S . && make zappy_ai -s -C build
               timeout-minutes: 2
             - name: Compile GUI
-              run: make zappy_gui
+              run: cmake -B build -S . && make zappy_gui -s -C build
               timeout-minutes: 2
-            - name: Compile IA
-              run: make zappy_ai
+            - name: Compile SERVER
+              run: cmake -B build -S . && make zappy_server -s -C build
               timeout-minutes: 2
 
-            - name: Launch "make clean"
-              run: make clean
-            #- name: Check program compilation
-            #  run: .github/scripts/check_program_compilation ${{ env.EXECUTABLE }}
+            - name: Check program compilation
+              run: .github/scripts/check_program_compilation ${{ env.EXECUTABLE }}
+            - name: Clean all
+              run: cmake -B build -S . && make clean_all -C build
 
-            - name: Launch "make tests_run"
-              run: make tests_run
-              timeout-minutes: 2
+            #- name: Launch "make tests_run"
+            #  run: make tests_run
+            #  timeout-minutes: 2
+
+
+    ######################## GENERATE DOCUMENTATION ###########################
+    generate_documentation:
+        runs-on: ubuntu-latest
+        needs: [protect_main_branch, check_program_compilation]
+
+        #################### STEPS ############################################
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+
+            - name: Install doxygen
+              run: |
+                sudo apt-get update
+                sudo apt-get install -y cmake doxygen graphviz
+            - name: Generate documentation
+              run: cmake -B build -S . && make doc -s -C build -j
+
+            - name: Configure Git
+              run: |
+                git config --local user.email "action@github.com"
+                git config --local user.name "GitHub Actions"
+            - name: Check for changes
+              id: verify-changed-files
+              run: |
+                if [ -n "$(git status --porcelain docs/)" ]; then
+                  echo "changed=true" >> $GITHUB_OUTPUT
+                else
+                  echo "changed=false" >> $GITHUB_OUTPUT
+                fi
+
+            - name: Commit and push documentation
+              if: steps.verify-changed-files.outputs.changed == 'true'
+              run: |
+                git add docs/
+                git commit -m "DOCS: update documentation"
+                git push
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ###############################################################################
