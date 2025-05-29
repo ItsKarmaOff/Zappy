@@ -22,6 +22,7 @@ add_library(my_cpp ${LIB_CPP_SOURCES})
 target_include_directories(my_cpp PUBLIC
         ${CMAKE_SOURCE_DIR}/libs/my_cpp/include
 )
+target_compile_options(my_cpp PUBLIC -Wall -Wextra -Werror -Wno-unused-parameter)
 
 # my_c
 file(GLOB_RECURSE LIB_C_SOURCES "libs/my_c/src/*.c")
@@ -45,6 +46,7 @@ add_dependencies(my_c my_c_asm_objs)
 target_include_directories(my_c PUBLIC
         ${CMAKE_SOURCE_DIR}/libs/my_c/include
 )
+target_compile_options(my_c PUBLIC -Wall -Wextra -Werror -Wno-unused-parameter)
 ###############################################################################
 
 
@@ -57,7 +59,7 @@ target_include_directories(${AI} PRIVATE
     ${CMAKE_SOURCE_DIR}/ai/include
 )
 target_link_libraries(${AI} PUBLIC my_cpp)
-target_compile_options(${AI} PRIVATE -Wall -Wextra -Werror)
+target_compile_options(${AI} PRIVATE -Wall -Wextra -Werror -Wno-unused-parameter)
 ###############################################################################
 
 
@@ -70,7 +72,7 @@ target_include_directories(${GUI} PRIVATE
     ${CMAKE_SOURCE_DIR}/gui/include
 )
 target_link_libraries(${GUI} PUBLIC my_cpp)
-target_compile_options(${GUI} PRIVATE -Wall -Wextra -Werror)
+target_compile_options(${GUI} PRIVATE -Wall -Wextra -Werror -Wno-unused-parameter)
 ###############################################################################
 
 
@@ -152,13 +154,13 @@ find_package(Doxygen QUIET)
 
 if(DOXYGEN_FOUND)
     add_custom_target(doc
-            COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_SOURCE_DIR}/Doxyfile
-            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-            COMMENT "Generating documentation with Doxygen"
+        COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_SOURCE_DIR}/Doxyfile
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+        COMMENT "Generating documentation with Doxygen"
     )
 else()
     add_custom_target(doc
-            COMMAND ${CMAKE_COMMAND} -E echo "Doxygen not found, documentation will not be generated"
+        COMMAND ${CMAKE_COMMAND} -E echo "Doxygen not found, documentation will not be generated"
     )
 endif()
 ###############################################################################
