@@ -83,7 +83,7 @@ target_include_directories(${SERVER} PRIVATE
     ${CMAKE_SOURCE_DIR}/server/include
 )
 target_link_libraries(${SERVER} PUBLIC my_c)
-target_compile_options(${SERVER} PRIVATE -Wall -Wextra -Werror)
+target_compile_options(${SERVER} PRIVATE -Wall -Wextra -Werror -Wno-unused-result)
 ###############################################################################
 
 
