@@ -144,19 +144,18 @@ jobs:
               run: |
                 git config --local user.email "action@github.com"
                 git config --local user.name "GitHub Actions"
-            - name: Check for changes
-              id: verify-changed-files
-              run: |
-                if [ -n "$(git status --porcelain docs/)" ]; then
-                  echo "changed=true" >> $GITHUB_OUTPUT
-                else
-                  echo "changed=false" >> $GITHUB_OUTPUT
-                fi
-
+            #- name: Check for changes
+            #  id: verify-changed-files
+            #  run: |
+            #    if [ -n "$(git status --porcelain docs/)" ]; then
+            #      echo "changed=true" >> $GITHUB_OUTPUT
+            #    else
+            #      echo "changed=false" >> $GITHUB_OUTPUT
+            #    fi
             - name: Commit and push documentation
-              if: steps.verify-changed-files.outputs.changed == 'true'
+              #if: steps.verify-changed-files.outputs.changed == 'true'
               run: |
-                git add docs/
+                git add -f docs/
                 git commit -m "DOCS: update documentation"
                 git push
               env:
