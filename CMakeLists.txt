@@ -22,7 +22,7 @@ add_library(my_cpp ${LIB_CPP_SOURCES})
 target_include_directories(my_cpp PUBLIC
         ${CMAKE_SOURCE_DIR}/libs/my_cpp/include
 )
-target_compile_options(my_cpp PUBLIC -Wall -Wextra -Werror -Wno-unused-parameter)
+target_compile_options(my_cpp PUBLIC -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
 
 # my_c
 file(GLOB_RECURSE LIB_C_SOURCES "libs/my_c/src/*.c")
@@ -46,7 +46,7 @@ add_dependencies(my_c my_c_asm_objs)
 target_include_directories(my_c PUBLIC
         ${CMAKE_SOURCE_DIR}/libs/my_c/include
 )
-target_compile_options(my_c PUBLIC -Wall -Wextra -Werror -Wno-unused-parameter)
+target_compile_options(my_c PUBLIC -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
 ###############################################################################
 
 
@@ -59,7 +59,7 @@ target_include_directories(${AI} PRIVATE
     ${CMAKE_SOURCE_DIR}/ai/include
 )
 target_link_libraries(${AI} PUBLIC my_cpp)
-target_compile_options(${AI} PRIVATE -Wall -Wextra -Werror -Wno-unused-parameter)
+target_compile_options(${AI} PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
 ###############################################################################
 
 
@@ -72,7 +72,7 @@ target_include_directories(${GUI} PRIVATE
     ${CMAKE_SOURCE_DIR}/gui/include
 )
 target_link_libraries(${GUI} PUBLIC my_cpp)
-target_compile_options(${GUI} PRIVATE -Wall -Wextra -Werror -Wno-unused-parameter)
+target_compile_options(${GUI} PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
 ###############################################################################
 
 
@@ -85,7 +85,7 @@ target_include_directories(${SERVER} PRIVATE
     ${CMAKE_SOURCE_DIR}/server/include
 )
 target_link_libraries(${SERVER} PUBLIC my_c)
-target_compile_options(${SERVER} PRIVATE -Wall -Wextra -Werror -Wno-unused-result)
+target_compile_options(${SERVER} PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
 ###############################################################################
 
 
