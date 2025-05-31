@@ -4,6 +4,12 @@
 ** File description:
 ** Core implementation
 */
+/**
+ * @file Core.cpp
+ * @brief Core implementation for the GUI
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "Core.hpp"
 #include "Logs.hpp"
