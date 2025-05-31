@@ -11,9 +11,16 @@
  * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
 */
 
-#include "Lib.hpp"
+#include "Core.hpp"
+#include "Logs.hpp"
 
-int main(UNUSED int argc, UNUSED char **argv)
+int main(int argc, char **argv)
 {
-    return 0;
+    try {
+        gui::Core core(argc, argv);
+        return 0;
+    } catch (const std::exception &e) {
+        ERROR << "EXCEPTION: " << e.what();
+        return 84;
+    }
 }
