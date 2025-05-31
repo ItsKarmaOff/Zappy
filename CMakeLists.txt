@@ -70,6 +70,7 @@ file(GLOB_RECURSE GUI_SOURCES "gui/src/*.cpp")
 add_executable(${GUI} ${GUI_SOURCES})
 target_include_directories(${GUI} PRIVATE
     ${CMAKE_SOURCE_DIR}/gui/include
+    ${CMAKE_SOURCE_DIR}/gui/include/core
 )
 target_link_libraries(${GUI} PUBLIC my_cpp)
 target_compile_options(${GUI} PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
