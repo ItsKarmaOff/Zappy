@@ -1033,6 +1033,13 @@ char *my_create_str_va(const char *format, va_list args);
 char *my_create_str(const char *format, ...);
 
 /**
+ * @brief Gets the local time
+ * @return <b>char *</b> The local time as a string
+ * @author Nicolas TORO
+ */
+char *my_get_local_time(void);
+
+/**
  * @brief Reverses the characters in a string (str)
  * and returns the string (str)
  * @param str The string to reverse
@@ -1269,15 +1276,6 @@ intmax_t my_wcstombs(char *dest, const wchar_t *src, intmax_t n);
     // Write functions :
 
 /**
- * @brief Display a debug message
- * @param file The file name
- * @param line The line number
- * @param func The function name
- * @author Nicolas TORO
- */
-void my_debug(const char *file, const int line, const char *func);
-
-/**
  * @brief Print a formatted string to a file descriptor
  * @param fd The file descriptor
  * @param format The format string
@@ -1286,6 +1284,23 @@ void my_debug(const char *file, const int line, const char *func);
  * @author Nicolas TORO
  */
 intmax_t my_dprintf(int fd, char const *format, ...);
+
+/**
+ * @brief Display a logs message
+ * @param type The type of logs message
+ * @param message The message to display
+ */
+void my_logs_message(const logs_type_t type, const char *message);
+
+/**
+ * @brief Display a  point in the code
+ * @note This function use the temporary malloc state
+ * @param file The file name
+ * @param line The line number
+ * @param func The function name
+ * @author Nicolas TORO
+ */
+void my_point(const char *file, const int line, const char *func);
 
 /**
  * @brief Print a formatted string

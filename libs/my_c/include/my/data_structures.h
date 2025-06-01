@@ -113,6 +113,20 @@ typedef struct garbage_data_s {
     void (*free_func)(void *); /* Function to free the data */
 } garbage_data_t;
 
+/* The logs type enumeration */
+typedef enum logs_type_e {
+    LOGS_NONE = 0, /* No type */
+    LOGS_DEBUG = 1, /* Debug */
+    LOGS_WARNING = 2, /* Warning */
+    LOGS_ERROR = 3 /* Error */
+} logs_type_t;
+
+/* The logs type strings */
+extern const char *logs_type_strings[];
+
+/* The logs type colors */
+extern const char *logs_type_color[];
+
 typedef union my_double_s {
     double value;
     struct {

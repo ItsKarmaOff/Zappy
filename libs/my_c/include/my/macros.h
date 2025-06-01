@@ -25,7 +25,7 @@
     #define    THROW(msg) my_exit(FAILURE, "EXCEPTION: " msg)
     #define    UNUSED __attribute__((unused))
     #define    STR2ARRAY(str, sep, type) my_str_to_word_array(str, sep, type)
-    #define    DEBUG my_debug(__FILE__, __LINE__, __func__)
+    #define    POINT my_point(__FILE__, __LINE__, __func__)
     #define    FORMAT_CHAR str_struct->format_str[str_struct->current_index]
 
     // Memory macros :
