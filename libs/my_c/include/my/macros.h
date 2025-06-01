@@ -25,11 +25,14 @@
     #define    THROW(msg) my_exit(FAILURE, "EXCEPTION: " msg)
     #define    UNUSED __attribute__((unused))
     #define    STR2ARRAY(str, sep, type) my_str_to_word_array(str, sep, type)
-    #define    POINT my_point(__FILE__, __LINE__, __func__)
+    #define    POINT_STRUCT ((point_t){__FILE__, __LINE__, __func__})
+    #define    POINT my_point(POINT_STRUCT)
+    #define    LOG(type, message) my_logs_message(POINT_STRUCT, type, message)
     #define    FORMAT_CHAR str_struct->format_str[str_struct->current_index]
 
     // Memory macros :
 
+    #define    IS_NULL(ptr) ((ptr) == NULL)
     #define    FREE(ptr) ptr = my_free_ptr(ptr)
     #define    FREE_WORD_ARRAY(ptr) my_free_array((void **)ptr)
     #define    MA(type, func, ...) (my_update_malloc(type), func(__VA_ARGS__))

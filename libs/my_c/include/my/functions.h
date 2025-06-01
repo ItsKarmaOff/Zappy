@@ -1287,20 +1287,19 @@ intmax_t my_dprintf(int fd, char const *format, ...);
 
 /**
  * @brief Display a logs message
+ * @param point The point in the code where the logs are displayed
  * @param type The type of logs message
  * @param message The message to display
  */
-void my_logs_message(const logs_type_t type, const char *message);
+void my_logs_message(point_t point, logs_type_t type, const char *message);
 
 /**
  * @brief Display a  point in the code
  * @note This function use the temporary malloc state
- * @param file The file name
- * @param line The line number
- * @param func The function name
+ * @param point The point in the code where the logs are displayed
  * @author Nicolas TORO
  */
-void my_point(const char *file, const int line, const char *func);
+void my_point(point_t point);
 
 /**
  * @brief Print a formatted string

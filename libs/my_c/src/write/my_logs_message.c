@@ -30,12 +30,13 @@ const char *logs_type_colors[] = {
 
 /**
  * @brief Display a logs message
+ * @param point The point in the code where the logs are displayed
  * @param type The type of logs message
  * @param message The message to display
  */
-void my_logs_message(const logs_type_t type, const char *message)
+void my_logs_message(point_t point, logs_type_t type, const char *message)
 {
-    POINT;
+    my_point(point);
     if (type == LOGS_NONE)
         my_putstr(message);
     else {

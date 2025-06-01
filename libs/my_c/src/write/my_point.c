@@ -15,12 +15,10 @@
 /**
  * @brief Display a  point in the code
  * @note This function use the temporary malloc state
- * @param file The file name
- * @param line The line number
- * @param func The function name
+ * @param point The point in the code where the logs are displayed
  * @author Nicolas TORO
  */
-void my_point(const char *file, const int line, const char *func)
+void my_point(point_t point)
 {
     char *time_str = NULL;
 
@@ -29,11 +27,11 @@ void my_point(const char *file, const int line, const char *func)
     my_putstr(RESET WHITE BOLD ITALIC "[");
     my_putstr(time_str);
     my_putstr("] [FILE: ");
-    my_putstr(file);
+    my_putstr(point.file);
     my_putstr(":");
-    my_putnbr(line);
+    my_putnbr(point.line);
     my_putstr(", FUNCTION: ");
-    my_putstr(func);
+    my_putstr(point.func);
     my_putstr("]" RESET);
     my_putchar('\n');
     FREE(time_str);

@@ -113,6 +113,13 @@ typedef struct garbage_data_s {
     void (*free_func)(void *); /* Function to free the data */
 } garbage_data_t;
 
+/* The point structure */
+typedef struct point_s {
+    const char *file; /* The file name */
+    const int line; /* The line number */
+    const char *func; /* The function name */
+} point_t;
+
 /* The logs type enumeration */
 typedef enum logs_type_e {
     LOGS_NONE = 0, /* No type */

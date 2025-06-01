@@ -21,5 +21,5 @@ server_t *create_server(int argc, char **argv)
 
 void run(server_t *server)
 {
-    my_logs_message(LOGS_DEBUG, "Server is running\n");
+    LOG(LOGS_DEBUG, "Server is running\n");
 }
