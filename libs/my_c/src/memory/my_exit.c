@@ -22,7 +22,7 @@
 void my_exit(int status, char *message)
 {
     if (message && status != SUCCESS)
-        my_putstr_error(message);
+        ERROR(message);
     else if (message)
         my_putstr(message);
     my_free();
