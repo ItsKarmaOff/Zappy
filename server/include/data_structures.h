@@ -45,6 +45,8 @@ typedef struct client_s {
 } client_t;
 
 typedef struct server_s {
+    uint32_t options_found; /* The options found in the program arguments */
+
     int port; /* The port of the server */
     int socket_fd; /* The socket file descriptor */
     struct sockaddr_in address; /* The address of the server */

@@ -13,7 +13,8 @@
 #ifndef SERVER_H_
     #define SERVER_H_
 
-    #include "data_structures.h"
+    #include "parsing.h"
+    #include "network.h"
 
 /**
  * @brief Creates a server instance
