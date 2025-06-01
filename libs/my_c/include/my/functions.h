@@ -402,7 +402,7 @@ node_t *my_find_node(node_t const *begin, void const *data_ref, int (*cmp) ());
  * @brief Gets the node at the specified index in a linked list
  * @param begin The beginning of the list
  * @param index The index of the node to get
- * @return <b>node_t *</b> The node at the specified index, or NULL if not found
+ * @return <b>node_t *</b> The node at the specified index or NULL if not found
  * @author Nicolas TORO
  */
 node_t *my_get_node_at_index(node_t *begin, int index);
