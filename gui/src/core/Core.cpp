@@ -17,6 +17,8 @@
 
 namespace gui
 {
+    //////////////////////// Constructors and Destructor ///////////////////////
+
     Core::Core(int argc, char **argv)
         : _port(-1), _hostname("")
     {
@@ -28,6 +30,65 @@ namespace gui
             ERROR << "EXCEPTION: " << e.what();
         }
     }
+
+
+
+    //////////////////////// Main Methods //////////////////////////////////////
+
+    void Core::run()
+    {
+        DEBUG << "Running Core";
+    }
+
+
+
+    //////////////////////// Getters ///////////////////////////////////////////
+
+    int Core::getPort() const
+    {
+        return _port;
+    }
+
+    const std::string &Core::getHostname() const
+    {
+        return _hostname;
+    }
+
+
+
+    //////////////////////// Setters ///////////////////////////////////////////
+
+    void Core::setPort(int port)
+    {
+        if (port <= 0 || port > 65535)
+            throw std::out_of_range("Port number must be between 1 and 65535");
+
+        _port = port;
+    }
+
+    void Core::setHostname(const std::string &hostname)
+    {
+        if (hostname.empty())
+            throw std::invalid_argument("Hostname cannot be empty");
+
+        _hostname = hostname;
+    }
+
+
+
+    //////////////////////// Utility Methods ///////////////////////////////////
+
+    void Core::printUsage() const
+    {
+        std::cout << "USAGE: ./zappy_gui -p port -h machine" << std::endl;
+        std::cout << "\noption\t\tdescription" << std::endl;
+        std::cout << "-p port\t\tport number" << std::endl;
+        std::cout << "-h machine\thostname of the server" << std::endl;
+    }
+
+
+
+    //////////////////////// Private Methods ///////////////////////////////////
 
     void Core::parseArguments(int argc, char **argv)
     {
@@ -86,39 +147,5 @@ namespace gui
             throw std::invalid_argument("Hostname is required");
         }
         DEBUG << "Parsed arguments: port= " << getPort() << ", hostname= " << getHostname();
-    }
-
-    void Core::printUsage() const
-    {
-        std::cout << "USAGE: ./zappy_gui -p port -h machine" << std::endl;
-        std::cout << "\noption\t\tdescription" << std::endl;
-        std::cout << "-p port\t\tport number" << std::endl;
-        std::cout << "-h machine\thostname of the server" << std::endl;
-    }
-
-    int Core::getPort() const
-    {
-        return _port;
-    }
-
-    const std::string &Core::getHostname() const
-    {
-        return _hostname;
-    }
-
-    void Core::setPort(int port)
-    {
-        if (port <= 0 || port > 65535)
-            throw std::out_of_range("Port number must be between 1 and 65535");
-
-        _port = port;
-    }
-
-    void Core::setHostname(const std::string &hostname)
-    {
-        if (hostname.empty())
-            throw std::invalid_argument("Hostname cannot be empty");
-
-        _hostname = hostname;
     }
 }

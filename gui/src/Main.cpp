@@ -18,6 +18,7 @@ int main(int argc, char **argv)
 {
     try {
         gui::Core core(argc, argv);
+        core.run();
         return 0;
     } catch (const std::exception &e) {
         ERROR << "EXCEPTION: " << e.what();
