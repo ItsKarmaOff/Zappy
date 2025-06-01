@@ -107,6 +107,12 @@ typedef struct hashtable_s {
     hashtable_entry_t **table; /* The table */
 } hashtable_t;
 
+/* The garbage data structure */
+typedef struct garbage_data_s {
+    void *ptr; /* Pointer to the data */
+    void (*free_func)(void *); /* Function to free the data */
+} garbage_data_t;
+
 typedef union my_double_s {
     double value;
     struct {

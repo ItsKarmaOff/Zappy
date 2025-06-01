@@ -50,14 +50,14 @@ void *my_malloc(uint64_t size)
         state = tmp_malloc_state(NONE);
         tmp_malloc_state(DEFAULT);
     }
-    if (state == 1) {
+    if (state == TRUE) {
         ptr = my_secure_malloc(size);
-        AL(0, my_push_front, &list, ptr, VOID);
+        AL(FALSE, my_push_front, &list, ptr, VOID);
         return ptr;
     }
-    if (state == 0)
+    if (state == FALSE)
         return my_secure_malloc(size);
-    if (state == -1)
+    if (state == DEFAULT)
         my_delete_list(&list);
     return NULL;
 }

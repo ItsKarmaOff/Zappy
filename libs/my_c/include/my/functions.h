@@ -399,6 +399,15 @@ int my_delete_nodes(node_t **begin, void const *data_ref, int (*cmp)());
 node_t *my_find_node(node_t const *begin, void const *data_ref, int (*cmp) ());
 
 /**
+ * @brief Gets the node at the specified index in a linked list
+ * @param begin The beginning of the list
+ * @param index The index of the node to get
+ * @return <b>node_t *</b> The node at the specified index, or NULL if not found
+ * @author Nicolas TORO
+ */
+node_t *my_get_node_at_index(node_t *begin, int index);
+
+/**
  * @brief Returns the size of the linked list
  * @param begin The beginning of the list
  * @return <b>int</b> The size of the list
@@ -533,6 +542,18 @@ void my_sort_list(node_t **begin, int (*cmp)());
 
 
     // Memory functions :
+
+/**
+ * @brief Adds a pointer to the garbage collector
+ * @note The pointer is added to the garbage collector
+ * @param add The status of the garbage
+ * <u>true</u> to add the pointer and <u>false</u> to remove it
+ * @param ptr The pointer to add
+ * @param free_func The function to free the pointer
+ * @return <b>void</b>
+ * @author Nicolas TORO
+ */
+void my_add_to_garbage(bool add, void *ptr, void (*free_func)(void *));
 
 /**
 * @brief Allocates memory and initializes all the bytes to 0

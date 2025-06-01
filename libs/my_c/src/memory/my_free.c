@@ -19,6 +19,7 @@
  */
 void my_free(void)
 {
+    my_add_to_garbage(false, NULL, NULL);
     malloc_state(DEFAULT);
     my_malloc(0);
 }

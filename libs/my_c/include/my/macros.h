@@ -34,5 +34,6 @@
     #define    FREE_WORD_ARRAY(ptr) my_free_array((void **)ptr)
     #define    MA(type, func, ...) (my_update_malloc(type), func(__VA_ARGS__))
     #define    AL(type, func, ...) (my_update_alloc(type), func(__VA_ARGS__))
+    #define    CAST_FREE_FUNC (void (*)(void *))
 
 #endif /* MACROS_H_ */
