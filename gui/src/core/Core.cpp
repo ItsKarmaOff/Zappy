@@ -237,49 +237,4 @@ namespace Gui
     {
         // Sera surement dans Graphics.cpp
     }
-
-    void Core::_initClient()
-    {
-        DEBUG << "Initializing Core";
-
-        DEBUG << "Init client: IP: " << _hostname << " PORT: " << _port;
-        _clientSocket = std::make_unique<Lib::Socket>(AF_INET, SOCK_STREAM, 0);
-
-        _client.sin_family = AF_INET;
-		_client.sin_addr.s_addr = inet_addr(_hostname.c_str());
-		_client.sin_port = htons(_port);
-
-        if (connect(_clientSocket->getSocket(), (const struct sockaddr *)&_client, sizeof(_client)) == -1)
-			throw Lib::Exceptions::Critical("Connect failed: " + std::string(strerror(errno)));
-
-        std::cout << DARK_GREY "Connecting to server..." RESET << std::endl;
-
-        if (getResponse() != "WELCOME")
-            throw Lib::Exceptions::Critical("Connection failed.");
-
-        std::cout << BOLD "Connected to server (" << _hostname << ":" << _port << ")." RESET << std::endl;
-    }
-
-    void Core::_communicationThread()
-    {
-        std::string response;
-
-        while(isRunning) {
-            std::unique_lock<std::mutex> lockCommandQueue(_commandsQueueMutex);
-            if (!_commandsQueue.empty()) {
-                std::vector<std::string> command = _commandsQueue.front();
-                _commandsQueue.pop();
-                sendCommand(_clientSocket->getSocket(), command);
-                std::unique_lock<std::mutex> lockResponseQueue(_responseQueueMutex);
-                _responseQueue.push(getResponse());
-                lockResponseQueue.unlock();
-            }
-            lockCommandQueue.unlock();
-        }
-    }
-
-    void Core::_gameThread()
-    {
-        // Sera surement dans Graphics.cpp
-    }
 }
