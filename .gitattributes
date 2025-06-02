@@ -2,3 +2,4 @@
 docs/html/* linguist-detectable=false
 docs/html/search/* linguist-detectable=false
 docs/tests/* linguist-detectable=false
+libs/raylib/* linguist-detectable=false
