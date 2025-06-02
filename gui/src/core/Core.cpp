@@ -13,7 +13,7 @@
 
 #include "Core.hpp"
 #include "Logs.hpp"
-#include <cstring>
+#include <mutex>
 
 namespace Gui
 {
@@ -22,10 +22,10 @@ namespace Gui
     Core::Core(int argc, char **argv)
         : _port(-1), _hostname("")
     {
-        DEBUG << "Initializing Core";
+        DEBUG << "Construct Core";
 
-        parseArguments(argc, argv);
-
+        _parseArguments(argc, argv);
+        _initClient();
     }
 
 
@@ -35,6 +35,50 @@ namespace Gui
     void Core::run()
     {
         DEBUG << "Running Core";
+
+        isRunning = true;
+
+        std::thread communicationThread(&Core::_communicationThread, this);
+        _gameThread();
+        communicationThread.join();
+    }
+
+    void Core::sendCommand(int fd, const std::vector<std::string> &command)
+    {
+        std::string commandStr;
+
+        for (std::size_t index = 0; index < command.size(); index++) {
+            if (index != 0)
+                commandStr += " ";
+            commandStr += command[index];
+        }
+        DEBUG << "Send command: " << commandStr;
+        commandStr += "\n";
+        if (dprintf(fd, "%s", commandStr.c_str()) < 0) {
+            ERROR << "Server closed the connection.";
+            isRunning = false;
+        }
+    }
+
+    std::string Core::getResponse()
+    {
+        char tmp = 0;
+        std::string response;
+        int readSize = 0;
+
+        readSize = read(_clientSocket->getSocket(), &tmp, 1);
+        while (readSize > 0) {
+            response += tmp;
+            if (tmp == '\n')
+                break;
+            readSize = read(_clientSocket->getSocket(), &tmp, 1);
+        }
+        if (readSize == -1) {
+            ERROR << "Server closed the connection.";
+            isRunning = false;
+        }
+        DEBUG << response;
+        return response;
     }
 
 
@@ -87,14 +131,14 @@ namespace Gui
 
     //////////////////////// Private Methods ///////////////////////////////////
 
-    void Core::parseArguments(int argc, char **argv)
+    void Core::_parseArguments(int argc, char **argv)
     {
         DEBUG << "Parsing arguments";
 
-        if (argc == 2 && (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0)) {
+        if (argc == 2 && (std::string(argv[1]) == "-h" || std::string(argv[1]) == "--help")) {
             printUsage();
             return;
-        } else if (strcmp(argv[1], "-a") == 0 || strcmp(argv[1], "--author") == 0) {
+        } else if (std::string(argv[1]) == "-a" || std::string(argv[1]) == "--author") {
             std::cout << "Authors:" << std::endl;
             std::cout << "\tChristophe VANDEVOIR" << std::endl;
             std::cout << "\tGianni TUERO" << std::endl;
@@ -103,7 +147,7 @@ namespace Gui
             std::cout << "\tOlivier POUECH" << std::endl;
             std::cout << "\tRaphael LAUNAY" << std::endl;
             return;
-        } else if (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0) {
+        } else if (std::string(argv[1]) == "-v" || std::string(argv[1]) == "--version") {
             std::cout << "Zappy GUI version 1.0" << std::endl;
             return;
         }
@@ -117,14 +161,14 @@ namespace Gui
         }
 
         for (int index = 1; index < argc; index++) {
-            if (strcmp(argv[index], "-p") == 0) {
+            if (std::string(argv[index]) == "-p") {
                 if (index + 1 < argc) {
                     setPort(std::stoi(argv[index + 1]));
                     index++;
                 } else {
                     throw std::invalid_argument("Missing port number after -p");
                 }
-            } else if (strcmp(argv[index], "-h") == 0) {
+            } else if (std::string(argv[index]) == "-h") {
                 if (index + 1 < argc) {
                     setHostname(argv[index + 1]);
                     index++;
@@ -144,5 +188,50 @@ namespace Gui
             throw std::invalid_argument("Hostname is required");
         }
         DEBUG << "Parsed arguments: port= " << getPort() << ", hostname= " << getHostname();
+    }
+
+    void Core::_initClient()
+    {
+        DEBUG << "Initializing Core";
+
+        DEBUG << "Init client: IP: " << _hostname << " PORT: " << _port;
+        _clientSocket = std::make_unique<Lib::Socket>(AF_INET, SOCK_STREAM, 0);
+
+        _client.sin_family = AF_INET;
+		_client.sin_addr.s_addr = inet_addr(_hostname.c_str());
+		_client.sin_port = htons(_port);
+
+        if (connect(_clientSocket->getSocket(), (const struct sockaddr *)&_client, sizeof(_client)) == -1)
+			throw Lib::Exceptions::Critical("Connect failed: " + std::string(strerror(errno)));
+
+        std::cout << DARK_GREY "Connecting to server..." RESET << std::endl;
+
+        if (getResponse() != "WELCOME")
+            throw Lib::Exceptions::Critical("Connection failed.");
+
+        std::cout << BOLD "Connected to server (" << _hostname << ":" << _port << ")." RESET << std::endl;
+    }
+
+    void Core::_communicationThread()
+    {
+        std::string response;
+
+        while(isRunning) {
+            std::unique_lock<std::mutex> lockCommandQueue(_commandsQueueMutex);
+            if (!_commandsQueue.empty()) {
+                std::vector<std::string> command = _commandsQueue.front();
+                _commandsQueue.pop();
+                sendCommand(_clientSocket->getSocket(), command);
+                std::unique_lock<std::mutex> lockResponseQueue(_responseQueueMutex);
+                _responseQueue.push(getResponse());
+                lockResponseQueue.unlock();
+            }
+            lockCommandQueue.unlock();
+        }
+    }
+
+    void Core::_gameThread()
+    {
+        // Sera surement dans Graphics.cpp
     }
 }

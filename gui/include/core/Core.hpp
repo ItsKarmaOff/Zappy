@@ -8,8 +8,12 @@
 #ifndef CORE_HPP
     #define CORE_HPP
 
+    #include <memory>
+    #include <mutex>
+    #include <queue>
     #include <string>
     #include "Graphics.hpp"
+    #include "Socket.hpp"
 
 namespace Gui
 {
@@ -42,6 +46,18 @@ namespace Gui
             * @brief Run the main loop of the GUI application.
             */
             void run();
+
+            /**
+			 * @brief Sends a command to the server
+			 * @param fd The file descriptor of the socket
+			 * @param command The command to send
+			 */
+            void sendCommand(int fd, const std::vector<std::string> &command);
+            /**
+             * @brief Receives a response from the server
+             * @return The response from the server
+             */
+            std::string getResponse();
 
 
 
@@ -93,7 +109,22 @@ namespace Gui
             * @param argc The number of arguments
             * @param argv The arguments
             */
-            void parseArguments(int argc, char **argv);
+            void _parseArguments(int argc, char **argv);
+
+            /**
+             * @brief Initialize the client socket and connect to the server.
+             */
+            void _initClient();
+
+            /**
+			 * @brief Thread for handling communication with the server
+			 */
+            void _communicationThread();
+
+            /**
+			 * @brief Thread for handling the game loop
+			 */
+            void _gameThread();
 
 
 
@@ -101,6 +132,13 @@ namespace Gui
 
             int _port;  // The port number for the server connection
             std::string _hostname;  // The hostname for the server connection
+            std::unique_ptr<Lib::Socket> _clientSocket; // Pointer to the socket for communication with the server
+            struct sockaddr_in _client; // Structure to hold the client address information
+            bool isRunning;  // Flag to indicate if the application is running
+            std::mutex _commandsQueueMutex; // Mutex for synchronizing access to the commands queue
+            std::queue<std::vector<std::string>> _commandsQueue;    // Queue for storing commands to be processed
+            std::mutex _responseQueueMutex; // Mutex for synchronizing access to the response queue
+            std::queue<std::string> _responseQueue; // Queue for storing responses from the server
             Graphics _graphics;
     };
 }
