@@ -45,7 +45,7 @@ static void show_format(format_t *str_struct)
     my_putstr("\nFLAG: ");
     my_putchar(FORMAT_FLAGS[str_struct->current_flag.flag_id - 1]);
     my_putstr("\nATTRIBUTES: ");
-    for (int i = 0; i < 5; i++) {
+    for (size_t i = 0; i < 5; i++) {
         if (str_struct->current_flag.attributes[i] == true)
             my_putchar(FORMAT_ATTRIBUTES[i]);
     }
@@ -63,7 +63,7 @@ static void show_format(format_t *str_struct)
 static void find_format_specifier(format_t *str_struct)
 {
     str_struct->current_flag.specifier_id = 0;
-    for (int index = 0; format_specifiers[index] != NULL; index++) {
+    for (size_t index = 0; format_specifiers[index] != NULL; index++) {
         if (my_strncmp(&FORMAT_CHAR, format_specifiers[index],
         my_strlen(format_specifiers[index])) == 0) {
             str_struct->current_flag.specifier_id = index + 1;
@@ -99,7 +99,7 @@ static void find_format_informations(format_t *str_struct)
 
 static void invalid_flag(format_t *str_struct)
 {
-    for (int index = 0; index < 5; index++) {
+    for (size_t index = 0; index < 5; index++) {
         if (str_struct->current_flag.attributes[index] == true) {
             my_push_back(&str_struct->str_list,
                 my_strndup(&FORMAT_ATTRIBUTES[index], 1), STRING);
@@ -140,7 +140,7 @@ static void find_flag(format_t *str_struct)
 static void fill_str_struct(format_t *str_struct)
 {
     if (str_struct->format_str == NULL) {
-        str_struct->status = -1;
+        str_struct->invalid_status = true;
         return;
     }
     for (; FORMAT_CHAR != '\0'; str_struct->current_index++) {
@@ -153,7 +153,7 @@ static void fill_str_struct(format_t *str_struct)
                 my_strndup(&FORMAT_CHAR, 1), STRING);
             str_struct->total_len++;
         }
-        if (str_struct->status != 0)
+        if (str_struct->invalid_status == true)
             return;
         str_struct->current_flag = (flag_t){0};
     }
@@ -179,7 +179,7 @@ char *my_create_str_va(const char *format, va_list args)
     fill_str_struct(&str_struct);
     tmp_malloc_state(tmp_malloc_backup);
     malloc_state(malloc_backup);
-    if (str_struct.status != 0) {
+    if (str_struct.invalid_status == true) {
         my_delete_list(&str_struct.str_list);
         return NULL;
     }

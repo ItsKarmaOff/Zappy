@@ -17,17 +17,17 @@
  * @param str The string to check
  * @param c The letter to find
  * @param occurrence The occurrence of the letter to find
- * @return <b>int</b> <u>-1</u> if the letter is not found, otherwise
+ * @return <b>ssize_t</b> <u>-1</u> if the letter is not found, otherwise
  * the index of the letter in the string
  */
-int my_get_char_index(char *str, char c, int occurrence)
+ssize_t my_get_char_index(const char *str, char c, size_t occurrence)
 {
-    int index = -1;
-    int count = 0;
+    ssize_t index = -1;
+    size_t count = 0;
 
     if (str == NULL)
         return index;
-    for (int i = 0; str[i] != '\0'; i++) {
+    for (size_t i = 0; str[i] != '\0'; i++) {
         if (str[i] == c) {
             index = i;
             count++;

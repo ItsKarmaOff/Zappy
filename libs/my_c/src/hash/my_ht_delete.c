@@ -25,7 +25,7 @@ static void remove_hashtable_entry(hashtable_entry_t **begin,
     FREE(tmp);
 }
 
-int search_delete_in_hashtable_entry(hashtable_entry_t **entry, int key)
+int search_delete_in_hashtable_entry(hashtable_entry_t **entry, ssize_t key)
 {
     hashtable_entry_t *tmp = *entry;
     hashtable_entry_t *next = NULL;
@@ -48,20 +48,20 @@ int search_delete_in_hashtable_entry(hashtable_entry_t **entry, int key)
  * @brief Deletes a key in a hashtable
  * @param ht The hashtable
  * @param key The key to delete
- * @return <b>int</b> 0 if success, 84 if failure
+ * @return <b>bool</b> <u>false</u> if failure, <u>true</u> if success
  * @author Nicolas TORO
  */
-int my_ht_delete(hashtable_t *ht, char *key)
+bool my_ht_delete(hashtable_t *ht, char *key)
 {
-    int result = 84;
-    int key_code;
-    int index;
+    bool result = false;
+    ssize_t key_code;
+    size_t index;
 
     if (ht == NULL || key == NULL)
         return result;
     key_code = ht->hash(key, ht->len);
     index = key_code % ht->len;
     if (search_delete_in_hashtable_entry(&ht->table[index], key_code))
-        result = 0;
+        result = true;
     return result;
 }

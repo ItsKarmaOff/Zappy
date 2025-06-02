@@ -27,7 +27,7 @@ static void add_number(char *float_nb)
 }
 
 /**
- * @brief Returns the result of the conversion of a uint64_t number (nbr)
+ * @brief Returns the result of the conversion of a size_t number (nbr)
  * in a specific base (base_from) to another base (base_to)
  * @param nbr The number to convert
  * @param base_from The base of the number

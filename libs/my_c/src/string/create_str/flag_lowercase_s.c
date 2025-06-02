@@ -16,7 +16,7 @@ static char *get_text(format_t *str_struct)
 {
     char *result = NULL;
     wchar_t *tmp = NULL;
-    intmax_t len = 0;
+    size_t len = 0;
 
     if (str_struct->current_flag.specifier_id <= 2) {
         result = va_arg(str_struct->format_list, char *);
@@ -29,7 +29,7 @@ static char *get_text(format_t *str_struct)
             str_struct->current_flag.precision_value : my_wcslen(tmp);
         result = my_calloc(len + 1, sizeof(char));
         if (my_wcstombs(result, tmp, len) == -1) {
-            str_struct->status = -1;
+            str_struct->invalid_status = true;
             return FREE(result);
         }
     }
@@ -58,7 +58,7 @@ void flag_lowercase_s(format_t *str_struct)
         str_struct->total_len += str_struct->current_flag.width;
         str_list[1] = my_calloc(str_struct->current_flag.width
             + 1, sizeof(char));
-        for (int i = 0; i < str_struct->current_flag.width; i++)
+        for (ssize_t i = 0; i < str_struct->current_flag.width; i++)
             str_list[1][i] = ' ';
     }
     add_text(str_struct, str_list);

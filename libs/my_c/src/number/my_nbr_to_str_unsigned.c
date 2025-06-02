@@ -12,13 +12,13 @@
 
 #include "../../include/my.h"
 
-static char *nbr_to_str(uint64_t nb, int len_nb,
-    char const *base, int base_len)
+static char *nbr_to_str(size_t nb, size_t len_nb,
+    char const *base, size_t base_len)
 {
     char *nb_str = my_calloc(len_nb + 1, sizeof(char));
-    uint64_t figure_temp = nb;
+    size_t figure_temp = nb;
 
-    for (int i = 0; i < len_nb; i++) {
+    for (size_t i = 0; i < len_nb; i++) {
         nb_str[len_nb - i - 1] = base[figure_temp % base_len];
         figure_temp = figure_temp / base_len;
     }
@@ -40,7 +40,7 @@ char *my_nbr_to_str_unsigned(uint64_t nbr, char const *base,
     uint64_t converted_nbr = 0;
     int len_nb = 1;
     uint64_t tmp_nb;
-    int base_len = my_strlen(base);
+    size_t base_len = my_strlen(base);
 
     if (base_len < 2)
         return NULL;

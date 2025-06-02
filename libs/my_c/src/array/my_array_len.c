@@ -15,12 +15,12 @@
 /**
  * @brief Returns the length of an array (array)
  * @param array The array to check
- * @return <b>int</b> The length of the array
+ * @return <b>size_t</b> The length of the array
  * @author Nicolas TORO
  */
-int my_array_len(void **array)
+size_t my_array_len(void **array)
 {
-    int len = 0;
+    size_t len = 0;
 
     if (array == NULL)
         return 0;

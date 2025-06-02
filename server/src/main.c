@@ -11,11 +11,15 @@
  * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
-#include "my.h"
+#include "server.h"
 
-int main(UNUSED int argc, UNUSED char **argv)
+int main(int argc, char **argv)
 {
+    server_t *server = NULL;
+
     my_update_malloc(TRUE);
+    server = create_server(argc, argv);
+    run(server);
     my_free();
-    return 0;
+    return SUCCESS;
 }

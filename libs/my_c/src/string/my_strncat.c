@@ -21,10 +21,10 @@
  * @return <b>char*</b> The destination string
  * @author Nicolas TORO
  */
-char *my_strncat(char *dest, char const *src, int n)
+char *my_strncat(char *dest, char const *src, size_t n)
 {
-    int len_dest = my_strlen(dest);
-    int i = 0;
+    size_t len_dest = my_strlen(dest);
+    size_t i = 0;
 
     if (dest == NULL || src == NULL)
         return NULL;

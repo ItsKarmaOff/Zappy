@@ -20,7 +20,7 @@
  */
 char my_get_last_char(char *str)
 {
-    int index = 0;
+    size_t index = 0;
 
     if (str == NULL || str[0] == '\0')
         return '\0';

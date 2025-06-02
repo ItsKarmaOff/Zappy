@@ -19,7 +19,7 @@
  * @return <b>void *</b> A pointer to the allocated memory
  * @author Nicolas TORO
  */
-void *my_secure_malloc(uint64_t size)
+void *my_secure_malloc(size_t size)
 {
     void *ptr = NULL;
 
@@ -40,7 +40,7 @@ void *my_secure_malloc(uint64_t size)
  * @return <b>void *</b> A pointer to the allocated memory
  * @author Nicolas TORO
  */
-void *my_malloc(uint64_t size)
+void *my_malloc(size_t size)
 {
     static node_t *list = NULL;
     void *ptr = NULL;
@@ -50,14 +50,14 @@ void *my_malloc(uint64_t size)
         state = tmp_malloc_state(NONE);
         tmp_malloc_state(DEFAULT);
     }
-    if (state == 1) {
+    if (state == TRUE) {
         ptr = my_secure_malloc(size);
-        AL(0, my_push_front, &list, ptr, VOID);
+        AL(FALSE, my_push_front, &list, ptr, VOID);
         return ptr;
     }
-    if (state == 0)
+    if (state == FALSE)
         return my_secure_malloc(size);
-    if (state == -1)
+    if (state == DEFAULT)
         my_delete_list(&list);
     return NULL;
 }

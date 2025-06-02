@@ -50,7 +50,7 @@ static void my_get_decimal_part(char *float_nb, double nb,
         my_strcat(float_nb, ".");
     for (i = 0; i < get_nb_zero(nb - (int)nb); i++)
         my_strcat(float_nb, "0");
-    for (int j = 0; j < my_strlen(my_str_nbr_long_long(nb_convert)); j++) {
+    for (size_t j = 0; j < my_strlen(my_str_nbr_long_long(nb_convert)); j++) {
         temp[0] = my_str_nbr_long_long(nb_convert % precision_size)[j];
         my_strcat(float_nb, temp);
     }
@@ -105,7 +105,7 @@ static void condition(double nb, int *index_nb,
     double *temp_nb_double, int *temp_nb)
 {
     if (ABS(nb) > 1) {
-        for (int i = 0; i < my_strlen(my_str_nbr(ABS(nb))) - 1; i++) {
+        for (size_t i = 0; i < my_strlen(my_str_nbr(ABS(nb))) - 1; i++) {
             *index_nb = *index_nb + 1;
             *temp_nb_double = *temp_nb_double / 10;
         }

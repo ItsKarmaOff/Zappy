@@ -12,12 +12,12 @@
 
 #include "../../include/my.h"
 
-static void put_str_nb(int nb, int len_nb)
+static void put_str_nb(intmax_t nb, size_t len_nb)
 {
     char nb_str[len_nb];
-    int figure_temp = nb;
+    intmax_t figure_temp = nb;
 
-    for (int i = 0; i < len_nb; i++) {
+    for (size_t i = 0; i < len_nb; i++) {
         nb_str[len_nb - i - 1] = 48 + (figure_temp % 10);
         figure_temp = (figure_temp - (figure_temp % 10)) / 10;
     }
@@ -31,10 +31,10 @@ static void put_str_nb(int nb, int len_nb)
  * @return <b>void</b>
  * @author Nicolas TORO
  */
-void my_putnbr(int nb)
+void my_putnbr(intmax_t nb)
 {
-    int len_nb = 1;
-    int temp_nb = nb;
+    size_t len_nb = 1;
+    intmax_t temp_nb = nb;
 
     if (nb < 0) {
         my_putchar('-');

@@ -17,12 +17,12 @@
  * and returns the length of the printed string
  * @param str The string to print
  * @param fd The file descriptor to write in
- * @return <b>int</b> The number of printed characters
+ * @return <b>size_t</b> The number of printed characters
  * @author Nicolas TORO
  */
-int my_putstr_fd(char const *str, int fd)
+size_t my_putstr_fd(char const *str, int fd)
 {
-    int len;
+    size_t len;
 
     if (str == NULL || fd < 0)
         return 0;

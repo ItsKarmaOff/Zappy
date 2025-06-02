@@ -15,12 +15,12 @@
 /**
  * @brief Checks if a char (c) is a letter
  * @param c The char to check
- * @return <b>int</b> <u>1</u> if the char is a letter, <u>0</u> otherwise
+ * @return <b>bool</b> <u>1</u> if the char is a letter, <u>0</u> otherwise
  * @author Nicolas TORO
  */
-int my_char_is_alpha(char c)
+bool my_char_is_alpha(char c)
 {
     if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-        return 1;
-    return 0;
+        return true;
+    return false;
 }

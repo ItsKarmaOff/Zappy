@@ -15,12 +15,12 @@
 /**
  * @brief Checks if a char (c) is a number
  * @param c The char to check
- * @return <b>int</b> <u>1</u> if the char is a number, <u>0</u> otherwise
+ * @return <b>bool</b> <u>1</u> if the char is a number, <u>0</u> otherwise
  * @author Nicolas TORO
  */
-int my_char_is_num(char c)
+bool my_char_is_num(char c)
 {
     if (c >= '0' && c <= '9')
-        return 1;
-    return 0;
+        return true;
+    return false;
 }

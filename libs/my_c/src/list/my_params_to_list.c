@@ -27,7 +27,7 @@ node_t *my_params_to_list(int ac, char *const *av)
     list->data = my_strdup(av[0]);
     list->type = STRING;
     list->next = NULL;
-    for (int arg = 1; arg < ac; arg++)
+    for (size_t arg = 1; arg < (size_t)ac; arg++)
         my_push_front(&list, my_strdup(av[arg]), STRING);
     return list;
 }
