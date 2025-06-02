@@ -7,6 +7,7 @@
 
 #include "Commands.hpp"
 #include "Logs.hpp"
+#include <cstdlib>
 #include <functional>
 #include <unordered_map>
 
@@ -81,7 +82,25 @@ namespace Gui
 
     void Commands::handlePLV(std::string param)
     {
+        DEBUG << "Handling PLV command with param: " << param;
 
+        std::istringstream iss(param);
+        std::string player;
+        int playerId;
+        int level;
+
+        if (!(iss >> player >> level))
+            ERROR << "Invalid parameters for PLV command: " << param;
+
+        if (player.empty() || player[0] != '#' || player.size() < 2)
+            ERROR << "Invalid player format for PLV command: " << player;
+
+        if (level < 1 || level > 8)
+            ERROR << "Invalid level for PLV command: " << level;
+
+        playerId = std::stoi(player.substr(1));
+
+        DEBUG << "Player #" << playerId << " level set to: " << level;
     }
 
     void Commands::handlePIN(std::string param)
