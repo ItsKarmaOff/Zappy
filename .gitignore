@@ -40,6 +40,8 @@ vgcore.*
 *.old
 
 # Project binary files
+zappy_server.epitech
+zappy_gui.epitech
 zappy_server
 zappy_gui
 zappy_ai
