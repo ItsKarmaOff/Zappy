@@ -32,7 +32,7 @@ namespace Gui {
             ~Graphics();
 
             void init(void);
-            void run(void);
+            void run(std::atomic<bool> &);
         private:
             void handleEvents(void);
             void update(void);

@@ -37,11 +37,9 @@ namespace Gui
         DEBUG << "Running Core";
 
         isRunning = true;
-
         std::thread communicationThread(&Core::_communicationThread, this);
         _gameThread();
-        _graphics.init();
-        _graphics.run();
+
         communicationThread.join();
     }
 
@@ -219,7 +217,7 @@ namespace Gui
     {
         std::string response;
 
-        while (isRunning) {
+        while (isRunning.load()) {
             std::unique_lock<std::mutex> lockCommandQueue(_commandsQueueMutex);
             if (!_commandsQueue.empty()) {
                 std::vector<std::string> command = _commandsQueue.front();
@@ -235,6 +233,7 @@ namespace Gui
 
     void Core::_gameThread()
     {
-        // Sera surement dans Graphics.cpp
+        _graphics.init();
+        _graphics.run(isRunning);
     }
 }

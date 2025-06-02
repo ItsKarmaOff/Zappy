@@ -133,8 +133,8 @@ namespace Gui
             int _port;  // The port number for the server connection
             std::string _hostname;  // The hostname for the server connection
             std::unique_ptr<Lib::Socket> _clientSocket; // Pointer to the socket for communication with the server
+            std::atomic<bool> isRunning;  // Flag to indicate if the application is running
             struct sockaddr_in _client; // Structure to hold the client address information
-            bool isRunning;  // Flag to indicate if the application is running
             std::mutex _commandsQueueMutex; // Mutex for synchronizing access to the commands queue
             std::queue<std::vector<std::string>> _commandsQueue;    // Queue for storing commands to be processed
             std::mutex _responseQueueMutex; // Mutex for synchronizing access to the response queue
