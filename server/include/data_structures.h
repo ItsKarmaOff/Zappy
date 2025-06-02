@@ -15,8 +15,12 @@
 
     #include "my.h"
 
+    #define MAX_PORT 65535 /* The maximum port number */
+    #define MAX_PORT_STR "65535" /* The maximum port number as a string */
+    #define GRAPHIC_TEAM_NAME "GRAPHIC" /* The name of the graphic team */
+
 typedef struct team_s {
-    char *name;
+    const char *name;
     node_t *player_list;
 } team_t;
 
@@ -32,7 +36,7 @@ typedef struct game_settings_s {
 } game_settings_t;
 
 typedef struct game_s {
-    game_settings_t *game_settings; /* The settings of the game */
+    game_settings_t game_settings; /* The settings of the game */
     node_t *team_list; /* The list of teams in the game */
 } game_t;
 
@@ -57,7 +61,7 @@ typedef struct server_s {
     size_t current_clients_number; /* The current number of clients */
     node_t *client_list; /* The list of connected clients */
 
-    game_t *game; /* The game structure */
+    game_t game; /* The game structure */
 } server_t;
 
 #endif /* DATA_STRUCTURES_H_ */

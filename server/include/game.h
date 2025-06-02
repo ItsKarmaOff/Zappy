@@ -15,4 +15,11 @@
 
     #include "data_structures.h"
 
+/**
+ * @brief Creates a team with the given name
+ * @param name The name of the team
+ * @return A pointer to the created team
+ */
+team_t *create_team(const char *name);
+
 #endif /* GAME_H_ */

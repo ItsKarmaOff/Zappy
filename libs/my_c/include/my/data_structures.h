@@ -53,13 +53,14 @@ typedef enum separator_type {
 
 /* The settings of the my_get_number */
 typedef struct number_settings_s {
-    my_bool_t multiple_signe; /* Allow multiples signes in the string */
-    my_bool_t letter_before; /* Allow letters before the number */
-    my_bool_t letter_after; /* Allow letters after the number */
-    my_bool_t overflow; /* Allow overflow in the number */
+    bool multiple_signe; /* Allow multiples signes in the string */
+    bool letter_before; /* Allow letters before the number */
+    bool letter_after; /* Allow letters after the number */
+    bool overflow; /* Allow overflow in the number */
 } number_settings_t;
 
     #define NB number_settings_t
+    #define DEFAULT_NB ((NB) {false, false, false, false})
 
 /* Enum for the type of the data */
 typedef enum type {

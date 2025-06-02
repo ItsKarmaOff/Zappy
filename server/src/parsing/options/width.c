@@ -12,8 +12,15 @@
 
 #include "parsing.h"
 
-void option_width(UNUSED server_t *server,
-    UNUSED int argc, UNUSED char **argv, UNUSED size_t *index)
+void option_width(server_t *server,
+    int argc, char **argv, size_t *index)
 {
-    return;
+    if ((size_t)argc < *index + 1)
+        EXCEPTION("Missing argument for -x (or --width) option\n");
+    server->game.game_settings.width =
+        my_get_number(argv[*index + 1], DEFAULT_NB);
+    if (my_errno != SUCCESS || server->game.game_settings.width <= 0)
+        EXCEPTION("Invalid argument for -x (or --width) option, "
+            "it must be a number greater than 0\n");
+    *index += 1;
 }

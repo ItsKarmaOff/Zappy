@@ -14,13 +14,13 @@
 
 const option_t options[] = {
     {'p', "port", "port",
-        "The port of the server",
+        "\tThe port of the server",
         PORT_OPTION, &option_port},
     {'x', "width", "width",
-        "The width of the world",
+        "\tThe width of the world",
         WIDTH_OPTION, &option_width},
     {'y', "height", "height",
-        "The height of the world",
+        "\tThe height of the world",
         HEIGHT_OPTION, &option_height},
     {'n', "names", "name1 name2 ...",
         "The names of the teams",
@@ -32,13 +32,13 @@ const option_t options[] = {
         "The reciprocal of time unit for execution of action",
         FREQUENCY_OPTION, &option_frequency},
     {'h', "help", "",
-        "Display this help message",
+        "\tDisplay this help message",
         NOT_REQUIRED, &option_help},
     {'v', "version", "",
-        "Display the version of the server",
+        "\tDisplay the version of the server",
         NOT_REQUIRED, &option_version},
     {'a', "authors", "",
-        "Display the authors of the project",
+        "\tDisplay the authors of the project",
         NOT_REQUIRED, &option_authors},
     {0, NULL, NULL, NULL, NOT_REQUIRED, NULL}
 };
@@ -79,7 +79,6 @@ static void missing_options(uint32_t options_found)
 
 void init_server_from_args(server_t *server, int argc, char **argv)
 {
-    server->game = my_calloc(1, sizeof(game_t));
     for (size_t index = 1; index < (size_t)argc; index++) {
         analyse_arg(server, argc, argv, &index);
     }

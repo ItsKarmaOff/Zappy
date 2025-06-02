@@ -14,6 +14,7 @@
     #define PARSING_H_
 
     #include "data_structures.h"
+    #include "game.h"
 
 
 
