@@ -156,13 +156,13 @@ namespace Gui
             return;
         }
 
-        // if (argc < 5) {
-        //     printUsage();
-        //     throw std::invalid_argument("Not enough arguments provided");
-        // } else if (argc > 5) {
-        //     printUsage();
-        //     throw std::invalid_argument("Too many arguments provided");
-        // }
+        if (argc < 5) {
+            printUsage();
+            throw std::invalid_argument("Not enough arguments provided");
+        } else if (argc > 5) {
+            printUsage();
+            throw std::invalid_argument("Too many arguments provided");
+        }
 
         for (int index = 1; index < argc; index++) {
             if (std::string(argv[index]) == "-p") {
@@ -219,7 +219,7 @@ namespace Gui
     {
         std::string response;
 
-        while(isRunning) {
+        while (isRunning) {
             std::unique_lock<std::mutex> lockCommandQueue(_commandsQueueMutex);
             if (!_commandsQueue.empty()) {
                 std::vector<std::string> command = _commandsQueue.front();
