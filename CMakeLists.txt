@@ -65,18 +65,40 @@ target_compile_options(${AI} PRIVATE -Wall -Wextra -Werror -Wno-unused-result -W
 
 
 ############################ GUI ##############################################
+option(USE_LOCAL_RAYLIB "Force using local raylib instead of system package" OFF)
+
 set(GUI "zappy_gui")
 file(GLOB_RECURSE GUI_SOURCES "gui/src/*.cpp")
 add_executable(${GUI} ${GUI_SOURCES})
 target_include_directories(${GUI} PRIVATE
     ${CMAKE_SOURCE_DIR}/gui/include
     ${CMAKE_SOURCE_DIR}/gui/include/core
-
-
     ${CMAKE_SOURCE_DIR}/gui/include/graphical
 )
-find_package(raylib REQUIRED)
-target_link_libraries(${GUI} PUBLIC my_cpp raylib)
+
+if(USE_LOCAL_RAYLIB)
+    message(STATUS "Forced to use local raylib")
+    set(raylib_FOUND FALSE)
+else()
+    find_package(raylib QUIET)
+endif()
+
+if(raylib_FOUND)
+    message(STATUS "Using system raylib package")
+    target_link_libraries(${GUI} PUBLIC my_cpp raylib)
+else()
+    message(STATUS "Using local raylib from libs/raylib")
+
+    if(EXISTS "${CMAKE_SOURCE_DIR}/libs/raylib/CMakeLists.txt")
+        set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+        set(BUILD_GAMES OFF CACHE BOOL "" FORCE)
+        add_subdirectory(libs/raylib)
+        target_link_libraries(${GUI} PUBLIC my_cpp raylib)
+    else()
+        message(FATAL_ERROR "Local raylib not found in libs/raylib/!")
+    endif()
+endif()
+
 target_compile_options(${GUI} PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
 ###############################################################################
 
