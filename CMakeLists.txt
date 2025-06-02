@@ -72,6 +72,7 @@ file(GLOB_RECURSE GUI_SOURCES "gui/src/*.cpp")
 add_executable(${GUI} ${GUI_SOURCES})
 target_include_directories(${GUI} PRIVATE
     ${CMAKE_SOURCE_DIR}/gui/include
+    ${CMAKE_SOURCE_DIR}/gui/include/commands
     ${CMAKE_SOURCE_DIR}/gui/include/core
     ${CMAKE_SOURCE_DIR}/gui/include/graphical
 )
