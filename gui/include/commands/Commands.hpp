@@ -9,10 +9,12 @@
     #define COMMANDS_HPP
 
     #include "Graphics.hpp"
+    #include "QueueManager.hpp"
+    #include <functional>
 
 namespace Gui
 {
-    class Commands : public Graphics {
+    class Commands {
         public:
 
         //////////////////// Custom Constants //////////////////////////////////
@@ -49,7 +51,7 @@ namespace Gui
             /**
              * @brief Construct a new Commands object.
              */
-            Commands() = default;
+            Commands();
 
             /**
              * @brief Destroy the Commands object.
@@ -63,7 +65,7 @@ namespace Gui
         /**
          * @brief Handle a command.
          */
-        void handleCommand();
+        void handleCommand(std::shared_ptr<QueueManager> &, Graphics &);
 
         /**
          * @brief Handle the MSZ command.
@@ -184,6 +186,9 @@ namespace Gui
          * @brief Handle the SDP command.
          */
         void handleSDP(std::string param);
+
+    private:
+        std::unordered_map<std::string, std::function<void(std::string)>> _commandHandlers;
     };
 }
 

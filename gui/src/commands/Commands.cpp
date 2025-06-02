@@ -6,14 +6,16 @@
 */
 
 #include "Commands.hpp"
+#include "Graphics.hpp"
+#include "Logs.hpp"
 #include <functional>
 #include <unordered_map>
 
 namespace Gui
 {
-    void Commands::handleCommand()
+    Commands::Commands()
     {
-        std::unordered_map<std::string, std::function<void(std::string)>> commandHandlers = {
+        _commandHandlers = {
             {MSZ, [this](std::string param) { handleMSZ(param); }},
             {BCT, [this](std::string param) { handleBCT(param); }},
             {TNA, [this](std::string param) { handleTNA(param); }},
@@ -39,6 +41,21 @@ namespace Gui
             {SUC, [this](std::string param) { handleSUC(param); }},
             {SDP, [this](std::string param) { handleSDP(param); }}
         };
+    }
+    void Commands::handleCommand(std::shared_ptr<QueueManager> &queueManager, Graphics &graphics)
+    {
+        while (queueManager->hasResponses()) {
+            std::string response = queueManager->popResponse();
+            size_t spacePos = response.find(' ');
+            std::string command = (spacePos != std::string::npos) ? response.substr(0, spacePos) : response;
+            std::string param = (spacePos != std::string::npos) ? response.substr(spacePos + 1) : "";
+
+            if (_commandHandlers.contains(command)) {
+                _commandHandlers[command](param);
+            } else {
+                ERROR << "Unknown command: " << command;
+            }
+        }
     }
 
     void Commands::handleMSZ(std::string param)

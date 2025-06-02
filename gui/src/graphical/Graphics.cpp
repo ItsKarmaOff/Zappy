@@ -6,14 +6,17 @@
 */
 
 #include "Graphics.hpp"
+#include "Commands.hpp"
 #include <raylib.h>
 #include <atomic>
 
 namespace Gui {
-    Graphics::Graphics()
+    Graphics::Graphics(std::shared_ptr<QueueManager> queueManager)
+        : _queueManager(queueManager), _mousePos({0, 0})
     {
         _scene = MENU;
         _game = nullptr;
+        _menu = std::make_shared<MenuInfo>();
     }
 
     Graphics::~Graphics()
@@ -47,8 +50,10 @@ namespace Gui {
 
     void Graphics::run(std::atomic<bool> &isRunning)
     {
+        Commands cmd;
         while (!WindowShouldClose() && isRunning == true) {
             _mousePos = GetMousePosition();
+            cmd.handleCommand(_queueManager, *this);
             handleEvents();
             update();
             draw();

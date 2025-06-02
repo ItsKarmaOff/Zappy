@@ -20,12 +20,13 @@ namespace Gui
     //////////////////////// Constructors and Destructor ///////////////////////
 
     Core::Core(int argc, char **argv)
-        : _port(-1), _hostname(""), _graphics()
+        : _port(-1), _hostname("")
     {
         DEBUG << "Construct Core";
 
         _parseArguments(argc, argv);
         _initClient();
+        _queueManager = std::make_shared<QueueManager>();
     }
 
 
@@ -218,22 +219,20 @@ namespace Gui
         std::string response;
 
         while (isRunning) {
-            std::unique_lock<std::mutex> lockCommandQueue(_commandsQueueMutex);
-            if (!_commandsQueue.empty()) {
-                std::vector<std::string> command = _commandsQueue.front();
-                _commandsQueue.pop();
+            if (_queueManager->hasCommands()) {
+                std::vector<std::string> command = _queueManager->popCommand();
+                if (command.empty())
+                    continue;
                 sendCommand(_clientSocket->getSocket(), command);
-                std::unique_lock<std::mutex> lockResponseQueue(_responseQueueMutex);
-                _responseQueue.push(getResponse());
-                lockResponseQueue.unlock();
+                _queueManager->pushResponse(getResponse());
             }
-            lockCommandQueue.unlock();
         }
     }
 
     void Core::_gameThread()
     {
-        _graphics.init();
-        _graphics.run(isRunning);
+        Gui::Graphics graphics(_queueManager);
+        graphics.init();
+        graphics.run(isRunning);
     }
 }

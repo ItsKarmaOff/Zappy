@@ -10,10 +10,14 @@
     #define GRAPHICS_HPP
     #include <cstddef>
     #include <memory>
+#include <queue>
     #include <unordered_map>
     #include "GameInfo.hpp"
+#include "MenuInfo.hpp"
     #include "raylib.h"
     #include <cstring>
+#include <vector>
+#include "QueueManager.hpp"
 
 
 
@@ -28,7 +32,8 @@ namespace Gui {
                 GAME,
             };
         public:
-            Graphics();
+            // Modifiez le constructeur pour prendre QueueManager au lieu des queues
+            Graphics(std::shared_ptr<QueueManager> queueManager);
             ~Graphics();
 
             void init(void);
@@ -51,12 +56,15 @@ namespace Gui {
             void drawGame(void);
 
         private:
+            std::shared_ptr<QueueManager> _queueManager; // Référence au gestionnaire de queues
+
             Scene _scene;
             std::unordered_map<Scene, void (Graphics::*)(void)> _handlers;
             std::unordered_map<Scene, void (Graphics::*)(void)> _updaters;
             std::unordered_map<Scene, void (Graphics::*)(void)> _drawers;
 
             std::shared_ptr<GameInfo> _game;
+            std::shared_ptr<MenuInfo> _menu;
             Vector2 _mousePos;
     };
 }
