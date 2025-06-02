@@ -565,6 +565,13 @@ void my_add_to_garbage(bool add, void *ptr, void (*free_func)(void *));
 void *my_calloc(size_t element_count, size_t element_size);
 
 /**
+ * @brief Closes a file descriptor (fd)
+ * @note Used for the garbage collector
+ * @param fd The file descriptor to close
+ */
+void my_close(void *fd);
+
+/**
  * @brief Exits the program
  * @note An ASM function called by the my_exit function
  * @param status The status to return
