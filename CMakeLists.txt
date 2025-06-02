@@ -177,17 +177,23 @@ add_custom_target(clean_all
 
 
 ############################ DOCUMENTATION ####################################
-find_package(Doxygen QUIET)
+OPTION(DOC_ONLY "Build documentation only, skip all executables and libraries" OFF)
 
-if(DOXYGEN_FOUND)
-    add_custom_target(doc
-        COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_SOURCE_DIR}/Doxyfile
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-        COMMENT "Generating documentation with Doxygen"
-    )
-else()
-    add_custom_target(doc
-        COMMAND ${CMAKE_COMMAND} -E echo "Doxygen not found, documentation will not be generated"
-    )
+if(DOC_ONLY)
+    find_package(Doxygen QUIET)
+
+    if(DOXYGEN_FOUND)
+        add_custom_target(doc
+            COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_SOURCE_DIR}/Doxyfile
+            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+            COMMENT "Generating documentation with Doxygen"
+        )
+    else()
+        add_custom_target(doc
+            COMMAND ${CMAKE_COMMAND} -E echo "Doxygen not found, documentation will not be generated"
+        )
+    endif()
+    
+    return()
 endif()
 ###############################################################################
