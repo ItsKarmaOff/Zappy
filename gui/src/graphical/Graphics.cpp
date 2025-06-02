@@ -7,6 +7,7 @@
 
 #include "Graphics.hpp"
 #include <raylib.h>
+#include <atomic>
 
 namespace Gui {
     Graphics::Graphics()
@@ -19,6 +20,7 @@ namespace Gui {
     {
         if (IsWindowReady())
             CloseWindow();
+
     }
 
     void Graphics::init(void)
@@ -43,14 +45,15 @@ namespace Gui {
     }
 
 
-    void Graphics::run(void)
+    void Graphics::run(std::atomic<bool> &isRunning)
     {
-        while (!WindowShouldClose()) {
+        while (!WindowShouldClose() && isRunning == true) {
             _mousePos = GetMousePosition();
             handleEvents();
             update();
             draw();
         }
+        isRunning = false;
     }
 
     void Graphics::handleEvents(void)

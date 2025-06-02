@@ -37,11 +37,9 @@ namespace Gui
         DEBUG << "Running Core";
 
         isRunning = true;
-
         std::thread communicationThread(&Core::_communicationThread, this);
         _gameThread();
-        _graphics.init();
-        _graphics.run();
+
         communicationThread.join();
     }
 
@@ -235,6 +233,7 @@ namespace Gui
 
     void Core::_gameThread()
     {
-        // Sera surement dans Graphics.cpp
+        _graphics.init();
+        _graphics.run(isRunning);
     }
 }
