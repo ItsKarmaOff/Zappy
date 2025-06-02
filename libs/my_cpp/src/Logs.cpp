@@ -39,12 +39,12 @@ namespace Lib::Logs {
     {
         #ifdef DEBUG_MODE
         if (file.empty() && line == 0 && func.empty())
-			std::cerr << RESET YELLOW;
+			std::cerr << RESET YELLOW_LOGS;
 		else
-			std::cerr << RESET WHITE BOLD ITALIC
+			std::cerr << RESET WHITE_LOGS BOLD ITALIC
 				"[" << Time::getLocalTime() << "] " <<
 				"[FILE: " << file << ":" << line
-				<< ", FUNCTION: " << func << "]: " RESET YELLOW << std::endl;
+				<< ", FUNCTION: " << func << "]: " RESET YELLOW_LOGS << std::endl;
         #else
         (void)file;
         (void)line;
@@ -71,10 +71,10 @@ namespace Lib::Logs {
     void Logs::Debug::point(const std::string file, const int line, const std::string func)
     {
         #ifdef DEBUG_MODE
-        std::cerr << RESET WHITE BOLD ITALIC
+        std::cerr << RESET WHITE_LOGS BOLD ITALIC
 			"[" << Time::getLocalTime() << "] " <<
 			"FILE: " << file << ":" << line <<
-			RESET WHITE ", FUNCTION: " << func << RESET << std::endl;
+			RESET WHITE_LOGS ", FUNCTION: " << func << RESET << std::endl;
         #else
         (void)file;
         (void)line;
@@ -106,12 +106,12 @@ namespace Lib::Logs {
     Logs::Error::Error(const std::string file, const int line, const std::string func)
     {
         if (file.empty() && line == 0 && func.empty())
-            std::cerr << RESET RED;
+            std::cerr << RESET RED_LOGS;
         else
-            std::cerr << RESET RESET WHITE BOLD ITALIC
+            std::cerr << RESET RESET WHITE_LOGS BOLD ITALIC
                 "[" << Time::getLocalTime() << "] " <<
                 "[FILE: " << file << ":" << line
-                << ", FUNCTION: " << func << "]: " RESET RED;
+                << ", FUNCTION: " << func << "]: " RESET RED_LOGS;
         std::cerr << std::endl;
     }
 
@@ -143,12 +143,12 @@ namespace Lib::Logs {
     Logs::Warning::Warning(const std::string file, const int line, const std::string func)
     {
         if (file.empty() && line == 0 && func.empty())
-            std::cerr << RESET MAGENTA;
+            std::cerr << RESET MAGENTA_LOGS;
         else
-            std::cerr << RESET WHITE BOLD ITALIC
+            std::cerr << RESET WHITE_LOGS BOLD ITALIC
                 "[" << Time::getLocalTime() << "] " <<
                 "[FILE: " << file << ":" << line
-                << ", FUNCTION: " << func << "]: " RESET MAGENTA;
+                << ", FUNCTION: " << func << "]: " RESET MAGENTA_LOGS;
         std::cerr << std::endl;
     }
 
