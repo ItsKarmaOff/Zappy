@@ -12,16 +12,53 @@
 
 #include "server.h"
 
+static void destroy_server(server_t *server)
+{
+    static server_t *server_ptr = NULL;
+
+    if (server_ptr != NULL) {
+        server_ptr = server;
+        return;
+    }
+    if (server == NULL)
+        return;
+    for (size_t index = 1; index < server->max_clients_number + 1; index++) {
+        if (server->poll_fds[index].fd != -1) {
+            close(server->poll_fds[index].fd);
+            server->poll_fds[index].fd = -1;
+        }
+    }
+}
+
+static void handle_sigint(UNUSED int signum)
+{
+    DEBUG("CTRL+C received, shutting down server...\n");
+    destroy_server(NULL);
+    my_exit(SUCCESS, GREEN "Server shutdown successfully.\n" RESET);
+}
+
 server_t *create_server(int argc, char **argv)
 {
     server_t *server = my_calloc(1, sizeof(server_t));
 
     init_server_from_args(server, argc, argv);
     start_server(server);
+    destroy_server(server);
+    signal(SIGINT, handle_sigint);
     return server;
 }
 
 void run(server_t *server)
 {
+    int poll_count = 0;
+
     DEBUG("Server is running\n");
+    while (true) {
+        poll_count = poll(server->poll_fds, server->max_clients_number + 1, 0);
+        if (poll_count < 0)
+            THROW(my_create_str("EXCEPTION: Poll failed: ", strerror(errno)));
+        for (size_t index = 0; index < server->max_clients_number + 1; index++)
+            analyse_poll(server, index);
+        update_game(server);
+    }
 }

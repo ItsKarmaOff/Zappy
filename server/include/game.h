@@ -22,4 +22,10 @@
  */
 team_t *create_team(const char *name);
 
+/**
+ * @brief Updates the game
+ * @param server The server to update the game on
+ */
+void update_game(server_t *server);
+
 #endif /* GAME_H_ */

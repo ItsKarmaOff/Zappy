@@ -21,9 +21,12 @@ static void configure_server(server_t *server)
     server->address.sin_port = htons(server->port);
     server->poll_fds = my_calloc(
         server->max_clients_number + 1, sizeof(struct pollfd));
+    for (size_t index = 0; index < server->max_clients_number + 1; index++) {
+        server->poll_fds[index].fd = -1;
+        server->poll_fds[index].events = POLLIN;
+    }
     server->client_list = my_calloc(
         server->max_clients_number, sizeof(client_t *));
-    my_add_to_garbage(true, &server->socket_fd, &my_close);
 }
 
 void start_server(server_t *server)
@@ -33,6 +36,8 @@ void start_server(server_t *server)
     if (server->socket_fd < 0)
         THROW(my_create_str("EXCEPTION: "
             "Socket creation failed: ", strerror(errno)));
+    my_add_to_garbage(true, &server->socket_fd, &my_close);
+    server->poll_fds[0].fd = server->socket_fd;
     if (bind(server->socket_fd, (struct sockaddr *)&server->address,
     sizeof(server->address)) < 0)
         THROW(my_create_str("EXCEPTION: "
@@ -40,6 +45,4 @@ void start_server(server_t *server)
     if (listen(server->socket_fd, (int)server->max_clients_number) < 0)
         THROW(my_create_str("EXCEPTION: "
             "Listen failed: ", strerror(errno)));
-    server->poll_fds[0].fd = server->socket_fd;
-    server->poll_fds[0].events = POLLIN | POLLOUT;
 }
