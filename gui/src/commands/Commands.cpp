@@ -60,7 +60,19 @@ namespace Gui
 
     void Commands::handleMSZ(std::string param)
     {
+        DEBUG << "Handling MSZ command with param: " << param;
 
+        std::istringstream iss(param);
+        int width;
+        int height;
+
+        if (!(iss >> width >> height))
+            ERROR << "Invalid parameters for MSZ command: " << param;
+
+        if (width <= 0 || height <= 0)
+            ERROR << "Invalid dimensions for MSZ command: " << width << "x" << height;
+
+        DEBUG << "Map size set to: " << width << "x" << height;
     }
 
     void Commands::handleBCT(std::string param)
