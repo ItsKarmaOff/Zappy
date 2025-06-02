@@ -19,13 +19,13 @@
  */
 void **my_list_to_array_circled(node_t **list)
 {
-    int size = my_list_size_circled(*list);
+    size_t size = my_list_size_circled(*list);
     void **array = my_calloc(size + 1, sizeof(void *));
     node_t *tmp = *list;
 
     if (array == NULL)
         return NULL;
-    for (int i = 0; tmp != NULL; i++) {
+    for (size_t i = 0; tmp != NULL; i++) {
         array[i] = tmp->data;
         tmp = tmp->next;
         if (tmp == *list)

@@ -27,7 +27,7 @@ char *my_strstr(char *str, char const *to_find)
         return NULL;
     if (my_strlen(to_find) == 0)
         return str;
-    for (int i = 0; str[i] != '\0'; i++) {
+    for (size_t i = 0; str[i] != '\0'; i++) {
         if (my_strncmp(&str[i], to_find, my_strlen(to_find)) == 0)
             return &str[i];
     }

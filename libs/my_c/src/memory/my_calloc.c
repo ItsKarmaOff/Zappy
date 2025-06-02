@@ -19,7 +19,7 @@
  * @return <b>void *</b> A pointer to the allocated memory
  * @author Nicolas TORO
  */
-void *my_calloc(uint64_t element_count, uint64_t element_size)
+void *my_calloc(size_t element_count, size_t element_size)
 {
     void *ptr = my_malloc(element_count * element_size);
 

@@ -16,13 +16,13 @@
  * @brief A simple hash function
  * @param key The key to hash
  * @param len The length of the key
- * @return <b>int</b> The hash value
+ * @return <b>ssize_t</b> The hash value
  */
-int my_hash_simple(char *key, int len)
+ssize_t my_hash_simple(char *key, size_t len)
 {
     int hash = 0;
 
-    for (int index = 0; key[index] != '\0'; index++)
+    for (size_t index = 0; key[index] != '\0'; index++)
         hash += key[index] * key[index];
     return hash;
 }
@@ -31,13 +31,13 @@ int my_hash_simple(char *key, int len)
  * @brief A djb2 hash function
  * @param key The key to hash
  * @param len The length of the key
- * @return <b>int</b> The hash value
+ * @return <b>ssize_t</b> The hash value
  */
-int my_hash_djb2(char *key, int len)
+ssize_t my_hash_djb2(char *key, size_t len)
 {
     int hash = 5381;
 
-    for (int index = 0; key[index] != '\0'; index++)
+    for (size_t index = 0; key[index] != '\0'; index++)
         hash = ((hash << 5) + hash) + key[index];
     return ABS(hash);
 }
@@ -46,14 +46,14 @@ int my_hash_djb2(char *key, int len)
  * @brief A p256 hash function
  * @param key The key to hash
  * @param len The length of the key
- * @return <b>int</b> The hash value
+ * @return <b>ssize_t</b> The hash value
  */
-int my_hash_p256(char *key, int len)
+ssize_t my_hash_p256(char *key, size_t len)
 {
     int hash = 0;
     int multiplier = 1;
 
-    for (int index = 0; key[index] != '\0'; index++) {
+    for (size_t index = 0; key[index] != '\0'; index++) {
         hash += key[index] * multiplier;
         multiplier *= 256;
     }
@@ -65,13 +65,13 @@ int my_hash_p256(char *key, int len)
  * @brief A custom hash function
  * @param key The key to hash
  * @param len The length of the key
- * @return <b>int</b> The hash value
+ * @return <b>ssize_t</b> The hash value
  */
-int my_hash(char *key, int len)
+ssize_t my_hash(char *key, size_t len)
 {
     int hash_value = 0;
 
-    for (int i = 0; key[i] != '\0'; i++)
+    for (size_t i = 0; key[i] != '\0'; i++)
         hash_value = hash_value ^ key[i] * 3907;
     return ABS(hash_value);
 }

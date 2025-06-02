@@ -19,18 +19,16 @@
  * @return <b>node_t *</b> The node at the specified index or NULL if not found
  * @author Nicolas TORO
  */
-node_t *my_get_node_at_index(node_t *begin, int index)
+node_t *my_get_node_at_index(node_t *begin, size_t index)
 {
     node_t *tmp = begin;
-    int current_index = 0;
 
-    if (begin == NULL || index < 0)
+    if (begin == NULL)
         return NULL;
-    while (tmp != NULL) {
+    for (size_t current_index = 0; tmp != NULL; current_index++) {
         if (current_index == index)
             return tmp;
         tmp = tmp->next;
-        current_index++;
     }
     return NULL;
 }

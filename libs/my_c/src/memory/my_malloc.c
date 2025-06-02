@@ -19,7 +19,7 @@
  * @return <b>void *</b> A pointer to the allocated memory
  * @author Nicolas TORO
  */
-void *my_secure_malloc(uint64_t size)
+void *my_secure_malloc(size_t size)
 {
     void *ptr = NULL;
 
@@ -40,7 +40,7 @@ void *my_secure_malloc(uint64_t size)
  * @return <b>void *</b> A pointer to the allocated memory
  * @author Nicolas TORO
  */
-void *my_malloc(uint64_t size)
+void *my_malloc(size_t size)
 {
     static node_t *list = NULL;
     void *ptr = NULL;

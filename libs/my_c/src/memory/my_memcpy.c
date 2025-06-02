@@ -21,14 +21,14 @@
  * @return <b>void *</b> A pointer to the destination memory area
  * @author Nicolas TORO
  */
-void *my_memcpy(void *destination, const void *source, uint64_t size)
+void *my_memcpy(void *destination, const void *source, size_t size)
 {
     char *ptr = destination;
     int end = 0;
 
     if (destination == NULL || source == NULL)
         return NULL;
-    for (uint64_t index = 0; index < size; index++) {
+    for (size_t index = 0; index < size; index++) {
         if (end == 1 || ((char *)source)[index] == '\0') {
             end = 1;
             ptr[index] = '\0';

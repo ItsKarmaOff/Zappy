@@ -14,15 +14,15 @@
 
 int my_errno;
 
-static char not_a_number(char c)
+static bool not_a_number(char c)
 {
     if ((c < '0' || c > '9') && c != '-' && c != '+')
-            return 1;
-    return 0;
+            return true;
+    return false;
 }
 
 static char check_end(char *number, number_settings_t *settings,
-    int i, int start)
+    ssize_t i, ssize_t start)
 {
     my_errno = 0;
     if ((!settings->letter_before && not_a_number(number[i]) && start == -1)
@@ -48,18 +48,18 @@ static char check_end(char *number, number_settings_t *settings,
  * depending on the settings you choose with the <b>settings</b> parameter
  * @param number The string to convert
  * @param settings The settings of the function
- * @return <b>int64_t</b> The number found in the string
+ * @return <b>intmax_t</b> The number found in the string
  * @author Nicolas TORO
  */
-int64_t my_get_number(char *number, number_settings_t settings)
+intmax_t my_get_number(char *number, number_settings_t settings)
 {
     int64_t nb = 0;
-    int start = -1;
-    char neg = 1;
+    ssize_t start = -1;
+    int8_t neg = 1;
 
     if (number[0] == '\0')
         return nb;
-    for (int i = 0; number[i] != '\0'; i++) {
+    for (ssize_t i = 0; number[i] != '\0'; i++) {
         if (check_end(number, &settings, i, start))
             return nb * neg;
         if ((settings.letter_before && not_a_number(number[i]) && start == -1)

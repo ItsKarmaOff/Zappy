@@ -12,7 +12,8 @@
 
 #include "../../include/my.h"
 
-static int check_equal(int len_s1, int len_s2, int j, int littlest_char_index)
+static int check_equal(size_t len_s1, size_t len_s2,
+    size_t j, size_t littlest_char_index)
 {
     if (len_s1 < len_s2)
         return j;
@@ -22,9 +23,9 @@ static int check_equal(int len_s1, int len_s2, int j, int littlest_char_index)
         return littlest_char_index;
 }
 
-static int check_littlest(char **argv, int j, int littlest_char_index)
+static int check_littlest(char **argv, size_t j, size_t littlest_char_index)
 {
-    int i = 0;
+    size_t i = 0;
 
     while (i < my_strlen(argv[littlest_char_index])
     && i < my_strlen(argv[j])) {
@@ -38,7 +39,7 @@ static int check_littlest(char **argv, int j, int littlest_char_index)
     my_strlen(argv[j]), j, littlest_char_index);
 }
 
-static void check_swap(char **argv, int i, int littlest_char_index)
+static void check_swap(char **argv, size_t i, size_t littlest_char_index)
 {
     char *temp;
 
@@ -60,13 +61,13 @@ void my_sort_params(int argc, char **argv)
 {
     int littlest_char_index = 0;
 
-    for (int i = 0; i < argc; i++) {
+    for (size_t i = 0; i < (size_t)argc; i++) {
         littlest_char_index = i;
-        for (int j = i; j < argc; j++)
+        for (size_t j = i; j < (size_t)argc; j++)
             littlest_char_index = check_littlest(argv, j, littlest_char_index);
         check_swap(argv, i, littlest_char_index);
     }
-    for (int i = argc; i > 0; i--) {
+    for (size_t i = argc; i > 0; i--) {
         my_putstr(argv[i - 1]);
         my_putstr("\n");
     }

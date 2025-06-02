@@ -21,16 +21,16 @@
  * @return <b>void *</b> A pointer to the destination memory area
  * @author Nicolas TORO
  */
-void *my_memmove(void *destination, const void *source, uint64_t size)
+void *my_memmove(void *destination, const void *source, size_t size)
 {
     char *ptr = destination;
-    int end = 0;
+    bool end = false;
 
     if (destination == NULL || source == NULL)
         return NULL;
-    for (uint64_t index = 0; index < size; index++) {
-        if (end == 1 || ((char *)source)[index] == '\0') {
-            end = 1;
+    for (size_t index = 0; index < size; index++) {
+        if (end == true || ((char *)source)[index] == '\0') {
+            end = true;
             ptr[index] = '\0';
         }
         ptr[index] = ((char *)source)[index];

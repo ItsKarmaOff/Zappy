@@ -27,7 +27,7 @@ extern int my_errno; /* The error number */
 
 /* The information of the my_params_to_array */
 struct info_param {
-    int length; /*The length of the string */
+    size_t length; /* The length of the string */
     char *str; /* The string */
     char *copy; /* The copy of the string */
     char **word_array; /* The array of words */
@@ -102,8 +102,8 @@ typedef struct hashtable_entry_s {
 
 /* The hashtable structures */
 typedef struct hashtable_s {
-    int len; /* The length of the table */
-    int (*hash)(char *, int); /* The hash function */
+    size_t len; /* The length of the table */
+    ssize_t (*hash)(char *, size_t); /* The hash function */
     hashtable_entry_t **table; /* The table */
 } hashtable_t;
 
@@ -153,23 +153,23 @@ typedef union my_long_double_s {
 } my_long_double_t;
 
 typedef struct flag_s {
-    int flag_id;
+    uint8_t flag_id;
     bool attributes[5];
-    int width;
+    ssize_t width;
     bool precision;
-    int precision_value;
-    int specifier_id;
+    size_t precision_value;
+    uint8_t specifier_id;
     char *sign;
 } flag_t;
 
 typedef struct format_s {
     char const *format_str;
     va_list format_list;
-    intmax_t total_len;
+    size_t total_len;
     node_t *str_list;
-    int current_index;
+    size_t current_index;
     flag_t current_flag;
-    int status;
+    bool invalid_status;
 } format_t;
 
 extern const char *format_specifiers[];

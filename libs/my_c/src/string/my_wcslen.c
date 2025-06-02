@@ -15,12 +15,12 @@
 /**
  * @brief Returns the length of a wide string (wcs)
  * @param wcs The wide string to check
- * @return <b>intmax_t</b> The length of the wide string
+ * @return <b>size_t</b> The length of the wide string
  * @author Nicolas TORO
  */
-intmax_t my_wcslen(const wchar_t *wcs)
+size_t my_wcslen(const wchar_t *wcs)
 {
-    intmax_t len = 0;
+    size_t len = 0;
 
     if (wcs == NULL)
         return 0;

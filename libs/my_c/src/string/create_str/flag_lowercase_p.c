@@ -34,7 +34,7 @@ void flag_lowercase_p(format_t *str_struct)
 
     str_list[0] = my_strdup("0x");
     str_list[2] = my_nbr_to_str_unsigned(
-        (uintmax_t)nbr, BASE_16_LOWERCASE, sizeof(void *));
+        (size_t)nbr, BASE_16_LOWERCASE, sizeof(void *));
     str_list[1] = get_precision(str_struct, str_list[1]);
     str_list[3] = get_width(str_struct, str_list, 3);
     add_text(str_struct, str_list);

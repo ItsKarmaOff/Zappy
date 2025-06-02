@@ -167,7 +167,7 @@ static void precise_zero(char *float_nb, int precision)
         my_strcat(float_nb, "0X0P+0");
     } else {
         my_strcat(float_nb, "0X0.");
-        for (int i = 0; i < precision; i++)
+        for (size_t i = 0; i < precision; i++)
             my_strcat(float_nb, "0");
         my_strcat(float_nb, "P+0");
     }

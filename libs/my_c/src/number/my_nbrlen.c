@@ -15,12 +15,12 @@
 /**
  * @brief Returns the length of a number (nb)
  * @param nb The number to check
- * @return <b>intmax_t</b> The length of the number
+ * @return <b>size_t</b> The length of the number
  * @author Nicolas TORO
  */
-intmax_t my_nbrlen(intmax_t nb)
+size_t my_nbrlen(intmax_t nb)
 {
-    int len = 0;
+    size_t len = 0;
 
     if (nb == 0)
         return 1;
