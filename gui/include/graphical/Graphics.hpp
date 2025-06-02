@@ -56,7 +56,7 @@ namespace Gui {
             void drawGame(void);
 
         private:
-            std::shared_ptr<QueueManager> _queueManager; // Référence au gestionnaire de queues
+            std::shared_ptr<QueueManager> _queueManager;
 
             Scene _scene;
             std::unordered_map<Scene, void (Graphics::*)(void)> _handlers;
