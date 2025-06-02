@@ -71,6 +71,9 @@ add_executable(${GUI} ${GUI_SOURCES})
 target_include_directories(${GUI} PRIVATE
     ${CMAKE_SOURCE_DIR}/gui/include
     ${CMAKE_SOURCE_DIR}/gui/include/core
+
+
+    ${CMAKE_SOURCE_DIR}/gui/include/graphical
 )
 find_package(raylib REQUIRED)
 target_link_libraries(${GUI} PUBLIC my_cpp raylib)
