@@ -126,6 +126,8 @@ jobs:
     ######################## GENERATE DOCUMENTATION ###########################
     generate_documentation:
         runs-on: ubuntu-latest
+        container:
+            image: epitechcontent/epitest-docker
         needs: [protect_main_branch, check_program_compilation]
 
         #################### STEPS ############################################
