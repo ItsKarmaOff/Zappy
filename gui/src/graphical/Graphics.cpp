@@ -17,7 +17,8 @@ namespace Gui {
 
     Graphics::~Graphics()
     {
-        CloseWindow();
+        if (IsWindowReady())
+            CloseWindow();
     }
 
     void Graphics::init(void)
