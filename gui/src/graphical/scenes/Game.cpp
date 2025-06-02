@@ -30,8 +30,17 @@ namespace Gui {
         ClearBackground(RAYWHITE);
 
         BeginMode3D(_game->getCamera());
-        DrawCube({0, 0, 0}, 2, 2, 2, DARKBLUE);
-        DrawGrid(10, 1.0f);
+        drawGameMap();
         EndMode3D();
+    }
+
+    void Graphics::drawGameMap(void)
+    {
+        for (int i = 0; i < _game->getMapSize().x; i++) {
+            for (int j = 0; j < _game->getMapSize().y; j++) {
+                DrawCube({(float)i, 0, (float)j}, 1.0f, 1.0f, 1.0f, DARKPURPLE);
+                DrawCubeWires({(float)i, 0.0f, (float)j}, 1.0f, 1.0f, 1.0f, GOLD);
+            }
+        }
     }
 }

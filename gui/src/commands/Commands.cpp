@@ -75,6 +75,8 @@ namespace Gui
             ERROR << "Invalid dimensions for MSZ command: " << width << "x" << height;
 
         DEBUG << "Map size set to: " << width << "x" << height;
+        _graphical.getGame()->getMapSize() = {static_cast<float>(width), static_cast<float>(height)};
+
     }
 
     void Commands::handleBCT(std::string &param)
