@@ -15,35 +15,35 @@
 const option_t options[] = {
     {'p', "port", "port",
         "The port of the server",
-        PORT_OPTION, NULL},
+        PORT_OPTION, &option_port},
     {'x', "width", "width",
         "The width of the world",
-        WIDTH_OPTION, NULL},
+        WIDTH_OPTION, &option_width},
     {'y', "height", "height",
         "The height of the world",
-        HEIGHT_OPTION, NULL},
+        HEIGHT_OPTION, &option_height},
     {'n', "names", "name1 name2 ...",
         "The names of the teams",
-        NAMES_OPTION, NULL},
+        NAMES_OPTION, &option_names},
     {'c', "clients", "clientsNb",
         "The number of clients per team",
-        CLIENTS_OPTION, NULL},
+        CLIENTS_OPTION, &option_clients},
     {'f', "frequency", "frequency",
         "The reciprocal of time unit for execution of action",
-        FREQUENCY_OPTION, NULL},
+        FREQUENCY_OPTION, &option_frequency},
     {'h', "help", "",
         "Display this help message",
-        NOT_REQUIRED, NULL},
+        NOT_REQUIRED, &option_help},
     {'v', "version", "",
         "Display the version of the server",
-        NOT_REQUIRED, NULL},
+        NOT_REQUIRED, &option_version},
     {'a', "authors", "",
         "Display the authors of the project",
-        NOT_REQUIRED, NULL},
+        NOT_REQUIRED, &option_authors},
     {0, NULL, NULL, NULL, NOT_REQUIRED, NULL}
 };
 
-static void analyse_arg(server_t *server, int argc, char **argv, int *index)
+static void analyse_arg(server_t *server, int argc, char **argv, size_t *index)
 {
     for (size_t option_index = 0; options[option_index].short_name != 0;
     option_index++) {
@@ -80,7 +80,7 @@ static void missing_options(uint32_t options_found)
 void init_server_from_args(server_t *server, int argc, char **argv)
 {
     server->game = my_calloc(1, sizeof(game_t));
-    for (int index = 1; index < argc; index++) {
+    for (size_t index = 1; index < (size_t)argc; index++) {
         analyse_arg(server, argc, argv, &index);
     }
     if (server->options_found != (PORT_OPTION | WIDTH_OPTION | HEIGHT_OPTION |

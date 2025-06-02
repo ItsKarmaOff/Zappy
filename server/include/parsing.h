@@ -15,6 +15,14 @@
 
     #include "data_structures.h"
 
+
+
+/* Options types and structures */
+
+/**
+ * @enum option_type_e
+ * @brief Represents the type of an option
+ */
 typedef enum option_type_e {
     NOT_REQUIRED = 0, /* The option is not required */
     PORT_OPTION = 1 << 0, /* The option is a port option */
@@ -35,11 +43,101 @@ typedef struct option_s {
     const char *data; /* The data associated with the option */
     const char *description; /* The description of the option */
     option_type_t type; /* The type of the option */
-    void (*function)(server_t *server, int argc, char **argv, int *index);
+    void (*function)(server_t *server, int argc, char **argv, size_t *index);
     /* The function to call for the option */
 } option_t;
 
 extern const option_t options[]; /* The array of argument functions */
+
+
+
+/* Options functions */
+
+/**
+ * @biref Display the authors of the project
+ * @param server The server instance
+ * @param argc The number of program arguments
+ * @param argv The program arguments
+ * @param index The index of the current argument being processed
+ * @throw SUCCESS If the authors are displayed successfully
+ */
+void option_authors(server_t *server, int argc, char **argv, size_t *index);
+
+/**
+ * @biref Set the number of clients per team of the server
+ * @param server The server instance to set the number of clients for
+ * @param argc The number of program arguments
+ * @param argv The program arguments
+ * @param index The index of the current argument being processed
+ */
+void option_clients(server_t *server, int argc, char **argv, size_t *index);
+
+/**
+ * @biref Set the frequency of the server
+ * @param server The server instance to set the frequency for
+ * @param argc The number of program arguments
+ * @param argv The program arguments
+ * @param index The index of the current argument being processed
+ */
+void option_frequency(server_t *server, int argc, char **argv, size_t *index);
+
+/**
+ * @biref Set the height of the server
+ * @param server The server instance to set the height for
+ * @param argc The number of program arguments
+ * @param argv The program arguments
+ * @param index The index of the current argument being processed
+ */
+void option_height(server_t *server, int argc, char **argv, size_t *index);
+
+/**
+ * @biref Display the help message for the program
+ * @param server The server instance
+ * @param argc The number of program arguments
+ * @param argv The program arguments
+ * @param index The index of the current argument being processed
+ */
+void option_help(server_t *server, int argc, char **argv, size_t *index);
+
+/**
+ * @biref Set the names of the teams for the server
+ * @param server The server instance to set the names of the teams for
+ * @param argc The number of program arguments
+ * @param argv The program arguments
+ * @param index The index of the current argument being processed
+ */
+void option_names(server_t *server, int argc, char **argv, size_t *index);
+
+/**
+ * @biref Set the port of the server
+ * @param server The server instance to set the port for
+ * @param argc The number of program arguments
+ * @param argv The program arguments
+ * @param index The index of the current argument being processed
+ */
+void option_port(server_t *server, int argc, char **argv, size_t *index);
+
+/**
+ * @biref Display the version of the program
+ * @param server The server instance
+ * @param argc The number of program arguments
+ * @param argv The program arguments
+ * @param index The index of the current argument being processed
+ */
+void option_version(server_t *server, int argc, char **argv, size_t *index);
+
+/**
+ * @biref Set the width of the server
+ * @param server The server instance to set the width for
+ * @param argc The number of program arguments
+ * @param argv The program arguments
+ * @param index The index of the current argument being processed
+ */
+void option_width(server_t *server, int argc, char **argv, size_t *index);
+
+
+
+/* Global functions */
 
 /**
  * @brief Initializes the server from command line arguments
