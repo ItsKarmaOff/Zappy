@@ -20,7 +20,7 @@ namespace Gui
     //////////////////////// Constructors and Destructor ///////////////////////
 
     Core::Core(int argc, char **argv)
-        : _port(-1), _hostname("")
+        : _port(-1), _hostname(""), _graphics()
     {
         DEBUG << "Initializing Core";
 
@@ -35,6 +35,8 @@ namespace Gui
     void Core::run()
     {
         DEBUG << "Running Core";
+        _graphics.init();
+        _graphics.run();
     }
 
 
@@ -91,58 +93,58 @@ namespace Gui
     {
         DEBUG << "Parsing arguments";
 
-        if (argc == 2 && (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0)) {
-            printUsage();
-            return;
-        } else if (strcmp(argv[1], "-a") == 0 || strcmp(argv[1], "--author") == 0) {
-            std::cout << "Authors:" << std::endl;
-            std::cout << "\tChristophe VANDEVOIR" << std::endl;
-            std::cout << "\tGianni TUERO" << std::endl;
-            std::cout << "\tLou PELLEGRINO" << std::endl;
-            std::cout << "\tNicolas TORO" << std::endl;
-            std::cout << "\tOlivier POUECH" << std::endl;
-            std::cout << "\tRaphael LAUNAY" << std::endl;
-            return;
-        } else if (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0) {
-            std::cout << "Zappy GUI version 1.0" << std::endl;
-            return;
-        }
+        // if (argc == 2 && (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0)) {
+        //     printUsage();
+        //     return;
+        // } else if (strcmp(argv[1], "-a") == 0 || strcmp(argv[1], "--author") == 0) {
+        //     std::cout << "Authors:" << std::endl;
+        //     std::cout << "\tChristophe VANDEVOIR" << std::endl;
+        //     std::cout << "\tGianni TUERO" << std::endl;
+        //     std::cout << "\tLou PELLEGRINO" << std::endl;
+        //     std::cout << "\tNicolas TORO" << std::endl;
+        //     std::cout << "\tOlivier POUECH" << std::endl;
+        //     std::cout << "\tRaphael LAUNAY" << std::endl;
+        //     return;
+        // } else if (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0) {
+        //     std::cout << "Zappy GUI version 1.0" << std::endl;
+        //     return;
+        // }
 
-        if (argc < 5) {
-            printUsage();
-            throw std::invalid_argument("Not enough arguments provided");
-        } else if (argc > 5) {
-            printUsage();
-            throw std::invalid_argument("Too many arguments provided");
-        }
+        // if (argc < 5) {
+        //     printUsage();
+        //     throw std::invalid_argument("Not enough arguments provided");
+        // } else if (argc > 5) {
+        //     printUsage();
+        //     throw std::invalid_argument("Too many arguments provided");
+        // }
 
-        for (int index = 1; index < argc; index++) {
-            if (strcmp(argv[index], "-p") == 0) {
-                if (index + 1 < argc) {
-                    setPort(std::stoi(argv[index + 1]));
-                    index++;
-                } else {
-                    throw std::invalid_argument("Missing port number after -p");
-                }
-            } else if (strcmp(argv[index], "-h") == 0) {
-                if (index + 1 < argc) {
-                    setHostname(argv[index + 1]);
-                    index++;
-                } else {
-                    throw std::invalid_argument("Missing hostname after -h");
-                }
-            } else {
-                throw std::invalid_argument("Unknown argument: " + std::string(argv[index]));
-            }
-        }
+        // for (int index = 1; index < argc; index++) {
+        //     if (strcmp(argv[index], "-p") == 0) {
+        //         if (index + 1 < argc) {
+        //             setPort(std::stoi(argv[index + 1]));
+        //             index++;
+        //         } else {
+        //             throw std::invalid_argument("Missing port number after -p");
+        //         }
+        //     } else if (strcmp(argv[index], "-h") == 0) {
+        //         if (index + 1 < argc) {
+        //             setHostname(argv[index + 1]);
+        //             index++;
+        //         } else {
+        //             throw std::invalid_argument("Missing hostname after -h");
+        //         }
+        //     } else {
+        //         throw std::invalid_argument("Unknown argument: " + std::string(argv[index]));
+        //     }
+        // }
 
-        if (_port == -1) {
-            throw std::invalid_argument("Port number is required");
-        }
+        // if (_port == -1) {
+        //     throw std::invalid_argument("Port number is required");
+        // }
 
-        if (_hostname.empty()) {
-            throw std::invalid_argument("Hostname is required");
-        }
-        DEBUG << "Parsed arguments: port= " << getPort() << ", hostname= " << getHostname();
+        // if (_hostname.empty()) {
+        //     throw std::invalid_argument("Hostname is required");
+        // }
+        // DEBUG << "Parsed arguments: port= " << getPort() << ", hostname= " << getHostname();
     }
 }
