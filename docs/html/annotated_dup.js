@@ -1,5 +1,10 @@
 var annotated_dup =
 [
+    [ "Gui", null, [
+      [ "Core", "classGui_1_1Core.html", "classGui_1_1Core" ],
+      [ "GameInfo", "classGui_1_1GameInfo.html", null ],
+      [ "Graphics", "classGui_1_1Graphics.html", null ]
+    ] ],
     [ "Lib", null, [
       [ "Logs", null, [
         [ "Debug", "classLib_1_1Logs_1_1Debug.html", "classLib_1_1Logs_1_1Debug" ],
@@ -7,16 +12,56 @@ var annotated_dup =
         [ "Time", "classLib_1_1Logs_1_1Time.html", null ],
         [ "Warning", "classLib_1_1Logs_1_1Warning.html", "classLib_1_1Logs_1_1Warning" ]
       ] ],
-      [ "Exceptions", "classLib_1_1Exceptions.html", "classLib_1_1Exceptions" ]
+      [ "Exceptions", "classLib_1_1Exceptions.html", "classLib_1_1Exceptions" ],
+      [ "Socket", "classLib_1_1Socket.html", "classLib_1_1Socket" ]
     ] ],
+    [ "AudioStream", "structAudioStream.html", null ],
+    [ "AutomationEvent", "structAutomationEvent.html", null ],
+    [ "AutomationEventList", "structAutomationEventList.html", null ],
+    [ "BoneInfo", "structBoneInfo.html", null ],
+    [ "BoundingBox", "structBoundingBox.html", null ],
+    [ "Camera2D", "structCamera2D.html", null ],
+    [ "Camera3D", "structCamera3D.html", null ],
+    [ "Color", "structColor.html", null ],
     [ "color_argb_u", "unioncolor__argb__u.html", null ],
+    [ "FilePathList", "structFilePathList.html", null ],
     [ "flag_s", "structflag__s.html", null ],
+    [ "float16", "structfloat16.html", null ],
+    [ "float3", "structfloat3.html", null ],
+    [ "Font", "structFont.html", null ],
     [ "format_s", "structformat__s.html", null ],
+    [ "GlyphInfo", "structGlyphInfo.html", null ],
     [ "hashtable_entry_s", "structhashtable__entry__s.html", null ],
     [ "hashtable_s", "structhashtable__s.html", null ],
+    [ "Image", "structImage.html", null ],
     [ "info_param", "structinfo__param.html", null ],
+    [ "Material", "structMaterial.html", null ],
+    [ "MaterialMap", "structMaterialMap.html", null ],
+    [ "Matrix", "structMatrix.html", null ],
+    [ "Mesh", "structMesh.html", null ],
+    [ "Model", "structModel.html", null ],
+    [ "ModelAnimation", "structModelAnimation.html", null ],
+    [ "Music", "structMusic.html", null ],
     [ "my_double_s", "unionmy__double__s.html", null ],
     [ "my_long_double_s", "unionmy__long__double__s.html", null ],
     [ "node_s", "structnode__s.html", null ],
-    [ "number_settings_s", "structnumber__settings__s.html", null ]
+    [ "NPatchInfo", "structNPatchInfo.html", null ],
+    [ "number_settings_s", "structnumber__settings__s.html", null ],
+    [ "Ray", "structRay.html", null ],
+    [ "RayCollision", "structRayCollision.html", null ],
+    [ "Rectangle", "structRectangle.html", null ],
+    [ "RenderTexture", "structRenderTexture.html", null ],
+    [ "rlDrawCall", "structrlDrawCall.html", null ],
+    [ "rlRenderBatch", "structrlRenderBatch.html", null ],
+    [ "rlVertexBuffer", "structrlVertexBuffer.html", null ],
+    [ "Shader", "structShader.html", null ],
+    [ "Sound", "structSound.html", null ],
+    [ "Texture", "structTexture.html", null ],
+    [ "Transform", "structTransform.html", null ],
+    [ "Vector2", "structVector2.html", null ],
+    [ "Vector3", "structVector3.html", null ],
+    [ "Vector4", "structVector4.html", null ],
+    [ "VrDeviceInfo", "structVrDeviceInfo.html", null ],
+    [ "VrStereoConfig", "structVrStereoConfig.html", null ],
+    [ "Wave", "structWave.html", null ]
 ];

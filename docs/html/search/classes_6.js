@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['my_5fdouble_5fs_0',['my_double_s',['../unionmy__double__s.html',1,'']]],
-  ['my_5flong_5fdouble_5fs_1',['my_long_double_s',['../unionmy__long__double__s.html',1,'']]]
+  ['gameinfo_0',['GameInfo',['../classGui_1_1GameInfo.html',1,'Gui']]],
+  ['glyphinfo_1',['GlyphInfo',['../structGlyphInfo.html',1,'']]],
+  ['graphics_2',['Graphics',['../classGui_1_1Graphics.html',1,'Gui']]]
 ];

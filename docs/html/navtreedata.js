@@ -25,17 +25,41 @@
 var NAVTREE =
 [
   [ "Zappy documentation", "index.html", [
-    [ "GitHub Commit Standards Guide - Zappy Project", "md_docs_2COMMIT__POLICIES.html", [
-      [ "Table of Contents", "md_docs_2COMMIT__POLICIES.html#autotoc_md1", null ],
-      [ "Introduction", "md_docs_2COMMIT__POLICIES.html#autotoc_md2", null ],
-      [ "Commit message format", "md_docs_2COMMIT__POLICIES.html#autotoc_md3", [
-        [ "Basic rules", "md_docs_2COMMIT__POLICIES.html#autotoc_md4", null ]
+    [ "GitHub Commit Standards Guide - Zappy Project", "md_docs_COMMIT_POLICIES.html", [
+      [ "Table of Contents", "md_docs_COMMIT_POLICIES.html#autotoc_md1", null ],
+      [ "Introduction", "md_docs_COMMIT_POLICIES.html#autotoc_md2", null ],
+      [ "Commit message format", "md_docs_COMMIT_POLICIES.html#autotoc_md3", [
+        [ "Basic rules", "md_docs_COMMIT_POLICIES.html#autotoc_md4", null ]
       ] ],
-      [ "Commit types", "md_docs_2COMMIT__POLICIES.html#autotoc_md5", [
-        [ "Main types (Conventional Commits)", "md_docs_2COMMIT__POLICIES.html#autotoc_md6", null ]
+      [ "Commit types", "md_docs_COMMIT_POLICIES.html#autotoc_md5", [
+        [ "Main types (Conventional Commits)", "md_docs_COMMIT_POLICIES.html#autotoc_md6", null ]
+      ] ]
+    ] ],
+    [ "Zappy GUI", "md_gui_README.html", [
+      [ "Description", "md_gui_README.html#autotoc_md8", null ],
+      [ "Game Overview", "md_gui_README.html#autotoc_md9", null ],
+      [ "Usage", "md_gui_README.html#autotoc_md10", [
+        [ "Parameters", "md_gui_README.html#autotoc_md11", null ],
+        [ "Example", "md_gui_README.html#autotoc_md12", null ]
+      ] ],
+      [ "Features", "md_gui_README.html#autotoc_md13", null ],
+      [ "Communication Protocol", "md_gui_README.html#autotoc_md14", [
+        [ "Main Messages Received", "md_gui_README.html#autotoc_md15", null ],
+        [ "Commands Sent to Server", "md_gui_README.html#autotoc_md16", null ]
       ] ]
     ] ],
     [ "Zappy", "md_README.html", null ],
+    [ "Zappy Server", "md_ressources_README.html", [
+      [ "Usage", "md_ressources_README.html#autotoc_md19", null ],
+      [ "AI protocol", "md_ressources_README.html#autotoc_md20", null ],
+      [ "GUI protocol", "md_ressources_README.html#autotoc_md21", null ],
+      [ "Informations", "md_ressources_README.html#autotoc_md22", [
+        [ "Incantations", "md_ressources_README.html#autotoc_md23", null ]
+      ] ],
+      [ "Bonus", "md_ressources_README.html#autotoc_md24", [
+        [ "Server commands", "md_ressources_README.html#autotoc_md25", null ]
+      ] ]
+    ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -57,9 +81,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"Exceptions_8hpp.html",
-"functions_8h.html#af6cd0c8bfa69e5530a827131eb25e1ba",
-"my__strcat_8c.html#aa6386bacc109fe5e088fa6b21aefda38"
+"Core_8cpp.html",
+"functions_8h.html#aaeb468cc70a0de0ed1192bbd1d5aed74",
+"my__putstr__fd_8c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['debug_0',['Debug',['../classLib_1_1Logs_1_1Debug.html',1,'Lib::Logs']]]
+  ['boneinfo_0',['BoneInfo',['../structBoneInfo.html',1,'']]],
+  ['boundingbox_1',['BoundingBox',['../structBoundingBox.html',1,'']]]
 ];
