@@ -65,13 +65,40 @@ target_compile_options(${AI} PRIVATE -Wall -Wextra -Werror -Wno-unused-result -W
 
 
 ############################ GUI ##############################################
+option(USE_LOCAL_RAYLIB "Force using local raylib instead of system package" OFF)
+
 set(GUI "zappy_gui")
 file(GLOB_RECURSE GUI_SOURCES "gui/src/*.cpp")
 add_executable(${GUI} ${GUI_SOURCES})
 target_include_directories(${GUI} PRIVATE
     ${CMAKE_SOURCE_DIR}/gui/include
+    ${CMAKE_SOURCE_DIR}/gui/include/core
+    ${CMAKE_SOURCE_DIR}/gui/include/graphical
 )
-target_link_libraries(${GUI} PUBLIC my_cpp)
+
+if(USE_LOCAL_RAYLIB)
+    message(STATUS "Forced to use local raylib")
+    set(raylib_FOUND FALSE)
+else()
+    find_package(raylib QUIET)
+endif()
+
+if(raylib_FOUND)
+    message(STATUS "Using system raylib package")
+    target_link_libraries(${GUI} PUBLIC my_cpp raylib)
+else()
+    message(STATUS "Using local raylib from bonus/libs/raylib")
+
+    if(EXISTS "${CMAKE_SOURCE_DIR}/bonus/libs/raylib/CMakeLists.txt")
+        set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+        set(BUILD_GAMES OFF CACHE BOOL "" FORCE)
+        add_subdirectory(bonus/libs/raylib)
+        target_link_libraries(${GUI} PUBLIC my_cpp raylib)
+    else()
+        message(FATAL_ERROR "Local raylib not found in bonus/libs/raylib/!")
+    endif()
+endif()
+
 target_compile_options(${GUI} PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
 ###############################################################################
 
@@ -150,17 +177,23 @@ add_custom_target(clean_all
 
 
 ############################ DOCUMENTATION ####################################
-find_package(Doxygen QUIET)
+OPTION(DOC_ONLY "Build documentation only, skip all executables and libraries" OFF)
 
-if(DOXYGEN_FOUND)
-    add_custom_target(doc
-        COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_SOURCE_DIR}/Doxyfile
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-        COMMENT "Generating documentation with Doxygen"
-    )
-else()
-    add_custom_target(doc
-        COMMAND ${CMAKE_COMMAND} -E echo "Doxygen not found, documentation will not be generated"
-    )
+if(DOC_ONLY)
+    find_package(Doxygen QUIET)
+
+    if(DOXYGEN_FOUND)
+        add_custom_target(doc
+            COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_SOURCE_DIR}/Doxyfile
+            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+            COMMENT "Generating documentation with Doxygen"
+        )
+    else()
+        add_custom_target(doc
+            COMMAND ${CMAKE_COMMAND} -E echo "Doxygen not found, documentation will not be generated"
+        )
+    endif()
+    
+    return()
 endif()
 ###############################################################################
