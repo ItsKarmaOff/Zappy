@@ -15,4 +15,10 @@
 
     #include "data_structures.h"
 
+/**
+ * @brief Configure and start the server
+ * @param server The server to configure and start
+ */
+void start_server(server_t *server);
+
 #endif /* NETWORK_H_ */

@@ -59,7 +59,7 @@ typedef struct server_s {
     struct pollfd *poll_fds; /* The poll file descriptors */
     size_t max_clients_number; /* The maximum number of clients */
     size_t current_clients_number; /* The current number of clients */
-    node_t *client_list; /* The list of connected clients */
+    client_t **client_list; /* The list of connected clients */
 
     game_t game; /* The game structure */
 } server_t;
