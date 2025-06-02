@@ -51,7 +51,7 @@ namespace Gui
             /**
              * @brief Construct a new Commands object.
              */
-            Commands();
+            Commands(Graphics &graphical);
 
             /**
              * @brief Destroy the Commands object.
@@ -65,130 +65,131 @@ namespace Gui
         /**
          * @brief Handle a command.
          */
-        void handleCommand(std::shared_ptr<QueueManager> &, Graphics &);
+        void handleCommand(std::shared_ptr<QueueManager> &);
 
         /**
          * @brief Handle the MSZ command.
          */
-        void handleMSZ(std::string param);
+        void handleMSZ(std::string &param);
 
         /**
          * @brief Handle the BCT command.
          */
-        void handleBCT(std::string param);
+        void handleBCT(std::string &param);
 
         /**
          * @brief Handle the TNA command.
          */
-        void handleTNA(std::string param);
+        void handleTNA(std::string &param);
 
         /**
          * @brief Handle the PNW command.
          */
-        void handlePNW(std::string param);
+        void handlePNW(std::string &param);
 
         /**
          * @brief Handle the PPO command.
          */
-        void handlePPO(std::string param);
+        void handlePPO(std::string &param);
 
         /**
          * @brief Handle the PLV command.
          */
-        void handlePLV(std::string param);
+        void handlePLV(std::string &param);
 
         /**
          * @brief Handle the PIN command.
          */
-        void handlePIN(std::string param);
+        void handlePIN(std::string &param);
 
         /**
          * @brief Handle the PEX command.
          */
-        void handlePEX(std::string param);
+        void handlePEX(std::string &param);
 
         /**
          * @brief Handle the PBC command.
          */
-        void handlePBC(std::string param);
+        void handlePBC(std::string &param);
 
         /**
          * @brief Handle the PIC command.
          */
-        void handlePIC(std::string param);
+        void handlePIC(std::string &param);
 
         /**
          * @brief Handle the PIE command.
          */
-        void handlePIE(std::string param);
+        void handlePIE(std::string &param);
 
         /**
          * @brief Handle the PFK command.
          */
-        void handlePFK(std::string param);
+        void handlePFK(std::string &param);
 
         /**
          * @brief Handle the PDR command.
          */
-        void handlePDR(std::string param);
+        void handlePDR(std::string &param);
 
         /**
          * @brief Handle the PGT command.
          */
-        void handlePGT(std::string param);
+        void handlePGT(std::string &param);
 
         /**
          * @brief Handle the PDI command.
          */
-        void handlePDI(std::string param);
+        void handlePDI(std::string &param);
 
         /**
          * @brief Handle the ENW command.
          */
-        void handleENW(std::string param);
+        void handleENW(std::string &param);
 
         /**
          * @brief Handle the EBO command.
          */
-        void handleEBO(std::string param);
+        void handleEBO(std::string &param);
 
         /**
          * @brief Handle the EDI command.
          */
-        void handleEDI(std::string param);
+        void handleEDI(std::string &param);
 
         /**
          * @brief Handle the SGT command.
          */
-        void handleSGT(std::string param);
+        void handleSGT(std::string &param);
 
         /**
          * @brief Handle the SST command.
          */
-        void handleSST(std::string param);
+        void handleSST(std::string &param);
 
         /**
          * @brief Handle the SEG command.
          */
-        void handleSEG(std::string param);
+        void handleSEG(std::string &param);
 
         /**
          * @brief Handle the SMG command.
          */
-        void handleSMG(std::string param);
+        void handleSMG(std::string &param);
 
         /**
          * @brief Handle the SUC command.
          */
-        void handleSUC(std::string param);
+        void handleSUC(std::string &param);
 
         /**
          * @brief Handle the SDP command.
          */
-        void handleSDP(std::string param);
+        void handleSDP(std::string &param);
 
     private:
-        std::unordered_map<std::string, std::function<void(std::string)>> _commandHandlers;
+        std::unordered_map<std::string, std::function<void(std::string &)>> _commandHandlers;
+        Graphics &_graphical; // Reference to the graphical object for drawing
     };
 }
 

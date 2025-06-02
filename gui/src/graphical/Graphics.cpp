@@ -50,10 +50,10 @@ namespace Gui {
 
     void Graphics::run(std::atomic<bool> &isRunning)
     {
-        Commands cmd;
+        Commands cmd(*this);
         while (!WindowShouldClose() && isRunning == true) {
             _mousePos = GetMousePosition();
-            cmd.handleCommand(_queueManager, *this);
+            cmd.handleCommand(_queueManager);
             handleEvents();
             update();
             draw();

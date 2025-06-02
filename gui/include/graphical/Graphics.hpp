@@ -36,6 +36,15 @@ namespace Gui {
             Graphics(std::shared_ptr<QueueManager> queueManager);
             ~Graphics();
 
+        ////////////////////////////////////// GETTERS //////////////////////////////////////
+            Scene &getScene(void) { return _scene; }
+            std::shared_ptr<GameInfo> &getGame(void) { return _game; }
+            std::shared_ptr<MenuInfo> &getMenu(void) { return _menu; }
+            Vector2 &getMousePos(void) { return _mousePos; }
+            std::shared_ptr<QueueManager> &getQueueManager(void) { return _queueManager; }
+
+
+        ////////////////////////////////////// GRAPHIC //////////////////////////////////////
             void init(void);
             void run(std::atomic<bool> &);
         private:
