@@ -24,11 +24,8 @@ namespace gui
     {
         DEBUG << "Initializing Core";
 
-        try {
-            parseArguments(argc, argv);
-        } catch (const std::exception &e) {
-            ERROR << "EXCEPTION: " << e.what();
-        }
+        parseArguments(argc, argv);
+
     }
 
 

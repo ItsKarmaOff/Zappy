@@ -95,6 +95,7 @@ namespace gui
             void parseArguments(int argc, char **argv);
 
 
+
             //////////////// Private Attributes ////////////////////////////////
 
             int _port;  // The port number for the server connection
