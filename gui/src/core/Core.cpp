@@ -77,6 +77,8 @@ namespace Gui
             ERROR << "Server closed the connection.";
             isRunning = false;
         }
+        while (!response.empty() && response.back() == '\n')
+            response.pop_back();
         DEBUG << response;
         return response;
     }
