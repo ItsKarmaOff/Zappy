@@ -15,7 +15,7 @@
 #include "Logs.hpp"
 #include <cstring>
 
-namespace gui
+namespace Gui
 {
     //////////////////////// Constructors and Destructor ///////////////////////
 

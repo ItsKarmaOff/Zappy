@@ -9,8 +9,9 @@
     #define CORE_HPP
 
     #include <string>
+    #include "Graphics.hpp"
 
-namespace gui
+namespace Gui
 {
     /**
      * @class Core
@@ -100,6 +101,7 @@ namespace gui
 
             int _port;  // The port number for the server connection
             std::string _hostname;  // The hostname for the server connection
+            Graphics _graphics;
     };
 }
 
