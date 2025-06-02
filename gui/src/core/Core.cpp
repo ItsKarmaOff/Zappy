@@ -217,7 +217,7 @@ namespace Gui
     {
         std::string response;
 
-        while (isRunning.load()) {
+        while (isRunning) {
             std::unique_lock<std::mutex> lockCommandQueue(_commandsQueueMutex);
             if (!_commandsQueue.empty()) {
                 std::vector<std::string> command = _commandsQueue.front();
