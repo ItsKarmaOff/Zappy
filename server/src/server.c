@@ -24,7 +24,4 @@ server_t *create_server(int argc, char **argv)
 void run(server_t *server)
 {
     DEBUG("Server is running\n");
-    //while (true) {
-
-    //}
 }
