@@ -17,17 +17,31 @@ namespace Gui {
                 _game = std::make_shared<GameInfo>();
             DisableCursor();
         }
+        if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) {
+            if (CheckCollisionPointRec(_mousePos, _menu->getPlayButton())) {
+                _scene = GAME;
+                if (!_game)
+                    _game = std::make_shared<GameInfo>();
+                DisableCursor();
+            }
+        }
     }
 
     void Graphics::updateMenu(void)
     {
-
+        float width = GetScreenWidth() / 5;
+        float height = GetScreenHeight() / 10;
+        _menu->getPlayButton() = {
+            GetScreenWidth() / 2 - width / 2,
+            GetScreenHeight() / 2 - height / 2,
+            width, height
+        };
     }
 
     void Graphics::drawMenu(void)
     {
         ClearBackground(RAYWHITE);
-        DrawText("Press SPACE gros fils de pute !", GetScreenWidth() / 2 - 20, GetScreenHeight() / 2, 34, DARKPURPLE);
-        // DrawRectangleRounded(Rectangle rec, float roundness, int segments, Color color)
+        DrawRectangleRoundedLines(_menu->getPlayButton(), 0.2f, 10, DARKPURPLE);
+        DrawText("fdp", GetScreenWidth() / 2 - 20, GetScreenHeight() / 2, _menu->getPlayButton().height / 2, DARKPURPLE);
     }
 }
