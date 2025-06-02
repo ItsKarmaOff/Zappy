@@ -134,18 +134,22 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4.1.1
+              with:
+                fetch-depth: 0  # Récupère tout l'historique
+                token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Install doxygen
               run: |
-                sudo apt-get update
-                sudo apt-get install -y cmake doxygen graphviz
+                apt-get update
+                apt-get install -y cmake doxygen graphviz
             - name: Generate documentation
               run: cmake -B build -S . -DDOC_ONLY=ON && make doc -s -C build -j
 
             - name: Configure Git
               run: |
-                git config --local user.email "action@github.com"
-                git config --local user.name "GitHub Actions"
+                git config --global user.email "action@github.com"
+                git config --global user.name "GitHub Actions"
+                git config --global --add safe.directory $(pwd)
             #- name: Check for changes
             #  id: verify-changed-files
             #  run: |
