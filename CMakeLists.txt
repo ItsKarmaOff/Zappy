@@ -72,7 +72,8 @@ target_include_directories(${GUI} PRIVATE
     ${CMAKE_SOURCE_DIR}/gui/include
     ${CMAKE_SOURCE_DIR}/gui/include/core
 )
-target_link_libraries(${GUI} PUBLIC my_cpp)
+find_package(raylib REQUIRED)
+target_link_libraries(${GUI} PUBLIC my_cpp raylib)
 target_compile_options(${GUI} PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
 ###############################################################################
 
