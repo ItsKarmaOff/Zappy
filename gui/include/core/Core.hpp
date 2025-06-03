@@ -126,7 +126,7 @@ namespace Gui
 			 */
             void _gameThread();
 
-
+            void manual();
 
             //////////////// Private Attributes ////////////////////////////////
 

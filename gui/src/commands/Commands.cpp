@@ -98,6 +98,8 @@ namespace Gui
             ERROR << "Team name cannot be empty for TNA command";
 
         DEBUG_CONCAT << "Team name set to: " << teamName;
+        if (!_graphical.getTeams().contains(teamName))
+            _graphical.getTeams()[teamName] = 0;
     }
 
     void Commands::handlePNW(std::string &param)

@@ -11,6 +11,7 @@
     #include <cstddef>
     #include <memory>
 #include <queue>
+#include <string>
     #include <unordered_map>
     #include "GameInfo.hpp"
 #include "MenuInfo.hpp"
@@ -48,6 +49,7 @@ namespace Gui {
             Vector2 &getMousePos(void) { return _mousePos; }
             std::shared_ptr<QueueManager> &getQueueManager(void) { return _queueManager; }
             ConnectionState state;
+            std::unordered_map<std::string, int> &getTeams(void) { return _teams; }
 
 
         ////////////////////////////////////// GRAPHIC //////////////////////////////////////
@@ -73,15 +75,17 @@ namespace Gui {
 
         private:
             std::shared_ptr<QueueManager> _queueManager;
-
             Scene _scene;
+            Vector2 _mousePos;
             std::unordered_map<Scene, void (Graphics::*)(void)> _handlers;
             std::unordered_map<Scene, void (Graphics::*)(void)> _updaters;
             std::unordered_map<Scene, void (Graphics::*)(void)> _drawers;
 
-            std::shared_ptr<GameInfo> _game;
+
             std::shared_ptr<MenuInfo> _menu;
-            Vector2 _mousePos;
+            std::shared_ptr<GameInfo> _game;
+            // int = temporaire
+            std::unordered_map<std::string, int> _teams;
     };
 }
 

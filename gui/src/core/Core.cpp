@@ -12,8 +12,11 @@
  */
 
 #include "Core.hpp"
+#include "Lib.hpp"
 #include "Logs.hpp"
+#include <iostream>
 #include <mutex>
+#include <string>
 
 namespace Gui
 {
@@ -39,9 +42,24 @@ namespace Gui
         isRunning = true;
 
         std::thread communicationThread(&Core::_communicationThread, this);
+        std::thread debug(&Core::manual, this);
         _gameThread();
 
         communicationThread.join();
+        debug.join();
+    }
+
+    void Core::manual()
+    {
+        while (isRunning) {
+            std::string buffer;
+            if (!std::getline(std::cin, buffer)) {
+                ERROR << "Can't getline";
+                continue;
+            }
+            std::vector<std::string> cmd = Lib::stringToVector(buffer, " \t\n");
+            _queueManager->pushCommand(cmd);
+        }
     }
 
     void Core::sendCommand(int fd, const std::vector<std::string> &command)
@@ -82,7 +100,6 @@ namespace Gui
         DEBUG << "Received: [" << response << "]";
         return response;
     }
-
 
 
     //////////////////////// Getters ///////////////////////////////////////////
