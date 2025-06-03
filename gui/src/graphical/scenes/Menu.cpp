@@ -55,7 +55,7 @@ namespace Gui {
     {
         ClearBackground(RAYWHITE);
         for (const auto &button : _menu->getButtons()) {
-            DrawRectangleRounded(button.getButton(), 0.2f, 10, button.getCurrentColor());
+            DrawRectangleRounded(button.getButton(), 0.2f, 1, button.getCurrentColor());
             if (!button.getText().empty()) {
                 Vector2 textPos = button.getCenteredPositionForText(button.getSize().y / 2);
                 DrawText(button.getText().c_str(), textPos.x, textPos.y, button.getSize().y / 2, button.getTextColor());

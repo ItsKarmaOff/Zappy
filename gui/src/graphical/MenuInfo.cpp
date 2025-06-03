@@ -25,10 +25,10 @@ namespace Gui {
             {width, height}) // Exit button
         };
 
-        _buttons[PLAY_BUTTON].setText("Play", SKYBLUE);
-        _buttons[EXIT_BUTTON].setText("Exit", MAROON);
-        _buttons[PLAY_BUTTON].setColors({GREEN, DARKGRAY}); // Default colors for play button
-        _buttons[EXIT_BUTTON].setColors({RED, DARKGRAY}); // Default colors for exit button
+        _buttons[PLAY_BUTTON].setText("Play", WHITE);
+        _buttons[EXIT_BUTTON].setText("Exit", WHITE);
+        _buttons[PLAY_BUTTON].setColors({DARKGREEN, LIME}); // Default colors for play button
+        _buttons[EXIT_BUTTON].setColors({MAROON, RED}); // Default colors for exit button
     }
 
 

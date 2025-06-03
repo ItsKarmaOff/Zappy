@@ -55,7 +55,7 @@ namespace Gui {
         _button = button;
         _pos = {button.x, button.y};
         _size = {button.width, button.height};
-        _colors = {WHITE, DARKGRAY}; // Default colors, can be changed later
+        _colors = {YELLOW, DARKGRAY}; // Default colors, can be changed later
     }
 
     void Button::setPosition(const Vector2 &pos)

@@ -97,7 +97,7 @@ namespace Gui
         if (teamName.empty())
             ERROR << "Team name cannot be empty for TNA command";
 
-        DEBUG << "Team name set to: " << teamName;
+        DEBUG_CONCAT << "Team name set to: " << teamName;
     }
 
     void Commands::handlePNW(std::string &param)
@@ -130,7 +130,7 @@ namespace Gui
 
         playerId = std::stoi(player.substr(1));
 
-        DEBUG << "Player #" << playerId << " level set to: " << level;
+        DEBUG_CONCAT << "Player #" << playerId << " level set to: " << level;
     }
 
     void Commands::handlePIN(std::string &param)
