@@ -6,22 +6,21 @@
 */
 
 #include "Graphics.hpp"
+#include "Commands.hpp"
 #include <raylib.h>
 
 namespace Gui {
     void Graphics::handleEventsMenu(void)
     {
-        if (IsKeyReleased(KEY_SPACE)) {
-            _scene = GAME;
-            if (!_game)
-                _game = std::make_shared<GameInfo>();
-            DisableCursor();
-        }
         if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) {
             if (CheckCollisionPointRec(_mousePos, _menu->getPlayButton())) {
                 _scene = GAME;
                 if (!_game)
                     _game = std::make_shared<GameInfo>();
+                if (state == WELCOME_STATE) {
+                    _queueManager->pushCommand({"GRAPHIC"});
+                    state = TEAM_NAME;
+                }
                 DisableCursor();
             }
         }

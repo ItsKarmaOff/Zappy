@@ -27,6 +27,11 @@ namespace Gui {
 
     class Graphics {
         public:
+            enum ConnectionState {
+                WELCOME_STATE,
+                TEAM_NAME,
+            };
+
             enum Scene {
                 MENU,
                 GAME,
@@ -42,6 +47,7 @@ namespace Gui {
             std::shared_ptr<MenuInfo> &getMenu(void) { return _menu; }
             Vector2 &getMousePos(void) { return _mousePos; }
             std::shared_ptr<QueueManager> &getQueueManager(void) { return _queueManager; }
+            ConnectionState state;
 
 
         ////////////////////////////////////// GRAPHIC //////////////////////////////////////

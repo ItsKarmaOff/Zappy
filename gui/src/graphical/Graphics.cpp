@@ -15,6 +15,7 @@ namespace Gui {
         : _queueManager(queueManager), _mousePos({0, 0})
     {
         _scene = MENU;
+        state = WELCOME_STATE;
         _game = nullptr;
         _menu = std::make_shared<MenuInfo>();
     }
