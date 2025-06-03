@@ -17,7 +17,7 @@ namespace Gui {
         _scene = MENU;
         state = WELCOME_STATE;
         _game = nullptr;
-        _menu = std::make_shared<MenuInfo>();
+        _menu = nullptr;
     }
 
     Graphics::~Graphics()
