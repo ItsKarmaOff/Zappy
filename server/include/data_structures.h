@@ -15,29 +15,47 @@
 
     #include "my.h"
 
-    #define MAX_PORT 65535 /* The maximum port number */
-    #define MAX_PORT_STR "65535" /* The maximum port number as a string */
-    #define GRAPHIC_TEAM_NAME "GRAPHIC" /* The name of the graphic team */
 
-typedef struct team_s {
-    const char *name;
-    node_t *player_list;
-} team_t;
+
+    /* Server macros */
+
+    /* The maximum port number */
+    #define MAX_PORT 65535
+
+    /* The maximum port number as a string */
+    #define MAX_PORT_STR "65535"
+
+    /* The name of the graphic team */
+    #define GRAPHIC_TEAM_NAME "GRAPHIC"
+
+    /* The welcome message sent to clients */
+    #define WELCOME_MESSAGE "WELCOME\n"
+
+    /* The message sent to clients when an action is not valid */
+    #define WRONG "ko\n"
+
+typedef struct team_s team_t;
 
 typedef struct player_s {
     team_t *team;
 } player_t;
 
+typedef struct team_s {
+    const char *name;
+    player_t **player_list;
+} team_t;
+
 typedef struct game_settings_s {
-    int width; /* The width of the game map */
-    int height; /* The height of the game map */
+    size_t width; /* The width of the game map */
+    size_t height; /* The height of the game map */
+    size_t teams_number; /* The maximum number of teams */
     size_t clients_per_team; /* The number of clients per team */
-    int frequency; /* Reciprocal of time unit for execution of actions */
+    size_t frequency; /* Reciprocal of time unit for execution of actions */
 } game_settings_t;
 
 typedef struct game_s {
     game_settings_t game_settings; /* The settings of the game */
-    node_t *team_list; /* The list of teams in the game */
+    team_t **team_list; /* The list of teams in the game */
 } game_t;
 
 typedef struct client_s {

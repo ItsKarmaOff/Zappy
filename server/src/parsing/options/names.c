@@ -12,41 +12,35 @@
 
 #include "parsing.h"
 
-static void analyse_name(server_t *server,
-    char **argv, size_t name_index, node_t **teams_names)
+void add_teams(server_t *server, char **argv,
+    const size_t *index, size_t name_index)
 {
-    if (my_strcmp(argv[name_index], GRAPHIC_TEAM_NAME) == 0) {
-        my_delete_list(teams_names);
-        EXCEPTION("The team name \"" GRAPHIC_TEAM_NAME
-            "\" is reserved for the graphic client\n");
+    server->game.game_settings.teams_number = name_index - *index - 1;
+    server->game.team_list = my_calloc(
+        name_index - *index + 1, sizeof(team_t *));
+    server->game.team_list[0] = create_team(GRAPHIC_TEAM_NAME);
+    for (size_t new_index = *index + 1; new_index < name_index; new_index++) {
+        if (argv[new_index][0] == '-')
+            break;
+        server->game.team_list[new_index - *index] =
+            create_team(argv[new_index]);
     }
-    if (my_find_node(*teams_names, argv[name_index], &my_strcmp) != NULL) {
-        my_delete_list(teams_names);
-        THROW(my_create_str("EXCEPTION: The team name \"%s\" "
-            "is already used\n", argv[name_index]));
-    }
-    my_push_back(&server->game.team_list,
-        create_team(argv[name_index]), UNKNOWN);
-    AL(FALSE, my_push_front, teams_names, argv[name_index], UNKNOWN);
 }
 
 void option_names(server_t *server,
     int argc, char **argv, size_t *index)
 {
-    node_t *teams_names = NULL;
+    size_t name_index = *index + 1;
 
     if ((size_t)argc < *index + 1)
         EXCEPTION("Missing argument for -n (or --names) option\n");
-    AL(FALSE, my_push_front, &teams_names, GRAPHIC_TEAM_NAME, UNKNOWN);
-    for (size_t name_index = *index + 1;
-    name_index < (size_t)argc; name_index++) {
+    for (; name_index < (size_t)argc; name_index++) {
         if (argv[name_index][0] == '-')
             break;
-        analyse_name(server, argv, name_index, &teams_names);
-        *index += 1;
     }
-    my_delete_list(&teams_names);
-    if (my_list_size(server->game.team_list) == 0)
-        EXCEPTION("No team names provided, "
-            "at least one team name is required\n");
+    if (name_index - *index < 2)
+        EXCEPTION("At least two team names are required "
+            "for -n (or --names) option\n");
+    add_teams(server, argv, index, name_index);
+    *index = name_index - 1;
 }

@@ -13,7 +13,7 @@
 #ifndef NETWORK_H_
     #define NETWORK_H_
 
-    #include "data_structures.h"
+    #include "game.h"
 
 /* Initialization functions */
 
@@ -76,5 +76,16 @@ void read_client_action(server_t *server, size_t index);
  * @param server The server to add the client to
  */
 void add_new_client(server_t *server);
+
+
+
+/* Get response functions */
+
+/**
+ * @brief Get the response from a client
+ * @param socket_fd The file descriptor of the client socket
+ * @return The response from the client
+ */
+char *get_response(int socket_fd);
 
 #endif /* NETWORK_H_ */
