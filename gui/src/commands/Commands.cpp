@@ -145,7 +145,25 @@ namespace Gui
 
     void Commands::handlePBC(std::string &param)
     {
+        DEBUG << "Handling PBC command with param: " << param;
 
+        std::istringstream iss(param);
+        std::string player;
+        int playerId;
+        std::string message;
+
+        if (!(iss >> player >> message))
+            ERROR << "Invalid parameters for PBC command: " << param;
+
+        if (player.empty() || player[0] != '#' || player.size() < 2)
+            ERROR << "Invalid player format for PBC command: " << player;
+
+        if (message.empty())
+            ERROR << "Message cannot be empty for PBC command";
+
+        playerId = std::stoi(player.substr(1));
+
+        DEBUG << "Player #" << playerId << " message set to: " << message;
     }
 
     void Commands::handlePIC(std::string &param)
