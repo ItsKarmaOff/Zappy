@@ -187,7 +187,27 @@ namespace Gui
 
     void Commands::handlePIE(std::string &param)
     {
+        DEBUG << "Handling PIE command with param: " << param;
 
+        std::istringstream iss(param);
+        std::string player;
+        int playerId;
+        int x;
+        int y;
+        int r;
+
+        if (!(iss >> player >> x >> y >> r))
+            ERROR << "Invalid parameters for PIE command: " << param;
+
+        if (player.empty() || player[0] != '#' || player.size() < 2)
+            ERROR << "Invalid player format for PIE command: " << player;
+
+        if (x < 0 || y < 0 || r < 0)
+            ERROR << "Invalid coordinates or radius for PIE command: " << x << ", " << y << ", " << r;
+
+        playerId = std::stoi(player.substr(1));
+
+        DEBUG_CONCAT << "Player #" << playerId << " position set to: (" << x << ", " << y << ") with incantation result " << r;
     }
 
     void Commands::handlePFK(std::string &param)
