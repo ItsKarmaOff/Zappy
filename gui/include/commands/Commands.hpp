@@ -14,10 +14,7 @@
 
 namespace Gui
 {
-    class Commands {
-        public:
-
-        //////////////////// Custom Constants //////////////////////////////////
+    //////////////////// Custom Constants //////////////////////////////////
 
         static constexpr const char *MSZ = "msz"; // Map size
         static constexpr const char *BCT = "bct"; // Content
@@ -44,7 +41,8 @@ namespace Gui
         static constexpr const char *SUC = "suc"; // Unknown command
         static constexpr const char *SDP = "sdp"; // Command parameter
 
-
+    class Commands {
+        public:
 
         //////////////////// Constructors and Destructor ///////////////////////
 

@@ -16,8 +16,10 @@ namespace Gui {
             EnableCursor();
         }
         // on peut pas modifier la touche
-        if (IsKeyPressed('Z'))
-            _game->getCamera().target = { 0.0f, 0.0f, 0.0f };
+        if (IsKeyPressed('Z')) {
+            _game->getCamera().target =
+            { _game->getMapSize().x / 2, 0.0f, _game->getMapSize().y / 2 };
+        }
     }
 
     void Graphics::updateGame(void)
@@ -38,8 +40,8 @@ namespace Gui {
     {
         for (int i = 0; i < _game->getMapSize().x; i++) {
             for (int j = 0; j < _game->getMapSize().y; j++) {
-                DrawCube({(float)i, 0, (float)j}, 1.0f, 1.0f, 1.0f, DARKPURPLE);
-                DrawCubeWires({(float)i, 0.0f, (float)j}, 1.0f, 1.0f, 1.0f, GOLD);
+                DrawCube({(float)i, 0, (float)j}, 1.0f, 1.0f, 1.0f, SKYBLUE);
+                DrawCubeWires({(float)i, 0.0f, (float)j}, 1.0f, 1.0f, 1.0f, BLACK);
             }
         }
     }

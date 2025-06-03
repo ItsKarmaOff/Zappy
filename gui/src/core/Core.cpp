@@ -36,8 +36,8 @@ namespace Gui
     void Core::run()
     {
         DEBUG << "Running Core";
-
         isRunning = true;
+
         std::thread communicationThread(&Core::_communicationThread, this);
         _gameThread();
 
@@ -53,9 +53,8 @@ namespace Gui
                 commandStr += " ";
             commandStr += command[index];
         }
-        DEBUG << "Send command: " << commandStr;
-        commandStr += "\n";
-        if (dprintf(fd, "%s", commandStr.c_str()) < 0) {
+        DEBUG << "Send command: [" << commandStr << "]";
+        if (dprintf(fd, "%s\n", commandStr.c_str()) < 0) {
             ERROR << "Server closed the connection.";
             isRunning = false;
         }
@@ -80,7 +79,7 @@ namespace Gui
         }
         while (!response.empty() && response.back() == '\n')
             response.pop_back();
-        DEBUG << response;
+        DEBUG << "Received: [" << response << "]";
         return response;
     }
 

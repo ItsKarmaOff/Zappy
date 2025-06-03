@@ -74,7 +74,7 @@ namespace Gui
         if (width <= 0 || height <= 0)
             ERROR << "Invalid dimensions for MSZ command: " << width << "x" << height;
 
-        DEBUG << "Map size set to: " << width << "x" << height;
+        DEBUG_CONCAT << "Map size set to: " << width << "x" << height;
         _graphical.getGame()->getMapSize() = {static_cast<float>(width), static_cast<float>(height)};
 
     }
