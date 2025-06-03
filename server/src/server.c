@@ -29,6 +29,8 @@ static void destroy_server(void *server)
             close(server_ptr->poll_fds[index].fd);
             server_ptr->poll_fds[index].fd = -1;
         }
+        if (index <= server_ptr->current_clients_number)
+            my_delete_list(&server_ptr->client_list[index - 1]->command_queue);
     }
 }
 

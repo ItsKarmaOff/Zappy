@@ -93,6 +93,7 @@ static void add_client_to_server(server_t *server, client_t *new_client,
             new_client->player;
     server->poll_fds[server->current_clients_number + 1].fd =
         new_client->socket_fd;
+    server->client_list[server->current_clients_number] = new_client;
     server->current_clients_number += 1;
     my_add_to_garbage(true, new_client, &free);
     my_add_to_garbage(true, team_name, &free);

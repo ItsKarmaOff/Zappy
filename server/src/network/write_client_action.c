@@ -12,7 +12,7 @@
 
 #include "network.h"
 
-void write_client_action(UNUSED server_t *server, UNUSED size_t index)
+void write_client_action(server_t *server, size_t index)
 {
-    return;
+    server->poll_fds[index].events &= ~POLLOUT;
 }
