@@ -63,7 +63,7 @@ namespace Gui
         /**
          * @brief Handle a command.
          */
-        void handleCommand(std::shared_ptr<QueueManager> &);
+        void handleResponses(std::shared_ptr<QueueManager> &);
 
         /**
          * @brief Handle the MSZ command.

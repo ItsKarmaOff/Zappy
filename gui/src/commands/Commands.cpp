@@ -44,7 +44,7 @@ namespace Gui
             {SDP, [this](std::string &param) { handleSDP(param); }}
         };
     }
-    void Commands::handleCommand(std::shared_ptr<QueueManager> &queueManager)
+    void Commands::handleResponses(std::shared_ptr<QueueManager> &queueManager)
     {
         while (queueManager->hasResponses()) {
             std::string response = queueManager->popResponse();

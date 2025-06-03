@@ -54,7 +54,7 @@ namespace Gui {
         Commands cmd(*this);
         while (!WindowShouldClose() && isRunning == true) {
             _mousePos = GetMousePosition();
-            cmd.handleCommand(_queueManager);
+            cmd.handleResponses(_queueManager);
             handleEvents();
             update();
             draw();

@@ -30,6 +30,7 @@ namespace Gui
         _parseArguments(argc, argv);
         _initClient();
         _queueManager = std::make_shared<QueueManager>();
+        _answer = "";
     }
 
 
@@ -80,24 +81,25 @@ namespace Gui
 
     std::string Core::getResponse()
     {
-        char tmp = 0;
+        int nb = 0;
         std::string response;
-        int readSize = 0;
-
-        readSize = read(_clientSocket->getSocket(), &tmp, 1);
-        while (readSize > 0) {
-            response += tmp;
-            if (tmp == '\n')
+        char tmp[1] = {0};
+        while ((nb = read(_clientSocket->getSocket(), tmp, 1)) > 0) {
+            response.append(tmp, nb);
+            auto pos = response.find('\n');
+            if (pos != std::string::npos) {
+                response.erase(pos);
                 break;
-            readSize = read(_clientSocket->getSocket(), &tmp, 1);
+            }
         }
-        if (readSize == -1) {
+        if (nb == -1) {
             ERROR << "Server closed the connection.";
             isRunning = false;
         }
         while (!response.empty() && response.back() == '\n')
             response.pop_back();
-        DEBUG << "Received: [" << response << "]";
+        if (!response.empty())
+            std::cerr << "Received: [" << response << "]";
         return response;
     }
 
@@ -227,21 +229,33 @@ namespace Gui
         if (getResponse() != "WELCOME")
             throw Lib::Exceptions::Critical("Connection failed.");
 
+        _pollFd = {_clientSocket->getSocket(), POLLIN, 0};
         std::cout << BOLD "Connected to server (" << _hostname << ":" << _port << ")." RESET << std::endl;
     }
 
+    void Core::readIfResponse()
+    {
+        if (poll(&_pollFd, 1, 0) > 0 && (_pollFd.revents & POLLIN)) {
+            _answer += getResponse();
+            if (!_answer.empty()) {
+                _queueManager->pushResponse(_answer);
+                _answer = "";
+            }
+        }
+    }
+    void Core::sendIfCommand()
+    {
+        if (_queueManager->hasCommands()) {
+            std::vector<std::string> command = _queueManager->popCommand();
+            if (!command.empty())
+                sendCommand(_clientSocket->getSocket(), command);
+        }
+    }
     void Core::_communicationThread()
     {
-        std::string response;
-
         while (isRunning) {
-            if (_queueManager->hasCommands()) {
-                std::vector<std::string> command = _queueManager->popCommand();
-                if (command.empty())
-                    continue;
-                sendCommand(_clientSocket->getSocket(), command);
-                _queueManager->pushResponse(getResponse());
-            }
+            sendIfCommand();
+            readIfResponse();
         }
     }
 
