@@ -86,7 +86,18 @@ namespace Gui
 
     void Commands::handleTNA(std::string &param)
     {
+        DEBUG << "Handling TNA command with param: " << param;
 
+        std::istringstream iss(param);
+        std::string teamName;
+
+        if (!(iss >> teamName))
+            ERROR << "Invalid parameters for TNA command: " << param;
+
+        if (teamName.empty())
+            ERROR << "Team name cannot be empty for TNA command";
+
+        DEBUG << "Team name set to: " << teamName;
     }
 
     void Commands::handlePNW(std::string &param)
