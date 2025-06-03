@@ -680,6 +680,16 @@ void *my_memmove(void *destination, const void *source, size_t size);
 void *my_memset(void *pointer, int value, size_t size);
 
 /**
+ * @brief Destroys the program by calling the provided destroy function
+ * @note If the destroy function is NULL,
+ * it will call the destroy function set previously.
+ * If the program is already destroyed, it will do nothing.
+ * @param destroy_func The function to call to destroy the program
+ * @author Nicolas TORO
+ */
+void my_program_destroy(void (*destroy_func)(void *ptr));
+
+/**
  * @brief Reallocates memory block
  * @param pointer The pointer to the memory block
  * @param size The new size of the memory block

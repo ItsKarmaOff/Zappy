@@ -21,6 +21,7 @@
  */
 void my_exit(int status, char *message)
 {
+    my_program_destroy(NULL);
     if (message && status != SUCCESS)
         ERROR(message);
     else if (message)
