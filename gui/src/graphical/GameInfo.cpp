@@ -10,7 +10,7 @@
 
 namespace Gui {
     GameInfo::GameInfo()
-    : _camera()
+    : _camera(), _mapSize({3, 3})
     {
         _camera.position = {10.0f, 10.0f, 10.0f};
         _camera.target = {0, 0, 0};
@@ -22,6 +22,11 @@ namespace Gui {
     Camera3D& GameInfo::getCamera()
     {
         return _camera;
+    }
+
+    Vector2& GameInfo::getMapSize()
+    {
+        return _mapSize;
     }
 
 }
