@@ -140,7 +140,21 @@ namespace Gui
 
     void Commands::handlePEX(std::string &param)
     {
+        DEBUG << "Handling PEX command with param: " << param;
 
+        std::istringstream iss(param);
+        std::string player;
+        int playerId;
+
+        if (!(iss >> player))
+            ERROR << "Invalid parameters for PEX command: " << param;
+
+        if (player.empty() || player[0] != '#' || player.size() < 2)
+            ERROR << "Invalid player format for PEX command: " << player;
+
+        playerId = std::stoi(player.substr(1));
+
+        DEBUG_CONCAT << "Player #" << playerId << " has been expelled";
     }
 
     void Commands::handlePBC(std::string &param)
