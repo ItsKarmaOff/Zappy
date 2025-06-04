@@ -6,6 +6,7 @@
 */
 
 #include "Graphics.hpp"
+#include "TileInfo.hpp"
 #include <raylib.h>
 
 namespace Gui {
@@ -18,13 +19,14 @@ namespace Gui {
         // on peut pas modifier la touche
         if (IsKeyPressed('Z')) {
             _game->getCamera().target =
-            { _game->getMapSize().x / 2, 0.0f, _game->getMapSize().y / 2 };
+            { _game->getMapSize().x / 2 * TILE_SIZE, 0.0f, _game->getMapSize().y / 2 * TILE_SIZE };
         }
     }
 
     void Graphics::updateGame(void)
     {
         UpdateCamera(&_game->getCamera(), CAMERA_FREE);
+
     }
 
     void Graphics::drawGame(void)
@@ -38,11 +40,8 @@ namespace Gui {
 
     void Graphics::drawGameMap(void)
     {
-        for (int i = 0; i < _game->getMapSize().x; i++) {
-            for (int j = 0; j < _game->getMapSize().y; j++) {
-                DrawCube({(float)i, 0, (float)j}, 1.0f, 1.0f, 1.0f, SKYBLUE);
-                DrawCubeWires({(float)i, 0.0f, (float)j}, 1.0f, 1.0f, 1.0f, BLACK);
-            }
+        for (auto &[k, tile] : _game->getTiles()) {
+            tile.draw(_assetsManager.getModels());
         }
     }
 }

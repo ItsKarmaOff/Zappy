@@ -1,0 +1,11 @@
+Model Information:
+* title:	Magic Stone
+* source:	https://sketchfab.com/3d-models/magic-stone-0c03bd90e6d44cfb95d942376f27797b
+* author:	Zambur (https://sketchfab.com/Zambur)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Magic Stone" (https://sketchfab.com/3d-models/magic-stone-0c03bd90e6d44cfb95d942376f27797b) by Zambur (https://sketchfab.com/Zambur) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

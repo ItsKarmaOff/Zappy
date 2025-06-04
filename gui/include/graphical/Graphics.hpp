@@ -13,6 +13,7 @@
 #include <queue>
 #include <string>
     #include <unordered_map>
+#include "AssetsManager.hpp"
     #include "GameInfo.hpp"
 #include "MenuInfo.hpp"
     #include "raylib.h"
@@ -25,6 +26,7 @@
 namespace Gui {
     constexpr size_t WINDOW_WIDTH = 1200;
     constexpr size_t WINDOW_HEIGHT = 600;
+    constexpr size_t TILE_SIZE = 5;
 
     class Graphics {
         public:
@@ -50,6 +52,7 @@ namespace Gui {
             std::shared_ptr<QueueManager> &getQueueManager(void) { return _queueManager; }
             ConnectionState state;
             std::unordered_map<std::string, int> &getTeams(void) { return _teams; }
+            AssetsManager &getAssetsManager(void) { return _assetsManager; }
 
 
         ////////////////////////////////////// GRAPHIC //////////////////////////////////////
@@ -84,6 +87,7 @@ namespace Gui {
 
             std::shared_ptr<MenuInfo> _menu;
             std::shared_ptr<GameInfo> _game;
+            AssetsManager _assetsManager;
             // int = temporaire
             std::unordered_map<std::string, int> _teams;
     };
