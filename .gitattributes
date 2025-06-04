@@ -1,4 +1,4 @@
 # Disable statistics for generated documentation
 docs/html/** linguist-detectable=false
 docs/tests/** linguist-detectable=false
-libs/raylib/** linguist-detectable=false
+bonus/raylib/** linguist-detectable=false
