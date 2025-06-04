@@ -16,14 +16,14 @@
  * @brief Counts the number of times a letter (c) is in a string (str)
  * @param str The string to check
  * @param c The letter to count
- * @return <b>int</b> The number of times the letter is in the string
+ * @return <b>size_t</b> The number of times the letter is in the string
  * @author Nicolas TORO
  */
-int my_count_letter(char const *str, char c)
+size_t my_count_letter(char const *str, char c)
 {
     int count = 0;
 
-    for (int index = 0; str[index] != '\0'; index++) {
+    for (size_t index = 0; str[index] != '\0'; index++) {
         if (str[index] == c)
             count++;
     }

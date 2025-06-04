@@ -15,16 +15,17 @@
 /**
  * @brief Checks if a string (str) is uppercase
  * @param str The string to check
- * @return <b>int</b> <u>1</u> if the string is uppercase, <u>0</u> otherwise
+ * @return <b>bool</b> <u>true</u> if the string is uppercase,
+ * <u>false</u> otherwise
  * @author Nicolas TORO
  */
-int my_str_is_upper(char const *str)
+bool my_str_is_upper(char const *str)
 {
     if (my_str_is_alpha(str) == 0)
-        return 0;
-    for (int i = 0; i < my_strlen(str); i++) {
+        return false;
+    for (size_t i = 0; i < my_strlen(str); i++) {
         if (str[i] < 'A' || str[i] > 'Z')
-            return 0;
+            return false;
     }
-    return 1;
+    return true;
 }

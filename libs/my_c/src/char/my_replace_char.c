@@ -21,7 +21,7 @@
  */
 void my_replace_char(char *str, char to_replace, char replace_by)
 {
-    for (int i = 0; str[i] != '\0'; i++) {
+    for (size_t i = 0; str[i] != '\0'; i++) {
         if (str[i] == to_replace)
             str[i] = replace_by;
     }

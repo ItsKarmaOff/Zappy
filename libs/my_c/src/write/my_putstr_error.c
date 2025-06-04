@@ -15,10 +15,10 @@
 /**
  * @brief Prints a string (str) in stderr and returns 84
  * @param str The string to print
- * @return <b>int</b> <u>84</u>
+ * @return <b>size_t</b> <u>84</u>
  * @author Nicolas TORO
  */
-int my_putstr_error(char const *str)
+size_t my_putstr_error(char const *str)
 {
     if (str == NULL)
         return FAILURE;

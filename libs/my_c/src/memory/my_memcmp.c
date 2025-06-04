@@ -23,11 +23,11 @@
  * the corresponding byte in (pointer2), a negative value otherwise
  * @author Nicolas TORO
  */
-int my_memcmp(const void *pointer1, const void *pointer2, uint64_t size)
+int my_memcmp(const void *pointer1, const void *pointer2, size_t size)
 {
     if (pointer1 == NULL || pointer2 == NULL)
         return 0;
-    for (uint64_t index = 0; index < size; index++) {
+    for (size_t index = 0; index < size; index++) {
         if (((char *)pointer1)[index] != ((char *)pointer2)[index])
             return ((char *)pointer1)[index] - ((char *)pointer2)[index];
     }

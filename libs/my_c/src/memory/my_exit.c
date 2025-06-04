@@ -21,8 +21,9 @@
  */
 void my_exit(int status, char *message)
 {
+    my_program_destroy(NULL);
     if (message && status != SUCCESS)
-        my_putstr_error(message);
+        ERROR(message);
     else if (message)
         my_putstr(message);
     my_free();

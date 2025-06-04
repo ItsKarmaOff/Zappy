@@ -46,7 +46,7 @@ void flag_lowercase_m(format_t *str_struct)
         str_struct->total_len += str_struct->current_flag.width;
         str_list[1] = my_calloc(str_struct->current_flag.width
             + 1, sizeof(char));
-        for (int i = 0; i < str_struct->current_flag.width; i++)
+        for (ssize_t i = 0; i < str_struct->current_flag.width; i++)
             str_list[1][i] = ' ';
     }
     add_text(str_struct, str_list);

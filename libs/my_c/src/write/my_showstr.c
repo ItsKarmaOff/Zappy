@@ -27,9 +27,9 @@ static void check_zero_in_hexadecimal(char c)
  */
 void my_showstr(char const *str)
 {
-    int len = my_strlen(str);
+    size_t len = my_strlen(str);
 
-    for (int i = 0; i < len; i++) {
+    for (size_t i = 0; i < len; i++) {
         if (my_char_is_printable(str[i]) == 1) {
             my_putchar(str[i]);
         } else {

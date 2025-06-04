@@ -15,12 +15,12 @@
 /**
  * @brief Returns the size of the linked list
  * @param begin The beginning of the list
- * @return <b>int</b> The size of the list
+ * @return <b>size_t</b> The size of the list
  * @author Nicolas TORO
  */
-int my_list_size(node_t const *begin)
+size_t my_list_size(node_t const *begin)
 {
-    int nb = 0;
+    size_t nb = 0;
 
     for (; begin != NULL; nb++)
         begin = begin->next;

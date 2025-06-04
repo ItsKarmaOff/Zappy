@@ -21,7 +21,7 @@
  */
 void my_print_params(int argc, char **argv)
 {
-    for (int i = 0; i < argc; i++) {
+    for (size_t i = 0; i < (size_t)argc; i++) {
         my_putstr(argv[i]);
         my_putstr("\n");
     }

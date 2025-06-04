@@ -12,7 +12,7 @@
 
 #include "../../include/my.h"
 
-static int print_int(void *data, type_t type)
+static size_t print_int(void *data, type_t type)
 {
     if (type == SIGNED_CHAR)
         return my_printf("%hhd", *((char *)data));
@@ -27,7 +27,7 @@ static int print_int(void *data, type_t type)
     return 0;
 }
 
-static int print_unsigned_int(void *data, type_t type)
+static size_t print_unsigned_int(void *data, type_t type)
 {
     if (type == UNSIGNED_CHAR)
         return my_printf("%hhu", *((unsigned char *)data));
@@ -44,7 +44,7 @@ static int print_unsigned_int(void *data, type_t type)
     return 0;
 }
 
-static int print_other(void *data, type_t type)
+static size_t print_other(void *data, type_t type)
 {
     if (type == FLOAT)
         return my_printf("%f", *((float *)data));
@@ -63,9 +63,9 @@ static int print_other(void *data, type_t type)
     return 0;
 }
 
-static int select_print(void *data, type_t type)
+static size_t select_print(void *data, type_t type)
 {
-    int (*PRINT_FUNCTIONS[])(void *, type_t) = {
+    size_t (*PRINT_FUNCTIONS[])(void *, type_t) = {
         &print_int, &print_unsigned_int, &print_other};
 
     if (type <= 4)

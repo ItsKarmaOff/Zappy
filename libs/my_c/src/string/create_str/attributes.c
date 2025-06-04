@@ -44,10 +44,10 @@ void update_sign_attributes(format_t *str_struct, long double nb)
  * @return <b>char*</b> The width string
  * @author Nicolas TORO
  */
-char *get_width(format_t *str_struct, char **str_list, int len)
+char *get_width(format_t *str_struct, char **str_list, size_t len)
 {
     char width_char = ' ';
-    int str_size = my_word_array_len(str_list, len);
+    size_t str_size = my_word_array_len(str_list, len);
     char *width_str = NULL;
 
     str_struct->total_len += str_size;
@@ -61,7 +61,7 @@ char *get_width(format_t *str_struct, char **str_list, int len)
     FORMAT_FLAGS[str_struct->current_flag.flag_id - 1], "aAeEfFgG")))
         width_char = '0';
     width_str = my_calloc(str_struct->current_flag.width + 1, sizeof(char));
-    for (int i = 0; i < str_struct->current_flag.width; i++)
+    for (ssize_t i = 0; i < str_struct->current_flag.width; i++)
         width_str[i] = width_char;
     return width_str;
 }
@@ -84,7 +84,7 @@ char *get_precision(format_t *str_struct, char *nbr_str)
         return precision_str;
     precision_str = my_calloc(str_struct->
         current_flag.precision_value + 1, sizeof(char));
-    for (int i = 0; i < str_struct->current_flag.precision_value; i++)
+    for (size_t i = 0; i < str_struct->current_flag.precision_value; i++)
         precision_str[i] = '0';
     return precision_str;
 }
