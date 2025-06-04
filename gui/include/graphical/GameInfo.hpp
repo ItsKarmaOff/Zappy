@@ -11,14 +11,15 @@
 
     #include "TileInfo.hpp"
     #include <raylib.h>
+    #include <raymath.h>
 #include <unordered_map>
     #include <vector>
     #include <functional>
 
 
-inline bool operator==(const Vector2& lhs, const Vector2& rhs) {
-    return lhs.x == rhs.x && lhs.y == rhs.y;
-}
+// inline bool operator==(const Vector2& lhs, const Vector2& rhs) {
+//     return lhs.x == rhs.x && lhs.y == rhs.y;
+// }
 
 // Hash function specialization for Vector2
 namespace std {
