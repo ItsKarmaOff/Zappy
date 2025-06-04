@@ -78,6 +78,25 @@ namespace Gui
 
         _graphical.getGame()->getMapSize() = {static_cast<float>(width), static_cast<float>(height)};
 
+        float rows = _graphical.getGame()->getMapSize().x;
+        float cols = _graphical.getGame()->getMapSize().y;
+
+        // creating tiles if needed
+        if (_graphical.getGame()->getTiles().size() <= rows * cols) {
+            // _graphical.getGame()->getTiles().clear();
+            for (float i = 0; i < rows; i++) {
+                for (float j = 0; j < cols; j++) {
+                    if (_graphical.getGame()->getTiles().contains({i, j}))
+                        continue;
+                    _graphical.getGame()->getTiles()[{i, j}] = TileInfo({i * TILE_SIZE, 0, j * TILE_SIZE});
+                }
+            }
+        } else if (_graphical.getGame()->getTiles().size() >= rows * cols) {
+            for (auto &[k, v] : _graphical.getGame()->getTiles()) {
+                if (k.x >= rows || k.y >= cols)
+                    _graphical.getGame()->getTiles().erase(k);
+            }
+        }
     }
 
     void Commands::handleBCT(std::string &param)
@@ -98,9 +117,26 @@ namespace Gui
             ERROR << "Invalid quantities for BCT command: " << food << ", " << linemate << ", " << deraumere << ", "
                 << sibur << ", " << mendiane << ", " << phiras << ", " << thystame;
 
-        DEBUG_CONCAT << "Tile at (" << width << ", " << height << ") has resources: " << food << " food, " << linemate
-            << " linemate, " << deraumere << " deraumere, " << sibur << " sibur, " << mendiane << " mendiane, "
-            << phiras << " phiras, " << thystame << " thystame";
+        DEBUG_CONCAT << "Tile at (" << width << ", " << height << ") has resources: "
+        << food << " food, "
+        << linemate << " linemate, "
+        << deraumere << " deraumere, "
+        << sibur << " sibur, "
+        << mendiane << " mendiane, "
+        << phiras << " phiras, "
+        << thystame << " thystame";
+
+        // assigning resources to the tile
+        if (_graphical.getGame()->getTiles().contains({static_cast<float>(width), static_cast<float>(height)})) {
+            std::unordered_map<std::string, int> &content = _graphical.getGame()->getTiles().at({static_cast<float>(width), static_cast<float>(height)}).getContent();
+            content["food"] = food;
+            content["linemate"] = linemate;
+            content["deraumere"] = deraumere;
+            content["sibur"] = sibur;
+            content["mendiane"] = mendiane;
+            content["phiras"] = phiras;
+            content["thystame"] = thystame;
+        }
     }
 
     void Commands::handleTNA(std::string &param)

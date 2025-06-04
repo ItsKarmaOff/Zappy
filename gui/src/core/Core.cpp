@@ -99,7 +99,7 @@ namespace Gui
         while (!response.empty() && response.back() == '\n')
             response.pop_back();
         if (!response.empty())
-            std::cerr << "Received: [" << response << "]";
+            DEBUG << "Received: [" << response << "]";
         return response;
     }
 

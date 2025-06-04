@@ -12,7 +12,7 @@
 
 namespace Gui {
     Graphics::Graphics(std::shared_ptr<QueueManager> queueManager)
-        : _queueManager(queueManager), _mousePos({0, 0})
+        : _queueManager(queueManager), _mousePos({0, 0}), _assetsManager()
     {
         _scene = MENU;
         state = WELCOME_STATE;
