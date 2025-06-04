@@ -15,12 +15,12 @@
 /**
  * @brief Returns the length of a string (str)
  * @param str The string to check
- * @return <b>intmax_t</b> The length of the string
+ * @return <b>size_t</b> The length of the string
  * @author Nicolas TORO
  */
-intmax_t my_strlen(char const *str)
+size_t my_strlen(char const *str)
 {
-    intmax_t len = 0;
+    size_t len = 0;
 
     if (str == NULL)
         return 0;

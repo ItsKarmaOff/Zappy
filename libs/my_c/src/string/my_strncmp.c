@@ -17,13 +17,13 @@
  * @param s1 The first string to compare
  * @param s2 The second string to compare
  * @param n The size of the strings to compare
- * @return <b>int</b> <u>0</u> if the strings are identical, otherwise
+ * @return <b>uint8_t</b> <u>0</u> if the strings are identical, otherwise
  * the difference between the first different characters in the strings
  * @author Nicolas TORO
  */
-int my_strncmp(char const *s1, char const *s2, int n)
+uint8_t my_strncmp(char const *s1, char const *s2, size_t n)
 {
-    int i = 0;
+    uint8_t i = 0;
 
     if (s1 == NULL && s2 == NULL)
         return 0;
@@ -31,7 +31,7 @@ int my_strncmp(char const *s1, char const *s2, int n)
         return 0 - s2[0];
     if (s2 == NULL)
         return s1[0] - 0;
-    while (s1[i] != '\0' && s2[i] != '\0' && i + 1 < n) {
+    while (s1[i] != '\0' && s2[i] != '\0' && (size_t)i + 1 < n) {
         if (s1[i] < s2[i])
             return s1[i] - s2[i];
         if (s1[i] > s2[i])

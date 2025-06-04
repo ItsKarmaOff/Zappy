@@ -15,13 +15,13 @@
 static char *get_text(format_t *str_struct)
 {
     char **array = va_arg(str_struct->format_list, char **);
-    intmax_t array_len = my_array_len((void **)array);
-    intmax_t total_len = my_word_array_len(array, array_len);
+    size_t array_len = my_array_len((void **)array);
+    size_t total_len = my_word_array_len(array, array_len);
     char *tmp = my_calloc((array_len -1) * 4 + total_len + 5, sizeof(char));
     char *result = NULL;
 
     my_strcat(tmp, "[\"");
-    for (int index = 0; index < array_len; index++) {
+    for (size_t index = 0; index < array_len; index++) {
         my_strcat(tmp, array[index]);
         if (index != array_len - 1)
             my_strcat(tmp, "\", \"");
@@ -56,8 +56,8 @@ void flag_uppercase_s(format_t *str_struct)
     else {
         str_struct->total_len += str_struct->current_flag.width;
         str_list[1] = my_calloc(str_struct->current_flag.width
-                                + 1, sizeof(char));
-        for (int i = 0; i < str_struct->current_flag.width; i++)
+            + 1, sizeof(char));
+        for (ssize_t i = 0; i < str_struct->current_flag.width; i++)
             str_list[1][i] = ' ';
     }
     add_text(str_struct, str_list);

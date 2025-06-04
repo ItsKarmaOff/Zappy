@@ -72,6 +72,7 @@ file(GLOB_RECURSE GUI_SOURCES "gui/src/*.cpp")
 add_executable(${GUI} ${GUI_SOURCES})
 target_include_directories(${GUI} PRIVATE
     ${CMAKE_SOURCE_DIR}/gui/include
+    ${CMAKE_SOURCE_DIR}/gui/include/commands
     ${CMAKE_SOURCE_DIR}/gui/include/core
     ${CMAKE_SOURCE_DIR}/gui/include/graphical
 )
@@ -87,15 +88,15 @@ if(raylib_FOUND)
     message(STATUS "Using system raylib package")
     target_link_libraries(${GUI} PUBLIC my_cpp raylib)
 else()
-    message(STATUS "Using local raylib from libs/raylib")
+    message(STATUS "Using local raylib from bonus/libs/raylib")
 
-    if(EXISTS "${CMAKE_SOURCE_DIR}/libs/raylib/CMakeLists.txt")
+    if(EXISTS "${CMAKE_SOURCE_DIR}/bonus/libs/raylib/CMakeLists.txt")
         set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
         set(BUILD_GAMES OFF CACHE BOOL "" FORCE)
-        add_subdirectory(libs/raylib)
+        add_subdirectory(bonus/libs/raylib)
         target_link_libraries(${GUI} PUBLIC my_cpp raylib)
     else()
-        message(FATAL_ERROR "Local raylib not found in libs/raylib/!")
+        message(FATAL_ERROR "Local raylib not found in bonus/libs/raylib/!")
     endif()
 endif()
 

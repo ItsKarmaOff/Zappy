@@ -19,8 +19,10 @@ namespace Gui {
             ~GameInfo() = default;
 
             Camera3D &getCamera();
+            Vector2 &getMapSize();
         private:
             Camera3D _camera;
+            Vector2 _mapSize;
     };
 
 }

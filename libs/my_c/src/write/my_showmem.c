@@ -12,11 +12,11 @@
 
 #include "../../include/my.h"
 
-static void print_address(int line)
+static void print_address(size_t line)
 {
-    int len = 1 + line / 16;
+    size_t len = 1 + line / 16;
 
-    for (int i = 0; i < 8 - len - 1; i++)
+    for (size_t i = 0; i < 8 - len - 1; i++)
         my_putchar('0');
     my_putnbr_base(line, "0123456789abcedf");
     my_putstr("0: ");
@@ -28,13 +28,13 @@ static void check_zero_in_hexadecimal(char c)
         my_putchar('0');
 }
 
-static void check_space(int space)
+static void check_space(uint8_t space)
 {
     if (space != 2)
         my_putstr("  ");
 }
 
-static void check_backslash(char c, int space)
+static void check_backslash(char c, uint8_t space)
 {
     if (c == '\b' && space == 0)
         my_putstr("08");
@@ -44,11 +44,12 @@ static void check_backslash(char c, int space)
         check_space(space);
 }
 
-static void print_hexadecimal_content(char const *str, int size, int line)
+static void print_hexadecimal_content(char const *str,
+    size_t size, size_t line)
 {
-    int end_of_line = 0;
+    uint8_t end_of_line = 0;
 
-    for (int i = 16 * line; i < 16 * (line + 1); i++) {
+    for (size_t i = 16 * line; i < 16 * (line + 1); i++) {
         if (i != 16 * line && i % 2 == 0)
             my_putchar(' ');
         if (i == size || str[i] == '\b' || end_of_line == 1) {
@@ -62,10 +63,10 @@ static void print_hexadecimal_content(char const *str, int size, int line)
     my_putchar(' ');
 }
 
-static void print_string_content(char const *str, int size,
-    int line, int *error)
+static void print_string_content(char const *str, size_t size,
+    size_t line, bool *error)
 {
-    for (int i = 16 * line; i < 16 * (line + 1); i++) {
+    for (size_t i = 16 * line; i < 16 * (line + 1); i++) {
         if (i == size || str[i] == '\b') {
             check_backslash(str[i], 2);
             *error = 1;
@@ -85,12 +86,12 @@ static void print_string_content(char const *str, int size,
  * @return <b>void</b>
  * @author Nicolas TORO
  */
-void my_showmem(char const *str, uint64_t size)
+void my_showmem(char const *str, size_t size)
 {
-    int number_of_lines = size / 16;
-    int error = 0;
+    size_t number_of_lines = size / 16;
+    bool error = 0;
 
-    for (int line = 0; line <= number_of_lines && error == 0; line++) {
+    for (size_t line = 0; line <= number_of_lines && error == false; line++) {
         print_address(line);
         print_hexadecimal_content(str, size, line);
         print_string_content(str, size, line, &error);

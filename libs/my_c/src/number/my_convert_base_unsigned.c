@@ -24,7 +24,7 @@
 char *my_convert_base_unsigned(char const *nbr,
     char const *base_from, char const *base_to)
 {
-    uint64_t number = my_getnbr_base(nbr, base_from);
+    uintmax_t number = my_getnbr_base(nbr, base_from);
 
-    return my_nbr_to_str_unsigned(number, base_to, sizeof(uint64_t));
+    return my_nbr_to_str_unsigned(number, base_to, sizeof(uintmax_t));
 }

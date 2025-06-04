@@ -12,7 +12,7 @@
 
 #include "../../include/my.h"
 
-static char *search_in_hashtable_entry(hashtable_entry_t *entry, int key)
+static char *search_in_hashtable_entry(hashtable_entry_t *entry, ssize_t key)
 {
     if (entry == NULL)
         return NULL;
@@ -32,8 +32,8 @@ static char *search_in_hashtable_entry(hashtable_entry_t *entry, int key)
  */
 char *my_ht_search(hashtable_t *ht, char *key)
 {
-    int hashed_key;
-    int index;
+    ssize_t hashed_key;
+    size_t index;
     char *found_value = NULL;
 
     if (ht == NULL || key == NULL)

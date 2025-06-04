@@ -20,7 +20,7 @@
  */
 void my_show_param_array(struct info_param const *par)
 {
-    for (int index = 0; par[index].length != 0; index++) {
+    for (size_t index = 0; par[index].length != 0; index++) {
         my_putstr(par[index].str);
         my_putchar('\n');
         my_putnbr(par[index].length);

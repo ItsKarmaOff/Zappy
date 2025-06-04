@@ -22,11 +22,11 @@
  * in the memory block if found, NULL otherwise
  * @author Nicolas TORO
  */
-void *my_memchr(const void *memory_block, int searched_char, uint64_t size)
+void *my_memchr(const void *memory_block, int searched_char, size_t size)
 {
     if (memory_block == NULL)
         return NULL;
-    for (uint64_t index = 0; index < size; index++) {
+    for (size_t index = 0; index < size; index++) {
         if (((char *)memory_block)[index] == searched_char)
             return (void *)&((char *)memory_block)[index];
     }

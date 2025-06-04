@@ -28,13 +28,14 @@ static intmax_t get_nbr_len(double nbr, intmax_t precision, bool decimal_point)
     return len_nb;
 }
 
+/* TODO: à finir un jour */
+//my_add_chr(nb_str, fmod(integer_part, 10.0) + '0');
 static void add_integer_part(char *nb_str, double integer_part)
 {
     if (integer_part < 0.0)
         my_add_chr(nb_str, '-');
     integer_part = ABS(integer_part);
     while ((integer_part / 10.0) >= 1.0) {
-        my_add_chr(nb_str, fmod(integer_part, 10.0) + '0');
         integer_part = integer_part / 10.0;
     }
     my_add_chr(nb_str, integer_part + '0');

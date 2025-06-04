@@ -22,12 +22,12 @@
 char *my_concat_params(int argc, char **argv)
 {
     char *result;
-    int len_result = 0;
+    size_t len_result = 0;
 
-    for (int i = 0; i < argc; i++)
+    for (size_t i = 0; i < (size_t)argc; i++)
         len_result = len_result + my_strlen(argv[i]);
     result = my_calloc(len_result + argc, sizeof(char));
-    for (int j = 0; j < argc; j++) {
+    for (size_t j = 0; j < (size_t)argc; j++) {
         result = my_strcat(result, argv[j]);
         result = my_strcat(result, "\n");
     }

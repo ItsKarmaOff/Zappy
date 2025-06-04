@@ -21,12 +21,12 @@
 char *my_strdup(char const *src)
 {
     char *result;
-    int len_src = my_strlen(src);
+    size_t len_src = my_strlen(src);
 
     if (src == NULL)
         return NULL;
     result = my_calloc(len_src + 1, sizeof(char));
-    for (int i = 0; i < len_src; i++)
+    for (size_t i = 0; i < len_src; i++)
         result[i] = src[i];
     return result;
 }

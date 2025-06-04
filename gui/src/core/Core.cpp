@@ -20,12 +20,13 @@ namespace Gui
     //////////////////////// Constructors and Destructor ///////////////////////
 
     Core::Core(int argc, char **argv)
-        : _port(-1), _hostname(""), _graphics()
+        : _port(-1), _hostname("")
     {
         DEBUG << "Construct Core";
 
         _parseArguments(argc, argv);
         _initClient();
+        _queueManager = std::make_shared<QueueManager>();
     }
 
 
@@ -35,13 +36,11 @@ namespace Gui
     void Core::run()
     {
         DEBUG << "Running Core";
-
         isRunning = true;
 
         std::thread communicationThread(&Core::_communicationThread, this);
         _gameThread();
-        _graphics.init();
-        _graphics.run();
+
         communicationThread.join();
     }
 
@@ -54,9 +53,8 @@ namespace Gui
                 commandStr += " ";
             commandStr += command[index];
         }
-        DEBUG << "Send command: " << commandStr;
-        commandStr += "\n";
-        if (dprintf(fd, "%s", commandStr.c_str()) < 0) {
+        DEBUG << "Send command: [" << commandStr << "]";
+        if (dprintf(fd, "%s\n", commandStr.c_str()) < 0) {
             ERROR << "Server closed the connection.";
             isRunning = false;
         }
@@ -81,7 +79,7 @@ namespace Gui
         }
         while (!response.empty() && response.back() == '\n')
             response.pop_back();
-        DEBUG << response;
+        DEBUG << "Received: [" << response << "]";
         return response;
     }
 
@@ -220,21 +218,20 @@ namespace Gui
         std::string response;
 
         while (isRunning) {
-            std::unique_lock<std::mutex> lockCommandQueue(_commandsQueueMutex);
-            if (!_commandsQueue.empty()) {
-                std::vector<std::string> command = _commandsQueue.front();
-                _commandsQueue.pop();
+            if (_queueManager->hasCommands()) {
+                std::vector<std::string> command = _queueManager->popCommand();
+                if (command.empty())
+                    continue;
                 sendCommand(_clientSocket->getSocket(), command);
-                std::unique_lock<std::mutex> lockResponseQueue(_responseQueueMutex);
-                _responseQueue.push(getResponse());
-                lockResponseQueue.unlock();
+                _queueManager->pushResponse(getResponse());
             }
-            lockCommandQueue.unlock();
         }
     }
 
     void Core::_gameThread()
     {
-        // Sera surement dans Graphics.cpp
+        Gui::Graphics graphics(_queueManager);
+        graphics.init();
+        graphics.run(isRunning);
     }
 }
