@@ -16,14 +16,14 @@
  * @brief Checks if a string (str) is composed of characters
  * in the characters list (char_list) or 0 if not
  * @param str The string to check
- * @return <b>int</b> <u>1</u> if the string is composed of characters
- * in the characters list (char_list), <u>0</u> otherwise
+ * @return <b>bool</b> <u>true</u> if the string is composed of characters
+ * in the characters list (char_list), <u>false</u> otherwise
  * @author Nicolas TORO
  */
-int my_str_is(char *str, const char *char_list)
+bool my_str_is(char *str, const char *char_list)
 {
-    for (int i = 0; str[i]; i++)
+    for (size_t i = 0; str[i]; i++)
         if (!my_char_is(str[i], char_list))
-            return 0;
-    return 1;
+            return false;
+    return true;
 }

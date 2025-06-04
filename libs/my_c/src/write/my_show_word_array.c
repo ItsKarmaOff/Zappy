@@ -20,7 +20,7 @@
  */
 void my_show_word_array(char *const *tab)
 {
-    int index_tab = 0;
+    size_t index_tab = 0;
 
     if (tab == NULL)
         return;

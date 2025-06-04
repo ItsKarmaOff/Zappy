@@ -22,10 +22,10 @@
 /**
  * @brief Returns the length of an array (array)
  * @param array The array to check
- * @return <b>int</b> The length of the array
+ * @return <b>size_t</b> The length of the array
  * @author Nicolas TORO
  */
-int my_array_len(void **array);
+size_t my_array_len(void **array);
 
 /**
  * @brief Sorts an array (array) with a defined size (size)
@@ -34,7 +34,7 @@ int my_array_len(void **array);
  * @param size The size of the tab
  * @author Nicolas TORO
  */
-void my_sort_int_array(int *array, int size);
+void my_sort_int_array(int *array, size_t size);
 
 /**
  * @brief Returns an array of words delimited
@@ -51,10 +51,10 @@ char **my_str_to_word_array(char *str, char *separator, separator_type_t type);
  * @brief Returns the length of an word array (array)
  * @param array The array to check
  * @param nb_str The number of strings in the array
- * @return <b>int</b> The length of the word array
+ * @return <b>size_t</b> The length of the word array
  * @author Nicolas TORO
  */
-int my_word_array_len(char **array, int nb_str);
+size_t my_word_array_len(char **array, size_t nb_str);
 
 
 
@@ -207,41 +207,41 @@ char *my_add_chr(char *str, char chr);
  * @return <b>int</b> <u>1</u> if the char is in the list, <u>0</u> otherwise
  * @author Nicolas TORO
  */
-int my_char_is(char c, const char *char_list);
+bool my_char_is(char c, const char *char_list);
 
 /**
  * @brief Checks if a char (c) is a letter
  * @param c The char to check
- * @return <b>int</b> <u>1</u> if the char is a letter, <u>0</u> otherwise
+ * @return <b>bool</b> <u>1</u> if the char is a letter, <u>0</u> otherwise
  * @author Nicolas TORO
  */
-int my_char_is_alpha(char c);
+bool my_char_is_alpha(char c);
 
 /**
  * @brief Checks if a char (c) is a number
  * @param c The char to check
- * @return <b>int</b> <u>1</u> if the char is a number, <u>0</u> otherwise
+ * @return <b>bool</b> <u>1</u> if the char is a number, <u>0</u> otherwise
  * @author Nicolas TORO
  */
-int my_char_is_num(char c);
+bool my_char_is_num(char c);
 
 /**
  * @brief Checks if a char (c) is printable
  * @param c The char to check
- * @return <b>int</b> <u>1</u> if the char is printable, <u>0</u> otherwise
+ * @return <b>bool</b> <u>1</u> if the char is printable, <u>0</u> otherwise
  * @author Nicolas TORO
  */
-int my_char_is_printable(char const c);
+bool my_char_is_printable(char c);
 
 /**
  * @brief Get the index of a char in a str according to its occurrence
  * @param str The string to check
  * @param c The letter to find
  * @param occurrence The occurrence of the letter to find
- * @return <b>int</b> <u>-1</u> if the letter is not found, otherwise
+ * @return <b>ssize_t</b> <u>-1</u> if the letter is not found, otherwise
  * the index of the letter in the string
  */
-int my_get_char_index(char *str, char c, int occurrence);
+ssize_t my_get_char_index(const char *str, char c, size_t occurrence);
 
 /**
  * @brief Returns the last char of a string (str)
@@ -271,7 +271,7 @@ void my_replace_char(char *str, char to_replace, char replace_by);
 * @return <b>hashtable_t*</b> The created hashtable
 * @author Nicolas TORO
 */
-hashtable_t *my_create_hashtable(int (*hash)(char *, int), int len);
+hashtable_t *my_create_hashtable(ssize_t (*hash)(char *, size_t), size_t len);
 
 /**
  * @brief Deletes a hashtable
@@ -285,42 +285,42 @@ void my_delete_hashtable(hashtable_t *ht);
  * @brief A simple hash function
  * @param key The key to hash
  * @param len The length of the key
- * @return <b>int</b> The hash value
+ * @return <b>ssize_t</b> The hash value
  */
-int my_hash_simple(char *key, int len);
+ssize_t my_hash_simple(char *key, size_t len);
 
 /**
  * @brief A djb2 hash function
  * @param key The key to hash
  * @param len The length of the key
- * @return <b>int</b> The hash value
+ * @return <b>ssize_t</b> The hash value
  */
-int my_hash_djb2(char *key, int len);
+ssize_t my_hash_djb2(char *key, size_t len);
 
 /**
  * @brief A p256 hash function
  * @param key The key to hash
  * @param len The length of the key
- * @return <b>int</b> The hash value
+ * @return <b>ssize_t</b> The hash value
  */
-int my_hash_p256(char *key, int len);
+ssize_t my_hash_p256(char *key, size_t len);
 
 /**
  * @brief A custom hash function
  * @param key The key to hash
  * @param len The length of the key
- * @return <b>int</b> The hash value
+ * @return <b>ssize_t</b> The hash value
  */
-int my_hash(char *key, int len);
+ssize_t my_hash(char *key, size_t len);
 
 /**
  * @brief Deletes a key in a hashtable
  * @param ht The hashtable
  * @param key The key to delete
- * @return <b>int</b> 0 if success, 84 if failure
+ * @return <b>bool</b> <u>false</u> if failure, <u>true</u> if success
  * @author Nicolas TORO
  */
-int my_ht_delete(hashtable_t *ht, char *key);
+bool my_ht_delete(hashtable_t *ht, char *key);
 
 /**
  * @brief Dumps (display) a hashtable
@@ -335,10 +335,10 @@ void my_ht_dump(hashtable_t *ht);
  * @param ht The hashtable
  * @param key The key to insert
  * @param value The value to insert
- * @return <b>int</b> 0 if success, 84 if failure
+ * @return <b>bool</b> <u>false</u> if failure, <u>true</u> if success
  * @author Nicolas TORO
  */
-int my_ht_insert(hashtable_t *ht, char *key, char *value);
+bool my_ht_insert(hashtable_t *ht, char *key, char *value);
 
 /**
  * @brief Searches a key in a hashtable
@@ -383,10 +383,10 @@ void my_delete_list(node_t **begin);
  * @param begin The beginning of the list
  * @param data_ref The data to delete
  * @param cmp The comparison function
- * @return <b>int</b> The number of nodes deleted from the list
+ * @return <b>size_t</b> The number of nodes deleted from the list
  * @author Nicolas TORO
  */
-int my_delete_nodes(node_t **begin, void const *data_ref, int (*cmp)());
+size_t my_delete_nodes(node_t **begin, void const *data_ref, int (*cmp)());
 
 /**
  * @brief Finds a node in the linked list
@@ -399,20 +399,29 @@ int my_delete_nodes(node_t **begin, void const *data_ref, int (*cmp)());
 node_t *my_find_node(node_t const *begin, void const *data_ref, int (*cmp) ());
 
 /**
- * @brief Returns the size of the linked list
+ * @brief Gets the node at the specified index in a linked list
  * @param begin The beginning of the list
- * @return <b>int</b> The size of the list
+ * @param index The index of the node to get
+ * @return <b>node_t *</b> The node at the specified index or NULL if not found
  * @author Nicolas TORO
  */
-int my_list_size(node_t const *begin);
+node_t *my_get_node_at_index(node_t *begin, size_t index);
 
 /**
  * @brief Returns the size of the linked list
  * @param begin The beginning of the list
- * @return <b>int</b> The size of the list
+ * @return <b>size_t</b> The size of the list
  * @author Nicolas TORO
  */
-int my_list_size_circled(node_t const *begin);
+size_t my_list_size(node_t const *begin);
+
+/**
+ * @brief Returns the size of the linked list
+ * @param begin The beginning of the list
+ * @return <b>size_t</b> The size of the list
+ * @author Nicolas TORO
+ */
+size_t my_list_size_circled(node_t const *begin);
 
 /**
  * @brief Converts the linked list to an array
@@ -535,13 +544,32 @@ void my_sort_list(node_t **begin, int (*cmp)());
     // Memory functions :
 
 /**
+ * @brief Adds a pointer to the garbage collector
+ * @note The pointer is added to the garbage collector
+ * @param add The status of the garbage
+ * <u>true</u> to add the pointer and <u>false</u> to remove it
+ * @param ptr The pointer to add
+ * @param free_func The function to free the pointer
+ * @return <b>void</b>
+ * @author Nicolas TORO
+ */
+void my_add_to_garbage(bool add, void *ptr, void (*free_func)(void *));
+
+/**
 * @brief Allocates memory and initializes all the bytes to 0
 * @param element_count The number of elements
 * @param element_size The size of each element
 * @return <b>void *</b> A pointer to the allocated memory
 * @author Nicolas TORO
 */
-void *my_calloc(uint64_t element_count, uint64_t element_size);
+void *my_calloc(size_t element_count, size_t element_size);
+
+/**
+ * @brief Closes a file descriptor (fd)
+ * @note Used for the garbage collector
+ * @param fd The file descriptor to close
+ */
+void my_close(void *fd);
 
 /**
  * @brief Exits the program
@@ -591,7 +619,7 @@ void *my_free_ptr(void *ptr);
  * @return <b>void *</b> A pointer to the allocated memory
  * @author Nicolas TORO
  */
-void *my_malloc(uint64_t size);
+void *my_malloc(size_t size);
 
 /**
  * @brief Searches for the first occurrence of the character (c)
@@ -603,7 +631,7 @@ void *my_malloc(uint64_t size);
  * in the memory block if found, NULL otherwise
  * @author Nicolas TORO
  */
-void *my_memchr(const void *memory_block, int searched_char, uint64_t size);
+void *my_memchr(const void *memory_block, int searched_char, size_t size);
 
 /**
  * @brief Compares the first (size) bytes
@@ -616,7 +644,7 @@ void *my_memchr(const void *memory_block, int searched_char, uint64_t size);
  * the corresponding byte in (pointer2), a negative value otherwise
  * @author Nicolas TORO
  */
-int my_memcmp(const void *pointer1, const void *pointer2, uint64_t size);
+int my_memcmp(const void *pointer1, const void *pointer2, size_t size);
 
 /**
  * @brief Copies (size) bytes from memory area (source)
@@ -627,7 +655,7 @@ int my_memcmp(const void *pointer1, const void *pointer2, uint64_t size);
  * @return <b>void *</b> A pointer to the destination memory area
  * @author Nicolas TORO
  */
-void *my_memcpy(void *destination, const void *source, uint64_t size);
+void *my_memcpy(void *destination, const void *source, size_t size);
 
 /**
  * @brief Move (size) bytes from memory area (source)
@@ -638,7 +666,7 @@ void *my_memcpy(void *destination, const void *source, uint64_t size);
  * @return <b>void *</b> A pointer to the destination memory area
  * @author Nicolas TORO
  */
-void *my_memmove(void *destination, const void *source, uint64_t size);
+void *my_memmove(void *destination, const void *source, size_t size);
 
 /**
  * @brief Fills the first (size) bytes of the memory area pointed (pointer)
@@ -649,7 +677,17 @@ void *my_memmove(void *destination, const void *source, uint64_t size);
  * @return <b>void *</b> A pointer to the memory area
  * @author Nicolas TORO
  */
-void *my_memset(void *pointer, int value, uint64_t size);
+void *my_memset(void *pointer, int value, size_t size);
+
+/**
+ * @brief Destroys the program by calling the provided destroy function
+ * @note If the destroy function is NULL,
+ * it will call the destroy function set previously.
+ * If the program is already destroyed, it will do nothing.
+ * @param destroy_func The function to call to destroy the program
+ * @author Nicolas TORO
+ */
+void my_program_destroy(void (*destroy_func)(void *ptr));
 
 /**
  * @brief Reallocates memory block
@@ -658,7 +696,7 @@ void *my_memset(void *pointer, int value, uint64_t size);
  * @return <b>void *</b> A pointer to the new memory block
  * @author Nicolas TORO
  */
-void *my_realloc(void *pointer, uint64_t size);
+void *my_realloc(void *pointer, size_t size);
 
 /**
  * @brief The temporary malloc state variable
@@ -731,10 +769,10 @@ char *my_convert_base_unsigned(char const *nbr,
  * depending on the settings you choose with the <b>settings</b> parameter
  * @param number The string to convert
  * @param settings The settings of the function
- * @return <b>int64_t</b> The number found in the string
+ * @return <b>intmax_t</b> The number found in the string
  * @author Nicolas TORO
  */
-int64_t my_get_number(char *number, number_settings_t settings);
+intmax_t my_get_number(char *number, number_settings_t settings);
 
 /**
  * @brief Returns a number starting from a string number (str)
@@ -746,7 +784,7 @@ int64_t my_get_number(char *number, number_settings_t settings);
  * @return <b>int64_t</b> The number found in the string
  * @author Nicolas TORO
  */
-int64_t my_getnbr_base(char const *str, char const *base);
+intmax_t my_getnbr_base(char const *str, char const *base);
 
 /**
  * @brief Returns a float number starting from a string number (str)
@@ -840,19 +878,19 @@ char *my_nbr_to_str_signed(int64_t nbr, char const *base);
  * @return <b>char *</b> The number converted to a string
  * @author Nicolas TORO
  */
-char *my_nbr_to_str_unsigned(uint64_t nbr, char const *base,
-    uint64_t type_size);
+char *my_nbr_to_str_unsigned(size_t nbr, char const *base,
+    size_t type_size);
 
 /**
  * @brief Returns the length of a number (nb)
  * @param nb The number to check
- * @return <b>intmax_t</b> The length of the number
+ * @return <b>size_t</b> The length of the number
  * @author Nicolas TORO
  */
-intmax_t my_nbrlen(intmax_t nb);
+size_t my_nbrlen(intmax_t nb);
 
 /**
- * @brief Returns the result of the conversion of a uint64_t number (nbr)
+ * @brief Returns the result of the conversion of a size_t number (nbr)
  * in a specific base (base_from) to another base (base_to)
  * @param nbr The number to convert
  * @param base_from The base of the number
@@ -969,7 +1007,7 @@ void update_sign_attributes(format_t *str_struct, long double nb);
  * @return <b>char*</b> The width string
  * @author Nicolas TORO
  */
-char *get_width(format_t *str_struct, char **str_list, int len);
+char *get_width(format_t *str_struct, char **str_list, size_t len);
 
 /**
  * @brief Get the precision string
@@ -991,7 +1029,7 @@ char *get_precision(format_t *str_struct, char *nbr_str);
 * @return <b>int</b> The number of times the letter is in the string
 * @author Nicolas TORO
 */
-int my_count_letter(char const *str, char c);
+size_t my_count_letter(char const *str, char c);
 
 /**
  * @brief The function that creates a string with the given format and args
@@ -1012,6 +1050,13 @@ char *my_create_str_va(const char *format, va_list args);
 char *my_create_str(const char *format, ...);
 
 /**
+ * @brief Gets the local time
+ * @return <b>char *</b> The local time as a string
+ * @author Nicolas TORO
+ */
+char *my_get_local_time(void);
+
+/**
  * @brief Reverses the characters in a string (str)
  * and returns the string (str)
  * @param str The string to reverse
@@ -1025,62 +1070,66 @@ char *my_revstr(char *str);
  * in a list of characters (char_list)
  * @param str The string to check
  * @param char_list The list of characters to check
- * @return <b>int</b> <u>1</u> if the string contains a character in the list,
- * <u>0</u> otherwise
+ * @return <b>bool</b> <u>true</u> if the string contains
+ * a character in the list, <u>false</u> otherwise
  * @author Nicolas TORO
  */
-int my_str_contains(char *str, char *char_list);
+bool my_str_contains(char *str, char *char_list);
 
 /**
  * @brief Checks if a string (str) is composed of characters
  * in the characters list (char_list) or 0 if not
  * @param str The string to check
- * @return <b>int</b> <u>1</u> if the string is composed of characters
- * in the characters list (char_list), <u>0</u> otherwise
+ * @return <b>bool</b> <u>true</u> if the string is composed of characters
+ * in the characters list (char_list), <u>false</u> otherwise
  * @author Nicolas TORO
  */
-int my_str_is(char *str, const char *char_list);
+bool my_str_is(char *str, const char *char_list);
 
 /**
  * @brief Checks if a string (str) is alphabetical
  * @param str The string to check
- * @return <b>int</b> <u>1</u> if the string is alphabetical,
- * <u>0</u> otherwise
+ * @return <b>bool</b> <u>true</u> if the string is alphabetical,
+ * <u>false</u> otherwise
  * @author Nicolas TORO
  */
-int my_str_is_alpha(char const *str);
+bool my_str_is_alpha(char const *str);
 
 /**
  * @brief Checks if a string (str) is lowercase
  * @param str The string to check
- * @return <b>int</b> <u>1</u> if the string is lowercase, <u>0</u> otherwise
+ * @return <b>bool</b> <u>true</u> if the string is lowercase,
+ * <u>false</u> otherwise
  * @author Nicolas TORO
  */
-int my_str_is_lower(char const *str);
+bool my_str_is_lower(char const *str);
 
 /**
  * @brief Checks if a string (str) is a number
  * @param str The string to check
- * @return <b>int</b> <u>1</u> if the string is a number, <u>0</u> otherwise
+ * @return <b>bool</b> <u>true</u> if the string is a number,
+ * <u>false</u> otherwise
  * @author Nicolas TORO
  */
-int my_str_is_num(char const *str);
+bool my_str_is_num(char const *str);
 
 /**
  * @brief Checks if a string (str) is printable
  * @param str The string to check
- * @return <b>int</b> <u>1</u> if the string is printable, <u>0</u> otherwise
+ * @return <b>bool</b> <u>true</u> if the string is printable,
+ * <u>false</u> otherwise
  * @author Nicolas TORO
  */
-int my_str_is_printable(char const *str);
+bool my_str_is_printable(char const *str);
 
 /**
  * @brief Checks if a string (str) is uppercase
  * @param str The string to check
- * @return <b>int</b> <u>1</u> if the string is uppercase, <u>0</u> otherwise
+ * @return <b>bool</b> <u>true</u> if the string is uppercase,
+ * <u>false</u> otherwise
  * @author Nicolas TORO
  */
-int my_str_is_upper(char const *str);
+bool my_str_is_upper(char const *str);
 
 /**
  * @brief Capitalizes the first letter of each word in a string (str)
@@ -1149,10 +1198,10 @@ const char *my_strerror(int error);
 /**
  * @brief Returns the length of a string (str)
  * @param str The string to check
- * @return <b>intmax_t</b> The length of the string
+ * @return <b>size_t</b> The length of the string
  * @author Nicolas TORO
  */
-intmax_t my_strlen(char const *str);
+size_t my_strlen(char const *str);
 
 /**
  * @brief Replaces upcase by lowcase of a string (str)
@@ -1171,18 +1220,18 @@ char *my_strlowcase(char *str);
  * @return <b>char*</b> The destination string
  * @author Nicolas TORO
  */
-char *my_strncat(char *dest, char const *src, int n);
+char *my_strncat(char *dest, char const *src, size_t n);
 
 /**
  * @brief Compares two strings (s1) and (s2) with a defined size (n)
  * @param s1 The first string to compare
  * @param s2 The second string to compare
  * @param n The size of the strings to compare
- * @return <b>int</b> <u>0</u> if the strings are identical, otherwise
+ * @return <b>uint8_t</b> <u>0</u> if the strings are identical, otherwise
  * the difference between the first different characters in the strings
  * @author Nicolas TORO
  */
-int my_strncmp(char const *s1, char const *s2, int n);
+uint8_t my_strncmp(char const *s1, char const *s2, size_t n);
 
 /**
  * @brief Copies a string (src) and paste it on another string (dest)
@@ -1194,7 +1243,7 @@ int my_strncmp(char const *s1, char const *s2, int n);
  * @return <b>char*</b> The destination string
  * @author Nicolas TORO
  */
-char *my_strncpy(char *dest, char const *src, int n);
+char *my_strncpy(char *dest, char const *src, size_t n);
 
 /**
  * @brief Duplicates a string (src) with a defined size (n)
@@ -1204,7 +1253,7 @@ char *my_strncpy(char *dest, char const *src, int n);
  * @return <b>char*</b> The duplicated string
  * @author Nicolas TORO
  */
-char *my_strndup(char const *src, int n);
+char *my_strndup(char const *src, size_t n);
 
 /**
  * @brief Search a string (to_find) on another (str)
@@ -1228,33 +1277,24 @@ char *my_strupcase(char *str);
 /**
  * @brief Returns the length of a wide string (wcs)
  * @param wcs The wide string to check
- * @return <b>intmax_t</b> The length of the wide string
+ * @return <b>size_t</b> The length of the wide string
  * @author Nicolas TORO
  */
-intmax_t my_wcslen(const wchar_t *wcs);
+size_t my_wcslen(const wchar_t *wcs);
 
 /**
  * @brief Converts a wide-character string to a multibyte string
  * @param dest The destination string
  * @param src The source string
  * @param n The number of bytes to convert
- * @return <b>intmax_t</b> The number of bytes converted if successful,
+ * @return <b>ssize_t</b> The number of bytes converted if successful,
  * the length of the string if dest is NULL, -1 if an error occured
  */
-intmax_t my_wcstombs(char *dest, const wchar_t *src, intmax_t n);
+ssize_t my_wcstombs(char *dest, const wchar_t *src, size_t n);
 
 
 
     // Write functions :
-
-/**
- * @brief Display a debug message
- * @param file The file name
- * @param line The line number
- * @param func The function name
- * @author Nicolas TORO
- */
-void my_debug(const char *file, const int line, const char *func);
 
 /**
  * @brief Print a formatted string to a file descriptor
@@ -1265,6 +1305,22 @@ void my_debug(const char *file, const int line, const char *func);
  * @author Nicolas TORO
  */
 intmax_t my_dprintf(int fd, char const *format, ...);
+
+/**
+ * @brief Display a logs message
+ * @param point The point in the code where the logs are displayed
+ * @param type The type of logs message
+ * @param message The message to display
+ */
+void my_logs_message(point_t point, logs_type_t type, const char *message);
+
+/**
+ * @brief Display a  point in the code
+ * @note This function use the temporary malloc state
+ * @param point The point in the code where the logs are displayed
+ * @author Nicolas TORO
+ */
+void my_point(point_t point);
 
 /**
  * @brief Print a formatted string
@@ -1289,7 +1345,7 @@ void my_putchar(char c);
  * @return <b>void</b>
  * @author Nicolas TORO
  */
-void my_putnbr(int nb);
+void my_putnbr(intmax_t nb);
 
 /**
  * @brief Prints a number (nb) in the requested base (base) in stdout
@@ -1298,54 +1354,54 @@ void my_putnbr(int nb);
  * @return <b>void</b>
  * @author Nicolas TORO
  */
-void my_putnbr_base(int nbr, char const *base);
+void my_putnbr_base(intmax_t nbr, char const *base);
 
 /**
  * @brief Writes a string (str) in stdout
  * and returns the length of the printed string
  * @param str The string to print
- * @return <b>int</b> The length of the printed string
+ * @return <b>size_t</b> The length of the printed string
  * @author Nicolas TORO
  */
-int my_putstr(char const *str);
+size_t my_putstr(char const *str);
 
 /**
  * @brief Prints a string (str) in stderr and returns 84
  * @param str The string to print
- * @return <b>int</b> <u>84</u>
+ * @return <b>size_t</b> <u>84</u>
  * @author Nicolas TORO
  */
-int my_putstr_error(char const *str);
+size_t my_putstr_error(char const *str);
 
 /**
  * @brief Writes a string (str) in a file descriptor (fd)
  * and returns the length of the printed string
  * @param str The string to print
  * @param fd The file descriptor to write in
- * @return <b>int</b> The number of printed characters
+ * @return <b>size_t</b> The number of printed characters
  * @author Nicolas TORO
  */
-int my_putstr_fd(char const *str, int fd);
+size_t my_putstr_fd(char const *str, int fd);
 
 /**
  * @brief Writes a string (str) in a file descriptor (fd), free it
  * and returns the length of the printed string
  * @param str The string to print
  * @param fd The file descriptor to write in
- * @return <b>int</b> The number of printed characters
+ * @return <b>size_t</b> The number of printed characters
  * @author Nicolas TORO
  */
-int my_putstr_fd_free(char *str, int fd);
+size_t my_putstr_fd_free(char *str, int fd);
 
 /**
  * @brief Prints a string (str) in stdout with a defined size (size)
  * and returns the length of the printed string
  * @param str The string to print
  * @param size The size of the string
- * @return <b>int</b> The length of the printed string
+ * @return <b>size_t</b> The length of the printed string
  * @author Nicolas TORO
  */
-int my_putstr_sized(char const *str, uint64_t size);
+size_t my_putstr_sized(char const *str, size_t size);
 
 /**
  * @brief Displays the linked list
@@ -1378,7 +1434,7 @@ void my_show_word_array(char *const *tab);
  * @return <b>void</b>
  * @author Nicolas TORO
  */
-void my_showmem(char const *str, uint64_t size);
+void my_showmem(char const *str, size_t size);
 
 /**
  * @brief Prints a string (str) but replaces

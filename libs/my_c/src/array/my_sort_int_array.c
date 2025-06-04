@@ -30,12 +30,12 @@ static void sort_tab(int *array, int i, int j)
  * @param size The size of the tab
  * @author Nicolas TORO
  */
-void my_sort_int_array(int *array, int size)
+void my_sort_int_array(int *array, size_t size)
 {
     if (array == NULL)
         return;
-    for (int i = 0; i <= size; i++) {
-        for (int j = i + 1; j < size; j++) {
+    for (size_t i = 0; i <= size; i++) {
+        for (size_t j = i + 1; j < size; j++) {
             sort_tab(array, i, j);
         }
     }

@@ -12,7 +12,7 @@
 
 #include "../../include/my.h"
 
-static void push_front(hashtable_entry_t **begin, int key, char *value)
+static void push_front(hashtable_entry_t **begin, ssize_t key, char *value)
 {
     hashtable_entry_t *new = my_calloc(1, sizeof(hashtable_entry_t));
 
@@ -30,16 +30,16 @@ static void push_front(hashtable_entry_t **begin, int key, char *value)
  * @param ht The hashtable
  * @param key The key to insert
  * @param value The value to insert
- * @return <b>int</b> 0 if success, 84 if failure
+ * @return <b>bool</b> <u>false</u> if failure, <u>true</u> if success
  * @author Nicolas TORO
  */
-int my_ht_insert(hashtable_t *ht, char *key, char *value)
+bool my_ht_insert(hashtable_t *ht, char *key, char *value)
 {
-    int index;
-    int hashed_key;
+    size_t index;
+    ssize_t hashed_key;
 
     if (ht == NULL || key == NULL || value == NULL)
-        return my_putstr_error("Invalid insert arguments\n");
+        return false;
     hashed_key = ht->hash(key, ht->len);
     index = hashed_key % ht->len;
     for (hashtable_entry_t *tmp = ht->table[index];
@@ -47,9 +47,9 @@ int my_ht_insert(hashtable_t *ht, char *key, char *value)
         if (tmp->key == hashed_key) {
             FREE(tmp->value);
             tmp->value = my_strdup(value);
-            return 0;
+            return true;
         }
     }
     push_front(&ht->table[index], hashed_key, value);
-    return 0;
+    return true;
 }

@@ -20,13 +20,13 @@
  * @return <b>char*</b> The duplicated string
  * @author Nicolas TORO
  */
-char *my_strndup(char const *src, int n)
+char *my_strndup(char const *src, size_t n)
 {
     char *dest = my_calloc(n + 1, sizeof(char *));
 
     if (src == NULL)
         return NULL;
-    for (int i = 0; src[i] != '\0' && i < n; i++)
+    for (size_t i = 0; src[i] != '\0' && i < n; i++)
         dest[i] = src[i];
     return dest;
 }

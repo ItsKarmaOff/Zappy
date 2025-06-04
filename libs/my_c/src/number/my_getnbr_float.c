@@ -12,7 +12,7 @@
 
 #include "../../include/my.h"
 
-static int index_negative(char const *str, int index)
+static int index_negative(char const *str, size_t index)
 {
     if (index == 0)
         return 1;
@@ -33,7 +33,7 @@ static int index_negative(char const *str, int index)
 float my_getnbr_float(char const *str)
 {
     float convert = 0;
-    int index = 0;
+    size_t index = 0;
     float index_float = 0.1;
 
     if ((str[0] < '0' || str[0] > '9') && str[0] != '-')
@@ -42,12 +42,12 @@ float my_getnbr_float(char const *str)
         index++;
     convert = convert * index_negative(str, index);
     for (; str[index] >= '0' && str[index] <= '9'; index++)
-        convert = convert * 10 + (str[index] - 48);
+        convert = convert * 10 + (float)(str[index] - 48);
     if (str[index] == '.') {
         index++;
         for (; str[index] >= '0' && str[index] <= '9'; index++) {
-            convert = convert + index_float * (str[index] - 48);
-            index_float = index_float * 0.1;
+            convert = convert + index_float * (float)(str[index] - 48);
+            index_float = index_float * 0.1f;
         }
     }
     return convert;

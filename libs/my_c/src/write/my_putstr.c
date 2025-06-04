@@ -16,12 +16,12 @@
  * @brief Writes a string (str) in stdout
  * and returns the length of the printed string
  * @param str The string to print
- * @return <b>int</b> The length of the printed string
+ * @return <b>size_t</b> The length of the printed string
  * @author Nicolas TORO
  */
-int my_putstr(char const *str)
+size_t my_putstr(char const *str)
 {
-    int len;
+    size_t len;
 
     if (str == NULL)
         return 0;

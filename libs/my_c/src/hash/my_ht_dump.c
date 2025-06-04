@@ -30,7 +30,7 @@ void my_ht_dump(hashtable_t *ht)
 {
     if (ht == NULL)
         return;
-    for (int i = 0; i < ht->len; i++) {
+    for (size_t i = 0; i < ht->len; i++) {
         my_printf("[%d]:\n", i);
         display_entry_list(ht->table[i]);
     }

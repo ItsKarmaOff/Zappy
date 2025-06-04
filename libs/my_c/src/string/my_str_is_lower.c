@@ -15,16 +15,17 @@
 /**
  * @brief Checks if a string (str) is lowercase
  * @param str The string to check
- * @return <b>int</b> <u>1</u> if the string is lowercase, <u>0</u> otherwise
+ * @return <b>bool</b> <u>true</u> if the string is lowercase,
+ * <u>false</u> otherwise
  * @author Nicolas TORO
  */
-int my_str_is_lower(char const *str)
+bool my_str_is_lower(char const *str)
 {
     if (my_str_is_alpha(str) == 0)
-        return 0;
-    for (int i = 0; i < my_strlen(str); i++) {
+        return false;
+    for (size_t i = 0; i < my_strlen(str); i++) {
         if (str[i] < 'a' || str[i] > 'z')
-            return 0;
+            return false;
     }
-    return 1;
+    return true;
 }
