@@ -89,4 +89,15 @@ void add_new_client(server_t *server);
  */
 char *get_response(int socket_fd);
 
+
+
+/* Send message to GUI functions */
+
+/**
+ * @brief Send a message to all GUI clients
+ * @param server The server containing the GUI clients
+ * @param message The message to send
+ */
+void send_message_to_gui(server_t *server, const char *message);
+
 #endif /* NETWORK_H_ */

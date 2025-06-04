@@ -31,6 +31,9 @@
     /* The welcome message sent to clients */
     #define WELCOME_MESSAGE "WELCOME\n"
 
+    /* The message sent to clients when an action is valid */
+    #define VALID_AI "ok\n"
+
     /* The message sent to clients when an action is not valid */
     #define WRONG_AI "ko\n"
 
@@ -45,10 +48,20 @@
 
 
 
+
+typedef enum orientation_e {
+    NORTH = 1, /* The player is facing north */
+    EAST = 2, /* The player is facing east */
+    SOUTH = 3, /* The player is facing south */
+    WEST = 4, /* The player is facing west */
+} orientation_t;
+
 typedef struct team_s team_t;
 
 typedef struct player_s {
-    team_t *team;
+    vector2u_t position; /* The position of the player on the map */
+    orientation_t orientation; /* The orientation of the player */
+    team_t *team; /* The team of the player */
 } player_t;
 
 typedef struct team_s {
@@ -76,6 +89,9 @@ typedef struct client_s {
     bool is_gui; /* Whether the client is a GUI client */
 
     player_t *player; /* The associated player */
+
+    size_t time_to_wait; /* The time to wait before the next action */
+    struct timespec last_action_time; /* The time of the last action */
 } client_t;
 
 typedef struct server_s {

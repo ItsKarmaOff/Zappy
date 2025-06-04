@@ -15,6 +15,18 @@
 
     #include "data_structures.h"
 
+typedef struct move_s {
+    orientation_t orientation;
+    void (*move_func)(server_t *server, client_t *client);
+} move_t;
+
+extern const move_t moves[];
+
+typedef struct update_orientation_s {
+    orientation_t orientation;
+    void (*update_orientation_func)(client_t *client);
+} update_orientation_t;
+
 /**
  * @brief Handles the "Forward" command for AI clients
  * @param server The server instance

@@ -39,6 +39,13 @@ size_t get_nb_players_in_team(const game_t *game, const team_t *team);
 size_t get_team_index(const game_t *game, const char *team_name);
 
 /**
+ * @brief Creates a player for a team
+ * @param team The team to create the player for
+ * @return A pointer to the created player
+ */
+player_t *create_player(team_t *team);
+
+/**
  * @brief Updates the game
  * @param server The server to update the game on
  */

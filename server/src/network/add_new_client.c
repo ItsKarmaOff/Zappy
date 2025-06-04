@@ -85,8 +85,7 @@ static void add_client_to_server(server_t *server, client_t *new_client,
     size_t team_index = get_team_index(&server->game, team_name);
 
     respond_to_client(server, new_client, team_index);
-    new_client->player = my_calloc(1, sizeof(player_t));
-    new_client->player->team = server->game.team_list[team_index];
+    new_client->player = create_player(server->game.team_list[team_index]);
     if (server->game.team_list[team_index]->player_list == NULL)
         server->game.team_list[team_index]->player_list = my_calloc(
             server->game.game_settings.clients_per_team, sizeof(player_t *));
