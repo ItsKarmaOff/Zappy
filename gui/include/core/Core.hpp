@@ -9,11 +9,11 @@
     #define CORE_HPP
 
     #include <memory>
-    #include <mutex>
-    #include <queue>
+    #include <atomic>
     #include <string>
     #include "Graphics.hpp"
     #include "Socket.hpp"
+    #include "QueueManager.hpp"
 
 namespace Gui
 {
@@ -133,13 +133,9 @@ namespace Gui
             int _port;  // The port number for the server connection
             std::string _hostname;  // The hostname for the server connection
             std::unique_ptr<Lib::Socket> _clientSocket; // Pointer to the socket for communication with the server
+            std::atomic<bool> isRunning;  // Flag to indicate if the application is running
             struct sockaddr_in _client; // Structure to hold the client address information
-            bool isRunning;  // Flag to indicate if the application is running
-            std::mutex _commandsQueueMutex; // Mutex for synchronizing access to the commands queue
-            std::queue<std::vector<std::string>> _commandsQueue;    // Queue for storing commands to be processed
-            std::mutex _responseQueueMutex; // Mutex for synchronizing access to the response queue
-            std::queue<std::string> _responseQueue; // Queue for storing responses from the server
-            Graphics _graphics;
+            std::shared_ptr<QueueManager> _queueManager; // Shared pointer to the queue manager for handling commands and responses
     };
 }
 
