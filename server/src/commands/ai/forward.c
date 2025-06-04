@@ -40,13 +40,6 @@ static void move_west(server_t *server, client_t *client)
         client->player->position.x - 1;
 }
 
-const move_t moves[] = {
-    {NORTH, &move_north},
-    {EAST, &move_east},
-    {SOUTH, &move_south},
-    {WEST, &move_west},
-};
-
 void handle_command_forward(UNUSED server_t *server, UNUSED client_t *client,
     UNUSED char **args)
 {
@@ -59,3 +52,10 @@ void handle_command_forward(UNUSED server_t *server, UNUSED client_t *client,
     dprintf(client->socket_fd, VALID_AI);
     client->time_to_wait = 7;
 }
+
+const move_t moves[] = {
+    {NORTH, &move_north},
+    {EAST, &move_east},
+    {SOUTH, &move_south},
+    {WEST, &move_west},
+};
