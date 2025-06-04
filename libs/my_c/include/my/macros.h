@@ -25,6 +25,7 @@
     #define    THROW(msg) my_exit(FAILURE, msg)
     #define    EXCEPTION(msg) my_exit(FAILURE, "EXCEPTION: " msg)
     #define    UNUSED __attribute__((unused))
+    #define    STRERR strerror(errno)
     #define    STR2ARRAY(str, sep, type) my_str_to_word_array(str, sep, type)
     #define    FORMAT_CHAR str_struct->format_str[str_struct->current_index]
 

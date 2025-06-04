@@ -565,6 +565,13 @@ void my_add_to_garbage(bool add, void *ptr, void (*free_func)(void *));
 void *my_calloc(size_t element_count, size_t element_size);
 
 /**
+ * @brief Closes a file descriptor (fd)
+ * @note Used for the garbage collector
+ * @param fd The file descriptor to close
+ */
+void my_close(void *fd);
+
+/**
  * @brief Exits the program
  * @note An ASM function called by the my_exit function
  * @param status The status to return
@@ -671,6 +678,16 @@ void *my_memmove(void *destination, const void *source, size_t size);
  * @author Nicolas TORO
  */
 void *my_memset(void *pointer, int value, size_t size);
+
+/**
+ * @brief Destroys the program by calling the provided destroy function
+ * @note If the destroy function is NULL,
+ * it will call the destroy function set previously.
+ * If the program is already destroyed, it will do nothing.
+ * @param destroy_func The function to call to destroy the program
+ * @author Nicolas TORO
+ */
+void my_program_destroy(void (*destroy_func)(void *ptr));
 
 /**
  * @brief Reallocates memory block
