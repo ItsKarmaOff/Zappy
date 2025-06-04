@@ -32,8 +32,7 @@ void read_client_action(server_t *server, size_t index)
         FREE(command);
         disconnect_client(server, index);
     }
-    DEBUG(my_create_str("Receive command: %s\n", command));
-    AL(FALSE, my_push_front, &server->client_list[index -1]->command_queue,
+    AL(FALSE, my_push_back, &server->client_list[index -1]->command_queue,
         command, STRING);
     if (my_str_contains(command, "\n"))
         server->poll_fds[index].events |= POLLOUT;

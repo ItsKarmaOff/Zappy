@@ -44,7 +44,7 @@ static bool check_team_size(server_t *server, client_t *new_client,
 static bool check_team(server_t *server, client_t *new_client, char *team_name)
 {
     if (!is_valid_team(server, team_name)) {
-        dprintf(new_client->socket_fd, WRONG);
+        dprintf(new_client->socket_fd, WRONG_AI);
         close(new_client->socket_fd);
         FREE(new_client);
         DEBUG(my_create_str("Client tried to join an invalid team: %s\n",
@@ -73,8 +73,10 @@ static void respond_to_client(server_t *server, client_t *new_client,
         dprintf(new_client->socket_fd, "%zu %zu\n",
             server->game.game_settings.width,
             server->game.game_settings.height);
-    } else
+    } else {
+        new_client->is_gui = true;
         init_gui(server, new_client->socket_fd);
+    }
 }
 
 static void add_client_to_server(server_t *server, client_t *new_client,

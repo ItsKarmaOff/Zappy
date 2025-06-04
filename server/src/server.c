@@ -34,9 +34,9 @@ static void destroy_server(void *server)
     }
 }
 
-static void handle_sigint(UNUSED int signum)
+static void handle_signal(UNUSED int signum)
 {
-    DEBUG("CTRL+C received, shutting down server...\n");
+    DEBUG("CTRL+C (or CTRL+D) received, shutting down server...\n");
     my_exit(SUCCESS, GREEN "Server shutdown successfully.\n" RESET);
 }
 
@@ -48,7 +48,8 @@ server_t *create_server(int argc, char **argv)
     start_server(server);
     destroy_server(server);
     my_program_destroy(&destroy_server);
-    signal(SIGINT, handle_sigint);
+    signal(SIGINT, handle_signal);
+    signal(SIGHUP, handle_signal);
     return server;
 }
 

@@ -14,6 +14,7 @@
     #define NETWORK_H_
 
     #include "game.h"
+    #include "commands.h"
 
 /* Initialization functions */
 

@@ -32,7 +32,18 @@
     #define WELCOME_MESSAGE "WELCOME\n"
 
     /* The message sent to clients when an action is not valid */
-    #define WRONG "ko\n"
+    #define WRONG_AI "ko\n"
+
+    /* The message sent to clients when the GUI is not valid */
+    #define WRONG_GUI "suc\n"
+
+    /**
+     * @brief The message sent to clients
+     * when the arguments of a command are invalid
+     */
+    #define INVALID_ARGS "sbp\n"
+
+
 
 typedef struct team_s team_t;
 
@@ -62,6 +73,7 @@ typedef struct client_s {
     int socket_fd; /* The socket file descriptor */
     struct sockaddr_in address; /* The address of the client */
     node_t *command_queue; /* The queue of commands to execute */
+    bool is_gui; /* Whether the client is a GUI client */
 
     player_t *player; /* The associated player */
 } client_t;
@@ -81,5 +93,16 @@ typedef struct server_s {
 
     game_t game; /* The game structure */
 } server_t;
+
+typedef struct command_s {
+    /* The command to execute */
+    const char *command;
+    /* Whether the command is for GUI clients */
+    bool is_gui;
+    /* The function to execute the command */
+    void (*cmd_function)(server_t *, client_t *, char **);
+} command_t;
+
+extern const command_t commands[];
 
 #endif /* DATA_STRUCTURES_H_ */
