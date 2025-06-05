@@ -20,7 +20,7 @@ static void configure_server(server_t *server)
     server->address.sin_addr.s_addr = INADDR_ANY;
     server->address.sin_port = htons(server->port);
     server->poll_fds = my_calloc(
-        server->max_clients_number + 1, sizeof(struct pollfd));
+        server->max_clients_number + 1, sizeof(pollfd_t));
     for (size_t index = 0; index < server->max_clients_number + 1; index++) {
         server->poll_fds[index].fd = -1;
         server->poll_fds[index].events = POLLIN;

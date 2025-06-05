@@ -48,6 +48,10 @@
 
 
 
+typedef struct egg_s {
+    size_t id;
+} egg_t;
+
 
 typedef enum orientation_e {
     NORTH = 1, /* The player is facing north */
@@ -59,6 +63,7 @@ typedef enum orientation_e {
 typedef struct team_s team_t;
 
 typedef struct player_s {
+    size_t id; /* The ID of the player */
     vector2u_t position; /* The position of the player on the map */
     orientation_t orientation; /* The orientation of the player */
     team_t *team; /* The team of the player */
@@ -75,6 +80,8 @@ typedef struct game_settings_s {
     size_t teams_number; /* The maximum number of teams */
     size_t clients_per_team; /* The number of clients per team */
     size_t frequency; /* Reciprocal of time unit for execution of actions */
+    size_t next_player_id; /* The next player ID to be assigned */
+    size_t next_egg_id; /* The next egg ID to be assigned */
 } game_settings_t;
 
 typedef struct game_s {
@@ -84,7 +91,7 @@ typedef struct game_s {
 
 typedef struct client_s {
     int socket_fd; /* The socket file descriptor */
-    struct sockaddr_in address; /* The address of the client */
+    sockaddr_in_t address; /* The address of the client */
     node_t *command_queue; /* The queue of commands to execute */
     bool is_gui; /* Whether the client is a GUI client */
 
@@ -99,10 +106,10 @@ typedef struct server_s {
 
     int port; /* The port of the server */
     int socket_fd; /* The socket file descriptor */
-    struct sockaddr_in address; /* The address of the server */
+    sockaddr_in_t address; /* The address of the server */
     socklen_t addr_len; /* The length of the address */
 
-    struct pollfd *poll_fds; /* The poll file descriptors */
+    pollfd_t *poll_fds; /* The poll file descriptors */
     size_t max_clients_number; /* The maximum number of clients */
     size_t current_clients_number; /* The current number of clients */
     client_t **client_list; /* The list of connected clients */

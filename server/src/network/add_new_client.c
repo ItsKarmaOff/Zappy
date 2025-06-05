@@ -85,7 +85,8 @@ static void add_client_to_server(server_t *server, client_t *new_client,
     size_t team_index = get_team_index(&server->game, team_name);
 
     respond_to_client(server, new_client, team_index);
-    new_client->player = create_player(server->game.team_list[team_index]);
+    new_client->player = create_player(&server->game,
+        server->game.team_list[team_index]);
     if (server->game.team_list[team_index]->player_list == NULL)
         server->game.team_list[team_index]->player_list = my_calloc(
             server->game.game_settings.clients_per_team, sizeof(player_t *));
@@ -96,8 +97,8 @@ static void add_client_to_server(server_t *server, client_t *new_client,
         new_client->socket_fd;
     server->client_list[server->current_clients_number] = new_client;
     server->current_clients_number += 1;
-    my_add_to_garbage(true, new_client, &free);
-    my_add_to_garbage(true, team_name, &free);
+    DEBUG(my_create_str("New client added in %s\n", team_name));
+    FREE(team_name);
 }
 
 void add_new_client(server_t *server)
@@ -117,5 +118,4 @@ void add_new_client(server_t *server)
     if (check_team(server, new_client, team_name) == false)
         return;
     add_client_to_server(server, new_client, team_name);
-    DEBUG(my_create_str("New client added in %s\n", team_name));
 }

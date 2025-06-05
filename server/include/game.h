@@ -40,10 +40,11 @@ size_t get_team_index(const game_t *game, const char *team_name);
 
 /**
  * @brief Creates a player for a team
+ * @param game The game to create the player in
  * @param team The team to create the player for
  * @return A pointer to the created player
  */
-player_t *create_player(team_t *team);
+player_t *create_player(game_t *game, team_t *team);
 
 /**
  * @brief Updates the game

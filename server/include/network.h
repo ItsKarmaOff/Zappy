@@ -100,4 +100,14 @@ char *get_response(int socket_fd);
  */
 void send_message_to_gui(server_t *server, const char *message);
 
+
+
+/* Clients */
+
+/**
+ * @brief Create a new client
+ * @return A pointer to the client
+ */
+void destroy_client(client_t *client);
+
 #endif /* NETWORK_H_ */
