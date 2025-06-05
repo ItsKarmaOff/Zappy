@@ -153,6 +153,15 @@ typedef struct vector2d_s {
     double y; /* The y coordinate */
 } vector2d_t;
 
+
+
+/* Network aliases */
+
+typedef struct pollfd pollfd_t;
+typedef struct sockaddr_in sockaddr_in_t;
+
+
+
 typedef union my_double_s {
     double value;
     struct {
