@@ -12,8 +12,26 @@
  */
 
 #include "Lib.hpp"
+#include "Parser.hpp"
+#include "Engine.hpp"
 
-int main(UNUSED int argc, UNUSED char **argv)
+int main(int argc, char **argv)
 {
+    Parser parser;
+    try {
+        parser.parse(argc, argv);
+    } catch (const Lib::Exceptions::Critical &e) {
+        Lib::Logs::Error() << e.what();
+        return 84;
+    } catch (const Lib::Exceptions::Help &e) {
+        std::cout << e.what();
+        return 0;
+    }
+    try {
+        Engine engine(parser);
+        engine.run();
+    } catch (...) {
+        return 0;
+    }
     return 0;
 }
