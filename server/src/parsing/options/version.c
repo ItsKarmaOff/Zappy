@@ -12,8 +12,7 @@
 
 #include "parsing.h"
 
-void option_version(UNUSED server_t *server,
-    UNUSED int argc, UNUSED char **argv, UNUSED size_t *index)
+void option_version(UNUSED server_t *server, UNUSED parsing_t *parsing)
 {
     my_putstr(BOLD "VERSION:\n" RESET
         "\tZappy Server version 1.0.0\n"
