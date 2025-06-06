@@ -38,7 +38,7 @@ static bool check_team_size(server_t *server, client_t *new_client,
 {
     size_t team_index = get_team_index(&server->game, team_name);
 
-    if (get_nb_empty_slots(server->game.team_list[team_index]) == 0) {
+    if (server->game.team_list[team_index]->eggs_number == 0) {
         if (team_index == GRAPHIC_TEAM_INDEX) {
             add_player_to_graphic(server, new_client, team_index);
             return true;
@@ -80,7 +80,7 @@ static void respond_to_client(server_t *server, client_t *new_client,
 {
     if (team_index != GRAPHIC_TEAM_INDEX) {
         dprintf(new_client->socket_fd, "%zu\n",
-            get_nb_empty_slots(server->game.team_list[team_index]));
+            server->game.team_list[team_index]->eggs_number);
         dprintf(new_client->socket_fd, "%zu %zu\n",
             server->game.game_settings.width,
             server->game.game_settings.height);

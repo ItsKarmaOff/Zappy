@@ -32,9 +32,10 @@ player_t *create_player_from_player(game_t *game, player_t *creator)
 
     player->id = game->game_settings.next_player_id;
     game->game_settings.next_player_id++;
-    player->is_egg = true;
-    player->creator_id = creator->id;
     player->team = creator->team;
+    player->is_egg = true;
+    player->team->eggs_number++;
+    player->creator_id = creator->id;
     player->position = creator->position;
     player->orientation = creator->orientation;
     return player;

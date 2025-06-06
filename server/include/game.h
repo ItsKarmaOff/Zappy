@@ -52,7 +52,8 @@ team_t *create_team(game_t *game, const char *name);
  * @param team The team to check
  * @return The number of empty slots in the team
  */
-size_t get_nb_empty_slots(const team_t *team);
+//size_t get_nb_empty_slots(const team_t *team);
+//TODO à delete
 
 /**
  * @brief Gets the index of a team in the game
@@ -67,23 +68,29 @@ size_t get_team_index(const game_t *game, const char *team_name);
  * @param team The team to get the next egg for
  * @return A pointer to the next egg, or NULL if no eggs are available
  */
-player_t *get_next_egg(const team_t *team);
+player_t *get_next_egg(team_t *team);
 
 
 
 /* Game functions */
 
 /**
- * @brief Creates the game map
- * @param game The game to create the map for
- */
-void create_game_map(game_t *game);
-
-/**
  * @brief Destroys the game and frees its resources
  * @param game The game to destroy
  */
 void destroy_game(game_t *game);
+
+/**
+ * @brief Refills the resources in the game
+ * @param game The game to refill resources for
+ */
+void refill_resources(game_t *game);
+
+/**
+ * @brief Creates the game map
+ * @param game The game to create the map for
+ */
+void create_game_map(game_t *game);
 
 /**
  * @brief Updates the game

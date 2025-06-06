@@ -101,7 +101,7 @@ typedef struct team_s {
     /** The name of the team */
     const char *name;
     /** The number of eggs in the team */
-    size_t nb_eggs;
+    size_t eggs_number;
     /** The list of players in the team */
     node_t *player_list;
 } team_t;
@@ -165,7 +165,7 @@ typedef struct game_s {
     tile_t **map;
     /** The quantities of resources in the game */
     quantity_t resources[RESOURCES_SIZE];
-    /** The current time of the game */
+    /** The last time resources were refilled */
     time_t last_refill_time;
 } game_t;
 
