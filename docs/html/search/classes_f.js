@@ -5,7 +5,8 @@ var searchData=
   ['platformdata_2',['PlatformData',['../structPlatformData.html',1,'']]],
   ['player_3',['Player',['../structPlayer.html',1,'']]],
   ['player_5fs_4',['player_s',['../structplayer__s.html',1,'']]],
-  ['point_5',['Point',['../structPoint.html',1,'']]],
-  ['point_5fs_6',['point_s',['../structpoint__s.html',1,'']]],
-  ['probedpage_7',['ProbedPage',['../structProbedPage.html',1,'']]]
+  ['playerinfo_5',['PlayerInfo',['../classGui_1_1PlayerInfo.html',1,'Gui']]],
+  ['point_6',['Point',['../structPoint.html',1,'']]],
+  ['point_5fs_7',['point_s',['../structpoint__s.html',1,'']]],
+  ['probedpage_8',['ProbedPage',['../structProbedPage.html',1,'']]]
 ];

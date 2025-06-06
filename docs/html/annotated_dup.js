@@ -1,13 +1,17 @@
 var annotated_dup =
 [
     [ "Gui", null, [
+      [ "AssetsManager", "classGui_1_1AssetsManager.html", null ],
       [ "Button", "classGui_1_1Button.html", null ],
       [ "Commands", "classGui_1_1Commands.html", "classGui_1_1Commands" ],
       [ "Core", "classGui_1_1Core.html", "classGui_1_1Core" ],
       [ "GameInfo", "classGui_1_1GameInfo.html", null ],
       [ "Graphics", "classGui_1_1Graphics.html", null ],
       [ "MenuInfo", "classGui_1_1MenuInfo.html", null ],
-      [ "QueueManager", "classGui_1_1QueueManager.html", null ]
+      [ "PlayerInfo", "classGui_1_1PlayerInfo.html", null ],
+      [ "QueueManager", "classGui_1_1QueueManager.html", null ],
+      [ "TeamInfo", "classGui_1_1TeamInfo.html", null ],
+      [ "TileInfo", "classGui_1_1TileInfo.html", null ]
     ] ],
     [ "Lib", null, [
       [ "Logs", null, [
@@ -18,6 +22,9 @@ var annotated_dup =
       ] ],
       [ "Exceptions", "classLib_1_1Exceptions.html", "classLib_1_1Exceptions" ],
       [ "Socket", "classLib_1_1Socket.html", "classLib_1_1Socket" ]
+    ] ],
+    [ "std", null, [
+      [ "hash< Vector2 >", "structstd_1_1hash_3_01Vector2_01_4.html", null ]
     ] ],
     [ "_CPOINT", "struct__CPOINT.html", null ],
     [ "_DIACTIONA", "struct__DIACTIONA.html", null ],

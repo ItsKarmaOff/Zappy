@@ -140,16 +140,16 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"Button_8hpp_source.html",
-"files.html",
-"group__Callbacks.html#gac3a6007e7ac6c7e7f897cb67a37fb350",
-"group__input.html#gad6fae41b3ac2e4209aaa87b596c57f68",
-"gui_8h.html#ab0cb3f26af02b5a2fcb944d1a7d394c5",
-"my__pop__back_8c.html",
-"structDIDEVICEINSTANCE__DX3W.html",
-"structVkFramebufferAttachmentsCreateInfo.html",
-"struct__GLFWmonitorNS.html",
-"structma__lpf__node.html"
+"AssetsManager_8hpp_source.html",
+"dr__wav_8h_source.html",
+"group__Callbacks.html#ga938288573f8498b0c970475cd000bd7a",
+"group__input.html#gac96fd3b9fc66c6f0eebaf6532595338f",
+"gui_2src_2Main_8cpp.html",
+"my__nbrlen_8c.html",
+"structDICONDITION.html",
+"structVkExternalMemoryImageCreateInfo.html",
+"struct__GLFWlibraryNull.html",
+"structma__loshelf2__config.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
