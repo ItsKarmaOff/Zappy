@@ -12,26 +12,31 @@
 
 #include "game.h"
 
-team_t *create_team(const char *name)
+team_t *create_team(game_t *game, const char *name)
 {
     team_t *team = my_calloc(1, sizeof(team_t));
+    player_t *new_player = NULL;
 
     team->name = name;
+    for (size_t index = 0; index < game->game_settings.start_clients_per_team;
+    index++) {
+        new_player = create_player(game, team);
+        AL(FALSE, my_push_front, &team->player_list, new_player, VOID);
+    }
     return team;
 }
 
-size_t get_nb_players_in_team(const game_t *game, const team_t *team)
+size_t get_nb_empty_slots(const team_t *team)
 {
-    size_t count = 0;
+    size_t empty_slots = 0;
 
-    if (team == NULL || team->player_list == NULL)
-        return count;
-    for (size_t index = 0; index < game->game_settings.clients_per_team;
-    index++) {
-        if (team->player_list[index] != NULL)
-            count++;
+    if (team == NULL)
+        return empty_slots;
+    for (node_t *node = team->player_list; node != NULL; node = node->next) {
+        if (node->data == NULL || ((player_t *)node->data)->is_egg)
+            empty_slots++;
     }
-    return count;
+    return empty_slots;
 }
 
 size_t get_team_index(const game_t *game, const char *team_name)
@@ -43,4 +48,17 @@ size_t get_team_index(const game_t *game, const char *team_name)
             return index;
     }
     return 0;
+}
+
+player_t *get_next_egg(const team_t *team)
+{
+    if (team == NULL)
+        return NULL;
+    for (node_t *node = team->player_list; node != NULL; node = node->next) {
+        if (node->data != NULL && ((player_t *)node->data)->is_egg) {
+            ((player_t *)node->data)->is_egg = false;
+            return (player_t *) node->data;
+        }
+    }
+    return NULL;
 }

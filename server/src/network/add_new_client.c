@@ -22,18 +22,31 @@ static bool is_valid_team(server_t *server, char *team_name)
     return false;
 }
 
+static void add_player_to_graphic(server_t *server, client_t *new_client,
+    size_t team_index)
+{
+    player_t *new_player = create_player(&server->game,
+        server->game.team_list[team_index]);
+
+    resize_client_list(server, server->max_clients_number + 1);
+    AL(FALSE, my_push_front, &server->game.team_list[team_index]
+        ->player_list, new_player, VOID);
+}
+
 static bool check_team_size(server_t *server, client_t *new_client,
     char *team_name)
 {
     size_t team_index = get_team_index(&server->game, team_name);
 
-    if (get_nb_players_in_team(&server->game,
-    server->game.team_list[team_index]) >=
-    server->game.game_settings.clients_per_team) {
+    if (get_nb_empty_slots(server->game.team_list[team_index]) == 0) {
+        if (team_index == GRAPHIC_TEAM_INDEX) {
+            add_player_to_graphic(server, new_client, team_index);
+            return true;
+        }
         dprintf(new_client->socket_fd, "0\n");
         close(new_client->socket_fd);
         FREE(new_client);
-        DEBUG(my_create_str("Client tried to join a full team: %s\n",
+        ERROR(my_create_str("Client tried to join a full team: %s\n",
             team_name));
         FREE(team_name);
         return false;
@@ -47,7 +60,7 @@ static bool check_team(server_t *server, client_t *new_client, char *team_name)
         dprintf(new_client->socket_fd, WRONG_AI);
         close(new_client->socket_fd);
         FREE(new_client);
-        DEBUG(my_create_str("Client tried to join an invalid team: %s\n",
+        ERROR(my_create_str("Client tried to join an invalid team: %s\n",
             team_name));
         FREE(team_name);
         return false;
@@ -65,11 +78,9 @@ static void init_gui(server_t *server, int socket_fd)
 static void respond_to_client(server_t *server, client_t *new_client,
     size_t team_index)
 {
-    if (team_index != 0) {
+    if (team_index != GRAPHIC_TEAM_INDEX) {
         dprintf(new_client->socket_fd, "%zu\n",
-            server->game.game_settings.clients_per_team -
-                get_nb_players_in_team(&server->game,
-                server->game.team_list[team_index]));
+            get_nb_empty_slots(server->game.team_list[team_index]));
         dprintf(new_client->socket_fd, "%zu %zu\n",
             server->game.game_settings.width,
             server->game.game_settings.height);
@@ -85,20 +96,14 @@ static void add_client_to_server(server_t *server, client_t *new_client,
     size_t team_index = get_team_index(&server->game, team_name);
 
     respond_to_client(server, new_client, team_index);
-    new_client->player = my_calloc(1, sizeof(player_t));
-    new_client->player->team = server->game.team_list[team_index];
-    if (server->game.team_list[team_index]->player_list == NULL)
-        server->game.team_list[team_index]->player_list = my_calloc(
-            server->game.game_settings.clients_per_team, sizeof(player_t *));
-    server->game.team_list[team_index]->player_list[get_nb_players_in_team(
-        &server->game, server->game.team_list[team_index])] =
-            new_client->player;
+    new_client->player = get_next_egg(server->game.team_list[team_index]);
     server->poll_fds[server->current_clients_number + 1].fd =
         new_client->socket_fd;
+    server->poll_fds[server->current_clients_number + 1].events = POLLIN;
     server->client_list[server->current_clients_number] = new_client;
     server->current_clients_number += 1;
-    my_add_to_garbage(true, new_client, &free);
-    my_add_to_garbage(true, team_name, &free);
+    DEBUG(my_create_str("New client added in %s\n", team_name));
+    FREE(team_name);
 }
 
 void add_new_client(server_t *server)
@@ -118,5 +123,4 @@ void add_new_client(server_t *server)
     if (check_team(server, new_client, team_name) == false)
         return;
     add_client_to_server(server, new_client, team_name);
-    DEBUG(my_create_str("New client added in %s\n", team_name));
 }
