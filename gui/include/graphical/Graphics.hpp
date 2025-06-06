@@ -51,7 +51,6 @@ namespace Gui {
             Vector2 &getMousePos(void) { return _mousePos; }
             std::shared_ptr<QueueManager> &getQueueManager(void) { return _queueManager; }
             ConnectionState state;
-            std::unordered_map<std::string, int> &getTeams(void) { return _teams; }
             AssetsManager &getAssetsManager(void) { return _assetsManager; }
 
 
@@ -75,6 +74,7 @@ namespace Gui {
             void updateGame(void);
             void drawGame(void);
             void drawGameMap(void);
+            void drawTeams(void);
 
         private:
             std::shared_ptr<QueueManager> _queueManager;
@@ -89,7 +89,6 @@ namespace Gui {
             std::shared_ptr<GameInfo> _game;
             AssetsManager _assetsManager;
             // int = temporaire
-            std::unordered_map<std::string, int> _teams;
     };
 }
 

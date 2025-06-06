@@ -10,9 +10,10 @@
     #define GAMEINFO_HPP
 
     #include "TileInfo.hpp"
+    #include "TeamInfo.hpp"
     #include <raylib.h>
     #include <raymath.h>
-#include <unordered_map>
+    #include <unordered_map>
     #include <vector>
     #include <functional>
 
@@ -42,14 +43,14 @@ namespace Gui {
             Camera3D &getCamera();
             Vector2 &getMapSize();
 
-            // std::vector<TileInfo> &getTiles();
             std::unordered_map<Vector2, TileInfo> &getTiles();
+            std::unordered_map<std::string, TeamInfo> &getTeams(void);
         private:
             Camera3D _camera;
             Vector2 _mapSize;
-
             std::unordered_map<Vector2, TileInfo> _tiles;
-            // std::vector<TileInfo> _tiles;
+            std::unordered_map<std::string, TeamInfo> _teams;
+
     };
 
 }

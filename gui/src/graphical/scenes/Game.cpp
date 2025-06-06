@@ -37,12 +37,38 @@ namespace Gui {
         BeginMode3D(_game->getCamera());
         drawGameMap();
         EndMode3D();
+        drawTeams();
+
     }
 
     void Graphics::drawGameMap(void)
     {
         for (auto &[k, tile] : _game->getTiles()) {
             tile.draw(_assetsManager.getModels(), _assetsManager.getModelsScale());
+        }
+    }
+    void Graphics::drawTeams(void)
+    {
+        // Define an array of colors for teams
+        Color teamColors[] = {
+            RED, BLUE, GREEN, YELLOW, ORANGE, PURPLE, PINK, LIME,
+            SKYBLUE, VIOLET, BROWN, DARKGREEN, MAGENTA, GOLD
+        };
+
+        // Select a random color for each team
+        static std::map<std::string, Color> teamColorMap;
+        if (teamColorMap.empty()) {
+            for (auto &[key, team] : _game->getTeams()) {
+                int randomIndex = GetRandomValue(0, sizeof(teamColors) / sizeof(Color) - 1);
+                teamColorMap[key] = teamColors[randomIndex];
+            }
+        }
+
+        int i = 0;
+        for (auto &[key, team] : _game->getTeams()) {
+            float textHeight = 40;
+            float textWidth = MeasureText(key.c_str(), textHeight);
+            DrawText(key.c_str(), GetScreenWidth() - textWidth - 10, 0 + i * textHeight, textHeight, teamColorMap[key]);
         }
     }
 }

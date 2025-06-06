@@ -18,6 +18,7 @@ namespace Gui {
         _camera.projection = CAMERA_PERSPECTIVE;
         _camera.fovy = 45.0f;
         _tiles = {};
+        _teams = {};
     }
 
     Camera3D& GameInfo::getCamera()
@@ -34,6 +35,11 @@ namespace Gui {
     std::unordered_map<Vector2, TileInfo> &GameInfo::getTiles()
     {
         return _tiles;
+    }
+
+    std::unordered_map<std::string, TeamInfo> &GameInfo::getTeams(void)
+    {
+        return _teams;
     }
 
 }

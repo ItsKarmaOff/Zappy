@@ -8,6 +8,7 @@
 #include "Commands.hpp"
 #include "Graphics.hpp"
 #include "Logs.hpp"
+#include "PlayerInfo.hpp"
 #include <cstdlib>
 #include <functional>
 #include <unordered_map>
@@ -154,8 +155,8 @@ namespace Gui
 
         DEBUG_CONCAT << "Team name set to: " << teamName;
 
-        if (!_graphical.getTeams().contains(teamName))
-            _graphical.getTeams()[teamName] = 0;
+        if (!_graphical.getGame()->getTeams().contains(teamName))
+            _graphical.getGame()->getTeams()[teamName] = TeamInfo();
     }
 
     void Commands::handlePNW(std::string &param)
@@ -189,6 +190,17 @@ namespace Gui
 
         DEBUG_CONCAT << "Player #" << playerId << " joined at (" << width << ", " << height << ") with orientation "
             << orientation << " and level " << level << " in team " << teamName;
+        if (!_graphical.getGame()->getTeams().contains(teamName)) {
+            ERROR << "Team: [" << teamName << "] doesn't exist";
+            return;
+        }
+        TeamInfo &team = _graphical.getGame()->getTeams()[teamName];
+        if (!team.getPlayers().contains(playerId))
+            team.getPlayers()[playerId] = PlayerInfo();
+        PlayerInfo &playerI = team.getPlayers()[playerId];
+        playerI.setLevel(level);
+        playerI.setOrientation(orientation);
+        playerI.setPos({static_cast<float>(width), static_cast<float>(height)});
     }
 
     void Commands::handlePPO(std::string &param)
