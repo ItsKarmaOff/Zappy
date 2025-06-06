@@ -15,6 +15,30 @@
 
     #include "server_data_structures.h"
 
+
+
+/* Player functions */
+
+/**
+ * @brief Creates a player for a team
+ * @param game The game to create the player in
+ * @param team The team to create the player for
+ * @return A pointer to the created player
+ */
+player_t *create_player(game_t *game, team_t *team);
+
+/**
+ * @brief Creates a player from an existing player
+ * @param game The game to create the player in
+ * @param creator The player to create the new player from
+ * @return A pointer to the created player
+ */
+player_t *create_player_from_player(game_t *game, player_t *creator);
+
+
+
+/* Team functions */
+
 /**
  * @brief Creates a team with the given name
  * @param game The game to create the team in
@@ -45,21 +69,9 @@ size_t get_team_index(const game_t *game, const char *team_name);
  */
 player_t *get_next_egg(const team_t *team);
 
-/**
- * @brief Creates a player for a team
- * @param game The game to create the player in
- * @param team The team to create the player for
- * @return A pointer to the created player
- */
-player_t *create_player(game_t *game, team_t *team);
 
-/**
- * @brief Creates a player from an existing player
- * @param game The game to create the player in
- * @param creator The player to create the new player from
- * @return A pointer to the created player
- */
-player_t *create_player_from_player(game_t *game, player_t *creator);
+
+/* Game functions */
 
 /**
  * @brief Destroys the game and frees its resources

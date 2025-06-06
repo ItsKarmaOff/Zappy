@@ -15,36 +15,68 @@
 
     #include "my.h"
 
-    /* Server macros */
+/* Server macros */
 
-    /* The default frequency of the server */
+
+
+    /* Program options */
+
+    /**
+     * @brief The default frequency of the server
+     */
     #define DEFAULT_FREQUENCY 100
 
-    /* The maximum port number */
+    /**
+     * @brief The maximum port number
+     */
     #define MAX_PORT 65535
 
-    /* The maximum port number as a string */
+    /**
+     * @brief The maximum port number as a string
+     */
     #define MAX_PORT_STR "65535"
 
-    /* The maximum number of commands a client can have */
-    #define CLIENT_MAX_COMMANDS 10
 
-    /* The graphic team index */
+
+    /* Team macros */
+
+    /**
+     * @brief The graphic team index
+     */
     #define GRAPHIC_TEAM_INDEX 0
 
-    /* The name of the graphic team */
+    /**
+     * @brief The name of the graphic team
+     */
     #define GRAPHIC_TEAM_NAME "GRAPHIC"
 
-    /* The welcome message sent to clients */
+
+
+    /* Command macros */
+
+    /**
+     * @brief The maximum number of commands a client can have
+     */
+    #define CLIENT_MAX_COMMANDS 10
+
+    /**
+     * @brief The welcome message sent to clients
+     */
     #define WELCOME_MESSAGE "WELCOME\n"
 
-    /* The message sent to clients when an action is valid */
+    /**
+     * @brief The message sent to clients when an action is valid
+     */
     #define VALID_AI "ok\n"
 
-    /* The message sent to clients when an action is not valid */
+    /**
+     * @brief /The message sent to clients when an action is not valid
+     */
     #define WRONG_AI "ko\n"
 
-    /* The message sent to clients when the GUI is not valid */
+    /**
+     * @brief The message sent to clients when the GUI is not valid
+     */
     #define WRONG_GUI "suc\n"
 
     /**

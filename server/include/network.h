@@ -16,6 +16,8 @@
     #include "game.h"
     #include "commands.h"
 
+
+
 /* Initialization functions */
 
 /**
@@ -48,7 +50,7 @@ void remove_client(server_t *server, size_t index);
 
 
 
-/* Write client action functions */
+/* Write client functions */
 
 /**
  * @brief Write the action of a client
@@ -59,7 +61,14 @@ void write_client_action(server_t *server, size_t index);
 
 
 
-/* Read client action functions */
+/* Read client functions */
+
+/**
+ * @brief Get the response from a client
+ * @param socket_fd The file descriptor of the client socket
+ * @return The response from the client
+ */
+char *get_response(int socket_fd);
 
 /**
  * @brief Read the action of a client
@@ -78,16 +87,6 @@ void read_client_action(server_t *server, size_t index);
  */
 void add_new_client(server_t *server);
 
-
-
-/* Get response functions */
-
-/**
- * @brief Get the response from a client
- * @param socket_fd The file descriptor of the client socket
- * @return The response from the client
- */
-char *get_response(int socket_fd);
 
 
 

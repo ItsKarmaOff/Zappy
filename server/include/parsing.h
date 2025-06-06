@@ -25,16 +25,16 @@
  * @brief Represents the parsing context for program arguments
  */
 typedef struct parsing_s {
-    /* The number of program arguments */
+    /** The number of program arguments */
     size_t argc;
-    /* The program arguments */
+    /** The program arguments */
     char **argv;
-    /* The current index in the program arguments */
+    /** The current index in the program arguments */
     size_t index;
 
-    /* The options found in the program arguments */
+    /** The options found in the program arguments */
     uint32_t options_found;
-    /* The list of team names */
+    /** The list of team names */
     node_t *team_name_list;
 } parsing_t;
 
@@ -43,12 +43,12 @@ typedef struct parsing_s {
  * @brief Represents the type of an option
  */
 typedef enum option_type_e {
-    NOT_REQUIRED = 0, /* The option is not required */
-    PORT_OPTION = 1 << 0, /* The option is a port option */
-    WIDTH_OPTION = 1 << 1, /* The option is a width option */
-    HEIGHT_OPTION = 1 << 2, /* The option is a height option */
-    NAMES_OPTION = 1 << 3, /* The option is a names option */
-    CLIENTS_OPTION = 1 << 4, /* The option is a clients option */
+    NOT_REQUIRED = 0, ///< The option is not required
+    PORT_OPTION = 1 << 0, ///< The option is a port option
+    WIDTH_OPTION = 1 << 1, ///< The option is a width option
+    HEIGHT_OPTION = 1 << 2, ///< The option is a height option
+    NAMES_OPTION = 1 << 3, ///< The option is a names option
+    CLIENTS_OPTION = 1 << 4, ///< The option is a clients option
 } option_type_t;
 
 /**
@@ -56,16 +56,24 @@ typedef enum option_type_e {
  * @brief Represents a program option
  */
 typedef struct option_s {
-    const char short_name; /* The short name of the option */
-    const char *long_name; /* The long name of the option */
-    const char *data; /* The data associated with the option */
-    const char *description; /* The description of the option */
-    option_type_t type; /* The type of the option */
+    /** The short name of the option */
+    const char short_name;
+    /** The long name of the option */
+    const char *long_name;
+    /** The data associated with the option */
+    const char *data;
+    /** The description of the option */
+    const char *description;
+    /** The type of the option */
+    option_type_t type;
+    /** The function to call for the option */
     void (*function)(server_t *server, parsing_t *parsing);
-    /* The function to call for the option */
 } option_t;
 
-extern const option_t options[]; /* The array of argument functions */
+/**
+ * @brief The array of argument functions
+ */
+extern const option_t options[];
 
 
 

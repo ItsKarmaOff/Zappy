@@ -15,17 +15,34 @@
 
     #include "network.h"
 
+/**
+ * @enum orientation_e
+ * @brief The orientation of the player
+ */
 typedef struct move_s {
+    /** The orientation of the player */
     orientation_t orientation;
+    /** The function to call to move the player */
     void (*move_func)(server_t *server, client_t *client);
 } move_t;
 
+/**
+ * @brief The moves for the AI clients
+ */
 extern const move_t moves[];
 
+/**
+ * @struct update_orientation_s
+ * @brief Represents an orientation update for AI clients
+ */
 typedef struct update_orientation_s {
+    /** The orientation of the player */
     orientation_t orientation;
+    /** The function to call to update the orientation */
     void (*update_orientation_func)(client_t *client);
 } update_orientation_t;
+
+
 
 /**
  * @brief Handles the "Forward" command for AI clients
