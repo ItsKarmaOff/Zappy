@@ -19,7 +19,7 @@ void analyse_poll(server_t *server, size_t index)
         return remove_client(server, index);
     }
     if (server->poll_fds[index].revents & POLLOUT)
-        return write_client_action(server, index);
+        write_client_action(server, index);
     if (server->poll_fds[index].revents & POLLIN) {
         if (server->poll_fds[index].fd == server->socket_fd)
             return add_new_client(server);

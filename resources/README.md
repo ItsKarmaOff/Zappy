@@ -179,26 +179,26 @@ At the end of the incantation, the exact quantity of resources needed by the rit
 The server accepts command in its standard input.
 
 
-|               Command               |                               Effect                               |
-|:-----------------------------------:|:------------------------------------------------------------------:|
-|              /clients               |                     list all connected clients                     |
-|                /quit                |                          stop the server                           |
-|            /send_ais msg            |                      send messages to all AI                       |
-|           /send_guis msg            |                      send messages to all GUI                      |
-|                /map                 |                      display map informations                      |
-|               /clear                |                          clear the shell                           |
-|               /pause                |                       pause the AI's actions                       |
-|               /start                |                          start the server                          |
-|   /setTile ressource quantity x y   |             set the given ressource quantity of a tile             |
-|              /tile x y              |                    get the inventory of a tile                     |
-|             /tp id x y              |                        tp an AI by it's id                         |
-|              /kill id               |                       kill an AI by it's id                        |
-|        /noFood true or false        |                    disable the food management                     |
-|      /broadcast "message" x y       |                        simulate a broadcast                        |
-|         /setLevel id level          |                 set the level of an AI by it's id                  |
-| /setInventory id ressource quantity | set the given ressource quantity inside an AI inventory by it's id |
-|          /setClientsNb nb           |               set the minimum number of AI per team                |
-|            /setFreq freq            |                  set the frequency of the server                   |
-|       /noRefill true or false       |                       disable the map refill                       |
-|           /fork team x y            |      simulate a fork for the given team at the given position      |
-|           /incantate x y            |  simulate an incantation of the given level at the given position  |
+|              Command               |                              Effect                               |
+|:----------------------------------:|:-----------------------------------------------------------------:|
+|              /clients              |                    list all connected clients                     |
+|               /quit                |                          stop the server                          |
+|           /send_ais msg            |                      send messages to all AI                      |
+|           /send_guis msg           |                     send messages to all GUI                      |
+|                /map                |                     display map informations                      |
+|               /clear               |                          clear the shell                          |
+|               /pause               |                      pause the AI's actions                       |
+|               /start               |                         start the server                          |
+|   /setTile resource quantity x y   |            set the given ressource quantity of a tile             |
+|             /tile x y              |                    get the inventory of a tile                    |
+|             /tp id x y             |                        tp an AI by it's id                        |
+|              /kill id              |                       kill an AI by it's id                       |
+|       /noFood true or false        |                    disable the food management                    |
+|      /broadcast "message" x y      |                       simulate a broadcast                        |
+|         /setLevel id level         |                 set the level of an AI by it's id                 |
+| /setInventory id resource quantity | set the given resource quantity inside an AI inventory by it's id |
+|          /setClientsNb nb          |               set the minimum number of AI per team               |
+|           /setFreq freq            |                  set the frequency of the server                  |
+|      /noRefill true or false       |                      disable the map refill                       |
+|           /fork team x y           |     simulate a fork for the given team at the given position      |
+|           /incantate x y           | simulate an incantation of the given level at the given position  |

@@ -88,10 +88,13 @@ size_t count_letters(char *str, size_t *saved_index,
 char **my_str_to_word_array(char *str, char *separator, separator_type_t type)
 {
     size_t nb_words = count_words(str, separator, type);
-    char **array = my_malloc(sizeof(char *) * (nb_words + 1));
+    char **array = NULL;
     size_t saved_index = 0;
     size_t nb_letters = 0;
 
+    if (nb_words == 0)
+        return NULL;
+    array = my_malloc(sizeof(char *) * (nb_words + 1));
     for (size_t index = 0; index < nb_words; index++) {
         move_save(str, &saved_index, separator, type);
         nb_letters = count_letters(str, &saved_index, separator, type);

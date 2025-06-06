@@ -16,6 +16,8 @@
     #include "game.h"
     #include "commands.h"
 
+
+
 /* Initialization functions */
 
 /**
@@ -48,7 +50,7 @@ void remove_client(server_t *server, size_t index);
 
 
 
-/* Write client action functions */
+/* Write client functions */
 
 /**
  * @brief Write the action of a client
@@ -59,7 +61,14 @@ void write_client_action(server_t *server, size_t index);
 
 
 
-/* Read client action functions */
+/* Read client functions */
+
+/**
+ * @brief Get the response from a client
+ * @param socket_fd The file descriptor of the client socket
+ * @return The response from the client
+ */
+char *get_response(int socket_fd);
 
 /**
  * @brief Read the action of a client
@@ -80,13 +89,43 @@ void add_new_client(server_t *server);
 
 
 
-/* Get response functions */
+
+/* Send message to GUI functions */
 
 /**
- * @brief Get the response from a client
- * @param socket_fd The file descriptor of the client socket
- * @return The response from the client
+ * @brief Send a message to all GUI clients
+ * @param server The server containing the GUI clients
+ * @param message The message to send
  */
-char *get_response(int socket_fd);
+void send_message_to_gui(server_t *server, const char *message);
+
+
+
+/* Clients */
+
+/**
+ * @brief Destroy a client
+ * @param client The client to destroy
+ */
+void destroy_client(client_t *client);
+
+/**
+ * @brief Destroy all clients in the server
+ * @param server The server containing the clients
+ */
+void destroy_clients(server_t *server);
+
+/**
+ * @brief Resize the client list
+ * @param server The server containing the client list
+ * @param new_size The new size of the client list
+ */
+void resize_client_list(server_t *server, size_t new_size);
+
+/**
+ * @brief Execute actions for all clients
+ * @param server The server containing the clients
+ */
+void execute_actions(server_t *server);
 
 #endif /* NETWORK_H_ */
