@@ -26,11 +26,14 @@ namespace Gui {
 
             // Getters for assets
             std::unordered_map<std::string, Model> &getModels(void);
+            std::unordered_map<std::string, float> &getModelsScale(void);
             std::unordered_map<std::string, Texture2D> &getTextures(void);
+
 
         private:
 
             std::unordered_map<std::string, Model> _models;
+            std::unordered_map<std::string, float> _modelsScale;
             std::unordered_map<std::string, Texture2D> _textures;
 
     };

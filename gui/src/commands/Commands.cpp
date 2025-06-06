@@ -128,7 +128,7 @@ namespace Gui
 
         // assigning resources to the tile
         if (_graphical.getGame()->getTiles().contains({static_cast<float>(width), static_cast<float>(height)})) {
-            std::unordered_map<std::string, int> &content = _graphical.getGame()->getTiles().at({static_cast<float>(width), static_cast<float>(height)}).getContent();
+            std::map<std::string, int> &content = _graphical.getGame()->getTiles().at({static_cast<float>(width), static_cast<float>(height)}).getContent();
             content["food"] = food;
             content["linemate"] = linemate;
             content["deraumere"] = deraumere;
