@@ -85,4 +85,13 @@
      */
     #define INVALID_ARGS "sbp\n"
 
+
+
+    /* Game macros */
+
+    /**
+     * @brief The refill time unit until the next refill
+     */
+    #define REFILL_TIME 20
+
 #endif /* SERVER_MACROS_H_ */

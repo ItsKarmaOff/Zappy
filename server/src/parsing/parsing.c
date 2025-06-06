@@ -82,7 +82,7 @@ static void analyse_arg(server_t *server, parsing_t *parsing)
         parsing->argv[parsing->index]));
 }
 
-static void missing_options(uint32_t options_found)
+static void missing_options(uint8_t options_found)
 {
     for (size_t option_index = 0; options[option_index].short_name != 0;
     option_index++) {
@@ -114,4 +114,5 @@ void init_server_from_args(server_t *server, int argc, char **argv)
             create_team(&server->game, tmp->data);
         team_index++;
     }
+    create_game_map(&server->game);
 }

@@ -33,10 +33,10 @@ typedef enum orientation_e {
 } orientation_t;
 
 /**
- * @enum ressources_e
+ * @enum resources_e
  * @brief The resources available in the game
  */
-typedef enum ressources_e {
+typedef enum resources_e {
     FOOD = 0, ///< The food resource
     LINEMATE = 1, ///< The linemate resource
     DERAUMERE = 2, ///< The deraumere resource
@@ -44,8 +44,8 @@ typedef enum ressources_e {
     MENDIANE = 4, ///< The mendiane resource
     PHIRAS = 5, ///< The phiras resource
     THYSTAME = 6, ///< The thystame resource
-    RESSOURCES_SIZE = 7 ///< The total number of resources
-} ressources_t;
+    RESOURCES_SIZE = 7 ///< The total number of resources
+} resources_t;
 
 
 
@@ -87,7 +87,7 @@ typedef struct player_s {
     /** The remaining life of the player */
     size_t life_remaining_tick;
     /** The inventory of the player */
-    size_t inventory[RESSOURCES_SIZE];
+    size_t inventory[RESOURCES_SIZE];
 
     /** The team of the player */
     team_t *team;
@@ -108,7 +108,7 @@ typedef struct team_s {
 
 /**
  * @struct quantity_s
- * @brief A structure representing the quantity of a ressource in the game
+ * @brief A structure representing the quantity of a resource in the game
  */
 typedef struct quantity_s {
     /** The maximum number of items */
@@ -139,6 +139,19 @@ typedef struct game_settings_s {
 } game_settings_t;
 
 /**
+ * @struct tile_s
+ * @brief A structure representing a tile on the game map
+ */
+typedef struct tile_s {
+    /** The position of the tile on the map */
+    vector2u_t position;
+    /** The type of resources on the tile */
+    // TODO : Lou je pense qu'on fait du bitshift en fonction de resource_t
+    //       : pour savoir si on a un resource ou pas (regarde game.c)
+    uint8_t resources;
+} tile_t;
+
+/**
  * @struct game_s
  * @brief A structure representing the game
  */
@@ -147,6 +160,13 @@ typedef struct game_s {
     game_settings_t game_settings;
     /** The list of teams in the game */
     team_t **team_list;
+
+    /** The map of the game */
+    tile_t **map;
+    /** The quantities of resources in the game */
+    quantity_t resources[RESOURCES_SIZE];
+    /** The current time of the game */
+    time_t last_refill_time;
 } game_t;
 
 
@@ -234,6 +254,7 @@ typedef struct server_s {
 } server_t;
 
 
+
    /* Server commands arrays */
 
 /**
@@ -244,5 +265,18 @@ extern const command_t commands_ai[];
  * @brief The array of GUI commands
  */
 extern const command_t commands_gui[];
+
+
+
+    /* Ressources arrays */
+
+/**
+ * @brief The names of the resources in the game
+ */
+extern const char *resources_names[RESOURCES_SIZE];
+/**
+ * @brief The density of each resource in the game
+ */
+extern const double resources_densities[RESOURCES_SIZE];
 
 #endif /* SERVER_DATA_STRUCTURES_H_ */

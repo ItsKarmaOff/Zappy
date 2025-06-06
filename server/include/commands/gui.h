@@ -174,17 +174,17 @@ void send_pfk_to_gui(server_t *server, player_t *player);
  * @brief Send the "pdr" command to all GUI clients
  * @param server The server instance
  * @param player The player whose information is being sent
- * @param ressource_id The ID of the resource being sent
+ * @param resource_id The ID of the resource being sent
  */
-void send_pdr_to_gui(server_t *server, player_t *player, size_t ressource_id);
+void send_pdr_to_gui(server_t *server, player_t *player, size_t resource_id);
 
 /**
  * @brief Send the "pgt" command to all GUI clients
  * @param server The server instance
  * @param player The player whose information is being sent
- * @param ressource_id The ID of the resource being sent
+ * @param resource_id The ID of the resource being sent
  */
-void send_pgt_to_gui(server_t *server, player_t *player, size_t ressource_id);
+void send_pgt_to_gui(server_t *server, player_t *player, size_t resource_id);
 
 /**
  * @brief Send the "pdi" command to all GUI clients

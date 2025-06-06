@@ -74,6 +74,12 @@ player_t *get_next_egg(const team_t *team);
 /* Game functions */
 
 /**
+ * @brief Creates the game map
+ * @param game The game to create the map for
+ */
+void create_game_map(game_t *game);
+
+/**
  * @brief Destroys the game and frees its resources
  * @param game The game to destroy
  */

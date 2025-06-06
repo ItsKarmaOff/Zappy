@@ -33,7 +33,7 @@ typedef struct parsing_s {
     size_t index;
 
     /** The options found in the program arguments */
-    uint32_t options_found;
+    uint8_t options_found;
     /** The list of team names */
     node_t *team_name_list;
 } parsing_t;
