@@ -92,6 +92,6 @@
     /**
      * @brief The refill time unit until the next refill
      */
-    #define REFILL_TIME 20
+    #define REFILL_TIME 20.0
 
 #endif /* SERVER_MACROS_H_ */

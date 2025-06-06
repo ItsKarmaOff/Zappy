@@ -61,6 +61,6 @@ void create_game_map(game_t *game)
 void update_game(UNUSED server_t *server)
 {
     if (difftime(time(NULL), server->game.last_refill_time) >=
-    REFILL_TIME / server->game.game_settings.frequency)
+    REFILL_TIME / (double)server->game.game_settings.frequency)
         refill_resources(&server->game);
 }

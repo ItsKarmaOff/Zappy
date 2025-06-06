@@ -18,6 +18,8 @@ team_t *create_team(game_t *game, const char *name)
     player_t *new_player = NULL;
 
     team->name = name;
+    if (my_strcmp(name, GRAPHIC_TEAM_NAME) == 0)
+        return team;
     team->eggs_number = game->game_settings.start_clients_per_team;
     for (size_t index = 0; index < team->eggs_number; index++) {
         new_player = create_player(game, team);
@@ -54,7 +56,7 @@ size_t get_team_index(const game_t *game, const char *team_name)
 
 player_t *get_next_egg(team_t *team)
 {
-    if (team == NULL)
+    if (team == NULL || my_strcmp(team->name, GRAPHIC_TEAM_NAME) == 0)
         return NULL;
     for (node_t *node = team->player_list; node != NULL; node = node->next) {
         if (node->data != NULL && ((player_t *)node->data)->is_egg) {

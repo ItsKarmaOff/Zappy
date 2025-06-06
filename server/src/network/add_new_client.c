@@ -22,27 +22,13 @@ static bool is_valid_team(server_t *server, char *team_name)
     return false;
 }
 
-static void add_player_to_graphic(server_t *server, client_t *new_client,
-    size_t team_index)
-{
-    player_t *new_player = create_player(&server->game,
-        server->game.team_list[team_index]);
-
-    resize_client_list(server, server->max_clients_number + 1);
-    AL(FALSE, my_push_front, &server->game.team_list[team_index]
-        ->player_list, new_player, VOID);
-}
-
 static bool check_team_size(server_t *server, client_t *new_client,
     char *team_name)
 {
     size_t team_index = get_team_index(&server->game, team_name);
 
-    if (server->game.team_list[team_index]->eggs_number == 0) {
-        if (team_index == GRAPHIC_TEAM_INDEX) {
-            add_player_to_graphic(server, new_client, team_index);
-            return true;
-        }
+    if (team_index != GRAPHIC_TEAM_INDEX &&
+    server->game.team_list[team_index]->eggs_number == 0) {
         dprintf(new_client->socket_fd, "0\n");
         close(new_client->socket_fd);
         FREE(new_client);

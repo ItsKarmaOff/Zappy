@@ -14,7 +14,9 @@
 
 void destroy_client(client_t *client)
 {
-    my_delete_nodes(&client->player->team->player_list, client->player, NULL);
+    if (client->player != NULL)
+        my_delete_nodes(&client->player->team->player_list,
+            client->player, NULL);
     my_delete_list(&client->command_queue);
     FREE_WORD_ARRAY(client->next_action.action_args);
     FREE(client);
