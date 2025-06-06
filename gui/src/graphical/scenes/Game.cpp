@@ -7,6 +7,7 @@
 
 #include "Graphics.hpp"
 #include "TileInfo.hpp"
+#include "Logs.hpp"
 #include <raylib.h>
 
 namespace Gui {
@@ -41,7 +42,7 @@ namespace Gui {
     void Graphics::drawGameMap(void)
     {
         for (auto &[k, tile] : _game->getTiles()) {
-            tile.draw(_assetsManager.getModels());
+            tile.draw(_assetsManager.getModels(), _assetsManager.getModelsScale());
         }
     }
 }

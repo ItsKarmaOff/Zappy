@@ -9,6 +9,7 @@
 #ifndef TILEINFO_HPP
     #define TILEINFO_HPP
 
+#include <map>
 #include <raylib.h>
 #include <string>
 #include <unordered_map>
@@ -24,15 +25,15 @@ namespace Gui {
             const Vector3 &getPos() const;
             void setPos(const Vector3 &pos);
 
-            std::unordered_map<std::string, int> &getContent(void);
-            void setPos(const std::unordered_map<std::string, int> &cont);
+            std::map<std::string, int> &getContent(void);
+            void setContent(const std::map<std::string, int> &cont);
 
             ////////////////////////////////////// UTILITY //////////////////////////////////////
-            void draw(std::unordered_map<std::string, Model> &models);
+            void draw(std::unordered_map<std::string, Model> &models, std::unordered_map<std::string, float> &modelsScale);
 
         private:
             Vector3 _pos;
-            std::unordered_map<std::string, int> _content;
+            std::map<std::string, int> _content;
 
     };
 
