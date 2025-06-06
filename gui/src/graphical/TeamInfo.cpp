@@ -1,0 +1,26 @@
+/*
+** EPITECH PROJECT, 2025
+** TeamInfo.cpp
+** File description:
+** TeamInfo in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
+*/
+
+#include "TeamInfo.hpp"
+
+namespace Gui {
+    std::unordered_map<size_t, PlayerInfo>& TeamInfo::getPlayers(void)
+    {
+        return _players;
+    }
+
+    const size_t& TeamInfo::getScore(void) const
+    {
+        return _score;
+    }
+
+    void TeamInfo::setScore(size_t score)
+    {
+        _score = score;
+    }
+
+}
