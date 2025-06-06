@@ -13,7 +13,7 @@
 #ifndef AI_H_
     #define AI_H_
 
-    #include "data_structures.h"
+    #include "network.h"
 
 typedef struct move_s {
     orientation_t orientation;

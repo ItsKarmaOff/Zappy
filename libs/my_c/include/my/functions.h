@@ -260,6 +260,17 @@ char my_get_last_char(char *str);
  */
 void my_replace_char(char *str, char to_replace, char replace_by);
 
+/**
+ * @brief Replace a char in a string by another char at a specific occurrence
+ * @param str The string to modify
+ * @param to_replace The char to replace
+ * @param replace_by The char to replace by
+ * @param occurrence The occurrence of the char to replace
+ * @return <b>void</b>
+ */
+void my_replace_char_at(char *str, char to_replace, char replace_by,
+    size_t occurrence);
+
 
 
     // Hash functions :

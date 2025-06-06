@@ -14,18 +14,18 @@
 
 static void configure_server(server_t *server)
 {
-    server->max_clients_number = server->game.game_settings.clients_per_team *
-        server->game.game_settings.teams_number;
+    server->max_clients_number = server->game.game_settings.
+        start_clients_per_team * server->game.game_settings.teams_number;
     server->address.sin_family = AF_INET;
     server->address.sin_addr.s_addr = INADDR_ANY;
     server->address.sin_port = htons(server->port);
-    server->poll_fds = my_calloc(
+    server->poll_fds = AL(FALSE, my_calloc,
         server->max_clients_number + 1, sizeof(pollfd_t));
     for (size_t index = 0; index < server->max_clients_number + 1; index++) {
         server->poll_fds[index].fd = -1;
         server->poll_fds[index].events = POLLIN;
     }
-    server->client_list = my_calloc(
+    server->client_list = AL(FALSE, my_calloc,
         server->max_clients_number, sizeof(client_t *));
 }
 

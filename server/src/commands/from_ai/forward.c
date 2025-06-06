@@ -50,7 +50,7 @@ void handle_command_forward(UNUSED server_t *server, UNUSED client_t *client,
     }
     moves[client->player->orientation - 1].move_func(server, client);
     dprintf(client->socket_fd, VALID_AI);
-    client->time_to_wait = 7;
+    send_ppo_to_gui(server, client->player);
 }
 
 const move_t moves[] = {

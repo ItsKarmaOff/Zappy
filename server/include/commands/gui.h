@@ -13,7 +13,7 @@
 #ifndef GUI_H_
     #define GUI_H_
 
-    #include "data_structures.h"
+    #include "server_data_structures.h"
 
 /* Command handler functions for GUI clients */
 
@@ -198,24 +198,23 @@ void send_pdi_to_gui(server_t *server, player_t *player);
  * @param server The server instance
  * @param egg The egg whose information is being sent
  * @param player The player associated with the egg
- * @param position The position of the egg
  */
-void send_enw_to_gui(server_t *server, egg_t *egg,
-    player_t *player, vector2u_t position);
+void send_enw_to_gui(server_t *server, player_t *egg,
+    player_t *player);
 
 /**
  * @brief Send the "ebo" command to all GUI clients
  * @param server The server instance
  * @param egg The egg whose information is being sent
  */
-void send_ebo_to_gui(server_t *server, egg_t *egg);
+void send_ebo_to_gui(server_t *server, player_t *egg);
 
 /**
  * @brief Send the "edi" command to all GUI clients
  * @param server The server instance
  * @param egg The egg whose information is being sent
  */
-void send_edi_to_gui(server_t *server, egg_t *egg);
+void send_edi_to_gui(server_t *server, player_t *egg);
 
 /**
  * @brief Send the "sgt" command to all GUI clients

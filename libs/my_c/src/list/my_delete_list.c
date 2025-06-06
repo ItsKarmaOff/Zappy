@@ -25,10 +25,10 @@ void my_delete_list(node_t **begin)
 
     while (tmp != NULL) {
         next = tmp->next;
-        if (tmp->data && tmp->data != NULL &&
+        if (tmp->data != NULL &&
         tmp->type != UNKNOWN && tmp->type != ARRAY_OF_STRING)
             FREE(tmp->data);
-        if (tmp->data && tmp->data != NULL && tmp->type == ARRAY_OF_STRING)
+        if (tmp->data != NULL && tmp->type == ARRAY_OF_STRING)
             my_free_array(tmp->data);
         FREE(tmp);
         tmp = next;

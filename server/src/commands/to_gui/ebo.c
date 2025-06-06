@@ -12,7 +12,7 @@
 
 #include "commands/gui.h"
 
-void send_ebo_to_gui(UNUSED server_t *server, UNUSED egg_t *egg)
+void send_ebo_to_gui(UNUSED server_t *server, UNUSED player_t *egg)
 {
     return;
 }
