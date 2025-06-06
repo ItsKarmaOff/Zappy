@@ -255,6 +255,9 @@ namespace Gui
         playerId = std::stoi(player.substr(1));
 
         DEBUG_CONCAT << "Player #" << playerId << " level set to: " << level;
+
+        if (_graphical.getGame()->getPlayer(playerId).getLevel() != static_cast<size_t>(level))
+            _graphical.getGame()->getPlayer(playerId).setLevel(static_cast<size_t>(level));
     }
 
     void Commands::handlePIN(std::string &param)
