@@ -177,6 +177,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>my_trunc</b> (doubl
 <tr class="memitem:a2f6b44ca5b8491a8379bf9c159d3e8db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a2f6b44ca5b8491a8379bf9c159d3e8db">my_replace_char</a> (char *str, char to_replace, char replace_by)</td></tr>
 <tr class="memdesc:a2f6b44ca5b8491a8379bf9c159d3e8db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace a char in a string by another char.  <a href="functions_8h.html#a2f6b44ca5b8491a8379bf9c159d3e8db">More...</a><br /></td></tr>
 <tr class="separator:a2f6b44ca5b8491a8379bf9c159d3e8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee57f2caf0cd8e1fb53d6435458c600a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#aee57f2caf0cd8e1fb53d6435458c600a">my_replace_char_at</a> (char *str, char to_replace, char replace_by, size_t occurrence)</td></tr>
+<tr class="memdesc:aee57f2caf0cd8e1fb53d6435458c600a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace a char in a string by another char at a specific occurrence.  <a href="functions_8h.html#aee57f2caf0cd8e1fb53d6435458c600a">More...</a><br /></td></tr>
+<tr class="separator:aee57f2caf0cd8e1fb53d6435458c600a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf104b73825ac1169223adcc6eb6fecd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhashtable__s.html">hashtable_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#acf104b73825ac1169223adcc6eb6fecd">my_create_hashtable</a> (ssize_t(*hash)(char *, size_t), size_t len)</td></tr>
 <tr class="memdesc:acf104b73825ac1169223adcc6eb6fecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a hashtable.  <a href="functions_8h.html#acf104b73825ac1169223adcc6eb6fecd">More...</a><br /></td></tr>
 <tr class="separator:acf104b73825ac1169223adcc6eb6fecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -318,6 +321,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>my_trunc</b> (doubl
 <tr class="memitem:a4e9354e5629284bb06dc52d2f9cd2c52"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a4e9354e5629284bb06dc52d2f9cd2c52">my_realloc</a> (void *pointer, size_t size)</td></tr>
 <tr class="memdesc:a4e9354e5629284bb06dc52d2f9cd2c52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reallocates memory block.  <a href="functions_8h.html#a4e9354e5629284bb06dc52d2f9cd2c52">More...</a><br /></td></tr>
 <tr class="separator:a4e9354e5629284bb06dc52d2f9cd2c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6462c2fd7a1e4df8f54ef3f326612c2"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#ae6462c2fd7a1e4df8f54ef3f326612c2">my_resize_alloc</a> (void *ptr, size_t old_size, size_t new_size)</td></tr>
+<tr class="memdesc:ae6462c2fd7a1e4df8f54ef3f326612c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize an allocated memory block.  <a href="functions_8h.html#ae6462c2fd7a1e4df8f54ef3f326612c2">More...</a><br /></td></tr>
+<tr class="separator:ae6462c2fd7a1e4df8f54ef3f326612c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87bba92bc139c04ab266b79de13ee99a"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a87bba92bc139c04ab266b79de13ee99a">tmp_malloc_state</a> (my_bool_t set)</td></tr>
 <tr class="memdesc:a87bba92bc139c04ab266b79de13ee99a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The temporary malloc state variable.  <a href="functions_8h.html#a87bba92bc139c04ab266b79de13ee99a">More...</a><br /></td></tr>
 <tr class="separator:a87bba92bc139c04ab266b79de13ee99a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4297,6 +4303,103 @@ The allocation type is defined by the malloc state, or by the temporary malloc s
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><b>void</b> </dd></dl>
+
+</div>
+</div>
+<a id="aee57f2caf0cd8e1fb53d6435458c600a" name="aee57f2caf0cd8e1fb53d6435458c600a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee57f2caf0cd8e1fb53d6435458c600a">&#9670;&nbsp;</a></span>my_replace_char_at()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void my_replace_char_at </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>to_replace</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>replace_by</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>occurrence</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Replace a char in a string by another char at a specific occurrence. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The string to modify </td></tr>
+    <tr><td class="paramname">to_replace</td><td>The char to replace </td></tr>
+    <tr><td class="paramname">replace_by</td><td>The char to replace by </td></tr>
+    <tr><td class="paramname">occurrence</td><td>The occurrence of the char to replace </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>void</b> </dd></dl>
+
+</div>
+</div>
+<a id="ae6462c2fd7a1e4df8f54ef3f326612c2" name="ae6462c2fd7a1e4df8f54ef3f326612c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6462c2fd7a1e4df8f54ef3f326612c2">&#9670;&nbsp;</a></span>my_resize_alloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * my_resize_alloc </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>old_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>new_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resize an allocated memory block. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Pointer to the previously allocated memory block. </td></tr>
+    <tr><td class="paramname">old_size</td><td>Size of the previously allocated memory block. </td></tr>
+    <tr><td class="paramname">new_size</td><td>New size for the memory block. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the resized memory block, or NULL if new_size is 0. </dd></dl>
 
 </div>
 </div>

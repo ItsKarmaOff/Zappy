@@ -94,18 +94,24 @@ $(document).ready(function(){initNavTree('parsing_8h.html',''); initResizable();
 
 <p>The <a class="el" href="parsing_8h.html" title="The parsing.h.">parsing.h</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="server_2include_2data__structures_8h_source.html">data_structures.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="server__data__structures_8h_source.html">server_data_structures.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="game_8h_source.html">game.h</a>&quot;</code><br />
 </div>
 <p><a href="parsing_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparsing__s.html">parsing_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the parsing context for program arguments.  <a href="structparsing__s.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structoption__s.html">option_s</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a9ad38b484710d6b5736c8461c5dd7946"><td class="memItemLeft" align="right" valign="top"><a id="a9ad38b484710d6b5736c8461c5dd7946" name="a9ad38b484710d6b5736c8461c5dd7946"></a>
+typedef struct <a class="el" href="structparsing__s.html">parsing_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>parsing_t</b></td></tr>
+<tr class="separator:a9ad38b484710d6b5736c8461c5dd7946"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a484648e851a20b1d71da6895a76cece0"><td class="memItemLeft" align="right" valign="top"><a id="a484648e851a20b1d71da6895a76cece0" name="a484648e851a20b1d71da6895a76cece0"></a>
 typedef enum <a class="el" href="parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9f">option_type_e</a>&#160;</td><td class="memItemRight" valign="bottom"><b>option_type_t</b></td></tr>
 <tr class="separator:a484648e851a20b1d71da6895a76cece0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,40 +121,39 @@ typedef struct <a class="el" href="structoption__s.html">option_s</a>&#160;</td>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a493efbd4033206ee546f1d4df5f22a9f"><td class="memItemLeft" align="right" valign="top"><a id="a493efbd4033206ee546f1d4df5f22a9f" name="a493efbd4033206ee546f1d4df5f22a9f"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9f">option_type_e</a> { <br />
-&#160;&#160;<b>NOT_REQUIRED</b> = 0
-, <b>PORT_OPTION</b> = 1 &lt;&lt; 0
-, <b>WIDTH_OPTION</b> = 1 &lt;&lt; 1
-, <b>HEIGHT_OPTION</b> = 1 &lt;&lt; 2
+<tr class="memitem:a493efbd4033206ee546f1d4df5f22a9f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9f">option_type_e</a> { <br />
+&#160;&#160;<a class="el" href="parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9fae79ba002cf0163d634b562a676808674">NOT_REQUIRED</a> = 0
+, <a class="el" href="parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9fa50e84e87bf81ce3bc5f7de4ffafc186a">PORT_OPTION</a> = 1 &lt;&lt; 0
+, <a class="el" href="parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9faf8ee40f6e5bdb8cf6c69fe9c7f0ccb66">WIDTH_OPTION</a> = 1 &lt;&lt; 1
+, <a class="el" href="parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9fa7593295dc4d0396ecff8c9c85d77e971">HEIGHT_OPTION</a> = 1 &lt;&lt; 2
 , <br />
-&#160;&#160;<b>NAMES_OPTION</b> = 1 &lt;&lt; 3
-, <b>CLIENTS_OPTION</b> = 1 &lt;&lt; 4
-, <b>FREQUENCY_OPTION</b> = 1 &lt;&lt; 5
+&#160;&#160;<a class="el" href="parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9fae35b5f3cac6dc3204d5db7fd8315adfd">NAMES_OPTION</a> = 1 &lt;&lt; 3
+, <a class="el" href="parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9fa7acd84e70e9c2f5177690333f8eca80b">CLIENTS_OPTION</a> = 1 &lt;&lt; 4
 <br />
  }</td></tr>
-<tr class="memdesc:a493efbd4033206ee546f1d4df5f22a9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the type of an option. <br /></td></tr>
+<tr class="memdesc:a493efbd4033206ee546f1d4df5f22a9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the type of an option.  <a href="parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9f">More...</a><br /></td></tr>
 <tr class="separator:a493efbd4033206ee546f1d4df5f22a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a233ee8f8389acc02e7f5c24e9af544d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a233ee8f8389acc02e7f5c24e9af544d8">option_authors</a> (<a class="el" href="structserver__s.html">server_t</a> *server, int argc, char **argv, size_t *index)</td></tr>
-<tr class="separator:a233ee8f8389acc02e7f5c24e9af544d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3e9c554073885dc531baf4eb2b4d271"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#aa3e9c554073885dc531baf4eb2b4d271">option_clients</a> (<a class="el" href="structserver__s.html">server_t</a> *server, int argc, char **argv, size_t *index)</td></tr>
-<tr class="separator:aa3e9c554073885dc531baf4eb2b4d271"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6afc271f78dfb555a0601756b15108b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a6afc271f78dfb555a0601756b15108b1">option_frequency</a> (<a class="el" href="structserver__s.html">server_t</a> *server, int argc, char **argv, size_t *index)</td></tr>
-<tr class="separator:a6afc271f78dfb555a0601756b15108b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af83d70b62853644f30f1981bea83d278"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#af83d70b62853644f30f1981bea83d278">option_height</a> (<a class="el" href="structserver__s.html">server_t</a> *server, int argc, char **argv, size_t *index)</td></tr>
-<tr class="separator:af83d70b62853644f30f1981bea83d278"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ee69fd0e47de865891c5a01682c4e02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a1ee69fd0e47de865891c5a01682c4e02">option_help</a> (<a class="el" href="structserver__s.html">server_t</a> *server, int argc, char **argv, size_t *index)</td></tr>
-<tr class="separator:a1ee69fd0e47de865891c5a01682c4e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af239b2b2111a42551c2b53bb1efd4dff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#af239b2b2111a42551c2b53bb1efd4dff">option_names</a> (<a class="el" href="structserver__s.html">server_t</a> *server, int argc, char **argv, size_t *index)</td></tr>
-<tr class="separator:af239b2b2111a42551c2b53bb1efd4dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d8d73a661705885e08fcfa3a3f6f5d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a7d8d73a661705885e08fcfa3a3f6f5d7">option_port</a> (<a class="el" href="structserver__s.html">server_t</a> *server, int argc, char **argv, size_t *index)</td></tr>
-<tr class="separator:a7d8d73a661705885e08fcfa3a3f6f5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af75314235ebf721859eeb8e69dc17459"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#af75314235ebf721859eeb8e69dc17459">option_version</a> (<a class="el" href="structserver__s.html">server_t</a> *server, int argc, char **argv, size_t *index)</td></tr>
-<tr class="separator:af75314235ebf721859eeb8e69dc17459"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6192cfeca5a099400fc89b170ec0d6b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a6192cfeca5a099400fc89b170ec0d6b7">option_width</a> (<a class="el" href="structserver__s.html">server_t</a> *server, int argc, char **argv, size_t *index)</td></tr>
-<tr class="separator:a6192cfeca5a099400fc89b170ec0d6b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5b221ae8d11073425b73272fd5a5f9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#ac5b221ae8d11073425b73272fd5a5f9c">option_authors</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
+<tr class="separator:ac5b221ae8d11073425b73272fd5a5f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5ff768cc86705e564da3015b9fd94c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#ae5ff768cc86705e564da3015b9fd94c4">option_clients</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
+<tr class="separator:ae5ff768cc86705e564da3015b9fd94c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84acb5f91d69842531cd7e84e11ebace"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a84acb5f91d69842531cd7e84e11ebace">option_frequency</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
+<tr class="separator:a84acb5f91d69842531cd7e84e11ebace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec5d1969e258a5daff41b946fc80c851"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#aec5d1969e258a5daff41b946fc80c851">option_height</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
+<tr class="separator:aec5d1969e258a5daff41b946fc80c851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10bb5376e2433ecfcce9b277060b54e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a10bb5376e2433ecfcce9b277060b54e1">option_help</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
+<tr class="separator:a10bb5376e2433ecfcce9b277060b54e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac472ec0b9b71a00d56a3de87d151b9b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#ac472ec0b9b71a00d56a3de87d151b9b3">option_names</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
+<tr class="separator:ac472ec0b9b71a00d56a3de87d151b9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9421f73f9a4c2615927dda3d58299fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#aa9421f73f9a4c2615927dda3d58299fe">option_port</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
+<tr class="separator:aa9421f73f9a4c2615927dda3d58299fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45a196d313b5963e3b56ed729f96798e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a45a196d313b5963e3b56ed729f96798e">option_version</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
+<tr class="separator:a45a196d313b5963e3b56ed729f96798e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a310f2776a7c8f1a875bb73250068ee49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a310f2776a7c8f1a875bb73250068ee49">option_width</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
+<tr class="separator:a310f2776a7c8f1a875bb73250068ee49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73ebcf0dd1e7b739d5112a2a520cf243"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a73ebcf0dd1e7b739d5112a2a520cf243">init_server_from_args</a> (<a class="el" href="structserver__s.html">server_t</a> *server, int argc, char **argv)</td></tr>
 <tr class="memdesc:a73ebcf0dd1e7b739d5112a2a520cf243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the server from command line arguments.  <a href="parsing_8h.html#a73ebcf0dd1e7b739d5112a2a520cf243">More...</a><br /></td></tr>
 <tr class="separator:a73ebcf0dd1e7b739d5112a2a520cf243"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,12 +162,44 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a67dbe04b0f8ac57004bb14b6e634fbfb"><td class="memItemLeft" align="right" valign="top"><a id="a67dbe04b0f8ac57004bb14b6e634fbfb" name="a67dbe04b0f8ac57004bb14b6e634fbfb"></a>
 const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>options</b> []</td></tr>
+<tr class="memdesc:a67dbe04b0f8ac57004bb14b6e634fbfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The array of argument functions. <br /></td></tr>
 <tr class="separator:a67dbe04b0f8ac57004bb14b6e634fbfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="parsing_8h.html" title="The parsing.h.">parsing.h</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a493efbd4033206ee546f1d4df5f22a9f" name="a493efbd4033206ee546f1d4df5f22a9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a493efbd4033206ee546f1d4df5f22a9f">&#9670;&nbsp;</a></span>option_type_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9f">option_type_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Represents the type of an option. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a493efbd4033206ee546f1d4df5f22a9fae79ba002cf0163d634b562a676808674" name="a493efbd4033206ee546f1d4df5f22a9fae79ba002cf0163d634b562a676808674"></a>NOT_REQUIRED&#160;</td><td class="fielddoc"><p >The option is not required. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a493efbd4033206ee546f1d4df5f22a9fa50e84e87bf81ce3bc5f7de4ffafc186a" name="a493efbd4033206ee546f1d4df5f22a9fa50e84e87bf81ce3bc5f7de4ffafc186a"></a>PORT_OPTION&#160;</td><td class="fielddoc"><p >The option is a port option. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a493efbd4033206ee546f1d4df5f22a9faf8ee40f6e5bdb8cf6c69fe9c7f0ccb66" name="a493efbd4033206ee546f1d4df5f22a9faf8ee40f6e5bdb8cf6c69fe9c7f0ccb66"></a>WIDTH_OPTION&#160;</td><td class="fielddoc"><p >The option is a width option. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a493efbd4033206ee546f1d4df5f22a9fa7593295dc4d0396ecff8c9c85d77e971" name="a493efbd4033206ee546f1d4df5f22a9fa7593295dc4d0396ecff8c9c85d77e971"></a>HEIGHT_OPTION&#160;</td><td class="fielddoc"><p >The option is a height option. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a493efbd4033206ee546f1d4df5f22a9fae35b5f3cac6dc3204d5db7fd8315adfd" name="a493efbd4033206ee546f1d4df5f22a9fae35b5f3cac6dc3204d5db7fd8315adfd"></a>NAMES_OPTION&#160;</td><td class="fielddoc"><p >The option is a names option. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a493efbd4033206ee546f1d4df5f22a9fa7acd84e70e9c2f5177690333f8eca80b" name="a493efbd4033206ee546f1d4df5f22a9fa7acd84e70e9c2f5177690333f8eca80b"></a>CLIENTS_OPTION&#160;</td><td class="fielddoc"><p >The option is a clients option. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="a73ebcf0dd1e7b739d5112a2a520cf243" name="a73ebcf0dd1e7b739d5112a2a520cf243"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a73ebcf0dd1e7b739d5112a2a520cf243">&#9670;&nbsp;</a></span>init_server_from_args()</h2>
 
@@ -213,8 +250,8 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
 
 </div>
 </div>
-<a id="a233ee8f8389acc02e7f5c24e9af544d8" name="a233ee8f8389acc02e7f5c24e9af544d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a233ee8f8389acc02e7f5c24e9af544d8">&#9670;&nbsp;</a></span>option_authors()</h2>
+<a id="ac5b221ae8d11073425b73272fd5a5f9c" name="ac5b221ae8d11073425b73272fd5a5f9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5b221ae8d11073425b73272fd5a5f9c">&#9670;&nbsp;</a></span>option_authors()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,20 +265,8 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structparsing__s.html">parsing_t</a> *&#160;</td>
+          <td class="paramname"><em>parsing</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -253,9 +278,7 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
 <p >@biref Display the authors of the project </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance </td></tr>
-    <tr><td class="paramname">argc</td><td>The number of program arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>The program arguments </td></tr>
-    <tr><td class="paramname">index</td><td>The index of the current argument being processed </td></tr>
+    <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
   </table>
   </dd>
 </dl>
@@ -268,8 +291,8 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
 
 </div>
 </div>
-<a id="aa3e9c554073885dc531baf4eb2b4d271" name="aa3e9c554073885dc531baf4eb2b4d271"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3e9c554073885dc531baf4eb2b4d271">&#9670;&nbsp;</a></span>option_clients()</h2>
+<a id="ae5ff768cc86705e564da3015b9fd94c4" name="ae5ff768cc86705e564da3015b9fd94c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5ff768cc86705e564da3015b9fd94c4">&#9670;&nbsp;</a></span>option_clients()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -283,20 +306,8 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structparsing__s.html">parsing_t</a> *&#160;</td>
+          <td class="paramname"><em>parsing</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -308,17 +319,15 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
 <p >@biref Set the number of clients per team of the server </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance to set the number of clients for </td></tr>
-    <tr><td class="paramname">argc</td><td>The number of program arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>The program arguments </td></tr>
-    <tr><td class="paramname">index</td><td>The index of the current argument being processed </td></tr>
+    <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a6afc271f78dfb555a0601756b15108b1" name="a6afc271f78dfb555a0601756b15108b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6afc271f78dfb555a0601756b15108b1">&#9670;&nbsp;</a></span>option_frequency()</h2>
+<a id="a84acb5f91d69842531cd7e84e11ebace" name="a84acb5f91d69842531cd7e84e11ebace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84acb5f91d69842531cd7e84e11ebace">&#9670;&nbsp;</a></span>option_frequency()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -332,20 +341,8 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structparsing__s.html">parsing_t</a> *&#160;</td>
+          <td class="paramname"><em>parsing</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -357,17 +354,15 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
 <p >@biref Set the frequency of the server </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance to set the frequency for </td></tr>
-    <tr><td class="paramname">argc</td><td>The number of program arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>The program arguments </td></tr>
-    <tr><td class="paramname">index</td><td>The index of the current argument being processed </td></tr>
+    <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="af83d70b62853644f30f1981bea83d278" name="af83d70b62853644f30f1981bea83d278"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af83d70b62853644f30f1981bea83d278">&#9670;&nbsp;</a></span>option_height()</h2>
+<a id="aec5d1969e258a5daff41b946fc80c851" name="aec5d1969e258a5daff41b946fc80c851"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec5d1969e258a5daff41b946fc80c851">&#9670;&nbsp;</a></span>option_height()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -381,20 +376,8 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structparsing__s.html">parsing_t</a> *&#160;</td>
+          <td class="paramname"><em>parsing</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -406,17 +389,15 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
 <p >@biref Set the height of the server </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance to set the height for </td></tr>
-    <tr><td class="paramname">argc</td><td>The number of program arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>The program arguments </td></tr>
-    <tr><td class="paramname">index</td><td>The index of the current argument being processed </td></tr>
+    <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a1ee69fd0e47de865891c5a01682c4e02" name="a1ee69fd0e47de865891c5a01682c4e02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ee69fd0e47de865891c5a01682c4e02">&#9670;&nbsp;</a></span>option_help()</h2>
+<a id="a10bb5376e2433ecfcce9b277060b54e1" name="a10bb5376e2433ecfcce9b277060b54e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10bb5376e2433ecfcce9b277060b54e1">&#9670;&nbsp;</a></span>option_help()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -430,20 +411,8 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structparsing__s.html">parsing_t</a> *&#160;</td>
+          <td class="paramname"><em>parsing</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -455,17 +424,21 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
 <p >@biref Display the help message for the program </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance </td></tr>
-    <tr><td class="paramname">argc</td><td>The number of program arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>The program arguments </td></tr>
-    <tr><td class="paramname">index</td><td>The index of the current argument being processed </td></tr>
+    <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">SUCCESS</td><td>If the help message is displayed successfully </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="af239b2b2111a42551c2b53bb1efd4dff" name="af239b2b2111a42551c2b53bb1efd4dff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af239b2b2111a42551c2b53bb1efd4dff">&#9670;&nbsp;</a></span>option_names()</h2>
+<a id="ac472ec0b9b71a00d56a3de87d151b9b3" name="ac472ec0b9b71a00d56a3de87d151b9b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac472ec0b9b71a00d56a3de87d151b9b3">&#9670;&nbsp;</a></span>option_names()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -479,20 +452,8 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structparsing__s.html">parsing_t</a> *&#160;</td>
+          <td class="paramname"><em>parsing</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -504,17 +465,15 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
 <p >@biref Set the names of the teams for the server </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance to set the names of the teams for </td></tr>
-    <tr><td class="paramname">argc</td><td>The number of program arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>The program arguments </td></tr>
-    <tr><td class="paramname">index</td><td>The index of the current argument being processed </td></tr>
+    <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a7d8d73a661705885e08fcfa3a3f6f5d7" name="a7d8d73a661705885e08fcfa3a3f6f5d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d8d73a661705885e08fcfa3a3f6f5d7">&#9670;&nbsp;</a></span>option_port()</h2>
+<a id="aa9421f73f9a4c2615927dda3d58299fe" name="aa9421f73f9a4c2615927dda3d58299fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9421f73f9a4c2615927dda3d58299fe">&#9670;&nbsp;</a></span>option_port()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -528,20 +487,8 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structparsing__s.html">parsing_t</a> *&#160;</td>
+          <td class="paramname"><em>parsing</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -553,17 +500,15 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
 <p >@biref Set the port of the server </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance to set the port for </td></tr>
-    <tr><td class="paramname">argc</td><td>The number of program arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>The program arguments </td></tr>
-    <tr><td class="paramname">index</td><td>The index of the current argument being processed </td></tr>
+    <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="af75314235ebf721859eeb8e69dc17459" name="af75314235ebf721859eeb8e69dc17459"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af75314235ebf721859eeb8e69dc17459">&#9670;&nbsp;</a></span>option_version()</h2>
+<a id="a45a196d313b5963e3b56ed729f96798e" name="a45a196d313b5963e3b56ed729f96798e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45a196d313b5963e3b56ed729f96798e">&#9670;&nbsp;</a></span>option_version()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -577,20 +522,8 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structparsing__s.html">parsing_t</a> *&#160;</td>
+          <td class="paramname"><em>parsing</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -602,17 +535,21 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
 <p >@biref Display the version of the program </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance </td></tr>
-    <tr><td class="paramname">argc</td><td>The number of program arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>The program arguments </td></tr>
-    <tr><td class="paramname">index</td><td>The index of the current argument being processed </td></tr>
+    <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">SUCCESS</td><td>If the version is displayed successfully </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a6192cfeca5a099400fc89b170ec0d6b7" name="a6192cfeca5a099400fc89b170ec0d6b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6192cfeca5a099400fc89b170ec0d6b7">&#9670;&nbsp;</a></span>option_width()</h2>
+<a id="a310f2776a7c8f1a875bb73250068ee49" name="a310f2776a7c8f1a875bb73250068ee49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a310f2776a7c8f1a875bb73250068ee49">&#9670;&nbsp;</a></span>option_width()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -626,20 +563,8 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structparsing__s.html">parsing_t</a> *&#160;</td>
+          <td class="paramname"><em>parsing</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -651,9 +576,7 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
 <p >@biref Set the width of the server </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance to set the width for </td></tr>
-    <tr><td class="paramname">argc</td><td>The number of program arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>The program arguments </td></tr>
-    <tr><td class="paramname">index</td><td>The index of the current argument being processed </td></tr>
+    <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
   </table>
   </dd>
 </dl>

@@ -87,15 +87,173 @@ $(document).ready(function(){initNavTree('structplayer__s.html',''); initResizab
   <div class="headertitle"><div class="title">player_s Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A structure representing a player in the game.  
+ <a href="structplayer__s.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="server__data__structures_8h_source.html">server_data_structures.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a5325fd4025c743c6a254dc0e819ca5c1"><td class="memItemLeft" align="right" valign="top"><a id="a5325fd4025c743c6a254dc0e819ca5c1" name="a5325fd4025c743c6a254dc0e819ca5c1"></a>
-<a class="el" href="structteam__s.html">team_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>team</b></td></tr>
+<tr class="memitem:a3670f4bed50c88882ceba330ffeb095c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#a3670f4bed50c88882ceba330ffeb095c">id</a></td></tr>
+<tr class="separator:a3670f4bed50c88882ceba330ffeb095c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a059fe8471c52b9f3c71f9cdffa9a209c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#a059fe8471c52b9f3c71f9cdffa9a209c">is_egg</a></td></tr>
+<tr class="separator:a059fe8471c52b9f3c71f9cdffa9a209c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef7813d400cb43ed2b8fc02f565a51ca"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#aef7813d400cb43ed2b8fc02f565a51ca">creator_id</a></td></tr>
+<tr class="separator:aef7813d400cb43ed2b8fc02f565a51ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a512c59280ab865f7698874c7f8493cfd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvector2u__s.html">vector2u_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#a512c59280ab865f7698874c7f8493cfd">position</a></td></tr>
+<tr class="separator:a512c59280ab865f7698874c7f8493cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b09aac684c444244dea820406f11875"><td class="memItemLeft" align="right" valign="top">orientation_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#a1b09aac684c444244dea820406f11875">orientation</a></td></tr>
+<tr class="separator:a1b09aac684c444244dea820406f11875"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1cd5c067fda870cc8631b8790fee06c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#af1cd5c067fda870cc8631b8790fee06c">level</a></td></tr>
+<tr class="separator:af1cd5c067fda870cc8631b8790fee06c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab636da56662258c87a3750ed086c199c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#ab636da56662258c87a3750ed086c199c">life_remaining_tick</a></td></tr>
+<tr class="separator:ab636da56662258c87a3750ed086c199c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9eaaad3501c6eb829ad473efd7521f9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#ab9eaaad3501c6eb829ad473efd7521f9">inventory</a> [<a class="el" href="server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01a71ebc62bf482ebe7f7c937fc2b7d7010">RESOURCES_SIZE</a>]</td></tr>
+<tr class="separator:ab9eaaad3501c6eb829ad473efd7521f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5325fd4025c743c6a254dc0e819ca5c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteam__s.html">team_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#a5325fd4025c743c6a254dc0e819ca5c1">team</a></td></tr>
 <tr class="separator:a5325fd4025c743c6a254dc0e819ca5c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A structure representing a player in the game. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="aef7813d400cb43ed2b8fc02f565a51ca" name="aef7813d400cb43ed2b8fc02f565a51ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef7813d400cb43ed2b8fc02f565a51ca">&#9670;&nbsp;</a></span>creator_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t creator_id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The ID of the player who created the egg </p>
+
+</div>
+</div>
+<a id="a3670f4bed50c88882ceba330ffeb095c" name="a3670f4bed50c88882ceba330ffeb095c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3670f4bed50c88882ceba330ffeb095c">&#9670;&nbsp;</a></span>id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The ID of the player </p>
+
+</div>
+</div>
+<a id="ab9eaaad3501c6eb829ad473efd7521f9" name="ab9eaaad3501c6eb829ad473efd7521f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9eaaad3501c6eb829ad473efd7521f9">&#9670;&nbsp;</a></span>inventory</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t inventory[<a class="el" href="server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01a71ebc62bf482ebe7f7c937fc2b7d7010">RESOURCES_SIZE</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The inventory of the player </p>
+
+</div>
+</div>
+<a id="a059fe8471c52b9f3c71f9cdffa9a209c" name="a059fe8471c52b9f3c71f9cdffa9a209c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a059fe8471c52b9f3c71f9cdffa9a209c">&#9670;&nbsp;</a></span>is_egg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool is_egg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Whether the player is an egg </p>
+
+</div>
+</div>
+<a id="af1cd5c067fda870cc8631b8790fee06c" name="af1cd5c067fda870cc8631b8790fee06c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1cd5c067fda870cc8631b8790fee06c">&#9670;&nbsp;</a></span>level</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t level</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The level of the player </p>
+
+</div>
+</div>
+<a id="ab636da56662258c87a3750ed086c199c" name="ab636da56662258c87a3750ed086c199c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab636da56662258c87a3750ed086c199c">&#9670;&nbsp;</a></span>life_remaining_tick</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t life_remaining_tick</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The remaining life of the player </p>
+
+</div>
+</div>
+<a id="a1b09aac684c444244dea820406f11875" name="a1b09aac684c444244dea820406f11875"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b09aac684c444244dea820406f11875">&#9670;&nbsp;</a></span>orientation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">orientation_t orientation</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The orientation of the player </p>
+
+</div>
+</div>
+<a id="a512c59280ab865f7698874c7f8493cfd" name="a512c59280ab865f7698874c7f8493cfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a512c59280ab865f7698874c7f8493cfd">&#9670;&nbsp;</a></span>position</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structvector2u__s.html">vector2u_t</a> position</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The position of the player on the map </p>
+
+</div>
+</div>
+<a id="a5325fd4025c743c6a254dc0e819ca5c1" name="a5325fd4025c743c6a254dc0e819ca5c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5325fd4025c743c6a254dc0e819ca5c1">&#9670;&nbsp;</a></span>team</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structteam__s.html">team_t</a>* team</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The team of the player </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>server/include/<a class="el" href="server_2include_2data__structures_8h_source.html">data_structures.h</a></li>
+<li>server/include/<a class="el" href="server__data__structures_8h_source.html">server_data_structures.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['physh_0',['physH',['../structRGFW__monitor.html#a7a89770c6d82512992a2e3f04340fbc5',1,'RGFW_monitor']]],
-  ['pixelratio_1',['pixelRatio',['../structRGFW__monitor.html#a3f78b0fe7cb8aad4a0efe116fe2bd8f1',1,'RGFW_monitor']]],
-  ['pixels_2',['pixels',['../structGLFWimage.html#a9d2e6e88dca840d5557db6f5e08dd67a',1,'GLFWimage']]],
-  ['point_3',['point',['../structRGFW__event.html#af389344e77e781a3b7fa6fe15e6255c6',1,'RGFW_event']]]
+  ['map_0',['map',['../structgame__s.html#ab3e2ff1da567447d6a8bdeb43d44ab59',1,'game_s']]],
+  ['max_5fclients_5fnumber_1',['max_clients_number',['../structserver__s.html#a184e954b939230f9ef576fee273d9247',1,'server_s']]],
+  ['max_5fquantity_2',['max_quantity',['../structquantity__s.html#a57033beb478967fed0afac1375c2ce7b',1,'quantity_s']]],
+  ['move_5ffunc_3',['move_func',['../structmove__s.html#a4d745385535e1371b093740c9e9d7f9a',1,'move_s']]],
+  ['moves_4',['moves',['../ai_8h.html#ac9614bc590f9eaa56b7fc933c9c82477',1,'moves():&#160;forward.c'],['../forward_8c.html#ac9614bc590f9eaa56b7fc933c9c82477',1,'moves():&#160;forward.c']]]
 ];

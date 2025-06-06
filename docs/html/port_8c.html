@@ -94,15 +94,15 @@ $(document).ready(function(){initNavTree('port_8c.html',''); initResizable(); })
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7d8d73a661705885e08fcfa3a3f6f5d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port_8c.html#a7d8d73a661705885e08fcfa3a3f6f5d7">option_port</a> (<a class="el" href="structserver__s.html">server_t</a> *server, int argc, char **argv, size_t *index)</td></tr>
-<tr class="separator:a7d8d73a661705885e08fcfa3a3f6f5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9421f73f9a4c2615927dda3d58299fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port_8c.html#aa9421f73f9a4c2615927dda3d58299fe">option_port</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
+<tr class="separator:aa9421f73f9a4c2615927dda3d58299fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="port_8c.html" title="The port.c.">port.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a7d8d73a661705885e08fcfa3a3f6f5d7" name="a7d8d73a661705885e08fcfa3a3f6f5d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d8d73a661705885e08fcfa3a3f6f5d7">&#9670;&nbsp;</a></span>option_port()</h2>
+<a id="aa9421f73f9a4c2615927dda3d58299fe" name="aa9421f73f9a4c2615927dda3d58299fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9421f73f9a4c2615927dda3d58299fe">&#9670;&nbsp;</a></span>option_port()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -116,20 +116,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structparsing__s.html">parsing_t</a> *&#160;</td>
+          <td class="paramname"><em>parsing</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -141,9 +129,7 @@ Functions</h2></td></tr>
 <p >@biref Set the port of the server </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance to set the port for </td></tr>
-    <tr><td class="paramname">argc</td><td>The number of program arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>The program arguments </td></tr>
-    <tr><td class="paramname">index</td><td>The index of the current argument being processed </td></tr>
+    <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
   </table>
   </dd>
 </dl>

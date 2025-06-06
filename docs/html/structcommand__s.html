@@ -87,21 +87,71 @@ $(document).ready(function(){initNavTree('structcommand__s.html',''); initResiza
   <div class="headertitle"><div class="title">command_s Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A structure representing a command to be executed by a client.  
+ <a href="structcommand__s.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="server__data__structures_8h_source.html">server_data_structures.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a9f83d3c4b4c3bb790f90ad79865e37ab"><td class="memItemLeft" align="right" valign="top"><a id="a9f83d3c4b4c3bb790f90ad79865e37ab" name="a9f83d3c4b4c3bb790f90ad79865e37ab"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>command</b></td></tr>
+<tr class="memitem:a9f83d3c4b4c3bb790f90ad79865e37ab"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcommand__s.html#a9f83d3c4b4c3bb790f90ad79865e37ab">command</a></td></tr>
 <tr class="separator:a9f83d3c4b4c3bb790f90ad79865e37ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7129fabf4248a60ae6ff15805cd15955"><td class="memItemLeft" align="right" valign="top"><a id="a7129fabf4248a60ae6ff15805cd15955" name="a7129fabf4248a60ae6ff15805cd15955"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_gui</b></td></tr>
-<tr class="separator:a7129fabf4248a60ae6ff15805cd15955"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a848a0f68b3acb813834d9c4c78572de9"><td class="memItemLeft" align="right" valign="top"><a id="a848a0f68b3acb813834d9c4c78572de9" name="a848a0f68b3acb813834d9c4c78572de9"></a>
-void(*&#160;</td><td class="memItemRight" valign="bottom"><b>cmd_function</b> )(<a class="el" href="structserver__s.html">server_t</a> *, <a class="el" href="structclient__s.html">client_t</a> *, char **)</td></tr>
+<tr class="memitem:a5c9660da4d3d16cf5dfdccc29989a92c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcommand__s.html#a5c9660da4d3d16cf5dfdccc29989a92c">time_to_wait</a></td></tr>
+<tr class="separator:a5c9660da4d3d16cf5dfdccc29989a92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a848a0f68b3acb813834d9c4c78572de9"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcommand__s.html#a848a0f68b3acb813834d9c4c78572de9">cmd_function</a> )(<a class="el" href="structserver__s.html">server_t</a> *, <a class="el" href="structclient__s.html">client_t</a> *, char **)</td></tr>
 <tr class="separator:a848a0f68b3acb813834d9c4c78572de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A structure representing a command to be executed by a client. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="a848a0f68b3acb813834d9c4c78572de9" name="a848a0f68b3acb813834d9c4c78572de9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a848a0f68b3acb813834d9c4c78572de9">&#9670;&nbsp;</a></span>cmd_function</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* cmd_function) (<a class="el" href="structserver__s.html">server_t</a> *, <a class="el" href="structclient__s.html">client_t</a> *, char **)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The function to execute the command </p>
+
+</div>
+</div>
+<a id="a9f83d3c4b4c3bb790f90ad79865e37ab" name="a9f83d3c4b4c3bb790f90ad79865e37ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f83d3c4b4c3bb790f90ad79865e37ab">&#9670;&nbsp;</a></span>command</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* command</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The command to execute </p>
+
+</div>
+</div>
+<a id="a5c9660da4d3d16cf5dfdccc29989a92c" name="a5c9660da4d3d16cf5dfdccc29989a92c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c9660da4d3d16cf5dfdccc29989a92c">&#9670;&nbsp;</a></span>time_to_wait</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double time_to_wait</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The time to wait before executing the command </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>server/include/<a class="el" href="server_2include_2data__structures_8h_source.html">data_structures.h</a></li>
+<li>server/include/<a class="el" href="server__data__structures_8h_source.html">server_data_structures.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

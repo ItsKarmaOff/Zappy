@@ -83,17 +83,37 @@ $(document).ready(function(){initNavTree('ai_8h.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">ai.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>The <a class="el" href="ai_8h.html" title="The ai.h.">ai.h</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;data_structures.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="network_8h_source.html">network.h</a>&quot;</code><br />
 </div>
 <p><a href="ai_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmove__s.html">move_s</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupdate__orientation__s.html">update_orientation_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an orientation update for AI clients.  <a href="structupdate__orientation__s.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a6ef4c6213beab08706d73cbaead4edd1"><td class="memItemLeft" align="right" valign="top"><a id="a6ef4c6213beab08706d73cbaead4edd1" name="a6ef4c6213beab08706d73cbaead4edd1"></a>
+typedef struct <a class="el" href="structmove__s.html">move_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>move_t</b></td></tr>
+<tr class="separator:a6ef4c6213beab08706d73cbaead4edd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1672353af00598f52885d6bd45501775"><td class="memItemLeft" align="right" valign="top"><a id="a1672353af00598f52885d6bd45501775" name="a1672353af00598f52885d6bd45501775"></a>
+typedef struct <a class="el" href="structupdate__orientation__s.html">update_orientation_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>update_orientation_t</b></td></tr>
+<tr class="separator:a1672353af00598f52885d6bd45501775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aeb96e5afb7e19e38ba6564c342d3e481"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ai_8h.html#aeb96e5afb7e19e38ba6564c342d3e481">handle_command_forward</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client, char **args)</td></tr>
@@ -132,6 +152,13 @@ Functions</h2></td></tr>
 <tr class="memitem:a48d287510ac0afdb72a4314fc2092198"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ai_8h.html#a48d287510ac0afdb72a4314fc2092198">handle_command_incantation</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client, char **args)</td></tr>
 <tr class="memdesc:a48d287510ac0afdb72a4314fc2092198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the "Incantation" command for AI clients.  <a href="ai_8h.html#a48d287510ac0afdb72a4314fc2092198">More...</a><br /></td></tr>
 <tr class="separator:a48d287510ac0afdb72a4314fc2092198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac9614bc590f9eaa56b7fc933c9c82477"><td class="memItemLeft" align="right" valign="top"><a id="ac9614bc590f9eaa56b7fc933c9c82477" name="ac9614bc590f9eaa56b7fc933c9c82477"></a>
+const <a class="el" href="structmove__s.html">move_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>moves</b> []</td></tr>
+<tr class="memdesc:ac9614bc590f9eaa56b7fc933c9c82477"><td class="mdescLeft">&#160;</td><td class="mdescRight">The moves for the AI clients. <br /></td></tr>
+<tr class="separator:ac9614bc590f9eaa56b7fc933c9c82477"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="ai_8h.html" title="The ai.h.">ai.h</a>. </p>

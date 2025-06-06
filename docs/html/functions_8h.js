@@ -100,6 +100,8 @@ var functions_8h =
     [ "my_putstr_sized", "functions_8h.html#a0f04c7050d04025250099a72c8bee6bf", null ],
     [ "my_realloc", "functions_8h.html#a4e9354e5629284bb06dc52d2f9cd2c52", null ],
     [ "my_replace_char", "functions_8h.html#a2f6b44ca5b8491a8379bf9c159d3e8db", null ],
+    [ "my_replace_char_at", "functions_8h.html#aee57f2caf0cd8e1fb53d6435458c600a", null ],
+    [ "my_resize_alloc", "functions_8h.html#ae6462c2fd7a1e4df8f54ef3f326612c2", null ],
     [ "my_rev_list", "functions_8h.html#afe803d8ac01b542d20e76cd09fd1ff73", null ],
     [ "my_rev_params", "functions_8h.html#a5e8db91f4a46d979c3c3847a2a9f7670", null ],
     [ "my_revstr", "functions_8h.html#af336a60e0fd5a6ab40a9a5030fe8cb05", null ],

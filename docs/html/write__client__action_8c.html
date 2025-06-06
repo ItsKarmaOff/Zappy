@@ -101,8 +101,12 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ab0ea83bc22fc36292efd1ec3bbc016d9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcommand__s.html">command_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="write__client__action_8c.html#ab0ea83bc22fc36292efd1ec3bbc016d9">commands</a> []</td></tr>
-<tr class="separator:ab0ea83bc22fc36292efd1ec3bbc016d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9232cd39de42fd94e9dc12428f994667"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcommand__s.html">command_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="write__client__action_8c.html#a9232cd39de42fd94e9dc12428f994667">commands_ai</a> []</td></tr>
+<tr class="memdesc:a9232cd39de42fd94e9dc12428f994667"><td class="mdescLeft">&#160;</td><td class="mdescRight">The array of AI commands.  <a href="write__client__action_8c.html#a9232cd39de42fd94e9dc12428f994667">More...</a><br /></td></tr>
+<tr class="separator:a9232cd39de42fd94e9dc12428f994667"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c465063f2423532e81f0c074d46dffb"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcommand__s.html">command_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="write__client__action_8c.html#a4c465063f2423532e81f0c074d46dffb">commands_gui</a> []</td></tr>
+<tr class="memdesc:a4c465063f2423532e81f0c074d46dffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The array of GUI commands.  <a href="write__client__action_8c.html#a4c465063f2423532e81f0c074d46dffb">More...</a><br /></td></tr>
+<tr class="separator:a4c465063f2423532e81f0c074d46dffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="write__client__action_8c.html" title="The write_client_action.c.">write_client_action.c</a>. </p>
@@ -146,45 +150,31 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="ab0ea83bc22fc36292efd1ec3bbc016d9" name="ab0ea83bc22fc36292efd1ec3bbc016d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0ea83bc22fc36292efd1ec3bbc016d9">&#9670;&nbsp;</a></span>commands</h2>
+<a id="a9232cd39de42fd94e9dc12428f994667" name="a9232cd39de42fd94e9dc12428f994667"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9232cd39de42fd94e9dc12428f994667">&#9670;&nbsp;</a></span>commands_ai</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="structcommand__s.html">command_t</a> commands[]</td>
+          <td class="memname">const <a class="el" href="structcommand__s.html">command_t</a> commands_ai[]</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">    </div>
-<div class="line">    {<span class="stringliteral">&quot;Forward&quot;</span>, <span class="keyword">false</span>, &amp;<a class="code hl_function" href="ai_8h.html#aeb96e5afb7e19e38ba6564c342d3e481">handle_command_forward</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;Right&quot;</span>, <span class="keyword">false</span>, &amp;<a class="code hl_function" href="ai_8h.html#a8af1852f6e738db0a108346809a7e661">handle_command_right</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;Left&quot;</span>, <span class="keyword">false</span>, &amp;<a class="code hl_function" href="ai_8h.html#ae92975a89cd66cb714f16fba23bea495">handle_command_left</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;Look&quot;</span>, <span class="keyword">false</span>, &amp;<a class="code hl_function" href="ai_8h.html#ad16a3b36ae0cb02882a3e05e32b31ead">handle_command_look</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;Inventory&quot;</span>, <span class="keyword">false</span>, &amp;<a class="code hl_function" href="ai_8h.html#a08e41a2a2a1a0a8fd6da2793b89b8341">handle_command_inventory</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;Broadcast&quot;</span>, <span class="keyword">false</span>, &amp;<a class="code hl_function" href="ai_8h.html#a6516e833251deca0f0bc705b234f6fab">handle_command_broadcast</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;Connect_nbr&quot;</span>, <span class="keyword">false</span>, &amp;<a class="code hl_function" href="ai_8h.html#a15c9757b4815f97b551f5420eed835de">handle_command_connect_nbr</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;Fork&quot;</span>, <span class="keyword">false</span>, &amp;<a class="code hl_function" href="ai_8h.html#a555a17a5e4aee6b342b8304152fb8837">handle_command_fork</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;Eject&quot;</span>, <span class="keyword">false</span>, &amp;<a class="code hl_function" href="ai_8h.html#a1016ffa6f1997c7180f85b19681484f4">handle_command_eject</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;Take&quot;</span>, <span class="keyword">false</span>, &amp;<a class="code hl_function" href="ai_8h.html#a5f39933164ccf0dc611157e132d801e8">handle_command_take</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;Set&quot;</span>, <span class="keyword">false</span>, &amp;<a class="code hl_function" href="ai_8h.html#ab0d840014d8a7bca20a5376198cbb7cd">handle_command_set</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;Incantation&quot;</span>, <span class="keyword">false</span>, &amp;<a class="code hl_function" href="ai_8h.html#a48d287510ac0afdb72a4314fc2092198">handle_command_incantation</a>},</div>
-<div class="line"> </div>
-<div class="line">    </div>
-<div class="line">    {<span class="stringliteral">&quot;msz&quot;</span>, <span class="keyword">true</span>, &amp;<a class="code hl_function" href="gui_8h.html#a38ddfbbb87f7cb5590b686b3e9d0c3c6">handle_command_msz</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;bct&quot;</span>, <span class="keyword">true</span>, &amp;<a class="code hl_function" href="gui_8h.html#ace0c372e0764c3e2142be2979453559d">handle_command_bct</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;mct&quot;</span>, <span class="keyword">true</span>, &amp;<a class="code hl_function" href="gui_8h.html#a0a3e80e9f63308f9d572e9b22739f228">handle_command_mct</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;tna&quot;</span>, <span class="keyword">true</span>, &amp;<a class="code hl_function" href="gui_8h.html#a8e2a01f4c3b470364cab294dd4f489f4">handle_command_tna</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;ppo&quot;</span>, <span class="keyword">true</span>, &amp;<a class="code hl_function" href="gui_8h.html#a2de13d0acea1410d3e0a8164ede699ad">handle_command_ppo</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;plv&quot;</span>, <span class="keyword">true</span>, &amp;<a class="code hl_function" href="gui_8h.html#ab0cb3f26af02b5a2fcb944d1a7d394c5">handle_command_plv</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;pin&quot;</span>, <span class="keyword">true</span>, &amp;<a class="code hl_function" href="gui_8h.html#a297246ae0712ca71ecd0aa84d57dd370">handle_command_pin</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;sgt&quot;</span>, <span class="keyword">true</span>, &amp;<a class="code hl_function" href="gui_8h.html#a77cee9fdb6071241edfe02660d8bab5c">handle_command_sgt</a>},</div>
-<div class="line">    {<span class="stringliteral">&quot;sst&quot;</span>, <span class="keyword">true</span>, &amp;<a class="code hl_function" href="gui_8h.html#ae686127251977770e205f0b6cb5d77ad">handle_command_sst</a>},</div>
-<div class="line"> </div>
-<div class="line">    </div>
-<div class="line">    {NULL, <span class="keyword">false</span>, NULL}</div>
+<div class="line">    {<span class="stringliteral">&quot;Forward&quot;</span>, 7, &amp;<a class="code hl_function" href="ai_8h.html#aeb96e5afb7e19e38ba6564c342d3e481">handle_command_forward</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Right&quot;</span>, 7, &amp;<a class="code hl_function" href="ai_8h.html#a8af1852f6e738db0a108346809a7e661">handle_command_right</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Left&quot;</span>, 7, &amp;<a class="code hl_function" href="ai_8h.html#ae92975a89cd66cb714f16fba23bea495">handle_command_left</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Look&quot;</span>, 7, &amp;<a class="code hl_function" href="ai_8h.html#ad16a3b36ae0cb02882a3e05e32b31ead">handle_command_look</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Inventory&quot;</span>, 1, &amp;<a class="code hl_function" href="ai_8h.html#a08e41a2a2a1a0a8fd6da2793b89b8341">handle_command_inventory</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Broadcast&quot;</span>, 7, &amp;<a class="code hl_function" href="ai_8h.html#a6516e833251deca0f0bc705b234f6fab">handle_command_broadcast</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Connect_nbr&quot;</span>, 0, &amp;<a class="code hl_function" href="ai_8h.html#a15c9757b4815f97b551f5420eed835de">handle_command_connect_nbr</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Fork&quot;</span>, 42, &amp;<a class="code hl_function" href="ai_8h.html#a555a17a5e4aee6b342b8304152fb8837">handle_command_fork</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Eject&quot;</span>, 7, &amp;<a class="code hl_function" href="ai_8h.html#a1016ffa6f1997c7180f85b19681484f4">handle_command_eject</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Take&quot;</span>, 7, &amp;<a class="code hl_function" href="ai_8h.html#a5f39933164ccf0dc611157e132d801e8">handle_command_take</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Set&quot;</span>, 7, &amp;<a class="code hl_function" href="ai_8h.html#ab0d840014d8a7bca20a5376198cbb7cd">handle_command_set</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Incantation&quot;</span>, 300, &amp;<a class="code hl_function" href="ai_8h.html#a48d287510ac0afdb72a4314fc2092198">handle_command_incantation</a>},</div>
+<div class="line">    {NULL, 0, NULL}</div>
 <div class="line">}</div>
 <div class="ttc" id="aai_8h_html_a08e41a2a2a1a0a8fd6da2793b89b8341"><div class="ttname"><a href="ai_8h.html#a08e41a2a2a1a0a8fd6da2793b89b8341">handle_command_inventory</a></div><div class="ttdeci">void handle_command_inventory(server_t *server, client_t *client, char **args)</div><div class="ttdoc">Handles the &quot;Inventory&quot; command for AI clients.</div></div>
 <div class="ttc" id="aai_8h_html_a1016ffa6f1997c7180f85b19681484f4"><div class="ttname"><a href="ai_8h.html#a1016ffa6f1997c7180f85b19681484f4">handle_command_eject</a></div><div class="ttdeci">void handle_command_eject(server_t *server, client_t *client, char **args)</div><div class="ttdoc">Handles the &quot;Eject&quot; command for AI clients.</div></div>
@@ -198,6 +188,34 @@ Variables</h2></td></tr>
 <div class="ttc" id="aai_8h_html_ad16a3b36ae0cb02882a3e05e32b31ead"><div class="ttname"><a href="ai_8h.html#ad16a3b36ae0cb02882a3e05e32b31ead">handle_command_look</a></div><div class="ttdeci">void handle_command_look(server_t *server, client_t *client, char **args)</div><div class="ttdoc">Handles the &quot;Look&quot; command for AI clients.</div></div>
 <div class="ttc" id="aai_8h_html_ae92975a89cd66cb714f16fba23bea495"><div class="ttname"><a href="ai_8h.html#ae92975a89cd66cb714f16fba23bea495">handle_command_left</a></div><div class="ttdeci">void handle_command_left(server_t *server, client_t *client, char **args)</div><div class="ttdoc">Handles the &quot;Left&quot; command for AI clients.</div></div>
 <div class="ttc" id="aai_8h_html_aeb96e5afb7e19e38ba6564c342d3e481"><div class="ttname"><a href="ai_8h.html#aeb96e5afb7e19e38ba6564c342d3e481">handle_command_forward</a></div><div class="ttdeci">void handle_command_forward(server_t *server, client_t *client, char **args)</div><div class="ttdoc">Handles the &quot;Forward&quot; command for AI clients.</div></div>
+</div><!-- fragment -->
+<p>The array of AI commands. </p>
+
+</div>
+</div>
+<a id="a4c465063f2423532e81f0c074d46dffb" name="a4c465063f2423532e81f0c074d46dffb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c465063f2423532e81f0c074d46dffb">&#9670;&nbsp;</a></span>commands_gui</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structcommand__s.html">command_t</a> commands_gui[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {<span class="stringliteral">&quot;msz&quot;</span>, 0, &amp;<a class="code hl_function" href="gui_8h.html#a38ddfbbb87f7cb5590b686b3e9d0c3c6">handle_command_msz</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;bct&quot;</span>, 0, &amp;<a class="code hl_function" href="gui_8h.html#ace0c372e0764c3e2142be2979453559d">handle_command_bct</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;mct&quot;</span>, 0, &amp;<a class="code hl_function" href="gui_8h.html#a0a3e80e9f63308f9d572e9b22739f228">handle_command_mct</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;tna&quot;</span>, 0, &amp;<a class="code hl_function" href="gui_8h.html#a8e2a01f4c3b470364cab294dd4f489f4">handle_command_tna</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;ppo&quot;</span>, 0, &amp;<a class="code hl_function" href="gui_8h.html#a2de13d0acea1410d3e0a8164ede699ad">handle_command_ppo</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;plv&quot;</span>, 0, &amp;<a class="code hl_function" href="gui_8h.html#ab0cb3f26af02b5a2fcb944d1a7d394c5">handle_command_plv</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;pin&quot;</span>, 0, &amp;<a class="code hl_function" href="gui_8h.html#a297246ae0712ca71ecd0aa84d57dd370">handle_command_pin</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;sgt&quot;</span>, 0, &amp;<a class="code hl_function" href="gui_8h.html#a77cee9fdb6071241edfe02660d8bab5c">handle_command_sgt</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;sst&quot;</span>, 0, &amp;<a class="code hl_function" href="gui_8h.html#ae686127251977770e205f0b6cb5d77ad">handle_command_sst</a>},</div>
+<div class="line">    {NULL, 0, NULL}</div>
+<div class="line">}</div>
 <div class="ttc" id="agui_8h_html_a0a3e80e9f63308f9d572e9b22739f228"><div class="ttname"><a href="gui_8h.html#a0a3e80e9f63308f9d572e9b22739f228">handle_command_mct</a></div><div class="ttdeci">void handle_command_mct(server_t *server, client_t *client, char **args)</div><div class="ttdoc">Handles the &quot;mct&quot; command for GUI clients.</div></div>
 <div class="ttc" id="agui_8h_html_a297246ae0712ca71ecd0aa84d57dd370"><div class="ttname"><a href="gui_8h.html#a297246ae0712ca71ecd0aa84d57dd370">handle_command_pin</a></div><div class="ttdeci">void handle_command_pin(server_t *server, client_t *client, char **args)</div><div class="ttdoc">Handles the &quot;pin&quot; command for GUI clients.</div></div>
 <div class="ttc" id="agui_8h_html_a2de13d0acea1410d3e0a8164ede699ad"><div class="ttname"><a href="gui_8h.html#a2de13d0acea1410d3e0a8164ede699ad">handle_command_ppo</a></div><div class="ttdeci">void handle_command_ppo(server_t *server, client_t *client, char **args)</div><div class="ttdoc">Handles the &quot;ppo&quot; command for GUI clients.</div></div>
@@ -208,6 +226,8 @@ Variables</h2></td></tr>
 <div class="ttc" id="agui_8h_html_ace0c372e0764c3e2142be2979453559d"><div class="ttname"><a href="gui_8h.html#ace0c372e0764c3e2142be2979453559d">handle_command_bct</a></div><div class="ttdeci">void handle_command_bct(server_t *server, client_t *client, char **args)</div><div class="ttdoc">Handles the &quot;bct&quot; command for GUI clients.</div></div>
 <div class="ttc" id="agui_8h_html_ae686127251977770e205f0b6cb5d77ad"><div class="ttname"><a href="gui_8h.html#ae686127251977770e205f0b6cb5d77ad">handle_command_sst</a></div><div class="ttdeci">void handle_command_sst(server_t *server, client_t *client, char **args)</div><div class="ttdoc">Handles the &quot;sst&quot; command for GUI clients.</div></div>
 </div><!-- fragment -->
+<p>The array of GUI commands. </p>
+
 </div>
 </div>
 </div><!-- contents -->

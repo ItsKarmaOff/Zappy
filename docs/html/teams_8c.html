@@ -94,22 +94,22 @@ $(document).ready(function(){initNavTree('teams_8c.html',''); initResizable(); }
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a40cf06ced122550dd0051f4aea5dfd9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteam__s.html">team_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="teams_8c.html#a40cf06ced122550dd0051f4aea5dfd9c">create_team</a> (const char *name)</td></tr>
-<tr class="memdesc:a40cf06ced122550dd0051f4aea5dfd9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a team with the given name.  <a href="teams_8c.html#a40cf06ced122550dd0051f4aea5dfd9c">More...</a><br /></td></tr>
-<tr class="separator:a40cf06ced122550dd0051f4aea5dfd9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae090709d8c90e6df6ffddb5990f70461"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="teams_8c.html#ae090709d8c90e6df6ffddb5990f70461">get_nb_players_in_team</a> (const <a class="el" href="structgame__s.html">game_t</a> *game, const <a class="el" href="structteam__s.html">team_t</a> *team)</td></tr>
-<tr class="memdesc:ae090709d8c90e6df6ffddb5990f70461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of players in a team.  <a href="teams_8c.html#ae090709d8c90e6df6ffddb5990f70461">More...</a><br /></td></tr>
-<tr class="separator:ae090709d8c90e6df6ffddb5990f70461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a949fb3f2e4f99137377f6e06066ef539"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteam__s.html">team_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="teams_8c.html#a949fb3f2e4f99137377f6e06066ef539">create_team</a> (<a class="el" href="structgame__s.html">game_t</a> *game, const char *name)</td></tr>
+<tr class="memdesc:a949fb3f2e4f99137377f6e06066ef539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a team with the given name.  <a href="teams_8c.html#a949fb3f2e4f99137377f6e06066ef539">More...</a><br /></td></tr>
+<tr class="separator:a949fb3f2e4f99137377f6e06066ef539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac280f4b3185f443bfce5cbe61c76878d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="teams_8c.html#ac280f4b3185f443bfce5cbe61c76878d">get_team_index</a> (const <a class="el" href="structgame__s.html">game_t</a> *game, const char *team_name)</td></tr>
-<tr class="memdesc:ac280f4b3185f443bfce5cbe61c76878d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the index of a team in the game.  <a href="teams_8c.html#ac280f4b3185f443bfce5cbe61c76878d">More...</a><br /></td></tr>
+<tr class="memdesc:ac280f4b3185f443bfce5cbe61c76878d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of empty slots in a team.  <a href="teams_8c.html#ac280f4b3185f443bfce5cbe61c76878d">More...</a><br /></td></tr>
 <tr class="separator:ac280f4b3185f443bfce5cbe61c76878d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a748fa2ab64a6a37a10e86f348c056919"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="teams_8c.html#a748fa2ab64a6a37a10e86f348c056919">get_next_egg</a> (<a class="el" href="structteam__s.html">team_t</a> *team)</td></tr>
+<tr class="memdesc:a748fa2ab64a6a37a10e86f348c056919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the next egg for a team.  <a href="teams_8c.html#a748fa2ab64a6a37a10e86f348c056919">More...</a><br /></td></tr>
+<tr class="separator:a748fa2ab64a6a37a10e86f348c056919"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="teams_8c.html" title="The teams.c.">teams.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a40cf06ced122550dd0051f4aea5dfd9c" name="a40cf06ced122550dd0051f4aea5dfd9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40cf06ced122550dd0051f4aea5dfd9c">&#9670;&nbsp;</a></span>create_team()</h2>
+<a id="a949fb3f2e4f99137377f6e06066ef539" name="a949fb3f2e4f99137377f6e06066ef539"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a949fb3f2e4f99137377f6e06066ef539">&#9670;&nbsp;</a></span>create_team()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -117,41 +117,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="structteam__s.html">team_t</a> * create_team </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates a team with the given name. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>The name of the team </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the created team </dd></dl>
-
-</div>
-</div>
-<a id="ae090709d8c90e6df6ffddb5990f70461" name="ae090709d8c90e6df6ffddb5990f70461"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae090709d8c90e6df6ffddb5990f70461">&#9670;&nbsp;</a></span>get_nb_players_in_team()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t get_nb_players_in_team </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structgame__s.html">game_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgame__s.html">game_t</a> *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structteam__s.html">team_t</a> *&#160;</td>
-          <td class="paramname"><em>team</em>&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -161,15 +134,42 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the number of players in a team. </p>
+<p>Creates a team with the given name. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">game</td><td>The game to get the team from </td></tr>
-    <tr><td class="paramname">team</td><td>The team to get the number of players from </td></tr>
+    <tr><td class="paramname">game</td><td>The game to create the team in </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the team </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The number of players in the team </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the created team </dd></dl>
+
+</div>
+</div>
+<a id="a748fa2ab64a6a37a10e86f348c056919" name="a748fa2ab64a6a37a10e86f348c056919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a748fa2ab64a6a37a10e86f348c056919">&#9670;&nbsp;</a></span>get_next_egg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structplayer__s.html">player_t</a> * get_next_egg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structteam__s.html">team_t</a> *&#160;</td>
+          <td class="paramname"><em>team</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the next egg for a team. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">team</td><td>The team to get the next egg for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the next egg, or NULL if no eggs are available </dd></dl>
 
 </div>
 </div>
@@ -199,8 +199,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the index of a team in the game. </p>
+<p>Gets the number of empty slots in a team. </p>
 <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">team</td><td>The team to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of empty slots in the team</dd></dl>
+<p>Gets the index of a team in the game </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">game</td><td>The game to get the team from </td></tr>
     <tr><td class="paramname">team_name</td><td>The name of the team to get the index of </td></tr>

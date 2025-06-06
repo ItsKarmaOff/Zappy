@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['height_0',['height',['../structGLFWvidmode.html#ad12fc34ce789bce6c8a05d8a17138534',1,'GLFWvidmode::height()'],['../structGLFWimage.html#ad12fc34ce789bce6c8a05d8a17138534',1,'GLFWimage::height()']]]
+  ['height_0',['height',['../structgame__settings__s.html#a02afeaaf8574e7a78d6b466ff2695052',1,'game_settings_s']]]
 ];

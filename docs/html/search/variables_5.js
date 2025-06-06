@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['green_0',['green',['../structGLFWgammaramp.html#a85bacfb66fd65f0a0560bbe2a17c1fb9',1,'GLFWgammaramp']]],
-  ['greenbits_1',['greenBits',['../structGLFWvidmode.html#a5b7b3fa817d8524dd6d58971696d94dc',1,'GLFWvidmode']]]
+  ['game_0',['game',['../structserver__s.html#ab9861179db5ccc7b679d8f37ea514c74',1,'server_s']]],
+  ['game_5fsettings_1',['game_settings',['../structgame__s.html#ad30e25050e0ba9b176b32fd9e152212c',1,'game_s']]]
 ];

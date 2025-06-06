@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['invalid_5fargs_0',['INVALID_ARGS',['../server_2include_2data__structures_8h.html#afefe8c8318743d517c84f2a32247e1df',1,'data_structures.h']]]
+  ['client_5fmax_5fcommands_0',['CLIENT_MAX_COMMANDS',['../server__macros_8h.html#a07e68824dd48ddf30a6b382f7ad0c1cd',1,'server_macros.h']]]
 ];

@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['key_0',['key',['../structRGFW__event.html#a6d0a40cfad9984634133c4df963b6821',1,'RGFW_event']]],
-  ['keychar_1',['keyChar',['../structRGFW__event.html#a4f734f8eb2ee007ff05aa76f91b7b1df',1,'RGFW_event']]]
+  ['id_0',['id',['../structplayer__s.html#a3670f4bed50c88882ceba330ffeb095c',1,'player_s']]],
+  ['index_1',['index',['../structparsing__s.html#a3f42f10d93f6edb91d7d3f6edad25921',1,'parsing_s']]],
+  ['inventory_2',['inventory',['../structplayer__s.html#ab9eaaad3501c6eb829ad473efd7521f9',1,'player_s']]],
+  ['is_5fegg_3',['is_egg',['../structplayer__s.html#a059fe8471c52b9f3c71f9cdffa9a209c',1,'player_s']]],
+  ['is_5fgui_4',['is_gui',['../structclient__s.html#a7129fabf4248a60ae6ff15805cd15955',1,'client_s']]]
 ];

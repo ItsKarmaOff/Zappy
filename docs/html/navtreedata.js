@@ -25,96 +25,41 @@
 var NAVTREE =
 [
   [ "Zappy documentation", "index.html", [
-    [ "raylib bindings and wrappers", "md_bonus_libs_raylib_BINDINGS.html", null ],
-    [ "Contributing to raylib", "md_bonus_libs_raylib_CONTRIBUTING.html", null ],
-    [ "C Coding Style Conventions", "md_bonus_libs_raylib_CONVENTIONS.html", [
-      [ "Files and Directories Naming Conventions", "md_bonus_libs_raylib_CONVENTIONS.html#autotoc_md12", null ],
-      [ "Games/Examples Directories Organization Conventions", "md_bonus_libs_raylib_CONVENTIONS.html#autotoc_md13", null ]
-    ] ],
-    [ "LICENSE", "md_bonus_libs_raylib_examples_audio_resources_LICENSE.html", null ],
-    [ "LICENSE", "md_bonus_libs_raylib_examples_core_resources_LICENSE.html", null ],
-    [ "LICENSE", "md_bonus_libs_raylib_examples_models_resources_LICENSE.html", null ],
-    [ "Building the Examples", "md_bonus_libs_raylib_examples_README.html", [
-      [ "EXAMPLES LIST", "md_bonus_libs_raylib_examples_README.html#autotoc_md17", [
-        [ "With GNU make", "md_bonus_libs_raylib_examples_README.html#autotoc_md15", null ],
-        [ "With Zig", "md_bonus_libs_raylib_examples_README.html#autotoc_md16", null ],
-        [ "category: core", "md_bonus_libs_raylib_examples_README.html#autotoc_md18", null ],
-        [ "category: shapes", "md_bonus_libs_raylib_examples_README.html#autotoc_md19", null ],
-        [ "category: textures", "md_bonus_libs_raylib_examples_README.html#autotoc_md20", null ],
-        [ "category: text", "md_bonus_libs_raylib_examples_README.html#autotoc_md21", null ],
-        [ "category: models", "md_bonus_libs_raylib_examples_README.html#autotoc_md22", null ],
-        [ "category: shaders", "md_bonus_libs_raylib_examples_README.html#autotoc_md23", null ],
-        [ "category: audio", "md_bonus_libs_raylib_examples_README.html#autotoc_md24", null ],
-        [ "category: others", "md_bonus_libs_raylib_examples_README.html#autotoc_md25", null ]
-      ] ]
-    ] ],
-    [ "LICENSE", "md_bonus_libs_raylib_examples_shaders_resources_LICENSE.html", null ],
-    [ "LICENSE", "md_bonus_libs_raylib_examples_text_resources_LICENSE.html", null ],
-    [ "LICENSE", "md_bonus_libs_raylib_examples_textures_resources_LICENSE.html", null ],
-    [ "Frequently Asked Questions", "md_bonus_libs_raylib_FAQ.html", null ],
-    [ "HISTORY", "md_bonus_libs_raylib_HISTORY.html", null ],
-    [ "raylib parser", "md_bonus_libs_raylib_parser_README.html", [
-      [ "Command Line", "md_bonus_libs_raylib_parser_README.html#autotoc_md67", null ],
-      [ "Constraints", "md_bonus_libs_raylib_parser_README.html#autotoc_md68", null ],
-      [ "Additional notes", "md_bonus_libs_raylib_parser_README.html#autotoc_md69", [
-        [ "LICENSE: zlib/libpng", "md_bonus_libs_raylib_parser_README.html#autotoc_md70", null ]
-      ] ]
-    ] ],
-    [ "README", "md_bonus_libs_raylib_projects_Builder_examples_README.html", null ],
-    [ "Builder project template", "md_bonus_libs_raylib_projects_Builder_README.html", null ],
-    [ "raylib CMake Project", "md_bonus_libs_raylib_projects_CMake_README.html", [
-      [ "Usage", "md_bonus_libs_raylib_projects_CMake_README.html#autotoc_md73", [
-        [ "Desktop", "md_bonus_libs_raylib_projects_CMake_README.html#autotoc_md74", null ],
-        [ "Web", "md_bonus_libs_raylib_projects_CMake_README.html#autotoc_md75", null ]
-      ] ]
-    ] ],
-    [ "raylib template for Code::Blocks", "md_bonus_libs_raylib_projects_CodeBlocks_README.html", null ],
-    [ "Notepad++ raylib config files", "md_bonus_libs_raylib_projects_Notepad___README.html", null ],
-    [ "raylib PROJECT TEMPLATES", "md_bonus_libs_raylib_projects_README.html", null ],
-    [ "README", "md_bonus_libs_raylib_projects_scripts_README.html", null ],
-    [ "Sublime Text 3 project template", "md_bonus_libs_raylib_projects_SublimeText_README.html", null ],
-    [ "README", "md_bonus_libs_raylib_README.html", null ],
-    [ "raylib roadmap", "md_bonus_libs_raylib_ROADMAP.html", null ],
-    [ "Acknowledgements", "md_bonus_libs_raylib_src_external_glfw_CONTRIBUTORS.html", null ],
-    [ "LICENSE", "md_bonus_libs_raylib_src_external_glfw_LICENSE.html", null ],
-    [ "GLFW (modified for raylib)", "md_bonus_libs_raylib_src_external_glfw_README.html", null ],
     [ "GitHub Commit Standards Guide - Zappy Project", "md_docs_COMMIT_POLICIES.html", [
-      [ "Table of Contents", "md_docs_COMMIT_POLICIES.html#autotoc_md101", null ],
-      [ "Introduction", "md_docs_COMMIT_POLICIES.html#autotoc_md102", null ],
-      [ "Commit message format", "md_docs_COMMIT_POLICIES.html#autotoc_md103", [
-        [ "Basic rules", "md_docs_COMMIT_POLICIES.html#autotoc_md104", null ]
+      [ "Table of Contents", "md_docs_COMMIT_POLICIES.html#autotoc_md1", null ],
+      [ "Introduction", "md_docs_COMMIT_POLICIES.html#autotoc_md2", null ],
+      [ "Commit message format", "md_docs_COMMIT_POLICIES.html#autotoc_md3", [
+        [ "Basic rules", "md_docs_COMMIT_POLICIES.html#autotoc_md4", null ]
       ] ],
-      [ "Commit types", "md_docs_COMMIT_POLICIES.html#autotoc_md105", [
-        [ "Main types (Conventional Commits)", "md_docs_COMMIT_POLICIES.html#autotoc_md106", null ]
+      [ "Commit types", "md_docs_COMMIT_POLICIES.html#autotoc_md5", [
+        [ "Main types (Conventional Commits)", "md_docs_COMMIT_POLICIES.html#autotoc_md6", null ]
       ] ]
     ] ],
     [ "Zappy GUI", "md_gui_README.html", [
-      [ "Description", "md_gui_README.html#autotoc_md108", null ],
-      [ "Game Overview", "md_gui_README.html#autotoc_md109", null ],
-      [ "Usage", "md_gui_README.html#autotoc_md110", [
-        [ "Parameters", "md_gui_README.html#autotoc_md111", null ],
-        [ "Example", "md_gui_README.html#autotoc_md112", null ]
+      [ "Description", "md_gui_README.html#autotoc_md8", null ],
+      [ "Game Overview", "md_gui_README.html#autotoc_md9", null ],
+      [ "Usage", "md_gui_README.html#autotoc_md10", [
+        [ "Parameters", "md_gui_README.html#autotoc_md11", null ],
+        [ "Example", "md_gui_README.html#autotoc_md12", null ]
       ] ],
-      [ "Features", "md_gui_README.html#autotoc_md113", null ],
-      [ "Communication Protocol", "md_gui_README.html#autotoc_md114", [
-        [ "Main Messages Received", "md_gui_README.html#autotoc_md115", null ],
-        [ "Commands Sent to Server", "md_gui_README.html#autotoc_md116", null ]
+      [ "Features", "md_gui_README.html#autotoc_md13", null ],
+      [ "Communication Protocol", "md_gui_README.html#autotoc_md14", [
+        [ "Main Messages Received", "md_gui_README.html#autotoc_md15", null ],
+        [ "Commands Sent to Server", "md_gui_README.html#autotoc_md16", null ]
       ] ]
     ] ],
     [ "Zappy", "md_README.html", null ],
-    [ "Zappy Server", "md_ressources_README.html", [
-      [ "Usage", "md_ressources_README.html#autotoc_md119", null ],
-      [ "AI protocol", "md_ressources_README.html#autotoc_md120", null ],
-      [ "GUI protocol", "md_ressources_README.html#autotoc_md121", null ],
-      [ "Informations", "md_ressources_README.html#autotoc_md122", [
-        [ "Incantations", "md_ressources_README.html#autotoc_md123", null ]
+    [ "Zappy Server", "md_resources_README.html", [
+      [ "Usage", "md_resources_README.html#autotoc_md19", null ],
+      [ "AI protocol", "md_resources_README.html#autotoc_md20", null ],
+      [ "GUI protocol", "md_resources_README.html#autotoc_md21", null ],
+      [ "Informations", "md_resources_README.html#autotoc_md22", [
+        [ "Incantations", "md_resources_README.html#autotoc_md23", null ]
       ] ],
-      [ "Bonus", "md_ressources_README.html#autotoc_md124", [
-        [ "Server commands", "md_ressources_README.html#autotoc_md125", null ]
+      [ "Bonus", "md_resources_README.html#autotoc_md24", [
+        [ "Server commands", "md_resources_README.html#autotoc_md25", null ]
       ] ]
     ] ],
-    [ "Deprecated List", "deprecated.html", null ],
-    [ "Modules", "modules.html", "modules" ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -130,8 +75,9 @@ var NAVTREE =
       [ "Globals", "globals.html", [
         [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", "globals_func" ],
-        [ "Typedefs", "globals_type.html", null ],
+        [ "Variables", "globals_vars.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -141,15 +87,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "AssetsManager_8hpp_source.html",
-"dr__wav_8h_source.html",
-"group__Callbacks.html#ga938288573f8498b0c970475cd000bd7a",
-"group__input.html#gac96fd3b9fc66c6f0eebaf6532595338f",
-"gui_2src_2Main_8cpp.html",
-"my__nbrlen_8c.html",
-"structDICONDITION.html",
-"structVkExternalMemoryImageCreateInfo.html",
-"struct__GLFWlibraryNull.html",
-"structma__loshelf2__config.html"
+"functions_8h.html#a0877f849205d1a9946444b8c1ca19cdc",
+"main_8c.html",
+"my__sort__params_8c.html#a04d20ad69283422e11535de64948c263",
+"structmove__s.html#a1b09aac684c444244dea820406f11875"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

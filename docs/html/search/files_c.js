@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['parsing_2ec_0',['parsing.c',['../parsing_8c.html',1,'']]],
-  ['parsing_2eh_1',['parsing.h',['../parsing_8h.html',1,'']]],
-  ['pin_2ec_2',['pin.c',['../pin_8c.html',1,'']]],
-  ['plv_2ec_3',['plv.c',['../plv_8c.html',1,'']]],
-  ['port_2ec_4',['port.c',['../port_8c.html',1,'']]],
-  ['ppo_2ec_5',['ppo.c',['../ppo_8c.html',1,'']]]
+  ['read_5fclient_5faction_2ec_0',['read_client_action.c',['../read__client__action_8c.html',1,'']]],
+  ['remove_5fclient_2ec_1',['remove_client.c',['../remove__client_8c.html',1,'']]],
+  ['resource_2ec_2',['resource.c',['../resource_8c.html',1,'']]],
+  ['right_2ec_3',['right.c',['../right_8c.html',1,'']]]
 ];

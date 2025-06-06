@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['height_2ec_0',['height.c',['../height_8c.html',1,'']]],
-  ['help_2ec_1',['help.c',['../help_8c.html',1,'']]]
+  ['incantation_2ec_0',['incantation.c',['../incantation_8c.html',1,'']]],
+  ['inventory_2ec_1',['inventory.c',['../inventory_8c.html',1,'']]]
 ];

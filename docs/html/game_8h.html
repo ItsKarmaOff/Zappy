@@ -90,21 +90,36 @@ $(document).ready(function(){initNavTree('game_8h.html',''); initResizable(); })
 
 <p>The <a class="el" href="game_8h.html" title="The game.h.">game.h</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="server_2include_2data__structures_8h_source.html">data_structures.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="server__data__structures_8h_source.html">server_data_structures.h</a>&quot;</code><br />
 </div>
 <p><a href="game_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a40cf06ced122550dd0051f4aea5dfd9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteam__s.html">team_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a40cf06ced122550dd0051f4aea5dfd9c">create_team</a> (const char *name)</td></tr>
-<tr class="memdesc:a40cf06ced122550dd0051f4aea5dfd9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a team with the given name.  <a href="game_8h.html#a40cf06ced122550dd0051f4aea5dfd9c">More...</a><br /></td></tr>
-<tr class="separator:a40cf06ced122550dd0051f4aea5dfd9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae090709d8c90e6df6ffddb5990f70461"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#ae090709d8c90e6df6ffddb5990f70461">get_nb_players_in_team</a> (const <a class="el" href="structgame__s.html">game_t</a> *game, const <a class="el" href="structteam__s.html">team_t</a> *team)</td></tr>
-<tr class="memdesc:ae090709d8c90e6df6ffddb5990f70461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of players in a team.  <a href="game_8h.html#ae090709d8c90e6df6ffddb5990f70461">More...</a><br /></td></tr>
-<tr class="separator:ae090709d8c90e6df6ffddb5990f70461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ec01cf0bdc8f8c07d68bb6e4648eb10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a0ec01cf0bdc8f8c07d68bb6e4648eb10">create_player</a> (<a class="el" href="structgame__s.html">game_t</a> *game, <a class="el" href="structteam__s.html">team_t</a> *team)</td></tr>
+<tr class="memdesc:a0ec01cf0bdc8f8c07d68bb6e4648eb10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a player for a team.  <a href="game_8h.html#a0ec01cf0bdc8f8c07d68bb6e4648eb10">More...</a><br /></td></tr>
+<tr class="separator:a0ec01cf0bdc8f8c07d68bb6e4648eb10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe1cee1cf2571ff0f36a214276eaa6b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#abe1cee1cf2571ff0f36a214276eaa6b4">create_player_from_player</a> (<a class="el" href="structgame__s.html">game_t</a> *game, <a class="el" href="structplayer__s.html">player_t</a> *creator)</td></tr>
+<tr class="memdesc:abe1cee1cf2571ff0f36a214276eaa6b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a player from an existing player.  <a href="game_8h.html#abe1cee1cf2571ff0f36a214276eaa6b4">More...</a><br /></td></tr>
+<tr class="separator:abe1cee1cf2571ff0f36a214276eaa6b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a949fb3f2e4f99137377f6e06066ef539"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteam__s.html">team_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a949fb3f2e4f99137377f6e06066ef539">create_team</a> (<a class="el" href="structgame__s.html">game_t</a> *game, const char *name)</td></tr>
+<tr class="memdesc:a949fb3f2e4f99137377f6e06066ef539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a team with the given name.  <a href="game_8h.html#a949fb3f2e4f99137377f6e06066ef539">More...</a><br /></td></tr>
+<tr class="separator:a949fb3f2e4f99137377f6e06066ef539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac280f4b3185f443bfce5cbe61c76878d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#ac280f4b3185f443bfce5cbe61c76878d">get_team_index</a> (const <a class="el" href="structgame__s.html">game_t</a> *game, const char *team_name)</td></tr>
-<tr class="memdesc:ac280f4b3185f443bfce5cbe61c76878d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the index of a team in the game.  <a href="game_8h.html#ac280f4b3185f443bfce5cbe61c76878d">More...</a><br /></td></tr>
+<tr class="memdesc:ac280f4b3185f443bfce5cbe61c76878d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of empty slots in a team.  <a href="game_8h.html#ac280f4b3185f443bfce5cbe61c76878d">More...</a><br /></td></tr>
 <tr class="separator:ac280f4b3185f443bfce5cbe61c76878d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a748fa2ab64a6a37a10e86f348c056919"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a748fa2ab64a6a37a10e86f348c056919">get_next_egg</a> (<a class="el" href="structteam__s.html">team_t</a> *team)</td></tr>
+<tr class="memdesc:a748fa2ab64a6a37a10e86f348c056919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the next egg for a team.  <a href="game_8h.html#a748fa2ab64a6a37a10e86f348c056919">More...</a><br /></td></tr>
+<tr class="separator:a748fa2ab64a6a37a10e86f348c056919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abff3587b5193ba537e86704fee5ef2d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#abff3587b5193ba537e86704fee5ef2d2">destroy_game</a> (<a class="el" href="structgame__s.html">game_t</a> *game)</td></tr>
+<tr class="memdesc:abff3587b5193ba537e86704fee5ef2d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the game and frees its resources.  <a href="game_8h.html#abff3587b5193ba537e86704fee5ef2d2">More...</a><br /></td></tr>
+<tr class="separator:abff3587b5193ba537e86704fee5ef2d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa0ff604ea4c04300c76f608928e1920"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#afa0ff604ea4c04300c76f608928e1920">refill_resources</a> (<a class="el" href="structgame__s.html">game_t</a> *game)</td></tr>
+<tr class="memdesc:afa0ff604ea4c04300c76f608928e1920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refills the resources in the game.  <a href="game_8h.html#afa0ff604ea4c04300c76f608928e1920">More...</a><br /></td></tr>
+<tr class="separator:afa0ff604ea4c04300c76f608928e1920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accfac4a0f01a463192abca6d7ae2894e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#accfac4a0f01a463192abca6d7ae2894e">create_game_map</a> (<a class="el" href="structgame__s.html">game_t</a> *game)</td></tr>
+<tr class="memdesc:accfac4a0f01a463192abca6d7ae2894e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the game map.  <a href="game_8h.html#accfac4a0f01a463192abca6d7ae2894e">More...</a><br /></td></tr>
+<tr class="separator:accfac4a0f01a463192abca6d7ae2894e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0506714c51062ff04c267a57d6dfb56d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a0506714c51062ff04c267a57d6dfb56d">update_game</a> (<a class="el" href="structserver__s.html">server_t</a> *server)</td></tr>
 <tr class="memdesc:a0506714c51062ff04c267a57d6dfb56d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the game.  <a href="game_8h.html#a0506714c51062ff04c267a57d6dfb56d">More...</a><br /></td></tr>
 <tr class="separator:a0506714c51062ff04c267a57d6dfb56d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -113,49 +128,48 @@ Functions</h2></td></tr>
 <div class="textblock"><p >The <a class="el" href="game_8h.html" title="The game.h.">game.h</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a40cf06ced122550dd0051f4aea5dfd9c" name="a40cf06ced122550dd0051f4aea5dfd9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40cf06ced122550dd0051f4aea5dfd9c">&#9670;&nbsp;</a></span>create_team()</h2>
+<a id="accfac4a0f01a463192abca6d7ae2894e" name="accfac4a0f01a463192abca6d7ae2894e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accfac4a0f01a463192abca6d7ae2894e">&#9670;&nbsp;</a></span>create_game_map()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structteam__s.html">team_t</a> * create_team </td>
+          <td class="memname">void create_game_map </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structgame__s.html">game_t</a> *&#160;</td>
+          <td class="paramname"><em>game</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a team with the given name. </p>
+<p>Creates the game map. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>The name of the team </td></tr>
+    <tr><td class="paramname">game</td><td>The game to create the map for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the created team </dd></dl>
 
 </div>
 </div>
-<a id="ae090709d8c90e6df6ffddb5990f70461" name="ae090709d8c90e6df6ffddb5990f70461"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae090709d8c90e6df6ffddb5990f70461">&#9670;&nbsp;</a></span>get_nb_players_in_team()</h2>
+<a id="a0ec01cf0bdc8f8c07d68bb6e4648eb10" name="a0ec01cf0bdc8f8c07d68bb6e4648eb10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ec01cf0bdc8f8c07d68bb6e4648eb10">&#9670;&nbsp;</a></span>create_player()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t get_nb_players_in_team </td>
+          <td class="memname"><a class="el" href="structplayer__s.html">player_t</a> * create_player </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structgame__s.html">game_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgame__s.html">game_t</a> *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structteam__s.html">team_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structteam__s.html">team_t</a> *&#160;</td>
           <td class="paramname"><em>team</em>&#160;</td>
         </tr>
         <tr>
@@ -166,15 +180,144 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the number of players in a team. </p>
+<p>Creates a player for a team. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">game</td><td>The game to get the team from </td></tr>
-    <tr><td class="paramname">team</td><td>The team to get the number of players from </td></tr>
+    <tr><td class="paramname">game</td><td>The game to create the player in </td></tr>
+    <tr><td class="paramname">team</td><td>The team to create the player for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The number of players in the team </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the created player </dd></dl>
+
+</div>
+</div>
+<a id="abe1cee1cf2571ff0f36a214276eaa6b4" name="abe1cee1cf2571ff0f36a214276eaa6b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe1cee1cf2571ff0f36a214276eaa6b4">&#9670;&nbsp;</a></span>create_player_from_player()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structplayer__s.html">player_t</a> * create_player_from_player </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame__s.html">game_t</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>creator</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a player from an existing player. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>The game to create the player in </td></tr>
+    <tr><td class="paramname">creator</td><td>The player to create the new player from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the created player </dd></dl>
+
+</div>
+</div>
+<a id="a949fb3f2e4f99137377f6e06066ef539" name="a949fb3f2e4f99137377f6e06066ef539"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a949fb3f2e4f99137377f6e06066ef539">&#9670;&nbsp;</a></span>create_team()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structteam__s.html">team_t</a> * create_team </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame__s.html">game_t</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a team with the given name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>The game to create the team in </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the team </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the created team </dd></dl>
+
+</div>
+</div>
+<a id="abff3587b5193ba537e86704fee5ef2d2" name="abff3587b5193ba537e86704fee5ef2d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abff3587b5193ba537e86704fee5ef2d2">&#9670;&nbsp;</a></span>destroy_game()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destroy_game </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame__s.html">game_t</a> *&#160;</td>
+          <td class="paramname"><em>game</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destroys the game and frees its resources. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>The game to destroy </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a748fa2ab64a6a37a10e86f348c056919" name="a748fa2ab64a6a37a10e86f348c056919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a748fa2ab64a6a37a10e86f348c056919">&#9670;&nbsp;</a></span>get_next_egg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structplayer__s.html">player_t</a> * get_next_egg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structteam__s.html">team_t</a> *&#160;</td>
+          <td class="paramname"><em>team</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the next egg for a team. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">team</td><td>The team to get the next egg for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the next egg, or NULL if no eggs are available </dd></dl>
 
 </div>
 </div>
@@ -204,8 +347,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the index of a team in the game. </p>
+<p>Gets the number of empty slots in a team. </p>
 <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">team</td><td>The team to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of empty slots in the team</dd></dl>
+<p>Gets the index of a team in the game </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">game</td><td>The game to get the team from </td></tr>
     <tr><td class="paramname">team_name</td><td>The name of the team to get the index of </td></tr>
@@ -213,6 +363,32 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The index of the team in the game, or 0 if not found </dd></dl>
+
+</div>
+</div>
+<a id="afa0ff604ea4c04300c76f608928e1920" name="afa0ff604ea4c04300c76f608928e1920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa0ff604ea4c04300c76f608928e1920">&#9670;&nbsp;</a></span>refill_resources()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void refill_resources </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame__s.html">game_t</a> *&#160;</td>
+          <td class="paramname"><em>game</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Refills the resources in the game. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>The game to refill resources for </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

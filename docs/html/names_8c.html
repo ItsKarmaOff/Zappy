@@ -94,18 +94,18 @@ $(document).ready(function(){initNavTree('names_8c.html',''); initResizable(); }
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab561166db15d858b5c613bdd64d8d139"><td class="memItemLeft" align="right" valign="top"><a id="ab561166db15d858b5c613bdd64d8d139" name="ab561166db15d858b5c613bdd64d8d139"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add_teams</b> (<a class="el" href="structserver__s.html">server_t</a> *server, char **argv, const size_t *index, size_t name_index)</td></tr>
-<tr class="separator:ab561166db15d858b5c613bdd64d8d139"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af239b2b2111a42551c2b53bb1efd4dff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="names_8c.html#af239b2b2111a42551c2b53bb1efd4dff">option_names</a> (<a class="el" href="structserver__s.html">server_t</a> *server, int argc, char **argv, size_t *index)</td></tr>
-<tr class="separator:af239b2b2111a42551c2b53bb1efd4dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4131f0143393ad12fa65a6b9b12c5956"><td class="memItemLeft" align="right" valign="top"><a id="a4131f0143393ad12fa65a6b9b12c5956" name="a4131f0143393ad12fa65a6b9b12c5956"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>add_teams</b> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing, size_t name_index)</td></tr>
+<tr class="separator:a4131f0143393ad12fa65a6b9b12c5956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac472ec0b9b71a00d56a3de87d151b9b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="names_8c.html#ac472ec0b9b71a00d56a3de87d151b9b3">option_names</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
+<tr class="separator:ac472ec0b9b71a00d56a3de87d151b9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="names_8c.html" title="The names.c.">names.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="af239b2b2111a42551c2b53bb1efd4dff" name="af239b2b2111a42551c2b53bb1efd4dff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af239b2b2111a42551c2b53bb1efd4dff">&#9670;&nbsp;</a></span>option_names()</h2>
+<a id="ac472ec0b9b71a00d56a3de87d151b9b3" name="ac472ec0b9b71a00d56a3de87d151b9b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac472ec0b9b71a00d56a3de87d151b9b3">&#9670;&nbsp;</a></span>option_names()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -119,20 +119,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>add_teams</b> (<a cla
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structparsing__s.html">parsing_t</a> *&#160;</td>
+          <td class="paramname"><em>parsing</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -144,9 +132,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>add_teams</b> (<a cla
 <p >@biref Set the names of the teams for the server </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance to set the names of the teams for </td></tr>
-    <tr><td class="paramname">argc</td><td>The number of program arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>The program arguments </td></tr>
-    <tr><td class="paramname">index</td><td>The index of the current argument being processed </td></tr>
+    <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
   </table>
   </dd>
 </dl>

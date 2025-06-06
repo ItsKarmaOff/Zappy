@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('gui_8h.html',''); initResizable(); });
 
 <p>The <a class="el" href="gui_8h.html" title="The gui.h.">gui.h</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;data_structures.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="server__data__structures_8h_source.html">server_data_structures.h</a>&quot;</code><br />
 </div>
 <p><a href="gui_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -123,6 +123,75 @@ Functions</h2></td></tr>
 <tr class="memitem:ae686127251977770e205f0b6cb5d77ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#ae686127251977770e205f0b6cb5d77ad">handle_command_sst</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client, char **args)</td></tr>
 <tr class="memdesc:ae686127251977770e205f0b6cb5d77ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the "sst" command for GUI clients.  <a href="gui_8h.html#ae686127251977770e205f0b6cb5d77ad">More...</a><br /></td></tr>
 <tr class="separator:ae686127251977770e205f0b6cb5d77ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2dee0176225b44c9f33ecfba17788fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#ac2dee0176225b44c9f33ecfba17788fa">send_msz_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server)</td></tr>
+<tr class="memdesc:ac2dee0176225b44c9f33ecfba17788fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "msz" command to all GUI clients.  <a href="gui_8h.html#ac2dee0176225b44c9f33ecfba17788fa">More...</a><br /></td></tr>
+<tr class="separator:ac2dee0176225b44c9f33ecfba17788fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6a9c962fb60dd667e4da441081c4065"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#ad6a9c962fb60dd667e4da441081c4065">send_bct_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structvector2u__s.html">vector2u_t</a> position)</td></tr>
+<tr class="memdesc:ad6a9c962fb60dd667e4da441081c4065"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "bct" command to all GUI clients.  <a href="gui_8h.html#ad6a9c962fb60dd667e4da441081c4065">More...</a><br /></td></tr>
+<tr class="separator:ad6a9c962fb60dd667e4da441081c4065"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54d126df78139f9eae03e19b9448589b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a54d126df78139f9eae03e19b9448589b">send_tna_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server)</td></tr>
+<tr class="memdesc:a54d126df78139f9eae03e19b9448589b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "tna" command to all GUI clients.  <a href="gui_8h.html#a54d126df78139f9eae03e19b9448589b">More...</a><br /></td></tr>
+<tr class="separator:a54d126df78139f9eae03e19b9448589b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8be2fdb2d93b503fbc3d4ab684031e67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a8be2fdb2d93b503fbc3d4ab684031e67">send_pnw_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structplayer__s.html">player_t</a> *player)</td></tr>
+<tr class="memdesc:a8be2fdb2d93b503fbc3d4ab684031e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "pnw" command to all GUI clients.  <a href="gui_8h.html#a8be2fdb2d93b503fbc3d4ab684031e67">More...</a><br /></td></tr>
+<tr class="separator:a8be2fdb2d93b503fbc3d4ab684031e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c644dba90f9bcea59281ce07f5f1548"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a9c644dba90f9bcea59281ce07f5f1548">send_ppo_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structplayer__s.html">player_t</a> *player)</td></tr>
+<tr class="memdesc:a9c644dba90f9bcea59281ce07f5f1548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "ppo" command to all GUI clients.  <a href="gui_8h.html#a9c644dba90f9bcea59281ce07f5f1548">More...</a><br /></td></tr>
+<tr class="separator:a9c644dba90f9bcea59281ce07f5f1548"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a482ef41ecc13eb814e43861984b33994"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a482ef41ecc13eb814e43861984b33994">send_pin_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structplayer__s.html">player_t</a> *player)</td></tr>
+<tr class="memdesc:a482ef41ecc13eb814e43861984b33994"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "pin" command to all GUI clients.  <a href="gui_8h.html#a482ef41ecc13eb814e43861984b33994">More...</a><br /></td></tr>
+<tr class="separator:a482ef41ecc13eb814e43861984b33994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52f41225ec02c349ebae716adb304ad7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a52f41225ec02c349ebae716adb304ad7">send_pex_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structplayer__s.html">player_t</a> *player)</td></tr>
+<tr class="memdesc:a52f41225ec02c349ebae716adb304ad7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "pex" command to all GUI clients.  <a href="gui_8h.html#a52f41225ec02c349ebae716adb304ad7">More...</a><br /></td></tr>
+<tr class="separator:a52f41225ec02c349ebae716adb304ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2352cd4f9321481a92142894a2c7d1d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a2352cd4f9321481a92142894a2c7d1d5">send_pbc_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structplayer__s.html">player_t</a> *player, const char *message)</td></tr>
+<tr class="memdesc:a2352cd4f9321481a92142894a2c7d1d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "pbc" command to all GUI clients.  <a href="gui_8h.html#a2352cd4f9321481a92142894a2c7d1d5">More...</a><br /></td></tr>
+<tr class="separator:a2352cd4f9321481a92142894a2c7d1d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5efb7618c7391be8cd1e06f840cdb1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#ac5efb7618c7391be8cd1e06f840cdb1d">send_pic_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structnode__s.html">node_t</a> *player_list, <a class="el" href="structvector2u__s.html">vector2u_t</a> position, size_t level)</td></tr>
+<tr class="memdesc:ac5efb7618c7391be8cd1e06f840cdb1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "pic" command to all GUI clients.  <a href="gui_8h.html#ac5efb7618c7391be8cd1e06f840cdb1d">More...</a><br /></td></tr>
+<tr class="separator:ac5efb7618c7391be8cd1e06f840cdb1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefea7757fa3dbeedeb5b13739dd2a62c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#aefea7757fa3dbeedeb5b13739dd2a62c">send_pie_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server)</td></tr>
+<tr class="memdesc:aefea7757fa3dbeedeb5b13739dd2a62c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "pie" command to all GUI clients.  <a href="gui_8h.html#aefea7757fa3dbeedeb5b13739dd2a62c">More...</a><br /></td></tr>
+<tr class="separator:aefea7757fa3dbeedeb5b13739dd2a62c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a690e5fdb1b051cf69864ce7b63071dda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a690e5fdb1b051cf69864ce7b63071dda">send_pfk_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structplayer__s.html">player_t</a> *player)</td></tr>
+<tr class="memdesc:a690e5fdb1b051cf69864ce7b63071dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "pfk" command to all GUI clients.  <a href="gui_8h.html#a690e5fdb1b051cf69864ce7b63071dda">More...</a><br /></td></tr>
+<tr class="separator:a690e5fdb1b051cf69864ce7b63071dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a700fdffeb25837c80e9d7673ac8c3862"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a700fdffeb25837c80e9d7673ac8c3862">send_pdr_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structplayer__s.html">player_t</a> *player, size_t resource_id)</td></tr>
+<tr class="memdesc:a700fdffeb25837c80e9d7673ac8c3862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "pdr" command to all GUI clients.  <a href="gui_8h.html#a700fdffeb25837c80e9d7673ac8c3862">More...</a><br /></td></tr>
+<tr class="separator:a700fdffeb25837c80e9d7673ac8c3862"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad829377b073fbd5af5d71b863bf91960"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#ad829377b073fbd5af5d71b863bf91960">send_pgt_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structplayer__s.html">player_t</a> *player, size_t resource_id)</td></tr>
+<tr class="memdesc:ad829377b073fbd5af5d71b863bf91960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "pgt" command to all GUI clients.  <a href="gui_8h.html#ad829377b073fbd5af5d71b863bf91960">More...</a><br /></td></tr>
+<tr class="separator:ad829377b073fbd5af5d71b863bf91960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bb4e5d82a221534fb0e9ec996fe979c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a1bb4e5d82a221534fb0e9ec996fe979c">send_pdi_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structplayer__s.html">player_t</a> *player)</td></tr>
+<tr class="memdesc:a1bb4e5d82a221534fb0e9ec996fe979c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "pdi" command to all GUI clients.  <a href="gui_8h.html#a1bb4e5d82a221534fb0e9ec996fe979c">More...</a><br /></td></tr>
+<tr class="separator:a1bb4e5d82a221534fb0e9ec996fe979c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b5dd4c0ee56fa71bdbd205658943a15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a3b5dd4c0ee56fa71bdbd205658943a15">send_enw_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structplayer__s.html">player_t</a> *egg, <a class="el" href="structplayer__s.html">player_t</a> *player)</td></tr>
+<tr class="memdesc:a3b5dd4c0ee56fa71bdbd205658943a15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "enw" command to all GUI clients.  <a href="gui_8h.html#a3b5dd4c0ee56fa71bdbd205658943a15">More...</a><br /></td></tr>
+<tr class="separator:a3b5dd4c0ee56fa71bdbd205658943a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9cebbea1834183d4c01f0a238e906d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#af9cebbea1834183d4c01f0a238e906d4">send_ebo_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structplayer__s.html">player_t</a> *egg)</td></tr>
+<tr class="memdesc:af9cebbea1834183d4c01f0a238e906d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "ebo" command to all GUI clients.  <a href="gui_8h.html#af9cebbea1834183d4c01f0a238e906d4">More...</a><br /></td></tr>
+<tr class="separator:af9cebbea1834183d4c01f0a238e906d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a239dc5e6d22f131fadff1e169b8d7c5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a239dc5e6d22f131fadff1e169b8d7c5f">send_edi_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structplayer__s.html">player_t</a> *egg)</td></tr>
+<tr class="memdesc:a239dc5e6d22f131fadff1e169b8d7c5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "edi" command to all GUI clients.  <a href="gui_8h.html#a239dc5e6d22f131fadff1e169b8d7c5f">More...</a><br /></td></tr>
+<tr class="separator:a239dc5e6d22f131fadff1e169b8d7c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf545204bc643789bbbb8a0b1e0b88f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#acf545204bc643789bbbb8a0b1e0b88f1">send_sgt_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server)</td></tr>
+<tr class="memdesc:acf545204bc643789bbbb8a0b1e0b88f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "sgt" command to all GUI clients.  <a href="gui_8h.html#acf545204bc643789bbbb8a0b1e0b88f1">More...</a><br /></td></tr>
+<tr class="separator:acf545204bc643789bbbb8a0b1e0b88f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cde3f1613056089363604ea5aceaf35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a1cde3f1613056089363604ea5aceaf35">send_sst_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, size_t time_unit)</td></tr>
+<tr class="memdesc:a1cde3f1613056089363604ea5aceaf35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "sst" command to all GUI clients.  <a href="gui_8h.html#a1cde3f1613056089363604ea5aceaf35">More...</a><br /></td></tr>
+<tr class="separator:a1cde3f1613056089363604ea5aceaf35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac16e1fb0b6729473c4a69f44ff561c85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#ac16e1fb0b6729473c4a69f44ff561c85">send_seg_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structteam__s.html">team_t</a> *team)</td></tr>
+<tr class="memdesc:ac16e1fb0b6729473c4a69f44ff561c85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "seg" command to all GUI clients.  <a href="gui_8h.html#ac16e1fb0b6729473c4a69f44ff561c85">More...</a><br /></td></tr>
+<tr class="separator:ac16e1fb0b6729473c4a69f44ff561c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e4fccb83a0f681afc45880138a063aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a8e4fccb83a0f681afc45880138a063aa">send_smg_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, const char *message)</td></tr>
+<tr class="memdesc:a8e4fccb83a0f681afc45880138a063aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "smg" command to all GUI clients.  <a href="gui_8h.html#a8e4fccb83a0f681afc45880138a063aa">More...</a><br /></td></tr>
+<tr class="separator:a8e4fccb83a0f681afc45880138a063aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af649f4b4e864ace10b1a54bc1a59f4c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#af649f4b4e864ace10b1a54bc1a59f4c2">send_suc_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server)</td></tr>
+<tr class="memdesc:af649f4b4e864ace10b1a54bc1a59f4c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "suc" command to all GUI clients.  <a href="gui_8h.html#af649f4b4e864ace10b1a54bc1a59f4c2">More...</a><br /></td></tr>
+<tr class="separator:af649f4b4e864ace10b1a54bc1a59f4c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a159c877d00d6ddddc3426d77bf8d3c6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a159c877d00d6ddddc3426d77bf8d3c6d">send_sbp_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server)</td></tr>
+<tr class="memdesc:a159c877d00d6ddddc3426d77bf8d3c6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "sbp" command to all GUI clients.  <a href="gui_8h.html#a159c877d00d6ddddc3426d77bf8d3c6d">More...</a><br /></td></tr>
+<tr class="separator:a159c877d00d6ddddc3426d77bf8d3c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="gui_8h.html" title="The gui.h.">gui.h</a>. </p>
@@ -518,6 +587,832 @@ Functions</h2></td></tr>
     <tr><td class="paramname">server</td><td>The server instance </td></tr>
     <tr><td class="paramname">client</td><td>The client instance </td></tr>
     <tr><td class="paramname">args</td><td>The arguments passed with the command </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad6a9c962fb60dd667e4da441081c4065" name="ad6a9c962fb60dd667e4da441081c4065"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6a9c962fb60dd667e4da441081c4065">&#9670;&nbsp;</a></span>send_bct_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_bct_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structvector2u__s.html">vector2u_t</a>&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "bct" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">position</td><td>The position of the tile to send </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af9cebbea1834183d4c01f0a238e906d4" name="af9cebbea1834183d4c01f0a238e906d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9cebbea1834183d4c01f0a238e906d4">&#9670;&nbsp;</a></span>send_ebo_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_ebo_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>egg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "ebo" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">egg</td><td>The egg whose information is being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a239dc5e6d22f131fadff1e169b8d7c5f" name="a239dc5e6d22f131fadff1e169b8d7c5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a239dc5e6d22f131fadff1e169b8d7c5f">&#9670;&nbsp;</a></span>send_edi_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_edi_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>egg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "edi" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">egg</td><td>The egg whose information is being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3b5dd4c0ee56fa71bdbd205658943a15" name="a3b5dd4c0ee56fa71bdbd205658943a15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b5dd4c0ee56fa71bdbd205658943a15">&#9670;&nbsp;</a></span>send_enw_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_enw_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>egg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "enw" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">egg</td><td>The egg whose information is being sent </td></tr>
+    <tr><td class="paramname">player</td><td>The player associated with the egg </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac2dee0176225b44c9f33ecfba17788fa" name="ac2dee0176225b44c9f33ecfba17788fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2dee0176225b44c9f33ecfba17788fa">&#9670;&nbsp;</a></span>send_msz_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_msz_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "msz" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2352cd4f9321481a92142894a2c7d1d5" name="a2352cd4f9321481a92142894a2c7d1d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2352cd4f9321481a92142894a2c7d1d5">&#9670;&nbsp;</a></span>send_pbc_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_pbc_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "pbc" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">player</td><td>The player whose information is being sent </td></tr>
+    <tr><td class="paramname">message</td><td>The message to be sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1bb4e5d82a221534fb0e9ec996fe979c" name="a1bb4e5d82a221534fb0e9ec996fe979c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bb4e5d82a221534fb0e9ec996fe979c">&#9670;&nbsp;</a></span>send_pdi_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_pdi_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "pdi" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">player</td><td>The player whose information is being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a700fdffeb25837c80e9d7673ac8c3862" name="a700fdffeb25837c80e9d7673ac8c3862"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a700fdffeb25837c80e9d7673ac8c3862">&#9670;&nbsp;</a></span>send_pdr_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_pdr_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>resource_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "pdr" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">player</td><td>The player whose information is being sent </td></tr>
+    <tr><td class="paramname">resource_id</td><td>The ID of the resource being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a52f41225ec02c349ebae716adb304ad7" name="a52f41225ec02c349ebae716adb304ad7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52f41225ec02c349ebae716adb304ad7">&#9670;&nbsp;</a></span>send_pex_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_pex_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "pex" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">player</td><td>The player whose information is being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a690e5fdb1b051cf69864ce7b63071dda" name="a690e5fdb1b051cf69864ce7b63071dda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a690e5fdb1b051cf69864ce7b63071dda">&#9670;&nbsp;</a></span>send_pfk_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_pfk_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "pfk" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">player</td><td>The player whose information is being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad829377b073fbd5af5d71b863bf91960" name="ad829377b073fbd5af5d71b863bf91960"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad829377b073fbd5af5d71b863bf91960">&#9670;&nbsp;</a></span>send_pgt_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_pgt_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>resource_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "pgt" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">player</td><td>The player whose information is being sent </td></tr>
+    <tr><td class="paramname">resource_id</td><td>The ID of the resource being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac5efb7618c7391be8cd1e06f840cdb1d" name="ac5efb7618c7391be8cd1e06f840cdb1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5efb7618c7391be8cd1e06f840cdb1d">&#9670;&nbsp;</a></span>send_pic_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_pic_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structnode__s.html">node_t</a> *&#160;</td>
+          <td class="paramname"><em>player_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structvector2u__s.html">vector2u_t</a>&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "pic" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">player_list</td><td>The list of players to be sent </td></tr>
+    <tr><td class="paramname">position</td><td>The position of the incantation </td></tr>
+    <tr><td class="paramname">level</td><td>The level of the incantation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aefea7757fa3dbeedeb5b13739dd2a62c" name="aefea7757fa3dbeedeb5b13739dd2a62c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefea7757fa3dbeedeb5b13739dd2a62c">&#9670;&nbsp;</a></span>send_pie_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_pie_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "pie" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a482ef41ecc13eb814e43861984b33994" name="a482ef41ecc13eb814e43861984b33994"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a482ef41ecc13eb814e43861984b33994">&#9670;&nbsp;</a></span>send_pin_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_pin_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "pin" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">player</td><td>The player whose information is being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8be2fdb2d93b503fbc3d4ab684031e67" name="a8be2fdb2d93b503fbc3d4ab684031e67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8be2fdb2d93b503fbc3d4ab684031e67">&#9670;&nbsp;</a></span>send_pnw_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_pnw_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "pnw" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9c644dba90f9bcea59281ce07f5f1548" name="a9c644dba90f9bcea59281ce07f5f1548"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c644dba90f9bcea59281ce07f5f1548">&#9670;&nbsp;</a></span>send_ppo_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_ppo_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "ppo" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">player</td><td>The player whose information is being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a159c877d00d6ddddc3426d77bf8d3c6d" name="a159c877d00d6ddddc3426d77bf8d3c6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a159c877d00d6ddddc3426d77bf8d3c6d">&#9670;&nbsp;</a></span>send_sbp_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_sbp_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "sbp" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac16e1fb0b6729473c4a69f44ff561c85" name="ac16e1fb0b6729473c4a69f44ff561c85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac16e1fb0b6729473c4a69f44ff561c85">&#9670;&nbsp;</a></span>send_seg_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_seg_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structteam__s.html">team_t</a> *&#160;</td>
+          <td class="paramname"><em>team</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "seg" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">team</td><td>The team whose information is being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acf545204bc643789bbbb8a0b1e0b88f1" name="acf545204bc643789bbbb8a0b1e0b88f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf545204bc643789bbbb8a0b1e0b88f1">&#9670;&nbsp;</a></span>send_sgt_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_sgt_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "sgt" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8e4fccb83a0f681afc45880138a063aa" name="a8e4fccb83a0f681afc45880138a063aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e4fccb83a0f681afc45880138a063aa">&#9670;&nbsp;</a></span>send_smg_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_smg_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "smg" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">message</td><td>The message to be sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1cde3f1613056089363604ea5aceaf35" name="a1cde3f1613056089363604ea5aceaf35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cde3f1613056089363604ea5aceaf35">&#9670;&nbsp;</a></span>send_sst_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_sst_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>time_unit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "sst" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">time_unit</td><td>The time unit to be sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af649f4b4e864ace10b1a54bc1a59f4c2" name="af649f4b4e864ace10b1a54bc1a59f4c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af649f4b4e864ace10b1a54bc1a59f4c2">&#9670;&nbsp;</a></span>send_suc_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_suc_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "suc" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a54d126df78139f9eae03e19b9448589b" name="a54d126df78139f9eae03e19b9448589b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54d126df78139f9eae03e19b9448589b">&#9670;&nbsp;</a></span>send_tna_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_tna_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "tna" command to all GUI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
   </table>
   </dd>
 </dl>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['event_0',['event',['../structRGFW__window.html#a6928af29432a0560bda44cc22a684f38',1,'RGFW_window']]],
-  ['exitkey_1',['exitKey',['../structRGFW__window.html#afdbab671d68b21b0d93f3fbf9c7c7798',1,'RGFW_window']]]
+  ['frequency_0',['frequency',['../structgame__settings__s.html#a5ba3edc1f7681e498633f37eceb0cf61',1,'game_settings_s']]],
+  ['function_1',['function',['../structoption__s.html#a6a8e86a4732fbd49f873ed4511262ee3',1,'option_s']]]
 ];

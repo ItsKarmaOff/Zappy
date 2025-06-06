@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['_5fflags_0',['_flags',['../structRGFW__window.html#ad46951b38f174f6ae9ed5daa30bf5fc9',1,'RGFW_window']]],
-  ['_5flastmousepoint_1',['_lastMousePoint',['../structRGFW__window.html#a70022530a40892ea14ab30aa01470190',1,'RGFW_window']]],
-  ['_5foldrect_2',['_oldRect',['../structRGFW__window.html#a2d1710c0fa626d1ba5e5237966aaf087',1,'RGFW_window']]],
-  ['_5fwin_3',['_win',['../structRGFW__event.html#a70075f4b345e5e059e8568da9e299a64',1,'RGFW_event']]]
+  ['action_5fargs_0',['action_args',['../structaction__s.html#af7d06c83e4cdebeb979ab34aa6dd0e7b',1,'action_s']]],
+  ['addr_5flen_1',['addr_len',['../structserver__s.html#a116941d922ae354d7241d04b0f3c84d8',1,'server_s']]],
+  ['address_2',['address',['../structclient__s.html#ab675f900e13e59c89c1475a32765c3a9',1,'client_s::address()'],['../structserver__s.html#ab675f900e13e59c89c1475a32765c3a9',1,'server_s::address()']]],
+  ['argc_3',['argc',['../structparsing__s.html#add6f7e1e1ef6986c3abafe10038a2db9',1,'parsing_s']]],
+  ['argv_4',['argv',['../structparsing__s.html#af2efa898e9eed6fe6715279cb1ec35b0',1,'parsing_s']]]
 ];

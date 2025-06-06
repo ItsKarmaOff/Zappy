@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['option_0',['option',['../structoption.html',1,'']]],
-  ['option_5fs_1',['option_s',['../structoption__s.html',1,'']]],
-  ['option_5ft_2',['option_t',['../structoption__t.html',1,'']]]
+  ['ray_0',['Ray',['../structRay.html',1,'']]],
+  ['raycollision_1',['RayCollision',['../structRayCollision.html',1,'']]],
+  ['rectangle_2',['Rectangle',['../structRectangle.html',1,'']]],
+  ['rendertexture_3',['RenderTexture',['../structRenderTexture.html',1,'']]],
+  ['rldrawcall_4',['rlDrawCall',['../structrlDrawCall.html',1,'']]],
+  ['rlrenderbatch_5',['rlRenderBatch',['../structrlRenderBatch.html',1,'']]],
+  ['rlvertexbuffer_6',['rlVertexBuffer',['../structrlVertexBuffer.html',1,'']]]
 ];

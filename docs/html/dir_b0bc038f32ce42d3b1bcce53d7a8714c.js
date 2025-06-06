@@ -14,6 +14,7 @@ var dir_b0bc038f32ce42d3b1bcce53d7a8714c =
     [ "my_memset.c", "my__memset_8c.html", "my__memset_8c" ],
     [ "my_program_destroy.c", "my__program__destroy_8c.html", "my__program__destroy_8c" ],
     [ "my_realloc.c", "my__realloc_8c.html", "my__realloc_8c" ],
+    [ "my_resize_alloc.c", "my__resize__alloc_8c.html", "my__resize__alloc_8c" ],
     [ "my_update_alloc.c", "my__update__alloc_8c.html", "my__update__alloc_8c" ],
     [ "my_update_malloc.c", "my__update__malloc_8c.html", "my__update__malloc_8c" ]
 ];

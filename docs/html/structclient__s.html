@@ -87,27 +87,139 @@ $(document).ready(function(){initNavTree('structclient__s.html',''); initResizab
   <div class="headertitle"><div class="title">client_s Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A structure representing a client connected to the server.  
+ <a href="structclient__s.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="server__data__structures_8h_source.html">server_data_structures.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:ad02424c03e4b1b3ddbdb78d829489ac3"><td class="memItemLeft" align="right" valign="top"><a id="ad02424c03e4b1b3ddbdb78d829489ac3" name="ad02424c03e4b1b3ddbdb78d829489ac3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>socket_fd</b></td></tr>
+<tr class="memitem:ad02424c03e4b1b3ddbdb78d829489ac3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__s.html#ad02424c03e4b1b3ddbdb78d829489ac3">socket_fd</a></td></tr>
 <tr class="separator:ad02424c03e4b1b3ddbdb78d829489ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a367491879e8ce396250c54956bc6ed5e"><td class="memItemLeft" align="right" valign="top"><a id="a367491879e8ce396250c54956bc6ed5e" name="a367491879e8ce396250c54956bc6ed5e"></a>
-struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><b>address</b></td></tr>
-<tr class="separator:a367491879e8ce396250c54956bc6ed5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01a02c07f4d3287e4c41addaca2edd68"><td class="memItemLeft" align="right" valign="top"><a id="a01a02c07f4d3287e4c41addaca2edd68" name="a01a02c07f4d3287e4c41addaca2edd68"></a>
-<a class="el" href="structnode__s.html">node_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>command_queue</b></td></tr>
-<tr class="separator:a01a02c07f4d3287e4c41addaca2edd68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7129fabf4248a60ae6ff15805cd15955"><td class="memItemLeft" align="right" valign="top"><a id="a7129fabf4248a60ae6ff15805cd15955" name="a7129fabf4248a60ae6ff15805cd15955"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_gui</b></td></tr>
+<tr class="memitem:ab675f900e13e59c89c1475a32765c3a9"><td class="memItemLeft" align="right" valign="top">sockaddr_in_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__s.html#ab675f900e13e59c89c1475a32765c3a9">address</a></td></tr>
+<tr class="separator:ab675f900e13e59c89c1475a32765c3a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7129fabf4248a60ae6ff15805cd15955"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__s.html#a7129fabf4248a60ae6ff15805cd15955">is_gui</a></td></tr>
 <tr class="separator:a7129fabf4248a60ae6ff15805cd15955"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a375a27a30b16e14d911c9a7079072365"><td class="memItemLeft" align="right" valign="top"><a id="a375a27a30b16e14d911c9a7079072365" name="a375a27a30b16e14d911c9a7079072365"></a>
-<a class="el" href="structplayer__s.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>player</b></td></tr>
+<tr class="memitem:a375a27a30b16e14d911c9a7079072365"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__s.html#a375a27a30b16e14d911c9a7079072365">player</a></td></tr>
 <tr class="separator:a375a27a30b16e14d911c9a7079072365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01a02c07f4d3287e4c41addaca2edd68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structnode__s.html">node_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__s.html#a01a02c07f4d3287e4c41addaca2edd68">command_queue</a></td></tr>
+<tr class="separator:a01a02c07f4d3287e4c41addaca2edd68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b98850e8f68333c83fc3a07b899a28c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structaction__s.html">action_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__s.html#a1b98850e8f68333c83fc3a07b899a28c">next_action</a></td></tr>
+<tr class="separator:a1b98850e8f68333c83fc3a07b899a28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf6e742622e9992bc0f3b6dab5f7968c"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__s.html#acf6e742622e9992bc0f3b6dab5f7968c">last_action_time</a></td></tr>
+<tr class="separator:acf6e742622e9992bc0f3b6dab5f7968c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A structure representing a client connected to the server. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="ab675f900e13e59c89c1475a32765c3a9" name="ab675f900e13e59c89c1475a32765c3a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab675f900e13e59c89c1475a32765c3a9">&#9670;&nbsp;</a></span>address</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sockaddr_in_t address</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The address of the client </p>
+
+</div>
+</div>
+<a id="a01a02c07f4d3287e4c41addaca2edd68" name="a01a02c07f4d3287e4c41addaca2edd68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01a02c07f4d3287e4c41addaca2edd68">&#9670;&nbsp;</a></span>command_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structnode__s.html">node_t</a>* command_queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The queue of commands to execute </p>
+
+</div>
+</div>
+<a id="a7129fabf4248a60ae6ff15805cd15955" name="a7129fabf4248a60ae6ff15805cd15955"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7129fabf4248a60ae6ff15805cd15955">&#9670;&nbsp;</a></span>is_gui</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool is_gui</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Whether the client is a GUI client </p>
+
+</div>
+</div>
+<a id="acf6e742622e9992bc0f3b6dab5f7968c" name="acf6e742622e9992bc0f3b6dab5f7968c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf6e742622e9992bc0f3b6dab5f7968c">&#9670;&nbsp;</a></span>last_action_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">time_t last_action_time</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The time of the last action </p>
+
+</div>
+</div>
+<a id="a1b98850e8f68333c83fc3a07b899a28c" name="a1b98850e8f68333c83fc3a07b899a28c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b98850e8f68333c83fc3a07b899a28c">&#9670;&nbsp;</a></span>next_action</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structaction__s.html">action_t</a> next_action</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The next action to execute </p>
+
+</div>
+</div>
+<a id="a375a27a30b16e14d911c9a7079072365" name="a375a27a30b16e14d911c9a7079072365"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a375a27a30b16e14d911c9a7079072365">&#9670;&nbsp;</a></span>player</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structplayer__s.html">player_t</a>* player</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The associated player </p>
+
+</div>
+</div>
+<a id="ad02424c03e4b1b3ddbdb78d829489ac3" name="ad02424c03e4b1b3ddbdb78d829489ac3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad02424c03e4b1b3ddbdb78d829489ac3">&#9670;&nbsp;</a></span>socket_fd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int socket_fd</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The socket file descriptor </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>server/include/<a class="el" href="server_2include_2data__structures_8h_source.html">data_structures.h</a></li>
+<li>server/include/<a class="el" href="server__data__structures_8h_source.html">server_data_structures.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

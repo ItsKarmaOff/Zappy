@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zappy documentation: server/src/commands/ai/forward.c File Reference</title>
+<title>Zappy documentation: server/src/commands/from_ai/forward.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,7 +83,8 @@ $(document).ready(function(){initNavTree('forward_8c.html',''); initResizable();
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">forward.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -97,16 +98,49 @@ Functions</h2></td></tr>
 <tr class="memitem:a095bcd18a61c554a2918126495d4038d"><td class="memItemLeft" align="right" valign="top"><a id="a095bcd18a61c554a2918126495d4038d" name="a095bcd18a61c554a2918126495d4038d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>handle_command_forward</b> (UNUSED <a class="el" href="structserver__s.html">server_t</a> *server, UNUSED <a class="el" href="structclient__s.html">client_t</a> *client, UNUSED char **args)</td></tr>
 <tr class="separator:a095bcd18a61c554a2918126495d4038d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac9614bc590f9eaa56b7fc933c9c82477"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structmove__s.html">move_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="forward_8c.html#ac9614bc590f9eaa56b7fc933c9c82477">moves</a> []</td></tr>
+<tr class="memdesc:ac9614bc590f9eaa56b7fc933c9c82477"><td class="mdescLeft">&#160;</td><td class="mdescRight">The moves for the AI clients.  <a href="forward_8c.html#ac9614bc590f9eaa56b7fc933c9c82477">More...</a><br /></td></tr>
+<tr class="separator:ac9614bc590f9eaa56b7fc933c9c82477"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="forward_8c.html" title="The forward.c.">forward.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Variable Documentation</h2>
+<a id="ac9614bc590f9eaa56b7fc933c9c82477" name="ac9614bc590f9eaa56b7fc933c9c82477"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9614bc590f9eaa56b7fc933c9c82477">&#9670;&nbsp;</a></span>moves</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structmove__s.html">move_t</a> moves[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {<a class="code hl_enumvalue" href="server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232cebad0611de6f28d4a9c9eac959f5344698e">NORTH</a>, &amp;move_north},</div>
+<div class="line">    {<a class="code hl_enumvalue" href="server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232cebab5b3793b961949c817c7c0d99c05dad7">EAST</a>, &amp;move_east},</div>
+<div class="line">    {<a class="code hl_enumvalue" href="server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232ceba8ef5c0bce69283a9986011a63eea8a6b">SOUTH</a>, &amp;move_south},</div>
+<div class="line">    {<a class="code hl_enumvalue" href="server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232cebae9449e8683a8199dad36b07a63b2f523">WEST</a>, &amp;move_west},</div>
+<div class="line">}</div>
+<div class="ttc" id="aserver__data__structures_8h_html_a0946e64c8ac05ac1c9740a2375232ceba8ef5c0bce69283a9986011a63eea8a6b"><div class="ttname"><a href="server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232ceba8ef5c0bce69283a9986011a63eea8a6b">SOUTH</a></div><div class="ttdeci">@ SOUTH</div><div class="ttdoc">The player is facing south.</div><div class="ttdef"><b>Definition:</b> server_data_structures.h:31</div></div>
+<div class="ttc" id="aserver__data__structures_8h_html_a0946e64c8ac05ac1c9740a2375232cebab5b3793b961949c817c7c0d99c05dad7"><div class="ttname"><a href="server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232cebab5b3793b961949c817c7c0d99c05dad7">EAST</a></div><div class="ttdeci">@ EAST</div><div class="ttdoc">The player is facing east.</div><div class="ttdef"><b>Definition:</b> server_data_structures.h:30</div></div>
+<div class="ttc" id="aserver__data__structures_8h_html_a0946e64c8ac05ac1c9740a2375232cebad0611de6f28d4a9c9eac959f5344698e"><div class="ttname"><a href="server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232cebad0611de6f28d4a9c9eac959f5344698e">NORTH</a></div><div class="ttdeci">@ NORTH</div><div class="ttdoc">The player is facing north.</div><div class="ttdef"><b>Definition:</b> server_data_structures.h:29</div></div>
+<div class="ttc" id="aserver__data__structures_8h_html_a0946e64c8ac05ac1c9740a2375232cebae9449e8683a8199dad36b07a63b2f523"><div class="ttname"><a href="server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232cebae9449e8683a8199dad36b07a63b2f523">WEST</a></div><div class="ttdeci">@ WEST</div><div class="ttdoc">The player is facing west.</div><div class="ttdef"><b>Definition:</b> server_data_structures.h:32</div></div>
+</div><!-- fragment -->
+<p>The moves for the AI clients. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_41e1742e44e2de38b3bc91f993fed282.html">server</a></li><li class="navelem"><a class="el" href="dir_a063914ab482288b7b0e1b2fca86158c.html">src</a></li><li class="navelem"><a class="el" href="dir_3143f4346e9106ba3ae227e7090d6e7d.html">commands</a></li><li class="navelem"><a class="el" href="dir_8bf163ff5febf55617e3d8116b000785.html">ai</a></li><li class="navelem"><a class="el" href="forward_8c.html">forward.c</a></li>
+    <li class="navelem"><a class="el" href="dir_41e1742e44e2de38b3bc91f993fed282.html">server</a></li><li class="navelem"><a class="el" href="dir_a063914ab482288b7b0e1b2fca86158c.html">src</a></li><li class="navelem"><a class="el" href="dir_3143f4346e9106ba3ae227e7090d6e7d.html">commands</a></li><li class="navelem"><a class="el" href="dir_cb08434fc83403ba38e13e9c2bdbbe6f.html">from_ai</a></li><li class="navelem"><a class="el" href="forward_8c.html">forward.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>

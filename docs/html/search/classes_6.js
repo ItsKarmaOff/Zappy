@@ -1,14 +1,9 @@
 var searchData=
 [
-  ['filepathlist_0',['FilePathList',['../structFilePathList.html',1,'']]],
-  ['flag_5fs_1',['flag_s',['../structflag__s.html',1,'']]],
-  ['float16_2',['float16',['../structfloat16.html',1,'']]],
-  ['float3_3',['float3',['../structfloat3.html',1,'']]],
-  ['float_5fconv_4',['float_conv',['../unionfloat__conv.html',1,'']]],
-  ['floor_5',['Floor',['../unionFloor.html',1,'']]],
-  ['floor0_6',['Floor0',['../structFloor0.html',1,'']]],
-  ['floor1_7',['Floor1',['../structFloor1.html',1,'']]],
-  ['font_8',['Font',['../structFont.html',1,'']]],
-  ['format_5fs_9',['format_s',['../structformat__s.html',1,'']]],
-  ['functioninfo_10',['FunctionInfo',['../structFunctionInfo.html',1,'']]]
+  ['game_5fs_0',['game_s',['../structgame__s.html',1,'']]],
+  ['game_5fsettings_5fs_1',['game_settings_s',['../structgame__settings__s.html',1,'']]],
+  ['gameinfo_2',['GameInfo',['../classGui_1_1GameInfo.html',1,'Gui']]],
+  ['garbage_5fdata_5fs_3',['garbage_data_s',['../structgarbage__data__s.html',1,'']]],
+  ['glyphinfo_4',['GlyphInfo',['../structGlyphInfo.html',1,'']]],
+  ['graphics_5',['Graphics',['../classGui_1_1Graphics.html',1,'Gui']]]
 ];

@@ -87,18 +87,71 @@ $(document).ready(function(){initNavTree('structteam__s.html',''); initResizable
   <div class="headertitle"><div class="title">team_s Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A structure representing a team in the game.  
+ <a href="structteam__s.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="server__data__structures_8h_source.html">server_data_structures.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a8f8f80d37794cde9472343e4487ba3eb"><td class="memItemLeft" align="right" valign="top"><a id="a8f8f80d37794cde9472343e4487ba3eb" name="a8f8f80d37794cde9472343e4487ba3eb"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
+<tr class="memitem:a8f8f80d37794cde9472343e4487ba3eb"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structteam__s.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></td></tr>
 <tr class="separator:a8f8f80d37794cde9472343e4487ba3eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f01c1fa50317a91f05cf1ba87aa3667"><td class="memItemLeft" align="right" valign="top"><a id="a6f01c1fa50317a91f05cf1ba87aa3667" name="a6f01c1fa50317a91f05cf1ba87aa3667"></a>
-<a class="el" href="structplayer__s.html">player_t</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>player_list</b></td></tr>
-<tr class="separator:a6f01c1fa50317a91f05cf1ba87aa3667"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb9dae465878483134b03c0c73adc47a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structteam__s.html#abb9dae465878483134b03c0c73adc47a">eggs_number</a></td></tr>
+<tr class="separator:abb9dae465878483134b03c0c73adc47a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a517ab705c652bc2425f586d3bd1ae809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structnode__s.html">node_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structteam__s.html#a517ab705c652bc2425f586d3bd1ae809">player_list</a></td></tr>
+<tr class="separator:a517ab705c652bc2425f586d3bd1ae809"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A structure representing a team in the game. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="abb9dae465878483134b03c0c73adc47a" name="abb9dae465878483134b03c0c73adc47a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb9dae465878483134b03c0c73adc47a">&#9670;&nbsp;</a></span>eggs_number</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t eggs_number</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The number of eggs in the team </p>
+
+</div>
+</div>
+<a id="a8f8f80d37794cde9472343e4487ba3eb" name="a8f8f80d37794cde9472343e4487ba3eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f8f80d37794cde9472343e4487ba3eb">&#9670;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The name of the team </p>
+
+</div>
+</div>
+<a id="a517ab705c652bc2425f586d3bd1ae809" name="a517ab705c652bc2425f586d3bd1ae809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a517ab705c652bc2425f586d3bd1ae809">&#9670;&nbsp;</a></span>player_list</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structnode__s.html">node_t</a>* player_list</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The list of players in the team </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>server/include/<a class="el" href="server_2include_2data__structures_8h_source.html">data_structures.h</a></li>
+<li>server/include/<a class="el" href="server__data__structures_8h_source.html">server_data_structures.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
