@@ -6,6 +6,8 @@
 */
 
 #include "Graphics.hpp"
+#include "TileInfo.hpp"
+#include "Logs.hpp"
 #include <raylib.h>
 
 namespace Gui {
@@ -18,13 +20,14 @@ namespace Gui {
         // on peut pas modifier la touche
         if (IsKeyPressed('Z')) {
             _game->getCamera().target =
-            { _game->getMapSize().x / 2, 0.0f, _game->getMapSize().y / 2 };
+            { _game->getMapSize().x / 2 * TILE_SIZE, 0.0f, _game->getMapSize().y / 2 * TILE_SIZE };
         }
     }
 
     void Graphics::updateGame(void)
     {
         UpdateCamera(&_game->getCamera(), CAMERA_FREE);
+
     }
 
     void Graphics::drawGame(void)
@@ -34,15 +37,38 @@ namespace Gui {
         BeginMode3D(_game->getCamera());
         drawGameMap();
         EndMode3D();
+        drawTeams();
+
     }
 
     void Graphics::drawGameMap(void)
     {
-        for (int i = 0; i < _game->getMapSize().x; i++) {
-            for (int j = 0; j < _game->getMapSize().y; j++) {
-                DrawCube({(float)i, 0, (float)j}, 1.0f, 1.0f, 1.0f, SKYBLUE);
-                DrawCubeWires({(float)i, 0.0f, (float)j}, 1.0f, 1.0f, 1.0f, BLACK);
+        for (auto &[k, tile] : _game->getTiles()) {
+            tile.draw(_assetsManager.getModels(), _assetsManager.getModelsScale());
+        }
+    }
+    void Graphics::drawTeams(void)
+    {
+        // Define an array of colors for teams
+        Color teamColors[] = {
+            RED, BLUE, GREEN, YELLOW, ORANGE, PURPLE, PINK, LIME,
+            SKYBLUE, VIOLET, BROWN, DARKGREEN, MAGENTA, GOLD
+        };
+
+        // Select a random color for each team
+        static std::map<std::string, Color> teamColorMap;
+        if (teamColorMap.empty()) {
+            for (auto &[key, team] : _game->getTeams()) {
+                int randomIndex = GetRandomValue(0, sizeof(teamColors) / sizeof(Color) - 1);
+                teamColorMap[key] = teamColors[randomIndex];
             }
+        }
+
+        int i = 0;
+        for (auto &[key, team] : _game->getTeams()) {
+            float textHeight = 40;
+            float textWidth = MeasureText(key.c_str(), textHeight);
+            DrawText(key.c_str(), GetScreenWidth() - textWidth - 10, 0 + i * textHeight, textHeight, teamColorMap[key]);
         }
     }
 }
