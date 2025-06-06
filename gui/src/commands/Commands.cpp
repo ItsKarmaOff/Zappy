@@ -229,6 +229,9 @@ namespace Gui
 
         DEBUG_CONCAT << "Player #" << playerId << " position updated to (" << width << ", " << height
             << ") with orientation " << orientation;
+
+        if (_graphical.getGame()->getPlayer(playerId).getPos() != Vector2{static_cast<float>(width), static_cast<float>(height)})
+            _graphical.getGame()->getPlayer(playerId).setPos({static_cast<float>(width), static_cast<float>(height)});
     }
 
     void Commands::handlePLV(std::string &param)

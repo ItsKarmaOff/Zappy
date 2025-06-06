@@ -45,6 +45,7 @@ namespace Gui {
 
             std::unordered_map<Vector2, TileInfo> &getTiles();
             std::unordered_map<std::string, TeamInfo> &getTeams(void);
+            PlayerInfo &getPlayer(size_t playerId);
         private:
             Camera3D _camera;
             Vector2 _mapSize;

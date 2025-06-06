@@ -6,6 +6,7 @@
 */
 
 #include "GameInfo.hpp"
+#include "Lib.hpp"
 #include <raylib.h>
 
 namespace Gui {
@@ -40,6 +41,18 @@ namespace Gui {
     std::unordered_map<std::string, TeamInfo> &GameInfo::getTeams(void)
     {
         return _teams;
+    }
+
+    PlayerInfo &GameInfo::getPlayer(size_t playerId)
+    {
+        for (auto &team : _teams) {
+            for (auto &player : team.second.getPlayers()) {
+                if (player.first == playerId) {
+                    return player.second;
+                }
+            }
+        }
+        throw Lib::Exceptions::Critical("Player with ID " + std::to_string(playerId) + " not found.");
     }
 
 }
