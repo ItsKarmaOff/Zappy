@@ -442,6 +442,8 @@ namespace Gui
         playerId = std::stoi(player.substr(1));
 
         DEBUG_CONCAT << "Player #" << playerId << " dropped resource number " << resourceNumber;
+
+        _graphical.getGame()->getPlayer(playerId).removeResource(static_cast<PlayerInfo::ResourceType>(resourceNumber), 1);
     }
 
     void Commands::handlePGT(std::string &param)
@@ -465,6 +467,8 @@ namespace Gui
         playerId = std::stoi(player.substr(1));
 
         DEBUG_CONCAT << "Player #" << playerId << " got resource number " << resourceNumber;
+
+        _graphical.getGame()->getPlayer(playerId).addResource(static_cast<PlayerInfo::ResourceType>(resourceNumber), 1);
     }
 
     void Commands::handlePDI(std::string &param)
