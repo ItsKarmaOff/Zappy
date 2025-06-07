@@ -14,9 +14,21 @@
 
 
 
-namespace Gui {
+namespace Gui
+{
+    /**
+     * @class PlayerInfo
+     * @brief The PlayerInfo class represents a player in the game with position, orientation, level and inventory.
+     */
     class PlayerInfo {
         public:
+
+            /////////////// Enumerations //////////////////////////////////////
+
+            /**
+             * @enum Orientation
+             * @brief The Orientation enum represents the orientation of a player.
+             */
             enum Orientation {
                 NORTH,
                 EAST,
@@ -24,6 +36,10 @@ namespace Gui {
                 WEST,
             };
 
+            /**
+             * @enum ResourceType
+             * @brief The ResourceType enum represents the types of resources a player can have in their inventory.
+             */
             enum ResourceType {
                 FOOD,
                 LINEMATE,
@@ -34,30 +50,109 @@ namespace Gui {
                 THYSTAME
             };
 
+
+
+            /////////////// Constructors and Destructor ///////////////////////
+
+            /**
+             * @brief Construct a new PlayerInfo object with default values.
+             */
             PlayerInfo() = default;
+
+            /**
+             * @brief Destroy the PlayerInfo object.
+             */
             ~PlayerInfo() = default;
 
-            ////////////////////////////////////// GETTERS //////////////////////////////////////
+
+
+            //////////////// Getters ///////////////////////////////////////////
+
+            /**
+             * @brief Get the orientation of the player.
+             * @return The orientation of the player
+             */
             const Orientation &getOrientation() const;
+
+            /**
+             * @brief Get the level of the player.
+             * @return The level of the player
+             */
+            const size_t &getLevel() const;
+
+            /**
+             * @brief Get the position of the player.
+             * @return The position of the player
+             */
+            const Vector2 &getPos() const;
+
+            /**
+             * @brief Get the inventory of the player.
+             * @return The inventory of the player
+             */
+            const std::map<ResourceType, size_t> &getInventory() const;
+
+
+
+            //////////////// Setters ///////////////////////////////////////////
+
+            /**
+             * @brief Set the orientation of the player.
+             * @param orientation The orientation to set
+             */
             void setOrientation(Orientation orientation);
+
+            /**
+             * @brief Set the orientation of the player using an integer value.
+             * @param orientation The integer value representing the orientation
+             */
             void setOrientation(int orientation);
 
-            const size_t &getLevel() const;
+
+            /**
+             * @brief Set the level of the player.
+             * @param level The level to set
+             */
             void setLevel(size_t level);
 
-            const Vector2 &getPos() const;
+            /**
+             * @brief Set the position of the player.
+             * @param pos The position to set
+             */
             void setPos(Vector2 pos);
 
-            const std::map<ResourceType, size_t> &getInventory() const;
+            /**
+             * @brief Set the inventory of the player.
+             * @param inventory The inventory to set
+             */
             void setInventory(const std::map<ResourceType, size_t> &inventory);
+
+
+
+            //////////////// Inventory Management Methods //////////////////////
+
+            /**
+             * @brief Add a resource to the player's inventory.
+             * @param type The type of resource to add
+             * @param quantity The quantity of the resource to add
+             */
             void addResource(ResourceType type, size_t quantity);
+
+            /**
+             * @brief Remove a resource from the player's inventory.
+             * @param type The type of resource to remove
+             * @param quantity The quantity of the resource to remove
+             */
             void removeResource(ResourceType type, size_t quantity);
 
         private:
-            Orientation _orientation;
-            size_t _level;
-            Vector2 _pos;
-            std::map<ResourceType, size_t> _inventory;
+
+            //////////////// Private Attributes ////////////////////////////////
+
+            Orientation _orientation;   // The orientation of the player
+            size_t _level;  // The level of the player
+            Vector2 _pos;   // The position of the player
+            std::map<ResourceType, size_t> _inventory;  // The inventory of the player
     };
 
 }
