@@ -11,6 +11,7 @@
 #include "PlayerInfo.hpp"
 #include <cstdlib>
 #include <functional>
+#include <map>
 #include <unordered_map>
 #include <vector>
 
@@ -288,6 +289,16 @@ namespace Gui
         DEBUG_CONCAT << "Player #" << playerId << " inventory at (" << width << ", " << height << ") has resources: "
             << food << " food, " << linemate << " linemate, " << deraumere << " deraumere, " << sibur << " sibur, "
             << mendiane << " mendiane, " << phiras << " phiras, " << thystame << " thystame";
+
+        if (!_graphical.getGame()->getPlayer(playerId).getPos().x || !_graphical.getGame()->getPlayer(playerId).getPos().y)
+            _graphical.getGame()->getPlayer(playerId).setPos({static_cast<float>(width), static_cast<float>(height)});
+        _graphical.getGame()->getPlayer(playerId).addResource(PlayerInfo::ResourceType::FOOD, static_cast<size_t>(food));
+        _graphical.getGame()->getPlayer(playerId).addResource(PlayerInfo::ResourceType::LINEMATE, static_cast<size_t>(linemate));
+        _graphical.getGame()->getPlayer(playerId).addResource(PlayerInfo::ResourceType::DERAUMERE, static_cast<size_t>(deraumere));
+        _graphical.getGame()->getPlayer(playerId).addResource(PlayerInfo::ResourceType::SIBUR, static_cast<size_t>(sibur));
+        _graphical.getGame()->getPlayer(playerId).addResource(PlayerInfo::ResourceType::MENDIANE, static_cast<size_t>(mendiane));
+        _graphical.getGame()->getPlayer(playerId).addResource(PlayerInfo::ResourceType::PHIRAS, static_cast<size_t>(phiras));
+        _graphical.getGame()->getPlayer(playerId).addResource(PlayerInfo::ResourceType::THYSTAME, static_cast<size_t>(thystame));
     }
 
     void Commands::handlePEX(std::string &param)
