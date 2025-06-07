@@ -300,7 +300,7 @@ namespace Gui
             {PlayerInfo::ResourceType::THYSTAME, static_cast<size_t>(thystame)}
         };
 
-        if (!_graphical.getGame()->getPlayer(playerId).getPos().x || !_graphical.getGame()->getPlayer(playerId).getPos().y)
+        if (_graphical.getGame()->getPlayer(playerId).getPos() != Vector2{static_cast<float>(width), static_cast<float>(height)})
             _graphical.getGame()->getPlayer(playerId).setPos({static_cast<float>(width), static_cast<float>(height)});
         _graphical.getGame()->getPlayer(playerId).setInventory(newInventory);
     }
