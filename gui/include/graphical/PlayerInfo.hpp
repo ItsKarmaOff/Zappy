@@ -9,6 +9,7 @@
 #ifndef PLAYERINFO_HPP
     #define PLAYERINFO_HPP
 #include <cstddef>
+#include <map>
 #include <raylib.h>
 
 
@@ -22,6 +23,17 @@ namespace Gui {
                 SOUTH,
                 WEST,
             };
+
+            enum ResourceType {
+                FOOD,
+                LINEMATE,
+                DERAUMERE,
+                SIBUR,
+                MENDIANE,
+                PHIRAS,
+                THYSTAME
+            };
+
             PlayerInfo() = default;
             ~PlayerInfo() = default;
 
@@ -36,10 +48,16 @@ namespace Gui {
             const Vector2 &getPos() const;
             void setPos(Vector2 pos);
 
+            const std::map<ResourceType, size_t> &getInventory() const;
+            void setInventory(const std::map<ResourceType, size_t> &inventory);
+            void addResource(ResourceType type, size_t quantity);
+            void removeResource(ResourceType type, size_t quantity);
+
         private:
             Orientation _orientation;
             size_t _level;
             Vector2 _pos;
+            std::map<ResourceType, size_t> _inventory;
     };
 
 }

@@ -6,6 +6,7 @@
 */
 
 #include "PlayerInfo.hpp"
+#include <string>
 
 namespace Gui {
     const PlayerInfo::Orientation& PlayerInfo::getOrientation() const
@@ -42,5 +43,27 @@ namespace Gui {
         _pos = pos;
     }
 
+    const std::map<PlayerInfo::ResourceType, size_t>& PlayerInfo::getInventory() const
+    {
+        return _inventory;
+    }
+
+    void PlayerInfo::setInventory(const std::map<PlayerInfo::ResourceType, size_t> &inventory)
+    {
+        _inventory = inventory;
+    }
+
+    void PlayerInfo::addResource(ResourceType type, size_t quantity)
+    {
+        _inventory[type] += quantity;
+    }
+
+    void PlayerInfo::removeResource(ResourceType type, size_t quantity)
+    {
+        if (_inventory[type] >= quantity)
+            _inventory[type] -= quantity;
+        else
+            _inventory[type] = 0;
+    }
 
 }
