@@ -50,5 +50,5 @@ void handle_command_left(UNUSED server_t *server, UNUSED client_t *client,
     update_orientation[client->player->orientation - 1].
         update_orientation_func(client);
     dprintf(client->socket_fd, VALID_AI);
-    send_ppo_to_gui(server, client->player);
+    send_ppo_to_gui(server, NULL, client->player);
 }

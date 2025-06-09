@@ -12,7 +12,7 @@
 
 #include "commands/gui.h"
 
-void send_msz_to_gui(server_t *server)
+void send_msz_to_gui(server_t *server, UNUSED client_t *client)
 {
     return;
 }

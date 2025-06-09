@@ -12,8 +12,8 @@
 
 #include "commands/gui.h"
 
-void send_pgt_to_gui(UNUSED server_t *server, UNUSED player_t *player,
-    UNUSED size_t resource_id)
+void send_pgt_to_gui(UNUSED server_t *server, UNUSED client_t *client,
+    UNUSED player_t *player, UNUSED size_t resource_id)
 {
     return;
 }
