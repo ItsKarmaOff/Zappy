@@ -107,6 +107,12 @@ void send_msz_to_gui(server_t *server);
 void send_bct_to_gui(server_t *server, vector2u_t position);
 
 /**
+ * @brief Send the "mct" command to all GUI clients
+ * @param server The server instance
+ */
+void send_mct_to_gui(server_t *server);
+
+/**
  * @brief Send the "tna" command to all GUI clients
  * @param server The server instance
  */

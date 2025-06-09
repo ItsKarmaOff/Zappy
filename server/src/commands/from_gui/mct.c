@@ -16,4 +16,10 @@ void handle_command_mct(UNUSED server_t *server, UNUSED client_t *client,
     UNUSED char **args)
 {
     DEBUG("Executing \"mct\" command\n");
+    if (my_array_len((void **)args) != 1) {
+        DEBUG("Invalid number of arguments for \"mct\" command\n");
+        send_sbp_to_gui(server);
+        return;
+    }
+    send_mct_to_gui(server);
 }
