@@ -35,6 +35,14 @@ player_t *create_player(game_t *game, team_t *team);
  */
 player_t *create_player_from_player(game_t *game, player_t *creator);
 
+/**
+ * @brief Gets a player by their ID
+ * @param game The game to get the player from
+ * @param player_id The ID of the player to get
+ * @return A pointer to the player, or NULL if not found
+ */
+player_t *get_player_by_id(const game_t *game, size_t player_id);
+
 
 
 /* Team functions */
