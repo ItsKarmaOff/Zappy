@@ -32,8 +32,8 @@ void refill_resources(game_t *game)
             x = rand() % game->game_settings.width;
             y = rand() % game->game_settings.height;
             game->resources[index].current_quantity += ((
-                (game->map[y][x].resources & (1 << index)) == 0) ? 1 : 0);
-            game->map[y][x].resources |= (1 << index);
+                game->map[y][x].resources[index] == 0) ? 1 : 0);
+            game->map[y][x].resources[index] = 1;
         }
     }
     game->last_refill_time = time(NULL);

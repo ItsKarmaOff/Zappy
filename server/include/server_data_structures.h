@@ -145,10 +145,8 @@ typedef struct game_settings_s {
 typedef struct tile_s {
     /** The position of the tile on the map */
     vector2u_t position;
-    /** The type of resources on the tile */
-    // TODO : Lou je pense qu'on fait du bitshift en fonction de resource_t
-    //       : pour savoir si on a un resource ou pas (regarde game.c)
-    uint8_t resources;
+    /** The number of resources on the tile */
+    size_t resources[RESOURCES_SIZE];
 } tile_t;
 
 /**
