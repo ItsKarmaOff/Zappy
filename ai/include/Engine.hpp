@@ -11,6 +11,7 @@
 #include "Parser.hpp"
 #include "Socket.hpp"
 #include "Lib.hpp"
+#include "Player.hpp"
 
 class Engine {
     public:
@@ -18,13 +19,16 @@ class Engine {
         ~Engine();
         void run();
         std::string getResponse();
-    protected:
-    private:
+        protected:
+        private:
+        void _communicate();
         void _init();
         Parser _parser;
         std::shared_ptr<Lib::Socket> _clientSocket;
         struct sockaddr_in _client;
-        bool _isRunning = false;
+        bool _isRunning = true;
+        std::unique_ptr<std::thread> _communicationthread;
+        std::shared_ptr<Player> _player;
 };
 
 #endif /* !ENGINE_HPP_ */
