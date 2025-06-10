@@ -35,16 +35,19 @@ namespace Gui {
         _handlers = {
             {MENU, &Graphics::handleEventsMenu},
             {GAME, &Graphics::handleEventsGame},
+            {SCOREBOARD, &Graphics::handleEventsScoreboard},
         };
 
         _updaters = {
             {MENU, &Graphics::updateMenu},
             {GAME, &Graphics::updateGame},
+            {SCOREBOARD, &Graphics::updateScoreboard},
         };
 
         _drawers = {
             {MENU, &Graphics::drawMenu},
             {GAME, &Graphics::drawGame},
+            {SCOREBOARD, &Graphics::drawScoreboard},
         };
     }
 
