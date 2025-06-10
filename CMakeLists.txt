@@ -88,15 +88,15 @@ if(raylib_FOUND)
     message(STATUS "Using system raylib package")
     target_link_libraries(${GUI} PUBLIC my_cpp raylib)
 else()
-    message(STATUS "Using local raylib from libs/raylib")
+    message(STATUS "Using local raylib from bonus/libs/raylib")
 
-    if(EXISTS "${CMAKE_SOURCE_DIR}/libs/raylib/CMakeLists.txt")
+    if(EXISTS "${CMAKE_SOURCE_DIR}/bonus/libs/raylib/CMakeLists.txt")
         set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
         set(BUILD_GAMES OFF CACHE BOOL "" FORCE)
-        add_subdirectory(libs/raylib)
+        add_subdirectory(bonus/libs/raylib)
         target_link_libraries(${GUI} PUBLIC my_cpp raylib)
     else()
-        message(FATAL_ERROR "Local raylib not found in libs/raylib/!")
+        message(FATAL_ERROR "Local raylib not found in bonus/libs/raylib/!")
     endif()
 endif()
 
@@ -178,17 +178,23 @@ add_custom_target(clean_all
 
 
 ############################ DOCUMENTATION ####################################
-find_package(Doxygen QUIET)
+OPTION(DOC_ONLY "Build documentation only, skip all executables and libraries" OFF)
 
-if(DOXYGEN_FOUND)
-    add_custom_target(doc
-        COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_SOURCE_DIR}/Doxyfile
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-        COMMENT "Generating documentation with Doxygen"
-    )
-else()
-    add_custom_target(doc
-        COMMAND ${CMAKE_COMMAND} -E echo "Doxygen not found, documentation will not be generated"
-    )
+if(DOC_ONLY)
+    find_package(Doxygen QUIET)
+
+    if(DOXYGEN_FOUND)
+        add_custom_target(doc
+            COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_SOURCE_DIR}/Doxyfile
+            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+            COMMENT "Generating documentation with Doxygen"
+        )
+    else()
+        add_custom_target(doc
+            COMMAND ${CMAKE_COMMAND} -E echo "Doxygen not found, documentation will not be generated"
+        )
+    endif()
+    
+    return()
 endif()
 ###############################################################################

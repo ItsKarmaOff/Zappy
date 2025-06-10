@@ -30,14 +30,14 @@ static void remove_node(node_t **begin, node_t *tmp)
  * @param begin The beginning of the list
  * @param data_ref The data to delete
  * @param cmp The comparison function
- * @return <b>int</b> The number of nodes deleted from the list
+ * @return <b>size_t</b> The number of nodes deleted from the list
  * @author Nicolas TORO
  */
-int my_delete_nodes(node_t **begin, void const *data_ref, int (*cmp)())
+size_t my_delete_nodes(node_t **begin, void const *data_ref, int (*cmp)())
 {
     node_t *tmp = *begin;
     node_t *next = NULL;
-    int nodes_deleted = 0;
+    size_t nodes_deleted = 0;
 
     while (tmp != NULL) {
         next = tmp->next;

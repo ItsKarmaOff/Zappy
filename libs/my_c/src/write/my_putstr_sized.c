@@ -17,10 +17,10 @@
  * and returns the length of the printed string
  * @param str The string to print
  * @param size The size of the string
- * @return <b>int</b> The length of the printed string
+ * @return <b>size_t</b> The length of the printed string
  * @author Nicolas TORO
  */
-int my_putstr_sized(char const *str, uint64_t size)
+size_t my_putstr_sized(char const *str, size_t size)
 {
     if (str == NULL || size < 1)
         return 0;

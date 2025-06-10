@@ -64,9 +64,9 @@ static char *str_from_long_long(format_t *str_struct)
 
 static char *str_from_uintmax(format_t *str_struct)
 {
-    uintmax_t nbr = va_arg(str_struct->format_list, uintmax_t);
+    size_t nbr = va_arg(str_struct->format_list, size_t);
     char *converted_nbr = my_nbr_to_str_unsigned(
-        nbr, BASE_10, sizeof(uintmax_t));
+        nbr, BASE_10, sizeof(size_t));
 
     return converted_nbr;
 }

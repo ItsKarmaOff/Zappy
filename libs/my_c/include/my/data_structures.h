@@ -27,7 +27,7 @@ extern int my_errno; /* The error number */
 
 /* The information of the my_params_to_array */
 struct info_param {
-    int length; /*The length of the string */
+    size_t length; /* The length of the string */
     char *str; /* The string */
     char *copy; /* The copy of the string */
     char **word_array; /* The array of words */
@@ -53,13 +53,14 @@ typedef enum separator_type {
 
 /* The settings of the my_get_number */
 typedef struct number_settings_s {
-    my_bool_t multiple_signe; /* Allow multiples signes in the string */
-    my_bool_t letter_before; /* Allow letters before the number */
-    my_bool_t letter_after; /* Allow letters after the number */
-    my_bool_t overflow; /* Allow overflow in the number */
+    bool multiple_signe; /* Allow multiples signes in the string */
+    bool letter_before; /* Allow letters before the number */
+    bool letter_after; /* Allow letters after the number */
+    bool overflow; /* Allow overflow in the number */
 } number_settings_t;
 
     #define NB number_settings_t
+    #define DEFAULT_NB ((NB) {false, false, false, false})
 
 /* Enum for the type of the data */
 typedef enum type {
@@ -102,10 +103,64 @@ typedef struct hashtable_entry_s {
 
 /* The hashtable structures */
 typedef struct hashtable_s {
-    int len; /* The length of the table */
-    int (*hash)(char *, int); /* The hash function */
+    size_t len; /* The length of the table */
+    ssize_t (*hash)(char *, size_t); /* The hash function */
     hashtable_entry_t **table; /* The table */
 } hashtable_t;
+
+/* The garbage data structure */
+typedef struct garbage_data_s {
+    void *ptr; /* Pointer to the data */
+    void (*free_func)(void *); /* Function to free the data */
+} garbage_data_t;
+
+/* The point structure */
+typedef struct point_s {
+    const char *file; /* The file name */
+    const int line; /* The line number */
+    const char *func; /* The function name */
+} point_t;
+
+/* The logs type enumeration */
+typedef enum logs_type_e {
+    LOGS_NONE = 0, /* No type */
+    LOGS_DEBUG = 1, /* Debug */
+    LOGS_WARNING = 2, /* Warning */
+    LOGS_ERROR = 3 /* Error */
+} logs_type_t;
+
+/* The logs type strings */
+extern const char *logs_type_strings[];
+
+/* The logs type colors */
+extern const char *logs_type_color[];
+
+/* The vector2s structure */
+typedef struct vector2s_s {
+    ssize_t x; /* The x coordinate */
+    ssize_t y; /* The y coordinate */
+} vector2s_t;
+
+/* The vector2u structure */
+typedef struct vector2u_s {
+    size_t x; /* The x coordinate */
+    size_t y; /* The y coordinate */
+} vector2u_t;
+
+/* The vector2d structure */
+typedef struct vector2d_s {
+    double x; /* The x coordinate */
+    double y; /* The y coordinate */
+} vector2d_t;
+
+
+
+/* Network aliases */
+
+typedef struct pollfd pollfd_t;
+typedef struct sockaddr_in sockaddr_in_t;
+
+
 
 typedef union my_double_s {
     double value;
@@ -126,23 +181,23 @@ typedef union my_long_double_s {
 } my_long_double_t;
 
 typedef struct flag_s {
-    int flag_id;
+    uint8_t flag_id;
     bool attributes[5];
-    int width;
+    ssize_t width;
     bool precision;
-    int precision_value;
-    int specifier_id;
+    size_t precision_value;
+    uint8_t specifier_id;
     char *sign;
 } flag_t;
 
 typedef struct format_s {
     char const *format_str;
     va_list format_list;
-    intmax_t total_len;
+    size_t total_len;
     node_t *str_list;
-    int current_index;
+    size_t current_index;
     flag_t current_flag;
-    int status;
+    bool invalid_status;
 } format_t;
 
 extern const char *format_specifiers[];

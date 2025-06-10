@@ -1,0 +1,29 @@
+/*
+** EPITECH PROJECT, 2025
+** zappy
+** File description:
+** The sgt.c
+*/
+/**
+ * @file sgt.c
+ * @brief The sgt.c
+ * @author Nicolas TORO
+ */
+
+#include "commands/gui.h"
+
+void send_sgt_to_gui(UNUSED server_t *server, UNUSED client_t *client)
+{
+    if (server == NULL)
+        return;
+    if (client != NULL) {
+        dprintf(client->socket_fd, "sgt %zu\n",
+            server->game.game_settings.frequency);
+        return;
+    }
+    for (size_t index = 0; index < server->current_clients_number; index++) {
+        if (server->client_list[index]->is_gui)
+            dprintf(server->client_list[index]->socket_fd,
+                "sgt %zu\n", server->game.game_settings.frequency);
+    }
+}

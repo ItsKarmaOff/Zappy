@@ -22,7 +22,7 @@
  */
 char *my_add_chr(char *str, char chr)
 {
-    int index = 0;
+    size_t index = 0;
 
     for (; str[index] != '\0'; index++);
     str[index] = chr;

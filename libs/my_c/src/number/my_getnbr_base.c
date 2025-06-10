@@ -12,21 +12,21 @@
 
 #include "../../include/my.h"
 
-static int is_valid(char c, char const *base)
+static bool is_valid(char c, char const *base)
 {
-    for (int i = 0; i < my_strlen(base); i++) {
+    for (size_t i = 0; i < my_strlen(base); i++) {
         if (c == base[i])
-            return 1;
+            return true;
     }
     if (c == '-' || c == '+')
-        return 1;
-    return 0;
+        return true;
+    return false;
 }
 
-static int calculate_base(char const *str, char const *base,
-    int *index, int **ptr)
+static ssize_t calculate_base(char const *str, char const *base,
+    size_t *index, int **ptr)
 {
-    if (is_valid(str[index[0]], base) == 1) {
+    if (is_valid(str[index[0]], base) == true) {
         if (str[index[0]] == '-') {
             *(ptr[0]) = - *(ptr[0]);
             return 0;
@@ -48,20 +48,21 @@ static int calculate_base(char const *str, char const *base,
  * @note The function accept multiple signes in the string
  * @param str The string to convert
  * @param base The base of the number
- * @return <b>int64_t</b> The number found in the string
+ * @return <b>intmax_t</b> The number found in the string
  * @author Nicolas TORO
  */
-int64_t my_getnbr_base(char const *str, char const *base)
+intmax_t my_getnbr_base(char const *str, char const *base)
 {
-    int64_t result = 0;
+    intmax_t result = 0;
     int signe_save = 0;
     int signe = 1;
     int error = 0;
-    int index[2];
+    size_t index[2];
     int *ptr[2];
 
-    for (int i = my_strlen(str) - 1; i >= 0; i--) {
-        for (int j = 0; j < my_strlen(base) && error == 0 && signe == 1; j++) {
+    for (ssize_t i = my_strlen(str) - 1; i >= 0; i--) {
+        for (size_t j = 0; j < my_strlen(base)
+        && error == 0 && signe == 1; j++) {
             index[0] = i;
             index[1] = j;
             ptr[0] = &signe;

@@ -26,7 +26,7 @@ char *my_revstr(char *str)
 
     while (str[len] != '\0')
         len = len + 1;
-    for (int i = len / 2; i > 0; i--) {
+    for (size_t i = len / 2; i > 0; i--) {
         temp = str[i - 1];
         str[i - 1] = str[len - i];
         str[len - i] = temp;

@@ -22,7 +22,7 @@ void my_free_array(void **array)
 {
     if (array == NULL)
         return;
-    for (int i = 0; array[i] != NULL; i++)
+    for (size_t i = 0; array[i] != NULL; i++)
         FREE(array[i]);
     FREE(array);
 }

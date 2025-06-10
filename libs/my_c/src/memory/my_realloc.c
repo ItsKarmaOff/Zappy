@@ -19,7 +19,7 @@
  * @return <b>void *</b> A pointer to the new memory block
  * @author Nicolas TORO
  */
-void *my_realloc(void *pointer, uint64_t size)
+void *my_realloc(void *pointer, size_t size)
 {
     void *ptr = my_malloc(size);
 

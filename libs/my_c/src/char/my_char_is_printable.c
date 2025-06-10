@@ -15,12 +15,12 @@
 /**
  * @brief Checks if a char (c) is printable
  * @param c The char to check
- * @return <b>int</b> <u>1</u> if the char is printable, <u>0</u> otherwise
+ * @return <b>bool</b> <u>1</u> if the char is printable, <u>0</u> otherwise
  * @author Nicolas TORO
  */
-int my_char_is_printable(char const c)
+bool my_char_is_printable(char const c)
 {
-    if (c < 32 || c > 126)
-            return 0;
-    return 1;
+    if (c >= 32 && c <= 126)
+            return true;
+    return false;
 }

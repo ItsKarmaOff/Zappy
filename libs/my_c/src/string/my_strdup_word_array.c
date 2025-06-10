@@ -21,7 +21,7 @@
 char **my_strdup_word_array(char **array)
 {
     char **new_array;
-    int i = 0;
+    size_t i = 0;
 
     if (array == NULL)
         return NULL;

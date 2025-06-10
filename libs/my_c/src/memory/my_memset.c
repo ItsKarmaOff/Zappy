@@ -21,11 +21,11 @@
  * @return <b>void *</b> A pointer to the memory area
  * @author Nicolas TORO
  */
-void *my_memset(void *pointer, int value, uint64_t size)
+void *my_memset(void *pointer, int value, size_t size)
 {
     if (pointer == NULL)
         return NULL;
-    for (uint64_t i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
         ((char *)pointer)[i] = value;
     return pointer;
 }
