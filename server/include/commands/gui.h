@@ -234,7 +234,7 @@ void send_pfk_to_gui(server_t *server, client_t *client,
  * @param resource_id The ID of the resource being sent
  */
 void send_pdr_to_gui(server_t *server, client_t *client,
-    player_t *player, size_t resource_id);
+    player_t *player, resources_t resource_id);
 
 /**
  * @brief Send the "pgt" command to all GUI clients
@@ -246,7 +246,7 @@ void send_pdr_to_gui(server_t *server, client_t *client,
  * @param resource_id The ID of the resource being sent
  */
 void send_pgt_to_gui(server_t *server, client_t *client,
-    player_t *player, size_t resource_id);
+    player_t *player, resources_t resource_id);
 
 /**
  * @brief Send the "pdi" command to all GUI clients
