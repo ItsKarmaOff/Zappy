@@ -14,5 +14,14 @@
 
 void send_sbp_to_gui(UNUSED server_t *server, UNUSED client_t *client)
 {
-    return;
+    if (server == NULL)
+        return;
+    if (client != NULL) {
+        dprintf(client->socket_fd, "sbp\n");
+        return;
+    }
+    for (size_t index = 0; index < server->current_clients_number; index++) {
+        if (server->client_list[index]->is_gui)
+            dprintf(server->client_list[index]->socket_fd, "sbp\n");
+    }
 }
