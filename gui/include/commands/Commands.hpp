@@ -39,7 +39,7 @@ namespace Gui
         static constexpr const char *SEG = "seg"; // End of game
         static constexpr const char *SMG = "smg"; // Message from the server
         static constexpr const char *SUC = "suc"; // Unknown command
-        static constexpr const char *SDP = "sdp"; // Command parameter
+        static constexpr const char *SBP = "sbp"; // Command parameter
 
     class Commands {
         public:
@@ -63,7 +63,7 @@ namespace Gui
         /**
          * @brief Handle a command.
          */
-        void handleCommand(std::shared_ptr<QueueManager> &);
+        void handleResponses(std::shared_ptr<QueueManager> &);
 
         /**
          * @brief Handle the MSZ command.
@@ -181,9 +181,9 @@ namespace Gui
         void handleSUC(std::string &param);
 
         /**
-         * @brief Handle the SDP command.
+         * @brief Handle the SBP command.
          */
-        void handleSDP(std::string &param);
+        void handleSBP(std::string &param);
 
     private:
         std::unordered_map<std::string, std::function<void(std::string &)>> _commandHandlers;

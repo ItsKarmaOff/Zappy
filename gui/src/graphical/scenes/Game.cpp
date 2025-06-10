@@ -6,6 +6,8 @@
 */
 
 #include "Graphics.hpp"
+#include "TileInfo.hpp"
+#include "Logs.hpp"
 #include <raylib.h>
 
 namespace Gui {
@@ -15,10 +17,14 @@ namespace Gui {
             _scene = MENU;
             EnableCursor();
         }
-        // on peut pas modifier la touche
-        if (IsKeyPressed('Z')) {
+        // on peut pas modifier la touche, mais Z = W (dcp faut appuyer sur W)
+        if (IsKeyPressed(KEY_Z)) {
             _game->getCamera().target =
-            { _game->getMapSize().x / 2, 0.0f, _game->getMapSize().y / 2 };
+            { _game->getMapSize().x / 2 * TILE_SIZE, 0.0f, _game->getMapSize().y / 2 * TILE_SIZE };
+        }
+        if (IsKeyPressed(KEY_TAB)) {
+            _scene = SCOREBOARD;
+            EnableCursor();
         }
     }
 
@@ -33,15 +39,35 @@ namespace Gui {
 
         BeginMode3D(_game->getCamera());
         drawGameMap();
+        drawPlayers();
         EndMode3D();
+        drawTeams();
+
     }
 
     void Graphics::drawGameMap(void)
     {
-        for (int i = 0; i < _game->getMapSize().x; i++) {
-            for (int j = 0; j < _game->getMapSize().y; j++) {
-                DrawCube({(float)i, 0, (float)j}, 1.0f, 1.0f, 1.0f, SKYBLUE);
-                DrawCubeWires({(float)i, 0.0f, (float)j}, 1.0f, 1.0f, 1.0f, BLACK);
+        for (auto &[k, tile] : _game->getTiles()) {
+            tile.draw(_assetsManager.getModels(), _assetsManager.getModelsScale());
+        }
+    }
+    void Graphics::drawTeams(void)
+    {
+        int i = 0;
+        for (auto &[key, team] : _game->getTeams()) {
+            // draw team name
+            float textHeight = 40;
+            float textWidth = MeasureText(key.c_str(), textHeight);
+            DrawText(key.c_str(), GetScreenWidth() - textWidth - 10, 0 + i * textHeight, textHeight, team.getColor());
+            i++;
+        }
+    }
+    void Graphics::drawPlayers(void)
+    {
+        for (auto &[id, player] : _game->getPlayers()) {
+            if (_game->getTiles().contains({player->getPos().x, player->getPos().y})) {
+                TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
+                DrawModel(_assetsManager.getModels()["player"], {tile.getPos().x, 2, tile.getPos().z}, _assetsManager.getModelsScale()["player"], player->getColor());
             }
         }
     }

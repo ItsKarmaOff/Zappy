@@ -6,6 +6,7 @@
 */
 
 #include "GameInfo.hpp"
+#include "Lib.hpp"
 #include <raylib.h>
 
 namespace Gui {
@@ -17,6 +18,9 @@ namespace Gui {
         _camera.up = {0, 1.0, 0};
         _camera.projection = CAMERA_PERSPECTIVE;
         _camera.fovy = 45.0f;
+        _tiles = {};
+        _teams = {};
+        _players = {};
     }
 
     Camera3D& GameInfo::getCamera()
@@ -27,6 +31,22 @@ namespace Gui {
     Vector2& GameInfo::getMapSize()
     {
         return _mapSize;
+    }
+
+
+    std::unordered_map<Vector2, TileInfo> &GameInfo::getTiles()
+    {
+        return _tiles;
+    }
+
+    std::unordered_map<std::string, TeamInfo> &GameInfo::getTeams(void)
+    {
+        return _teams;
+    }
+
+    std::unordered_map<size_t, std::shared_ptr<PlayerInfo>> &GameInfo::getPlayers()
+    {
+        return _players;
     }
 
 }
