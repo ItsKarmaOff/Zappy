@@ -45,10 +45,10 @@ namespace Gui {
 
         /* sibur */
         Model sibur = LoadModel("gui/assets/sibur/scene.gltf");
-        Texture2D baseColor1 = LoadTexture("gui/assets/sibur/textures/baseColor.png");
-        Texture2D roughness1 = LoadTexture("gui/assets/sibur/textures/metallicRoughness.png");
-        Texture2D emissive1  = LoadTexture("gui/assets/sibur/textures/emissive.png");
-        Texture2D normal1    = LoadTexture("gui/assets/sibur/textures/normal.png");
+        Texture2D baseColor1 = LoadTexture("gui/assets/sibur/textures/Default_OBJ.024_baseColor.png");
+        Texture2D roughness1 = LoadTexture("gui/assets/sibur/textures/Default_OBJ.024_metallicRoughness.png");
+        Texture2D emissive1  = LoadTexture("gui/assets/sibur/textures/Default_OBJ.024_emissive.png");
+        Texture2D normal1    = LoadTexture("gui/assets/sibur/textures/Default_OBJ.024_normal.png");
         sibur.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = baseColor1;
         sibur.materials[0].maps[MATERIAL_MAP_ROUGHNESS].texture = roughness1;
         sibur.materials[0].maps[MATERIAL_MAP_EMISSION].texture = emissive1;
