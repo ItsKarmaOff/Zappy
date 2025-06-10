@@ -10,6 +10,7 @@
 #include "Logs.hpp"
 #include <chrono>
 #include <raylib.h>
+#include <raymath.h>
 
 namespace Gui {
     void Graphics::handleEventsGame(void)
@@ -71,7 +72,11 @@ namespace Gui {
                 return;
             }
             TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
+            _assetsManager.getModels()["player"].transform = MatrixRotateY(DEG2RAD * (90 * player->getOrientation()));
+            
             DrawModel(_assetsManager.getModels()["player"], {tile.getPos().x, 2, tile.getPos().z}, _assetsManager.getModelsScale()["player"], player->getColor());
+
+            // debugging broadcast message
             if (!player->getMessagesToBroadcast().empty()) {
                 std::string msg = player->getMessagesToBroadcast().front();
                 std::chrono::steady_clock::time_point currentTime = std::chrono::steady_clock::now();
@@ -89,6 +94,7 @@ namespace Gui {
                     }
                 }
             }
+
         }
     }
 }
