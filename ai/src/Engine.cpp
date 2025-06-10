@@ -53,42 +53,37 @@ std::string Engine::getResponse()
 
 void Engine::_communicate()
 {
-    DEBUG << "Starting communication thread";
-    while (_isRunning) {
-        try {
-            std::string response = getResponse();
-            if (response.empty())
-                continue;
-            DEBUG << "Processing response: " << response;
-        } catch (const Lib::Exceptions::Critical &e) {
-            ERROR << "Critical error: " << e.what();
-            _isRunning = false;
-        } catch (const Lib::Exceptions::Warning &e) {
-            WARNING << "Warning: " << e.what();
-        }
-    }
-    DEBUG << "Communication thread ended";
+    CommandsQueue commandsQueue;
+    CommandsManager commandsManager(_clientSocket);
 }
 
 void Engine::_init()
 {
     DEBUG << "Initializing Engine";
     DEBUG << "Init client: IP: " << _parser.getMachine() << " PORT: " << _parser.getPort();
+
     _clientSocket = std::make_unique<Lib::Socket>(AF_INET, SOCK_STREAM, 0);
     _client.sin_family = AF_INET;
     _client.sin_port = htons(_parser.getPort());
     _client.sin_addr.s_addr = inet_addr(_parser.getMachine().c_str());
-    while (_isRunning) {
+
     if (connect(_clientSocket->getSocket(), (const struct sockaddr *)&_client, sizeof(_client)) == -1)
         throw Lib::Exceptions::Critical("Connect failed: " + std::string(strerror(errno)));
-    
+
     if (getResponse() != "WELCOME")
         throw Lib::Exceptions::Critical("Connection failed.");
+
     send(_clientSocket->getSocket(), (_parser.getName() + "\n").c_str(), _parser.getName().size() + 1, 0);
+
     std::string response = getResponse();
-    if (response == "KO" || response == "0") {
+    if (response == "KO") {
         throw Lib::Exceptions::Critical("Connection failed: " + response);
     }
+    while (getResponse() != "OK") {
+        DEBUG << "Waiting for OK response from server...";
+        continue;
+    }
     DEBUG << "Connected to server: " << response;
-}
+    _player = std::make_shared<Player>(_parser.getName());
+    return;
 }

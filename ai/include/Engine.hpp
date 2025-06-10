@@ -12,6 +12,8 @@
 #include "Socket.hpp"
 #include "Lib.hpp"
 #include "Player.hpp"
+#include "CommandsManager.hpp"
+#include "CommandsQueue.hpp"
 
 class Engine {
     public:
@@ -29,6 +31,7 @@ class Engine {
         bool _isRunning = true;
         std::unique_ptr<std::thread> _communicationthread;
         std::shared_ptr<Player> _player;
+        
 };
 
 #endif /* !ENGINE_HPP_ */
