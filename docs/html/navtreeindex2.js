@@ -1,7 +1,13 @@
 var NAVTREEINDEX2 =
 {
+"incantation_8c.html":[5,0,4,1,0,0,5],
+"index.html":[],
+"inventory_8c.html":[5,0,4,1,0,0,6],
+"left_8c.html":[5,0,4,1,0,0,7],
+"look_8c.html":[5,0,4,1,0,0,8],
+"macros_8h.html":[5,0,3,0,0,0,3],
+"macros_8h_source.html":[5,0,3,0,0,0,3],
 "main_8c.html":[5,0,4,1,4],
-"mct_8c.html":[5,0,4,1,0,1,1],
 "md_README.html":[2],
 "md_docs_COMMIT_POLICIES.html":[0],
 "md_docs_COMMIT_POLICIES.html#autotoc_md1":[0,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX2 =
 "my__show__word__array_8c.html#a05a9b1758c5442b2fbf5f24eac7f1c09":[5,0,3,0,1,9,14,0],
 "my__showmem_8c.html":[5,0,3,0,1,9,15],
 "my__showmem_8c.html#a7ed5cd2c5cb08c607202e14c863f64ac":[5,0,3,0,1,9,15,0],
-"my__showstr_8c.html":[5,0,3,0,1,9,16],
-"my__showstr_8c.html#a08e055991b62da4b550a8905a0b17cdb":[5,0,3,0,1,9,16,0],
-"my__sort__int__array_8c.html":[5,0,3,0,1,0,1],
-"my__sort__int__array_8c.html#aa087f5b641f4c296f090729c0de06740":[5,0,3,0,1,0,1,0],
-"my__sort__list_8c.html":[5,0,3,0,1,4,18],
-"my__sort__list_8c.html#adb5d70f592cd1efbbebf27a90c8023fd":[5,0,3,0,1,4,18,0],
-"my__sort__params_8c.html":[5,0,3,0,1,7,4]
+"my__showstr_8c.html":[5,0,3,0,1,9,16]
 };

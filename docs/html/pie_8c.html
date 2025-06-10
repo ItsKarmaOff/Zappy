@@ -94,14 +94,67 @@ $(document).ready(function(){initNavTree('pie_8c.html',''); initResizable(); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8b173b5186adb358d63faddc58d0bcab"><td class="memItemLeft" align="right" valign="top"><a id="a8b173b5186adb358d63faddc58d0bcab" name="a8b173b5186adb358d63faddc58d0bcab"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>send_pie_to_gui</b> (UNUSED <a class="el" href="structserver__s.html">server_t</a> *server)</td></tr>
-<tr class="separator:a8b173b5186adb358d63faddc58d0bcab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab088446fccace35e659c5770e8cf5baf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pie_8c.html#ab088446fccace35e659c5770e8cf5baf">send_pie_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client, <a class="el" href="structvector2u__s.html">vector2u_t</a> position, bool incantation_result)</td></tr>
+<tr class="memdesc:ab088446fccace35e659c5770e8cf5baf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "pie" command to all GUI clients.  <a href="pie_8c.html#ab088446fccace35e659c5770e8cf5baf">More...</a><br /></td></tr>
+<tr class="separator:ab088446fccace35e659c5770e8cf5baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="pie_8c.html" title="The pie.c.">pie.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="ab088446fccace35e659c5770e8cf5baf" name="ab088446fccace35e659c5770e8cf5baf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab088446fccace35e659c5770e8cf5baf">&#9670;&nbsp;</a></span>send_pie_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_pie_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structvector2u__s.html">vector2u_t</a>&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>incantation_result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "pie" command to all GUI clients. </p>
+<dl class="section note"><dt>Note</dt><dd>To send to a specific GUI client, use the <code>client</code> parameter, otherwise it will send to all GUI clients </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">client</td><td>The client instance to send the command to </td></tr>
+    <tr><td class="paramname">position</td><td>The position of the tile where the incantation took place </td></tr>
+    <tr><td class="paramname">incantation_result</td><td>The result of the incantation (true for success, false for failure) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

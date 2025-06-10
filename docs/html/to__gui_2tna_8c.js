@@ -1,4 +1,4 @@
 var to__gui_2tna_8c =
 [
-    [ "send_tna_to_gui", "to__gui_2tna_8c.html#a54d126df78139f9eae03e19b9448589b", null ]
+    [ "send_tna_to_gui", "to__gui_2tna_8c.html#a15563c161da11fdb5057b8f625e0d4b8", null ]
 ];

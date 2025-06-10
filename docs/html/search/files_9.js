@@ -3,7 +3,7 @@ var searchData=
   ['macros_2eh_0',['macros.h',['../macros_8h.html',1,'']]],
   ['main_2ec_1',['main.c',['../main_8c.html',1,'']]],
   ['main_2ecpp_2',['Main.cpp',['../gui_2src_2Main_8cpp.html',1,'(Global Namespace)'],['../ai_2src_2Main_8cpp.html',1,'(Global Namespace)']]],
-  ['mct_2ec_3',['mct.c',['../mct_8c.html',1,'']]],
+  ['mct_2ec_3',['mct.c',['../to__gui_2mct_8c.html',1,'(Global Namespace)'],['../from__gui_2mct_8c.html',1,'(Global Namespace)']]],
   ['msz_2ec_4',['msz.c',['../to__gui_2msz_8c.html',1,'(Global Namespace)'],['../from__gui_2msz_8c.html',1,'(Global Namespace)']]],
   ['my_2eh_5',['my.h',['../my_8h.html',1,'']]],
   ['my_5fadd_5fchr_2ec_6',['my_add_chr.c',['../my__add__chr_8c.html',1,'']]],

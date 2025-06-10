@@ -94,14 +94,60 @@ $(document).ready(function(){initNavTree('pdi_8c.html',''); initResizable(); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a91bb4258738ac194e1d5aeaf3a490f75"><td class="memItemLeft" align="right" valign="top"><a id="a91bb4258738ac194e1d5aeaf3a490f75" name="a91bb4258738ac194e1d5aeaf3a490f75"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>send_pdi_to_gui</b> (UNUSED <a class="el" href="structserver__s.html">server_t</a> *server, UNUSED <a class="el" href="structplayer__s.html">player_t</a> *player)</td></tr>
-<tr class="separator:a91bb4258738ac194e1d5aeaf3a490f75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ab5dbb123b63405972c0cc0122d1403"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pdi_8c.html#a8ab5dbb123b63405972c0cc0122d1403">send_pdi_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client, <a class="el" href="structplayer__s.html">player_t</a> *player)</td></tr>
+<tr class="memdesc:a8ab5dbb123b63405972c0cc0122d1403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "pdi" command to all GUI clients.  <a href="pdi_8c.html#a8ab5dbb123b63405972c0cc0122d1403">More...</a><br /></td></tr>
+<tr class="separator:a8ab5dbb123b63405972c0cc0122d1403"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="pdi_8c.html" title="The pdi.c.">pdi.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a8ab5dbb123b63405972c0cc0122d1403" name="a8ab5dbb123b63405972c0cc0122d1403"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ab5dbb123b63405972c0cc0122d1403">&#9670;&nbsp;</a></span>send_pdi_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_pdi_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "pdi" command to all GUI clients. </p>
+<dl class="section note"><dt>Note</dt><dd>To send to a specific GUI client, use the <code>client</code> parameter, otherwise it will send to all GUI clients </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">client</td><td>The client instance to send the command to </td></tr>
+    <tr><td class="paramname">player</td><td>The player whose information is being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
