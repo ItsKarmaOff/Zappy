@@ -66,9 +66,19 @@ namespace Gui {
 
         int i = 0;
         for (auto &[key, team] : _game->getTeams()) {
+            // draw team name
             float textHeight = 40;
             float textWidth = MeasureText(key.c_str(), textHeight);
             DrawText(key.c_str(), GetScreenWidth() - textWidth - 10, 0 + i * textHeight, textHeight, teamColorMap[key]);
+            // draw team player
+            for (auto &[id, player] : team.getPlayers()) {
+                DEBUG_CONCAT << "Player " << id;
+                if (_game->getTiles().contains({player->getPos().x, player->getPos().y})) {
+                    TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
+                    DrawModel(_assetsManager.getModels()["player"], tile.getPos(), _assetsManager.getModelsScale()["player"], teamColorMap[key]);
+                    DEBUG_CONCAT << "player draw";
+                }
+            }
         }
     }
 }

@@ -75,6 +75,11 @@ namespace Gui {
         /* island */
         _models["island"] = LoadModel("gui/assets/island/island.gltf");
         _modelsScale["island"] = 0.5f;
+
+
+        /* player */
+        _models["player"] = LoadModel("gui/assets/woman.glb");
+        _modelsScale["player"] = 1.0f;
     }
 
 
