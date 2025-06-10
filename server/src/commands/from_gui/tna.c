@@ -12,8 +12,8 @@
 
 #include "commands/gui.h"
 
-void handle_command_tna(UNUSED server_t *server, UNUSED client_t *client,
-    UNUSED char **args)
+void handle_command_tna(server_t *server, client_t *client,
+    char **args)
 {
     DEBUG("Executing \"tna\" command\n");
     if (my_array_len((void **)args) != 1) {
