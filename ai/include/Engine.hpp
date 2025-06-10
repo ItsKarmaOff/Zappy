@@ -9,15 +9,22 @@
 #define ENGINE_HPP_
 
 #include "Parser.hpp"
+#include "Socket.hpp"
+#include "Lib.hpp"
 
 class Engine {
     public:
         Engine(Parser &parser);
         ~Engine();
         void run();
+        std::string getResponse();
     protected:
     private:
+        void _init();
         Parser _parser;
+        std::shared_ptr<Lib::Socket> _clientSocket;
+        struct sockaddr_in _client;
+        bool _isRunning = false;
 };
 
 #endif /* !ENGINE_HPP_ */
