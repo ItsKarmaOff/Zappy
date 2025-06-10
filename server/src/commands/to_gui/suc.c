@@ -2,29 +2,27 @@
 ** EPITECH PROJECT, 2025
 ** zappy
 ** File description:
-** The tna.c
+** The suc.c
 */
 /**
- * @file tna.c
- * @brief The tna.c
+ * @file suc.c
+ * @brief The suc.c
  * @author Nicolas TORO
  */
 
 #include "commands/gui.h"
 
-void send_tna_to_gui(server_t *server, client_t *client,
-    team_t *team)
+void send_suc_to_gui(UNUSED server_t *server, UNUSED client_t *client)
 {
-    if (server == NULL || team == NULL)
+    if (server == NULL)
         return;
     if (client != NULL) {
-        dprintf(client->socket_fd, "tna %s\n", team->name);
+        dprintf(client->socket_fd, "suc\n");
         return;
     }
     for (size_t index = 0; index < server->current_clients_number; index++) {
         if (server->client_list[index]->is_gui) {
-            dprintf(server->client_list[index]->socket_fd, "tna %s\n",
-                team->name);
+            dprintf(server->client_list[index]->socket_fd, "suc\n");
         }
     }
 }

@@ -12,7 +12,19 @@
 
 #include "commands/gui.h"
 
-void send_ebo_to_gui(UNUSED server_t *server, UNUSED player_t *egg)
+void send_ebo_to_gui(UNUSED server_t *server, UNUSED client_t *client,
+    UNUSED player_t *egg)
 {
-    return;
+    if (server == NULL || egg == NULL)
+        return;
+    if (client != NULL) {
+        dprintf(client->socket_fd, "ebo #%zu\n", egg->id);
+        return;
+    }
+    for (size_t index = 0; index < server->current_clients_number; index++) {
+        if (server->client_list[index]->is_gui) {
+            dprintf(server->client_list[index]->socket_fd,
+                "ebo #%zu\n", egg->id);
+        }
+    }
 }
