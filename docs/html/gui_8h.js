@@ -24,6 +24,7 @@ var gui_8h =
     [ "send_pic_to_gui", "gui_8h.html#a68ce8c0258de765196416f898913abac", null ],
     [ "send_pie_to_gui", "gui_8h.html#ab088446fccace35e659c5770e8cf5baf", null ],
     [ "send_pin_to_gui", "gui_8h.html#ab38cca6d8a172f969990635a12c98fb9", null ],
+    [ "send_plv_to_gui", "gui_8h.html#a98e1b706f428cff1db8b9d98cf5a3829", null ],
     [ "send_pnw_to_gui", "gui_8h.html#a6715755998c064051071709ea8e2d3b0", null ],
     [ "send_ppo_to_gui", "gui_8h.html#a0b674955cd5e1f332332b470b6bf4838", null ],
     [ "send_sbp_to_gui", "gui_8h.html#a6f8d2c4dc14f087e27335602755bd0dc", null ],

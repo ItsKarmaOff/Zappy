@@ -102,6 +102,9 @@ Functions</h2></td></tr>
 <tr class="memitem:abe1cee1cf2571ff0f36a214276eaa6b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#abe1cee1cf2571ff0f36a214276eaa6b4">create_player_from_player</a> (<a class="el" href="structgame__s.html">game_t</a> *game, <a class="el" href="structplayer__s.html">player_t</a> *creator)</td></tr>
 <tr class="memdesc:abe1cee1cf2571ff0f36a214276eaa6b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a player from an existing player.  <a href="game_8h.html#abe1cee1cf2571ff0f36a214276eaa6b4">More...</a><br /></td></tr>
 <tr class="separator:abe1cee1cf2571ff0f36a214276eaa6b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a881c1dd62a404a42fb72ed87f869759d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a881c1dd62a404a42fb72ed87f869759d">get_player_by_id</a> (const <a class="el" href="structgame__s.html">game_t</a> *game, size_t player_id)</td></tr>
+<tr class="memdesc:a881c1dd62a404a42fb72ed87f869759d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a player by their ID.  <a href="game_8h.html#a881c1dd62a404a42fb72ed87f869759d">More...</a><br /></td></tr>
+<tr class="separator:a881c1dd62a404a42fb72ed87f869759d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a949fb3f2e4f99137377f6e06066ef539"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteam__s.html">team_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a949fb3f2e4f99137377f6e06066ef539">create_team</a> (<a class="el" href="structgame__s.html">game_t</a> *game, const char *name)</td></tr>
 <tr class="memdesc:a949fb3f2e4f99137377f6e06066ef539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a team with the given name.  <a href="game_8h.html#a949fb3f2e4f99137377f6e06066ef539">More...</a><br /></td></tr>
 <tr class="separator:a949fb3f2e4f99137377f6e06066ef539"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -318,6 +321,44 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the next egg, or NULL if no eggs are available </dd></dl>
+
+</div>
+</div>
+<a id="a881c1dd62a404a42fb72ed87f869759d" name="a881c1dd62a404a42fb72ed87f869759d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a881c1dd62a404a42fb72ed87f869759d">&#9670;&nbsp;</a></span>get_player_by_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structplayer__s.html">player_t</a> * get_player_by_id </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structgame__s.html">game_t</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>player_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a player by their ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>The game to get the player from </td></tr>
+    <tr><td class="paramname">player_id</td><td>The ID of the player to get </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the player, or NULL if not found </dd></dl>
 
 </div>
 </div>

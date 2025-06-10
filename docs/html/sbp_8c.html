@@ -94,14 +94,53 @@ $(document).ready(function(){initNavTree('sbp_8c.html',''); initResizable(); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6c4f02b7dbdb55c754f5307e0702fdd7"><td class="memItemLeft" align="right" valign="top"><a id="a6c4f02b7dbdb55c754f5307e0702fdd7" name="a6c4f02b7dbdb55c754f5307e0702fdd7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>send_sbp_to_gui</b> (UNUSED <a class="el" href="structserver__s.html">server_t</a> *server, UNUSED <a class="el" href="structclient__s.html">client_t</a> *client)</td></tr>
-<tr class="separator:a6c4f02b7dbdb55c754f5307e0702fdd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f8d2c4dc14f087e27335602755bd0dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sbp_8c.html#a6f8d2c4dc14f087e27335602755bd0dc">send_sbp_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client)</td></tr>
+<tr class="memdesc:a6f8d2c4dc14f087e27335602755bd0dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "sbp" command to all GUI clients.  <a href="sbp_8c.html#a6f8d2c4dc14f087e27335602755bd0dc">More...</a><br /></td></tr>
+<tr class="separator:a6f8d2c4dc14f087e27335602755bd0dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="sbp_8c.html" title="The sbp.c.">sbp.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a6f8d2c4dc14f087e27335602755bd0dc" name="a6f8d2c4dc14f087e27335602755bd0dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f8d2c4dc14f087e27335602755bd0dc">&#9670;&nbsp;</a></span>send_sbp_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_sbp_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "sbp" command to all GUI clients. </p>
+<dl class="section note"><dt>Note</dt><dd>To send to a specific GUI client, use the <code>client</code> parameter, otherwise it will send to all GUI clients </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">client</td><td>The client instance to send the command to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

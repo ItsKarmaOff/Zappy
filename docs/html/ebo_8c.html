@@ -94,14 +94,60 @@ $(document).ready(function(){initNavTree('ebo_8c.html',''); initResizable(); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5d07121e0f29f8bf7dbaf4d15c7baf3c"><td class="memItemLeft" align="right" valign="top"><a id="a5d07121e0f29f8bf7dbaf4d15c7baf3c" name="a5d07121e0f29f8bf7dbaf4d15c7baf3c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>send_ebo_to_gui</b> (UNUSED <a class="el" href="structserver__s.html">server_t</a> *server, UNUSED <a class="el" href="structclient__s.html">client_t</a> *client, UNUSED <a class="el" href="structplayer__s.html">player_t</a> *egg)</td></tr>
-<tr class="separator:a5d07121e0f29f8bf7dbaf4d15c7baf3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d17b4afc047cca24b6f783d394ea0cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ebo_8c.html#a0d17b4afc047cca24b6f783d394ea0cf">send_ebo_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client, <a class="el" href="structplayer__s.html">player_t</a> *egg)</td></tr>
+<tr class="memdesc:a0d17b4afc047cca24b6f783d394ea0cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "ebo" command to all GUI clients.  <a href="ebo_8c.html#a0d17b4afc047cca24b6f783d394ea0cf">More...</a><br /></td></tr>
+<tr class="separator:a0d17b4afc047cca24b6f783d394ea0cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="ebo_8c.html" title="The ebo.c.">ebo.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a0d17b4afc047cca24b6f783d394ea0cf" name="a0d17b4afc047cca24b6f783d394ea0cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d17b4afc047cca24b6f783d394ea0cf">&#9670;&nbsp;</a></span>send_ebo_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_ebo_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>egg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "ebo" command to all GUI clients. </p>
+<dl class="section note"><dt>Note</dt><dd>To send to a specific GUI client, use the <code>client</code> parameter, otherwise it will send to all GUI clients </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">client</td><td>The client instance to send the command to </td></tr>
+    <tr><td class="paramname">egg</td><td>The egg whose information is being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

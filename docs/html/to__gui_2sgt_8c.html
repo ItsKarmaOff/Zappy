@@ -94,14 +94,53 @@ $(document).ready(function(){initNavTree('to__gui_2sgt_8c.html',''); initResizab
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a98b41fb80183ace56f33857c93017ef5"><td class="memItemLeft" align="right" valign="top"><a id="a98b41fb80183ace56f33857c93017ef5" name="a98b41fb80183ace56f33857c93017ef5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>send_sgt_to_gui</b> (UNUSED <a class="el" href="structserver__s.html">server_t</a> *server, UNUSED <a class="el" href="structclient__s.html">client_t</a> *client)</td></tr>
-<tr class="separator:a98b41fb80183ace56f33857c93017ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adab4e2418e9a7e26bdd4e5854691ed8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="to__gui_2sgt_8c.html#adab4e2418e9a7e26bdd4e5854691ed8a">send_sgt_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client)</td></tr>
+<tr class="memdesc:adab4e2418e9a7e26bdd4e5854691ed8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "sgt" command to all GUI clients.  <a href="to__gui_2sgt_8c.html#adab4e2418e9a7e26bdd4e5854691ed8a">More...</a><br /></td></tr>
+<tr class="separator:adab4e2418e9a7e26bdd4e5854691ed8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The sgt.c. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="adab4e2418e9a7e26bdd4e5854691ed8a" name="adab4e2418e9a7e26bdd4e5854691ed8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adab4e2418e9a7e26bdd4e5854691ed8a">&#9670;&nbsp;</a></span>send_sgt_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_sgt_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "sgt" command to all GUI clients. </p>
+<dl class="section note"><dt>Note</dt><dd>To send to a specific GUI client, use the <code>client</code> parameter, otherwise it will send to all GUI clients </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">client</td><td>The client instance to send the command to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

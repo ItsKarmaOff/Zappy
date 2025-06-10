@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('gui_8h.html',''); initResizable(); });
 
 <p>The <a class="el" href="gui_8h.html" title="The gui.h.">gui.h</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="server__data__structures_8h_source.html">server_data_structures.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="network_8h_source.html">network.h</a>&quot;</code><br />
 </div>
 <p><a href="gui_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -141,6 +141,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a0b674955cd5e1f332332b470b6bf4838"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a0b674955cd5e1f332332b470b6bf4838">send_ppo_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client, <a class="el" href="structplayer__s.html">player_t</a> *player)</td></tr>
 <tr class="memdesc:a0b674955cd5e1f332332b470b6bf4838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "ppo" command to all GUI clients.  <a href="gui_8h.html#a0b674955cd5e1f332332b470b6bf4838">More...</a><br /></td></tr>
 <tr class="separator:a0b674955cd5e1f332332b470b6bf4838"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98e1b706f428cff1db8b9d98cf5a3829"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#a98e1b706f428cff1db8b9d98cf5a3829">send_plv_to_gui</a> (UNUSED <a class="el" href="structserver__s.html">server_t</a> *server, UNUSED <a class="el" href="structclient__s.html">client_t</a> *client, UNUSED <a class="el" href="structplayer__s.html">player_t</a> *player)</td></tr>
+<tr class="memdesc:a98e1b706f428cff1db8b9d98cf5a3829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "plv" command to all GUI clients.  <a href="gui_8h.html#a98e1b706f428cff1db8b9d98cf5a3829">More...</a><br /></td></tr>
+<tr class="separator:a98e1b706f428cff1db8b9d98cf5a3829"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab38cca6d8a172f969990635a12c98fb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8h.html#ab38cca6d8a172f969990635a12c98fb9">send_pin_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client, <a class="el" href="structplayer__s.html">player_t</a> *player)</td></tr>
 <tr class="memdesc:ab38cca6d8a172f969990635a12c98fb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "pin" command to all GUI clients.  <a href="gui_8h.html#ab38cca6d8a172f969990635a12c98fb9">More...</a><br /></td></tr>
 <tr class="separator:ab38cca6d8a172f969990635a12c98fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1280,6 +1283,51 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Send the "pin" command to all GUI clients. </p>
+<dl class="section note"><dt>Note</dt><dd>To send to a specific GUI client, use the <code>client</code> parameter, otherwise it will send to all GUI clients </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">client</td><td>The client instance to send the command to </td></tr>
+    <tr><td class="paramname">player</td><td>The player whose information is being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a98e1b706f428cff1db8b9d98cf5a3829" name="a98e1b706f428cff1db8b9d98cf5a3829"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98e1b706f428cff1db8b9d98cf5a3829">&#9670;&nbsp;</a></span>send_plv_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_plv_to_gui </td>
+          <td>(</td>
+          <td class="paramtype">UNUSED <a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UNUSED <a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UNUSED <a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "plv" command to all GUI clients. </p>
 <dl class="section note"><dt>Note</dt><dd>To send to a specific GUI client, use the <code>client</code> parameter, otherwise it will send to all GUI clients </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
