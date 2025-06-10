@@ -82,4 +82,14 @@ namespace Gui {
         return _messagesToBroadcast;
     }
 
+    const Color &PlayerInfo::getColor(void) const
+    {
+        return _teamColor;
+    }
+    
+    void PlayerInfo::setColor(Color col)
+    {
+        _teamColor = col;
+    }
+
 }

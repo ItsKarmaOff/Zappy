@@ -108,6 +108,8 @@ namespace Gui
 
             std::queue<std::string> &getMessagesToBroadcast(void);
 
+            const Color &getColor(void) const;
+
 
 
             //////////////// Setters ///////////////////////////////////////////
@@ -150,6 +152,8 @@ namespace Gui
             void setState(PlayerState state);
 
 
+            void setColor(Color color);
+
 
 
             //////////////// Inventory Management Methods //////////////////////
@@ -171,7 +175,7 @@ namespace Gui
         private:
 
             //////////////// Private Attributes ////////////////////////////////
-
+            Color _teamColor;
             Orientation _orientation;   // The orientation of the player
             PlayerState _state;   // The orientation of the player
             size_t _level;  // The level of the player

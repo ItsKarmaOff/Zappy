@@ -17,7 +17,7 @@ namespace Gui {
 
     class TeamInfo {
         public:
-            TeamInfo() = default;
+            TeamInfo();
             ~TeamInfo() = default;
 
             ////////////////////////////////////// GETTERS //////////////////////////////////////

@@ -50,40 +50,23 @@ namespace Gui {
     }
     void Graphics::drawTeams(void)
     {
-        // Define an array of colors for teams
-        Color teamColors[] = {
-            RED, BLUE, GREEN, YELLOW, ORANGE, PURPLE, PINK, LIME,
-            SKYBLUE, VIOLET, BROWN, DARKGREEN, MAGENTA, GOLD
-        };
-
-        // Select a random color for each team
-        static std::map<std::string, Color> teamColorMap;
-        if (teamColorMap.empty()) {
-            for (auto &[key, team] : _game->getTeams()) {
-                int randomIndex = GetRandomValue(0, sizeof(teamColors) / sizeof(Color) - 1);
-                teamColorMap[key] = teamColors[randomIndex];
-                team.setColor(teamColors[randomIndex]);
-            }
-        }
-
         int i = 0;
         for (auto &[key, team] : _game->getTeams()) {
             // draw team name
             float textHeight = 40;
             float textWidth = MeasureText(key.c_str(), textHeight);
             DrawText(key.c_str(), GetScreenWidth() - textWidth - 10, 0 + i * textHeight, textHeight, team.getColor());
+            i++;
         }
     }
     void Graphics::drawPlayers(void)
     {
         // draw team player
-        for (auto &[key, team] : _game->getTeams()) {
-            for (auto &[id, player] : team.getPlayers()) {
-                DEBUG_CONCAT << "Player " << id;
-                if (_game->getTiles().contains({player->getPos().x, player->getPos().y})) {
-                    TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
-                    DrawModel(_assetsManager.getModels()["player"], tile.getPos(), _assetsManager.getModelsScale()["player"], team.getColor());
-                }
+        for (auto &[id, player] : _game->getPlayers()) {
+            DEBUG_CONCAT << "Player " << id;
+            if (_game->getTiles().contains({player->getPos().x, player->getPos().y})) {
+                TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
+                DrawModel(_assetsManager.getModels()["player"], tile.getPos(), _assetsManager.getModelsScale()["player"], player->getColor());
             }
         }
     }

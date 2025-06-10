@@ -156,8 +156,16 @@ namespace Gui
 
         DEBUG_CONCAT << "Team name set to: " << teamName;
 
-        if (!_graphical.getGame()->getTeams().contains(teamName))
+        static Color teamColors[] = {
+            RED, BLUE, GREEN, YELLOW, ORANGE, PURPLE, PINK, LIME,
+            SKYBLUE, VIOLET, BROWN, DARKGREEN, MAGENTA, GOLD
+        };
+
+        if (!_graphical.getGame()->getTeams().contains(teamName)) {
             _graphical.getGame()->getTeams()[teamName] = TeamInfo();
+            int randomIndex = GetRandomValue(0, sizeof(teamColors) / sizeof(Color) - 1);
+            _graphical.getGame()->getTeams()[teamName].setColor(teamColors[randomIndex]);
+        }
     }
 
     void Commands::handlePNW(std::string &param)
@@ -204,6 +212,7 @@ namespace Gui
         playerI->setLevel(level);
         playerI->setOrientation(orientation);
         playerI->setPos({static_cast<float>(width), static_cast<float>(height)});
+        playerI->setColor(team.getColor());
     }
 
     void Commands::handlePPO(std::string &param)

@@ -8,6 +8,11 @@
 #include "TeamInfo.hpp"
 
 namespace Gui {
+    TeamInfo::TeamInfo()
+    {
+        _color = WHITE;
+    }
+    
     std::unordered_map<size_t, std::shared_ptr<PlayerInfo>>& TeamInfo::getPlayers(void)
     {
         return _players;
