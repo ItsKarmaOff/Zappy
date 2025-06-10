@@ -83,6 +83,7 @@ namespace Gui {
             void handleEventsScoreboard();
             void updateScoreboard();
             void drawScoreboard();
+            void drawTabs();
 
         private:
             std::shared_ptr<QueueManager> _queueManager;

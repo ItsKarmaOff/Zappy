@@ -33,16 +33,27 @@ namespace Gui {
     {
         ClearBackground(RAYWHITE);
         drawGame();
-        DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), CLITERAL(Color){ 130, 130, 130, 100 });
-        int size = MeasureText("SCOREBOARD", 50);
-        DrawText("SCOREBOARD", GetScreenWidth() / 2 - size / 2, 0, 50, RED);
+        DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), CLITERAL(Color){ 130, 130, 130, 100});
+        int height = GetScreenHeight() / 10;
+
+        int size = MeasureText("SCOREBOARD", height);
+        DrawText("SCOREBOARD", GetScreenWidth() / 2 - size / 2, 0, height, RED);
+        drawTabs();
 
         int i = 0;
         for (auto &[id, player] : _game->getPlayers()) {
-            int fontSize = 30;
-            std::ofstream stream; stream << "Player: " << id;
-            std::stringstream str; str << stream.rdbuf();
-            DrawText(str.str().c_str(), 0, i * fontSize, 30, player->getColor());
+            int fontSize = GetScreenHeight() / 25;
+            std::stringstream str;
+            str << "Player" << id;
+            DrawText(str.str().c_str(), 0, GetScreenHeight() / 10 + 20 + i * fontSize, fontSize, player->getColor());
         }
+    }
+    void Graphics::drawTabs()
+    {
+        int height = GetScreenHeight() / 20;
+        std::string id("ID");
+        std::string level("LEVEL");
+        DrawText(id.c_str(), 0, GetScreenHeight() / 10, height, MAROON);
+        DrawText(level.c_str(), GetScreenWidth() / 4, GetScreenHeight() / 10, height, MAROON);
     }
 }

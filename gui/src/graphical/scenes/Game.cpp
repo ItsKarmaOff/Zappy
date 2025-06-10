@@ -17,7 +17,7 @@ namespace Gui {
             _scene = MENU;
             EnableCursor();
         }
-        // on peut pas modifier la touche
+        // on peut pas modifier la touche, mais Z = W (dcp faut appuyer sur W)
         if (IsKeyPressed(KEY_Z)) {
             _game->getCamera().target =
             { _game->getMapSize().x / 2 * TILE_SIZE, 0.0f, _game->getMapSize().y / 2 * TILE_SIZE };
