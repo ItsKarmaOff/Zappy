@@ -301,10 +301,8 @@ void send_sgt_to_gui(server_t *server, client_t *client);
  * otherwise it will send to all GUI clients
  * @param server The server instance
  * @param client The client instance to send the command to
- * @param time_unit The time unit to be sent
  */
-void send_sst_to_gui(server_t *server, client_t *client,
-    size_t time_unit);
+void send_sst_to_gui(server_t *server, client_t *client);
 
 /**
  * @brief Send the "seg" command to all GUI clients
