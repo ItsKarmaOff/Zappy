@@ -10,7 +10,9 @@
     #define PLAYERINFO_HPP
 #include <cstddef>
 #include <map>
+#include <queue>
 #include <raylib.h>
+#include <string>
 
 
 
@@ -104,6 +106,9 @@ namespace Gui
             const PlayerState &getState(void) const;
 
 
+            std::queue<std::string> &getMessagesToBroadcast(void);
+
+
 
             //////////////// Setters ///////////////////////////////////////////
 
@@ -172,6 +177,7 @@ namespace Gui
             size_t _level;  // The level of the player
             Vector2 _pos;   // The position of the player
             std::map<ResourceType, size_t> _inventory;  // The inventory of the player
+            std::queue<std::string> _messagesToBroadcast;
     };
 
 }

@@ -372,7 +372,11 @@ namespace Gui
 
         if (message[0] == ' ')
             message = message.substr(1);
-
+        if (!_graphical.getGame()->getPlayers().contains(playerId)) {
+            ERROR << "Player " << playerId << "doesn't exist.";
+            return;
+        }
+        _graphical.getGame()->getPlayers()[playerId]->getMessagesToBroadcast().push(message);
         DEBUG_CONCAT << "Player #" << playerId << " broadcasts: " << message;
     }
 

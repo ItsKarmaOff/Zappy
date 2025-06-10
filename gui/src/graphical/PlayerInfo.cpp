@@ -77,4 +77,9 @@ namespace Gui {
             _inventory[type] = 0;
     }
 
+    std::queue<std::string> &PlayerInfo::getMessagesToBroadcast(void)
+    {
+        return _messagesToBroadcast;
+    }
+
 }
