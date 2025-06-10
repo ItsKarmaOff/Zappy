@@ -335,8 +335,17 @@ namespace Gui
             ERROR << "Invalid player format for PEX command: " << player;
 
         playerId = std::stoi(player.substr(1));
-
+        if (!_graphical.getGame()->getPlayers().contains(playerId)) {
+            ERROR << "Player " << playerId << "doesn't exist.";
+            return;
+        }
+        for (auto &[k, team] : _graphical.getGame()->getTeams()) {
+            // return 0 si ça n'a pas trouvé, donc on peut le faire pour chaque team sans conséquence
+            team.getPlayers().erase(playerId);
+        }
+        _graphical.getGame()->getPlayers().erase(playerId);
         DEBUG_CONCAT << "Player #" << playerId << " has been expelled";
+
     }
 
     void Commands::handlePBC(std::string &param)
