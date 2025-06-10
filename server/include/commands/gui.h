@@ -128,8 +128,10 @@ void send_mct_to_gui(server_t *server, client_t *client);
  * otherwise it will send to all GUI clients
  * @param server The server instance
  * @param client The client instance to send the command to
+ * @param team The team whose information is being sent
  */
-void send_tna_to_gui(server_t *server, client_t *client);
+void send_tna_to_gui(server_t *server, client_t *client,
+    team_t *team);
 
 /**
  * @brief Send the "pnw" command to all GUI clients
