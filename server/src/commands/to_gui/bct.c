@@ -27,7 +27,7 @@ static void send_bct(client_t *client, tile_t *tile)
         (tile->resources & (1 << THYSTAME)) != 0);
 }
 
-void send_bct_to_gui(server_t *server, UNUSED client_t *client,
+void send_bct_to_gui(server_t *server, client_t *client,
     vector2u_t position)
 {
     tile_t *tile = NULL;

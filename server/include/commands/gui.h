@@ -13,7 +13,7 @@
 #ifndef GUI_H_
     #define GUI_H_
 
-    #include "server_data_structures.h"
+    #include "network.h"
 
 /* Command handler functions for GUI clients */
 
@@ -153,6 +153,17 @@ void send_pnw_to_gui(server_t *server, client_t *client,
  */
 void send_ppo_to_gui(server_t *server, client_t *client,
     player_t *player);
+
+/**
+ * @brief Send the "plv" command to all GUI clients
+ * @note To send to a specific GUI client, use the `client` parameter,
+ * otherwise it will send to all GUI clients
+ * @param server The server instance
+ * @param client The client instance to send the command to
+ * @param player The player whose information is being sent
+ */
+void send_plv_to_gui(UNUSED server_t *server, UNUSED client_t *client,
+    UNUSED player_t *player);
 
 /**
  * @brief Send the "pin" command to all GUI clients
@@ -349,7 +360,5 @@ void send_suc_to_gui(server_t *server, client_t *client);
  * @param client The client instance to send the command to
  */
 void send_sbp_to_gui(server_t *server, client_t *client);
-
-
 
 #endif /* GUI_H_ */
