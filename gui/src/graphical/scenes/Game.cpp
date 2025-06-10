@@ -65,10 +65,9 @@ namespace Gui {
     void Graphics::drawPlayers(void)
     {
         for (auto &[id, player] : _game->getPlayers()) {
-            DEBUG_CONCAT << "Player " << id;
             if (_game->getTiles().contains({player->getPos().x, player->getPos().y})) {
                 TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
-                DrawModel(_assetsManager.getModels()["player"], tile.getPos(), _assetsManager.getModelsScale()["player"], player->getColor());
+                DrawModel(_assetsManager.getModels()["player"], {tile.getPos().x, 2, tile.getPos().z}, _assetsManager.getModelsScale()["player"], player->getColor());
             }
         }
     }
