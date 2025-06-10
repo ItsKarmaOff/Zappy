@@ -40,8 +40,9 @@ namespace Gui {
         ClearBackground(RAYWHITE);
 
         BeginMode3D(_game->getCamera());
-        drawGameMap();
-        drawPlayers();
+        // drawGameMap();
+        // drawPlayers();
+        DrawModel(_assetsManager.getModels()["background"], {0, 0, 0}, _assetsManager.getModelsScale()["background"], WHITE);
         EndMode3D();
         drawTeams();
 
@@ -50,7 +51,7 @@ namespace Gui {
     void Graphics::drawGameMap(void)
     {
         for (auto &[k, tile] : _game->getTiles()) {
-            tile.draw(_assetsManager.getModels(), _assetsManager.getModelsScale());
+            tile.draw(_assetsManager);
         }
     }
     void Graphics::drawTeams(void)
@@ -73,7 +74,7 @@ namespace Gui {
             }
             TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
             _assetsManager.getModels()["player"].transform = MatrixRotateY(DEG2RAD * (90 * player->getOrientation()));
-            
+
             DrawModel(_assetsManager.getModels()["player"], {tile.getPos().x, 2, tile.getPos().z}, _assetsManager.getModelsScale()["player"], player->getColor());
 
             // debugging broadcast message

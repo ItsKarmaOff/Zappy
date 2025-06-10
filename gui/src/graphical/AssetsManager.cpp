@@ -6,6 +6,7 @@
 */
 
 #include "AssetsManager.hpp"
+#include "Graphics.hpp"
 #include "Logs.hpp"
 
 namespace Gui {
@@ -73,13 +74,16 @@ namespace Gui {
         _modelsScale["thystame"] = 0.05f;
 
         /* island */
-        _models["island"] = LoadModel("gui/assets/island/island.gltf");
-        _modelsScale["island"] = 0.5f;
-
+        _models["island"] = LoadModel("gui/assets/grass.glb");
+        _modelsScale["island"] = scaleToSize("island", TILE_SIZE - 0.5);
 
         /* player */
         _models["player"] = LoadModel("gui/assets/woman.glb");
         _modelsScale["player"] = 1.0f;
+
+        /* background */
+        _models["background"] = LoadModel("gui/assets/bg.glb");
+        _modelsScale["background"] = 5.0f;
     }
 
 
@@ -92,6 +96,42 @@ namespace Gui {
         for (auto &[key, texture] : _textures) {
             UnloadTexture(texture);
         }
+    }
+
+    float AssetsManager::scaleToSize(std::string model, float size)
+    {
+        BoundingBox bbox = GetModelBoundingBox(_models[model]);
+        float scaleX = size / (bbox.max.x - bbox.min.x);
+        float scaleY = size / (bbox.max.z - bbox.min.z);
+        return std::min(scaleX, scaleY);
+    }
+
+    float AssetsManager::getWidth(const std::string &model)
+    {
+        BoundingBox modelBox = GetModelBoundingBox(_models[model]);
+        float height = (modelBox.max.x - modelBox.min.x) * _modelsScale[model];
+        float xOffset = height;
+
+        return xOffset;
+    }
+
+    float AssetsManager::getHeight(const std::string &model)
+    {
+        BoundingBox modelBox = GetModelBoundingBox(_models[model]);
+        float height = (modelBox.max.y - modelBox.min.y) * _modelsScale[model];
+        float yOffset = height;
+
+        return yOffset;
+    }
+
+
+    float AssetsManager::getLength(const std::string &model)
+    {
+        BoundingBox modelBox = GetModelBoundingBox(_models[model]);
+        float height = (modelBox.max.z - modelBox.min.z) * _modelsScale[model];
+        float zOffset = height;
+
+        return zOffset;
     }
 
 

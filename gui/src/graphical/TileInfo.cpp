@@ -6,6 +6,7 @@
 */
 
 #include "TileInfo.hpp"
+#include "AssetsManager.hpp"
 #include "Graphics.hpp"
 #include "Lib.hpp"
 #include "Logs.hpp"
@@ -55,10 +56,10 @@ namespace Gui {
     }
 
 
-    void TileInfo::draw(std::unordered_map<std::string, Model> &models,
-        std::unordered_map<std::string, float> &modelsScale)
+    void TileInfo::draw(AssetsManager &assetsManager)
     {
-
+        auto &models = assetsManager.getModels();
+        auto &modelsScale = assetsManager.getModelsScale();
         float startX = _pos.x - TILE_SIZE / 2.0f;
         float startZ = _pos.z - TILE_SIZE / 2.0f;
 
@@ -76,22 +77,18 @@ namespace Gui {
 
             Vector3 objPos = {
                 startX + offsetX + 0.5f,
-                4.0f,
+                0.0f,
                 startZ + offsetZ + 0.5f
             };
-
             if (models.contains(key)) {
-                // DrawCube({objPos.x, 2.0f, objPos.z}, 1.0f, 1.0f, 1.0f, RED);
-                // DrawCubeWires({objPos.x, 2.0f, objPos.z}, 1.0f, 1.0f, 1.0f, BLACK);
-                DrawModel(models[key], {objPos.x, 2.0f, objPos.z}, modelsScale[key], WHITE);
+                DrawModel(models[key], {objPos.x, 3, objPos.z}, modelsScale[key], WHITE);
             } else {
                 DrawCube({objPos.x, 2.0f, objPos.z}, 1.0f, 1.0f, 1.0f, PURPLE);
                 DrawCubeWires({objPos.x, 2.0f, objPos.z}, 1.0f, 1.0f, 1.0f, BLACK);
             }
             index++;
         }
-
-        DrawModel(models["island"], {_pos.x, 1, _pos.z}, 0.5f, WHITE);
+        DrawModel(models["island"], {_pos.x, static_cast<float>(-assetsManager.getHeight("island") / 2.0), _pos.z}, modelsScale["island"], WHITE);
 
         // à fix
         /*
