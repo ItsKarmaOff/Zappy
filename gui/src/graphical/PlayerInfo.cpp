@@ -53,6 +53,17 @@ namespace Gui {
         _inventory = inventory;
     }
 
+    const PlayerInfo::PlayerState &PlayerInfo::getState(void) const
+    {
+        return _state;
+    }
+
+    void PlayerInfo::setState(PlayerState state)
+    {
+        _state = state;
+    }
+
+
     void PlayerInfo::addResource(ResourceType type, size_t quantity)
     {
         _inventory[type] += quantity;

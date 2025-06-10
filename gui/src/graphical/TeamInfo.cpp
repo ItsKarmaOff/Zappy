@@ -8,7 +8,7 @@
 #include "TeamInfo.hpp"
 
 namespace Gui {
-    std::unordered_map<size_t, PlayerInfo>& TeamInfo::getPlayers(void)
+    std::unordered_map<size_t, std::shared_ptr<PlayerInfo>>& TeamInfo::getPlayers(void)
     {
         return _players;
     }

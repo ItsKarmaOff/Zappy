@@ -50,7 +50,11 @@ namespace Gui
                 THYSTAME
             };
 
-
+            enum PlayerState {
+                IDLE,
+                INCANTATION,
+                EXPELLED,
+            };
 
             /////////////// Constructors and Destructor ///////////////////////
 
@@ -92,6 +96,13 @@ namespace Gui
              */
             const std::map<ResourceType, size_t> &getInventory() const;
 
+            /**
+             * @brief Get the State object
+             *
+             * @return const PlayerState&
+             */
+            const PlayerState &getState(void) const;
+
 
 
             //////////////// Setters ///////////////////////////////////////////
@@ -127,6 +138,13 @@ namespace Gui
              */
             void setInventory(const std::map<ResourceType, size_t> &inventory);
 
+            /**
+             * @brief Set the State object
+             * @param state The state to set
+             */
+            void setState(PlayerState state);
+
+
 
 
             //////////////// Inventory Management Methods //////////////////////
@@ -150,6 +168,7 @@ namespace Gui
             //////////////// Private Attributes ////////////////////////////////
 
             Orientation _orientation;   // The orientation of the player
+            PlayerState _state;   // The orientation of the player
             size_t _level;  // The level of the player
             Vector2 _pos;   // The position of the player
             std::map<ResourceType, size_t> _inventory;  // The inventory of the player

@@ -196,12 +196,14 @@ namespace Gui
             return;
         }
         TeamInfo &team = _graphical.getGame()->getTeams()[teamName];
-        if (!team.getPlayers().contains(playerId))
-            team.getPlayers()[playerId] = PlayerInfo();
-        PlayerInfo &playerI = team.getPlayers()[playerId];
-        playerI.setLevel(level);
-        playerI.setOrientation(orientation);
-        playerI.setPos({static_cast<float>(width), static_cast<float>(height)});
+        if (!team.getPlayers().contains(playerId)) {
+            team.getPlayers()[playerId] = std::make_shared<PlayerInfo>();
+            _graphical.getGame()->getPlayers()[playerId] = team.getPlayers()[playerId];
+        }
+        std::shared_ptr<PlayerInfo> &playerI = team.getPlayers()[playerId];
+        playerI->setLevel(level);
+        playerI->setOrientation(orientation);
+        playerI->setPos({static_cast<float>(width), static_cast<float>(height)});
     }
 
     void Commands::handlePPO(std::string &param)
@@ -231,12 +233,12 @@ namespace Gui
         DEBUG_CONCAT << "Player #" << playerId << " position updated to (" << width << ", " << height
             << ") with orientation " << orientation;
 
-        try {
-            if (_graphical.getGame()->getPlayer(playerId).getPos() != Vector2{static_cast<float>(width), static_cast<float>(height)})
-                _graphical.getGame()->getPlayer(playerId).setPos({static_cast<float>(width), static_cast<float>(height)});
-        } catch (const std::exception &e) {
-            ERROR << e.what();
+        if (!_graphical.getGame()->getPlayers().contains(playerId)) {
+            ERROR << "Player " << playerId << "doesn't exist.";
+            return;
         }
+        if (_graphical.getGame()->getPlayers()[playerId]->getPos() != Vector2{static_cast<float>(width), static_cast<float>(height)})
+            _graphical.getGame()->getPlayers()[playerId]->setPos({static_cast<float>(width), static_cast<float>(height)});
     }
 
     void Commands::handlePLV(std::string &param)
@@ -261,12 +263,12 @@ namespace Gui
 
         DEBUG_CONCAT << "Player #" << playerId << " level set to: " << level;
 
-        try {
-            if (_graphical.getGame()->getPlayer(playerId).getLevel() != static_cast<size_t>(level))
-                _graphical.getGame()->getPlayer(playerId).setLevel(static_cast<size_t>(level));
-        } catch (const std::exception &e) {
-            ERROR << e.what();
+        if (!_graphical.getGame()->getPlayers().contains(playerId)) {
+            ERROR << "Player " << playerId << "doesn't exist.";
+            return;
         }
+        if (_graphical.getGame()->getPlayers()[playerId]->getLevel() != static_cast<size_t>(level))
+            _graphical.getGame()->getPlayers()[playerId]->setLevel(static_cast<size_t>(level));
     }
 
     void Commands::handlePIN(std::string &param)
@@ -308,13 +310,14 @@ namespace Gui
             {PlayerInfo::ResourceType::THYSTAME, static_cast<size_t>(thystame)}
         };
 
-        try {
-            if (_graphical.getGame()->getPlayer(playerId).getPos() != Vector2{static_cast<float>(width), static_cast<float>(height)})
-                _graphical.getGame()->getPlayer(playerId).setPos({static_cast<float>(width), static_cast<float>(height)});
-            _graphical.getGame()->getPlayer(playerId).setInventory(newInventory);
-        } catch (const std::exception &e) {
-            ERROR << e.what();
+        if (!_graphical.getGame()->getPlayers().contains(playerId)) {
+            ERROR << "Player " << playerId << "doesn't exist.";
+            return;
         }
+
+        if (_graphical.getGame()->getPlayers()[playerId]->getPos() != Vector2{static_cast<float>(width), static_cast<float>(height)})
+            _graphical.getGame()->getPlayers()[playerId]->setPos({static_cast<float>(width), static_cast<float>(height)});
+        _graphical.getGame()->getPlayers()[playerId]->setInventory(newInventory);
     }
 
     void Commands::handlePEX(std::string &param)

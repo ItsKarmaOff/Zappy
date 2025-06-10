@@ -45,12 +45,14 @@ namespace Gui {
 
             std::unordered_map<Vector2, TileInfo> &getTiles();
             std::unordered_map<std::string, TeamInfo> &getTeams(void);
-            PlayerInfo &getPlayer(size_t playerId);
+            std::unordered_map<size_t, std::shared_ptr<PlayerInfo>> &getPlayers();
+
         private:
             Camera3D _camera;
             Vector2 _mapSize;
             std::unordered_map<Vector2, TileInfo> _tiles;
             std::unordered_map<std::string, TeamInfo> _teams;
+            std::unordered_map<size_t, std::shared_ptr<PlayerInfo>> _players;
 
     };
 
