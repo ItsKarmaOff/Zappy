@@ -22,9 +22,8 @@ void send_tna_to_gui(server_t *server, client_t *client,
         return;
     }
     for (size_t index = 0; index < server->current_clients_number; index++) {
-        if (server->client_list[index]->is_gui) {
+        if (server->client_list[index]->is_gui)
             dprintf(server->client_list[index]->socket_fd, "tna %s\n",
                 team->name);
-        }
     }
 }

@@ -268,7 +268,7 @@ extern const command_t commands_gui[];
 
 
 
-    /* Ressources arrays */
+    /* Resources arrays */
 
 /**
  * @brief The names of the resources in the game

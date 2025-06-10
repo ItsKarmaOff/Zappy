@@ -12,7 +12,7 @@
 
 #include "commands/gui.h"
 
-void send_msz_to_gui(server_t *server, UNUSED client_t *client)
+void send_msz_to_gui(server_t *server, client_t *client)
 {
     if (server == NULL)
         return;
@@ -24,11 +24,10 @@ void send_msz_to_gui(server_t *server, UNUSED client_t *client)
         return;
     }
     for (size_t index = 0; index < server->current_clients_number; index++) {
-        if (server->client_list[index]->is_gui) {
+        if (server->client_list[index]->is_gui)
             dprintf(server->client_list[index]->socket_fd,
                 "msz %zu %zu\n",
                 server->game.game_settings.width,
                 server->game.game_settings.height);
-        }
     }
 }

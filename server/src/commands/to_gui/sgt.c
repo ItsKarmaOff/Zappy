@@ -12,7 +12,7 @@
 
 #include "commands/gui.h"
 
-void send_sgt_to_gui(UNUSED server_t *server, UNUSED client_t *client)
+void send_sgt_to_gui(server_t *server, client_t *client)
 {
     if (server == NULL)
         return;
