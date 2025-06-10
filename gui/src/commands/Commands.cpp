@@ -231,8 +231,12 @@ namespace Gui
         DEBUG_CONCAT << "Player #" << playerId << " position updated to (" << width << ", " << height
             << ") with orientation " << orientation;
 
-        if (_graphical.getGame()->getPlayer(playerId).getPos() != Vector2{static_cast<float>(width), static_cast<float>(height)})
-            _graphical.getGame()->getPlayer(playerId).setPos({static_cast<float>(width), static_cast<float>(height)});
+        try {
+            if (_graphical.getGame()->getPlayer(playerId).getPos() != Vector2{static_cast<float>(width), static_cast<float>(height)})
+                _graphical.getGame()->getPlayer(playerId).setPos({static_cast<float>(width), static_cast<float>(height)});
+        } catch (const std::exception &e) {
+            ERROR << e.what();
+        }
     }
 
     void Commands::handlePLV(std::string &param)
@@ -257,8 +261,12 @@ namespace Gui
 
         DEBUG_CONCAT << "Player #" << playerId << " level set to: " << level;
 
-        if (_graphical.getGame()->getPlayer(playerId).getLevel() != static_cast<size_t>(level))
-            _graphical.getGame()->getPlayer(playerId).setLevel(static_cast<size_t>(level));
+        try {
+            if (_graphical.getGame()->getPlayer(playerId).getLevel() != static_cast<size_t>(level))
+                _graphical.getGame()->getPlayer(playerId).setLevel(static_cast<size_t>(level));
+        } catch (const std::exception &e) {
+            ERROR << e.what();
+        }
     }
 
     void Commands::handlePIN(std::string &param)
@@ -300,9 +308,13 @@ namespace Gui
             {PlayerInfo::ResourceType::THYSTAME, static_cast<size_t>(thystame)}
         };
 
-        if (_graphical.getGame()->getPlayer(playerId).getPos() != Vector2{static_cast<float>(width), static_cast<float>(height)})
-            _graphical.getGame()->getPlayer(playerId).setPos({static_cast<float>(width), static_cast<float>(height)});
-        _graphical.getGame()->getPlayer(playerId).setInventory(newInventory);
+        try {
+            if (_graphical.getGame()->getPlayer(playerId).getPos() != Vector2{static_cast<float>(width), static_cast<float>(height)})
+                _graphical.getGame()->getPlayer(playerId).setPos({static_cast<float>(width), static_cast<float>(height)});
+            _graphical.getGame()->getPlayer(playerId).setInventory(newInventory);
+        } catch (const std::exception &e) {
+            ERROR << e.what();
+        }
     }
 
     void Commands::handlePEX(std::string &param)
