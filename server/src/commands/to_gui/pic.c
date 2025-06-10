@@ -12,8 +12,8 @@
 
 #include "commands/gui.h"
 
-void send_pic_to_gui(UNUSED server_t *server, UNUSED client_t *client,
-    UNUSED node_t *player_list, UNUSED size_t level)
+void send_pic_to_gui(UNUSED server_t *server, UNUSED node_t *player_list,
+    UNUSED vector2u_t position, UNUSED size_t level)
 {
     return;
 }

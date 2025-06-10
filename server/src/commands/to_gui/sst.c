@@ -12,18 +12,7 @@
 
 #include "commands/gui.h"
 
-void send_sst_to_gui(server_t *server, client_t *client)
+void send_sst_to_gui(UNUSED server_t *server, UNUSED size_t time)
 {
-    if (server == NULL)
-        return;
-    if (client != NULL) {
-        dprintf(client->socket_fd, "sst %zu\n",
-            server->game.game_settings.frequency);
-        return;
-    }
-    for (size_t index = 0; index < server->current_clients_number; index++) {
-        if (server->client_list[index]->is_gui)
-            dprintf(server->client_list[index]->socket_fd, "sst %zu\n",
-                server->game.game_settings.frequency);
-    }
+    return;
 }
