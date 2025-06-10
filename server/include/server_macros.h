@@ -94,4 +94,6 @@
      */
     #define REFILL_TIME 20.0
 
+    #define ACCESS_MAP(map, player) map[player->position.y][player->position.x]
+
 #endif /* SERVER_MACROS_H_ */
