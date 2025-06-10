@@ -8,6 +8,7 @@
 
 #ifndef PLAYERINFO_HPP
     #define PLAYERINFO_HPP
+#include <chrono>
 #include <cstddef>
 #include <map>
 #include <queue>
@@ -110,6 +111,9 @@ namespace Gui
 
             const Color &getColor(void) const;
 
+            std::chrono::steady_clock::time_point &getClock(void);
+
+            const bool &isBroadcasting(void) const;
 
 
             //////////////// Setters ///////////////////////////////////////////
@@ -154,6 +158,8 @@ namespace Gui
 
             void setColor(Color color);
 
+            void setBroadcasting(bool broadcasting);
+
 
 
             //////////////// Inventory Management Methods //////////////////////
@@ -182,6 +188,8 @@ namespace Gui
             Vector2 _pos;   // The position of the player
             std::map<ResourceType, size_t> _inventory;  // The inventory of the player
             std::queue<std::string> _messagesToBroadcast;
+            std::chrono::steady_clock::time_point _clock;
+            bool _broadcast;
     };
 
 }

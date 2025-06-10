@@ -86,10 +86,25 @@ namespace Gui {
     {
         return _teamColor;
     }
-    
+
     void PlayerInfo::setColor(Color col)
     {
         _teamColor = col;
+    }
+
+    std::chrono::steady_clock::time_point &PlayerInfo::getClock(void)
+    {
+        return _clock;
+    }
+
+    const bool &PlayerInfo::isBroadcasting(void) const
+    {
+        return _broadcast;
+    }
+
+    void PlayerInfo::setBroadcasting(bool broadcasting)
+    {
+        _broadcast = broadcasting;
     }
 
 }

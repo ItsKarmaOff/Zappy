@@ -47,6 +47,7 @@ namespace Gui {
             std::stringstream str;
             str << "Player" << id;
             DrawText(str.str().c_str(), 0, titleSize + tabSize + i * textSize, textSize, player->getColor());
+            DrawText(std::to_string(player->getLevel()).c_str(), GetScreenWidth() / 4, titleSize + tabSize + i * textSize, textSize, player->getColor());
             i++;
         }
         drawTabs();
@@ -56,7 +57,10 @@ namespace Gui {
     {
         std::string id("ID");
         std::string level("LEVEL");
+        std::string team("TEAM");
         DrawText(id.c_str(), 0, GetScreenHeight() / 10, tabSize, MAROON);
         DrawText(level.c_str(), GetScreenWidth() / 4, GetScreenHeight() / 10, tabSize, MAROON);
+        DrawText(level.c_str(), GetScreenWidth() * 2 / 4, GetScreenHeight() / 10, tabSize, MAROON);
+
     }
 }

@@ -8,6 +8,7 @@
 #include "Graphics.hpp"
 #include "TileInfo.hpp"
 #include "Logs.hpp"
+#include <chrono>
 #include <raylib.h>
 
 namespace Gui {
@@ -65,9 +66,28 @@ namespace Gui {
     void Graphics::drawPlayers(void)
     {
         for (auto &[id, player] : _game->getPlayers()) {
-            if (_game->getTiles().contains({player->getPos().x, player->getPos().y})) {
-                TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
-                DrawModel(_assetsManager.getModels()["player"], {tile.getPos().x, 2, tile.getPos().z}, _assetsManager.getModelsScale()["player"], player->getColor());
+            if (!_game->getTiles().contains({player->getPos().x, player->getPos().y})) {
+                ERROR << "No tile matching the player position.";
+                return;
+            }
+            TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
+            DrawModel(_assetsManager.getModels()["player"], {tile.getPos().x, 2, tile.getPos().z}, _assetsManager.getModelsScale()["player"], player->getColor());
+            if (!player->getMessagesToBroadcast().empty()) {
+                std::string msg = player->getMessagesToBroadcast().front();
+                std::chrono::steady_clock::time_point currentTime = std::chrono::steady_clock::now();
+
+                // Store message with timestamp if it's new
+                if (!player->isBroadcasting()) {
+                    player->getClock() = currentTime;
+                    player->setBroadcasting(true);
+                } else {
+                    if (player->getClock() - currentTime > std::chrono::seconds(1) ) {
+                        player->setBroadcasting(false);
+                        player->getMessagesToBroadcast().pop();
+                    } else {
+                        DEBUG_CONCAT << "player Broadcast: " << msg;
+                    }
+                }
             }
         }
     }
