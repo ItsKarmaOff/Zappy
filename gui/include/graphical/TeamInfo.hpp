@@ -26,12 +26,18 @@ namespace Gui {
             const size_t &getScore(void) const;
             void setScore(size_t score);
 
+            const Color &getColor(void) const;
+            void setColor(Color);
+
 
         private:
             std::unordered_map<size_t, std::shared_ptr<PlayerInfo>> _players;
             size_t _score;
+            Color _color;
 
     };
+
+
 
 }
 

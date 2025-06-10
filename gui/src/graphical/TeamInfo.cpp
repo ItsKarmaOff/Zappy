@@ -23,4 +23,13 @@ namespace Gui {
         _score = score;
     }
 
+    const Color& TeamInfo::getColor(void) const
+    {
+        return _color;
+    }
+
+    void TeamInfo::setColor(Color rgb)
+    {
+        _color = rgb;
+    }
 }

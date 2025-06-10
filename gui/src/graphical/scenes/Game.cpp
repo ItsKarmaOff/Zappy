@@ -38,6 +38,7 @@ namespace Gui {
         drawGameMap();
         EndMode3D();
         drawTeams();
+        drawPlayers();
 
     }
 
@@ -61,6 +62,7 @@ namespace Gui {
             for (auto &[key, team] : _game->getTeams()) {
                 int randomIndex = GetRandomValue(0, sizeof(teamColors) / sizeof(Color) - 1);
                 teamColorMap[key] = teamColors[randomIndex];
+                team.setColor(teamColors[randomIndex]);
             }
         }
 
@@ -69,14 +71,18 @@ namespace Gui {
             // draw team name
             float textHeight = 40;
             float textWidth = MeasureText(key.c_str(), textHeight);
-            DrawText(key.c_str(), GetScreenWidth() - textWidth - 10, 0 + i * textHeight, textHeight, teamColorMap[key]);
-            // draw team player
+            DrawText(key.c_str(), GetScreenWidth() - textWidth - 10, 0 + i * textHeight, textHeight, team.getColor());
+        }
+    }
+    void Graphics::drawPlayers(void)
+    {
+        // draw team player
+        for (auto &[key, team] : _game->getTeams()) {
             for (auto &[id, player] : team.getPlayers()) {
                 DEBUG_CONCAT << "Player " << id;
                 if (_game->getTiles().contains({player->getPos().x, player->getPos().y})) {
                     TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
-                    DrawModel(_assetsManager.getModels()["player"], tile.getPos(), _assetsManager.getModelsScale()["player"], teamColorMap[key]);
-                    DEBUG_CONCAT << "player draw";
+                    DrawModel(_assetsManager.getModels()["player"], tile.getPos(), _assetsManager.getModelsScale()["player"], team.getColor());
                 }
             }
         }

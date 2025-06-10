@@ -75,6 +75,7 @@ namespace Gui {
             void drawGame(void);
             void drawGameMap(void);
             void drawTeams(void);
+            void drawPlayers(void);
 
         private:
             std::shared_ptr<QueueManager> _queueManager;
