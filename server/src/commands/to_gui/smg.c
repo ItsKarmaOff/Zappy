@@ -2,29 +2,28 @@
 ** EPITECH PROJECT, 2025
 ** zappy
 ** File description:
-** The pgt.c
+** The smg.c
 */
 /**
- * @file pgt.c
- * @brief The pgt.c
+ * @file smg.c
+ * @brief The smg.c
  * @author Nicolas TORO
  */
 
 #include "commands/gui.h"
 
-void send_pgt_to_gui(server_t *server, client_t *client,
-    player_t *player, resources_t resource_id)
+void send_smg_to_gui(server_t *server, client_t *client,
+    const char *message)
 {
-    if (server == NULL || player == NULL)
+    if (server == NULL || message == NULL)
         return;
     if (client != NULL) {
-        dprintf(client->socket_fd, "pgt #%zu %i\n",
-            player->id, resource_id);
+        dprintf(client->socket_fd, "smg %s\n", message);
         return;
     }
     for (size_t index = 0; index < server->current_clients_number; index++) {
         if (server->client_list[index]->is_gui)
             dprintf(server->client_list[index]->socket_fd,
-                "pgt #%zu %i\n", player->id, resource_id);
+                "smg %s\n", message);
     }
 }
