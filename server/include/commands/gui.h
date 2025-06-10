@@ -206,8 +206,12 @@ void send_pic_to_gui(server_t *server, client_t *client,
  * otherwise it will send to all GUI clients
  * @param server The server instance
  * @param client The client instance to send the command to
+ * @param position The position of the tile where the incantation took place
+ * @param incantation_result The result of the incantation
+ * (true for success, false for failure)
  */
-void send_pie_to_gui(server_t *server, client_t *client);
+void send_pie_to_gui(server_t *server, client_t *client,
+    vector2u_t position, bool incantation_result);
 
 /**
  * @brief Send the "pfk" command to all GUI clients
