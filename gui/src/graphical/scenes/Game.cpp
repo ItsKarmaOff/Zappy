@@ -17,17 +17,20 @@ namespace Gui {
             _scene = MENU;
             EnableCursor();
         }
-        // on peut pas modifier la touche
-        if (IsKeyPressed('Z')) {
+        // on peut pas modifier la touche, mais Z = W (dcp faut appuyer sur W)
+        if (IsKeyPressed(KEY_Z)) {
             _game->getCamera().target =
             { _game->getMapSize().x / 2 * TILE_SIZE, 0.0f, _game->getMapSize().y / 2 * TILE_SIZE };
+        }
+        if (IsKeyPressed(KEY_TAB)) {
+            _scene = SCOREBOARD;
+            EnableCursor();
         }
     }
 
     void Graphics::updateGame(void)
     {
         UpdateCamera(&_game->getCamera(), CAMERA_FREE);
-
     }
 
     void Graphics::drawGame(void)
@@ -36,6 +39,7 @@ namespace Gui {
 
         BeginMode3D(_game->getCamera());
         drawGameMap();
+        drawPlayers();
         EndMode3D();
         drawTeams();
 
@@ -49,26 +53,22 @@ namespace Gui {
     }
     void Graphics::drawTeams(void)
     {
-        // Define an array of colors for teams
-        Color teamColors[] = {
-            RED, BLUE, GREEN, YELLOW, ORANGE, PURPLE, PINK, LIME,
-            SKYBLUE, VIOLET, BROWN, DARKGREEN, MAGENTA, GOLD
-        };
-
-        // Select a random color for each team
-        static std::map<std::string, Color> teamColorMap;
-        if (teamColorMap.empty()) {
-            for (auto &[key, team] : _game->getTeams()) {
-                int randomIndex = GetRandomValue(0, sizeof(teamColors) / sizeof(Color) - 1);
-                teamColorMap[key] = teamColors[randomIndex];
-            }
-        }
-
         int i = 0;
         for (auto &[key, team] : _game->getTeams()) {
+            // draw team name
             float textHeight = 40;
             float textWidth = MeasureText(key.c_str(), textHeight);
-            DrawText(key.c_str(), GetScreenWidth() - textWidth - 10, 0 + i * textHeight, textHeight, teamColorMap[key]);
+            DrawText(key.c_str(), GetScreenWidth() - textWidth - 10, 0 + i * textHeight, textHeight, team.getColor());
+            i++;
+        }
+    }
+    void Graphics::drawPlayers(void)
+    {
+        for (auto &[id, player] : _game->getPlayers()) {
+            if (_game->getTiles().contains({player->getPos().x, player->getPos().y})) {
+                TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
+                DrawModel(_assetsManager.getModels()["player"], {tile.getPos().x, 2, tile.getPos().z}, _assetsManager.getModelsScale()["player"], player->getColor());
+            }
         }
     }
 }

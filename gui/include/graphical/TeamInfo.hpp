@@ -10,27 +10,34 @@
     #define TEAMINFO_HPP
 
     #include "PlayerInfo.hpp"
+    #include <memory>
     #include <unordered_map>
 
 namespace Gui {
 
     class TeamInfo {
         public:
-            TeamInfo() = default;
+            TeamInfo();
             ~TeamInfo() = default;
 
             ////////////////////////////////////// GETTERS //////////////////////////////////////
-            std::unordered_map<size_t, PlayerInfo> &getPlayers(void);
+            std::unordered_map<size_t, std::shared_ptr<PlayerInfo>> &getPlayers(void);
 
             const size_t &getScore(void) const;
             void setScore(size_t score);
-            
+
+            const Color &getColor(void) const;
+            void setColor(Color);
+
 
         private:
-            std::unordered_map<size_t, PlayerInfo> _players;
+            std::unordered_map<size_t, std::shared_ptr<PlayerInfo>> _players;
             size_t _score;
+            Color _color;
 
     };
+
+
 
 }
 

@@ -38,6 +38,7 @@ namespace Gui {
             enum Scene {
                 MENU,
                 GAME,
+                SCOREBOARD,
             };
         public:
             // Modifiez le constructeur pour prendre QueueManager au lieu des queues
@@ -75,6 +76,14 @@ namespace Gui {
             void drawGame(void);
             void drawGameMap(void);
             void drawTeams(void);
+            void drawPlayers(void);
+
+        ////////////////////////////////////// SCOREBOARD //////////////////////////////////////
+        private:
+            void handleEventsScoreboard();
+            void updateScoreboard();
+            void drawScoreboard();
+            void drawTabs();
 
         private:
             std::shared_ptr<QueueManager> _queueManager;

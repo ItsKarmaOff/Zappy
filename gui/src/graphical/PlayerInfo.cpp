@@ -6,6 +6,7 @@
 */
 
 #include "PlayerInfo.hpp"
+#include <string>
 
 namespace Gui {
     const PlayerInfo::Orientation& PlayerInfo::getOrientation() const
@@ -42,5 +43,53 @@ namespace Gui {
         _pos = pos;
     }
 
+    const std::map<PlayerInfo::ResourceType, size_t>& PlayerInfo::getInventory() const
+    {
+        return _inventory;
+    }
+
+    void PlayerInfo::setInventory(const std::map<PlayerInfo::ResourceType, size_t> &inventory)
+    {
+        _inventory = inventory;
+    }
+
+    const PlayerInfo::PlayerState &PlayerInfo::getState(void) const
+    {
+        return _state;
+    }
+
+    void PlayerInfo::setState(PlayerState state)
+    {
+        _state = state;
+    }
+
+
+    void PlayerInfo::addResource(ResourceType type, size_t quantity)
+    {
+        _inventory[type] += quantity;
+    }
+
+    void PlayerInfo::removeResource(ResourceType type, size_t quantity)
+    {
+        if (_inventory[type] >= quantity)
+            _inventory[type] -= quantity;
+        else
+            _inventory[type] = 0;
+    }
+
+    std::queue<std::string> &PlayerInfo::getMessagesToBroadcast(void)
+    {
+        return _messagesToBroadcast;
+    }
+
+    const Color &PlayerInfo::getColor(void) const
+    {
+        return _teamColor;
+    }
+    
+    void PlayerInfo::setColor(Color col)
+    {
+        _teamColor = col;
+    }
 
 }
