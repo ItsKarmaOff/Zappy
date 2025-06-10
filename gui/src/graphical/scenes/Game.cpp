@@ -18,16 +18,19 @@ namespace Gui {
             EnableCursor();
         }
         // on peut pas modifier la touche
-        if (IsKeyPressed('Z')) {
+        if (IsKeyPressed(KEY_Z)) {
             _game->getCamera().target =
             { _game->getMapSize().x / 2 * TILE_SIZE, 0.0f, _game->getMapSize().y / 2 * TILE_SIZE };
+        }
+        if (IsKeyPressed(KEY_TAB)) {
+            _scene = SCOREBOARD;
+            EnableCursor();
         }
     }
 
     void Graphics::updateGame(void)
     {
         UpdateCamera(&_game->getCamera(), CAMERA_FREE);
-
     }
 
     void Graphics::drawGame(void)
@@ -36,9 +39,9 @@ namespace Gui {
 
         BeginMode3D(_game->getCamera());
         drawGameMap();
+        drawPlayers();
         EndMode3D();
         drawTeams();
-        drawPlayers();
 
     }
 
@@ -61,7 +64,6 @@ namespace Gui {
     }
     void Graphics::drawPlayers(void)
     {
-        // draw team player
         for (auto &[id, player] : _game->getPlayers()) {
             DEBUG_CONCAT << "Player " << id;
             if (_game->getTiles().contains({player->getPos().x, player->getPos().y})) {
