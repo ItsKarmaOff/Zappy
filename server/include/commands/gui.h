@@ -260,10 +260,9 @@ void send_pdi_to_gui(server_t *server, client_t *client,
  * @param server The server instance
  * @param client The client instance to send the command to
  * @param egg The egg whose information is being sent
- * @param player The player associated with the egg
  */
 void send_enw_to_gui(server_t *server, client_t *client,
-    player_t *egg, player_t *player);
+    player_t *egg);
 
 /**
  * @brief Send the "ebo" command to all GUI clients
