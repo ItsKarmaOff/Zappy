@@ -27,5 +27,5 @@ void handle_command_fork(UNUSED server_t *server, UNUSED client_t *client,
     AL(FALSE, my_push_front, &client->player->team->player_list,
         new_player, VOID);
     dprintf(client->socket_fd, VALID_AI);
-    send_enw_to_gui(server, NULL, new_player, client->player);
+    send_enw_to_gui(server, NULL, new_player);
 }
