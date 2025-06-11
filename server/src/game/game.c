@@ -25,7 +25,7 @@ void refill_resources(game_t *game)
     size_t x = 0;
     size_t y = 0;
 
-    DEBUG("Refilling resources...\n");
+    DEBUG(LIGHT_GREY "Refilling resources...\n");
     for (size_t index = 0; index < RESOURCES_SIZE; index++) {
         while (game->resources[index].current_quantity <
         game->resources[index].max_quantity) {
