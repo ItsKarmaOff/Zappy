@@ -205,7 +205,7 @@ namespace Gui
         }
         TeamInfo &team = _graphical.getGame()->getTeams()[teamName];
         if (!team.getPlayers().contains(playerId)) {
-            team.getPlayers()[playerId] = std::make_shared<PlayerInfo>();
+            team.getPlayers()[playerId] = std::make_shared<PlayerInfo>(teamName);
             _graphical.getGame()->getPlayers()[playerId] = team.getPlayers()[playerId];
         }
         std::shared_ptr<PlayerInfo> &playerI = team.getPlayers()[playerId];

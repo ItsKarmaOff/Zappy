@@ -8,15 +8,14 @@
 #include "Graphics.hpp"
 #include "TileInfo.hpp"
 #include "Logs.hpp"
+#include "VarManager.hpp"
+#include <chrono>
 #include <raylib.h>
+#include <raymath.h>
 
 namespace Gui {
     void Graphics::handleEventsGame(void)
     {
-        if (IsKeyReleased(KEY_SPACE)) {
-            _scene = MENU;
-            EnableCursor();
-        }
         // on peut pas modifier la touche, mais Z = W (dcp faut appuyer sur W)
         if (IsKeyPressed(KEY_Z)) {
             _game->getCamera().target =
@@ -25,7 +24,10 @@ namespace Gui {
         if (IsKeyPressed(KEY_TAB)) {
             _scene = SCOREBOARD;
             EnableCursor();
+        }if (IsKeyReleased(KEY_F)) {
+            VarManager::getInstance().setVar(VarManager::DEBUG_VAR, !VarManager::getInstance().getVar(VarManager::DEBUG_VAR));
         }
+
     }
 
     void Graphics::updateGame(void)
@@ -40,6 +42,8 @@ namespace Gui {
         BeginMode3D(_game->getCamera());
         drawGameMap();
         drawPlayers();
+        DrawModel(_assetsManager.getModels()["background"]->getModel(), {0, 0, 0}, _assetsManager.getModels()["background"]->getScale(), WHITE);
+        // DrawGrid(10, TILE_SIZE);
         EndMode3D();
         drawTeams();
 
@@ -48,7 +52,7 @@ namespace Gui {
     void Graphics::drawGameMap(void)
     {
         for (auto &[k, tile] : _game->getTiles()) {
-            tile.draw(_assetsManager.getModels(), _assetsManager.getModelsScale());
+            tile.draw(_assetsManager);
         }
     }
     void Graphics::drawTeams(void)
@@ -65,10 +69,37 @@ namespace Gui {
     void Graphics::drawPlayers(void)
     {
         for (auto &[id, player] : _game->getPlayers()) {
-            if (_game->getTiles().contains({player->getPos().x, player->getPos().y})) {
-                TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
-                DrawModel(_assetsManager.getModels()["player"], {tile.getPos().x, 2, tile.getPos().z}, _assetsManager.getModelsScale()["player"], player->getColor());
+            if (!_game->getTiles().contains({player->getPos().x, player->getPos().y})) {
+                ERROR << "No tile matching the player position.";
+                return;
             }
+            TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
+            _assetsManager.getModels()["player"]->getModel().transform = MatrixRotateY(DEG2RAD * (90 * player->getOrientation()));
+
+            _assetsManager.getModels()["player"]->draw(
+                {tile.getPos().x, 2, tile.getPos().z},
+                player->getColor()
+            );
+
+            // debugging broadcast message
+            if (!player->getMessagesToBroadcast().empty()) {
+                std::string msg = player->getMessagesToBroadcast().front();
+                std::chrono::steady_clock::time_point currentTime = std::chrono::steady_clock::now();
+
+                // Store message with timestamp if it's new
+                if (!player->isBroadcasting()) {
+                    player->getClock() = currentTime;
+                    player->setBroadcasting(true);
+                } else {
+                    if (player->getClock() - currentTime > std::chrono::seconds(1) ) {
+                        player->setBroadcasting(false);
+                        player->getMessagesToBroadcast().pop();
+                    } else {
+                        DEBUG_CONCAT << "player Broadcast: " << msg;
+                    }
+                }
+            }
+
         }
     }
 }
