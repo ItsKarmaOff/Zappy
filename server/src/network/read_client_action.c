@@ -12,10 +12,11 @@
 
 #include "network.h"
 
-static void disconnect_client(server_t *server, size_t index, char *command)
+static void disconnect_client(server_t *server, size_t index,
+    char *read_buffer)
 {
     DEBUG(my_create_str("Client %zu disconnected\n", index));
-    FREE(command);
+    FREE(read_buffer);
     remove_client(server, index);
 }
 
@@ -42,7 +43,7 @@ static bool is_queue_full(client_t *client, size_t index, char *command)
     return false;
 }
 
-void read_client_action(server_t *server, size_t index)
+static void read_authenticated_client_action(server_t *server, size_t index)
 {
     size_t read_size = 0;
     char *command = NULL;
@@ -63,4 +64,35 @@ void read_client_action(server_t *server, size_t index)
         command, STRING);
     if (my_str_contains(command, "\n"))
         server->poll_fds[index].events |= POLLOUT;
+}
+
+static void read_unauthenticated_client_action(server_t *server, size_t index)
+{
+    size_t read_size = 0;
+    char *team_name = NULL;
+
+    if (ioctl(server->poll_fds[index].fd, FIONREAD, &read_size) < 0)
+        THROW(my_create_str("EXCEPTION: ioctl failed: %s\n", STRERR));
+    if (read_size == 0)
+        return disconnect_client(server, index, team_name);
+    team_name = AL(FALSE, my_calloc, read_size + 1, sizeof(char));
+    if (read(server->poll_fds[index].fd, team_name, read_size) < 0)
+        return disconnect_client(server, index, team_name);
+    server->client_list[index - 1]->team_name = AL(FALSE, my_resize_alloc,
+        server->client_list[index - 1]->team_name,
+        my_strlen(server->client_list[index - 1]->team_name),
+        my_strlen(team_name) + my_strlen(
+        server->client_list[index - 1]->team_name) + 1 * sizeof(char));
+    my_strcat(server->client_list[index - 1]->team_name, team_name);
+    if (my_str_contains(team_name, "\n"))
+        server->poll_fds[index].events |= POLLOUT;
+    FREE(team_name);
+}
+
+void read_client_action(server_t *server, size_t index)
+{
+    if (server->client_list[index - 1]->is_authenticated)
+        read_authenticated_client_action(server, index);
+    else
+        read_unauthenticated_client_action(server, index);
 }

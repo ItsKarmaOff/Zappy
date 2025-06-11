@@ -14,6 +14,7 @@
 
 void destroy_client(client_t *client)
 {
+    FREE(client->team_name);
     if (client->player != NULL)
         my_delete_nodes(&client->player->team->player_list,
             client->player, NULL);
@@ -36,10 +37,10 @@ void destroy_clients(server_t *server)
 void resize_client_list(server_t *server, size_t new_size)
 {
     server->poll_fds = AL(FALSE, my_resize_alloc, server->poll_fds,
-        sizeof(pollfd_t) * (server->max_clients_number + 1),
+        sizeof(pollfd_t) * (server->current_clients_number + 1),
         sizeof(pollfd_t) * (new_size + 1));
     server->client_list = AL(FALSE, my_resize_alloc, server->client_list,
-        sizeof(client_t *) * (server->max_clients_number),
+        sizeof(client_t *) * (server->current_clients_number),
         sizeof(client_t *) * new_size);
-    server->max_clients_number = new_size;
+    server->current_clients_number = new_size;
 }

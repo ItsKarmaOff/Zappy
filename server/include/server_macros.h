@@ -52,6 +52,26 @@
 
 
 
+    /* Client macros */
+
+    /**
+     * @brief The index of the server in the poll_fds array
+     */
+    #define SERVER_POLL_INDEX 0
+
+    /**
+     * @brief The default maximum number of backlog connections
+     * in the listen queue
+     */
+    #define DEFAULT_LISTEN_BACKLOG 128
+
+    /**
+     * @brief Gets the client at a specific index in the server's client list
+     */
+    #define CLIENT(server, index) ((server)->client_list[(index) - 1])
+
+
+
     /* Command macros */
 
     /**

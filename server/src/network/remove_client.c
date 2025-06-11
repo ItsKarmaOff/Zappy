@@ -28,6 +28,5 @@ void remove_client(server_t *server, size_t index)
         server->client_list[index - 1] =
             server->client_list[server->current_clients_number - 1];
     }
-    resize_client_list(server, server->max_clients_number - 1);
-    server->current_clients_number--;
+    resize_client_list(server, server->current_clients_number - 1);
 }

@@ -56,14 +56,6 @@ player_t *get_player_by_id(const game_t *game, size_t player_id);
 team_t *create_team(game_t *game, const char *name);
 
 /**
- * @brief Gets the number of empty slots in a team
- * @param team The team to check
- * @return The number of empty slots in the team
- */
-//size_t get_nb_empty_slots(const team_t *team);
-//TODO à delete
-
-/**
  * @brief Gets the index of a team in the game
  * @param game The game to get the team from
  * @param team_name The name of the team to get the index of
@@ -77,6 +69,14 @@ size_t get_team_index(const game_t *game, const char *team_name);
  * @return A pointer to the next egg, or NULL if no eggs are available
  */
 player_t *get_next_egg(team_t *team);
+
+/**
+ * @brief Checks if a team name is valid
+ * @param server The server containing the game
+ * @param team_name The name of the team to check
+ * @return true if the team name is valid, false otherwise
+ */
+bool is_valid_team(server_t *server, char *team_name);
 
 
 

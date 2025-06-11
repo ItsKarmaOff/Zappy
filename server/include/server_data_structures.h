@@ -210,9 +210,14 @@ typedef struct client_s {
     int socket_fd;
     /** The address of the client */
     sockaddr_in_t address;
+
+    /** Whether the client is authenticated */
+    bool is_authenticated;
+    /** The name of the team the client is trying to join */
+    char *team_name;
+
     /** Whether the client is a GUI client */
     bool is_gui;
-
     /** The associated player */
     player_t *player;
 
@@ -238,10 +243,8 @@ typedef struct server_s {
     /** The length of the address */
     socklen_t addr_len;
 
-    /** The poll file descriptors */
+    /** The list of poll file descriptors for current clients */
     pollfd_t *poll_fds;
-    /** The maximum number of clients */
-    size_t max_clients_number;
     /** The current number of clients */
     size_t current_clients_number;
     /** The list of connected clients */

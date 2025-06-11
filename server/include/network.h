@@ -53,6 +53,13 @@ void remove_client(server_t *server, size_t index);
 /* Write client functions */
 
 /**
+ * @brief Authenticate a client
+ * @param server The server containing the client
+ * @param index The index of the client in the poll_fds array
+ */
+void authenticate_client(server_t *server, size_t index);
+
+/**
  * @brief Write the action of a client
  * @param server The server containing the client
  * @param index The index of the client in the poll_fds array

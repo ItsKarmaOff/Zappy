@@ -28,21 +28,6 @@ team_t *create_team(game_t *game, const char *name)
     return team;
 }
 
-//TODO à delete
-// Plus utilisé à cause de eggs_number
-/*
-size_t get_nb_empty_slots(const team_t *team)
-{
-    size_t empty_slots = 0;
-
-    if (team == NULL)
-        return empty_slots;
-    for (node_t *node = team->player_list; node != NULL; node = node->next) {
-        if (node->data == NULL || ((player_t *)node->data)->is_egg)
-            empty_slots++;
-    }
-    return empty_slots;
-}*/
 size_t get_team_index(const game_t *game, const char *team_name)
 {
     if (game == NULL || team_name == NULL)
@@ -66,4 +51,14 @@ player_t *get_next_egg(team_t *team)
         }
     }
     return NULL;
+}
+
+bool is_valid_team(server_t *server, char *team_name)
+{
+    for (size_t index = 0; index < server->game.game_settings.teams_number;
+        index++) {
+        if (my_strcmp(team_name, server->game.team_list[index]->name) == 0)
+            return true;
+    }
+    return false;
 }
