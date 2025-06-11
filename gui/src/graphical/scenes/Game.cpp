@@ -42,8 +42,8 @@ namespace Gui {
         BeginMode3D(_game->getCamera());
         drawGameMap();
         drawPlayers();
-        DrawModel(_assetsManager.getModels()["background"]->getModel(), {0, 0, 0}, _assetsManager.getModels()["background"]->getScale(), WHITE);
-        // DrawGrid(10, TILE_SIZE);
+        Vector3 pos = {_game->getMapSize().x * TILE_SIZE / 2.0f, 0.0f, _game->getMapSize().y * TILE_SIZE / 2.0f};
+        DrawModel(_assetsManager.getModels()["background"]->getModel(), pos, _assetsManager.getModels()["background"]->getScale(), WHITE);
         EndMode3D();
         drawTeams();
 

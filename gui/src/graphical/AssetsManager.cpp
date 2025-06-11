@@ -90,7 +90,7 @@ namespace Gui {
         _models["player"] = std::make_shared<ModelInfo>("gui/assets/woman.glb", 2.0f);
 
         // /* background */
-        _models["background"] = std::make_shared<ModelInfo>("gui/assets/bg.glb", 5.0f);
+        _models["background"] = std::make_shared<ModelInfo>("gui/assets/bg2.glb", 1.0f);
     }
 
     void AssetsManager::unloadAssets()
