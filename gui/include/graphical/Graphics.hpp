@@ -10,16 +10,17 @@
     #define GRAPHICS_HPP
     #include <cstddef>
     #include <memory>
-#include <queue>
-#include <string>
+    #include <queue>
+    #include <string>
     #include <unordered_map>
-#include "AssetsManager.hpp"
+    #include "AssetsManager.hpp"
     #include "GameInfo.hpp"
-#include "MenuInfo.hpp"
+    #include "MenuInfo.hpp"
     #include "raylib.h"
     #include <cstring>
-#include <vector>
-#include "QueueManager.hpp"
+    #include <vector>
+    #include "QueueManager.hpp"
+    #include "VarManager.hpp"
 
 
 
@@ -97,7 +98,6 @@ namespace Gui {
             std::shared_ptr<MenuInfo> _menu;
             std::shared_ptr<GameInfo> _game;
             AssetsManager _assetsManager;
-            // int = temporaire
     };
 }
 

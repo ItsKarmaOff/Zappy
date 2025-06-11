@@ -8,6 +8,7 @@
 #include "Graphics.hpp"
 #include "TileInfo.hpp"
 #include "Logs.hpp"
+#include "VarManager.hpp"
 #include <chrono>
 #include <raylib.h>
 #include <raymath.h>
@@ -15,10 +16,6 @@
 namespace Gui {
     void Graphics::handleEventsGame(void)
     {
-        if (IsKeyReleased(KEY_SPACE)) {
-            _scene = MENU;
-            EnableCursor();
-        }
         // on peut pas modifier la touche, mais Z = W (dcp faut appuyer sur W)
         if (IsKeyPressed(KEY_Z)) {
             _game->getCamera().target =
@@ -27,7 +24,10 @@ namespace Gui {
         if (IsKeyPressed(KEY_TAB)) {
             _scene = SCOREBOARD;
             EnableCursor();
+        }if (IsKeyReleased(KEY_F)) {
+            VarManager::getInstance().setVar(VarManager::DEBUG_VAR, !VarManager::getInstance().getVar(VarManager::DEBUG_VAR));
         }
+
     }
 
     void Graphics::updateGame(void)
@@ -40,9 +40,10 @@ namespace Gui {
         ClearBackground(RAYWHITE);
 
         BeginMode3D(_game->getCamera());
-        // drawGameMap();
-        // drawPlayers();
-        DrawModel(_assetsManager.getModels()["background"], {0, 0, 0}, _assetsManager.getModelsScale()["background"], WHITE);
+        drawGameMap();
+        drawPlayers();
+        DrawModel(_assetsManager.getModels()["background"]->getModel(), {0, 0, 0}, _assetsManager.getModels()["background"]->getScale(), WHITE);
+        // DrawGrid(10, TILE_SIZE);
         EndMode3D();
         drawTeams();
 
@@ -73,9 +74,12 @@ namespace Gui {
                 return;
             }
             TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
-            _assetsManager.getModels()["player"].transform = MatrixRotateY(DEG2RAD * (90 * player->getOrientation()));
+            _assetsManager.getModels()["player"]->getModel().transform = MatrixRotateY(DEG2RAD * (90 * player->getOrientation()));
 
-            DrawModel(_assetsManager.getModels()["player"], {tile.getPos().x, 2, tile.getPos().z}, _assetsManager.getModelsScale()["player"], player->getColor());
+            _assetsManager.getModels()["player"]->draw(
+                {tile.getPos().x, 2, tile.getPos().z},
+                player->getColor()
+            );
 
             // debugging broadcast message
             if (!player->getMessagesToBroadcast().empty()) {
