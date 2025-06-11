@@ -77,12 +77,12 @@ namespace Gui {
                 startZ + offsetZ + 0.5f
             };
             if (models.contains(key)) {
-                // need to redo the origin of the model
-                models[key]->draw({
-                    objPos.x, 3.0
-                    /* models[key]->getDimensions().y / 2.0f */,
-                    objPos.z}
-                );
+                Vector3 modelPos = {
+                    objPos.x,
+                    models[key]->getAlignedY(),
+                    objPos.z
+                };
+                models[key]->draw(modelPos);
             } else {
                 DrawCube({objPos.x, 0.0f, objPos.z}, 1.0f, 1.0f, 1.0f, PURPLE);
                 DrawCubeWires({objPos.x, 0.0f, objPos.z}, 1.0f, 1.0f, 1.0f, BLACK);
@@ -91,7 +91,7 @@ namespace Gui {
         }
         models["island"]->draw(
             {_pos.x,
-            -assetsManager.getModels().at("island")->getHeight() / 2.0f,
+            models["island"]->getAlignedY() - models["island"]->getDimensions().y,
             _pos.z},
             WHITE
         );

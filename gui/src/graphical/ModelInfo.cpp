@@ -56,6 +56,7 @@ namespace Gui {
     void ModelInfo::setScale(float scale)
     {
         _scale = scale;
+        init();
     }
     const Vector3& ModelInfo::getDimensions() const
     {
@@ -93,7 +94,7 @@ namespace Gui {
     {
         float scaleX = size / (_boundingBox.max.x - _boundingBox.min.x);
         float scaleY = size / (_boundingBox.max.z - _boundingBox.min.z);
-        init();
+        std::min(scaleX, scaleY);
         return std::min(scaleX, scaleY);
     }
 
@@ -119,6 +120,11 @@ namespace Gui {
         float zOffset = length;
 
         return zOffset;
+    }
+
+    float ModelInfo::getAlignedY(float target)
+    {
+        return target - (_boundingBox.min.y * _scale);
     }
 
 

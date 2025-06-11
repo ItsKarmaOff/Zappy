@@ -77,7 +77,7 @@ namespace Gui {
             _assetsManager.getModels()["player"]->getModel().transform = MatrixRotateY(DEG2RAD * (90 * player->getOrientation()));
 
             _assetsManager.getModels()["player"]->draw(
-                {tile.getPos().x, 2, tile.getPos().z},
+                {tile.getPos().x, _assetsManager.getModels()["player"]->getAlignedY(), tile.getPos().z},
                 player->getColor()
             );
 

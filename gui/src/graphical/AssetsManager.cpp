@@ -30,7 +30,7 @@ namespace Gui {
         cupcakeInfo->getModel().materials[1].maps[MATERIAL_MAP_DIFFUSE].texture = cupcakeTextures[0];
         cupcakeInfo->getModel().materials[2].maps[MATERIAL_MAP_DIFFUSE].texture = cupcakeTextures[1];
         cupcakeInfo->getModel().materials[3].maps[MATERIAL_MAP_DIFFUSE].texture = cupcakeTextures[0]; */
-        _models["food"] = std::make_shared<ModelInfo>("gui/assets/apple.glb", 3.0f);
+        _models["food"] = std::make_shared<ModelInfo>("gui/assets/box.glb");
         _models["food"]->setScale(_models["food"]->scaleToSize(1.0f));
 
 
@@ -48,46 +48,36 @@ namespace Gui {
         // magic_stone->getModel().materials[0].maps[MATERIAL_MAP_ROUGHNESS].texture = magicStoneTextures[1];
         // magic_stone->getModel().materials[0].maps[MATERIAL_MAP_EMISSION].texture = magicStoneTextures[2];
         // magic_stone->getModel().materials[0].maps[MATERIAL_MAP_NORMAL].texture = magicStoneTextures[3];
-        _models["linemate"] = std::make_shared<ModelInfo>("gui/assets/aubergine.glb");
-        _models["linemate"]->setScale(_models["linemate"]->scaleToSize(3.0f));
+        _models["linemate"] = std::make_shared<ModelInfo>("gui/assets/iron.glb");
+        _models["linemate"]->setScale(_models["linemate"]->scaleToSize(1.0f));
+
+        _models["deraumere"] = std::make_shared<ModelInfo>("gui/assets/gold.glb");
+        _models["deraumere"]->setScale(_models["deraumere"]->scaleToSize(1.0f));
+
 
         /* sibur */
-        // std::shared_ptr<ModelInfo> sibur = std::make_shared<ModelInfo>("gui/assets/sibur/scene.gltf", 5.0f);
-        // std::vector<Texture2D> siburTextures = {
-        //     LoadTexture("gui/assets/sibur/textures/Default_OBJ.024_baseColor.png"),
-        //     LoadTexture("gui/assets/sibur/textures/Default_OBJ.024_metallicRoughness.png"),
-        //     LoadTexture("gui/assets/sibur/textures/Default_OBJ.024_emissive.png"),
-        //     LoadTexture("gui/assets/sibur/textures/Default_OBJ.024_normal.png")
-        // };
-        // sibur->setTextures(siburTextures);
-        // sibur->getModel().materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = siburTextures[0];
-        // sibur->getModel().materials[0].maps[MATERIAL_MAP_ROUGHNESS].texture = siburTextures[1];
-        // sibur->getModel().materials[0].maps[MATERIAL_MAP_EMISSION].texture = siburTextures[2];
-        // sibur->getModel().materials[0].maps[MATERIAL_MAP_NORMAL].texture = siburTextures[3];
-        _models["sibur"] = std::make_shared<ModelInfo>("gui/assets/sibur.glb");
-        _models["sibur"]->setScale(_models["sibur"]->scaleToSize(3.0f));
+        _models["sibur"] = std::make_shared<ModelInfo>("gui/assets/redstone.glb");
+        _models["sibur"]->setScale(_models["sibur"]->scaleToSize(1.0f));
 
         /* mendiane */
-        _models["mendiane"] = std::make_shared<ModelInfo>("gui/assets/mendiane.glb", 0.05f);
+        _models["mendiane"] = std::make_shared<ModelInfo>("gui/assets/mendiane.glb");
         _models["mendiane"]->setScale(_models["mendiane"]->scaleToSize(1.0f));
 
         /* phiras */
-        _models["phiras"] = std::make_shared<ModelInfo>("gui/assets/phiras.glb", 0.3f);
+        _models["phiras"] = std::make_shared<ModelInfo>("gui/assets/diamond.glb");
         _models["phiras"]->setScale(_models["phiras"]->scaleToSize(1.0f));
 
         /* thystame */
-        _models["thystame"] = std::make_shared<ModelInfo>("gui/assets/thystame.glb", 0.05f);
+        _models["thystame"] = std::make_shared<ModelInfo>("gui/assets/emerald.glb");
         _models["thystame"]->setScale(_models["thystame"]->scaleToSize(1.0f));
-
-
-        /* deraumere */
 
         /* island */
         _models["island"] = std::make_shared<ModelInfo>("gui/assets/grass.glb", 1.0f);
         _models["island"]->setScale(_models["island"]->scaleToSize(TILE_SIZE - 0.5));
 
         // /* player */
-        _models["player"] = std::make_shared<ModelInfo>("gui/assets/woman.glb", 2.0f);
+        _models["player"] = std::make_shared<ModelInfo>("gui/assets/steve.glb");
+        _models["player"]->setScale(_models["player"]->scaleToSize(2.0f));
 
         // /* background */
         _models["background"] = std::make_shared<ModelInfo>("gui/assets/bg2.glb", 1.0f);

@@ -41,6 +41,7 @@ namespace Gui {
             float getWidth();
             float getHeight();
             float getLength();
+            float getAlignedY(float target = 0.0f);
 
             ////////////////////////////////////// UTILITY //////////////////////////////////////
             void draw(const Vector3 &position, const Color &color = WHITE) const;
