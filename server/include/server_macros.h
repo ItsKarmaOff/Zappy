@@ -114,4 +114,18 @@
      */
     #define REFILL_TIME 20.0
 
+
+
+    /* Player macros */
+
+    /**
+     * @brief The default number of food when a player is created
+     */
+    #define DEFAULT_FOOD_NUMBER (10 - 1)
+
+    /**
+     * @brief The time unit for food consumption
+     */
+    #define FOOD_TIME_UNIT 126
+
 #endif /* SERVER_MACROS_H_ */

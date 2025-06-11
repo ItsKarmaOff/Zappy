@@ -46,11 +46,12 @@ player_t *get_next_egg(server_t *server, team_t *team)
     for (node_t *node = team->player_list; node != NULL; node = node->next) {
         if (node->data != NULL && ((player_t *)node->data)->is_egg) {
             ((player_t *)node->data)->is_egg = false;
+            ((player_t *)node->data)->last_eat_time = time(NULL);
             team->eggs_number--;
             send_ebo_to_gui(server, NULL, (player_t *)node->data);
             send_pnw_to_gui(server, NULL, (player_t *)node->data);
             send_pin_to_gui(server, NULL, (player_t *)node->data);
-            return (player_t *) node->data;
+            return (player_t *)node->data;
         }
     }
     return NULL;

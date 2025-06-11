@@ -23,6 +23,8 @@ player_t *create_player(game_t *game, team_t *team)
     player->position.x = rand() % game->game_settings.width;
     player->position.y = rand() % game->game_settings.height;
     player->orientation = rand() % 4 + 1;
+    player->inventory[FOOD] = DEFAULT_FOOD_NUMBER;
+    player->last_eat_time = time(NULL);
     return player;
 }
 
@@ -38,6 +40,8 @@ player_t *create_player_from_player(game_t *game, player_t *creator)
     player->creator_id = creator->id;
     player->position = creator->position;
     player->orientation = creator->orientation;
+    player->inventory[FOOD] = DEFAULT_FOOD_NUMBER;
+    player->last_eat_time = time(NULL);
     return player;
 }
 
