@@ -129,6 +129,11 @@ typedef struct game_settings_s {
     /** The height of the game map */
     size_t height;
 
+    /** Whether the game should end when only one team remains */
+    bool auto_end;
+    /** Whether the game should display the eggs */
+    bool display_eggs;
+
     /** The number of teams */
     size_t teams_number;
     /** The number of clients per team */
@@ -167,6 +172,8 @@ typedef struct game_s {
     quantity_t resources[RESOURCES_SIZE];
     /** The last time resources were refilled */
     time_t last_refill_time;
+    /** The team name of the winner */
+    char *winner_team_name;
 } game_t;
 
 
