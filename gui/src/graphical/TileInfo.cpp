@@ -59,7 +59,6 @@ namespace Gui {
     void TileInfo::draw(AssetsManager &assetsManager)
     {
         auto &models = assetsManager.getModels();
-        auto &modelsScale = assetsManager.getModelsScale();
         float startX = _pos.x - TILE_SIZE / 2.0f;
         float startZ = _pos.z - TILE_SIZE / 2.0f;
 
@@ -81,14 +80,15 @@ namespace Gui {
                 startZ + offsetZ + 0.5f
             };
             if (models.contains(key)) {
-                DrawModel(models[key], {objPos.x, 3, objPos.z}, modelsScale[key], WHITE);
+                // need to redo the origin of the model
+                DrawModel(models[key]->getModel(), {objPos.x, 3.0/* models[key]->getDimensions().y / 2.0f */, objPos.z}, models[key]->getScale(), WHITE);
             } else {
-                DrawCube({objPos.x, 2.0f, objPos.z}, 1.0f, 1.0f, 1.0f, PURPLE);
-                DrawCubeWires({objPos.x, 2.0f, objPos.z}, 1.0f, 1.0f, 1.0f, BLACK);
+                DrawCube({objPos.x, 0.0f, objPos.z}, 1.0f, 1.0f, 1.0f, PURPLE);
+                DrawCubeWires({objPos.x, 0.0f, objPos.z}, 1.0f, 1.0f, 1.0f, BLACK);
             }
             index++;
         }
-        DrawModel(models["island"], {_pos.x, static_cast<float>(-assetsManager.getHeight("island") / 2.0), _pos.z}, modelsScale["island"], WHITE);
+        DrawModel(models["island"]->getModel(), {_pos.x, -assetsManager.getModels().at("island")->getHeight() / 2.0f, _pos.z}, models["island"]->getScale(), WHITE);
 
         // à fix
         /*
