@@ -16,7 +16,7 @@ var searchData=
   ['player_13',['player',['../structclient__s.html#a375a27a30b16e14d911c9a7079072365',1,'client_s']]],
   ['player_5flist_14',['player_list',['../structteam__s.html#a517ab705c652bc2425f586d3bd1ae809',1,'team_s']]],
   ['player_5fs_15',['player_s',['../structplayer__s.html',1,'']]],
-  ['playerinfo_16',['PlayerInfo',['../classGui_1_1PlayerInfo.html',1,'Gui']]],
+  ['playerinfo_16',['PlayerInfo',['../classGui_1_1PlayerInfo.html',1,'PlayerInfo'],['../classGui_1_1PlayerInfo.html#a6fe55768f55f09f2b8050fca464d0448',1,'Gui::PlayerInfo::PlayerInfo()']]],
   ['players_2ec_17',['players.c',['../players_8c.html',1,'']]],
   ['plv_2ec_18',['plv.c',['../to__gui_2plv_8c.html',1,'(Global Namespace)'],['../from__gui_2plv_8c.html',1,'(Global Namespace)']]],
   ['pnw_2ec_19',['pnw.c',['../pnw_8c.html',1,'']]],
@@ -27,6 +27,6 @@ var searchData=
   ['port_2ec_24',['port.c',['../port_8c.html',1,'']]],
   ['port_5foption_25',['PORT_OPTION',['../parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9fa50e84e87bf81ce3bc5f7de4ffafc186a',1,'parsing.h']]],
   ['position_26',['position',['../structplayer__s.html#a512c59280ab865f7698874c7f8493cfd',1,'player_s::position()'],['../structtile__s.html#a512c59280ab865f7698874c7f8493cfd',1,'tile_s::position()']]],
-  ['ppo_2ec_27',['ppo.c',['../to__gui_2ppo_8c.html',1,'(Global Namespace)'],['../from__gui_2ppo_8c.html',1,'(Global Namespace)']]],
+  ['ppo_2ec_27',['ppo.c',['../from__gui_2ppo_8c.html',1,'(Global Namespace)'],['../to__gui_2ppo_8c.html',1,'(Global Namespace)']]],
   ['printusage_28',['printUsage',['../classGui_1_1Core.html#ae611c00639ead5776f4e982bbfd65ba5',1,'Gui::Core']]]
 ];

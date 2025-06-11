@@ -67,7 +67,8 @@ var NAVTREE =
       [ "Data Fields", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "Variables", "functions_vars.html", null ],
+        [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -87,10 +88,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "AssetsManager_8hpp_source.html",
-"from__gui_2sgt_8c.html#a77cee9fdb6071241edfe02660d8bab5c",
-"gui_8h.html#adab4e2418e9a7e26bdd4e5854691ed8a",
-"my__show__list_8c.html",
-"structclient__s.html#ab675f900e13e59c89c1475a32765c3a9"
+"flag__lowercase__n_8c.html",
+"globals_w.html",
+"my__putnbr__base_8c.html#a4f9ebd9878d71f175e4eff16dacb269d",
+"structGlyphInfo.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

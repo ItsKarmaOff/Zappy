@@ -6,6 +6,7 @@ var searchData=
   ['_7edebug_3',['~Debug',['../classLib_1_1Logs_1_1Debug.html#af364d42bf7a460b6cecbd0779bbfeaec',1,'Lib::Logs::Debug']]],
   ['_7eerror_4',['~Error',['../classLib_1_1Logs_1_1Error.html#a9e90ca50dff9f67db785f712731faa43',1,'Lib::Logs::Error']]],
   ['_7ehelp_5',['~Help',['../classLib_1_1Exceptions_1_1Help.html#a52e863f8db7511ca2cd5783a77ed8669',1,'Lib::Exceptions::Help']]],
-  ['_7esocket_6',['~Socket',['../classLib_1_1Socket.html#af387aca495ea9a25c511cd7d02d997bb',1,'Lib::Socket']]],
-  ['_7ewarning_7',['~Warning',['../classLib_1_1Exceptions_1_1Warning.html#a54176bdb5d29d2ed67e4c5426dce58cb',1,'Lib::Exceptions::Warning::~Warning()'],['../classLib_1_1Logs_1_1Warning.html#ac62afcffcc583f9d2f91f40487fd1081',1,'Lib::Logs::Warning::~Warning()']]]
+  ['_7eplayerinfo_6',['~PlayerInfo',['../classGui_1_1PlayerInfo.html#afe23c640efef1657e8c681103585cf82',1,'Gui::PlayerInfo']]],
+  ['_7esocket_7',['~Socket',['../classLib_1_1Socket.html#af387aca495ea9a25c511cd7d02d997bb',1,'Lib::Socket']]],
+  ['_7ewarning_8',['~Warning',['../classLib_1_1Exceptions_1_1Warning.html#a54176bdb5d29d2ed67e4c5426dce58cb',1,'Lib::Exceptions::Warning::~Warning()'],['../classLib_1_1Logs_1_1Warning.html#ac62afcffcc583f9d2f91f40487fd1081',1,'Lib::Logs::Warning::~Warning()']]]
 ];

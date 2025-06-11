@@ -5,7 +5,9 @@ var dir_24ade9396333ead6cb3a97d90cf3723d =
     [ "GameInfo.hpp", "GameInfo_8hpp_source.html", null ],
     [ "Graphics.hpp", "Graphics_8hpp_source.html", null ],
     [ "MenuInfo.hpp", "MenuInfo_8hpp_source.html", null ],
+    [ "ModelInfo.hpp", "ModelInfo_8hpp_source.html", null ],
     [ "PlayerInfo.hpp", "PlayerInfo_8hpp_source.html", null ],
     [ "TeamInfo.hpp", "TeamInfo_8hpp_source.html", null ],
-    [ "TileInfo.hpp", "TileInfo_8hpp_source.html", null ]
+    [ "TileInfo.hpp", "TileInfo_8hpp_source.html", null ],
+    [ "VarManager.hpp", "VarManager_8hpp_source.html", null ]
 ];

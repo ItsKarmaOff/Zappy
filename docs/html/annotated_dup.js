@@ -8,10 +8,12 @@ var annotated_dup =
       [ "GameInfo", "classGui_1_1GameInfo.html", null ],
       [ "Graphics", "classGui_1_1Graphics.html", null ],
       [ "MenuInfo", "classGui_1_1MenuInfo.html", null ],
-      [ "PlayerInfo", "classGui_1_1PlayerInfo.html", null ],
+      [ "ModelInfo", "classGui_1_1ModelInfo.html", null ],
+      [ "PlayerInfo", "classGui_1_1PlayerInfo.html", "classGui_1_1PlayerInfo" ],
       [ "QueueManager", "classGui_1_1QueueManager.html", null ],
       [ "TeamInfo", "classGui_1_1TeamInfo.html", null ],
-      [ "TileInfo", "classGui_1_1TileInfo.html", null ]
+      [ "TileInfo", "classGui_1_1TileInfo.html", null ],
+      [ "VarManager", "classGui_1_1VarManager.html", null ]
     ] ],
     [ "Lib", null, [
       [ "Logs", null, [

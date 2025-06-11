@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zappy documentation: TileInfo Class Reference</title>
+<title>Zappy documentation: VarManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classGui_1_1TileInfo.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('classGui_1_1VarManager.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -83,42 +83,44 @@ $(document).ready(function(){initNavTree('classGui_1_1TileInfo.html',''); initRe
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
-  <div class="headertitle"><div class="title">TileInfo Class Reference</div></div>
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
+  <div class="headertitle"><div class="title">VarManager Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a20dc844625408b8f19865275d22d4fa0"><td class="memItemLeft" align="right" valign="top"><a id="a20dc844625408b8f19865275d22d4fa0" name="a20dc844625408b8f19865275d22d4fa0"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>VarType</b> { <b>DEBUG_VAR</b>
+, <b>GAMEMODE_VAR</b>
+ }</td></tr>
+<tr class="separator:a20dc844625408b8f19865275d22d4fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac50c7a91b833393ddabdb1a5fa30a326"><td class="memItemLeft" align="right" valign="top"><a id="ac50c7a91b833393ddabdb1a5fa30a326" name="ac50c7a91b833393ddabdb1a5fa30a326"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TileInfo</b> (const <a class="el" href="structVector3.html">Vector3</a> &amp;pos)</td></tr>
-<tr class="separator:ac50c7a91b833393ddabdb1a5fa30a326"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a111b51aaf507f840790d98ba58557c88"><td class="memItemLeft" align="right" valign="top"><a id="a111b51aaf507f840790d98ba58557c88" name="a111b51aaf507f840790d98ba58557c88"></a>
-const <a class="el" href="structVector3.html">Vector3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPos</b> () const</td></tr>
-<tr class="separator:a111b51aaf507f840790d98ba58557c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6ddea423582afa541ccb8cd31fbfd56"><td class="memItemLeft" align="right" valign="top"><a id="af6ddea423582afa541ccb8cd31fbfd56" name="af6ddea423582afa541ccb8cd31fbfd56"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPos</b> (const <a class="el" href="structVector3.html">Vector3</a> &amp;pos)</td></tr>
-<tr class="separator:af6ddea423582afa541ccb8cd31fbfd56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc47fc1119e6e0fdb1f81409ac80e3d1"><td class="memItemLeft" align="right" valign="top"><a id="abc47fc1119e6e0fdb1f81409ac80e3d1" name="abc47fc1119e6e0fdb1f81409ac80e3d1"></a>
-std::map&lt; std::string, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getContent</b> (void)</td></tr>
-<tr class="separator:abc47fc1119e6e0fdb1f81409ac80e3d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a346f5bb4e4881c6916208db6177e8126"><td class="memItemLeft" align="right" valign="top"><a id="a346f5bb4e4881c6916208db6177e8126" name="a346f5bb4e4881c6916208db6177e8126"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setContent</b> (const std::map&lt; std::string, int &gt; &amp;cont)</td></tr>
-<tr class="separator:a346f5bb4e4881c6916208db6177e8126"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8723b757f0cbf0955fc4883cba0c4a1b"><td class="memItemLeft" align="right" valign="top"><a id="a8723b757f0cbf0955fc4883cba0c4a1b" name="a8723b757f0cbf0955fc4883cba0c4a1b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (<a class="el" href="classGui_1_1AssetsManager.html">AssetsManager</a> &amp;assetsManager)</td></tr>
-<tr class="separator:a8723b757f0cbf0955fc4883cba0c4a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdccd478203f506e052f20e15dea905c"><td class="memItemLeft" align="right" valign="top"><a id="abdccd478203f506e052f20e15dea905c" name="abdccd478203f506e052f20e15dea905c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setVar</b> (VarType var, bool value)</td></tr>
+<tr class="separator:abdccd478203f506e052f20e15dea905c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90d81dfd9d4fdd622c4e36ebd3a9fc6c"><td class="memItemLeft" align="right" valign="top"><a id="a90d81dfd9d4fdd622c4e36ebd3a9fc6c" name="a90d81dfd9d4fdd622c4e36ebd3a9fc6c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>getVar</b> (VarType var) const</td></tr>
+<tr class="separator:a90d81dfd9d4fdd622c4e36ebd3a9fc6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a4c70edd7842513f82bcd75bacbd522b8"><td class="memItemLeft" align="right" valign="top"><a id="a4c70edd7842513f82bcd75bacbd522b8" name="a4c70edd7842513f82bcd75bacbd522b8"></a>
+static <a class="el" href="classGui_1_1VarManager.html">VarManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
+<tr class="separator:a4c70edd7842513f82bcd75bacbd522b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>gui/include/graphical/<a class="el" href="TileInfo_8hpp_source.html">TileInfo.hpp</a></li>
-<li>gui/src/graphical/TileInfo.cpp</li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>gui/include/graphical/<a class="el" href="VarManager_8hpp_source.html">VarManager.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>Gui</b></li><li class="navelem"><a class="el" href="classGui_1_1TileInfo.html">TileInfo</a></li>
+    <li class="navelem"><b>Gui</b></li><li class="navelem"><a class="el" href="classGui_1_1VarManager.html">VarManager</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>

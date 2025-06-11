@@ -88,40 +88,451 @@ $(document).ready(function(){initNavTree('classGui_1_1PlayerInfo.html',''); init
   <div class="headertitle"><div class="title">PlayerInfo Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="classGui_1_1PlayerInfo.html" title="The PlayerInfo class represents a player in the game with position, orientation, level and inventory.">PlayerInfo</a> class represents a player in the game with position, orientation, level and inventory.  
+ <a href="classGui_1_1PlayerInfo.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="PlayerInfo_8hpp_source.html">PlayerInfo.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a871118a09520247c78a71ecd7b0abd58"><td class="memItemLeft" align="right" valign="top"><a id="a871118a09520247c78a71ecd7b0abd58" name="a871118a09520247c78a71ecd7b0abd58"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Orientation</b> { <b>NORTH</b>
+<tr class="memitem:a871118a09520247c78a71ecd7b0abd58"><td class="memItemLeft" align="right" valign="top"><a id="a871118a09520247c78a71ecd7b0abd58" name="a871118a09520247c78a71ecd7b0abd58"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#a871118a09520247c78a71ecd7b0abd58">Orientation</a> { <b>NORTH</b>
 , <b>EAST</b>
 , <b>SOUTH</b>
 , <b>WEST</b>
  }</td></tr>
+<tr class="memdesc:a871118a09520247c78a71ecd7b0abd58"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Orientation enum represents the orientation of a player. <br /></td></tr>
 <tr class="separator:a871118a09520247c78a71ecd7b0abd58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8571efa4409be32e28abf3ea74a0dbb1"><td class="memItemLeft" align="right" valign="top"><a id="a8571efa4409be32e28abf3ea74a0dbb1" name="a8571efa4409be32e28abf3ea74a0dbb1"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> { <br />
+&#160;&#160;<b>FOOD</b>
+, <b>LINEMATE</b>
+, <b>DERAUMERE</b>
+, <b>SIBUR</b>
+, <br />
+&#160;&#160;<b>MENDIANE</b>
+, <b>PHIRAS</b>
+, <b>THYSTAME</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:a8571efa4409be32e28abf3ea74a0dbb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ResourceType enum represents the types of resources a player can have in their inventory. <br /></td></tr>
+<tr class="separator:a8571efa4409be32e28abf3ea74a0dbb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c730f37b1b3a893159bada67637fdb1"><td class="memItemLeft" align="right" valign="top"><a id="a3c730f37b1b3a893159bada67637fdb1" name="a3c730f37b1b3a893159bada67637fdb1"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>PlayerState</b> { <b>IDLE</b>
+, <b>INCANTATION</b>
+, <b>EXPELLED</b>
+ }</td></tr>
+<tr class="separator:a3c730f37b1b3a893159bada67637fdb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad199f9f06ddaa4294b6351c34afa1b24"><td class="memItemLeft" align="right" valign="top"><a id="ad199f9f06ddaa4294b6351c34afa1b24" name="ad199f9f06ddaa4294b6351c34afa1b24"></a>
-const Orientation &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getOrientation</b> () const</td></tr>
+<tr class="memitem:a6fe55768f55f09f2b8050fca464d0448"><td class="memItemLeft" align="right" valign="top"><a id="a6fe55768f55f09f2b8050fca464d0448" name="a6fe55768f55f09f2b8050fca464d0448"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PlayerInfo</b> ()=default</td></tr>
+<tr class="memdesc:a6fe55768f55f09f2b8050fca464d0448"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classGui_1_1PlayerInfo.html" title="The PlayerInfo class represents a player in the game with position, orientation, level and inventory.">PlayerInfo</a> object with default values. <br /></td></tr>
+<tr class="separator:a6fe55768f55f09f2b8050fca464d0448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cef2c824459dc5bb170523db4c838f1"><td class="memItemLeft" align="right" valign="top"><a id="a4cef2c824459dc5bb170523db4c838f1" name="a4cef2c824459dc5bb170523db4c838f1"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PlayerInfo</b> (std::string teamName_)</td></tr>
+<tr class="separator:a4cef2c824459dc5bb170523db4c838f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe23c640efef1657e8c681103585cf82"><td class="memItemLeft" align="right" valign="top"><a id="afe23c640efef1657e8c681103585cf82" name="afe23c640efef1657e8c681103585cf82"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~PlayerInfo</b> ()=default</td></tr>
+<tr class="memdesc:afe23c640efef1657e8c681103585cf82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classGui_1_1PlayerInfo.html" title="The PlayerInfo class represents a player in the game with position, orientation, level and inventory.">PlayerInfo</a> object. <br /></td></tr>
+<tr class="separator:afe23c640efef1657e8c681103585cf82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad199f9f06ddaa4294b6351c34afa1b24"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classGui_1_1PlayerInfo.html#a871118a09520247c78a71ecd7b0abd58">Orientation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#ad199f9f06ddaa4294b6351c34afa1b24">getOrientation</a> () const</td></tr>
+<tr class="memdesc:ad199f9f06ddaa4294b6351c34afa1b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the orientation of the player.  <a href="classGui_1_1PlayerInfo.html#ad199f9f06ddaa4294b6351c34afa1b24">More...</a><br /></td></tr>
 <tr class="separator:ad199f9f06ddaa4294b6351c34afa1b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dc41c3c2630da8b872ae1c1a2ab94f2"><td class="memItemLeft" align="right" valign="top"><a id="a6dc41c3c2630da8b872ae1c1a2ab94f2" name="a6dc41c3c2630da8b872ae1c1a2ab94f2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setOrientation</b> (Orientation orientation)</td></tr>
-<tr class="separator:a6dc41c3c2630da8b872ae1c1a2ab94f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa17de1df0244e37496eaba68203d05d4"><td class="memItemLeft" align="right" valign="top"><a id="aa17de1df0244e37496eaba68203d05d4" name="aa17de1df0244e37496eaba68203d05d4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setOrientation</b> (int orientation)</td></tr>
-<tr class="separator:aa17de1df0244e37496eaba68203d05d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c371814fa8cc34395d72bee82acfd19"><td class="memItemLeft" align="right" valign="top"><a id="a5c371814fa8cc34395d72bee82acfd19" name="a5c371814fa8cc34395d72bee82acfd19"></a>
-const size_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getLevel</b> () const</td></tr>
+<tr class="memitem:a5c371814fa8cc34395d72bee82acfd19"><td class="memItemLeft" align="right" valign="top">const size_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#a5c371814fa8cc34395d72bee82acfd19">getLevel</a> () const</td></tr>
+<tr class="memdesc:a5c371814fa8cc34395d72bee82acfd19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the level of the player.  <a href="classGui_1_1PlayerInfo.html#a5c371814fa8cc34395d72bee82acfd19">More...</a><br /></td></tr>
 <tr class="separator:a5c371814fa8cc34395d72bee82acfd19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e4cdd9d3fcbae3136c287f514971573"><td class="memItemLeft" align="right" valign="top"><a id="a2e4cdd9d3fcbae3136c287f514971573" name="a2e4cdd9d3fcbae3136c287f514971573"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setLevel</b> (size_t level)</td></tr>
-<tr class="separator:a2e4cdd9d3fcbae3136c287f514971573"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2f9edd3b36c52cb3c14fd52846fe2ec"><td class="memItemLeft" align="right" valign="top"><a id="af2f9edd3b36c52cb3c14fd52846fe2ec" name="af2f9edd3b36c52cb3c14fd52846fe2ec"></a>
-const <a class="el" href="structVector2.html">Vector2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPos</b> () const</td></tr>
+<tr class="memitem:af2f9edd3b36c52cb3c14fd52846fe2ec"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structVector2.html">Vector2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#af2f9edd3b36c52cb3c14fd52846fe2ec">getPos</a> () const</td></tr>
+<tr class="memdesc:af2f9edd3b36c52cb3c14fd52846fe2ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the position of the player.  <a href="classGui_1_1PlayerInfo.html#af2f9edd3b36c52cb3c14fd52846fe2ec">More...</a><br /></td></tr>
 <tr class="separator:af2f9edd3b36c52cb3c14fd52846fe2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bd24a6e47969deb65156ae82190b14d"><td class="memItemLeft" align="right" valign="top"><a id="a5bd24a6e47969deb65156ae82190b14d" name="a5bd24a6e47969deb65156ae82190b14d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPos</b> (<a class="el" href="structVector2.html">Vector2</a> pos)</td></tr>
+<tr class="memitem:a0f2a0eb391046676368df8a465acec23"><td class="memItemLeft" align="right" valign="top">const std::map&lt; <a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>, size_t &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#a0f2a0eb391046676368df8a465acec23">getInventory</a> () const</td></tr>
+<tr class="memdesc:a0f2a0eb391046676368df8a465acec23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the inventory of the player.  <a href="classGui_1_1PlayerInfo.html#a0f2a0eb391046676368df8a465acec23">More...</a><br /></td></tr>
+<tr class="separator:a0f2a0eb391046676368df8a465acec23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdbc7b14aad874a1b2d2890e2681e2c6"><td class="memItemLeft" align="right" valign="top">const PlayerState &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#afdbc7b14aad874a1b2d2890e2681e2c6">getState</a> (void) const</td></tr>
+<tr class="memdesc:afdbc7b14aad874a1b2d2890e2681e2c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the State object.  <a href="classGui_1_1PlayerInfo.html#afdbc7b14aad874a1b2d2890e2681e2c6">More...</a><br /></td></tr>
+<tr class="separator:afdbc7b14aad874a1b2d2890e2681e2c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a132035c0062ad2b312c5caf86be65d10"><td class="memItemLeft" align="right" valign="top"><a id="a132035c0062ad2b312c5caf86be65d10" name="a132035c0062ad2b312c5caf86be65d10"></a>
+std::queue&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMessagesToBroadcast</b> (void)</td></tr>
+<tr class="separator:a132035c0062ad2b312c5caf86be65d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdb1e395d5eaadd60afc2aac6c7baa64"><td class="memItemLeft" align="right" valign="top"><a id="abdb1e395d5eaadd60afc2aac6c7baa64" name="abdb1e395d5eaadd60afc2aac6c7baa64"></a>
+const <a class="el" href="structColor.html">Color</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getColor</b> (void) const</td></tr>
+<tr class="separator:abdb1e395d5eaadd60afc2aac6c7baa64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272e508bdc0a79827db75525215d30b1"><td class="memItemLeft" align="right" valign="top"><a id="a272e508bdc0a79827db75525215d30b1" name="a272e508bdc0a79827db75525215d30b1"></a>
+std::chrono::steady_clock::time_point &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getClock</b> (void)</td></tr>
+<tr class="separator:a272e508bdc0a79827db75525215d30b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bfc08d374c989786677f8a280b943db"><td class="memItemLeft" align="right" valign="top"><a id="a5bfc08d374c989786677f8a280b943db" name="a5bfc08d374c989786677f8a280b943db"></a>
+const bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>isBroadcasting</b> (void) const</td></tr>
+<tr class="separator:a5bfc08d374c989786677f8a280b943db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae452441a808d036705a95f67eb23000d"><td class="memItemLeft" align="right" valign="top"><a id="ae452441a808d036705a95f67eb23000d" name="ae452441a808d036705a95f67eb23000d"></a>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTeamName</b> (void) const</td></tr>
+<tr class="separator:ae452441a808d036705a95f67eb23000d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dc41c3c2630da8b872ae1c1a2ab94f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#a6dc41c3c2630da8b872ae1c1a2ab94f2">setOrientation</a> (<a class="el" href="classGui_1_1PlayerInfo.html#a871118a09520247c78a71ecd7b0abd58">Orientation</a> orientation)</td></tr>
+<tr class="memdesc:a6dc41c3c2630da8b872ae1c1a2ab94f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the orientation of the player.  <a href="classGui_1_1PlayerInfo.html#a6dc41c3c2630da8b872ae1c1a2ab94f2">More...</a><br /></td></tr>
+<tr class="separator:a6dc41c3c2630da8b872ae1c1a2ab94f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa17de1df0244e37496eaba68203d05d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#aa17de1df0244e37496eaba68203d05d4">setOrientation</a> (int orientation)</td></tr>
+<tr class="memdesc:aa17de1df0244e37496eaba68203d05d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the orientation of the player using an integer value.  <a href="classGui_1_1PlayerInfo.html#aa17de1df0244e37496eaba68203d05d4">More...</a><br /></td></tr>
+<tr class="separator:aa17de1df0244e37496eaba68203d05d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e4cdd9d3fcbae3136c287f514971573"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#a2e4cdd9d3fcbae3136c287f514971573">setLevel</a> (size_t level)</td></tr>
+<tr class="memdesc:a2e4cdd9d3fcbae3136c287f514971573"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the level of the player.  <a href="classGui_1_1PlayerInfo.html#a2e4cdd9d3fcbae3136c287f514971573">More...</a><br /></td></tr>
+<tr class="separator:a2e4cdd9d3fcbae3136c287f514971573"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bd24a6e47969deb65156ae82190b14d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#a5bd24a6e47969deb65156ae82190b14d">setPos</a> (<a class="el" href="structVector2.html">Vector2</a> pos)</td></tr>
+<tr class="memdesc:a5bd24a6e47969deb65156ae82190b14d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the position of the player.  <a href="classGui_1_1PlayerInfo.html#a5bd24a6e47969deb65156ae82190b14d">More...</a><br /></td></tr>
 <tr class="separator:a5bd24a6e47969deb65156ae82190b14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3e1f508d39ff9a4d74e03f76850c4e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#ad3e1f508d39ff9a4d74e03f76850c4e2">setInventory</a> (const std::map&lt; <a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>, size_t &gt; &amp;inventory)</td></tr>
+<tr class="memdesc:ad3e1f508d39ff9a4d74e03f76850c4e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the inventory of the player.  <a href="classGui_1_1PlayerInfo.html#ad3e1f508d39ff9a4d74e03f76850c4e2">More...</a><br /></td></tr>
+<tr class="separator:ad3e1f508d39ff9a4d74e03f76850c4e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00d0f1b5ce2abe3a4392b8f0380767fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#a00d0f1b5ce2abe3a4392b8f0380767fa">setState</a> (PlayerState state)</td></tr>
+<tr class="memdesc:a00d0f1b5ce2abe3a4392b8f0380767fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the State object.  <a href="classGui_1_1PlayerInfo.html#a00d0f1b5ce2abe3a4392b8f0380767fa">More...</a><br /></td></tr>
+<tr class="separator:a00d0f1b5ce2abe3a4392b8f0380767fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f9227d43a49b5c5420a7c0b7fe9f408"><td class="memItemLeft" align="right" valign="top"><a id="a8f9227d43a49b5c5420a7c0b7fe9f408" name="a8f9227d43a49b5c5420a7c0b7fe9f408"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setColor</b> (<a class="el" href="structColor.html">Color</a> color)</td></tr>
+<tr class="separator:a8f9227d43a49b5c5420a7c0b7fe9f408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeaf3c3bee8ac52798bd300354c29eef"><td class="memItemLeft" align="right" valign="top"><a id="aaeaf3c3bee8ac52798bd300354c29eef" name="aaeaf3c3bee8ac52798bd300354c29eef"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setBroadcasting</b> (bool broadcasting)</td></tr>
+<tr class="separator:aaeaf3c3bee8ac52798bd300354c29eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eaa255e8d037af27125fdc6e72c48dc"><td class="memItemLeft" align="right" valign="top"><a id="a7eaa255e8d037af27125fdc6e72c48dc" name="a7eaa255e8d037af27125fdc6e72c48dc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTeamName</b> (std::string teamName_)</td></tr>
+<tr class="separator:a7eaa255e8d037af27125fdc6e72c48dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ddad6d980b406fc680f483809bffc83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#a3ddad6d980b406fc680f483809bffc83">addResource</a> (<a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> type, size_t quantity)</td></tr>
+<tr class="memdesc:a3ddad6d980b406fc680f483809bffc83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a resource to the player's inventory.  <a href="classGui_1_1PlayerInfo.html#a3ddad6d980b406fc680f483809bffc83">More...</a><br /></td></tr>
+<tr class="separator:a3ddad6d980b406fc680f483809bffc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca9d8a1467ce9fa3c127a8b540ef2df3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#aca9d8a1467ce9fa3c127a8b540ef2df3">removeResource</a> (<a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> type, size_t quantity)</td></tr>
+<tr class="memdesc:aca9d8a1467ce9fa3c127a8b540ef2df3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a resource from the player's inventory.  <a href="classGui_1_1PlayerInfo.html#aca9d8a1467ce9fa3c127a8b540ef2df3">More...</a><br /></td></tr>
+<tr class="separator:aca9d8a1467ce9fa3c127a8b540ef2df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >The <a class="el" href="classGui_1_1PlayerInfo.html" title="The PlayerInfo class represents a player in the game with position, orientation, level and inventory.">PlayerInfo</a> class represents a player in the game with position, orientation, level and inventory. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3ddad6d980b406fc680f483809bffc83" name="a3ddad6d980b406fc680f483809bffc83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ddad6d980b406fc680f483809bffc83">&#9670;&nbsp;</a></span>addResource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addResource </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>quantity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a resource to the player's inventory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The type of resource to add </td></tr>
+    <tr><td class="paramname">quantity</td><td>The quantity of the resource to add </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0f2a0eb391046676368df8a465acec23" name="a0f2a0eb391046676368df8a465acec23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f2a0eb391046676368df8a465acec23">&#9670;&nbsp;</a></span>getInventory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::map&lt; <a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">PlayerInfo::ResourceType</a>, size_t &gt; &amp; getInventory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the inventory of the player. </p>
+<dl class="section return"><dt>Returns</dt><dd>The inventory of the player </dd></dl>
+
+</div>
+</div>
+<a id="a5c371814fa8cc34395d72bee82acfd19" name="a5c371814fa8cc34395d72bee82acfd19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c371814fa8cc34395d72bee82acfd19">&#9670;&nbsp;</a></span>getLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const size_t &amp; getLevel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the level of the player. </p>
+<dl class="section return"><dt>Returns</dt><dd>The level of the player </dd></dl>
+
+</div>
+</div>
+<a id="ad199f9f06ddaa4294b6351c34afa1b24" name="ad199f9f06ddaa4294b6351c34afa1b24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad199f9f06ddaa4294b6351c34afa1b24">&#9670;&nbsp;</a></span>getOrientation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classGui_1_1PlayerInfo.html#a871118a09520247c78a71ecd7b0abd58">PlayerInfo::Orientation</a> &amp; getOrientation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the orientation of the player. </p>
+<dl class="section return"><dt>Returns</dt><dd>The orientation of the player </dd></dl>
+
+</div>
+</div>
+<a id="af2f9edd3b36c52cb3c14fd52846fe2ec" name="af2f9edd3b36c52cb3c14fd52846fe2ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2f9edd3b36c52cb3c14fd52846fe2ec">&#9670;&nbsp;</a></span>getPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structVector2.html">Vector2</a> &amp; getPos </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the position of the player. </p>
+<dl class="section return"><dt>Returns</dt><dd>The position of the player </dd></dl>
+
+</div>
+</div>
+<a id="afdbc7b14aad874a1b2d2890e2681e2c6" name="afdbc7b14aad874a1b2d2890e2681e2c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdbc7b14aad874a1b2d2890e2681e2c6">&#9670;&nbsp;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const PlayerInfo::PlayerState &amp; getState </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the State object. </p>
+<dl class="section return"><dt>Returns</dt><dd>const PlayerState&amp; </dd></dl>
+
+</div>
+</div>
+<a id="aca9d8a1467ce9fa3c127a8b540ef2df3" name="aca9d8a1467ce9fa3c127a8b540ef2df3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca9d8a1467ce9fa3c127a8b540ef2df3">&#9670;&nbsp;</a></span>removeResource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void removeResource </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>quantity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove a resource from the player's inventory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The type of resource to remove </td></tr>
+    <tr><td class="paramname">quantity</td><td>The quantity of the resource to remove </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad3e1f508d39ff9a4d74e03f76850c4e2" name="ad3e1f508d39ff9a4d74e03f76850c4e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3e1f508d39ff9a4d74e03f76850c4e2">&#9670;&nbsp;</a></span>setInventory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setInventory </td>
+          <td>(</td>
+          <td class="paramtype">const std::map&lt; <a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>, size_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inventory</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the inventory of the player. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inventory</td><td>The inventory to set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2e4cdd9d3fcbae3136c287f514971573" name="a2e4cdd9d3fcbae3136c287f514971573"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e4cdd9d3fcbae3136c287f514971573">&#9670;&nbsp;</a></span>setLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setLevel </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>level</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the level of the player. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>The level to set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa17de1df0244e37496eaba68203d05d4" name="aa17de1df0244e37496eaba68203d05d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa17de1df0244e37496eaba68203d05d4">&#9670;&nbsp;</a></span>setOrientation() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setOrientation </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>orientation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the orientation of the player using an integer value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orientation</td><td>The integer value representing the orientation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6dc41c3c2630da8b872ae1c1a2ab94f2" name="a6dc41c3c2630da8b872ae1c1a2ab94f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc41c3c2630da8b872ae1c1a2ab94f2">&#9670;&nbsp;</a></span>setOrientation() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setOrientation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGui_1_1PlayerInfo.html#a871118a09520247c78a71ecd7b0abd58">Orientation</a>&#160;</td>
+          <td class="paramname"><em>orientation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the orientation of the player. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orientation</td><td>The orientation to set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5bd24a6e47969deb65156ae82190b14d" name="a5bd24a6e47969deb65156ae82190b14d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bd24a6e47969deb65156ae82190b14d">&#9670;&nbsp;</a></span>setPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setPos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structVector2.html">Vector2</a>&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the position of the player. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>The position to set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a00d0f1b5ce2abe3a4392b8f0380767fa" name="a00d0f1b5ce2abe3a4392b8f0380767fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00d0f1b5ce2abe3a4392b8f0380767fa">&#9670;&nbsp;</a></span>setState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setState </td>
+          <td>(</td>
+          <td class="paramtype">PlayerState&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the State object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>The state to set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>gui/include/graphical/<a class="el" href="PlayerInfo_8hpp_source.html">PlayerInfo.hpp</a></li>
 <li>gui/src/graphical/PlayerInfo.cpp</li>

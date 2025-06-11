@@ -6,10 +6,10 @@ var searchData=
   ['operator_3d_3d_3',['operator==',['../classLib_1_1Socket.html#aff8a7fd2c8d25848c66d1238db6b53ee',1,'Lib::Socket']]],
   ['option_5fauthors_4',['option_authors',['../parsing_8h.html#ac5b221ae8d11073425b73272fd5a5f9c',1,'parsing.h']]],
   ['option_5fclients_5',['option_clients',['../parsing_2options_2clients_8c.html#ae5ff768cc86705e564da3015b9fd94c4',1,'option_clients(server_t *server, parsing_t *parsing):&#160;clients.c'],['../parsing_8h.html#ae5ff768cc86705e564da3015b9fd94c4',1,'option_clients(server_t *server, parsing_t *parsing):&#160;clients.c']]],
-  ['option_5ffrequency_6',['option_frequency',['../frequency_8c.html#a84acb5f91d69842531cd7e84e11ebace',1,'option_frequency(server_t *server, parsing_t *parsing):&#160;frequency.c'],['../parsing_8h.html#a84acb5f91d69842531cd7e84e11ebace',1,'option_frequency(server_t *server, parsing_t *parsing):&#160;frequency.c']]],
+  ['option_5ffrequency_6',['option_frequency',['../parsing_8h.html#a84acb5f91d69842531cd7e84e11ebace',1,'option_frequency(server_t *server, parsing_t *parsing):&#160;frequency.c'],['../frequency_8c.html#a84acb5f91d69842531cd7e84e11ebace',1,'option_frequency(server_t *server, parsing_t *parsing):&#160;frequency.c']]],
   ['option_5fheight_7',['option_height',['../parsing_8h.html#aec5d1969e258a5daff41b946fc80c851',1,'option_height(server_t *server, parsing_t *parsing):&#160;height.c'],['../height_8c.html#aec5d1969e258a5daff41b946fc80c851',1,'option_height(server_t *server, parsing_t *parsing):&#160;height.c']]],
   ['option_5fhelp_8',['option_help',['../parsing_8h.html#a10bb5376e2433ecfcce9b277060b54e1',1,'parsing.h']]],
-  ['option_5fnames_9',['option_names',['../parsing_8h.html#ac472ec0b9b71a00d56a3de87d151b9b3',1,'option_names(server_t *server, parsing_t *parsing):&#160;names.c'],['../names_8c.html#ac472ec0b9b71a00d56a3de87d151b9b3',1,'option_names(server_t *server, parsing_t *parsing):&#160;names.c']]],
+  ['option_5fnames_9',['option_names',['../names_8c.html#ac472ec0b9b71a00d56a3de87d151b9b3',1,'option_names(server_t *server, parsing_t *parsing):&#160;names.c'],['../parsing_8h.html#ac472ec0b9b71a00d56a3de87d151b9b3',1,'option_names(server_t *server, parsing_t *parsing):&#160;names.c']]],
   ['option_5fport_10',['option_port',['../port_8c.html#aa9421f73f9a4c2615927dda3d58299fe',1,'option_port(server_t *server, parsing_t *parsing):&#160;port.c'],['../parsing_8h.html#aa9421f73f9a4c2615927dda3d58299fe',1,'option_port(server_t *server, parsing_t *parsing):&#160;port.c']]],
   ['option_5fs_11',['option_s',['../structoption__s.html',1,'']]],
   ['option_5ft_12',['option_t',['../structoption__t.html',1,'']]],
@@ -19,5 +19,6 @@ var searchData=
   ['options_16',['options',['../parsing_8h.html#a67dbe04b0f8ac57004bb14b6e634fbfb',1,'options():&#160;parsing.c'],['../parsing_8c.html#a67dbe04b0f8ac57004bb14b6e634fbfb',1,'options():&#160;parsing.c']]],
   ['options_5ffound_17',['options_found',['../structparsing__s.html#aae8eb0dd2fd09c93b4a32d4fed6a757e',1,'parsing_s']]],
   ['orientation_18',['orientation',['../structplayer__s.html#a1b09aac684c444244dea820406f11875',1,'player_s::orientation()'],['../structupdate__orientation__s.html#a1b09aac684c444244dea820406f11875',1,'update_orientation_s::orientation()'],['../structmove__s.html#a1b09aac684c444244dea820406f11875',1,'move_s::orientation()']]],
-  ['orientation_5fe_19',['orientation_e',['../server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232ceb',1,'server_data_structures.h']]]
+  ['orientation_19',['Orientation',['../classGui_1_1PlayerInfo.html#a871118a09520247c78a71ecd7b0abd58',1,'Gui::PlayerInfo']]],
+  ['orientation_5fe_20',['orientation_e',['../server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232ceb',1,'server_data_structures.h']]]
 ];
