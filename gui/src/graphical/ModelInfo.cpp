@@ -7,6 +7,7 @@
 
 #include "ModelInfo.hpp"
 #include "Logs.hpp"
+#include "VarManager.hpp"
 
 namespace Gui {
     ModelInfo::ModelInfo(const std::string &modelPath, float scale)
@@ -28,6 +29,7 @@ namespace Gui {
 
     void ModelInfo::init()
     {
+        _boundingBox = GetModelBoundingBox(_model);
         _dimensions = {getWidth(), getHeight(), getLength()};
     }
 
@@ -74,20 +76,30 @@ namespace Gui {
     {
         _textures = textures;
     }
+    const BoundingBox& ModelInfo::getBoundingBox() const
+    {
+        return _boundingBox;
+    }
+    BoundingBox& ModelInfo::getBoundingBox()
+    {
+        return _boundingBox;
+    }
+    void ModelInfo::setBoundingBox(const BoundingBox &boundingBox)
+    {
+        _boundingBox = boundingBox;
+    }
 
     float ModelInfo::scaleToSize(float size)
     {
-        BoundingBox bbox = GetModelBoundingBox(_model);
-        float scaleX = size / (bbox.max.x - bbox.min.x);
-        float scaleY = size / (bbox.max.z - bbox.min.z);
+        float scaleX = size / (_boundingBox.max.x - _boundingBox.min.x);
+        float scaleY = size / (_boundingBox.max.z - _boundingBox.min.z);
         init();
         return std::min(scaleX, scaleY);
     }
 
     float ModelInfo::getWidth()
     {
-        BoundingBox modelBox = GetModelBoundingBox(_model);
-        float width = (modelBox.max.x - modelBox.min.x) * _scale;
+        float width = (_boundingBox.max.x - _boundingBox.min.x) * _scale;
         float xOffset = width;
 
         return xOffset;
@@ -95,8 +107,7 @@ namespace Gui {
 
     float ModelInfo::getHeight()
     {
-        BoundingBox modelBox = GetModelBoundingBox(_model);
-        float height = (modelBox.max.y - modelBox.min.y) * _scale;
+        float height = (_boundingBox.max.y - _boundingBox.min.y) * _scale;
         float yOffset = height;
 
         return yOffset;
@@ -104,8 +115,7 @@ namespace Gui {
 
     float ModelInfo::getLength()
     {
-        BoundingBox modelBox = GetModelBoundingBox(_model);
-        float length = (modelBox.max.z - modelBox.min.z) * _scale;
+        float length = (_boundingBox.max.z - _boundingBox.min.z) * _scale;
         float zOffset = length;
 
         return zOffset;
@@ -114,6 +124,10 @@ namespace Gui {
 
     void ModelInfo::draw(const Vector3 &position, const Color &color) const
     {
-
+        DrawModel(_model, position, _scale, color);
+        if (VarManager::getInstance().getVar(VarManager::DEBUG_VAR)) {
+            DrawModelWires(_model, position, _scale, GREEN);
+            DrawBoundingBox(_boundingBox, YELLOW);
+        }
     }
 }

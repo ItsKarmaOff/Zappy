@@ -65,9 +65,6 @@ namespace Gui {
         int index = 0;
         int itemsPerLine = TILE_SIZE;
 
-        DrawCube({_pos.x, -5, _pos.y}, TILE_SIZE, 1.0f, TILE_SIZE, SKYBLUE);
-        DrawCubeWires({_pos.x, -5, _pos.y}, TILE_SIZE, 1.0f, TILE_SIZE, BLACK);
-
         for (auto &[key, nb] : _content) {
             if (nb <= 0) continue;
 
@@ -81,15 +78,23 @@ namespace Gui {
             };
             if (models.contains(key)) {
                 // need to redo the origin of the model
-                DrawModel(models[key]->getModel(), {objPos.x, 3.0/* models[key]->getDimensions().y / 2.0f */, objPos.z}, models[key]->getScale(), WHITE);
+                models[key]->draw({
+                    objPos.x, 3.0
+                    /* models[key]->getDimensions().y / 2.0f */,
+                    objPos.z}
+                );
             } else {
                 DrawCube({objPos.x, 0.0f, objPos.z}, 1.0f, 1.0f, 1.0f, PURPLE);
                 DrawCubeWires({objPos.x, 0.0f, objPos.z}, 1.0f, 1.0f, 1.0f, BLACK);
             }
             index++;
         }
-        DrawModel(models["island"]->getModel(), {_pos.x, -assetsManager.getModels().at("island")->getHeight() / 2.0f, _pos.z}, models["island"]->getScale(), WHITE);
-
+        models["island"]->draw(
+            {_pos.x,
+            -assetsManager.getModels().at("island")->getHeight() / 2.0f,
+            _pos.z},
+            WHITE
+        );
         // à fix
         /*
         static float deg = 0.0f;

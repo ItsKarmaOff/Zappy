@@ -33,6 +33,9 @@ namespace Gui {
             void setDimensions(const Vector3 &dimensions);
             const std::vector<Texture2D> &getTextures() const;
             void setTextures(const std::vector<Texture2D> &textures);
+            const BoundingBox &getBoundingBox() const;
+            BoundingBox &getBoundingBox();
+            void setBoundingBox(const BoundingBox &boundingBox);
 
             float scaleToSize(float size);
             float getWidth();
@@ -44,6 +47,7 @@ namespace Gui {
 
         private:
             Model _model;
+            BoundingBox _boundingBox;
             float _scale;
             Vector3 _dimensions;
             std::vector<Texture2D> _textures;

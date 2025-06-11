@@ -13,13 +13,14 @@
     #include <queue>
     #include <string>
     #include <unordered_map>
-#include "AssetsManager.hpp"
+    #include "AssetsManager.hpp"
     #include "GameInfo.hpp"
-#include "MenuInfo.hpp"
+    #include "MenuInfo.hpp"
     #include "raylib.h"
     #include <cstring>
     #include <vector>
-#include "QueueManager.hpp"
+    #include "QueueManager.hpp"
+    #include "VarManager.hpp"
 
 
 
