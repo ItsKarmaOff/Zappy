@@ -9,32 +9,29 @@
 #ifndef ASSETSMANAGER_HPP
     #define ASSETSMANAGER_HPP
 
+#include "ModelInfo.hpp"
+#include <memory>
 #include <raylib.h>
 #include <string>
+#include <tuple>
 #include <unordered_map>
 namespace Gui {
 
     class AssetsManager {
         public:
             AssetsManager() = default;
-            ~AssetsManager() = default;
+            ~AssetsManager();
 
             // Load assets
             void loadAssets();
-            // Unload assets
             void unloadAssets();
 
-            // Getters for assets
-            std::unordered_map<std::string, Model> &getModels(void);
-            std::unordered_map<std::string, float> &getModelsScale(void);
-            std::unordered_map<std::string, Texture2D> &getTextures(void);
 
+            // Getters for assets
+            std::unordered_map<std::string, std::shared_ptr<ModelInfo>> &getModels(void);
 
         private:
-
-            std::unordered_map<std::string, Model> _models;
-            std::unordered_map<std::string, float> _modelsScale;
-            std::unordered_map<std::string, Texture2D> _textures;
+            std::unordered_map<std::string, std::shared_ptr<ModelInfo>> _models;
 
     };
 

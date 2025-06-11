@@ -8,7 +8,12 @@
 #include "TeamInfo.hpp"
 
 namespace Gui {
-    std::unordered_map<size_t, PlayerInfo>& TeamInfo::getPlayers(void)
+    TeamInfo::TeamInfo()
+    {
+        _color = WHITE;
+    }
+    
+    std::unordered_map<size_t, std::shared_ptr<PlayerInfo>>& TeamInfo::getPlayers(void)
     {
         return _players;
     }
@@ -23,4 +28,13 @@ namespace Gui {
         _score = score;
     }
 
+    const Color& TeamInfo::getColor(void) const
+    {
+        return _color;
+    }
+
+    void TeamInfo::setColor(Color rgb)
+    {
+        _color = rgb;
+    }
 }

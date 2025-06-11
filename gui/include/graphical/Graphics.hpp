@@ -10,23 +10,24 @@
     #define GRAPHICS_HPP
     #include <cstddef>
     #include <memory>
-#include <queue>
-#include <string>
+    #include <queue>
+    #include <string>
     #include <unordered_map>
-#include "AssetsManager.hpp"
+    #include "AssetsManager.hpp"
     #include "GameInfo.hpp"
-#include "MenuInfo.hpp"
+    #include "MenuInfo.hpp"
     #include "raylib.h"
     #include <cstring>
-#include <vector>
-#include "QueueManager.hpp"
+    #include <vector>
+    #include "QueueManager.hpp"
+    #include "VarManager.hpp"
 
 
 
 namespace Gui {
     constexpr size_t WINDOW_WIDTH = 1200;
     constexpr size_t WINDOW_HEIGHT = 600;
-    constexpr size_t TILE_SIZE = 5;
+    constexpr float TILE_SIZE = 5.0;
 
     class Graphics {
         public:
@@ -38,9 +39,9 @@ namespace Gui {
             enum Scene {
                 MENU,
                 GAME,
+                SCOREBOARD,
             };
         public:
-            // Modifiez le constructeur pour prendre QueueManager au lieu des queues
             Graphics(std::shared_ptr<QueueManager> queueManager);
             ~Graphics();
 
@@ -57,6 +58,7 @@ namespace Gui {
         ////////////////////////////////////// GRAPHIC //////////////////////////////////////
             void init(void);
             void run(std::atomic<bool> &);
+
         private:
             void handleEvents(void);
             void update(void);
@@ -75,6 +77,14 @@ namespace Gui {
             void drawGame(void);
             void drawGameMap(void);
             void drawTeams(void);
+            void drawPlayers(void);
+
+        ////////////////////////////////////// SCOREBOARD //////////////////////////////////////
+        private:
+            void handleEventsScoreboard();
+            void updateScoreboard();
+            void drawScoreboard();
+            void drawTabs();
 
         private:
             std::shared_ptr<QueueManager> _queueManager;
@@ -88,7 +98,6 @@ namespace Gui {
             std::shared_ptr<MenuInfo> _menu;
             std::shared_ptr<GameInfo> _game;
             AssetsManager _assetsManager;
-            // int = temporaire
     };
 }
 

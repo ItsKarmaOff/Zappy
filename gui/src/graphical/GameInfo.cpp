@@ -20,6 +20,7 @@ namespace Gui {
         _camera.fovy = 45.0f;
         _tiles = {};
         _teams = {};
+        _players = {};
     }
 
     Camera3D& GameInfo::getCamera()
@@ -43,16 +44,9 @@ namespace Gui {
         return _teams;
     }
 
-    PlayerInfo &GameInfo::getPlayer(size_t playerId)
+    std::unordered_map<size_t, std::shared_ptr<PlayerInfo>> &GameInfo::getPlayers()
     {
-        for (auto &team : _teams) {
-            for (auto &player : team.second.getPlayers()) {
-                if (player.first == playerId) {
-                    return player.second;
-                }
-            }
-        }
-        throw Lib::Exceptions::Critical("Player with ID " + std::to_string(playerId) + " not found.");
+        return _players;
     }
 
 }

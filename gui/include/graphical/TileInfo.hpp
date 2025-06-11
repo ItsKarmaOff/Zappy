@@ -9,6 +9,7 @@
 #ifndef TILEINFO_HPP
     #define TILEINFO_HPP
 
+#include "AssetsManager.hpp"
 #include <map>
 #include <raylib.h>
 #include <string>
@@ -29,7 +30,7 @@ namespace Gui {
             void setContent(const std::map<std::string, int> &cont);
 
             ////////////////////////////////////// UTILITY //////////////////////////////////////
-            void draw(std::unordered_map<std::string, Model> &models, std::unordered_map<std::string, float> &modelsScale);
+            void draw(AssetsManager &assetsManager);
 
         private:
             Vector3 _pos;
