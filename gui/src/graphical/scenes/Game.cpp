@@ -15,10 +15,6 @@
 namespace Gui {
     void Graphics::handleEventsGame(void)
     {
-        if (IsKeyReleased(KEY_SPACE)) {
-            _scene = MENU;
-            EnableCursor();
-        }
         // on peut pas modifier la touche, mais Z = W (dcp faut appuyer sur W)
         if (IsKeyPressed(KEY_Z)) {
             _game->getCamera().target =
@@ -40,9 +36,9 @@ namespace Gui {
         ClearBackground(RAYWHITE);
 
         BeginMode3D(_game->getCamera());
-        // drawGameMap();
-        // drawPlayers();
-        DrawModel(_assetsManager.getModels()["background"], {0, 0, 0}, _assetsManager.getModelsScale()["background"], WHITE);
+        drawGameMap();
+        drawPlayers();
+        DrawModel(_assetsManager.getModels()["background"]->getModel(), {0, 0, 0}, _assetsManager.getModels()["background"]->getScale(), WHITE);
         EndMode3D();
         drawTeams();
 
@@ -73,9 +69,9 @@ namespace Gui {
                 return;
             }
             TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
-            _assetsManager.getModels()["player"].transform = MatrixRotateY(DEG2RAD * (90 * player->getOrientation()));
+            _assetsManager.getModels()["player"]->getModel().transform = MatrixRotateY(DEG2RAD * (90 * player->getOrientation()));
 
-            DrawModel(_assetsManager.getModels()["player"], {tile.getPos().x, 2, tile.getPos().z}, _assetsManager.getModelsScale()["player"], player->getColor());
+            DrawModel(_assetsManager.getModels()["player"]->getModel(), {tile.getPos().x, 2, tile.getPos().z}, _assetsManager.getModels()["player"]->getScale(), player->getColor());
 
             // debugging broadcast message
             if (!player->getMessagesToBroadcast().empty()) {
