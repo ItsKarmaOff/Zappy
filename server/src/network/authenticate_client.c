@@ -49,11 +49,31 @@ static bool check_team(server_t *server, size_t index,
     return check_team_size(server, index, team_name, next_team_name);
 }
 
-static void init_gui(server_t *server, int socket_fd)
+static void send_team_to_gui(server_t *server, client_t *client,
+    team_t *team)
 {
-    dprintf(socket_fd, "sza %zu %zu\n",
-        server->game.game_settings.width,
-        server->game.game_settings.height);
+    send_tna_to_gui(server, client, team);
+    for (node_t *player = team->player_list; player != NULL;
+    player = player->next) {
+        if (player->data == NULL)
+            continue;
+        if (((player_t *)player->data)->is_egg) {
+            send_enw_to_gui(server, client, (player_t *)player->data);
+            continue;
+        }
+        send_pnw_to_gui(server, client, (player_t *)player->data);
+        send_pin_to_gui(server, client, (player_t *)player->data);
+    }
+}
+
+static void init_gui(server_t *server, client_t *client)
+{
+    send_msz_to_gui(server, client);
+    send_sgt_to_gui(server, client);
+    send_mct_to_gui(server, client);
+    for (size_t index = 1; index < server->game.game_settings.teams_number;
+    index++)
+        send_team_to_gui(server, client, server->game.team_list[index]);
 }
 
 static void respond_to_client(server_t *server, client_t *client,
@@ -67,7 +87,7 @@ static void respond_to_client(server_t *server, client_t *client,
             server->game.game_settings.height);
     } else {
         client->is_gui = true;
-        init_gui(server, client->socket_fd);
+        init_gui(server, client);
     }
 }
 
@@ -78,7 +98,7 @@ void accept_client(server_t *server, size_t index,
 
     respond_to_client(server, CLIENT(server, index), team_index);
     CLIENT(server, index)->player =
-        get_next_egg(server->game.team_list[team_index]);
+        get_next_egg(server, server->game.team_list[team_index]);
     FREE(CLIENT(server, index)->team_name);
     CLIENT(server, index)->team_name = team_name;
     AL(FALSE, my_push_back, &CLIENT(server, index)->command_queue,

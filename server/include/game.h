@@ -14,6 +14,7 @@
     #define GAME_H_
 
     #include "server_data_structures.h"
+    #include "commands.h"
 
 
 
@@ -65,10 +66,11 @@ size_t get_team_index(const game_t *game, const char *team_name);
 
 /**
  * @brief Gets the next egg for a team
+ * @param server The server containing the game
  * @param team The team to get the next egg for
  * @return A pointer to the next egg, or NULL if no eggs are available
  */
-player_t *get_next_egg(team_t *team);
+player_t *get_next_egg(server_t *server, team_t *team);
 
 /**
  * @brief Checks if a team name is valid
