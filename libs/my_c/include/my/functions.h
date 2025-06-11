@@ -235,6 +235,7 @@ bool my_char_is_printable(char c);
 
 /**
  * @brief Get the index of a char in a str according to its occurrence
+ * @note The first occurrence is 1, the second is 2, etc.
  * @param str The string to check
  * @param c The letter to find
  * @param occurrence The occurrence of the letter to find
