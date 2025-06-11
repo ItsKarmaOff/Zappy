@@ -60,7 +60,19 @@ void create_game_map(game_t *game)
 
 void update_game(UNUSED server_t *server)
 {
+    node_t *dead_players = NULL;
+
     if (difftime(time(NULL), server->game.last_refill_time) >=
     REFILL_TIME / (double)server->game.game_settings.frequency)
         refill_resources(&server->game);
+    for (size_t index = 0; index < server->game.game_settings.teams_number;
+    index++) {
+        for (node_t *node = server->game.team_list[index]->player_list;
+        node != NULL; node = node->next)
+            update_player(server, (player_t *)node->data, &dead_players);
+        for (node_t *node = dead_players; node != NULL; node = node->next)
+            my_delete_nodes(&server->game.team_list[index]->player_list,
+                (player_t *)node->data, NULL);
+        my_delete_list(&dead_players);
+    }
 }

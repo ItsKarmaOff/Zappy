@@ -44,3 +44,12 @@ void resize_client_list(server_t *server, size_t new_size)
         sizeof(client_t *) * new_size);
     server->current_clients_number = new_size;
 }
+
+size_t get_client_index(const server_t *server, client_t *client)
+{
+    for (size_t index = 0; index < server->current_clients_number; index++) {
+        if (server->client_list[index] == client)
+            return index + 1;
+    }
+    return 0;
+}

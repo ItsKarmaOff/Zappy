@@ -135,4 +135,12 @@ void resize_client_list(server_t *server, size_t new_size);
  */
 void execute_actions(server_t *server);
 
+/**
+ * @brief Get the index of a client in the server's client list
+ * @param server The server containing the client
+ * @param client The client to find
+ * @return The index of the client in the server's client list
+ */
+size_t get_client_index(const server_t *server, client_t *client);
+
 #endif /* NETWORK_H_ */

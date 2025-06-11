@@ -91,6 +91,8 @@ typedef struct player_s {
 
     /** The team of the player */
     team_t *team;
+    /** The associated client */
+    client_t *client;
 } player_t;
 
 /**

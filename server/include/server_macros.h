@@ -128,4 +128,9 @@
      */
     #define FOOD_TIME_UNIT 126
 
+    /**
+     * @brief The death message sent to clients
+     */
+    #define DEATH_MESSAGE "dead\n"
+
 #endif /* SERVER_MACROS_H_ */

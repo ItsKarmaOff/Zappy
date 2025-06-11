@@ -44,6 +44,14 @@ player_t *create_player_from_player(game_t *game, player_t *creator);
  */
 player_t *get_player_by_id(const game_t *game, size_t player_id);
 
+/**
+ * @brief Updates a player in the game
+ * @param server The server containing the game
+ * @param player The player to update
+ * @param dead_players A pointer to a list of dead players
+ */
+void update_player(server_t *server, player_t *player, node_t **dead_players);
+
 
 
 /* Team functions */
