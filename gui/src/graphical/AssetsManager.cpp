@@ -60,7 +60,7 @@ namespace Gui {
         _models["sibur"]->setScale(_models["sibur"]->scaleToSize(1.0f));
 
         /* mendiane */
-        _models["mendiane"] = std::make_shared<ModelInfo>("gui/assets/mendiane.glb");
+        _models["mendiane"] = std::make_shared<ModelInfo>("gui/assets/flower.glb");
         _models["mendiane"]->setScale(_models["mendiane"]->scaleToSize(1.0f));
 
         /* phiras */
