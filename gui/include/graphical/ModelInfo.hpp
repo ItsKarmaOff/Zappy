@@ -13,6 +13,8 @@
 #include <raylib.h>
 #include <string>
 #include <vector>
+#include <chrono>
+
 namespace Gui {
     class   ModelInfo {
         public:
@@ -45,6 +47,9 @@ namespace Gui {
 
             ////////////////////////////////////// UTILITY //////////////////////////////////////
             void draw(const Vector3 &position, const Color &color = WHITE) const;
+
+            float getFloatingOffset();
+            void applyRotationEffect(float angle = 0.0f, float speed = 1.0f);
 
         private:
             Model _model;

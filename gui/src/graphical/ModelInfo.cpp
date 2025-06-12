@@ -8,6 +8,8 @@
 #include "ModelInfo.hpp"
 #include "Logs.hpp"
 #include "VarManager.hpp"
+#include "Lib.hpp"
+#include <raymath.h>
 
 namespace Gui {
     ModelInfo::ModelInfo(const std::string &modelPath, float scale)
@@ -126,6 +128,32 @@ namespace Gui {
         return target - (min * _scale);
     }
 
+    float ModelInfo::getFloatingOffset()
+    {
+        static float floatDegree = 0.0f;
+        static std::chrono::steady_clock::time_point lastFloatTime = std::chrono::steady_clock::now();
+
+        if (Lib::delay(16, lastFloatTime)) {
+            floatDegree += 2.0f;
+            if (floatDegree > 360.0f) floatDegree -= 360.0f;
+        }
+
+        return sinf(DEG2RAD * floatDegree) * 0.1f;
+    }
+
+    void ModelInfo::applyRotationEffect(float angle, float speed)
+    {
+        static float rotationDegree = 0.0f;
+        static std::chrono::steady_clock::time_point lastRotationTime = std::chrono::steady_clock::now();
+
+        if (Lib::delay(16, lastRotationTime)) {
+            rotationDegree += speed;
+            if (rotationDegree > 360.0f) rotationDegree -= 360.0f;
+        }
+
+        float rotationAngle = angle == 0.0f ? rotationDegree : angle;
+        _model.transform = MatrixRotateY(DEG2RAD * rotationAngle);
+    }
 
     void ModelInfo::draw(const Vector3 &position, const Color &color) const
     {
