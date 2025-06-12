@@ -74,6 +74,8 @@ static void init_gui(server_t *server, client_t *client)
     for (size_t index = 1; index < server->game.game_settings.teams_number;
     index++)
         send_team_to_gui(server, client, server->game.team_list[index]);
+    if (server->game.winner_team_name != NULL)
+        send_seg_to_gui(server, client);
 }
 
 static void respond_to_client(server_t *server, client_t *client,
@@ -99,6 +101,8 @@ void accept_client(server_t *server, size_t index,
     respond_to_client(server, CLIENT(server, index), team_index);
     CLIENT(server, index)->player =
         get_next_egg(server, server->game.team_list[team_index]);
+    if (CLIENT(server, index)->player != NULL)
+        CLIENT(server, index)->player->client = CLIENT(server, index);
     FREE(CLIENT(server, index)->team_name);
     CLIENT(server, index)->team_name = team_name;
     AL(FALSE, my_push_back, &CLIENT(server, index)->command_queue,

@@ -114,4 +114,33 @@
      */
     #define REFILL_TIME 20.0
 
+
+
+    /* Player macros */
+
+    /**
+     * @brief The default number of food when a player is created
+     */
+    #define DEFAULT_FOOD_NUMBER (10 - 1)
+
+    /**
+     * @brief The time unit for food consumption
+     */
+    #define FOOD_TIME_UNIT 126
+
+    /**
+     * @brief The death message sent to clients
+     */
+    #define DEATH_MESSAGE "dead\n"
+
+    /**
+     * @brief The maximum level a player can reach
+     */
+    #define MAX_PLAYER_LEVEL 8
+
+    /**
+     * @brief The number of players level max in a team to win the game
+     */
+    #define NUMBER_OF_PLAYER_LEVEL_MAX_TO_WIN 6
+
 #endif /* SERVER_MACROS_H_ */

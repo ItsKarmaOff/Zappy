@@ -23,6 +23,8 @@ player_t *create_player(game_t *game, team_t *team)
     player->position.x = rand() % game->game_settings.width;
     player->position.y = rand() % game->game_settings.height;
     player->orientation = rand() % 4 + 1;
+    player->inventory[FOOD] = DEFAULT_FOOD_NUMBER;
+    player->last_eat_time = time(NULL);
     return player;
 }
 
@@ -38,6 +40,8 @@ player_t *create_player_from_player(game_t *game, player_t *creator)
     player->creator_id = creator->id;
     player->position = creator->position;
     player->orientation = creator->orientation;
+    player->inventory[FOOD] = DEFAULT_FOOD_NUMBER;
+    player->last_eat_time = time(NULL);
     return player;
 }
 
@@ -65,4 +69,24 @@ player_t *get_player_by_id(const game_t *game, size_t player_id)
             return player;
     }
     return NULL;
+}
+
+void update_player(server_t *server, player_t *player, node_t **dead_players)
+{
+    if (server == NULL || player == NULL || player->is_egg)
+        return;
+    if (difftime(time(NULL), player->last_eat_time) >=
+    FOOD_TIME_UNIT / (double)server->game.game_settings.frequency) {
+        player->inventory[FOOD]--;
+        send_pin_to_gui(server, NULL, player);
+        if (player->inventory[FOOD] == 0) {
+            DEBUG(my_create_str("Player %zu died\n", player->id));
+            dprintf(player->client->socket_fd, DEATH_MESSAGE);
+            send_pdi_to_gui(server, NULL, player);
+            AL(FALSE, my_push_front, dead_players, player, UNKNOWN);
+            player->client->player = NULL;
+            remove_client(server, get_client_index(server, player->client));
+        }
+        player->last_eat_time = time(NULL);
+    }
 }

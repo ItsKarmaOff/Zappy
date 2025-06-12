@@ -44,6 +44,14 @@ player_t *create_player_from_player(game_t *game, player_t *creator);
  */
 player_t *get_player_by_id(const game_t *game, size_t player_id);
 
+/**
+ * @brief Updates a player in the game
+ * @param server The server containing the game
+ * @param player The player to update
+ * @param dead_players A pointer to a list of dead players
+ */
+void update_player(server_t *server, player_t *player, node_t **dead_players);
+
 
 
 /* Team functions */
@@ -79,6 +87,13 @@ player_t *get_next_egg(server_t *server, team_t *team);
  * @return true if the team name is valid, false otherwise
  */
 bool is_valid_team(server_t *server, char *team_name);
+
+/**
+ * @brief Gets the number of players at maximum level in a team
+ * @param team The team to check
+ * @return The number of players at maximum level in the team
+ */
+size_t get_number_of_player_level_max_in_team(const team_t *team);
 
 
 

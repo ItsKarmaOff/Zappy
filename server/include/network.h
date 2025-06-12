@@ -112,9 +112,10 @@ void send_message_to_gui(server_t *server, const char *message);
 
 /**
  * @brief Destroy a client
+ * @param server The server containing the client
  * @param client The client to destroy
  */
-void destroy_client(client_t *client);
+void destroy_client(server_t *server, client_t *client);
 
 /**
  * @brief Destroy all clients in the server
@@ -134,5 +135,13 @@ void resize_client_list(server_t *server, size_t new_size);
  * @param server The server containing the clients
  */
 void execute_actions(server_t *server);
+
+/**
+ * @brief Get the index of a client in the server's client list
+ * @param server The server containing the client
+ * @param client The client to find
+ * @return The index of the client in the server's client list
+ */
+size_t get_client_index(const server_t *server, client_t *client);
 
 #endif /* NETWORK_H_ */
