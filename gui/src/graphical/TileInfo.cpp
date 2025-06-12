@@ -79,7 +79,7 @@ namespace Gui {
             if (models.contains(key)) {
                 Vector3 modelPos = {
                     objPos.x,
-                    models[key]->getAlignedY(),
+                    models[key]->getAligned(models[key]->getBoundingBox().min.y),
                     objPos.z
                 };
                 models[key]->draw(modelPos);
@@ -91,7 +91,7 @@ namespace Gui {
         }
         models["island"]->draw(
             {_pos.x,
-            models["island"]->getAlignedY() - models["island"]->getDimensions().y,
+            models["island"]->getAligned(models["island"]->getBoundingBox().min.y) - models["island"]->getDimensions().y,
             _pos.z},
             WHITE
         );

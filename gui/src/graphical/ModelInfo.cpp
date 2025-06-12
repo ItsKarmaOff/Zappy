@@ -122,9 +122,9 @@ namespace Gui {
         return zOffset;
     }
 
-    float ModelInfo::getAlignedY(float target)
+    float ModelInfo::getAligned(float min, float target)
     {
-        return target - (_boundingBox.min.y * _scale);
+        return target - (min * _scale);
     }
 
 
