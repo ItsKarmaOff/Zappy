@@ -146,10 +146,10 @@ static void write_action(server_t *server, size_t index)
     if (set_next_action(server, index, command, args))
         return;
     ERROR(my_create_str("Unknown command: %s\n", args[0]));
-    if (server->client_list[index - 1]->client_type == CLIENT_GUI)
-        dprintf(server->client_list[index - 1]->socket_fd, WRONG_GUI);
-    else
+    if (server->client_list[index - 1]->client_type == CLIENT_AI)
         dprintf(server->client_list[index - 1]->socket_fd, WRONG_AI);
+    else if (server->client_list[index - 1]->client_type == CLIENT_GUI)
+        dprintf(server->client_list[index - 1]->socket_fd, WRONG_GUI);
     FREE(command);
     FREE_WORD_ARRAY(args);
 }

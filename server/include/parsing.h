@@ -104,12 +104,20 @@ void option_auto_end(server_t *server, parsing_t *parsing);
 void option_clients(server_t *server, parsing_t *parsing);
 
 /**
- * @biref Set whether to display eggs in the game
- * @param server The server instance to set the display eggs for
+ * @biref Set whether to enable debug mode for debugging purposes
+ * @param server The server instance to set the debug mode for
  * @param parsing The parsing context containing program arguments
  * @throw FAILURE If the argument is invalid or missing
  */
-void option_display_eggs(server_t *server, parsing_t *parsing);
+void option_debug_mode(server_t *server, parsing_t *parsing);
+
+/**
+ * @biref Set whether to enable extra logs for debugging purposes
+ * @param server The server instance to set the extra logs for
+ * @param parsing The parsing context containing program arguments
+ * @throw FAILURE If the argument is invalid or missing
+ */
+void option_extra_logs(server_t *server, parsing_t *parsing);
 
 /**
  * @biref Set the frequency of the server
@@ -150,6 +158,14 @@ void option_names(server_t *server, parsing_t *parsing);
  * @throw FAILURE If the argument is invalid or missing
  */
 void option_port(server_t *server, parsing_t *parsing);
+
+/**
+ * @biref Set whether to show eggs in the game
+ * @param server The server instance to set the show eggs for
+ * @param parsing The parsing context containing program arguments
+ * @throw FAILURE If the argument is invalid or missing
+ */
+void option_show_eggs(server_t *server, parsing_t *parsing);
 
 /**
  * @biref Display the version of the program

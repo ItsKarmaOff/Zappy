@@ -141,8 +141,8 @@ typedef struct game_settings_s {
 
     /** Whether the game should end when only one team remains */
     bool auto_end;
-    /** Whether the game should display the eggs */
-    bool display_eggs;
+    /** Whether the game should show the eggs */
+    bool show_eggs;
 
     /** The number of teams */
     size_t teams_number;

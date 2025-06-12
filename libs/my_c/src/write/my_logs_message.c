@@ -36,10 +36,17 @@ const char *logs_type_colors[] = {
  */
 void my_logs_message(point_t point, logs_type_t type, const char *message)
 {
-    my_point(point);
-    if (type == LOGS_NONE)
+    if (type == LOGS_NONE && extra_logs(NONE) == TRUE) {
+        if (debug_mode(NONE) == TRUE)
+            my_point(point);
         my_putstr(message);
-    else {
+        my_putstr(RESET);
+        return;
+    }
+    if ((type != LOGS_NONE) &&
+    (type != LOGS_DEBUG || debug_mode(NONE) == TRUE)) {
+        if (debug_mode(NONE) == TRUE)
+            my_point(point);
         my_putstr(logs_type_colors[type]);
         my_putchar('[');
         my_putstr(logs_type_strings[type]);

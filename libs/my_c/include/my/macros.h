@@ -43,6 +43,7 @@
     #define    POINT_STRUCT ((point_t){__FILE__, __LINE__, __func__})
     #define    POINT my_point(POINT_STRUCT)
     #define    LOG(type, message) my_logs_message(POINT_STRUCT, type, message)
+    #define    INFO(message) LOG(LOGS_NONE, message)
     #define    DEBUG(message) LOG(LOGS_DEBUG, message)
     #define    ERROR(message) LOG(LOGS_ERROR, message)
     #define    WARNING(message) LOG(LOGS_WARNING, message)

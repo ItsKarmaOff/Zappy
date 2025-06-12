@@ -51,8 +51,8 @@ void display_game(const game_t *game)
         game->game_settings.width, game->game_settings.height);
     printf(BOLD "- Frequency:" RESET " %zu\n",
         game->game_settings.frequency);
-    printf(BOLD "- Display eggs: " RESET "%s\n" RESET,
-        game->game_settings.display_eggs ? GREEN "true" : RED "false");
+    printf(BOLD "- Show eggs: " RESET "%s\n" RESET,
+        game->game_settings.show_eggs ? GREEN "true" : RED "false");
     printf(BOLD "- Auto end: " RESET "%s\n" RESET,
         game->game_settings.auto_end ? GREEN "true" : RED "false");
     printf(BOLD "- Winner team:" RESET " %s\n", game->winner_team_name ?

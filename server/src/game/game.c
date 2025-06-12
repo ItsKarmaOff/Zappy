@@ -14,9 +14,8 @@
 
 void destroy_game(game_t *game)
 {
-    for (size_t index = 0; index < game->game_settings.teams_number; index++) {
+    for (size_t index = 0; index < game->game_settings.teams_number; index++)
         my_delete_list(&game->team_list[index]->player_list);
-    }
     game->game_settings.teams_number = 0;
 }
 
@@ -25,7 +24,7 @@ void refill_resources(game_t *game)
     size_t x = 0;
     size_t y = 0;
 
-    DEBUG(LIGHT_GREY "Refilling resources...\n");
+    INFO(LIGHT_GREY "Refilling resources...\n");
     for (size_t index = 0; index < RESOURCES_SIZE; index++) {
         while (game->resources[index].current_quantity <
         game->resources[index].max_quantity) {
