@@ -56,7 +56,7 @@ void display_server(const server_t *server)
     printf(BOLD "- Connection:" RESET " %s:%d\n", ip_address ?
         ip_address : "127.0.0.1", server->port);
     printf(BOLD "- Clients connected:" RESET " %zu\n\n",
-        server->current_clients_number);
+        server->current_clients_number - 1);
     display_game(&server->game);
     display_shortcuts(server, ip_address);
     my_putstr("========================================"

@@ -88,7 +88,7 @@ static void respond_to_client(server_t *server, client_t *client,
             server->game.game_settings.width,
             server->game.game_settings.height);
     } else {
-        client->is_gui = true;
+        client->client_type = CLIENT_GUI;
         init_gui(server, client);
     }
 }

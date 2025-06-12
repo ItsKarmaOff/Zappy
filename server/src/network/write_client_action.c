@@ -100,8 +100,8 @@ static char *get_next_command(server_t *server, size_t index)
 static bool set_next_action(server_t *server, size_t index,
     char *command, char **args)
 {
-    const command_t *commands = server->client_list[index - 1]->is_gui ?
-        commands_gui : commands_ai;
+    const command_t *commands = server->client_list[index - 1]->client_type
+        == CLIENT_GUI ? commands_gui : commands_ai;
 
     for (size_t cmd = 0; commands[cmd].command != NULL; cmd++) {
         if (my_strcmp(args[0], commands[cmd].command) == 0) {
@@ -134,7 +134,7 @@ static void write_action(server_t *server, size_t index)
     if (set_next_action(server, index, command, args))
         return;
     ERROR(my_create_str("Unknown command: %s\n", args[0]));
-    if (server->client_list[index - 1]->is_gui == true)
+    if (server->client_list[index - 1]->client_type == CLIENT_GUI)
         dprintf(server->client_list[index - 1]->socket_fd, WRONG_GUI);
     else
         dprintf(server->client_list[index - 1]->socket_fd, WRONG_AI);

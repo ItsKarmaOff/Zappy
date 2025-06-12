@@ -39,7 +39,7 @@ void send_bct_to_gui(server_t *server, client_t *client,
     if (client != NULL)
         send_bct(client, tile);
     for (size_t index = 0; index < server->current_clients_number; index++) {
-        if (server->client_list[index]->is_gui)
+        if (server->client_list[index]->client_type == CLIENT_GUI)
             send_bct(server->client_list[index], tile);
     }
 }

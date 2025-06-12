@@ -17,9 +17,19 @@ static void configure_server(server_t *server)
     server->address.sin_family = AF_INET;
     server->address.sin_addr.s_addr = INADDR_ANY;
     server->address.sin_port = htons(server->port);
-    server->poll_fds = AL(FALSE, my_calloc, 1, sizeof(pollfd_t));
+    server->poll_fds = AL(FALSE, my_calloc,
+        DEFAULT_NUMBER_OF_CLIENTS + 1, sizeof(pollfd_t));
     server->poll_fds[SERVER_POLL_INDEX].fd = -1;
     server->poll_fds[SERVER_POLL_INDEX].events = POLLIN;
+    server->current_clients_number = DEFAULT_NUMBER_OF_CLIENTS;
+    server->poll_fds[STDIN_POLL_INDEX].fd = STDIN_FILENO;
+    server->poll_fds[STDIN_POLL_INDEX].events = POLLIN;
+    server->client_list = AL(FALSE, my_calloc,
+        DEFAULT_NUMBER_OF_CLIENTS, sizeof(client_t *));
+    server->client_list[STDIN_CLIENT_INDEX] = AL(FALSE, my_calloc,
+        DEFAULT_NUMBER_OF_CLIENTS, sizeof(client_t));
+    server->client_list[STDIN_CLIENT_INDEX]->socket_fd = STDIN_FILENO;
+    server->client_list[STDIN_CLIENT_INDEX]->client_type = CLIENT_SERVER;
 }
 
 void start_server(server_t *server)

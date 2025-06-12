@@ -29,7 +29,8 @@ void destroy_clients(server_t *server)
 {
     for (size_t index = 1; index < server->current_clients_number + 1;
     index++) {
-        close(server->poll_fds[index].fd);
+        if (index != STDIN_POLL_INDEX)
+            close(server->poll_fds[index].fd);
         destroy_client(server, server->client_list[index - 1]);
     }
     FREE(server->poll_fds);

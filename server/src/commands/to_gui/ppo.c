@@ -24,7 +24,7 @@ void send_ppo_to_gui(server_t *server, client_t *client,
         return;
     }
     for (size_t index = 0; index < server->current_clients_number; index++) {
-        if (server->client_list[index]->is_gui)
+        if (server->client_list[index]->client_type == CLIENT_GUI)
             dprintf(server->client_list[index]->socket_fd,
                 "ppo #%zu %zu %zu %i\n",
                 player->id, player->position.x, player->position.y,

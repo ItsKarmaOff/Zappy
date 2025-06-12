@@ -24,7 +24,7 @@ static bool is_queue_full(client_t *client, size_t index, char *command)
 {
     size_t nb_command = 0;
 
-    if (client->is_gui)
+    if (client->client_type != CLIENT_AI)
         return false;
     for (node_t *tmp = client->command_queue; tmp != NULL; tmp = tmp->next) {
         nb_command += my_count_letter(tmp->data, '\n');

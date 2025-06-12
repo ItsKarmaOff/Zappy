@@ -47,6 +47,16 @@ typedef enum resources_e {
     RESOURCES_SIZE = 7 ///< The total number of resources
 } resources_t;
 
+/**
+ * @enum client_type_e
+ * @brief The type of client connected to the server
+ */
+typedef enum client_type_e {
+    CLIENT_AI = 0, ///< The client is an AI client
+    CLIENT_GUI = 1, ///< The client is a GUI client
+    CLIENT_SERVER = 2 ///< The client is the server itself
+} client_type_t;
+
 
 
     /* Forward declarations of structures */
@@ -225,8 +235,8 @@ typedef struct client_s {
     /** The name of the team the client is trying to join */
     char *team_name;
 
-    /** Whether the client is a GUI client */
-    bool is_gui;
+    /** The type of client */
+    client_type_t client_type;
     /** The associated player */
     player_t *player;
 
@@ -275,6 +285,10 @@ extern const command_t commands_ai[];
  * @brief The array of GUI commands
  */
 extern const command_t commands_gui[];
+/**
+ * @brief The array of SERVER commands
+ */
+extern const command_t commands_server[];
 
 
 
