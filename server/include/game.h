@@ -52,6 +52,13 @@ player_t *get_player_by_id(const game_t *game, size_t player_id);
  */
 void update_player(server_t *server, player_t *player, node_t **dead_players);
 
+/**
+ * @brief Displays a player
+ * @param player The player to display
+ * @param tab The tab to use for indentation
+ */
+void display_player(const player_t *player, char *tab);
+
 
 
 /* Team functions */
@@ -95,6 +102,13 @@ bool is_valid_team(server_t *server, char *team_name);
  */
 size_t get_number_of_player_level_max_in_team(const team_t *team);
 
+/**
+ * @brief Displays a team
+ * @param team The team to display
+ * @param tab The tab to use for indentation
+ */
+void display_team(const team_t *team, char *tab);
+
 
 
 /* Game functions */
@@ -122,5 +136,11 @@ void create_game_map(game_t *game);
  * @param server The server to update the game on
  */
 void update_game(server_t *server);
+
+/**
+ * @brief Displays the game
+ * @param game The game to display
+ */
+void display_game(const game_t *game);
 
 #endif /* GAME_H_ */

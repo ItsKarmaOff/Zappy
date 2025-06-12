@@ -26,6 +26,12 @@
  */
 void start_server(server_t *server);
 
+/**
+ * @brief Get the IP address of the server
+ * @return A string containing the IP address of the server
+ */
+char *get_ip_address(void);
+
 
 
 /* Polling functions */

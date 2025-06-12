@@ -289,4 +289,10 @@ extern const char *resources_names[RESOURCES_SIZE];
  */
 extern const double resources_densities[RESOURCES_SIZE];
 
+
+
+    /* Orientation arrays */
+
+extern const char *orientation_names[];
+
 #endif /* SERVER_DATA_STRUCTURES_H_ */

@@ -33,6 +33,37 @@ static void handle_signal(UNUSED int signum)
     my_exit(SUCCESS, GREEN "Server shutdown successfully.\n" RESET);
 }
 
+static void display_shortcuts(const server_t *server, const char *ip_address)
+{
+    my_putstr(BOLD UNDERLINE "Shortcuts:\n" RESET);
+    printf(BOLD "- Launch GUI:" RESET "\t\t./zappy_gui -h %s -p %d\n",
+        ip_address ? ip_address : "127.0.0.1", server->port);
+    printf(BOLD"- Launch GUI (debug):" RESET "\t(echo \"GRAPHIC\"; cat) | "
+        "nc %s %d\n", ip_address ? ip_address : "127.0.0.1", server->port);
+    printf(BOLD"- Launch AI:" RESET "\t\t./zappy_ai -h %s -p %d -n "
+        "<team_name>\n", ip_address ? ip_address : "127.0.0.1", server->port);
+    printf(BOLD"- Launch AI (debug):" RESET "\t(echo \"<team_name>\"; cat) | "
+        "nc %s %d\n", ip_address ? ip_address : "127.0.0.1", server->port);
+}
+
+void display_server(const server_t *server)
+{
+    char *ip_address = get_ip_address();
+
+    my_putstr("========================================"
+        "========================================\n");
+    my_putstr(BOLD UNDERLINE "Server Information:\n" RESET);
+    printf(BOLD "- Connection:" RESET " %s:%d\n", ip_address ?
+        ip_address : "127.0.0.1", server->port);
+    printf(BOLD "- Clients connected:" RESET " %zu\n\n",
+        server->current_clients_number);
+    display_game(&server->game);
+    display_shortcuts(server, ip_address);
+    my_putstr("========================================"
+        "========================================\n");
+    FREE(ip_address);
+}
+
 server_t *create_server(int argc, char **argv)
 {
     server_t *server = my_calloc(1, sizeof(server_t));
@@ -44,6 +75,7 @@ server_t *create_server(int argc, char **argv)
     start_server(server);
     signal(SIGINT, handle_signal);
     signal(SIGHUP, handle_signal);
+    display_server(server);
     return server;
 }
 

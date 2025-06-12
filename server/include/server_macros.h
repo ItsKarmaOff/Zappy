@@ -38,17 +38,17 @@
 
 
 
-    /* Team macros */
+    /* Network macros */
 
     /**
-     * @brief The graphic team index
+     * @brief The ip of the google DNS server
      */
-    #define GRAPHIC_TEAM_INDEX 0
+    #define GOOGLE_DNS_IP "8.8.8.8"
 
     /**
-     * @brief The name of the graphic team
+     * @brief The default port for the DNS server
      */
-    #define GRAPHIC_TEAM_NAME "GRAPHIC"
+    #define DNS_PORT 53
 
 
 
@@ -113,6 +113,20 @@
      * @brief The refill time unit until the next refill
      */
     #define REFILL_TIME 20.0
+
+
+
+    /* Team macros */
+
+    /**
+     * @brief The graphic team index
+     */
+    #define GRAPHIC_TEAM_INDEX 0
+
+    /**
+     * @brief The name of the graphic team
+     */
+    #define GRAPHIC_TEAM_NAME "GRAPHIC"
 
 
 
