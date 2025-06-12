@@ -21,6 +21,8 @@
  */
 char *my_strcapitalize(char *str)
 {
+    if (str == NULL)
+        return NULL;
     str = my_strlowcase(str);
     for (size_t i = 1; str[i] != '\0'; i++) {
         if (((str[i - 1] == '+' || str[i - 1] == '-' || str[i - 1] == ' '))

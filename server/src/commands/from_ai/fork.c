@@ -22,7 +22,7 @@ void handle_command_fork(UNUSED server_t *server, UNUSED client_t *client,
         dprintf(client->socket_fd, WRONG_AI);
         return;
     }
-    resize_client_list(server, server->max_clients_number + 1);
+    resize_client_list(server, server->current_clients_number + 1);
     new_player = create_player_from_player(&server->game, client->player);
     AL(FALSE, my_push_front, &client->player->team->player_list,
         new_player, VOID);

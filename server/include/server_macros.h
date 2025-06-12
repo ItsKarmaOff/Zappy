@@ -52,6 +52,26 @@
 
 
 
+    /* Client macros */
+
+    /**
+     * @brief The index of the server in the poll_fds array
+     */
+    #define SERVER_POLL_INDEX 0
+
+    /**
+     * @brief The default maximum number of backlog connections
+     * in the listen queue
+     */
+    #define DEFAULT_LISTEN_BACKLOG 128
+
+    /**
+     * @brief Gets the client at a specific index in the server's client list
+     */
+    #define CLIENT(server, index) ((server)->client_list[(index) - 1])
+
+
+
     /* Command macros */
 
     /**
@@ -93,5 +113,34 @@
      * @brief The refill time unit until the next refill
      */
     #define REFILL_TIME 20.0
+
+
+
+    /* Player macros */
+
+    /**
+     * @brief The default number of food when a player is created
+     */
+    #define DEFAULT_FOOD_NUMBER (10 - 1)
+
+    /**
+     * @brief The time unit for food consumption
+     */
+    #define FOOD_TIME_UNIT 126
+
+    /**
+     * @brief The death message sent to clients
+     */
+    #define DEATH_MESSAGE "dead\n"
+
+    /**
+     * @brief The maximum level a player can reach
+     */
+    #define MAX_PLAYER_LEVEL 8
+
+    /**
+     * @brief The number of players level max in a team to win the game
+     */
+    #define NUMBER_OF_PLAYER_LEVEL_MAX_TO_WIN 6
 
 #endif /* SERVER_MACROS_H_ */

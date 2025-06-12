@@ -16,15 +16,15 @@ static void send_bct(client_t *client, tile_t *tile)
 {
     if (client == NULL || tile == NULL)
         return;
-    dprintf(client->socket_fd, "bct %zu %zu %d %d %d %d %d %d %d\n",
+    dprintf(client->socket_fd, "bct %zu %zu %zu %zu %zu %zu %zu %zu %zu\n",
         tile->position.x, tile->position.y,
-        (tile->resources & (1 << FOOD)) != 0,
-        (tile->resources & (1 << LINEMATE)) != 0,
-        (tile->resources & (1 << DERAUMERE)) != 0,
-        (tile->resources & (1 << SIBUR)) != 0,
-        (tile->resources & (1 << MENDIANE)) != 0,
-        (tile->resources & (1 << PHIRAS)) != 0,
-        (tile->resources & (1 << THYSTAME)) != 0);
+        tile->resources[FOOD],
+        tile->resources[LINEMATE],
+        tile->resources[DERAUMERE],
+        tile->resources[SIBUR],
+        tile->resources[MENDIANE],
+        tile->resources[PHIRAS],
+        tile->resources[THYSTAME]);
 }
 
 void send_bct_to_gui(server_t *server, client_t *client,
