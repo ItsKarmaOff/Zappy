@@ -10,7 +10,7 @@
  * @author Nicolas TORO
  */
 
-#include "commands/gui.h"
+#include "commands/commands_gui.h"
 
 static void send_pic(client_t *client,
     node_t *player_list, size_t level)

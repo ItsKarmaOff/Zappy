@@ -10,7 +10,7 @@
  * @author Nicolas TORO
  */
 
-#include "commands/gui.h"
+#include "commands/commands_gui.h"
 
 void send_pin(client_t *client, player_t *player)
 {

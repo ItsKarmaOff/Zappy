@@ -10,7 +10,7 @@
  * @author Nicolas TORO
  */
 
-#include "commands/gui.h"
+#include "commands/commands_gui.h"
 
 void send_suc_to_gui(UNUSED server_t *server, UNUSED client_t *client)
 {

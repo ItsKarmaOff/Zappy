@@ -10,7 +10,7 @@
  * @author Nicolas TORO
  */
 
-#include "commands/ai.h"
+#include "commands/commands_ai.h"
 
 static void update_orientation_north(client_t *client)
 {

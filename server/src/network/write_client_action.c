@@ -41,6 +41,18 @@ const command_t commands_gui[] = {
     {NULL, 0, NULL}
 };
 
+const command_t commands_server[] = {
+    {"/help", 0, &handle_command_help},
+    {"/status", 0, &handle_command_status},
+};
+
+const command_t *commands[] = {
+    commands_ai,
+    commands_gui,
+    commands_server,
+    NULL
+};
+
 static size_t get_next_command_size(server_t *server, size_t index)
 {
     size_t total_size = 1;
@@ -100,16 +112,16 @@ static char *get_next_command(server_t *server, size_t index)
 static bool set_next_action(server_t *server, size_t index,
     char *command, char **args)
 {
-    const command_t *commands = server->client_list[index - 1]->client_type
-        == CLIENT_GUI ? commands_gui : commands_ai;
+    const command_t *selected_commands = commands[
+        server->client_list[index - 1]->client_type];
 
-    for (size_t cmd = 0; commands[cmd].command != NULL; cmd++) {
-        if (my_strcmp(args[0], commands[cmd].command) == 0) {
+    for (size_t cmd = 0; selected_commands[cmd].command != NULL; cmd++) {
+        if (my_strcmp(args[0], selected_commands[cmd].command) == 0) {
             server->client_list[index - 1]->next_action.action_args = args;
             server->client_list[index - 1]->next_action.time_to_wait =
-                commands[cmd].time_to_wait;
+                selected_commands[cmd].time_to_wait;
             server->client_list[index - 1]->next_action.cmd_function =
-                commands[cmd].cmd_function;
+                selected_commands[cmd].cmd_function;
             server->client_list[index - 1]->last_action_time = time(NULL);
             FREE(command);
             return true;

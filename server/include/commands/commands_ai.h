@@ -2,16 +2,16 @@
 ** EPITECH PROJECT, 2025
 ** zappy
 ** File description:
-** The ai.h
+** The commandsai.h
 */
 /**
- * @file ai.h
- * @brief The ai.h
+ * @file commands_ai.h
+ * @brief The commands_ai.h
  * @author Nicolas TORO
  */
 
-#ifndef AI_H_
-    #define AI_H_
+#ifndef COMMANDS_AI_H_
+    #define COMMANDS_AI_H_
 
     #include "network.h"
 
@@ -142,4 +142,4 @@ void handle_command_set(server_t *server, client_t *client, char **args);
 void handle_command_incantation(server_t *server, client_t *client,
     char **args);
 
-#endif /* AI_H_ */
+#endif /* COMMANDS_AI_H_ */

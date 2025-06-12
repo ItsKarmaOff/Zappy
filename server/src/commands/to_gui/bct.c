@@ -10,7 +10,7 @@
  * @author Nicolas TORO
  */
 
-#include "commands/gui.h"
+#include "commands/commands_gui.h"
 
 static void send_bct(client_t *client, tile_t *tile)
 {

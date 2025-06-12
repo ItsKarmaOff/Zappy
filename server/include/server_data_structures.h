@@ -289,6 +289,10 @@ extern const command_t commands_gui[];
  * @brief The array of SERVER commands
  */
 extern const command_t commands_server[];
+/**
+ * @brief The array of commands for the server
+ */
+extern const command_t *commands[];
 
 
 

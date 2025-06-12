@@ -30,6 +30,7 @@ static void configure_server(server_t *server)
         DEFAULT_NUMBER_OF_CLIENTS, sizeof(client_t));
     server->client_list[STDIN_CLIENT_INDEX]->socket_fd = STDIN_FILENO;
     server->client_list[STDIN_CLIENT_INDEX]->client_type = CLIENT_SERVER;
+    server->client_list[STDIN_CLIENT_INDEX]->is_authenticated = true;
 }
 
 void start_server(server_t *server)

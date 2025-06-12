@@ -10,7 +10,7 @@
  * @author Nicolas TORO
  */
 
-#include "commands/ai.h"
+#include "commands/commands_ai.h"
 
 void handle_command_fork(UNUSED server_t *server, UNUSED client_t *client,
     UNUSED char **args)

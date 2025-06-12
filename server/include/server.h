@@ -26,6 +26,12 @@
 server_t *create_server(int argc, char **argv);
 
 /**
+ * @brief Displays the server information
+ * @param server The server instance to display
+ */
+void display_server(const server_t *server);
+
+/**
  * @brief Runs the server
  * @param server The server instance to run
  * @throw FAILURE If the server fails to run

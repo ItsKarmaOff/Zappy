@@ -10,7 +10,7 @@
  * @author Nicolas TORO
  */
 
-#include "commands/ai.h"
+#include "commands/commands_ai.h"
 
 static void move_north(server_t *server, client_t *client)
 {

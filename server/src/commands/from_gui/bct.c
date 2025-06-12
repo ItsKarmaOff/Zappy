@@ -10,7 +10,7 @@
  * @author Nicolas TORO
  */
 
-#include "commands/gui.h"
+#include "commands/commands_gui.h"
 
 static bool check_args(server_t *server, client_t *client,
     char **args, vector2u_t *position)

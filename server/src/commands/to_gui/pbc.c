@@ -10,7 +10,7 @@
  * @author Nicolas TORO
  */
 
-#include "commands/gui.h"
+#include "commands/commands_gui.h"
 
 void send_pbc_to_gui(server_t *server, client_t *client,
     player_t *player, const char *message)

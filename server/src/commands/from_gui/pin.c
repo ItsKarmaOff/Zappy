@@ -10,7 +10,7 @@
  * @author Nicolas TORO
  */
 
-#include "commands/gui.h"
+#include "commands/commands_gui.h"
 
 void handle_command_pin_player(server_t *server, client_t *client,
     char **args)

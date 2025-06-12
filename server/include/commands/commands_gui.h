@@ -2,16 +2,16 @@
 ** EPITECH PROJECT, 2025
 ** zappy
 ** File description:
-** The gui.h
+** The commands_gui.h
 */
 /**
- * @file gui.h
- * @brief The gui.h
+ * @file commands_gui.h
+ * @brief The commands_gui.h
  * @author Nicolas TORO
  */
 
-#ifndef GUI_H_
-    #define GUI_H_
+#ifndef COMMANDS_GUI_H_
+    #define COMMANDS_GUI_H_
 
     #include "network.h"
 
@@ -360,4 +360,4 @@ void send_suc_to_gui(server_t *server, client_t *client);
  */
 void send_sbp_to_gui(server_t *server, client_t *client);
 
-#endif /* GUI_H_ */
+#endif /* COMMANDS_GUI_H_ */
