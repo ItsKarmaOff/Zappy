@@ -14,6 +14,7 @@
     #define GAME_H_
 
     #include "server_data_structures.h"
+    #include "commands.h"
 
 
 
@@ -43,6 +44,14 @@ player_t *create_player_from_player(game_t *game, player_t *creator);
  */
 player_t *get_player_by_id(const game_t *game, size_t player_id);
 
+/**
+ * @brief Updates a player in the game
+ * @param server The server containing the game
+ * @param player The player to update
+ * @param dead_players A pointer to a list of dead players
+ */
+void update_player(server_t *server, player_t *player, node_t **dead_players);
+
 
 
 /* Team functions */
@@ -56,14 +65,6 @@ player_t *get_player_by_id(const game_t *game, size_t player_id);
 team_t *create_team(game_t *game, const char *name);
 
 /**
- * @brief Gets the number of empty slots in a team
- * @param team The team to check
- * @return The number of empty slots in the team
- */
-//size_t get_nb_empty_slots(const team_t *team);
-//TODO à delete
-
-/**
  * @brief Gets the index of a team in the game
  * @param game The game to get the team from
  * @param team_name The name of the team to get the index of
@@ -73,10 +74,26 @@ size_t get_team_index(const game_t *game, const char *team_name);
 
 /**
  * @brief Gets the next egg for a team
+ * @param server The server containing the game
  * @param team The team to get the next egg for
  * @return A pointer to the next egg, or NULL if no eggs are available
  */
-player_t *get_next_egg(team_t *team);
+player_t *get_next_egg(server_t *server, team_t *team);
+
+/**
+ * @brief Checks if a team name is valid
+ * @param server The server containing the game
+ * @param team_name The name of the team to check
+ * @return true if the team name is valid, false otherwise
+ */
+bool is_valid_team(server_t *server, char *team_name);
+
+/**
+ * @brief Gets the number of players at maximum level in a team
+ * @param team The team to check
+ * @return The number of players at maximum level in the team
+ */
+size_t get_number_of_player_level_max_in_team(const team_t *team);
 
 
 

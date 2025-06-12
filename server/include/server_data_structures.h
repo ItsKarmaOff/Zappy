@@ -84,13 +84,15 @@ typedef struct player_s {
 
     /** The level of the player */
     size_t level;
-    /** The remaining life of the player */
-    size_t life_remaining_tick;
+    /** The last time the player ate */
+    time_t last_eat_time;
     /** The inventory of the player */
     size_t inventory[RESOURCES_SIZE];
 
     /** The team of the player */
     team_t *team;
+    /** The associated client */
+    client_t *client;
 } player_t;
 
 /**
@@ -127,6 +129,11 @@ typedef struct game_settings_s {
     /** The height of the game map */
     size_t height;
 
+    /** Whether the game should end when only one team remains */
+    bool auto_end;
+    /** Whether the game should display the eggs */
+    bool display_eggs;
+
     /** The number of teams */
     size_t teams_number;
     /** The number of clients per team */
@@ -145,10 +152,8 @@ typedef struct game_settings_s {
 typedef struct tile_s {
     /** The position of the tile on the map */
     vector2u_t position;
-    /** The type of resources on the tile */
-    // TODO : Lou je pense qu'on fait du bitshift en fonction de resource_t
-    //       : pour savoir si on a un resource ou pas (regarde game.c)
-    uint8_t resources;
+    /** The number of resources on the tile */
+    size_t resources[RESOURCES_SIZE];
 } tile_t;
 
 /**
@@ -167,6 +172,8 @@ typedef struct game_s {
     quantity_t resources[RESOURCES_SIZE];
     /** The last time resources were refilled */
     time_t last_refill_time;
+    /** The team name of the winner */
+    const char *winner_team_name;
 } game_t;
 
 
@@ -212,9 +219,14 @@ typedef struct client_s {
     int socket_fd;
     /** The address of the client */
     sockaddr_in_t address;
+
+    /** Whether the client is authenticated */
+    bool is_authenticated;
+    /** The name of the team the client is trying to join */
+    char *team_name;
+
     /** Whether the client is a GUI client */
     bool is_gui;
-
     /** The associated player */
     player_t *player;
 
@@ -240,10 +252,8 @@ typedef struct server_s {
     /** The length of the address */
     socklen_t addr_len;
 
-    /** The poll file descriptors */
+    /** The list of poll file descriptors for current clients */
     pollfd_t *poll_fds;
-    /** The maximum number of clients */
-    size_t max_clients_number;
     /** The current number of clients */
     size_t current_clients_number;
     /** The list of connected clients */

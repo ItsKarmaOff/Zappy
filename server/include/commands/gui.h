@@ -329,8 +329,7 @@ void send_sst_to_gui(server_t *server, client_t *client);
  * @param client The client instance to send the command to
  * @param team The team whose information is being sent
  */
-void send_seg_to_gui(server_t *server, client_t *client,
-    team_t *team);
+void send_seg_to_gui(server_t *server, client_t *client);
 
 /**
  * @brief Send the "smg" command to all GUI clients

@@ -146,6 +146,8 @@ void write_client_action(server_t *server, size_t index)
 {
     size_t command_count = 0;
 
+    if (server->client_list[index - 1]->is_authenticated == false)
+        return authenticate_client(server, index);
     if (server->client_list[index - 1]->next_action.cmd_function != NULL)
         return;
     for (node_t *tmp = server->client_list[index - 1]->command_queue;
