@@ -133,7 +133,20 @@ namespace Gui {
         DrawModel(_model, position, _scale, color);
         if (VarManager::getInstance().getVar(VarManager::DEBUG_VAR)) {
             DrawModelWires(_model, position, _scale, GREEN);
-            DrawBoundingBox(_boundingBox, YELLOW);
+            BoundingBox transformedBox;
+            transformedBox.min = {
+                position.x + _boundingBox.min.x * _scale,
+                position.y + _boundingBox.min.y * _scale,
+                position.z + _boundingBox.min.z * _scale
+            };
+            transformedBox.max = {
+                position.x + _boundingBox.max.x * _scale,
+                position.y + _boundingBox.max.y * _scale,
+                position.z + _boundingBox.max.z * _scale
+            };
+
+            DrawBoundingBox(transformedBox, YELLOW);
+            // DrawBoundingBox(_boundingBox, YELLOW);
         }
     }
 }
