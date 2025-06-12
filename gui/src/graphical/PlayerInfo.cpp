@@ -9,6 +9,11 @@
 #include <string>
 
 namespace Gui {
+    PlayerInfo::PlayerInfo(std::string teamName_)
+    {
+        _teamName = teamName_;
+    }
+
     const PlayerInfo::Orientation& PlayerInfo::getOrientation() const
     {
         return _orientation;
@@ -86,10 +91,35 @@ namespace Gui {
     {
         return _teamColor;
     }
-    
+
     void PlayerInfo::setColor(Color col)
     {
         _teamColor = col;
+    }
+
+    std::chrono::steady_clock::time_point &PlayerInfo::getClock(void)
+    {
+        return _clock;
+    }
+
+    const bool &PlayerInfo::isBroadcasting(void) const
+    {
+        return _broadcast;
+    }
+
+    void PlayerInfo::setBroadcasting(bool broadcasting)
+    {
+        _broadcast = broadcasting;
+    }
+
+    const std::string &PlayerInfo::getTeamName(void) const
+    {
+        return _teamName;
+    }
+
+    void PlayerInfo::setTeamName(std::string name_)
+    {
+        _teamName = name_;
     }
 
 }

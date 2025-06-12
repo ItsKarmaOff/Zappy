@@ -33,6 +33,9 @@ namespace Gui {
                 }
                 DisableCursor();
             }
+            if (_menu->getButtons()[MenuInfo::EXIT_BUTTON].isMouseOver(_mousePos)) {
+                CloseWindow();
+            }
         }
     }
 
