@@ -82,35 +82,43 @@ namespace Gui {
     void TileInfo::drawContent(AssetsManager &assetsManager) const
     {
         auto &models = assetsManager.getModels();
-        float startX = _pos.x - TILE_SIZE / 2.0f;
-        float startZ = _pos.z - TILE_SIZE / 2.0f;
+
+        const float tileRealSize = models["island"]->getDimensions().x;
+        const float halfSize = tileRealSize / 2.0f;
+
+        Vector3 basePos = {
+            _pos.x - halfSize,
+            0.0f,
+            _pos.z - halfSize
+        };
 
         int index = 0;
-        int itemsPerLine = TILE_SIZE;
+        int itemsPerLine = static_cast<int>(std::floor(tileRealSize));
 
-        for (auto &[key, nb] : _content) {
+        for (const auto &[key, nb] : _content) {
             if (nb <= 0) continue;
+            for (int i = 0; i < nb; ++i) {
+                int offsetX = index % itemsPerLine;
+                int offsetZ = index / itemsPerLine;
 
-            int offsetX = index % itemsPerLine;
-            int offsetZ = index / itemsPerLine;
+                float spacing = tileRealSize / static_cast<float>(itemsPerLine);
 
-            Vector3 objPos = {
-                startX + offsetX + 0.5f,
-                0.0f,
-                startZ + offsetZ + 0.5f
-            };
-            if (models.contains(key)) {
-                Vector3 modelPos = {
-                    objPos.x,
-                    models[key]->getAligned(models[key]->getBoundingBox().min.y),
-                    objPos.z
+                Vector3 objPos = {
+                    basePos.x + offsetX * spacing + spacing / 2.0f,
+                    0.0f,
+                    basePos.z + offsetZ * spacing + spacing / 2.0f
                 };
-                models[key]->draw(modelPos);
-            } else {
-                DrawCube({objPos.x, 0.0f, objPos.z}, 1.0f, 1.0f, 1.0f, PURPLE);
-                DrawCubeWires({objPos.x, 0.0f, objPos.z}, 1.0f, 1.0f, 1.0f, BLACK);
+
+                if (models.contains(key)) {
+                    float yOffset = models[key]->getAligned(models[key]->getBoundingBox().min.y);
+                    Vector3 modelPos = {objPos.x, yOffset, objPos.z};
+                    models[key]->draw(modelPos);
+                } else {
+                    DrawCube({objPos.x, 0.0f, objPos.z}, spacing, spacing, spacing, PURPLE);
+                    DrawCubeWires({objPos.x, 0.0f, objPos.z}, spacing, spacing, spacing, BLACK);
+                }
+                index++;
             }
-            index++;
         }
     }
 }
