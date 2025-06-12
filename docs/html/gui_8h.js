@@ -28,7 +28,7 @@ var gui_8h =
     [ "send_pnw_to_gui", "gui_8h.html#a6715755998c064051071709ea8e2d3b0", null ],
     [ "send_ppo_to_gui", "gui_8h.html#a0b674955cd5e1f332332b470b6bf4838", null ],
     [ "send_sbp_to_gui", "gui_8h.html#a6f8d2c4dc14f087e27335602755bd0dc", null ],
-    [ "send_seg_to_gui", "gui_8h.html#acca9bebe14ce3a1f764698f38bfb9b93", null ],
+    [ "send_seg_to_gui", "gui_8h.html#a51f6cc91d3b3e6d1aaaec32351f02dbd", null ],
     [ "send_sgt_to_gui", "gui_8h.html#adab4e2418e9a7e26bdd4e5854691ed8a", null ],
     [ "send_smg_to_gui", "gui_8h.html#afd33b228455b4c2d7a9b0f91dd0a9b50", null ],
     [ "send_sst_to_gui", "gui_8h.html#a6a090753faafd292de1cf16e0a6284cf", null ],

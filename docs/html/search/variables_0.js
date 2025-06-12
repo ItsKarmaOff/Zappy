@@ -4,5 +4,6 @@ var searchData=
   ['addr_5flen_1',['addr_len',['../structserver__s.html#a116941d922ae354d7241d04b0f3c84d8',1,'server_s']]],
   ['address_2',['address',['../structclient__s.html#ab675f900e13e59c89c1475a32765c3a9',1,'client_s::address()'],['../structserver__s.html#ab675f900e13e59c89c1475a32765c3a9',1,'server_s::address()']]],
   ['argc_3',['argc',['../structparsing__s.html#add6f7e1e1ef6986c3abafe10038a2db9',1,'parsing_s']]],
-  ['argv_4',['argv',['../structparsing__s.html#af2efa898e9eed6fe6715279cb1ec35b0',1,'parsing_s']]]
+  ['argv_4',['argv',['../structparsing__s.html#af2efa898e9eed6fe6715279cb1ec35b0',1,'parsing_s']]],
+  ['auto_5fend_5',['auto_end',['../structgame__settings__s.html#abbafacd624ab56159b1bd789f4a0c8ef',1,'game_settings_s']]]
 ];

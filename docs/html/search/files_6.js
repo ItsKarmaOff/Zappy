@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['height_2ec_0',['height.c',['../height_8c.html',1,'']]],
-  ['help_2ec_1',['help.c',['../help_8c.html',1,'']]]
+  ['game_2ec_0',['game.c',['../game_8c.html',1,'']]],
+  ['game_2eh_1',['game.h',['../game_8h.html',1,'']]],
+  ['get_5fresponse_2ec_2',['get_response.c',['../get__response_8c.html',1,'']]],
+  ['gui_2eh_3',['gui.h',['../gui_8h.html',1,'']]]
 ];

@@ -103,6 +103,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a881c1dd62a404a42fb72ed87f869759d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="players_8c.html#a881c1dd62a404a42fb72ed87f869759d">get_player_by_id</a> (const <a class="el" href="structgame__s.html">game_t</a> *game, size_t player_id)</td></tr>
 <tr class="memdesc:a881c1dd62a404a42fb72ed87f869759d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a player by their ID.  <a href="players_8c.html#a881c1dd62a404a42fb72ed87f869759d">More...</a><br /></td></tr>
 <tr class="separator:a881c1dd62a404a42fb72ed87f869759d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91cd566d959621c4d232c2c385896b64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="players_8c.html#a91cd566d959621c4d232c2c385896b64">update_player</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structplayer__s.html">player_t</a> *player, <a class="el" href="structnode__s.html">node_t</a> **dead_players)</td></tr>
+<tr class="memdesc:a91cd566d959621c4d232c2c385896b64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates a player in the game.  <a href="players_8c.html#a91cd566d959621c4d232c2c385896b64">More...</a><br /></td></tr>
+<tr class="separator:a91cd566d959621c4d232c2c385896b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="players_8c.html" title="The players.c.">players.c</a>. </p>
@@ -219,6 +222,50 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the player, or NULL if not found </dd></dl>
+
+</div>
+</div>
+<a id="a91cd566d959621c4d232c2c385896b64" name="a91cd566d959621c4d232c2c385896b64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91cd566d959621c4d232c2c385896b64">&#9670;&nbsp;</a></span>update_player()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void update_player </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structnode__s.html">node_t</a> **&#160;</td>
+          <td class="paramname"><em>dead_players</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates a player in the game. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server containing the game </td></tr>
+    <tr><td class="paramname">player</td><td>The player to update </td></tr>
+    <tr><td class="paramname">dead_players</td><td>A pointer to a list of dead players </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

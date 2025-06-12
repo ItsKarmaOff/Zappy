@@ -15,7 +15,11 @@ var searchData=
   ['assetsmanager_12',['AssetsManager',['../classGui_1_1AssetsManager.html',1,'Gui']]],
   ['attributes_2ec_13',['attributes.c',['../attributes_8c.html',1,'']]],
   ['audiostream_14',['AudioStream',['../structAudioStream.html',1,'']]],
-  ['authors_2ec_15',['authors.c',['../authors_8c.html',1,'']]],
-  ['automationevent_16',['AutomationEvent',['../structAutomationEvent.html',1,'']]],
-  ['automationeventlist_17',['AutomationEventList',['../structAutomationEventList.html',1,'']]]
+  ['authenticate_5fclient_15',['authenticate_client',['../network_8h.html#a48e0709f9367d33b4f14b8c807ced000',1,'authenticate_client(server_t *server, size_t index):&#160;authenticate_client.c'],['../authenticate__client_8c.html#a48e0709f9367d33b4f14b8c807ced000',1,'authenticate_client(server_t *server, size_t index):&#160;authenticate_client.c']]],
+  ['authenticate_5fclient_2ec_16',['authenticate_client.c',['../authenticate__client_8c.html',1,'']]],
+  ['authors_2ec_17',['authors.c',['../authors_8c.html',1,'']]],
+  ['auto_5fend_18',['auto_end',['../structgame__settings__s.html#abbafacd624ab56159b1bd789f4a0c8ef',1,'game_settings_s']]],
+  ['auto_5fend_2ec_19',['auto_end.c',['../auto__end_8c.html',1,'']]],
+  ['automationevent_20',['AutomationEvent',['../structAutomationEvent.html',1,'']]],
+  ['automationeventlist_21',['AutomationEventList',['../structAutomationEventList.html',1,'']]]
 ];

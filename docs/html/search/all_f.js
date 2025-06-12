@@ -15,7 +15,7 @@ var searchData=
   ['rendertexture_12',['RenderTexture',['../structRenderTexture.html',1,'']]],
   ['resize_5fclient_5flist_13',['resize_client_list',['../network_2clients_8c.html#a3a56304d07f0def9dbdef94a4b34c8d7',1,'resize_client_list(server_t *server, size_t new_size):&#160;clients.c'],['../network_8h.html#a3a56304d07f0def9dbdef94a4b34c8d7',1,'resize_client_list(server_t *server, size_t new_size):&#160;clients.c']]],
   ['resource_2ec_14',['resource.c',['../resource_8c.html',1,'']]],
-  ['resources_15',['resources',['../structgame__s.html#a172ab2e0b39e4ac9c4466a63ab9fdfa7',1,'game_s::resources()'],['../structtile__s.html#a403c1bf661cecbc1138bc77be99efb7e',1,'tile_s::resources()']]],
+  ['resources_15',['resources',['../structgame__s.html#a172ab2e0b39e4ac9c4466a63ab9fdfa7',1,'game_s::resources()'],['../structtile__s.html#a55633d06308171be32d0d140a5f84c75',1,'tile_s::resources()']]],
   ['resources_5fdensities_16',['resources_densities',['../server__data__structures_8h.html#a19d1d00ccca0124f6828d566e8a6ac5e',1,'resources_densities():&#160;resource.c'],['../resource_8c.html#a19d1d00ccca0124f6828d566e8a6ac5e',1,'resources_densities():&#160;resource.c']]],
   ['resources_5fe_17',['resources_e',['../server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01',1,'server_data_structures.h']]],
   ['resources_5fnames_18',['resources_names',['../resource_8c.html#a81faea77ea06eda3508227d83f9f9b2c',1,'resources_names():&#160;resource.c'],['../server__data__structures_8h.html#a81faea77ea06eda3508227d83f9f9b2c',1,'resources_names():&#160;resource.c']]],

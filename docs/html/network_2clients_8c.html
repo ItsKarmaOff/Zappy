@@ -94,22 +94,25 @@ $(document).ready(function(){initNavTree('network_2clients_8c.html',''); initRes
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6f992965df803323efd5765d4d0cdf9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_2clients_8c.html#a6f992965df803323efd5765d4d0cdf9c">destroy_client</a> (<a class="el" href="structclient__s.html">client_t</a> *client)</td></tr>
-<tr class="memdesc:a6f992965df803323efd5765d4d0cdf9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy a client.  <a href="network_2clients_8c.html#a6f992965df803323efd5765d4d0cdf9c">More...</a><br /></td></tr>
-<tr class="separator:a6f992965df803323efd5765d4d0cdf9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49a3683fb6560cbc2d4d1777742f12dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_2clients_8c.html#a49a3683fb6560cbc2d4d1777742f12dd">destroy_client</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client)</td></tr>
+<tr class="memdesc:a49a3683fb6560cbc2d4d1777742f12dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy a client.  <a href="network_2clients_8c.html#a49a3683fb6560cbc2d4d1777742f12dd">More...</a><br /></td></tr>
+<tr class="separator:a49a3683fb6560cbc2d4d1777742f12dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78cb8131561b4d698b5a659e3e488f55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_2clients_8c.html#a78cb8131561b4d698b5a659e3e488f55">destroy_clients</a> (<a class="el" href="structserver__s.html">server_t</a> *server)</td></tr>
 <tr class="memdesc:a78cb8131561b4d698b5a659e3e488f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy all clients in the server.  <a href="network_2clients_8c.html#a78cb8131561b4d698b5a659e3e488f55">More...</a><br /></td></tr>
 <tr class="separator:a78cb8131561b4d698b5a659e3e488f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a56304d07f0def9dbdef94a4b34c8d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_2clients_8c.html#a3a56304d07f0def9dbdef94a4b34c8d7">resize_client_list</a> (<a class="el" href="structserver__s.html">server_t</a> *server, size_t new_size)</td></tr>
 <tr class="memdesc:a3a56304d07f0def9dbdef94a4b34c8d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize the client list.  <a href="network_2clients_8c.html#a3a56304d07f0def9dbdef94a4b34c8d7">More...</a><br /></td></tr>
 <tr class="separator:a3a56304d07f0def9dbdef94a4b34c8d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27a79b52f6ca524f0c9a0dacdcc18ff6"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_2clients_8c.html#a27a79b52f6ca524f0c9a0dacdcc18ff6">get_client_index</a> (const <a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client)</td></tr>
+<tr class="memdesc:a27a79b52f6ca524f0c9a0dacdcc18ff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the index of a client in the server's client list.  <a href="network_2clients_8c.html#a27a79b52f6ca524f0c9a0dacdcc18ff6">More...</a><br /></td></tr>
+<tr class="separator:a27a79b52f6ca524f0c9a0dacdcc18ff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The clients.c. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a6f992965df803323efd5765d4d0cdf9c" name="a6f992965df803323efd5765d4d0cdf9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f992965df803323efd5765d4d0cdf9c">&#9670;&nbsp;</a></span>destroy_client()</h2>
+<a id="a49a3683fb6560cbc2d4d1777742f12dd" name="a49a3683fb6560cbc2d4d1777742f12dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49a3683fb6560cbc2d4d1777742f12dd">&#9670;&nbsp;</a></span>destroy_client()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -117,9 +120,19 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void destroy_client </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
-          <td class="paramname"><em>client</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -127,6 +140,7 @@ Functions</h2></td></tr>
 <p>Destroy a client. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">server</td><td>The server containing the client </td></tr>
     <tr><td class="paramname">client</td><td>The client to destroy </td></tr>
   </table>
   </dd>
@@ -157,6 +171,44 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a27a79b52f6ca524f0c9a0dacdcc18ff6" name="a27a79b52f6ca524f0c9a0dacdcc18ff6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27a79b52f6ca524f0c9a0dacdcc18ff6">&#9670;&nbsp;</a></span>get_client_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t get_client_index </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the index of a client in the server's client list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server containing the client </td></tr>
+    <tr><td class="paramname">client</td><td>The client to find </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the client in the server's client list </dd></dl>
 
 </div>
 </div>

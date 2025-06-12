@@ -12,7 +12,7 @@ var dir_6f0c292cfdbe4b11ee1af8858e764c38 =
     [ "pex.c", "pex_8c.html", "pex_8c" ],
     [ "pfk.c", "pfk_8c.html", "pfk_8c" ],
     [ "pgt.c", "pgt_8c.html", "pgt_8c" ],
-    [ "pic.c", "pic_8c.html", null ],
+    [ "pic.c", "pic_8c.html", "pic_8c" ],
     [ "pie.c", "pie_8c.html", "pie_8c" ],
     [ "pin.c", "to__gui_2pin_8c.html", "to__gui_2pin_8c" ],
     [ "plv.c", "to__gui_2plv_8c.html", null ],

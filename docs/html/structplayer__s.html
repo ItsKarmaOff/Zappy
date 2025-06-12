@@ -107,16 +107,33 @@ Data Fields</h2></td></tr>
 <tr class="separator:a1b09aac684c444244dea820406f11875"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1cd5c067fda870cc8631b8790fee06c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#af1cd5c067fda870cc8631b8790fee06c">level</a></td></tr>
 <tr class="separator:af1cd5c067fda870cc8631b8790fee06c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab636da56662258c87a3750ed086c199c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#ab636da56662258c87a3750ed086c199c">life_remaining_tick</a></td></tr>
-<tr class="separator:ab636da56662258c87a3750ed086c199c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a945e907c0735c98f0380e79b4f87b878"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#a945e907c0735c98f0380e79b4f87b878">last_eat_time</a></td></tr>
+<tr class="separator:a945e907c0735c98f0380e79b4f87b878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9eaaad3501c6eb829ad473efd7521f9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#ab9eaaad3501c6eb829ad473efd7521f9">inventory</a> [<a class="el" href="server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01a71ebc62bf482ebe7f7c937fc2b7d7010">RESOURCES_SIZE</a>]</td></tr>
 <tr class="separator:ab9eaaad3501c6eb829ad473efd7521f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5325fd4025c743c6a254dc0e819ca5c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteam__s.html">team_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#a5325fd4025c743c6a254dc0e819ca5c1">team</a></td></tr>
 <tr class="separator:a5325fd4025c743c6a254dc0e819ca5c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72bb670c0751a5e8729d02bf7482d63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__s.html#ad72bb670c0751a5e8729d02bf7482d63">client</a></td></tr>
+<tr class="separator:ad72bb670c0751a5e8729d02bf7482d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A structure representing a player in the game. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
+<a id="ad72bb670c0751a5e8729d02bf7482d63" name="ad72bb670c0751a5e8729d02bf7482d63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad72bb670c0751a5e8729d02bf7482d63">&#9670;&nbsp;</a></span>client</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structclient__s.html">client_t</a>* client</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The associated client </p>
+
+</div>
+</div>
 <a id="aef7813d400cb43ed2b8fc02f565a51ca" name="aef7813d400cb43ed2b8fc02f565a51ca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aef7813d400cb43ed2b8fc02f565a51ca">&#9670;&nbsp;</a></span>creator_id</h2>
 
@@ -177,6 +194,21 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
+<a id="a945e907c0735c98f0380e79b4f87b878" name="a945e907c0735c98f0380e79b4f87b878"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a945e907c0735c98f0380e79b4f87b878">&#9670;&nbsp;</a></span>last_eat_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">time_t last_eat_time</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The last time the player ate </p>
+
+</div>
+</div>
 <a id="af1cd5c067fda870cc8631b8790fee06c" name="af1cd5c067fda870cc8631b8790fee06c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af1cd5c067fda870cc8631b8790fee06c">&#9670;&nbsp;</a></span>level</h2>
 
@@ -189,21 +221,6 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >The level of the player </p>
-
-</div>
-</div>
-<a id="ab636da56662258c87a3750ed086c199c" name="ab636da56662258c87a3750ed086c199c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab636da56662258c87a3750ed086c199c">&#9670;&nbsp;</a></span>life_remaining_tick</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t life_remaining_tick</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >The remaining life of the player </p>
 
 </div>
 </div>

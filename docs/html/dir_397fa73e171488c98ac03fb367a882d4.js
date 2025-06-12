@@ -2,6 +2,7 @@ var dir_397fa73e171488c98ac03fb367a882d4 =
 [
     [ "add_new_client.c", "add__new__client_8c.html", "add__new__client_8c" ],
     [ "analyse_poll.c", "analyse__poll_8c.html", "analyse__poll_8c" ],
+    [ "authenticate_client.c", "authenticate__client_8c.html", "authenticate__client_8c" ],
     [ "clients.c", "network_2clients_8c.html", "network_2clients_8c" ],
     [ "execute_actions.c", "execute__actions_8c.html", "execute__actions_8c" ],
     [ "get_response.c", "get__response_8c.html", "get__response_8c" ],

@@ -116,6 +116,18 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>GRAPHIC_TEAM_NAME</b>&#160;&#160;&#160;&quot;GRAPHIC&quot;</td></tr>
 <tr class="memdesc:af488fb511800bdd753e0442c15e1eaea"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the graphic team. <br /></td></tr>
 <tr class="separator:af488fb511800bdd753e0442c15e1eaea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3f3bc3c29096fde3e2ed9b09c202c2e"><td class="memItemLeft" align="right" valign="top"><a id="af3f3bc3c29096fde3e2ed9b09c202c2e" name="af3f3bc3c29096fde3e2ed9b09c202c2e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SERVER_POLL_INDEX</b>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:af3f3bc3c29096fde3e2ed9b09c202c2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The index of the server in the poll_fds array. <br /></td></tr>
+<tr class="separator:af3f3bc3c29096fde3e2ed9b09c202c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5da6bbb562df8ddc215dff560ceedec"><td class="memItemLeft" align="right" valign="top"><a id="ab5da6bbb562df8ddc215dff560ceedec" name="ab5da6bbb562df8ddc215dff560ceedec"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEFAULT_LISTEN_BACKLOG</b>&#160;&#160;&#160;128</td></tr>
+<tr class="memdesc:ab5da6bbb562df8ddc215dff560ceedec"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default maximum number of backlog connections in the listen queue. <br /></td></tr>
+<tr class="separator:ab5da6bbb562df8ddc215dff560ceedec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01fd35b1f870d71d79e537cbfd82e71c"><td class="memItemLeft" align="right" valign="top"><a id="a01fd35b1f870d71d79e537cbfd82e71c" name="a01fd35b1f870d71d79e537cbfd82e71c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CLIENT</b>(server,  index)&#160;&#160;&#160;((server)-&gt;client_list[(index) - 1])</td></tr>
+<tr class="memdesc:a01fd35b1f870d71d79e537cbfd82e71c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the client at a specific index in the server's client list. <br /></td></tr>
+<tr class="separator:a01fd35b1f870d71d79e537cbfd82e71c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07e68824dd48ddf30a6b382f7ad0c1cd"><td class="memItemLeft" align="right" valign="top"><a id="a07e68824dd48ddf30a6b382f7ad0c1cd" name="a07e68824dd48ddf30a6b382f7ad0c1cd"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>CLIENT_MAX_COMMANDS</b>&#160;&#160;&#160;10</td></tr>
 <tr class="memdesc:a07e68824dd48ddf30a6b382f7ad0c1cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum number of commands a client can have. <br /></td></tr>
@@ -144,6 +156,26 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>REFILL_TIME</b>&#160;&#160;&#160;20.0</td></tr>
 <tr class="memdesc:ad318f57821359c6c5c1913f4e142b261"><td class="mdescLeft">&#160;</td><td class="mdescRight">The refill time unit until the next refill. <br /></td></tr>
 <tr class="separator:ad318f57821359c6c5c1913f4e142b261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3df0a7d0c6fd1018667aa2d7718a86f1"><td class="memItemLeft" align="right" valign="top"><a id="a3df0a7d0c6fd1018667aa2d7718a86f1" name="a3df0a7d0c6fd1018667aa2d7718a86f1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEFAULT_FOOD_NUMBER</b>&#160;&#160;&#160;(10 - 1)</td></tr>
+<tr class="memdesc:a3df0a7d0c6fd1018667aa2d7718a86f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default number of food when a player is created. <br /></td></tr>
+<tr class="separator:a3df0a7d0c6fd1018667aa2d7718a86f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acae956016df8654ed1ebe6eab24cb0db"><td class="memItemLeft" align="right" valign="top"><a id="acae956016df8654ed1ebe6eab24cb0db" name="acae956016df8654ed1ebe6eab24cb0db"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FOOD_TIME_UNIT</b>&#160;&#160;&#160;126</td></tr>
+<tr class="memdesc:acae956016df8654ed1ebe6eab24cb0db"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time unit for food consumption. <br /></td></tr>
+<tr class="separator:acae956016df8654ed1ebe6eab24cb0db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27e275e8e6dd381b763faad3f2448cde"><td class="memItemLeft" align="right" valign="top"><a id="a27e275e8e6dd381b763faad3f2448cde" name="a27e275e8e6dd381b763faad3f2448cde"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEATH_MESSAGE</b>&#160;&#160;&#160;&quot;dead\n&quot;</td></tr>
+<tr class="memdesc:a27e275e8e6dd381b763faad3f2448cde"><td class="mdescLeft">&#160;</td><td class="mdescRight">The death message sent to clients. <br /></td></tr>
+<tr class="separator:a27e275e8e6dd381b763faad3f2448cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea2628329db2b47d8302e6dd117a21d4"><td class="memItemLeft" align="right" valign="top"><a id="aea2628329db2b47d8302e6dd117a21d4" name="aea2628329db2b47d8302e6dd117a21d4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_PLAYER_LEVEL</b>&#160;&#160;&#160;8</td></tr>
+<tr class="memdesc:aea2628329db2b47d8302e6dd117a21d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum level a player can reach. <br /></td></tr>
+<tr class="separator:aea2628329db2b47d8302e6dd117a21d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49ba7ba690f3b0131ddc235f67995d04"><td class="memItemLeft" align="right" valign="top"><a id="a49ba7ba690f3b0131ddc235f67995d04" name="a49ba7ba690f3b0131ddc235f67995d04"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>NUMBER_OF_PLAYER_LEVEL_MAX_TO_WIN</b>&#160;&#160;&#160;6</td></tr>
+<tr class="memdesc:a49ba7ba690f3b0131ddc235f67995d04"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of players level max in a team to win the game. <br /></td></tr>
+<tr class="separator:a49ba7ba690f3b0131ddc235f67995d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="server__macros_8h.html" title="The server_macros.h.">server_macros.h</a>. </p>

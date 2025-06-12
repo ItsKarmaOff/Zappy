@@ -2070,6 +2070,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flag_uppercase_x</b> 
 </div><div class="memdoc">
 
 <p>Get the index of a char in a str according to its occurrence. </p>
+<dl class="section note"><dt>Note</dt><dd>The first occurrence is 1, the second is 2, etc. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The string to check </td></tr>
+    <tr><td class="paramname">c</td><td>The letter to find </td></tr>
+    <tr><td class="paramname">occurrence</td><td>The occurrence of the letter to find </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>ssize_t</b> <u>-1</u> if the letter is not found, otherwise the index of the letter in the string</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The first occurrence is 1, the second is 2, etc </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">str</td><td>The string to check </td></tr>

@@ -94,14 +94,67 @@ $(document).ready(function(){initNavTree('pic_8c.html',''); initResizable(); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a20bff90d5ba65b633efdafc9e3655d32"><td class="memItemLeft" align="right" valign="top"><a id="a20bff90d5ba65b633efdafc9e3655d32" name="a20bff90d5ba65b633efdafc9e3655d32"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>send_pic_to_gui</b> (UNUSED <a class="el" href="structserver__s.html">server_t</a> *server, UNUSED <a class="el" href="structclient__s.html">client_t</a> *client, UNUSED <a class="el" href="structnode__s.html">node_t</a> *player_list, UNUSED size_t level)</td></tr>
-<tr class="separator:a20bff90d5ba65b633efdafc9e3655d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68ce8c0258de765196416f898913abac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pic_8c.html#a68ce8c0258de765196416f898913abac">send_pic_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client, <a class="el" href="structnode__s.html">node_t</a> *player_list, size_t level)</td></tr>
+<tr class="memdesc:a68ce8c0258de765196416f898913abac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the "pic" command to all GUI clients.  <a href="pic_8c.html#a68ce8c0258de765196416f898913abac">More...</a><br /></td></tr>
+<tr class="separator:a68ce8c0258de765196416f898913abac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="pic_8c.html" title="The pic.c.">pic.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a68ce8c0258de765196416f898913abac" name="a68ce8c0258de765196416f898913abac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68ce8c0258de765196416f898913abac">&#9670;&nbsp;</a></span>send_pic_to_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_pic_to_gui </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structnode__s.html">node_t</a> *&#160;</td>
+          <td class="paramname"><em>player_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the "pic" command to all GUI clients. </p>
+<dl class="section note"><dt>Note</dt><dd>To send to a specific GUI client, use the <code>client</code> parameter, otherwise it will send to all GUI clients </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">client</td><td>The client instance to send the command to </td></tr>
+    <tr><td class="paramname">player_list</td><td>The list of players to be sent </td></tr>
+    <tr><td class="paramname">level</td><td>The level of the incantation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

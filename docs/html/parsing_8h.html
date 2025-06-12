@@ -138,8 +138,12 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ac5b221ae8d11073425b73272fd5a5f9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#ac5b221ae8d11073425b73272fd5a5f9c">option_authors</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
 <tr class="separator:ac5b221ae8d11073425b73272fd5a5f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43bdff43f7970ee613ae074d44543c73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a43bdff43f7970ee613ae074d44543c73">option_auto_end</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
+<tr class="separator:a43bdff43f7970ee613ae074d44543c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5ff768cc86705e564da3015b9fd94c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#ae5ff768cc86705e564da3015b9fd94c4">option_clients</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
 <tr class="separator:ae5ff768cc86705e564da3015b9fd94c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8def1be2103316e66599d6c4fb64ae1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a8def1be2103316e66599d6c4fb64ae1c">option_display_eggs</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
+<tr class="separator:a8def1be2103316e66599d6c4fb64ae1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84acb5f91d69842531cd7e84e11ebace"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#a84acb5f91d69842531cd7e84e11ebace">option_frequency</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
 <tr class="separator:a84acb5f91d69842531cd7e84e11ebace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec5d1969e258a5daff41b946fc80c851"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8h.html#aec5d1969e258a5daff41b946fc80c851">option_height</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structparsing__s.html">parsing_t</a> *parsing)</td></tr>
@@ -291,6 +295,47 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
 
 </div>
 </div>
+<a id="a43bdff43f7970ee613ae074d44543c73" name="a43bdff43f7970ee613ae074d44543c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43bdff43f7970ee613ae074d44543c73">&#9670;&nbsp;</a></span>option_auto_end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void option_auto_end </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structparsing__s.html">parsing_t</a> *&#160;</td>
+          <td class="paramname"><em>parsing</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >@biref Set the auto end option of the server </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance to set the auto end for </td></tr>
+    <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FAILURE</td><td>If the argument is invalid or missing </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ae5ff768cc86705e564da3015b9fd94c4" name="ae5ff768cc86705e564da3015b9fd94c4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae5ff768cc86705e564da3015b9fd94c4">&#9670;&nbsp;</a></span>option_clients()</h2>
 
@@ -320,6 +365,53 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance to set the number of clients for </td></tr>
     <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FAILURE</td><td>If the argument is invalid or missing </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8def1be2103316e66599d6c4fb64ae1c" name="a8def1be2103316e66599d6c4fb64ae1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8def1be2103316e66599d6c4fb64ae1c">&#9670;&nbsp;</a></span>option_display_eggs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void option_display_eggs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structparsing__s.html">parsing_t</a> *&#160;</td>
+          <td class="paramname"><em>parsing</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >@biref Set whether to display eggs in the game </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance to set the display eggs for </td></tr>
+    <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FAILURE</td><td>If the argument is invalid or missing </td></tr>
   </table>
   </dd>
 </dl>
@@ -358,6 +450,12 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
   </table>
   </dd>
 </dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FAILURE</td><td>If the argument is invalid or missing </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -390,6 +488,12 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance to set the height for </td></tr>
     <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FAILURE</td><td>If the argument is invalid or missing </td></tr>
   </table>
   </dd>
 </dl>
@@ -469,6 +573,12 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
   </table>
   </dd>
 </dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FAILURE</td><td>If the argument is invalid or missing </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -501,6 +611,12 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance to set the port for </td></tr>
     <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FAILURE</td><td>If the argument is invalid or missing </td></tr>
   </table>
   </dd>
 </dl>
@@ -577,6 +693,12 @@ const <a class="el" href="structoption__t.html">option_t</a>&#160;</td><td class
   <table class="params">
     <tr><td class="paramname">server</td><td>The server instance to set the width for </td></tr>
     <tr><td class="paramname">parsing</td><td>The parsing context containing program arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FAILURE</td><td>If the argument is invalid or missing </td></tr>
   </table>
   </dd>
 </dl>
