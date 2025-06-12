@@ -248,6 +248,8 @@ namespace Gui
         }
         if (_graphical.getGame()->getPlayers()[playerId]->getPos() != Vector2{static_cast<float>(width), static_cast<float>(height)})
             _graphical.getGame()->getPlayers()[playerId]->setPos({static_cast<float>(width), static_cast<float>(height)});
+        if (_graphical.getGame()->getPlayers()[playerId]->getOrientation() != static_cast<size_t>(orientation))
+            _graphical.getGame()->getPlayers()[playerId]->setOrientation(static_cast<size_t>(orientation));
     }
 
     void Commands::handlePLV(std::string &param)
@@ -527,6 +529,16 @@ namespace Gui
             ERROR << "Invalid player format for PDI command: " << player;
 
         playerId = std::stoi(player.substr(1));
+        if (!_graphical.getGame()->getPlayers().contains(playerId)) {
+            ERROR << "Player " << playerId << "doesn't exist.";
+            return;
+        }
+        for (auto &[k, team] : _graphical.getGame()->getTeams()) {
+            // return 0 si ça n'a pas trouvé, donc on peut le faire pour chaque team sans conséquence
+            team.getPlayers().erase(playerId);
+        }
+        _graphical.getGame()->getPlayers().erase(playerId);
+        DEBUG_CONCAT << "Player #" << playerId << " has been expelled";
 
         DEBUG_CONCAT << "Player #" << playerId << " has died";
     }
