@@ -94,7 +94,6 @@ namespace Gui {
     {
         float scaleX = size / (_boundingBox.max.x - _boundingBox.min.x);
         float scaleY = size / (_boundingBox.max.z - _boundingBox.min.z);
-        std::min(scaleX, scaleY);
         return std::min(scaleX, scaleY);
     }
 

@@ -20,34 +20,12 @@ namespace Gui {
     void AssetsManager::loadAssets()
     {
         /* food */
-        /* std::shared_ptr<ModelInfo> cupcakeInfo = std::make_shared<ModelInfo>("gui/assets/cupcake/cupcake.gltf", 0.3f);
-        std::vector<Texture2D> cupcakeTextures = {
-            LoadTexture("gui/assets/cupcake/textures/cupcake0.jpeg"),
-            LoadTexture("gui/assets/cupcake/textures/cupcake1.jpeg")
-        };
-        cupcakeInfo->setTextures(cupcakeTextures);
-        cupcakeInfo->getModel().materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = cupcakeTextures[1];
-        cupcakeInfo->getModel().materials[1].maps[MATERIAL_MAP_DIFFUSE].texture = cupcakeTextures[0];
-        cupcakeInfo->getModel().materials[2].maps[MATERIAL_MAP_DIFFUSE].texture = cupcakeTextures[1];
-        cupcakeInfo->getModel().materials[3].maps[MATERIAL_MAP_DIFFUSE].texture = cupcakeTextures[0]; */
         _models["food"] = std::make_shared<ModelInfo>("gui/assets/box.glb");
         _models["food"]->setScale(_models["food"]->scaleToSize(1.0f));
 
 
 
         /* linemate */
-        // std::shared_ptr<ModelInfo> magic_stone = std::make_shared<ModelInfo>("gui/assets/magic_stone/scene.gltf", 15.0f);
-        // std::vector<Texture2D> magicStoneTextures = {
-        //     LoadTexture("gui/assets/magic_stone/textures/lambert2_baseColor.png"),
-        //     LoadTexture("gui/assets/magic_stone/textures/lambert2_metallicRoughness.png"),
-        //     LoadTexture("gui/assets/magic_stone/textures/lambert2_emissive.png"),
-        //     LoadTexture("gui/assets/magic_stone/textures/lambert2_normal.png")
-        // };
-        // magic_stone->setTextures(magicStoneTextures);
-        // magic_stone->getModel().materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = magicStoneTextures[0];
-        // magic_stone->getModel().materials[0].maps[MATERIAL_MAP_ROUGHNESS].texture = magicStoneTextures[1];
-        // magic_stone->getModel().materials[0].maps[MATERIAL_MAP_EMISSION].texture = magicStoneTextures[2];
-        // magic_stone->getModel().materials[0].maps[MATERIAL_MAP_NORMAL].texture = magicStoneTextures[3];
         _models["linemate"] = std::make_shared<ModelInfo>("gui/assets/iron.glb");
         _models["linemate"]->setScale(_models["linemate"]->scaleToSize(1.0f));
 

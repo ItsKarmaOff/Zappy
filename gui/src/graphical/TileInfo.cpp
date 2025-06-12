@@ -59,6 +59,29 @@ namespace Gui {
     void TileInfo::draw(AssetsManager &assetsManager)
     {
         auto &models = assetsManager.getModels();
+        drawContent(assetsManager);
+        models["island"]->draw(
+            {_pos.x,
+            models["island"]->getAligned(models["island"]->getBoundingBox().min.y) - models["island"]->getDimensions().y,
+            _pos.z},
+            WHITE
+        );
+        // à fix
+        /*
+        static float deg = 0.0f;
+        static std::chrono::steady_clock::time_point lastTime = std::chrono::steady_clock::now();
+        if (Lib::delay(50, lastTime)) {
+            deg += 1.0f;
+            deg = fmod(deg, 360.0f);
+            float offset = sinf(DEG2RAD * deg) * 0.2f;
+            models["food"].transform = MatrixTranslate(0.0f, offset, 0.0f);
+            models["linemate"].transform = MatrixTranslate(0.0f, offset, 0.0f);
+        } */
+    }
+
+    void TileInfo::drawContent(AssetsManager &assetsManager) const
+    {
+        auto &models = assetsManager.getModels();
         float startX = _pos.x - TILE_SIZE / 2.0f;
         float startZ = _pos.z - TILE_SIZE / 2.0f;
 
@@ -89,22 +112,5 @@ namespace Gui {
             }
             index++;
         }
-        models["island"]->draw(
-            {_pos.x,
-            models["island"]->getAligned(models["island"]->getBoundingBox().min.y) - models["island"]->getDimensions().y,
-            _pos.z},
-            WHITE
-        );
-        // à fix
-        /*
-        static float deg = 0.0f;
-        static std::chrono::steady_clock::time_point lastTime = std::chrono::steady_clock::now();
-        if (Lib::delay(50, lastTime)) {
-            deg += 1.0f;
-            deg = fmod(deg, 360.0f);
-            float offset = sinf(DEG2RAD * deg) * 0.2f;
-            models["food"].transform = MatrixTranslate(0.0f, offset, 0.0f);
-            models["linemate"].transform = MatrixTranslate(0.0f, offset, 0.0f);
-        } */
     }
 }

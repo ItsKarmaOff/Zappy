@@ -31,6 +31,7 @@ namespace Gui {
 
             ////////////////////////////////////// UTILITY //////////////////////////////////////
             void draw(AssetsManager &assetsManager);
+            void drawContent(AssetsManager &assetsManager) const;
 
         private:
             Vector3 _pos;
