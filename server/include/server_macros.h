@@ -133,4 +133,14 @@
      */
     #define DEATH_MESSAGE "dead\n"
 
+    /**
+     * @brief The maximum level a player can reach
+     */
+    #define MAX_PLAYER_LEVEL 8
+
+    /**
+     * @brief The number of players level max in a team to win the game
+     */
+    #define NUMBER_OF_PLAYER_LEVEL_MAX_TO_WIN 6
+
 #endif /* SERVER_MACROS_H_ */

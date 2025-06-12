@@ -74,6 +74,8 @@ static void init_gui(server_t *server, client_t *client)
     for (size_t index = 1; index < server->game.game_settings.teams_number;
     index++)
         send_team_to_gui(server, client, server->game.team_list[index]);
+    if (server->game.winner_team_name != NULL)
+        send_seg_to_gui(server, client);
 }
 
 static void respond_to_client(server_t *server, client_t *client,

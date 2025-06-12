@@ -66,3 +66,17 @@ bool is_valid_team(server_t *server, char *team_name)
     }
     return false;
 }
+
+size_t get_number_of_player_level_max_in_team(const team_t *team)
+{
+    size_t count = 0;
+
+    if (team == NULL)
+        return 0;
+    for (node_t *node = team->player_list; node != NULL; node = node->next) {
+        if (node->data != NULL && ((player_t *)node->data)->level ==
+        MAX_PLAYER_LEVEL)
+            count++;
+    }
+    return count;
+}

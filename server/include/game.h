@@ -88,6 +88,13 @@ player_t *get_next_egg(server_t *server, team_t *team);
  */
 bool is_valid_team(server_t *server, char *team_name);
 
+/**
+ * @brief Gets the number of players at maximum level in a team
+ * @param team The team to check
+ * @return The number of players at maximum level in the team
+ */
+size_t get_number_of_player_level_max_in_team(const team_t *team);
+
 
 
 /* Game functions */

@@ -112,9 +112,10 @@ void send_message_to_gui(server_t *server, const char *message);
 
 /**
  * @brief Destroy a client
+ * @param server The server containing the client
  * @param client The client to destroy
  */
-void destroy_client(client_t *client);
+void destroy_client(server_t *server, client_t *client);
 
 /**
  * @brief Destroy all clients in the server

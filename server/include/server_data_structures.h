@@ -173,7 +173,7 @@ typedef struct game_s {
     /** The last time resources were refilled */
     time_t last_refill_time;
     /** The team name of the winner */
-    char *winner_team_name;
+    const char *winner_team_name;
 } game_t;
 
 
