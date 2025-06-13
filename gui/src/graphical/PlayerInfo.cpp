@@ -9,7 +9,8 @@
 #include <string>
 
 namespace Gui {
-    PlayerInfo::PlayerInfo(std::string teamName_)
+    PlayerInfo::PlayerInfo(std::string teamName_) :
+    _isSelected(false)
     {
         _teamName = teamName_;
     }
@@ -122,4 +123,20 @@ namespace Gui {
         _teamName = name_;
     }
 
+
+    ////////////////////////////////////// FOR CLICKING ON PLAYER //////////////////////////////////////
+    const bool &PlayerInfo::isSelected(void) const
+    {
+        return _isSelected;
+    }
+
+    bool &PlayerInfo::isSelected(void)
+    {
+        return _isSelected;
+    }
+
+    void PlayerInfo::setSelected(bool selected)
+    {
+        _isSelected = selected;
+    }
 }

@@ -27,12 +27,43 @@ namespace Gui {
         }if (IsKeyReleased(KEY_F)) {
             VarManager::getInstance().setVar(VarManager::DEBUG_VAR, !VarManager::getInstance().getVar(VarManager::DEBUG_VAR));
         }
+        if (IsMouseButtonReleased(MOUSE_BUTTON_RIGHT)) {
+            if (IsCursorHidden())
+                EnableCursor();
+            else
+                DisableCursor();
+        }
+        if (!IsCursorHidden() && IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) {
+            Ray ray = GetScreenToWorldRay(_mousePos, _game->getCamera());
+            std::shared_ptr<ModelInfo> model = _assetsManager.getModels()["player"];
+            Model &sharedModel = model->getModel();
+            Mesh &mesh = sharedModel.meshes[0];
+
+            for (auto &[id, player] : _game->getPlayers()) {
+                TileInfo &tile = _game->getTiles()[{player->getPos().x, player->getPos().y}];
+                Vector3 pos = {
+                    tile.getPos().x,
+                    model->getAligned(model->getBoundingBox().min.y),
+                    tile.getPos().z
+                };
+                float rotation = -90 * player->getOrientation() - 90;
+                BoundingBox playerBoundingBox = model->getBoundingBoxForCollision(pos, rotation);
+                RayCollision collision = GetRayCollisionBox(ray, playerBoundingBox);
+
+                player->setSelected(collision.hit);
+                if (collision.hit) {
+                    DEBUG_CONCAT << "Player " << id << " selected";
+                }
+            }
+        }
+
 
     }
 
     void Graphics::updateGame(void)
     {
-        UpdateCamera(&_game->getCamera(), CAMERA_FREE);
+        if (IsCursorHidden())
+            UpdateCamera(&_game->getCamera(), CAMERA_FREE);
     }
 
     void Graphics::drawGame(void)
@@ -87,6 +118,8 @@ namespace Gui {
             {tile.getPos().x, playerModel->getAligned(playerModel->getBoundingBox().min.y), tile.getPos().z},
             player->getColor()
         );
+        if (player->isSelected())
+            playerModel->drawBoundingBox(GREEN);
         // Draw player ID above the player
         Vector3 textPos = {
             tile.getPos().x,

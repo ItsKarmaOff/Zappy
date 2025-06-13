@@ -33,7 +33,7 @@ namespace Gui
              * @brief The Orientation enum represents the orientation of a player.
              */
             enum Orientation {
-                NORTH,
+                NORTH = 1,
                 EAST,
                 SOUTH,
                 WEST,
@@ -118,6 +118,10 @@ namespace Gui
 
             const std::string &getTeamName(void) const;
 
+            const bool &isSelected(void) const;
+            bool &isSelected(void);
+            void setSelected(bool selected);
+
 
             //////////////// Setters ///////////////////////////////////////////
 
@@ -167,6 +171,8 @@ namespace Gui
 
 
 
+
+
             //////////////// Inventory Management Methods //////////////////////
 
             /**
@@ -196,6 +202,8 @@ namespace Gui
             std::chrono::steady_clock::time_point _clock;
             bool _broadcast;
             std::string _teamName;
+
+            bool _isSelected;
     };
 
 }
