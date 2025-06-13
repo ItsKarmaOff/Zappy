@@ -10,7 +10,7 @@
 
 namespace Gui {
     PlayerInfo::PlayerInfo(std::string teamName_) :
-    _isSelected(false)
+    _isSelected(false), _modelPos()
     {
         _teamName = teamName_;
     }
@@ -123,7 +123,6 @@ namespace Gui {
         _teamName = name_;
     }
 
-
     ////////////////////////////////////// FOR CLICKING ON PLAYER //////////////////////////////////////
     const bool &PlayerInfo::isSelected(void) const
     {
@@ -139,4 +138,27 @@ namespace Gui {
     {
         _isSelected = selected;
     }
+
+    ////////////////////////////////////// Model Methods //////////////////////////////////////
+
+    const Vector3 &PlayerInfo::getModelPos(void) const
+    {
+        return _modelPos;
+    }
+
+    void PlayerInfo::setModelPos(const Vector3 &pos)
+    {
+        _modelPos = pos;
+    }
+
+    const Matrix &PlayerInfo::getModelTransform(void) const
+    {
+        return _modelTransform;
+    }
+    void PlayerInfo::setModelTransform(const Matrix &transform)
+    {
+        _modelTransform = transform;
+    }
+
+
 }

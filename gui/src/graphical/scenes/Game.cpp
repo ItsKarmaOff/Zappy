@@ -36,8 +36,6 @@ namespace Gui {
         if (!IsCursorHidden() && IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) {
             Ray ray = GetScreenToWorldRay(_mousePos, _game->getCamera());
             std::shared_ptr<ModelInfo> model = _assetsManager.getModels()["player"];
-            Model &sharedModel = model->getModel();
-            Mesh &mesh = sharedModel.meshes[0];
 
             for (auto &[id, player] : _game->getPlayers()) {
                 TileInfo &tile = _game->getTiles()[{player->getPos().x, player->getPos().y}];
@@ -65,6 +63,7 @@ namespace Gui {
         if (IsCursorHidden())
             UpdateCamera(&_game->getCamera(), CAMERA_FREE);
     }
+    
 
     void Graphics::drawGame(void)
     {

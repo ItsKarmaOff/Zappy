@@ -89,7 +89,7 @@ namespace Gui
             const size_t &getLevel() const;
 
             /**
-             * @brief Get the position of the player.
+             * @brief Get the position of the player (tile position).
              * @return The position of the player
              */
             const Vector2 &getPos() const;
@@ -120,7 +120,7 @@ namespace Gui
 
             const bool &isSelected(void) const;
             bool &isSelected(void);
-            void setSelected(bool selected);
+
 
 
             //////////////// Setters ///////////////////////////////////////////
@@ -169,6 +169,8 @@ namespace Gui
 
             void setTeamName(std::string teamName_);
 
+            void setSelected(bool selected);
+
 
 
 
@@ -189,6 +191,13 @@ namespace Gui
              */
             void removeResource(ResourceType type, size_t quantity);
 
+
+            ////////////////////////////////////// Model Methods //////////////////////////////////////
+            const Vector3 &getModelPos(void) const;
+            void setModelPos(const Vector3 &pos);
+
+            const Matrix &getModelTransform(void) const;
+            void setModelTransform(const Matrix &transform);
         private:
 
             //////////////// Private Attributes ////////////////////////////////
@@ -204,6 +213,8 @@ namespace Gui
             std::string _teamName;
 
             bool _isSelected;
+            Vector3 _modelPos; // Position of the model in 3D space, used for drawing
+            Matrix _modelTransform; // Transformation matrix for the model
     };
 
 }
