@@ -12,11 +12,12 @@
 
 #include "network.h"
 
-void destroy_client(server_t *server, client_t *client)
+void destroy_client(server_t *server, client_t *client, bool close_server)
 {
     FREE(client->team_name);
     if (client->player != NULL) {
-        send_pdi_to_gui(server, NULL, client->player);
+        if (!close_server)
+            send_pdi_to_gui(server, NULL, client->player);
         my_delete_nodes(&client->player->team->player_list,
             client->player, NULL);
     }
@@ -31,7 +32,7 @@ void destroy_clients(server_t *server)
     index++) {
         if (index != STDIN_POLL_INDEX)
             close(server->poll_fds[index].fd);
-        destroy_client(server, server->client_list[index - 1]);
+        destroy_client(server, server->client_list[index - 1], true);
     }
     FREE(server->poll_fds);
     FREE(server->client_list);

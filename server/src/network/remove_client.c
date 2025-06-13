@@ -18,7 +18,7 @@ void remove_client(server_t *server, size_t index)
         return;
     DEBUG(my_create_str("Removing client at index %zu\n", index));
     close(server->poll_fds[index].fd);
-    destroy_client(server, server->client_list[index - 1]);
+    destroy_client(server, server->client_list[index - 1], false);
     if (server->current_clients_number == 1) {
         server->client_list[index - 1] = NULL;
         server->poll_fds[index].fd = -1;
