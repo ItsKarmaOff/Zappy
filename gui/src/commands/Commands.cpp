@@ -479,6 +479,7 @@ namespace Gui
             ERROR << "Invalid resource number for PDR command: " << resourceNumber;
 
         playerId = std::stoi(player.substr(1));
+        std::shared_ptr<PlayerInfo> playerInfo = _graphical.getGame()->getPlayers()[playerId];
 
         DEBUG_CONCAT << "Player #" << playerId << " dropped resource number " << resourceNumber;
 
@@ -487,6 +488,8 @@ namespace Gui
             return;
         }
         _graphical.getGame()->getPlayers()[playerId]->removeResource(static_cast<PlayerInfo::ResourceType>(resourceNumber), 1);
+        _graphical.getQueueManager()->pushCommand({"bct", std::to_string(playerInfo->getPos().x), std::to_string(playerInfo->getPos().y)});
+
     }
 
     void Commands::handlePGT(std::string &param)
@@ -508,10 +511,12 @@ namespace Gui
             ERROR << "Invalid resource number for PGT command: " << resourceNumber;
 
         playerId = std::stoi(player.substr(1));
+        std::shared_ptr<PlayerInfo> playerInfo = _graphical.getGame()->getPlayers()[playerId];
 
         DEBUG_CONCAT << "Player #" << playerId << " got resource number " << resourceNumber;
 
-        _graphical.getGame()->getPlayers()[playerId]->addResource(static_cast<PlayerInfo::ResourceType>(resourceNumber), 1);
+        playerInfo->addResource(static_cast<PlayerInfo::ResourceType>(resourceNumber), 1);
+        _graphical.getQueueManager()->pushCommand({"bct", std::to_string(playerInfo->getPos().x), std::to_string(playerInfo->getPos().y)});
     }
 
     void Commands::handlePDI(std::string &param)
