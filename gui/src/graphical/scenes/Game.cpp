@@ -82,7 +82,7 @@ namespace Gui {
     void Graphics::drawPlayer(int id, std::shared_ptr<PlayerInfo> &player, TileInfo &tile)
     {
         std::shared_ptr<ModelInfo> playerModel = _assetsManager.getModels()["player"];
-        playerModel->getModel().transform = MatrixRotateY(DEG2RAD * (-90 * player->getOrientation()));
+        playerModel->getModel().transform = MatrixRotateY(DEG2RAD * (-90 * player->getOrientation() - 90));
         playerModel->draw(
             {tile.getPos().x, playerModel->getAligned(playerModel->getBoundingBox().min.y), tile.getPos().z},
             player->getColor()
