@@ -140,7 +140,7 @@ typedef struct tile_s {
     /** The position of the tile on the map */
     vector2u_t position;
     /** The client list */
-    node_t **clients;
+    node_t *clients;
     /** The type of resources on the tile */
     uint8_t resources;
 } tile_t;
