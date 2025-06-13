@@ -23,7 +23,8 @@
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_help(server_t *server, client_t *client, char **args);
+void handle_command_help(server_t *server, client_t *client,
+    char **args);
 
 /**
  * @brief Handles the "status" command for server clients
@@ -31,6 +32,25 @@ void handle_command_help(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_status(server_t *server, client_t *client, char **args);
+void handle_command_status(server_t *server, client_t *client,
+    char **args);
+
+/**
+ * @brief Handles the "Debug Mode" command for server clients
+ * @param server The server instance
+ * @param client The client instance
+ * @param args The arguments passed with the command
+ */
+void handle_command_debug_mode(server_t *server, client_t *client,
+    char **args);
+
+/**
+ * @brief Handles the "Extra Logs" command for server clients
+ * @param server The server instance
+ * @param client The client instance
+ * @param args The arguments passed with the command
+ */
+void handle_command_extra_logs(server_t *server, client_t *client,
+    char **args);
 
 #endif /* COMMANDS_SERVER_H_ */

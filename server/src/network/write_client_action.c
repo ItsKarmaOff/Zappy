@@ -44,6 +44,8 @@ const command_t commands_gui[] = {
 const command_t commands_server[] = {
     {"/help", 0, &handle_command_help},
     {"/status", 0, &handle_command_status},
+    {"/debug_mode", 0, &handle_command_debug_mode},
+    {"/extra_logs", 0, &handle_command_extra_logs},
 };
 
 const command_t *commands[] = {
