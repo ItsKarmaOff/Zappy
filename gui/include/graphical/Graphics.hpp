@@ -78,6 +78,8 @@ namespace Gui {
             void drawGameMap(void);
             void drawTeams(void);
             void drawPlayers(void);
+            void drawPlayer(int id, std::shared_ptr<PlayerInfo> &player, TileInfo &tile);
+            void drawPlayerBroadcast(std::shared_ptr<PlayerInfo> &player);
 
         ////////////////////////////////////// SCOREBOARD //////////////////////////////////////
         private:

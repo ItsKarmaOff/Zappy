@@ -13,8 +13,10 @@
 #include <raylib.h>
 #include <string>
 #include <vector>
+#include <chrono>
+
 namespace Gui {
-    class ModelInfo {
+    class   ModelInfo {
         public:
             ModelInfo(const std::string &modelPath, float scale = 1.0f);
             // move constructor
@@ -41,9 +43,13 @@ namespace Gui {
             float getWidth();
             float getHeight();
             float getLength();
+            float getAligned(float min, float target = 0.0f);
 
             ////////////////////////////////////// UTILITY //////////////////////////////////////
             void draw(const Vector3 &position, const Color &color = WHITE) const;
+
+            float getFloatingOffset();
+            void applyRotationEffect(float angle = 0.0f, float speed = 1.0f);
 
         private:
             Model _model;

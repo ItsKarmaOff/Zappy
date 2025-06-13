@@ -8,6 +8,8 @@
 #include "ModelInfo.hpp"
 #include "Logs.hpp"
 #include "VarManager.hpp"
+#include "Lib.hpp"
+#include <raymath.h>
 
 namespace Gui {
     ModelInfo::ModelInfo(const std::string &modelPath, float scale)
@@ -56,6 +58,7 @@ namespace Gui {
     void ModelInfo::setScale(float scale)
     {
         _scale = scale;
+        init();
     }
     const Vector3& ModelInfo::getDimensions() const
     {
@@ -93,7 +96,6 @@ namespace Gui {
     {
         float scaleX = size / (_boundingBox.max.x - _boundingBox.min.x);
         float scaleY = size / (_boundingBox.max.z - _boundingBox.min.z);
-        init();
         return std::min(scaleX, scaleY);
     }
 
@@ -121,13 +123,57 @@ namespace Gui {
         return zOffset;
     }
 
+    float ModelInfo::getAligned(float min, float target)
+    {
+        return target - (min * _scale);
+    }
+
+    float ModelInfo::getFloatingOffset()
+    {
+        static float floatDegree = 0.0f;
+        static std::chrono::steady_clock::time_point lastFloatTime = std::chrono::steady_clock::now();
+
+        if (Lib::delay(16, lastFloatTime)) {
+            floatDegree += 2.0f;
+            if (floatDegree > 360.0f) floatDegree -= 360.0f;
+        }
+
+        return sinf(DEG2RAD * floatDegree) * 0.1f;
+    }
+
+    void ModelInfo::applyRotationEffect(float angle, float speed)
+    {
+        static float rotationDegree = 0.0f;
+        static std::chrono::steady_clock::time_point lastRotationTime = std::chrono::steady_clock::now();
+
+        if (Lib::delay(16, lastRotationTime)) {
+            rotationDegree += speed;
+            if (rotationDegree > 360.0f) rotationDegree -= 360.0f;
+        }
+
+        float rotationAngle = angle == 0.0f ? rotationDegree : angle;
+        _model.transform = MatrixRotateY(DEG2RAD * rotationAngle);
+    }
 
     void ModelInfo::draw(const Vector3 &position, const Color &color) const
     {
         DrawModel(_model, position, _scale, color);
         if (VarManager::getInstance().getVar(VarManager::DEBUG_VAR)) {
             DrawModelWires(_model, position, _scale, GREEN);
-            DrawBoundingBox(_boundingBox, YELLOW);
+            BoundingBox transformedBox;
+            transformedBox.min = {
+                position.x + _boundingBox.min.x * _scale,
+                position.y + _boundingBox.min.y * _scale,
+                position.z + _boundingBox.min.z * _scale
+            };
+            transformedBox.max = {
+                position.x + _boundingBox.max.x * _scale,
+                position.y + _boundingBox.max.y * _scale,
+                position.z + _boundingBox.max.z * _scale
+            };
+
+            DrawBoundingBox(transformedBox, YELLOW);
+            // DrawBoundingBox(_boundingBox, YELLOW);
         }
     }
 }

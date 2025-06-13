@@ -74,32 +74,53 @@ namespace Gui {
                 return;
             }
             TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
-            _assetsManager.getModels()["player"]->getModel().transform = MatrixRotateY(DEG2RAD * (90 * player->getOrientation()));
+            drawPlayer(id, player, tile);
+            drawPlayerBroadcast(player);
+        }
+    }
 
-            _assetsManager.getModels()["player"]->draw(
-                {tile.getPos().x, 2, tile.getPos().z},
-                player->getColor()
-            );
+    void Graphics::drawPlayer(int id, std::shared_ptr<PlayerInfo> &player, TileInfo &tile)
+    {
+        std::shared_ptr<ModelInfo> playerModel = _assetsManager.getModels()["player"];
+        playerModel->getModel().transform = MatrixRotateY(DEG2RAD * (-90 * player->getOrientation() - 90));
+        playerModel->draw(
+            {tile.getPos().x, playerModel->getAligned(playerModel->getBoundingBox().min.y), tile.getPos().z},
+            player->getColor()
+        );
+        // Draw player ID above the player
+        Vector3 textPos = {
+            tile.getPos().x,
+            playerModel->getAligned(playerModel->getBoundingBox().min.y) + playerModel->getDimensions().y,
+            tile.getPos().z
+        };
+        Vector2 textPosScreen = GetWorldToScreenEx(textPos, _game->getCamera(), GetScreenWidth(), GetScreenHeight());
+        EndMode3D();
+        DrawText(("Player" + std::to_string(id)).c_str(),
+                 textPosScreen.x - MeasureText(("Player" + std::to_string(id)).c_str(), 40) / 2,
+                 textPosScreen.y,
+                 40,
+                 player->getColor());
+        BeginMode3D(_game->getCamera());
+    }
 
-            // debugging broadcast message
-            if (!player->getMessagesToBroadcast().empty()) {
-                std::string msg = player->getMessagesToBroadcast().front();
-                std::chrono::steady_clock::time_point currentTime = std::chrono::steady_clock::now();
+    void Graphics::drawPlayerBroadcast(std::shared_ptr<PlayerInfo> &player)
+    {
+        if (!player->getMessagesToBroadcast().empty()) {
+            std::string msg = player->getMessagesToBroadcast().front();
+            std::chrono::steady_clock::time_point currentTime = std::chrono::steady_clock::now();
 
-                // Store message with timestamp if it's new
-                if (!player->isBroadcasting()) {
-                    player->getClock() = currentTime;
-                    player->setBroadcasting(true);
+            // Store message with timestamp if it's new
+            if (!player->isBroadcasting()) {
+                player->getClock() = currentTime;
+                player->setBroadcasting(true);
+            } else {
+                if (player->getClock() - currentTime > std::chrono::seconds(1) ) {
+                    player->setBroadcasting(false);
+                    player->getMessagesToBroadcast().pop();
                 } else {
-                    if (player->getClock() - currentTime > std::chrono::seconds(1) ) {
-                        player->setBroadcasting(false);
-                        player->getMessagesToBroadcast().pop();
-                    } else {
-                        DEBUG_CONCAT << "player Broadcast: " << msg;
-                    }
+                    DEBUG_CONCAT << "player Broadcast: " << msg;
                 }
             }
-
         }
     }
 }
