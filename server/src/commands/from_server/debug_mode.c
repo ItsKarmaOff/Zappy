@@ -12,8 +12,8 @@
 
 #include "commands/commands_server.h"
 
-void handle_command_debug_mode(UNUSED server_t *server, UNUSED client_t *client,
-    char **args)
+void handle_command_debug_mode(UNUSED server_t *server,
+    UNUSED client_t *client, char **args)
 {
     if (my_array_len((void **) args) != 1) {
         ERROR("Invalid number of arguments for \"Debug Mode\" command\n");
