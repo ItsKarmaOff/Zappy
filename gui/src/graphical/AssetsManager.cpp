@@ -58,7 +58,8 @@ namespace Gui {
         _models["player"]->setScale(_models["player"]->scaleToSize(2.0f));
 
         // /* background */
-        _models["background"] = std::make_shared<ModelInfo>("gui/assets/bg2.glb", 1.0f);
+        _models["background"] = std::make_shared<ModelInfo>("gui/assets/bg2.glb");
+        _models["background"]->setScale(_models["background"]->scaleToSize(1000.0f));
     }
 
     void AssetsManager::unloadAssets()
