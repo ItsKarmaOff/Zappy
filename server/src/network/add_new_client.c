@@ -20,7 +20,7 @@ static void add_client_to_server(server_t *server, client_t *new_client)
     server->poll_fds[server->current_clients_number].events = POLLIN;
     server->client_list[server->current_clients_number - 1] = new_client;
     DEBUG(my_create_str("New client added at index %zu\n",
-        server->current_clients_number));
+        server->current_clients_number - 1));
 }
 
 void add_new_client(server_t *server)

@@ -48,6 +48,9 @@ const command_t commands_server[] = {
     {"/extra_logs", 0, &handle_command_extra_logs},
     {"/clear", 0, &handle_command_clear},
     {"/quit", 0, &handle_command_quit},
+    {"/clients", 0, &handle_command_clients},
+    {"/client", 0, &handle_command_client},
+    {"/kick", 0, &handle_command_kick}
 };
 
 const command_t *commands[] = {
@@ -146,7 +149,7 @@ static void write_action(server_t *server, size_t index)
         dprintf(server->client_list[index - 1]->socket_fd, WRONG_AI);
         return;
     }
-    DEBUG(my_create_str("Client %zu: receive command: %S\n", index + 1, args));
+    DEBUG(my_create_str("Client %zu: receive command: %S\n", index - 1, args));
     if (set_next_action(server, index, command, args))
         return;
     ERROR(my_create_str("Unknown command: %s\n", args[0]));

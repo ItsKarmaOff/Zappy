@@ -111,7 +111,7 @@ void accept_client(server_t *server, size_t index,
     if (!my_str_contains(next_team_name, "\n"))
         server->poll_fds[index].events &= ~POLLOUT;
     DEBUG(my_create_str("Client %zu authenticated with team: %s\n",
-        index, CLIENT(server, index)->team_name));
+        index - 1, CLIENT(server, index)->team_name));
 }
 
 void authenticate_client(server_t *server, size_t index)

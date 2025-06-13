@@ -22,8 +22,7 @@ void execute_actions(server_t *server)
         difftime(time(NULL), client->last_action_time) >=
         client->next_action.time_to_wait /
         (double)server->game.game_settings.frequency) {
-            DEBUG(my_create_str("Executing action for client %zu\n",
-                index + 1));
+            DEBUG(my_create_str("Executing action for client %zu\n", index));
             client->next_action.cmd_function(server, client,
                 client->next_action.action_args);
             FREE_WORD_ARRAY(client->next_action.action_args);

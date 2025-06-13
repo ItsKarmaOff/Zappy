@@ -71,4 +71,31 @@ void handle_command_clear(server_t *server, client_t *client,
 void handle_command_quit(server_t *server, client_t *client,
     char **args);
 
+/**
+ * @brief Handles the "Clients" command for server clients
+ * @param server The server instance
+ * @param client The client instance
+ * @param args The arguments passed with the command
+ */
+void handle_command_clients(server_t *server, UNUSED client_t *client,
+    char **args);
+
+/**
+ * @brief Handles the "Client" command for server clients
+ * @param server The server instance
+ * @param client The client instance
+ * @param args The arguments passed with the command
+ */
+void handle_command_client(server_t *server, client_t *client,
+    char **args);
+
+/**
+ * @brief Handles the "Kick" command for server clients
+ * @param server The server instance
+ * @param client The client instance
+ * @param args The arguments passed with the command
+ */
+void handle_command_kick(server_t *server, UNUSED client_t *client,
+    char **args);
+
 #endif /* COMMANDS_SERVER_H_ */

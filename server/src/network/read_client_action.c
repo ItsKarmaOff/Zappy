@@ -15,7 +15,7 @@
 static void disconnect_client(server_t *server, size_t index,
     char *read_buffer)
 {
-    DEBUG(my_create_str("Client %zu disconnected\n", index));
+    DEBUG(my_create_str("Client %zu disconnected\n", index - 1));
     FREE(read_buffer);
     remove_client(server, index);
 }
