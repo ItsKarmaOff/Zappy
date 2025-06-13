@@ -46,6 +46,8 @@ const command_t commands_server[] = {
     {"/status", 0, &handle_command_status},
     {"/debug_mode", 0, &handle_command_debug_mode},
     {"/extra_logs", 0, &handle_command_extra_logs},
+    {"/clear", 0, &handle_command_clear},
+    {"/quit", 0, &handle_command_quit},
 };
 
 const command_t *commands[] = {

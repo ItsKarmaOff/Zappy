@@ -53,4 +53,22 @@ void handle_command_debug_mode(server_t *server, client_t *client,
 void handle_command_extra_logs(server_t *server, client_t *client,
     char **args);
 
+/**
+ * @brief Handles the "Clear" command for server clients
+ * @param server The server instance
+ * @param client The client instance
+ * @param args The arguments passed with the command
+ */
+void handle_command_clear(server_t *server, client_t *client,
+    char **args);
+
+/**
+ * @brief Handles the "Quit" command for server clients
+ * @param server The server instance
+ * @param client The client instance
+ * @param args The arguments passed with the command
+ */
+void handle_command_quit(server_t *server, client_t *client,
+    char **args);
+
 #endif /* COMMANDS_SERVER_H_ */
