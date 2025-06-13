@@ -155,10 +155,6 @@ namespace Gui {
     {
         return _modelTransform;
     }
-    void PlayerInfo::setModelTransform(const Matrix &transform)
-    {
-        _modelTransform = transform;
-    }
 
 
 }

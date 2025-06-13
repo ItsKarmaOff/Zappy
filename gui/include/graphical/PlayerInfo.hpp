@@ -25,7 +25,6 @@ namespace Gui
      */
     class PlayerInfo {
         public:
-
             /////////////// Enumerations //////////////////////////////////////
 
             /**
@@ -217,6 +216,15 @@ namespace Gui
             Matrix _modelTransform; // Transformation matrix for the model
     };
 
+    static const std::map<PlayerInfo::ResourceType, std::string> ResourceToString = {
+        {PlayerInfo::ResourceType::FOOD, "food"},
+        {PlayerInfo::ResourceType::LINEMATE, "linemate"},
+        {PlayerInfo::ResourceType::DERAUMERE, "deraumere"},
+        {PlayerInfo::ResourceType::SIBUR, "sibur"},
+        {PlayerInfo::ResourceType::MENDIANE, "mendiane"},
+        {PlayerInfo::ResourceType::PHIRAS, "phiras"},
+        {PlayerInfo::ResourceType::THYSTAME, "thystame"}
+    };
 }
 
 #endif // PLAYERINFO_HPP

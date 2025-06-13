@@ -50,7 +50,8 @@ namespace Gui {
 
                 player->setSelected(collision.hit);
                 if (collision.hit) {
-                    DEBUG_CONCAT << "Player " << id << " selected";
+                    std::string player = "#" + std::to_string(id);
+                    _queueManager->pushCommand({"pin", "#" + std::to_string(id)});
                 }
             }
         }
@@ -63,7 +64,6 @@ namespace Gui {
         if (IsCursorHidden())
             UpdateCamera(&_game->getCamera(), CAMERA_FREE);
     }
-    
 
     void Graphics::drawGame(void)
     {
@@ -76,6 +76,8 @@ namespace Gui {
         DrawModel(_assetsManager.getModels()["background"]->getModel(), pos, _assetsManager.getModels()["background"]->getScale(), WHITE);
         EndMode3D();
         drawTeams();
+        drawPlayerInventory();
+        drawPlayerTag();
 
     }
 
@@ -99,10 +101,10 @@ namespace Gui {
     void Graphics::drawPlayers(void)
     {
         for (auto &[id, player] : _game->getPlayers()) {
-            if (!_game->getTiles().contains({player->getPos().x, player->getPos().y})) {
+            /* if (!_game->getTiles().contains({player->getPos().x, player->getPos().y})) {
                 ERROR << "No tile matching the player position.";
-                return;
-            }
+                continue;
+            } */
             TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
             drawPlayer(id, player, tile);
             drawPlayerBroadcast(player);
@@ -119,20 +121,46 @@ namespace Gui {
         );
         if (player->isSelected())
             playerModel->drawBoundingBox(GREEN);
-        // Draw player ID above the player
-        Vector3 textPos = {
-            tile.getPos().x,
-            playerModel->getAligned(playerModel->getBoundingBox().min.y) + playerModel->getDimensions().y,
-            tile.getPos().z
-        };
-        Vector2 textPosScreen = GetWorldToScreenEx(textPos, _game->getCamera(), GetScreenWidth(), GetScreenHeight());
-        EndMode3D();
-        DrawText(("Player" + std::to_string(id)).c_str(),
-                 textPosScreen.x - MeasureText(("Player" + std::to_string(id)).c_str(), 40) / 2,
-                 textPosScreen.y,
-                 40,
-                 player->getColor());
-        BeginMode3D(_game->getCamera());
+    }
+    void Graphics::drawPlayerInventory()
+    {
+        int i = 0;
+        int fontSize = GetScreenHeight() / 20;
+        for (auto &[id, player] : _game->getPlayers()) {
+            if (player->isSelected()) {
+                for (auto &[key, nb] : player->getInventory()) {
+                    std::shared_ptr<ModelInfo> model = _assetsManager.getModels()[ResourceToString.at(key)];
+                    std::string textToDraw = std::to_string(nb) + " " + ResourceToString.at(key);
+                    int width = MeasureText(textToDraw.c_str(), fontSize);
+                    Vector2 pos = {
+                    GetScreenWidth() - width - 10.0f,
+                    GetScreenHeight() - (i + 1) * fontSize - 10.0f
+                    };
+                    DrawText(textToDraw.c_str(), pos.x, pos.y, fontSize, WHITE);
+                    i++;
+                }
+                break;
+            }
+        }
+    }
+
+    void Graphics::drawPlayerTag()
+    {
+        std::shared_ptr<ModelInfo> playerModel = _assetsManager.getModels()["player"];
+        for (auto &[id, player] : _game->getPlayers()) {
+            TileInfo &tile = _game->getTiles()[{player->getPos().x, player->getPos().y}];
+            Vector3 textPos = {
+                tile.getPos().x,
+                playerModel->getAligned(playerModel->getBoundingBox().min.y) + playerModel->getDimensions().y,
+                tile.getPos().z
+            };
+            Vector2 textPosScreen = GetWorldToScreenEx(textPos, _game->getCamera(), GetScreenWidth(), GetScreenHeight());
+            DrawText(("Player" + std::to_string(id)).c_str(),
+                textPosScreen.x - MeasureText(("Player" + std::to_string(id)).c_str(), 40) / 2,
+                textPosScreen.y,
+                40,
+                player->getColor());
+        }
     }
 
     void Graphics::drawPlayerBroadcast(std::shared_ptr<PlayerInfo> &player)
