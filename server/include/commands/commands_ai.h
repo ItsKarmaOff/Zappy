@@ -31,17 +31,6 @@ typedef struct move_s {
  */
 extern const move_t moves[];
 
-/**
- * @struct update_orientation_s
- * @brief Represents an orientation update for AI clients
- */
-typedef struct update_orientation_s {
-    /** The orientation of the player */
-    orientation_t orientation;
-    /** The function to call to update the orientation */
-    void (*update_orientation_func)(client_t *client);
-} update_orientation_t;
-
 
 
 /**
