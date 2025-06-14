@@ -105,11 +105,12 @@ static void check_end_game(server_t *server)
         set_winner_team(server, tmp_winner_team_name);
 }
 
-void update_game(UNUSED server_t *server)
+void update_game(server_t *server)
 {
     node_t *dead_players = NULL;
 
-    if (difftime(time(NULL), server->game.last_refill_time) >=
+    if (server->game.game_settings.no_refill == false &&
+    difftime(time(NULL), server->game.last_refill_time) >=
     REFILL_TIME / (double)server->game.game_settings.frequency)
         refill_resources(&server->game);
     for (size_t index = 0; index < server->game.game_settings.teams_number;

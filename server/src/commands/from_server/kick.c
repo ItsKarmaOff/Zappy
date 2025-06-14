@@ -17,6 +17,7 @@ void handle_server_command_kick(
 {
     size_t client_id = 0;
 
+    DEBUG("Executing \"Kick\" command\n");
     if (my_array_len((void **) args) != 2) {
         ERROR("Invalid number of arguments for \"Kick\" command\n");
         return;

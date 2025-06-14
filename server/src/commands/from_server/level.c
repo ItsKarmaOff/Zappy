@@ -15,5 +15,5 @@
 void handle_server_command_level(
     UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
-    return;
+    DEBUG("Executing \"Level\" command\n");
 }

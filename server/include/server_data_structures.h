@@ -143,6 +143,10 @@ typedef struct game_settings_s {
     bool auto_end;
     /** Whether the game should show the eggs */
     bool show_eggs;
+    /** Whether the player stop consuming food */
+    bool infinite_food;
+    /** Whether the game should refill resources */
+    bool no_refill;
 
     /** The number of teams */
     size_t teams_number;

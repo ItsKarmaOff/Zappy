@@ -12,7 +12,7 @@
 
 #include "parsing.h"
 
-/// Letters used : p, x, y, n, c, f, s, e, d, l, h, v, a
+/// Letters used : p, x, y, n, c, f, s, e, i, r, d, l, h, v, a
 
 const option_t options[] = {
     {'p', "port", "port",
@@ -42,6 +42,14 @@ const option_t options[] = {
         "Automatically end the game when only one team remains "
         "(default: " RED "false" RESET ")",
         NOT_REQUIRED, &option_auto_end},
+    {'i', "infiniteFood", GREEN "true" RESET "|" RED "false" RESET,
+        "Enable infinite food for players "
+        "(default: " RED "false" RESET ")",
+        NOT_REQUIRED, &option_infinite_food},
+    {'r', "noRefill", GREEN "true" RESET "|" RED "false" RESET,
+        "Disable resource refill on tiles "
+        "(default: " RED "false" RESET ")",
+        NOT_REQUIRED, &option_no_refill},
     {'d', "debugMode", GREEN "true" RESET "|" RED "false" RESET,
         "Enable debug mode for debugging purposes "
         "(default: " GREEN "true" RESET ")",

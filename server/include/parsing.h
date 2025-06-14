@@ -88,7 +88,7 @@ extern const option_t options[];
 void option_authors(server_t *server, parsing_t *parsing);
 
 /**
- * @biref Set the auto end option of the server
+ * @biref Set the auto end option of the game
  * @param server The server instance to set the auto end for
  * @param parsing The parsing context containing program arguments
  * @throw FAILURE If the argument is invalid or missing
@@ -96,7 +96,7 @@ void option_authors(server_t *server, parsing_t *parsing);
 void option_auto_end(server_t *server, parsing_t *parsing);
 
 /**
- * @biref Set the number of clients per team of the server
+ * @biref Set the number of clients per team of the game
  * @param server The server instance to set the number of clients for
  * @param parsing The parsing context containing program arguments
  * @throw FAILURE If the argument is invalid or missing
@@ -120,7 +120,7 @@ void option_debug_mode(server_t *server, parsing_t *parsing);
 void option_extra_logs(server_t *server, parsing_t *parsing);
 
 /**
- * @biref Set the frequency of the server
+ * @biref Set the frequency of the game
  * @param server The server instance to set the frequency for
  * @param parsing The parsing context containing program arguments
  * @throw FAILURE If the argument is invalid or missing
@@ -128,7 +128,7 @@ void option_extra_logs(server_t *server, parsing_t *parsing);
 void option_frequency(server_t *server, parsing_t *parsing);
 
 /**
- * @biref Set the height of the server
+ * @biref Set the height of the map
  * @param server The server instance to set the height for
  * @param parsing The parsing context containing program arguments
  * @throw FAILURE If the argument is invalid or missing
@@ -144,12 +144,28 @@ void option_height(server_t *server, parsing_t *parsing);
 void option_help(server_t *server, parsing_t *parsing);
 
 /**
- * @biref Set the names of the teams for the server
+ * @biref Set whether to enable infinite food for the game
+ * @param server The server instance to set the infinite food for
+ * @param parsing The parsing context containing program arguments
+ * @throw FAILURE If the argument is invalid or missing
+ */
+void option_infinite_food(server_t *server, parsing_t *parsing);
+
+/**
+ * @biref Set the names of the teams for the game
  * @param server The server instance to set the names of the teams for
  * @param parsing The parsing context containing program arguments
  * @throw FAILURE If the argument is invalid or missing
  */
 void option_names(server_t *server, parsing_t *parsing);
+
+/**
+ * @biref Set whether to enable no refill for the game
+ * @param server The server instance to set the infinite food for
+ * @param parsing The parsing context containing program arguments
+ * @throw FAILURE If the argument is invalid or missing
+ */
+void option_no_refill(server_t *server, parsing_t *parsing);
 
 /**
  * @biref Set the port of the server
@@ -176,7 +192,7 @@ void option_show_eggs(server_t *server, parsing_t *parsing);
 void option_version(server_t *server, parsing_t *parsing);
 
 /**
- * @biref Set the width of the server
+ * @biref Set the width of the map
  * @param server The server instance to set the width for
  * @param parsing The parsing context containing program arguments
  * @throw FAILURE If the argument is invalid or missing

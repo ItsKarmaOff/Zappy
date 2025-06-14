@@ -75,7 +75,8 @@ void update_player(server_t *server, player_t *player, node_t **dead_players)
 {
     if (server == NULL || player == NULL || player->is_egg)
         return;
-    if (difftime(time(NULL), player->last_eat_time) >=
+    if (server->game.game_settings.infinite_food == false
+    && difftime(time(NULL), player->last_eat_time) >=
     FOOD_TIME_UNIT / (double)server->game.game_settings.frequency) {
         player->inventory[FOOD]--;
         send_pin_to_gui(server, NULL, player);

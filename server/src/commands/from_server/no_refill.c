@@ -13,7 +13,18 @@
 #include "commands/commands_server.h"
 
 void handle_server_command_no_refill(
-    UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
+    server_t *server, UNUSED client_t *client, char **args)
 {
-    DEBUG("Executing \"NoRefill\" command\n");
+    DEBUG("Executing \"No Refill\" command\n");
+    if (my_array_len((void **)args) != 1) {
+        ERROR("Invalid number of arguments for \"NoRefill\" command\n");
+        return;
+    }
+    if (server->game.game_settings.no_refill == false) {
+        server->game.game_settings.no_refill = true;
+        printf(GREEN "No refill has been enabled.\n" RESET);
+    } else {
+        server->game.game_settings.no_refill = false;
+        printf(RED "No refill has been disabled.\n" RESET);
+    }
 }
