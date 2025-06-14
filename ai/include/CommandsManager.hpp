@@ -11,10 +11,11 @@
 #include "Socket.hpp"
 #include "Lib.hpp"
 #include "Exceptions.hpp"
+#include "CommandsQueue.hpp"
 
 class CommandsManager {
     public:
-        CommandsManager(std::shared_ptr<Lib::Socket> clientSocket);
+        CommandsManager(std::shared_ptr<Lib::Socket> clientSocket, std::shared_ptr<CommandsQueue> commandsQueue);
         ~CommandsManager();
         void broadcast(const std::string &message);
         void eject();
@@ -32,6 +33,8 @@ class CommandsManager {
     protected:
     private:
         std::shared_ptr<Lib::Socket> _clientSocket;
+        std::shared_ptr<CommandsQueue> _queue;
+
 };
 
 #endif

@@ -22,6 +22,8 @@ class CommandsQueue {
         std::string popResponse();
         void clearCommands();
         void clearResponses();
+        std::mutex &getCommandsQueueMutex() const { return _commandsQueueMutex; }
+        std::mutex &getResponsesQueueMutex() const { return _responsesQueueMutex; }
 
     protected:
     private:

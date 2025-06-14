@@ -7,8 +7,10 @@
 
 #include "Player.hpp"
 
-Player::Player(std::string team) : _teamName(team)
+Player::Player(std::string team, std::thread communicationThread) : _teamName(team), 
+    _communicationThread(std::move(communicationThread))
 {
+    _algo = Algo();
 }
 
 Player::~Player()

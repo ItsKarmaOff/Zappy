@@ -7,8 +7,8 @@
 
 #include "CommandsManager.hpp"
 
-CommandsManager::CommandsManager(std::shared_ptr<Lib::Socket> clientSocket)
-    : _clientSocket(clientSocket)
+CommandsManager::CommandsManager(std::shared_ptr<Lib::Socket> clientSocket, std::shared_ptr<CommandsQueue> commandsQueue)
+    : _clientSocket(clientSocket), _queue(commandsQueue)
 {
 }
 
@@ -22,7 +22,7 @@ void CommandsManager::broadcast(const std::string &message)
         throw Lib::Exceptions::Warning("Client socket is not initialized.");
     }
     std::string command = "Broadcast " + message + "\n";
-    send(_clientSocket->getSocket(), command.c_str(), command.size(), 0);
+    _queue->pushCommand(command);
 }
 
 void CommandsManager::eject()
@@ -31,7 +31,7 @@ void CommandsManager::eject()
         throw Lib::Exceptions::Warning("Client socket is not initialized.");
     }
     std::string command = "Eject\n";
-    send(_clientSocket->getSocket(), command.c_str(), command.size(), 0);
+    _queue->pushCommand(command);
 }
 
 void CommandsManager::fork()
@@ -40,7 +40,7 @@ void CommandsManager::fork()
         throw Lib::Exceptions::Warning("Client socket is not initialized.");
     }
     std::string command = "Fork\n";
-    send(_clientSocket->getSocket(), command.c_str(), command.size(), 0);
+    _queue->pushCommand(command);
 }
 
 void CommandsManager::inventory()
@@ -49,7 +49,7 @@ void CommandsManager::inventory()
         throw Lib::Exceptions::Warning("Client socket is not initialized.");
     }
     std::string command = "Inventory\n";
-    send(_clientSocket->getSocket(), command.c_str(), command.size(), 0);
+    _queue->pushCommand(command);
 }
 
 void CommandsManager::look()
@@ -58,7 +58,7 @@ void CommandsManager::look()
         throw Lib::Exceptions::Warning("Client socket is not initialized.");
     }
     std::string command = "Look\n";
-    send(_clientSocket->getSocket(), command.c_str(), command.size(), 0);
+    _queue->pushCommand(command);
 }
 
 void CommandsManager::forward()
@@ -67,7 +67,7 @@ void CommandsManager::forward()
         throw Lib::Exceptions::Warning("Client socket is not initialized.");
     }
     std::string command = "Forward\n";
-    send(_clientSocket->getSocket(), command.c_str(), command.size(), 0);
+    _queue->pushCommand(command);
 }
 
 void CommandsManager::right()
@@ -76,7 +76,7 @@ void CommandsManager::right()
         throw Lib::Exceptions::Warning("Client socket is not initialized.");
     }
     std::string command = "Right\n";
-    send(_clientSocket->getSocket(), command.c_str(), command.size(), 0);
+    _queue->pushCommand(command);
 }
 
 void CommandsManager::left()
@@ -85,7 +85,7 @@ void CommandsManager::left()
         throw Lib::Exceptions::Warning("Client socket is not initialized.");
     }
     std::string command = "Left\n";
-    send(_clientSocket->getSocket(), command.c_str(), command.size(), 0);
+    _queue->pushCommand(command);
 }
 
 void CommandsManager::connect_nbr()
@@ -94,7 +94,7 @@ void CommandsManager::connect_nbr()
         throw Lib::Exceptions::Warning("Client socket is not initialized.");
     }
     std::string command = "Connect_nbr\n";
-    send(_clientSocket->getSocket(), command.c_str(), command.size(), 0);
+    _queue->pushCommand(command);
 }
 
 void CommandsManager::take(const std::string &item)
@@ -103,7 +103,7 @@ void CommandsManager::take(const std::string &item)
         throw Lib::Exceptions::Warning("Client socket is not initialized.");
     }
     std::string command = "Take " + item + "\n";
-    send(_clientSocket->getSocket(), command.c_str(), command.size(), 0);
+    _queue->pushCommand(command);
 }
 
 void CommandsManager::set(const std::string &item)
@@ -112,7 +112,7 @@ void CommandsManager::set(const std::string &item)
         throw Lib::Exceptions::Warning("Client socket is not initialized.");
     }
     std::string command = "Set " + item + "\n";
-    send(_clientSocket->getSocket(), command.c_str(), command.size(), 0);
+    _queue->pushCommand(command);
 }
 
 void CommandsManager::incantation()
@@ -121,5 +121,5 @@ void CommandsManager::incantation()
         throw Lib::Exceptions::Warning("Client socket is not initialized.");
     }
     std::string command = "Incantation\n";
-    send(_clientSocket->getSocket(), command.c_str(), command.size(), 0);
+    _queue->pushCommand(command);
 }

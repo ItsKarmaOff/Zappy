@@ -9,10 +9,14 @@
 #define PLAYER_HPP_
 
 #include "Lib.hpp"
+#include "Algo.hpp"
+
+#include "CommandsQueue.hpp"
+#include "CommandsManager.hpp"
 
 class Player {
     public:
-        Player(std::string team);
+        Player(std::string team, std::thread communicationThread);
         ~Player();
         bool isAlive() const { return _isAlive; }
         void setAlive(bool alive) { _isAlive = alive; }
@@ -24,6 +28,12 @@ class Player {
         void setTeamName(const std::string &teamName) { _teamName = teamName; }
         const std::vector<std::pair<std::string, int>>& getInventory() const { return _inventory; }
         void addToInventory(const std::string &item, int quantity);
+        Algo &getAlgo() { return _algo; }
+        std::thread &getCommunicationThread() { return _communicationThread; }
+        CommandsQueue &getCommandsQueue() { return *_commandsQueue; }
+        void setCommandsQueue(const std::shared_ptr<CommandsQueue> &commandsQueue) { _commandsQueue = commandsQueue; }
+        CommandsManager &getCommandsManager() { return *_commandsManager; }
+        void setCommandsManager(const std::shared_ptr<CommandsManager> &commandsManager) { _commandsManager = commandsManager; }
     protected:
     private:
         bool _isAlive = true;
@@ -31,6 +41,10 @@ class Player {
         int _level = 1;
         std::string _teamName;
         std::vector<std::pair<std::string, int>> _inventory;
+        std::thread _communicationThread;
+        Algo _algo;
+        std::shared_ptr<CommandsQueue> _commandsQueue;
+        std::shared_ptr<CommandsManager> _commandsManager;
 };
 
 #endif
