@@ -113,7 +113,8 @@ namespace Gui
             const bool &isSelected(void) const;
             bool &isSelected(void);
 
-
+            const bool &isIncanting(void) const;
+            bool &isIncanting(void);
 
             //////////////// Setters ///////////////////////////////////////////
 
@@ -161,9 +162,7 @@ namespace Gui
 
             void setSelected(bool selected);
 
-
-
-
+            void setIncanting(bool incanting);
 
             //////////////// Inventory Management Methods //////////////////////
 
@@ -202,6 +201,7 @@ namespace Gui
             bool _isSelected;
             Vector3 _modelPos; // Position of the model in 3D space, used for drawing
             Matrix _modelTransform; // Transformation matrix for the model
+            bool _isIncanting;
     };
 
     static const std::map<PlayerInfo::ResourceType, std::string> ResourceToString = {

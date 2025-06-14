@@ -425,6 +425,14 @@ namespace Gui
 
         DEBUG_CONCAT << "Incantation started at (" << width << ", " << height << ") level " << level << " with "
             << playerIds.size() << " players";
+        for (int playerId : playerIds) {
+            if (!_graphical.getGame()->getPlayers().contains(playerId)) {
+                ERROR << "Player " << playerId << "doesn't exist.";
+                continue;
+            }
+            std::shared_ptr<PlayerInfo> &playerInfo = _graphical.getGame()->getPlayers()[playerId];
+            playerInfo->setIncanting(true);
+        }
     }
 
     void Commands::handlePIE(std::string &param)

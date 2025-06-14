@@ -152,6 +152,7 @@ namespace Gui {
     {
         std::string modelKey = "player" + std::to_string(player->getLevel());
         std::shared_ptr<ModelInfo> playerModel = _assetsManager.getModels()[modelKey];
+        std::shared_ptr<ModelInfo> incantationModel = _assetsManager.getModels()["incantation"];
         playerModel->getModel().transform = MatrixRotateY(DEG2RAD * (-90 * player->getOrientation()));
         playerModel->draw(
             {tile.getPos().x, playerModel->getAligned(playerModel->getBoundingBox().min.y), tile.getPos().z},
@@ -159,6 +160,12 @@ namespace Gui {
         );
         if (player->isSelected())
             playerModel->drawBoundingBox(GREEN);
+        if (!player->isIncanting()) {
+            incantationModel->draw(
+                {tile.getPos().x, incantationModel->getAligned(incantationModel->getBoundingBox().min.y), tile.getPos().z},
+                WHITE
+            );
+        }
     }
     void Graphics::drawPlayerInventory()
     {

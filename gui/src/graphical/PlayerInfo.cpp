@@ -103,6 +103,19 @@ namespace Gui {
         _teamName = name_;
     }
 
+    bool &PlayerInfo::isIncanting(void)
+    {
+        return _isIncanting;
+    }
+    const bool &PlayerInfo::isIncanting(void) const
+    {
+        return _isIncanting;
+    }
+    void PlayerInfo::setIncanting(bool incanting)
+    {
+        _isIncanting = incanting;
+    }
+
     ////////////////////////////////////// FOR CLICKING ON PLAYER //////////////////////////////////////
     const bool &PlayerInfo::isSelected(void) const
     {

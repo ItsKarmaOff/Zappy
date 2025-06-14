@@ -74,9 +74,13 @@ namespace Gui {
         _models["player8"] = std::make_shared<ModelInfo>("gui/assets/buff_steve.glb");
         _models["player8"]->setScale(_models["player8"]->scaleToSize(7.0f));
 
-        // /* background */
+        /* background */
         _models["background"] = std::make_shared<ModelInfo>("gui/assets/bg2.glb");
         _models["background"]->setScale(_models["background"]->scaleToSize(1000.0f));
+
+        /* incantation */
+        _models["incantation"] = std::make_shared<ModelInfo>("gui/assets/incantation.glb");
+        _models["incantation"]->setScale(_models["incantation"]->scaleToSize(4.5f));
     }
 
     void AssetsManager::unloadAssets()
