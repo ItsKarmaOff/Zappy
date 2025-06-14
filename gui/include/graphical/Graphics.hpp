@@ -46,6 +46,8 @@ namespace Gui {
             Scene &getScene(void) { return _scene; }
             std::shared_ptr<GameInfo> &getGame(void) { return _game; }
             std::shared_ptr<MenuInfo> &getMenu(void) { return _menu; }
+            std::shared_ptr<Chatbox> &getChatbox(void) { return _chatbox; }
+
             Vector2 &getMousePos(void) { return _mousePos; }
             std::shared_ptr<QueueManager> &getQueueManager(void) { return _queueManager; }
             ConnectionState state;
@@ -78,7 +80,6 @@ namespace Gui {
             void drawPlayer(int id, std::shared_ptr<PlayerInfo> &player, TileInfo &tile);
             void drawPlayerInventory();
             void drawPlayerTag();
-            void drawPlayerBroadcast(std::shared_ptr<PlayerInfo> &player);
 
         ////////////////////////////////////// SCOREBOARD //////////////////////////////////////
         private:

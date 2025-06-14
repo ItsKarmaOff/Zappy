@@ -106,14 +106,7 @@ namespace Gui
              */
             const PlayerState &getState(void) const;
 
-
-            std::queue<std::string> &getMessagesToBroadcast(void);
-
             const Color &getColor(void) const;
-
-            std::chrono::steady_clock::time_point &getClock(void);
-
-            const bool &isBroadcasting(void) const;
 
             const std::string &getTeamName(void) const;
 
@@ -164,8 +157,6 @@ namespace Gui
 
             void setColor(Color color);
 
-            void setBroadcasting(bool broadcasting);
-
             void setTeamName(std::string teamName_);
 
             void setSelected(bool selected);
@@ -206,9 +197,6 @@ namespace Gui
             size_t _level;  // The level of the player
             Vector2 _pos;   // The position of the player
             std::map<ResourceType, size_t> _inventory;  // The inventory of the player
-            std::queue<std::string> _messagesToBroadcast;
-            std::chrono::steady_clock::time_point _clock;
-            bool _broadcast;
             std::string _teamName;
 
             bool _isSelected;

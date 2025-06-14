@@ -29,10 +29,11 @@ namespace Gui {
             ~Chatbox() = default;
 
             void addMessage(const std::string &content, const std::string &sender, Color color = WHITE);
-            void draw(Vector2 position, Vector2 size, int fontSize = 20);
+            void draw(Vector2 position, Vector2 size, int fontSize = GetScreenHeight() / 30);
         private:
             size_t _maxMessages;
             std::deque<message_t> _messages;
+            Font _font;
 
     };
 }

@@ -12,6 +12,7 @@ namespace Gui {
     Chatbox::Chatbox()
     {
         _maxMessages = 10;
+        _font = LoadFont("assets/minecraft.otf");
     }
 
     void Chatbox::addMessage(const std::string &content, const std::string &sender, Color color)
@@ -29,15 +30,25 @@ namespace Gui {
 
     void Chatbox::draw(Vector2 position, Vector2 size, int fontSize)
     {
-        // Draw the chatbox background
         DrawRectangleV(position, size, CLITERAL(Color){ 80, 80, 80, 125 });
 
-        // Draw the messages
-        Vector2 textPosition = { position.x + 10, position.y + 10 };
-        
+        Vector2 textPosition = { position.x + 10, position.y + size.y - fontSize };
+        std::chrono::steady_clock::time_point now = std::chrono::steady_clock::now();
+
         for (const auto &message : _messages) {
-            DrawText(message.content.c_str(), textPosition.x, textPosition.y, fontSize, message.color);
-            textPosition.y += fontSize + 5;
+            if (textPosition.y < position.y) {
+                _messages.pop_back();
+                break;
+            }
+            if (message.timestamp + std::chrono::seconds(10) < now) {
+                // it's necessarily the last message in the list, so we can pop back
+                _messages.pop_back();
+                continue;
+            }
+            std::string fullMessage = "[" + message.sender + "]: " + message.content;
+            // DrawText(fullMessage.c_str(), textPosition.x, textPosition.y, fontSize, message.color);
+            DrawTextEx(_font, fullMessage.c_str(), textPosition, fontSize, 1, message.color);
+            textPosition.y -= fontSize - 5;
         }
     }
 }

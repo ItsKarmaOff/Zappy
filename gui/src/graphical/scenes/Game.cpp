@@ -33,10 +33,12 @@ namespace Gui {
             else
                 DisableCursor();
         }
+        // check if player is selected
         if (!IsCursorHidden() && IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) {
             Ray ray = GetScreenToWorldRay(_mousePos, _game->getCamera());
             std::shared_ptr<ModelInfo> model = _assetsManager.getModels()["player"];
-
+            for (auto &[id, player] : _game->getPlayers())
+                player->setSelected(false);
             for (auto &[id, player] : _game->getPlayers()) {
                 TileInfo &tile = _game->getTiles()[{player->getPos().x, player->getPos().y}];
                 Vector3 pos = {
@@ -52,11 +54,10 @@ namespace Gui {
                 if (collision.hit) {
                     std::string player = "#" + std::to_string(id);
                     _queueManager->pushCommand({"pin", "#" + std::to_string(id)});
+                    break;
                 }
             }
         }
-
-
     }
 
     void Graphics::updateGame(void)
@@ -111,7 +112,6 @@ namespace Gui {
             } */
             TileInfo &tile =_game->getTiles()[{player->getPos().x, player->getPos().y}];
             drawPlayer(id, player, tile);
-            drawPlayerBroadcast(player);
         }
     }
 
@@ -164,27 +164,6 @@ namespace Gui {
                 textPosScreen.y,
                 40,
                 player->getColor());
-        }
-    }
-
-    void Graphics::drawPlayerBroadcast(std::shared_ptr<PlayerInfo> &player)
-    {
-        if (!player->getMessagesToBroadcast().empty()) {
-            std::string msg = player->getMessagesToBroadcast().front();
-            std::chrono::steady_clock::time_point currentTime = std::chrono::steady_clock::now();
-
-            // Store message with timestamp if it's new
-            if (!player->isBroadcasting()) {
-                player->getClock() = currentTime;
-                player->setBroadcasting(true);
-            } else {
-                if (player->getClock() - currentTime > std::chrono::seconds(1) ) {
-                    player->setBroadcasting(false);
-                    player->getMessagesToBroadcast().pop();
-                } else {
-                    DEBUG_CONCAT << "player Broadcast: " << msg;
-                }
-            }
         }
     }
 }
