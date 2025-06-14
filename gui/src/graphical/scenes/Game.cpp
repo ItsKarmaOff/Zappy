@@ -36,10 +36,10 @@ namespace Gui {
         // check if player is selected
         if (!IsCursorHidden() && IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) {
             Ray ray = GetScreenToWorldRay(_mousePos, _game->getCamera());
-            std::shared_ptr<ModelInfo> model = _assetsManager.getModels()["player"];
             for (auto &[id, player] : _game->getPlayers())
                 player->setSelected(false);
             for (auto &[id, player] : _game->getPlayers()) {
+                std::shared_ptr<ModelInfo> model = _assetsManager.getModels()["player" + std::to_string(player->getLevel())];
                 TileInfo &tile = _game->getTiles()[{player->getPos().x, player->getPos().y}];
                 Vector3 pos = {
                     tile.getPos().x,
@@ -150,7 +150,8 @@ namespace Gui {
 
     void Graphics::drawPlayer(int id, std::shared_ptr<PlayerInfo> &player, TileInfo &tile)
     {
-        std::shared_ptr<ModelInfo> playerModel = _assetsManager.getModels()["player"];
+        std::string modelKey = "player" + std::to_string(player->getLevel());
+        std::shared_ptr<ModelInfo> playerModel = _assetsManager.getModels()[modelKey];
         playerModel->getModel().transform = MatrixRotateY(DEG2RAD * (-90 * player->getOrientation() - 90));
         playerModel->draw(
             {tile.getPos().x, playerModel->getAligned(playerModel->getBoundingBox().min.y), tile.getPos().z},
@@ -183,8 +184,9 @@ namespace Gui {
 
     void Graphics::drawPlayerTag()
     {
-        std::shared_ptr<ModelInfo> playerModel = _assetsManager.getModels()["player"];
         for (auto &[id, player] : _game->getPlayers()) {
+            std::string modelKey = "player" + std::to_string(player->getLevel());
+            std::shared_ptr<ModelInfo> playerModel = _assetsManager.getModels()[modelKey];
             TileInfo &tile = _game->getTiles()[{player->getPos().x, player->getPos().y}];
             Vector3 textPos = {
                 tile.getPos().x,

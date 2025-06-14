@@ -54,8 +54,26 @@ namespace Gui {
         _models["island"]->setScale(_models["island"]->scaleToSize(TILE_SIZE - 0.5));
 
         // /* player */
-        _models["player"] = std::make_shared<ModelInfo>("gui/assets/steve.glb");
-        _models["player"]->setScale(_models["player"]->scaleToSize(2.0f));
+        _models["player1"] = std::make_shared<ModelInfo>("gui/assets/wheelchair_steve.glb");
+        _models["player1"]->setScale(_models["player1"]->scaleToSize(2.0f));
+
+        _models["player2"] = std::make_shared<ModelInfo>("gui/assets/steve.glb");
+        _models["player2"]->setScale(_models["player2"]->scaleToSize(2.0f));
+
+        _models["player3"] = std::make_shared<ModelInfo>("gui/assets/construction_steve.glb");
+        _models["player3"]->setScale(_models["player3"]->scaleToSize(2.0f));
+
+        _models["player4"] = std::make_shared<ModelInfo>("gui/assets/squid_steve.glb");
+        _models["player4"]->setScale(_models["player4"]->scaleToSize(2.0f));
+
+        _models["player5"] = std::make_shared<ModelInfo>("gui/assets/corrupted_steve.glb");
+        _models["player5"]->setScale(_models["player5"]->scaleToSize(2.0f));
+
+        _models["player7"] = std::make_shared<ModelInfo>("gui/assets/centaur_steve.glb");
+        _models["player7"]->setScale(_models["player7"]->scaleToSize(4.0f));
+
+        _models["player8"] = std::make_shared<ModelInfo>("gui/assets/buff_steve.glb");
+        _models["player8"]->setScale(_models["player8"]->scaleToSize(7.0f));
 
         // /* background */
         _models["background"] = std::make_shared<ModelInfo>("gui/assets/bg2.glb");
