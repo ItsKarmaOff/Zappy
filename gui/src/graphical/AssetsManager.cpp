@@ -54,7 +54,7 @@ namespace Gui {
 
         /* player */
         _models["player1"] = std::make_shared<ModelInfo>("gui/assets/wheelchair_steve.glb");
-        _models["player1"]->setScale(_models["player1"]->scaleToSize(2.0f));
+        _models["player1"]->setScale(_models["player1"]->scaleToSize(3.0f));
 
         _models["player2"] = std::make_shared<ModelInfo>("gui/assets/steve.glb");
         _models["player2"]->setScale(_models["player2"]->scaleToSize(2.0f));

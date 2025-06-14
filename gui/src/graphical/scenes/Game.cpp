@@ -46,7 +46,7 @@ namespace Gui {
                     model->getAligned(model->getBoundingBox().min.y),
                     tile.getPos().z
                 };
-                float rotation = -90 * player->getOrientation() - 90;
+                float rotation = -90 * player->getOrientation();
                 BoundingBox playerBoundingBox = model->getBoundingBoxForCollision(pos, rotation);
                 RayCollision collision = GetRayCollisionBox(ray, playerBoundingBox);
 
@@ -152,7 +152,7 @@ namespace Gui {
     {
         std::string modelKey = "player" + std::to_string(player->getLevel());
         std::shared_ptr<ModelInfo> playerModel = _assetsManager.getModels()[modelKey];
-        playerModel->getModel().transform = MatrixRotateY(DEG2RAD * (-90 * player->getOrientation() - 90));
+        playerModel->getModel().transform = MatrixRotateY(DEG2RAD * (-90 * player->getOrientation()));
         playerModel->draw(
             {tile.getPos().x, playerModel->getAligned(playerModel->getBoundingBox().min.y), tile.getPos().z},
             player->getColor()
