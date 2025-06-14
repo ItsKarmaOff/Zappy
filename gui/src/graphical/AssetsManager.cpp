@@ -24,7 +24,6 @@ namespace Gui {
         _models["food"]->setScale(_models["food"]->scaleToSize(1.0f));
 
 
-
         /* linemate */
         _models["linemate"] = std::make_shared<ModelInfo>("gui/assets/iron.glb");
         _models["linemate"]->setScale(_models["linemate"]->scaleToSize(1.0f));
@@ -53,7 +52,7 @@ namespace Gui {
         _models["island"] = std::make_shared<ModelInfo>("gui/assets/grass.glb", 1.0f);
         _models["island"]->setScale(_models["island"]->scaleToSize(TILE_SIZE - 0.5));
 
-        // /* player */
+        /* player */
         _models["player1"] = std::make_shared<ModelInfo>("gui/assets/wheelchair_steve.glb");
         _models["player1"]->setScale(_models["player1"]->scaleToSize(2.0f));
 
