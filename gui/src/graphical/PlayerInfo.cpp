@@ -83,11 +83,6 @@ namespace Gui {
             _inventory[type] = 0;
     }
 
-    std::queue<std::string> &PlayerInfo::getMessagesToBroadcast(void)
-    {
-        return _messagesToBroadcast;
-    }
-
     const Color &PlayerInfo::getColor(void) const
     {
         return _teamColor;
@@ -96,21 +91,6 @@ namespace Gui {
     void PlayerInfo::setColor(Color col)
     {
         _teamColor = col;
-    }
-
-    std::chrono::steady_clock::time_point &PlayerInfo::getClock(void)
-    {
-        return _clock;
-    }
-
-    const bool &PlayerInfo::isBroadcasting(void) const
-    {
-        return _broadcast;
-    }
-
-    void PlayerInfo::setBroadcasting(bool broadcasting)
-    {
-        _broadcast = broadcasting;
     }
 
     const std::string &PlayerInfo::getTeamName(void) const

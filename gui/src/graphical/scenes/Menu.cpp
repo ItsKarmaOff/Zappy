@@ -26,6 +26,7 @@ namespace Gui {
                 if (!_game) {
                     _assetsManager.loadAssets();
                     _game = std::make_shared<GameInfo>();
+                    _chatbox = std::make_shared<Chatbox>();
                 }
                 if (state == WELCOME_STATE) {
                     _queueManager->pushCommand({"GRAPHIC"});

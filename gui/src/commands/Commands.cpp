@@ -387,7 +387,11 @@ namespace Gui
             ERROR << "Player " << playerId << "doesn't exist.";
             return;
         }
-        _graphical.getGame()->getPlayers()[playerId]->getMessagesToBroadcast().push(message);
+        _graphical.getChatbox()->addMessage(
+            message,
+            "Player#" + std::to_string(playerId),
+            _graphical.getGame()->getPlayers().at(playerId)->getColor()
+        );
         DEBUG_CONCAT << "Player #" << playerId << " broadcasts: " << message;
     }
 
@@ -675,6 +679,11 @@ namespace Gui
             ERROR << "Message cannot be empty for SMG command";
 
         DEBUG_CONCAT << "Server message: " << message;
+        _graphical.getChatbox()->addMessage(
+            message,
+            "Server",
+            WHITE
+        );
     }
 
     void Commands::handleSUC(std::string &param)

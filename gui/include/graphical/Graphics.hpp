@@ -10,17 +10,14 @@
     #define GRAPHICS_HPP
     #include <cstddef>
     #include <memory>
-    #include <queue>
-    #include <string>
     #include <unordered_map>
     #include "AssetsManager.hpp"
     #include "GameInfo.hpp"
     #include "MenuInfo.hpp"
     #include "raylib.h"
     #include <cstring>
-    #include <vector>
     #include "QueueManager.hpp"
-    #include "VarManager.hpp"
+    #include "Chatbox.hpp"
 
 
 
@@ -49,6 +46,8 @@ namespace Gui {
             Scene &getScene(void) { return _scene; }
             std::shared_ptr<GameInfo> &getGame(void) { return _game; }
             std::shared_ptr<MenuInfo> &getMenu(void) { return _menu; }
+            std::shared_ptr<Chatbox> &getChatbox(void) { return _chatbox; }
+
             Vector2 &getMousePos(void) { return _mousePos; }
             std::shared_ptr<QueueManager> &getQueueManager(void) { return _queueManager; }
             ConnectionState state;
@@ -81,7 +80,6 @@ namespace Gui {
             void drawPlayer(int id, std::shared_ptr<PlayerInfo> &player, TileInfo &tile);
             void drawPlayerInventory();
             void drawPlayerTag();
-            void drawPlayerBroadcast(std::shared_ptr<PlayerInfo> &player);
 
         ////////////////////////////////////// SCOREBOARD //////////////////////////////////////
         private:
@@ -101,6 +99,8 @@ namespace Gui {
 
             std::shared_ptr<MenuInfo> _menu;
             std::shared_ptr<GameInfo> _game;
+            std::shared_ptr<Chatbox> _chatbox;
+
             AssetsManager _assetsManager;
     };
 }
