@@ -58,12 +58,45 @@ namespace Gui {
                 }
             }
         }
+        // if N is pressed, select next player
+        if (IsKeyPressed(KEY_N)) {
+            for (auto &[id, player] : _game->getPlayers()) {
+                if (player->isSelected()) {
+                    player->setSelected(false);
+                    auto it = _game->getPlayers().find(id);
+                    if (it != _game->getPlayers().end()) {
+                        ++it;
+                        if (it == _game->getPlayers().end())
+                            it = _game->getPlayers().begin();
+                        it->second->setSelected(true);
+                    }
+                    break;
+                }
+            }
+        }
     }
 
     void Graphics::updateGame(void)
     {
-        if (IsCursorHidden())
+
+        for (auto &[id, player] : _game->getPlayers()) {
+            if (player->isSelected()) {
+                _game->getCamera().target = {
+                    player->getPos().x * TILE_SIZE,
+                    0.0f,
+                    player->getPos().y * TILE_SIZE
+                };
+                _game->getCamera().position = {
+                    player->getPos().x * TILE_SIZE - 10.0f,
+                    10.0f,
+                    player->getPos().y * TILE_SIZE - 10.0f
+                };
+                return;
+            }
+        }
+        if (IsCursorHidden()) {
             UpdateCamera(&_game->getCamera(), CAMERA_FREE);
+        }
     }
 
     void Graphics::drawGame(void)
