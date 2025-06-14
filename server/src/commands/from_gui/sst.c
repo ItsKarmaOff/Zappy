@@ -12,8 +12,8 @@
 
 #include "commands/commands_gui.h"
 
-void handle_command_sst(server_t *server, client_t *client,
-    char **args)
+void handle_gui_command_sst(
+    server_t *server, client_t *client, char **args)
 {
     DEBUG("Executing \"sst\" command\n");
     if (my_array_len((void **)args) != 2) {

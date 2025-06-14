@@ -40,8 +40,8 @@ static void move_west(server_t *server, client_t *client)
         client->player->position.x - 1;
 }
 
-void handle_command_forward(UNUSED server_t *server, UNUSED client_t *client,
-    UNUSED char **args)
+void handle_ai_command_forward(
+    server_t *server, client_t *client, UNUSED char **args)
 {
     DEBUG("Executing \"Forward\" command\n");
     if (my_array_len((void **) args) != 1) {

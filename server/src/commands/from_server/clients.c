@@ -26,8 +26,8 @@ static void display_clients(server_t *server)
     }
 }
 
-void handle_command_clients(server_t *server, UNUSED client_t *client,
-    char **args)
+void handle_server_command_clients(
+    server_t *server, UNUSED client_t *client, char **args)
 {
     DEBUG("Executing \"Clients\" command\n");
     if (my_array_len((void **) args) != 1) {

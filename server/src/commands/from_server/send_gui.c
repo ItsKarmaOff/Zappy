@@ -2,18 +2,18 @@
 ** EPITECH PROJECT, 2025
 ** zappy
 ** File description:
-** The help.c
+** The send_gui.c
 */
 /**
- * @file help.c
- * @brief The help.c
+ * @file send_gui.c
+ * @brief The send_gui.c
  * @author Nicolas TORO
  */
 
 #include "commands/commands_server.h"
 
-void handle_server_command_help(
+void handle_server_command_send_gui(
     UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Help\" command\n");
+    DEBUG("Executing \"Send GUI\" command\n");
 }

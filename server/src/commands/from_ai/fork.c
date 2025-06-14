@@ -12,8 +12,8 @@
 
 #include "commands/commands_ai.h"
 
-void handle_command_fork(UNUSED server_t *server, UNUSED client_t *client,
-    UNUSED char **args)
+void handle_ai_command_fork(
+    UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
     player_t *new_player = NULL;
 

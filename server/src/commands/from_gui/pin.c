@@ -33,8 +33,8 @@ void handle_command_pin_player(server_t *server, client_t *client,
     send_pin_to_gui(server, client, player);
 }
 
-void handle_command_pin(server_t *server, client_t *client,
-    char **args)
+void handle_gui_command_pin(
+    server_t *server, client_t *client, char **args)
 {
     DEBUG("Executing \"pin\" command\n");
     if (my_array_len((void **)args) != 2) {

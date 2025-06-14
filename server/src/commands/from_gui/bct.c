@@ -30,8 +30,8 @@ static bool check_args(server_t *server, client_t *client,
     return true;
 }
 
-void handle_command_bct(server_t *server, client_t *client,
-    char **args)
+void handle_gui_command_bct(
+    server_t *server, client_t *client, char **args)
 {
     vector2u_t position = {0};
 

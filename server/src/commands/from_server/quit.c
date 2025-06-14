@@ -12,8 +12,8 @@
 
 #include "commands/commands_server.h"
 
-void handle_command_quit(server_t *server, client_t *client,
-    UNUSED char **args)
+void handle_server_command_quit(
+    server_t *server, client_t *client, UNUSED char **args)
 {
     DEBUG("Executing \"Quit\" command\n");
     if (my_array_len((void **) args) != 1) {

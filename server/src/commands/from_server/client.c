@@ -23,8 +23,8 @@ static void display_client(server_t *server, size_t client_id)
         display_player(server->client_list[client_id]->player, "");
 }
 
-void handle_command_client(server_t *server, UNUSED client_t *client,
-    char **args)
+void handle_server_command_client(
+    server_t *server, UNUSED client_t *client, char **args)
 {
     size_t client_id = 0;
 

@@ -12,8 +12,7 @@
 
 #include "commands/commands_gui.h"
 
-void handle_command_ppo_player(server_t *server, client_t *client,
-    char **args)
+void handle_command_ppo_player(server_t *server, client_t *client, char **args)
 {
     player_t *player = NULL;
     size_t player_id = my_get_number(args[1] + 1, DEFAULT_NB);
@@ -33,8 +32,8 @@ void handle_command_ppo_player(server_t *server, client_t *client,
     send_ppo_to_gui(server, client, player);
 }
 
-void handle_command_ppo(server_t *server, client_t *client,
-    char **args)
+void handle_gui_command_ppo(
+    server_t *server, client_t *client, char **args)
 {
     DEBUG("Executing \"ppo\" command\n");
     if (my_array_len((void **)args) != 2) {

@@ -12,8 +12,8 @@
 
 #include "commands/commands_server.h"
 
-void handle_command_clear(UNUSED server_t *server, UNUSED client_t *client,
-    char **args)
+void handle_server_command_clear(
+    UNUSED server_t *server, UNUSED client_t *client, char **args)
 {
     DEBUG("Executing \"Clear\" command\n");
     if (my_array_len((void **) args) != 1) {

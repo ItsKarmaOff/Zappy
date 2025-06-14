@@ -12,8 +12,8 @@
 
 #include "commands/commands_gui.h"
 
-void handle_command_mct(server_t *server, client_t *client,
-    char **args)
+void handle_gui_command_mct(
+    server_t *server, client_t *client, char **args)
 {
     DEBUG("Executing \"mct\" command\n");
     if (my_array_len((void **)args) != 1) {

@@ -12,8 +12,8 @@
 
 #include "commands/commands_server.h"
 
-void handle_command_kick(server_t *server, UNUSED client_t *client,
-    char **args)
+void handle_server_command_kick(
+    server_t *server, UNUSED client_t *client, char **args)
 {
     size_t client_id = 0;
 

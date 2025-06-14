@@ -12,8 +12,8 @@
 
 #include "commands/commands_server.h"
 
-void handle_command_extra_logs(UNUSED server_t *server,
-    UNUSED client_t *client, char **args)
+void handle_server_command_extra_logs(
+    UNUSED server_t *server, UNUSED client_t *client, char **args)
 {
     if (my_array_len((void **) args) != 1) {
         ERROR("Invalid number of arguments for \"Extra Logs\" command\n");
