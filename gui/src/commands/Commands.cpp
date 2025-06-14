@@ -451,6 +451,12 @@ namespace Gui
 
         DEBUG_CONCAT << "Incantation at (" << width << ", " << height << ") "
             << (incantationResult ? "succeeded" : "failed");
+        for (auto &[id, player] : _graphical.getGame()->getPlayers()) {
+            if (player->getPos() == Vector2{static_cast<float>(width), static_cast<float>(height)}) {
+                player->setIncanting(false);
+                _graphical.getQueueManager()->pushCommand({"plv", ("#" + std::to_string(id))});
+            }
+        }
     }
 
     void Commands::handlePFK(std::string &param)

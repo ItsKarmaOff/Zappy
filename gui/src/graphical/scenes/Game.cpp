@@ -160,7 +160,7 @@ namespace Gui {
         );
         if (player->isSelected())
             playerModel->drawBoundingBox(GREEN);
-        if (!player->isIncanting()) {
+        if (player->isIncanting()) {
             incantationModel->draw(
                 {tile.getPos().x, incantationModel->getAligned(incantationModel->getBoundingBox().min.y), tile.getPos().z},
                 WHITE
