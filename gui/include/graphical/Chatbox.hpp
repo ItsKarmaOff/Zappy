@@ -29,6 +29,7 @@ namespace Gui {
             ~Chatbox() = default;
 
             void addMessage(const std::string &content, const std::string &sender, Color color = WHITE);
+            std::vector<std::string> wrapText(const std::string& text, int maxWidth, int fontSize, Font font);
             void draw(Vector2 position, Vector2 size, int fontSize = GetScreenHeight() / 30);
         private:
             size_t _maxMessages;

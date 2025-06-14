@@ -679,6 +679,11 @@ namespace Gui
             ERROR << "Message cannot be empty for SMG command";
 
         DEBUG_CONCAT << "Server message: " << message;
+        _graphical.getChatbox()->addMessage(
+            message,
+            "Server",
+            WHITE
+        );
     }
 
     void Commands::handleSUC(std::string &param)
