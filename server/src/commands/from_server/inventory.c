@@ -12,8 +12,8 @@
 
 #include "commands/commands_server.h"
 
-bool check_resource_args(
-    server_t *server, char **args, size_t *ressource_id, size_t *quantity)
+static bool check_resource_args(
+    char **args, size_t *ressource_id, size_t *quantity)
 {
     *ressource_id = my_get_number(args[2], DEFAULT_NB);
     if (my_errno != SUCCESS || *ressource_id >= RESOURCES_SIZE) {
@@ -55,7 +55,7 @@ void handle_server_command_inventory(
         ERROR(my_create_str("Invalid player ID: %s\n", args[1]));
         return;
     }
-    if (!check_resource_args(server, args, &ressource_id, &quantity))
+    if (!check_resource_args(args, &ressource_id, &quantity))
         return;
     update_inventory(server, get_player_by_id(&server->game, player_id),
         ressource_id, quantity);
