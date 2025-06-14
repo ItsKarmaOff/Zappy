@@ -10,17 +10,14 @@
     #define GRAPHICS_HPP
     #include <cstddef>
     #include <memory>
-    #include <queue>
-    #include <string>
     #include <unordered_map>
     #include "AssetsManager.hpp"
     #include "GameInfo.hpp"
     #include "MenuInfo.hpp"
     #include "raylib.h"
     #include <cstring>
-    #include <vector>
     #include "QueueManager.hpp"
-    #include "VarManager.hpp"
+    #include "Chatbox.hpp"
 
 
 
@@ -101,6 +98,8 @@ namespace Gui {
 
             std::shared_ptr<MenuInfo> _menu;
             std::shared_ptr<GameInfo> _game;
+            std::shared_ptr<Chatbox> _chatbox;
+
             AssetsManager _assetsManager;
     };
 }

@@ -78,6 +78,10 @@ namespace Gui {
         drawTeams();
         drawPlayerInventory();
         drawPlayerTag();
+        _chatbox->draw(
+            {0, GetScreenHeight() * 2 / 3.f},
+            {GetScreenWidth() / 3.f, GetScreenHeight() / 3.f}
+        );
 
     }
 
