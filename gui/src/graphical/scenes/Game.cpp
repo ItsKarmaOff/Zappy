@@ -60,6 +60,21 @@ namespace Gui {
         }
         // if N is pressed, select next player
         if (IsKeyPressed(KEY_N)) {
+            bool foundSelected = false;
+            for (auto &[id, player] : _game->getPlayers()) {
+                if (player->isSelected()) {
+                    foundSelected = true;
+                    break;
+                }
+            }
+            if (!foundSelected) {
+                // if no player is selected, select the first one
+                for (auto &[id, player] : _game->getPlayers()) {
+                    player->setSelected(true);
+                    break;
+                }
+                return;
+            }
             for (auto &[id, player] : _game->getPlayers()) {
                 if (player->isSelected()) {
                     player->setSelected(false);
@@ -72,6 +87,20 @@ namespace Gui {
                     }
                     break;
                 }
+            }
+        }
+
+        if (IsKeyPressed(KEY_ESCAPE)) {
+            bool playerSelected = false;
+            for (auto &[id, player] : _game->getPlayers()) {
+                if (player->isSelected()) {
+                    player->setSelected(false);
+                    playerSelected = true;
+                    break;
+                }
+            }
+            if (!playerSelected) {
+                _windowShouldRun = false;
             }
         }
     }

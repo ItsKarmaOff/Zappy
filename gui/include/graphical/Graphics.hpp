@@ -99,9 +99,12 @@ namespace Gui {
 
             std::shared_ptr<MenuInfo> _menu;
             std::shared_ptr<GameInfo> _game;
+            // std::shared_ptr<PauseInfo> _pause;
             std::shared_ptr<Chatbox> _chatbox;
 
             AssetsManager _assetsManager;
+
+            bool _windowShouldRun;
     };
 }
 

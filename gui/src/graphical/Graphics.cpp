@@ -18,6 +18,7 @@ namespace Gui {
         state = WELCOME_STATE;
         _game = nullptr;
         _menu = nullptr;
+        _windowShouldRun = true;
     }
 
     Graphics::~Graphics()
@@ -30,6 +31,7 @@ namespace Gui {
     {
         InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Zappy");
         SetTargetFPS(60);
+        SetExitKey(KEY_NULL);
 
         _handlers = {
             {MENU, &Graphics::handleEventsMenu},
@@ -54,7 +56,7 @@ namespace Gui {
     void Graphics::run(std::atomic<bool> &isRunning)
     {
         Commands cmd(*this);
-        while (!WindowShouldClose() && isRunning) {
+        while (_windowShouldRun && isRunning) {
             _mousePos = GetMousePosition();
             cmd.handleResponses(_queueManager);
             handleEvents();
@@ -66,21 +68,21 @@ namespace Gui {
 
     void Graphics::handleEvents(void)
     {
-        if (!IsWindowReady())
+        if (!_windowShouldRun || !IsWindowReady())
             return;
         (this->*_handlers[_scene])();
     }
 
     void Graphics::update(void)
     {
-        if (!IsWindowReady())
+        if (!_windowShouldRun || !IsWindowReady())
             return;
         (this->*_updaters[_scene])();
     }
 
     void Graphics::draw(void)
     {
-        if (!IsWindowReady())
+        if (!_windowShouldRun || !IsWindowReady())
             return;
         BeginDrawing();
         (this->*_drawers[_scene])();
