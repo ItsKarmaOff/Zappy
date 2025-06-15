@@ -10,10 +10,10 @@
  * @author Nicolas TORO
  */
 
-#include "commands/ai.h"
+#include "commands/commands_ai.h"
 
-void handle_command_eject(UNUSED server_t *server, UNUSED client_t *client,
-    UNUSED char **args)
+void handle_ai_command_eject(
+    UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Eject\" command\n");
+    DEBUG("Executing \"Eject\" command");
 }

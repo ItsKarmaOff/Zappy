@@ -10,10 +10,10 @@
  * @author Nicolas TORO
  */
 
-#include "commands/ai.h"
+#include "commands/commands_ai.h"
 
-void handle_command_connect_nbr(UNUSED server_t *server,
-    UNUSED client_t *client, UNUSED char **args)
+void handle_ai_command_connect_nbr(
+    UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Connect_nbr\" command\n");
+    DEBUG("Executing \"Connect_nbr\" command");
 }

@@ -55,9 +55,25 @@
     /* Client macros */
 
     /**
+     * @brief The default number of clients in the server
+     */
+    #define DEFAULT_NUMBER_OF_CLIENTS 1
+
+    /**
      * @brief The index of the server in the poll_fds array
      */
     #define SERVER_POLL_INDEX 0
+
+    /**
+     * @brief The index of the stdin in the poll_fds array
+     */
+    #define STDIN_POLL_INDEX 1
+
+    /**
+     * @brief The index of the stdin client (server client)
+     * in the client_list array
+     */
+    #define STDIN_CLIENT_INDEX 0
 
     /**
      * @brief The default maximum number of backlog connections

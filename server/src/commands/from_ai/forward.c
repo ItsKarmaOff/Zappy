@@ -10,7 +10,7 @@
  * @author Nicolas TORO
  */
 
-#include "commands/ai.h"
+#include "commands/commands_ai.h"
 
 static void move_north(server_t *server, client_t *client)
 {
@@ -40,10 +40,10 @@ static void move_west(server_t *server, client_t *client)
         client->player->position.x - 1;
 }
 
-void handle_command_forward(UNUSED server_t *server, UNUSED client_t *client,
-    UNUSED char **args)
+void handle_ai_command_forward(
+    server_t *server, client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Forward\" command\n");
+    DEBUG("Executing \"Forward\" command");
     if (my_array_len((void **) args) != 1) {
         dprintf(client->socket_fd, WRONG_AI);
         return;

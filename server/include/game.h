@@ -114,6 +114,13 @@ void display_team(const team_t *team, char *tab);
 /* Game functions */
 
 /**
+ * @brief Displays a tile
+ * @param tile The tile to display
+ * @param tab The tab to use for indentation
+ */
+void display_tile(const tile_t *tile, char *tab);
+
+/**
  * @brief Destroys the game and frees its resources
  * @param game The game to destroy
  */
@@ -140,7 +147,8 @@ void update_game(server_t *server);
 /**
  * @brief Displays the game
  * @param game The game to display
+ * @param display_teams Whether to display teams information
  */
-void display_game(const game_t *game);
+void display_game(const game_t *game, bool display_teams);
 
 #endif /* GAME_H_ */
