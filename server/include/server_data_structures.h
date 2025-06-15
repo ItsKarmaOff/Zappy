@@ -139,6 +139,8 @@ typedef struct game_settings_s {
     /** The height of the game map */
     size_t height;
 
+    /** Whether the game is paused */
+    bool is_paused;
     /** Whether the game should end when only one team remains */
     bool auto_end;
     /** Whether the game should show the eggs */
