@@ -15,5 +15,5 @@
 void handle_server_command_help(
     UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Help\" command\n");
+    DEBUG("Executing \"Help\" command");
 }

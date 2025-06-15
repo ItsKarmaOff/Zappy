@@ -43,7 +43,7 @@ static void move_west(server_t *server, client_t *client)
 void handle_ai_command_forward(
     server_t *server, client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Forward\" command\n");
+    DEBUG("Executing \"Forward\" command");
     if (my_array_len((void **) args) != 1) {
         dprintf(client->socket_fd, WRONG_AI);
         return;

@@ -15,9 +15,9 @@
 void handle_server_command_clear(
     UNUSED server_t *server, UNUSED client_t *client, char **args)
 {
-    DEBUG("Executing \"Clear\" command\n");
+    DEBUG("Executing \"Clear\" command");
     if (my_array_len((void **) args) != 1) {
-        ERROR("Invalid number of arguments for \"Clear\" command\n");
+        ERROR("Invalid number of arguments for \"Clear\" command");
         return;
     }
     system("clear");

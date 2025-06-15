@@ -15,5 +15,5 @@
 void handle_ai_command_take(
     UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Take\" command\n");
+    DEBUG("Executing \"Take\" command");
 }

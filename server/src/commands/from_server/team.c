@@ -15,5 +15,5 @@
 void handle_server_command_team(
     UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Team\" command\n");
+    DEBUG("Executing \"Team\" command");
 }

@@ -17,15 +17,15 @@ void handle_server_command_kick(
 {
     size_t client_id = 0;
 
-    DEBUG("Executing \"Kick\" command\n");
+    DEBUG("Executing \"Kick\" command");
     if (my_array_len((void **) args) != 2) {
-        ERROR("Invalid number of arguments for \"Kick\" command\n");
+        ERROR("Invalid number of arguments for \"Kick\" command");
         return;
     }
     client_id = my_get_number(args[1], DEFAULT_NB);
     if (my_errno != SUCCESS || client_id == 0
     || client_id > server->current_clients_number) {
-        ERROR(my_create_str("Invalid client ID: %s\n", args[1]));
+        ERROR(my_create_str("Invalid client ID: %s", args[1]));
         return;
     }
     remove_client(server, client_id + 1);

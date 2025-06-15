@@ -16,7 +16,7 @@ static bool check_level_args(char **args, size_t *level)
 {
     *level = my_get_number(args[2], DEFAULT_NB);
     if (my_errno != SUCCESS || *level > MAX_PLAYER_LEVEL) {
-        ERROR(my_create_str("Invalid level: %s\n", args[2]));
+        ERROR(my_create_str("Invalid level: %s", args[2]));
         return false;
     }
     return true;
@@ -35,15 +35,15 @@ void handle_server_command_level(
     size_t player_id = 0;
     size_t level = 0;
 
-    DEBUG("Executing \"Level\" command\n");
+    DEBUG("Executing \"Level\" command");
     if (my_array_len((void **)args) != 3) {
-        ERROR("Invalid number of arguments for \"Level\" command\n");
+        ERROR("Invalid number of arguments for \"Level\" command");
         return;
     }
     player_id = my_get_number(args[1], DEFAULT_NB);
     if (my_errno != SUCCESS || player_id == 0
         || player_id >= server->game.game_settings.next_player_id) {
-        ERROR(my_create_str("Invalid player ID: %s\n", args[1]));
+        ERROR(my_create_str("Invalid player ID: %s", args[1]));
         return;
     }
     if (!check_level_args(args, &level))

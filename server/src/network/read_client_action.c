@@ -15,7 +15,7 @@
 static void disconnect_client(server_t *server, size_t index,
     char *read_buffer)
 {
-    DEBUG(my_create_str("Client %zu disconnected\n", index - 1));
+    DEBUG(my_create_str("Client %zu disconnected", index - 1));
     FREE(read_buffer);
     remove_client(server, index);
 }
@@ -38,7 +38,7 @@ static bool is_queue_full(client_t *client, size_t index, char *command)
         my_replace_char_at(command, '\n', '\0',
             CLIENT_MAX_COMMANDS - nb_command + 1);
         WARNING(my_create_str("Too many commands read from client %zu, "
-            "skipping some commands\n", index));
+            "skipping some commands", index));
     }
     return false;
 }
@@ -49,14 +49,14 @@ static void read_authenticated_client_action(server_t *server, size_t index)
     char *command = NULL;
 
     if (ioctl(server->poll_fds[index].fd, FIONREAD, &read_size) < 0)
-        THROW(my_create_str("EXCEPTION: ioctl failed: %s\n", STRERR));
+        THROW(my_create_str("EXCEPTION: ioctl failed: %s", STRERR));
     if (read_size == 0)
         return disconnect_client(server, index, command);
     command = AL(FALSE, my_calloc, read_size + 1, sizeof(char));
     if (read(server->poll_fds[index].fd, command, read_size) < 0)
         return disconnect_client(server, index, command);
     if (is_queue_full(server->client_list[index - 1], index, command)) {
-        ERROR(my_create_str("Client %zu command queue is full\n", index));
+        ERROR(my_create_str("Client %zu command queue is full", index));
         FREE(command);
         return;
     }
@@ -72,7 +72,7 @@ static void read_unauthenticated_client_action(server_t *server, size_t index)
     char *team_name = NULL;
 
     if (ioctl(server->poll_fds[index].fd, FIONREAD, &read_size) < 0)
-        THROW(my_create_str("EXCEPTION: ioctl failed: %s\n", STRERR));
+        THROW(my_create_str("EXCEPTION: ioctl failed: %s", STRERR));
     if (read_size == 0)
         return disconnect_client(server, index, team_name);
     team_name = AL(FALSE, my_calloc, read_size + 1, sizeof(char));

@@ -29,14 +29,14 @@ static void display_clients(server_t *server)
 void handle_server_command_clients(
     server_t *server, UNUSED client_t *client, char **args)
 {
-    DEBUG("Executing \"Clients\" command\n");
+    DEBUG("Executing \"Clients\" command");
     if (my_array_len((void **) args) != 1) {
-        ERROR("Invalid number of arguments for \"Clients\" command\n");
+        ERROR("Invalid number of arguments for \"Clients\" command");
         return;
     }
     my_putstr("========================================"
         "========================================\n");
-    my_putstr(BOLD UNDERLINE "Current clients:\n" RESET);
+    my_putstr(BOLD UNDERLINE "Current clients:" ENDL);
     if (server->current_clients_number <= 1)
         printf("No clients connected.\n");
     else

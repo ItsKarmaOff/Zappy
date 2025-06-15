@@ -15,7 +15,7 @@
 void option_extra_logs(UNUSED server_t *server, parsing_t *parsing)
 {
     if (parsing->argc <= parsing->index + 1)
-        EXCEPTION("Missing argument for -e (or --extraLogs) option\n");
+        EXCEPTION("Missing argument for -e (or --extraLogs) option");
     my_strlowcase(parsing->argv[parsing->index + 1]);
     if (my_strcmp(parsing->argv[parsing->index + 1], "true") == 0)
         my_update_extra_logs(TRUE);
@@ -23,6 +23,6 @@ void option_extra_logs(UNUSED server_t *server, parsing_t *parsing)
         my_update_extra_logs(FALSE);
     else
         EXCEPTION("Invalid argument for -e (or --extraLogs) option, "
-            "it must be 'true' or 'false'\n");
+            "it must be 'true' or 'false'");
     parsing->index += 1;
 }

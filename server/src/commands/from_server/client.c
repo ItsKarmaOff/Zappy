@@ -14,7 +14,7 @@
 
 static void display_client(server_t *server, size_t client_id)
 {
-    my_putstr(BOLD UNDERLINE "Client Information:\n" RESET);
+    my_putstr(BOLD UNDERLINE "Client Information:" ENDL);
     printf(BOLD "- Client ID:" RESET " %zu\n", client_id);
     printf(BOLD "- Client Type:" RESET " %s\n",
         server->client_list[client_id]->client_type == CLIENT_AI ?
@@ -28,15 +28,15 @@ void handle_server_command_client(
 {
     size_t client_id = 0;
 
-    DEBUG("Executing \"Client\" command\n");
+    DEBUG("Executing \"Client\" command");
     if (my_array_len((void **) args) != 2) {
-        ERROR("Invalid number of arguments for \"Client\" command\n");
+        ERROR("Invalid number of arguments for \"Client\" command");
         return;
     }
     client_id = my_get_number(args[1], DEFAULT_NB);
     if (my_errno != SUCCESS || client_id == 0
     || client_id >= server->current_clients_number) {
-        ERROR(my_create_str("Invalid client ID: %s\n", args[1]));
+        ERROR(my_create_str("Invalid client ID: %s", args[1]));
         return;
     }
     my_putstr("========================================"

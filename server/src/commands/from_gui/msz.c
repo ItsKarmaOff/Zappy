@@ -15,9 +15,9 @@
 void handle_gui_command_msz(
     server_t *server, client_t *client, char **args)
 {
-    DEBUG("Executing \"msz\" command\n");
+    DEBUG("Executing \"msz\" command");
     if (my_array_len((void **)args) != 1) {
-        DEBUG("Invalid number of arguments for \"msz\" command\n");
+        DEBUG("Invalid number of arguments for \"msz\" command");
         send_sbp_to_gui(server, client);
         return;
     }

@@ -20,7 +20,7 @@ static void destroy_server(void *server)
         server_ptr = server;
         return;
     }
-    DEBUG("Destroying server...\n");
+    DEBUG("Destroying server...");
     if (server_ptr == NULL)
         return;
     destroy_clients(server_ptr);
@@ -29,20 +29,20 @@ static void destroy_server(void *server)
 
 static void handle_signal(UNUSED int signum)
 {
-    DEBUG("CTRL+C (or CTRL+D) received, shutting down server...\n");
-    my_exit(SUCCESS, GREEN "Server shutdown successfully.\n" RESET);
+    DEBUG("CTRL+C (or CTRL+D) received, shutting down server...");
+    my_exit(SUCCESS, GREEN "Server shutdown successfully." ENDL);
 }
 
 static void display_shortcuts(const server_t *server, const char *ip_address)
 {
-    my_putstr(BOLD UNDERLINE "Shortcuts:\n" RESET);
+    my_putstr(BOLD UNDERLINE "Shortcuts:" ENDL);
     printf(BOLD "- Launch GUI:" RESET "\t\t./zappy_gui -h %s -p %d\n",
         ip_address ? ip_address : "127.0.0.1", server->port);
-    printf(BOLD"- Launch GUI (debug):" RESET "\t(echo \"GRAPHIC\"; cat) | "
+    printf(BOLD "- Launch GUI (debug):" RESET "\t(echo \"GRAPHIC\"; cat) | "
         "nc %s %d\n", ip_address ? ip_address : "127.0.0.1", server->port);
-    printf(BOLD"- Launch AI:" RESET "\t\t./zappy_ai -h %s -p %d -n "
+    printf(BOLD "- Launch AI:" RESET "\t\t./zappy_ai -h %s -p %d -n "
         "<team_name>\n", ip_address ? ip_address : "127.0.0.1", server->port);
-    printf(BOLD"- Launch AI (debug):" RESET "\t(echo \"<team_name>\"; cat) | "
+    printf(BOLD "- Launch AI (debug):" RESET "\t(echo \"<team_name>\"; cat) | "
         "nc %s %d\n", ip_address ? ip_address : "127.0.0.1", server->port);
 }
 
@@ -52,7 +52,7 @@ void display_server(const server_t *server)
 
     my_putstr("========================================"
         "========================================\n");
-    my_putstr(BOLD UNDERLINE "Server Information:\n" RESET);
+    my_putstr(BOLD UNDERLINE "Server Information:" ENDL);
     printf(BOLD "- Connection:" RESET " %s:%d\n", ip_address ?
         ip_address : "127.0.0.1", server->port);
     printf(BOLD "- Clients connected:" RESET " %zu\n\n",
@@ -83,12 +83,12 @@ void run(server_t *server)
 {
     int poll_count = 0;
 
-    DEBUG("Server is running\n");
+    DEBUG("Server is running");
     while (true) {
         poll_count = poll(server->poll_fds,
             server->current_clients_number + 1, 0);
         if (poll_count < 0)
-            THROW(my_create_str("EXCEPTION: Poll failed: %s\n", STRERR));
+            THROW(my_create_str("EXCEPTION: Poll failed: %s", STRERR));
         for (size_t index = 0; index < server->current_clients_number + 1;
         index++)
             analyse_poll(server, index);

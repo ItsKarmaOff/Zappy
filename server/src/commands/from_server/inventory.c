@@ -17,12 +17,12 @@ static bool check_resource_args(
 {
     *ressource_id = my_get_number(args[2], DEFAULT_NB);
     if (my_errno != SUCCESS || *ressource_id >= RESOURCES_SIZE) {
-        ERROR(my_create_str("Invalid resource ID: %s\n", args[2]));
+        ERROR(my_create_str("Invalid resource ID: %s", args[2]));
         return false;
     }
     *quantity = my_get_number(args[3], DEFAULT_NB);
     if (my_errno != SUCCESS) {
-        ERROR(my_create_str("Invalid quantity: %s\n", args[3]));
+        ERROR(my_create_str("Invalid quantity: %s", args[3]));
         return false;
     }
     return true;
@@ -44,15 +44,15 @@ void handle_server_command_inventory(
     size_t ressource_id = 0;
     size_t quantity = 0;
 
-    DEBUG("Executing \"Inventory\" command\n");
+    DEBUG("Executing \"Inventory\" command");
     if (my_array_len((void **)args) != 4) {
-        ERROR("Invalid number of arguments for \"Inventory\" command\n");
+        ERROR("Invalid number of arguments for \"Inventory\" command");
         return;
     }
     player_id = my_get_number(args[1], DEFAULT_NB);
     if (my_errno != SUCCESS || player_id == 0
     || player_id >= server->game.game_settings.next_player_id) {
-        ERROR(my_create_str("Invalid player ID: %s\n", args[1]));
+        ERROR(my_create_str("Invalid player ID: %s", args[1]));
         return;
     }
     if (!check_resource_args(args, &ressource_id, &quantity))

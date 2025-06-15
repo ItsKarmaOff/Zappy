@@ -105,7 +105,7 @@ static void analyse_arg(server_t *server, parsing_t *parsing)
             return;
         }
     }
-    THROW(my_create_str("EXCEPTION: Invalid argument: %s\n",
+    THROW(my_create_str("EXCEPTION: Invalid argument: %s",
         parsing->argv[parsing->index]));
 }
 
@@ -115,7 +115,7 @@ static void missing_options(uint8_t options_found)
     option_index++) {
         if (options[option_index].type != NOT_REQUIRED &&
         (options_found & options[option_index].type) == 0) {
-            THROW(my_create_str("EXCEPTION: Missing option: -%c or --%s\n",
+            THROW(my_create_str("EXCEPTION: Missing option: -%c or --%s",
                 options[option_index].short_name,
                 options[option_index].long_name));
         }

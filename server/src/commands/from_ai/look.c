@@ -15,5 +15,5 @@
 void handle_ai_command_look(
     UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Look\" command\n");
+    DEBUG("Executing \"Look\" command");
 }

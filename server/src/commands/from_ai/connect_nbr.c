@@ -15,5 +15,5 @@
 void handle_ai_command_connect_nbr(
     UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Connect_nbr\" command\n");
+    DEBUG("Executing \"Connect_nbr\" command");
 }

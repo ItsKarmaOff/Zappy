@@ -40,7 +40,7 @@ void my_logs_message(point_t point, logs_type_t type, const char *message)
         if (debug_mode(NONE) == TRUE)
             my_point(point);
         my_putstr(message);
-        my_putstr(RESET);
+        my_putstr(ENDL);
         return;
     }
     if ((type != LOGS_NONE) &&
@@ -52,6 +52,6 @@ void my_logs_message(point_t point, logs_type_t type, const char *message)
         my_putstr(logs_type_strings[type]);
         my_putstr("] ");
         my_putstr(message);
-        my_putstr(RESET);
+        my_putstr(ENDL);
     }
 }

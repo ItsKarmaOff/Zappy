@@ -15,5 +15,5 @@
 void handle_server_command_send_ai(
     UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Send AI\" command\n");
+    DEBUG("Executing \"Send AI\" command");
 }

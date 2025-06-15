@@ -15,5 +15,5 @@
 void handle_server_command_players(
     UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Players\" command\n");
+    DEBUG("Executing \"Players\" command");
 }

@@ -17,12 +17,12 @@ static bool check_position_args(
 {
     position->x = my_get_number(args[2], DEFAULT_NB);
     if (my_errno != SUCCESS || position->x >= game->game_settings.width) {
-        ERROR(my_create_str("Invalid position x: %s\n", args[2]));
+        ERROR(my_create_str("Invalid position x: %s", args[2]));
         return false;
     }
     position->y = my_get_number(args[3], DEFAULT_NB);
     if (my_errno != SUCCESS || position->y >= game->game_settings.height) {
-        ERROR(my_create_str("Invalid position y: %s\n", args[3]));
+        ERROR(my_create_str("Invalid position y: %s", args[3]));
         return false;
     }
     return true;
@@ -43,15 +43,15 @@ void handle_server_command_tp(
     size_t player_id = 0;
     vector2u_t position = {0, 0};
 
-    DEBUG("Executing \"Tp\" command\n");
+    DEBUG("Executing \"Tp\" command");
     if (my_array_len((void **)args) != 4) {
-        ERROR("Invalid number of arguments for \"Tp\" command\n");
+        ERROR("Invalid number of arguments for \"Tp\" command");
         return;
     }
     player_id = my_get_number(args[1], DEFAULT_NB);
     if (my_errno != SUCCESS || player_id == 0
         || player_id >= server->game.game_settings.next_player_id) {
-        ERROR(my_create_str("Invalid player ID: %s\n", args[1]));
+        ERROR(my_create_str("Invalid player ID: %s", args[1]));
         return;
     }
     if (!check_position_args(&server->game, args, &position))

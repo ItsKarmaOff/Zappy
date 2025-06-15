@@ -19,13 +19,13 @@ void handle_command_ppo_player(server_t *server, client_t *client, char **args)
 
     if (my_errno != 0 ||
     player_id > server->game.game_settings.next_player_id) {
-        DEBUG("Invalid player ID for \"ppo\" command\n");
+        DEBUG("Invalid player ID for \"ppo\" command");
         send_sbp_to_gui(server, client);
         return;
     }
     player = get_player_by_id(&server->game, player_id);
     if (player == NULL) {
-        DEBUG("Player not found for \"ppo\" command\n");
+        DEBUG("Player not found for \"ppo\" command");
         send_sbp_to_gui(server, client);
         return;
     }
@@ -35,14 +35,14 @@ void handle_command_ppo_player(server_t *server, client_t *client, char **args)
 void handle_gui_command_ppo(
     server_t *server, client_t *client, char **args)
 {
-    DEBUG("Executing \"ppo\" command\n");
+    DEBUG("Executing \"ppo\" command");
     if (my_array_len((void **)args) != 2) {
-        DEBUG("Invalid number of arguments for \"ppo\" command\n");
+        DEBUG("Invalid number of arguments for \"ppo\" command");
         send_sbp_to_gui(server, client);
         return;
     }
     if (args[1][0] != '#') {
-        DEBUG("Invalid player ID format for \"ppo\" command\n");
+        DEBUG("Invalid player ID format for \"ppo\" command");
         send_sbp_to_gui(server, client);
         return;
     }

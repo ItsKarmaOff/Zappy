@@ -15,5 +15,5 @@
 void handle_server_command_send_gui(
     UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Send GUI\" command\n");
+    DEBUG("Executing \"Send GUI\" command");
 }

@@ -24,7 +24,7 @@ void refill_resources(game_t *game)
     size_t x = 0;
     size_t y = 0;
 
-    INFO(LIGHT_GREY "Refilling resources...\n");
+    INFO(LIGHT_GREY "Refilling resources...");
     for (size_t index = 0; index < RESOURCES_SIZE; index++) {
         while (game->resources[index].current_quantity <
         game->resources[index].max_quantity) {
@@ -60,7 +60,7 @@ void create_game_map(game_t *game)
 static void disconnect_player(server_t *server, player_t *player)
 {
     if (player != NULL && !player->is_egg && player->client != NULL) {
-        my_dprintf(player->client->socket_fd,
+        dprintf(player->client->socket_fd,
             "%s\n", server->game.winner_team_name);
         player->client->player = NULL;
         remove_client(server, get_client_index(server, player->client));
@@ -71,7 +71,7 @@ static void disconnect_player(server_t *server, player_t *player)
 static void set_winner_team(server_t *server, const char *team_name)
 {
     server->game.winner_team_name = team_name;
-    DEBUG(my_create_str(GREEN "The winner team is: %s\n", team_name));
+    DEBUG(my_create_str(GREEN "The winner team is: %s", team_name));
     send_seg_to_gui(server, NULL);
     for (size_t index = 0; index < server->game.game_settings.teams_number;
     index++) {

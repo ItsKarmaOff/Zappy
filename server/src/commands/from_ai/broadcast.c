@@ -15,5 +15,5 @@
 void handle_ai_command_broadcast(
     UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Broadcast\" command\n");
+    DEBUG("Executing \"Broadcast\" command");
 }

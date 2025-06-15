@@ -15,9 +15,9 @@
 void handle_gui_command_sgt(
     server_t *server, client_t *client, char **args)
 {
-    DEBUG("Executing \"sgt\" command\n");
+    DEBUG("Executing \"sgt\" command");
     if (my_array_len((void **)args) != 1) {
-        DEBUG("Invalid number of arguments for \"sgt\" command\n");
+        DEBUG("Invalid number of arguments for \"sgt\" command");
         send_sbp_to_gui(server, client);
         return;
     }

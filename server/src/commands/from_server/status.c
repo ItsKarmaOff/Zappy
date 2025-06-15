@@ -15,6 +15,6 @@
 void handle_server_command_status(
     UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
-    DEBUG("Executing \"Status\" command\n");
+    DEBUG("Executing \"Status\" command");
     display_server(server);
 }

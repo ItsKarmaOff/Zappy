@@ -20,7 +20,7 @@ static bool check_team_size(server_t *server, size_t index,
     if (team_index != GRAPHIC_TEAM_INDEX &&
     server->game.team_list[team_index]->eggs_number == 0) {
         dprintf(CLIENT(server, index)->socket_fd, WRONG_AI);
-        ERROR(my_create_str("Client %zu tried to join a full team: %s\n",
+        ERROR(my_create_str("Client %zu tried to join a full team: %s",
             index, team_name));
         FREE(CLIENT(server, index)->team_name);
         FREE(team_name);
@@ -37,7 +37,7 @@ static bool check_team(server_t *server, size_t index,
 {
     if (!is_valid_team(server, team_name)) {
         dprintf(CLIENT(server, index)->socket_fd, WRONG_AI);
-        ERROR(my_create_str("Client %zu tried to join an invalid team: %s\n",
+        ERROR(my_create_str("Client %zu tried to join an invalid team: %s",
             index, team_name));
         FREE(CLIENT(server, index)->team_name);
         FREE(team_name);
@@ -110,7 +110,7 @@ void accept_client(server_t *server, size_t index,
     CLIENT(server, index)->is_authenticated = true;
     if (!my_str_contains(next_team_name, "\n"))
         server->poll_fds[index].events &= ~POLLOUT;
-    DEBUG(my_create_str("Client %zu authenticated with team: %s\n",
+    DEBUG(my_create_str("Client %zu authenticated with team: %s",
         index - 1, CLIENT(server, index)->team_name));
 }
 

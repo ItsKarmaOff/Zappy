@@ -15,7 +15,7 @@
 void option_infinite_food(server_t *server, parsing_t *parsing)
 {
     if (parsing->argc <= parsing->index + 1)
-        EXCEPTION("Missing argument for -i (or --infiniteFood) option\n");
+        EXCEPTION("Missing argument for -i (or --infiniteFood) option");
     my_strlowcase(parsing->argv[parsing->index + 1]);
     if (my_strcmp(parsing->argv[parsing->index + 1], "true") == 0)
         server->game.game_settings.infinite_food = true;
@@ -23,6 +23,6 @@ void option_infinite_food(server_t *server, parsing_t *parsing)
         server->game.game_settings.infinite_food = false;
     else
         EXCEPTION("Invalid argument for -i (or --infiniteFood) option, "
-            "it must be 'true' or 'false'\n");
+            "it must be 'true' or 'false'");
     parsing->index += 1;
 }

@@ -36,7 +36,7 @@ char *get_response(int socket_fd)
         tmp = AL(FALSE, my_calloc, 1, sizeof(char));
         read_size = read(socket_fd, tmp, 1);
         if (read_size <= 0)
-            THROW(my_create_str("EXCEPTION: Get response read data: %s\n",
+            THROW(my_create_str("EXCEPTION: Get response read data: %s",
                 STRERR));
         if (tmp[0] == '\n')
             break;

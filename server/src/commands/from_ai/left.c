@@ -15,7 +15,7 @@
 void handle_ai_command_left(
     server_t *server, client_t *client, char **args)
 {
-    DEBUG("Executing \"Left\" command\n");
+    DEBUG("Executing \"Left\" command");
     if (my_array_len((void **) args) != 1) {
         dprintf(client->socket_fd, WRONG_AI);
         return;
