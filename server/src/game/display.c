@@ -71,14 +71,16 @@ static void display_game_settings(const game_settings_t *settings)
         settings->infinite_food ? GREEN "true" : RED "false");
 }
 
-void display_game(const game_t *game)
+void display_game(const game_t *game, bool display_teams)
 {
     printf(BOLD UNDERLINE "Game Information:" ENDL);
     display_game_settings(&game->game_settings);
     printf(BOLD "- Winner team:" RESET " %s\n", game->winner_team_name ?
         game->winner_team_name : "None");
     printf(BOLD "- Teams:" RESET " (%zu)\n", game->game_settings.teams_number);
-    for (size_t index = 1; index < game->game_settings.teams_number; index++)
-        display_team(game->team_list[index], "    ");
-    my_putchar('\n');
+    if (display_teams) {
+        for (size_t index = 1; index < game->game_settings.teams_number;
+        index++)
+            display_team(game->team_list[index], "    ");
+    }
 }

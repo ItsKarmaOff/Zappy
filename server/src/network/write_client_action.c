@@ -42,6 +42,7 @@ const command_t commands_gui[] = {
 };
 
 const command_t commands_server[] = {
+    {"/all", 0, &handle_server_command_all},
     {"/broadcast", 0, &handle_server_command_broadcast},
     {"/clear", 0, &handle_server_command_clear},
     {"/client", 0, &handle_server_command_client},

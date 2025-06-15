@@ -147,7 +147,8 @@ void update_game(server_t *server);
 /**
  * @brief Displays the game
  * @param game The game to display
+ * @param display_teams Whether to display teams information
  */
-void display_game(const game_t *game);
+void display_game(const game_t *game, bool display_teams);
 
 #endif /* GAME_H_ */

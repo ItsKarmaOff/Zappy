@@ -28,8 +28,9 @@ server_t *create_server(int argc, char **argv);
 /**
  * @brief Displays the server information
  * @param server The server instance to display
+ * @param display_details Whether to display detailed information
  */
-void display_server(const server_t *server);
+void display_server(const server_t *server, bool display_details);
 
 /**
  * @brief Runs the server

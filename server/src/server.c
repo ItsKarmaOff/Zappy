@@ -35,7 +35,7 @@ static void handle_signal(UNUSED int signum)
 
 static void display_shortcuts(const server_t *server, const char *ip_address)
 {
-    my_putstr(BOLD UNDERLINE "Shortcuts:" ENDL);
+    my_putstr(BOLD UNDERLINE "\nShortcuts:" ENDL);
     printf(BOLD "- Launch GUI:" RESET "\t\t./zappy_gui -h %s -p %d\n",
         ip_address ? ip_address : "127.0.0.1", server->port);
     printf(BOLD "- Launch GUI (debug):" RESET "\t(echo \"GRAPHIC\"; cat) | "
@@ -46,7 +46,7 @@ static void display_shortcuts(const server_t *server, const char *ip_address)
         "nc %s %d\n", ip_address ? ip_address : "127.0.0.1", server->port);
 }
 
-void display_server(const server_t *server)
+void display_server(const server_t *server, bool display_details)
 {
     char *ip_address = get_ip_address();
 
@@ -57,8 +57,9 @@ void display_server(const server_t *server)
         ip_address : "127.0.0.1", server->port);
     printf(BOLD "- Clients connected:" RESET " %zu\n\n",
         server->current_clients_number - 1);
-    display_game(&server->game);
-    display_shortcuts(server, ip_address);
+    display_game(&server->game, display_details);
+    if (display_details)
+        display_shortcuts(server, ip_address);
     my_putstr("========================================"
         "========================================\n");
     FREE(ip_address);
@@ -75,7 +76,7 @@ server_t *create_server(int argc, char **argv)
     start_server(server);
     signal(SIGINT, handle_signal);
     signal(SIGHUP, handle_signal);
-    display_server(server);
+    display_server(server, true);
     return server;
 }
 

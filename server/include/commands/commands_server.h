@@ -18,6 +18,15 @@
 /* Command handler functions for server clients */
 
 /**
+ * @brief Handles the "All" command for server clients
+ * @param server The server instance
+ * @param client The client instance
+ * @param args The arguments passed with the command
+ */
+void handle_server_command_all(
+    server_t *server, UNUSED client_t *client, char **args);
+
+/**
  * @brief Handles the "Broadcast" command for server clients
  * @param server The server instance
  * @param client The client instance

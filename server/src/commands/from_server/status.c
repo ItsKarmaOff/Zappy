@@ -16,5 +16,9 @@ void handle_server_command_status(
     UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
     DEBUG("Executing \"Status\" command");
-    display_server(server);
+    if (my_array_len((void **)args) != 1) {
+        ERROR("Invalid number of arguments for \"Status\" command");
+        return;
+    }
+    display_server(server, false);
 }

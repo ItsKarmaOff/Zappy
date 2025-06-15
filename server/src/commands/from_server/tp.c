@@ -50,7 +50,8 @@ void handle_server_command_tp(
     }
     player_id = my_get_number(args[1], DEFAULT_NB);
     if (my_errno != SUCCESS || player_id == 0
-        || player_id >= server->game.game_settings.next_player_id) {
+    || player_id >= server->game.game_settings.next_player_id
+    || get_player_by_id(&server->game, player_id) == NULL) {
         ERROR(my_create_str("Invalid player ID: %s", args[1]));
         return;
     }
