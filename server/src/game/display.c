@@ -20,6 +20,16 @@ const char *orientation_names[] = {
     "West"
 };
 
+void display_tile(const tile_t *tile, char *tab)
+{
+    printf(BOLD "%sTile (%zu, %zu):\n" RESET, tab, tile->position.x,
+        tile->position.y);
+    printf(BOLD "%s- Resources:" RESET "\n", tab);
+    for (size_t index = 0; index < RESOURCES_SIZE; index++)
+        printf(BOLD "%s    - %s:" RESET " %zu\n", tab, resources_names[index],
+            tile->resources[index]);
+}
+
 void display_player(const player_t *player, char *tab)
 {
     printf(BOLD "%sPlayer #%zu (%s):\n" RESET, tab, player->id,

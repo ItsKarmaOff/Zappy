@@ -35,7 +35,7 @@ void handle_server_command_client(
     }
     client_id = my_get_number(args[1], DEFAULT_NB);
     if (my_errno != SUCCESS || client_id == 0
-    || client_id > server->current_clients_number) {
+    || client_id >= server->current_clients_number) {
         ERROR(my_create_str("Invalid client ID: %s\n", args[1]));
         return;
     }
