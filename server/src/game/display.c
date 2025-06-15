@@ -38,6 +38,7 @@ void display_player(const player_t *player, char *tab)
         tab, player->position.x, player->position.y);
     printf(BOLD "%s- Orientation:" RESET " %s\n", tab,
         orientation_names[player->orientation]);
+    printf(BOLD "%s- Creator ID:" RESET " %zu\n", tab, player->creator_id);
     printf(BOLD "%s- Level:" RESET " %zu\n", tab, player->level);
     printf(BOLD "%s- Inventory:" RESET "\n", tab);
     for (size_t index = 0; index < RESOURCES_SIZE; index++)
@@ -51,7 +52,8 @@ void display_team(const team_t *team, char *tab)
     printf(BOLD "%s- Players:" RESET " (%zu including %zu eggs)\n",
         tab, my_list_size(team->player_list), team->eggs_number);
     for (node_t *node = team->player_list; node != NULL; node = node->next)
-        display_player(node->data, (tab == NULL ? "   " : "        "));
+        display_player(node->data,
+            (my_strcmp(tab, "") == 0 ? "    " : "        "));
 }
 
 static void display_game_settings(const game_settings_t *settings)
@@ -77,7 +79,8 @@ void display_game(const game_t *game, bool display_teams)
     display_game_settings(&game->game_settings);
     printf(BOLD "- Winner team:" RESET " %s\n", game->winner_team_name ?
         game->winner_team_name : "None");
-    printf(BOLD "- Teams:" RESET " (%zu)\n", game->game_settings.teams_number);
+    printf(BOLD "- Teams:" RESET " (%zu)\n",
+        game->game_settings.teams_number - 1);
     if (display_teams) {
         for (size_t index = 1; index < game->game_settings.teams_number;
         index++)

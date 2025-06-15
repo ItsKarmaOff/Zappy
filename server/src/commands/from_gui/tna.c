@@ -21,7 +21,7 @@ void handle_gui_command_tna(
         send_sbp_to_gui(server, client);
         return;
     }
-    for (size_t index = 0; index < server->game.game_settings.teams_number;
+    for (size_t index = 1; index < server->game.game_settings.teams_number;
     index++)
         send_tna_to_gui(server, client, server->game.team_list[index]);
 }

@@ -73,7 +73,7 @@ static void set_winner_team(server_t *server, const char *team_name)
     server->game.winner_team_name = team_name;
     DEBUG(my_create_str(GREEN "The winner team is: %s", team_name));
     send_seg_to_gui(server, NULL);
-    for (size_t index = 0; index < server->game.game_settings.teams_number;
+    for (size_t index = 1; index < server->game.game_settings.teams_number;
     index++) {
         for (node_t *node = server->game.team_list[index]->player_list;
         node != NULL; node = node->next)
@@ -89,7 +89,7 @@ static void check_end_game(server_t *server)
 
     if (server->game.winner_team_name != NULL)
         return;
-    for (size_t index = 0; index < server->game.game_settings.teams_number;
+    for (size_t index = 1; index < server->game.game_settings.teams_number;
     index++) {
         if (server->game.team_list[index]->player_list != NULL) {
             teams_alive++;
@@ -113,7 +113,7 @@ void update_game(server_t *server)
     difftime(time(NULL), server->game.last_refill_time) >=
     REFILL_TIME / (double)server->game.game_settings.frequency)
         refill_resources(&server->game);
-    for (size_t index = 0; index < server->game.game_settings.teams_number;
+    for (size_t index = 1; index < server->game.game_settings.teams_number;
     index++) {
         for (node_t *node = server->game.team_list[index]->player_list;
         node != NULL; node = node->next)

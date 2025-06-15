@@ -26,7 +26,7 @@ void handle_server_command_fork(
     }
     team_index = my_get_number(args[1], DEFAULT_NB);
     if (my_errno != SUCCESS || team_index == 0
-    || team_index > server->game.game_settings.teams_number) {
+    || team_index >= server->game.game_settings.teams_number) {
         ERROR(my_create_str("Invalid team index: %s", args[1]));
         return;
     }
