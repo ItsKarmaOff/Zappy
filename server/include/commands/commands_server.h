@@ -15,6 +15,23 @@
 
     #include "server.h"
 
+/* Structure to hold command information */
+
+/**
+ * @struct command_help_s
+ * @brief Structure to hold command information for server clients
+ */
+typedef struct command_help_s {
+    /** The command name */
+    const char *command;
+    /** The command arguments */
+    const char *args;
+    /** The command description */
+    const char *description;
+} command_help_t;
+
+
+
 /* Command handler functions for server clients */
 
 /**
