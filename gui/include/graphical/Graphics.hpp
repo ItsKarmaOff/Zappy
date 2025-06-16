@@ -10,17 +10,15 @@
     #define GRAPHICS_HPP
     #include <cstddef>
     #include <memory>
-    #include <queue>
-    #include <string>
     #include <unordered_map>
     #include "AssetsManager.hpp"
     #include "GameInfo.hpp"
     #include "MenuInfo.hpp"
+#include "PauseInfo.hpp"
     #include "raylib.h"
     #include <cstring>
-    #include <vector>
     #include "QueueManager.hpp"
-    #include "VarManager.hpp"
+    #include "Chatbox.hpp"
 
 
 
@@ -40,6 +38,7 @@ namespace Gui {
                 MENU,
                 GAME,
                 SCOREBOARD,
+                PAUSE,
             };
         public:
             Graphics(std::shared_ptr<QueueManager> queueManager);
@@ -49,10 +48,14 @@ namespace Gui {
             Scene &getScene(void) { return _scene; }
             std::shared_ptr<GameInfo> &getGame(void) { return _game; }
             std::shared_ptr<MenuInfo> &getMenu(void) { return _menu; }
+            std::shared_ptr<Chatbox> &getChatbox(void) { return _chatbox; }
+
             Vector2 &getMousePos(void) { return _mousePos; }
             std::shared_ptr<QueueManager> &getQueueManager(void) { return _queueManager; }
             ConnectionState state;
             AssetsManager &getAssetsManager(void) { return _assetsManager; }
+            void setPause(std::shared_ptr<PauseInfo> pause) { _pause = pause; }
+            std::shared_ptr<PauseInfo> &getPause(void) { return _pause; }
 
 
         ////////////////////////////////////// GRAPHIC //////////////////////////////////////
@@ -63,6 +66,7 @@ namespace Gui {
             void handleEvents(void);
             void update(void);
             void draw(void);
+            void switchToPause(Scene previousScene);
 
         ////////////////////////////////////// MENU //////////////////////////////////////
         private:
@@ -78,6 +82,9 @@ namespace Gui {
             void drawGameMap(void);
             void drawTeams(void);
             void drawPlayers(void);
+            void drawPlayer(int id, std::shared_ptr<PlayerInfo> &player, TileInfo &tile);
+            void drawPlayerInventory();
+            void drawPlayerTag();
 
         ////////////////////////////////////// SCOREBOARD //////////////////////////////////////
         private:
@@ -86,9 +93,17 @@ namespace Gui {
             void drawScoreboard();
             void drawTabs();
 
+        ////////////////////////////////////// PAUSE //////////////////////////////////////
+        private:
+            void handleEventsPause(void);
+            void updatePause(void);
+            void drawPause(void);
+            void switchToPreviousScene(void);
+
         private:
             std::shared_ptr<QueueManager> _queueManager;
             Scene _scene;
+            Scene _previousScene;
             Vector2 _mousePos;
             std::unordered_map<Scene, void (Graphics::*)(void)> _handlers;
             std::unordered_map<Scene, void (Graphics::*)(void)> _updaters;
@@ -97,7 +112,12 @@ namespace Gui {
 
             std::shared_ptr<MenuInfo> _menu;
             std::shared_ptr<GameInfo> _game;
+            std::shared_ptr<PauseInfo> _pause;
+            std::shared_ptr<Chatbox> _chatbox;
+
             AssetsManager _assetsManager;
+
+            bool _windowShouldRun;
     };
 }
 

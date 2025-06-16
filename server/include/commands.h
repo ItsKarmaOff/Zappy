@@ -13,7 +13,8 @@
 #ifndef COMMANDS_H_
     #define COMMANDS_H_
 
-    #include "commands/ai.h"
-    #include "commands/gui.h"
+    #include "commands/commands_ai.h"
+    #include "commands/commands_gui.h"
+    #include "commands/commands_server.h"
 
 #endif /* COMMANDS_H_ */

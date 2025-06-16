@@ -17,9 +17,14 @@ namespace Gui {
 
     class Button {
         public:
+            ////////////////////////////////////// CONSTRUCTORS //////////////////////////////////////
+            Button();
             Button(const Rectangle &button);
             Button(const Vector2 &pos, const Vector2 &size);
+            Button(const std::string &text);
             ~Button() = default;
+            void init(const Vector2 &pos = {0, 0}, const Vector2 &size = {100, 100});
+
 
             ////////////////////////////////////// GETTERS //////////////////////////////////////
             const Rectangle &getButton() const;
@@ -40,6 +45,7 @@ namespace Gui {
             ////////////////////////////////////// UTILITY METHODS //////////////////////////////
             bool isMouseOver(Vector2 mousePos) const;
             Vector2 getCenteredPositionForText(int fontSize) const;
+            void switchColorsIfHover(Vector2 mousePos);
 
         private:
             Rectangle _button;

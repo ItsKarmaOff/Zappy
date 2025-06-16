@@ -18,6 +18,7 @@ int main(int argc, char **argv)
     server_t *server = NULL;
 
     my_update_malloc(TRUE);
+    my_update_debug_mode(TRUE);
     server = create_server(argc, argv);
     run(server);
     my_free();

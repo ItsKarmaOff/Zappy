@@ -13,32 +13,70 @@
 #include "network.h"
 
 const command_t commands_ai[] = {
-    {"Forward", 7, &handle_command_forward},
-    {"Right", 7, &handle_command_right},
-    {"Left", 7, &handle_command_left},
-    {"Look", 7, &handle_command_look},
-    {"Inventory", 1, &handle_command_inventory},
-    {"Broadcast", 7, &handle_command_broadcast},
-    {"Connect_nbr", 0, &handle_command_connect_nbr},
-    {"Fork", 42, &handle_command_fork},
-    {"Eject", 7, &handle_command_eject},
-    {"Take", 7, &handle_command_take},
-    {"Set", 7, &handle_command_set},
-    {"Incantation", 300, &handle_command_incantation},
+    {"Forward", 7, &handle_ai_command_forward},
+    {"Right", 7, &handle_ai_command_right},
+    {"Left", 7, &handle_ai_command_left},
+    {"Look", 7, &handle_ai_command_look},
+    {"Inventory", 1, &handle_ai_command_inventory},
+    {"Broadcast", 7, &handle_ai_command_broadcast},
+    {"Connect_nbr", 0, &handle_ai_command_connect_nbr},
+    {"Fork", 42, &handle_ai_command_fork},
+    {"Eject", 7, &handle_ai_command_eject},
+    {"Take", 7, &handle_ai_command_take},
+    {"Set", 7, &handle_ai_command_set},
+    {"Incantation", 300, &handle_ai_command_incantation},
     {NULL, 0, NULL}
 };
 
 const command_t commands_gui[] = {
-    {"msz", 0, &handle_command_msz},
-    {"bct", 0, &handle_command_bct},
-    {"mct", 0, &handle_command_mct},
-    {"tna", 0, &handle_command_tna},
-    {"ppo", 0, &handle_command_ppo},
-    {"plv", 0, &handle_command_plv},
-    {"pin", 0, &handle_command_pin},
-    {"sgt", 0, &handle_command_sgt},
-    {"sst", 0, &handle_command_sst},
+    {"msz", 0, &handle_gui_command_msz},
+    {"bct", 0, &handle_gui_command_bct},
+    {"mct", 0, &handle_gui_command_mct},
+    {"tna", 0, &handle_gui_command_tna},
+    {"ppo", 0, &handle_gui_command_ppo},
+    {"plv", 0, &handle_gui_command_plv},
+    {"pin", 0, &handle_gui_command_pin},
+    {"sgt", 0, &handle_gui_command_sgt},
+    {"sst", 0, &handle_gui_command_sst},
     {NULL, 0, NULL}
+};
+
+const command_t commands_server[] = {
+    {"/all", 0, &handle_server_command_all},
+    {"/broadcast", 0, &handle_server_command_broadcast},
+    {"/clear", 0, &handle_server_command_clear},
+    {"/client", 0, &handle_server_command_client},
+    {"/clients", 0, &handle_server_command_clients},
+    {"/debug_mode", 0, &handle_server_command_debug_mode},
+    {"/extra_logs", 0, &handle_server_command_extra_logs},
+    {"/fork", 0, &handle_server_command_fork},
+    {"/frequency", 0, &handle_server_command_frequency},
+    {"/help", 0, &handle_server_command_help},
+    {"/infinite_food", 0, &handle_server_command_infinite_food},
+    {"/inventory", 0, &handle_server_command_inventory},
+    {"/kick", 0, &handle_server_command_kick},
+    {"/level", 0, &handle_server_command_level},
+    {"/map", 0, &handle_server_command_map},
+    {"/no_refill", 0, &handle_server_command_no_refill},
+    {"/orientation", 0, &handle_server_command_orientation},
+    {"/pause", 0, &handle_server_command_pause},
+    {"/player", 0, &handle_server_command_player},
+    {"/players", 0, &handle_server_command_players},
+    {"/quit", 0, &handle_server_command_quit},
+    {"/send_ai", 0, &handle_server_command_send_ai},
+    {"/send_gui", 0, &handle_server_command_send_gui},
+    {"/status", 0, &handle_server_command_status},
+    {"/team", 0, &handle_server_command_team},
+    {"/teams", 0, &handle_server_command_teams},
+    {"/tile", 0, &handle_server_command_tile},
+    {"/tp", 0, &handle_server_command_tp},
+};
+
+const command_t *commands[] = {
+    commands_ai,
+    commands_gui,
+    commands_server,
+    NULL
 };
 
 static size_t get_next_command_size(server_t *server, size_t index)
@@ -100,16 +138,16 @@ static char *get_next_command(server_t *server, size_t index)
 static bool set_next_action(server_t *server, size_t index,
     char *command, char **args)
 {
-    const command_t *commands = server->client_list[index - 1]->is_gui ?
-        commands_gui : commands_ai;
+    const command_t *selected_commands = commands[
+        server->client_list[index - 1]->client_type];
 
-    for (size_t cmd = 0; commands[cmd].command != NULL; cmd++) {
-        if (my_strcmp(args[0], commands[cmd].command) == 0) {
+    for (size_t cmd = 0; selected_commands[cmd].command != NULL; cmd++) {
+        if (my_strcmp(args[0], selected_commands[cmd].command) == 0) {
             server->client_list[index - 1]->next_action.action_args = args;
             server->client_list[index - 1]->next_action.time_to_wait =
-                commands[cmd].time_to_wait;
+                selected_commands[cmd].time_to_wait;
             server->client_list[index - 1]->next_action.cmd_function =
-                commands[cmd].cmd_function;
+                selected_commands[cmd].cmd_function;
             server->client_list[index - 1]->last_action_time = time(NULL);
             FREE(command);
             return true;
@@ -130,14 +168,14 @@ static void write_action(server_t *server, size_t index)
         dprintf(server->client_list[index - 1]->socket_fd, WRONG_AI);
         return;
     }
-    DEBUG(my_create_str("Client %zu: receive command: %S\n", index + 1, args));
+    DEBUG(my_create_str("Client %zu: receive command: %S", index - 1, args));
     if (set_next_action(server, index, command, args))
         return;
-    ERROR(my_create_str("Unknown command: %s\n", args[0]));
-    if (server->client_list[index - 1]->is_gui == true)
-        dprintf(server->client_list[index - 1]->socket_fd, WRONG_GUI);
-    else
+    ERROR(my_create_str("Unknown command: %s", args[0]));
+    if (server->client_list[index - 1]->client_type == CLIENT_AI)
         dprintf(server->client_list[index - 1]->socket_fd, WRONG_AI);
+    else if (server->client_list[index - 1]->client_type == CLIENT_GUI)
+        dprintf(server->client_list[index - 1]->socket_fd, WRONG_GUI);
     FREE(command);
     FREE_WORD_ARRAY(args);
 }
