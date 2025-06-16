@@ -20,8 +20,8 @@ static void send_tiles(server_t *server, client_t *client, long x, long y)
     [(client->player->position.x + x + server->game.game_settings.width)
     % server->game.game_settings.width]);
 
-    for (node_t *c = tile->clients; c != NULL; c = c->next) {
-        dprintf(client->socket_fd, " %s", ((player_t *)c->data)->is_egg
+    for (node_t *tmp = tile->clients; tmp != NULL; tmp = tmp->next) {
+        dprintf(client->socket_fd, " %s", ((player_t *)tmp->data)->is_egg
         ? "egg" : "player");
     }
     for (size_t i = 0; i < RESOURCES_SIZE; i++) {

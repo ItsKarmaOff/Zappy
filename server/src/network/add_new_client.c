@@ -83,6 +83,7 @@ static void add_client_to_server(server_t *server, client_t *new_client,
 
     respond_to_client(server, new_client, team_index);
     new_client->player = get_next_egg(server->game.team_list[team_index]);
+    new_client->player->client = new_client;
     server->poll_fds[server->current_clients_number + 1].fd =
         new_client->socket_fd;
     server->poll_fds[server->current_clients_number + 1].events = POLLIN;
