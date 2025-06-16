@@ -30,8 +30,9 @@ int main(int argc, char **argv)
     try {
         Engine engine(parser);
         engine.run();
-    } catch (...) {
-        return 0;
+    } catch (Lib::Exceptions::Critical &e) {
+        Lib::Logs::Error() << e.what();
+        return 84;
     }
     return 0;
 }

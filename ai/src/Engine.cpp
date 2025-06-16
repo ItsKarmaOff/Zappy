@@ -25,7 +25,7 @@ void Engine::run()
             throw Lib::Exceptions::Critical("Fork failed: " + std::string(strerror(errno)));
         } else if (pid == 0) {
             _createNewPlayer();
-            _player->getAlgo().run();
+            _player->run();
             _player->getCommunicationThread().join();
             exit(0);
         } else {
@@ -33,7 +33,8 @@ void Engine::run()
             continue;
         }
     }
-    _player->getAlgo().run();
+    _player->run();
+    _player->getCommunicationThread().join();
     for (pid_t pid : _processes) {
         waitpid(pid, nullptr, 0);
     }
@@ -66,8 +67,6 @@ void Engine::_communicate(Lib::Socket *socket)
 {
     auto commandsQueue = std::make_shared<CommandsQueue>();
     _player->setCommandsQueue(commandsQueue);
-    auto commandsManager = std::make_shared<CommandsManager>(std::make_shared<Lib::Socket>(*socket), commandsQueue);
-    _player->setCommandsManager(commandsManager);
 
     while (_isRunning) {
         if (commandsQueue->hasCommands()) {
@@ -76,6 +75,11 @@ void Engine::_communicate(Lib::Socket *socket)
             commandsQueue->getCommandsQueueMutex().unlock();
             DEBUG << "Sending command: " << command;
             send(socket->getSocket(), command.c_str(), command.size(), 0);
+            std::string response = getResponse(socket);
+            commandsQueue->getResponsesQueueMutex().lock();
+            commandsQueue->pushResponse(response);
+            commandsQueue->getResponseCondition().notify_one();
+            commandsQueue->getResponsesQueueMutex().unlock();
         }
     }
 }
@@ -94,15 +98,29 @@ void Engine::_init()
 
     if (getResponse(_socket.get()) != "WELCOME")
         throw Lib::Exceptions::Critical("Connection failed.");
-
+    DEBUG << "Connected to server: " << _parser.getMachine() << ":" << _parser.getPort();
     send(_socket->getSocket(), (_parser.getName() + "\n").c_str(), _parser.getName().size() + 1, 0);
 
     std::string response = getResponse(_socket.get());
+    DEBUG << "Server response: " << response;
     if (response == "KO") {
         throw Lib::Exceptions::Critical("Connection failed: " + response);
     }
     _amountOfPlayers = std::stoi(response);
     _player = std::make_shared<Player>(_parser.getName(), std::thread(&Engine::_communicate, this, _socket.get()));
+    _player->setForkPlayerCallback([this]() {
+        pid_t pid = fork();
+        if (pid < 0) {
+            throw Lib::Exceptions::Critical("Fork failed: " + std::string(strerror(errno)));
+        } else if (pid == 0) {
+            _createNewPlayer();
+            _player->run();
+            _player->getCommunicationThread().join();
+            exit(0);
+        } else {
+            _processes.push_back(pid);
+        }
+    });
 }
 
 void Engine::_createNewPlayer()
@@ -125,4 +143,18 @@ void Engine::_createNewPlayer()
     }
     DEBUG << "Connected to server: " << response;
     _player = std::make_shared<Player>(_parser.getName(), std::thread(&Engine::_communicate, this, _socket.get()));
+
+    _player->setForkPlayerCallback([this]() {
+        pid_t pid = fork();
+        if (pid < 0) {
+            throw Lib::Exceptions::Critical("Fork failed: " + std::string(strerror(errno)));
+        } else if (pid == 0) {
+            _createNewPlayer();
+            _player->run();
+            _player->getCommunicationThread().join();
+            exit(0);
+        } else {
+            _processes.push_back(pid);
+        }
+    });
 }

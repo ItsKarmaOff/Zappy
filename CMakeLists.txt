@@ -58,7 +58,6 @@ add_executable(${AI} ${AI_SOURCES})
 target_include_directories(${AI} PRIVATE
     ${CMAKE_SOURCE_DIR}/ai/include
     ${CMAKE_SOURCE_DIR}/ai/include/parser
-    ${CMAKE_SOURCE_DIR}/ai/include/commandsmanager
     ${CMAKE_SOURCE_DIR}/ai/include/engine
     ${CMAKE_SOURCE_DIR}/ai/include/algo
     ${CMAKE_SOURCE_DIR}/ai/include/commandsqueue
