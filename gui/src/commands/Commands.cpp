@@ -647,6 +647,10 @@ namespace Gui
         if (time < 0)
             ERROR << "Invalid time for SGT command: " << time;
 
+        if (!_graphical.getPause())
+            _graphical.setPause(std::make_shared<PauseInfo>());
+        _graphical.getPause()->setTimeUnit(time);
+
         DEBUG_CONCAT << "Server time unit retrieved: " << time;
     }
 
@@ -663,6 +667,9 @@ namespace Gui
         if (time <= 0)
             ERROR << "Invalid time for SST command: " << time;
 
+        if (!_graphical.getPause())
+            _graphical.setPause(std::make_shared<PauseInfo>());
+        _graphical.getPause()->setTimeUnit(time);
         DEBUG_CONCAT << "Server time unit modified to: " << time;
     }
 
