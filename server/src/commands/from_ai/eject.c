@@ -20,7 +20,13 @@ static void destroy_egg(server_t *server, player_t *egg, node_t **to_delete)
     send_edi_to_gui(server, NULL, egg);
 }
 
-/** backup:
+static void move_player(server_t *server, player_t *player,
+    orientation_t orientation, node_t **to_delete)
+{
+    AL(FALSE, my_push_front, to_delete, player, UNKNOWN);
+    moves[orientation - 1].move_func(&server->game, player);
+    AL(FALSE, my_push_back, &ACCESS_MAP(server->game.map, player).player_list,
+        player, UNKNOWN);
     if ((long)orientation - (long)player->orientation == 0)
         dprintf(player->client->socket_fd, "eject: %d\n", 5);
     if ((long)orientation - (long)player->orientation == 2
@@ -32,15 +38,6 @@ static void destroy_egg(server_t *server, player_t *egg, node_t **to_delete)
     if ((long)orientation - (long)player->orientation == 3
     || (long)player->orientation - (long)orientation == 3)
         dprintf(player->client->socket_fd, "eject: %d\n", 7);
- */
-static void move_player(server_t *server, player_t *player,
-    orientation_t orientation, node_t **to_delete)
-{
-    AL(FALSE, my_push_front, to_delete, player, UNKNOWN);
-    moves[orientation - 1].move_func(&server->game, player);
-    AL(FALSE, my_push_back, &ACCESS_MAP(server->game.map, player).player_list,
-        player, UNKNOWN);
-    dprintf(player->client->socket_fd, "eject: %i\n", orientation);
     send_pex_to_gui(server, NULL, player);
     send_ppo_to_gui(server, NULL, player);
 }
