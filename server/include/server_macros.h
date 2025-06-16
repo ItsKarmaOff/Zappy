@@ -130,6 +130,11 @@
      */
     #define REFILL_TIME 20.0
 
+    /**
+     * @brief Access the game map at a player's position
+     */
+    #define ACCESS_MAP(map, player) map[player->position.y][player->position.x]
+
 
 
     /* Team macros */

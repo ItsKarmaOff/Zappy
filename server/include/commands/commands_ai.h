@@ -23,7 +23,7 @@ typedef struct move_s {
     /** The orientation of the player */
     orientation_t orientation;
     /** The function to call to move the player */
-    void (*move_func)(server_t *server, client_t *client);
+    void (*move_func)(const game_t *game, player_t *player);
 } move_t;
 
 /**

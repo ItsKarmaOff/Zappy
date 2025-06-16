@@ -16,6 +16,10 @@ void destroy_game(game_t *game)
 {
     for (size_t index = 0; index < game->game_settings.teams_number; index++)
         my_delete_list(&game->team_list[index]->player_list);
+    for (size_t y = 0; y < game->game_settings.height; y++) {
+        for (size_t x = 0; x < game->game_settings.width; x++)
+            my_delete_list(&game->map[y][x].player_list);
+    }
     game->game_settings.teams_number = 0;
 }
 

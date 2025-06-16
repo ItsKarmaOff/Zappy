@@ -27,9 +27,9 @@
  */
 typedef enum orientation_e {
     NORTH = 1, ///< The player is facing north
-    EAST = 2, ///< The player is facing east
+    EAST = 2,  ///< The player is facing east
     SOUTH = 3, ///< The player is facing south
-    WEST = 4, ///< The player is facing west
+    WEST = 4,  ///< The player is facing west
 } orientation_t;
 
 /**
@@ -37,13 +37,13 @@ typedef enum orientation_e {
  * @brief The resources available in the game
  */
 typedef enum resources_e {
-    FOOD = 0, ///< The food resource
-    LINEMATE = 1, ///< The linemate resource
-    DERAUMERE = 2, ///< The deraumere resource
-    SIBUR = 3, ///< The sibur resource
-    MENDIANE = 4, ///< The mendiane resource
-    PHIRAS = 5, ///< The phiras resource
-    THYSTAME = 6, ///< The thystame resource
+    FOOD = 0,          ///< The food resource
+    LINEMATE = 1,      ///< The linemate resource
+    DERAUMERE = 2,     ///< The deraumere resource
+    SIBUR = 3,         ///< The sibur resource
+    MENDIANE = 4,      ///< The mendiane resource
+    PHIRAS = 5,        ///< The phiras resource
+    THYSTAME = 6,      ///< The thystame resource
     RESOURCES_SIZE = 7 ///< The total number of resources
 } resources_t;
 
@@ -168,6 +168,8 @@ typedef struct game_settings_s {
 typedef struct tile_s {
     /** The position of the tile on the map */
     vector2u_t position;
+    /** The list of players on the tile */
+    node_t *player_list;
     /** The number of resources on the tile */
     size_t resources[RESOURCES_SIZE];
 } tile_t;
