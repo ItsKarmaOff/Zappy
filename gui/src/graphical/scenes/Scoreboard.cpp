@@ -24,6 +24,9 @@ namespace Gui {
             _scene = GAME;
             DisableCursor();
         }
+        if (IsKeyReleased(KEY_ESCAPE)) {
+            switchToPause(SCOREBOARD);
+        }
     }
 
     void Graphics::updateScoreboard()

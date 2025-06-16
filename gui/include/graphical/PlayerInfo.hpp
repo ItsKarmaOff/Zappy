@@ -25,7 +25,6 @@ namespace Gui
      */
     class PlayerInfo {
         public:
-
             /////////////// Enumerations //////////////////////////////////////
 
             /**
@@ -33,7 +32,7 @@ namespace Gui
              * @brief The Orientation enum represents the orientation of a player.
              */
             enum Orientation {
-                NORTH,
+                NORTH = 1,
                 EAST,
                 SOUTH,
                 WEST,
@@ -89,7 +88,7 @@ namespace Gui
             const size_t &getLevel() const;
 
             /**
-             * @brief Get the position of the player.
+             * @brief Get the position of the player (tile position).
              * @return The position of the player
              */
             const Vector2 &getPos() const;
@@ -107,17 +106,15 @@ namespace Gui
              */
             const PlayerState &getState(void) const;
 
-
-            std::queue<std::string> &getMessagesToBroadcast(void);
-
             const Color &getColor(void) const;
-
-            std::chrono::steady_clock::time_point &getClock(void);
-
-            const bool &isBroadcasting(void) const;
 
             const std::string &getTeamName(void) const;
 
+            const bool &isSelected(void) const;
+            bool &isSelected(void);
+
+            const bool &isIncanting(void) const;
+            bool &isIncanting(void);
 
             //////////////// Setters ///////////////////////////////////////////
 
@@ -161,11 +158,11 @@ namespace Gui
 
             void setColor(Color color);
 
-            void setBroadcasting(bool broadcasting);
-
             void setTeamName(std::string teamName_);
 
+            void setSelected(bool selected);
 
+            void setIncanting(bool incanting);
 
             //////////////// Inventory Management Methods //////////////////////
 
@@ -183,6 +180,13 @@ namespace Gui
              */
             void removeResource(ResourceType type, size_t quantity);
 
+
+            ////////////////////////////////////// Model Methods //////////////////////////////////////
+            const Vector3 &getModelPos(void) const;
+            void setModelPos(const Vector3 &pos);
+
+            const Matrix &getModelTransform(void) const;
+            void setModelTransform(const Matrix &transform);
         private:
 
             //////////////// Private Attributes ////////////////////////////////
@@ -192,12 +196,23 @@ namespace Gui
             size_t _level;  // The level of the player
             Vector2 _pos;   // The position of the player
             std::map<ResourceType, size_t> _inventory;  // The inventory of the player
-            std::queue<std::string> _messagesToBroadcast;
-            std::chrono::steady_clock::time_point _clock;
-            bool _broadcast;
             std::string _teamName;
+
+            bool _isSelected;
+            Vector3 _modelPos; // Position of the model in 3D space, used for drawing
+            Matrix _modelTransform; // Transformation matrix for the model
+            bool _isIncanting = false;
     };
 
+    static const std::map<PlayerInfo::ResourceType, std::string> ResourceToString = {
+        {PlayerInfo::ResourceType::FOOD, "food"},
+        {PlayerInfo::ResourceType::LINEMATE, "linemate"},
+        {PlayerInfo::ResourceType::DERAUMERE, "deraumere"},
+        {PlayerInfo::ResourceType::SIBUR, "sibur"},
+        {PlayerInfo::ResourceType::MENDIANE, "mendiane"},
+        {PlayerInfo::ResourceType::PHIRAS, "phiras"},
+        {PlayerInfo::ResourceType::THYSTAME, "thystame"}
+    };
 }
 
 #endif // PLAYERINFO_HPP

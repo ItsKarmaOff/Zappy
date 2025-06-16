@@ -8,19 +8,41 @@
 #include "Button.hpp"
 
 namespace Gui {
+    Button::Button()
+    {
+        init();
+    }
     Button::Button(const Rectangle &button)
     {
         setButton(button);
+        _colors = {YELLOW, DARKGRAY}; // Default colors, can be changed later
+        _currentColor = _colors.first; // Default current color
+        _text = "Default";
+        _textColor = WHITE; // Default text color
     }
     Button::Button(const Vector2 &pos, const Vector2 &size)
+    {
+        init(pos, size);
+    }
+
+    Button::Button(const std::string &text)
+    {
+        init();
+        _text = text;
+    }
+
+    void Button::init(const Vector2 &pos, const Vector2 &size)
     {
         _button = {pos.x, pos.y, size.x, size.y};
         _pos = pos;
         _size = size;
         _colors = {YELLOW, DARKGRAY}; // Default colors, can be changed later
         _currentColor = _colors.first; // Default current color
+        _text = "Default";
+        _textColor = WHITE; // Default text color
     }
 
+    ////////////////////////////////////// GETTERS //////////////////////////////////////
     const Rectangle& Button::getButton() const
     {
         return _button;
@@ -55,7 +77,6 @@ namespace Gui {
         _button = button;
         _pos = {button.x, button.y};
         _size = {button.width, button.height};
-        _colors = {YELLOW, DARKGRAY}; // Default colors, can be changed later
     }
 
     void Button::setPosition(const Vector2 &pos)
@@ -109,5 +130,12 @@ namespace Gui {
     void Button::setTextColor(const Color &color)
     {
         _textColor = color;
+    }
+
+    ////////////////////////////////////// UTILITY //////////////////////////////////////
+
+    void Button::switchColorsIfHover(Vector2 mousePos)
+    {
+        setCurrentColor(isMouseOver(mousePos) ? _colors.second : _colors.first);
     }
 }
