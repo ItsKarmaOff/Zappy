@@ -201,7 +201,7 @@ namespace Gui
             bool _isSelected;
             Vector3 _modelPos; // Position of the model in 3D space, used for drawing
             Matrix _modelTransform; // Transformation matrix for the model
-            bool _isIncanting;
+            bool _isIncanting = false;
     };
 
     static const std::map<PlayerInfo::ResourceType, std::string> ResourceToString = {
