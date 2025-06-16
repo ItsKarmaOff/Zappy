@@ -14,6 +14,7 @@
     #include "AssetsManager.hpp"
     #include "GameInfo.hpp"
     #include "MenuInfo.hpp"
+#include "PauseInfo.hpp"
     #include "raylib.h"
     #include <cstring>
     #include "QueueManager.hpp"
@@ -37,6 +38,7 @@ namespace Gui {
                 MENU,
                 GAME,
                 SCOREBOARD,
+                PAUSE,
             };
         public:
             Graphics(std::shared_ptr<QueueManager> queueManager);
@@ -52,6 +54,8 @@ namespace Gui {
             std::shared_ptr<QueueManager> &getQueueManager(void) { return _queueManager; }
             ConnectionState state;
             AssetsManager &getAssetsManager(void) { return _assetsManager; }
+            void setPause(std::shared_ptr<PauseInfo> pause) { _pause = pause; }
+            std::shared_ptr<PauseInfo> &getPause(void) { return _pause; }
 
 
         ////////////////////////////////////// GRAPHIC //////////////////////////////////////
@@ -62,6 +66,7 @@ namespace Gui {
             void handleEvents(void);
             void update(void);
             void draw(void);
+            void switchToPause(Scene previousScene);
 
         ////////////////////////////////////// MENU //////////////////////////////////////
         private:
@@ -88,9 +93,17 @@ namespace Gui {
             void drawScoreboard();
             void drawTabs();
 
+        ////////////////////////////////////// PAUSE //////////////////////////////////////
+        private:
+            void handleEventsPause(void);
+            void updatePause(void);
+            void drawPause(void);
+            void switchToPreviousScene(void);
+
         private:
             std::shared_ptr<QueueManager> _queueManager;
             Scene _scene;
+            Scene _previousScene;
             Vector2 _mousePos;
             std::unordered_map<Scene, void (Graphics::*)(void)> _handlers;
             std::unordered_map<Scene, void (Graphics::*)(void)> _updaters;
@@ -99,7 +112,7 @@ namespace Gui {
 
             std::shared_ptr<MenuInfo> _menu;
             std::shared_ptr<GameInfo> _game;
-            // std::shared_ptr<PauseInfo> _pause;
+            std::shared_ptr<PauseInfo> _pause;
             std::shared_ptr<Chatbox> _chatbox;
 
             AssetsManager _assetsManager;
