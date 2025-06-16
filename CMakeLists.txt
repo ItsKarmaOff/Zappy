@@ -57,6 +57,11 @@ file(GLOB_RECURSE AI_SOURCES "ai/src/*.cpp")
 add_executable(${AI} ${AI_SOURCES})
 target_include_directories(${AI} PRIVATE
     ${CMAKE_SOURCE_DIR}/ai/include
+    ${CMAKE_SOURCE_DIR}/ai/include/parser
+    ${CMAKE_SOURCE_DIR}/ai/include/engine
+    ${CMAKE_SOURCE_DIR}/ai/include/algo
+    ${CMAKE_SOURCE_DIR}/ai/include/commandsqueue
+    ${CMAKE_SOURCE_DIR}/ai/include/player
 )
 target_link_libraries(${AI} PUBLIC my_cpp)
 target_compile_options(${AI} PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
