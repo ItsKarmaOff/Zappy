@@ -15,7 +15,7 @@ jobs:
     ######################## COMMIT ###########################################
     protect_main_branch:
         if: github.ref == 'refs/heads/main'
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
 
         #################### STEPS ############################################
         steps:
@@ -55,7 +55,7 @@ jobs:
 
     ######################## COMMIT ###########################################
     check_commit:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         #needs: protect_main_branch
         #if: always() && (needs.protect-main.result == 'success' || needs.protect-main.result == 'skipped')
 
@@ -72,7 +72,7 @@ jobs:
 
     ######################## CODING-STYLE #####################################
     check_coding_style:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         container:
             image: ghcr.io/epitech/coding-style-checker:latest
         needs: check_commit
@@ -93,7 +93,7 @@ jobs:
 
     ######################## PROGRAM-CHECK ####################################
     check_program_compilation:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         container:
             image: epitechcontent/epitest-docker
         needs: check_coding_style
@@ -125,7 +125,7 @@ jobs:
 
     ######################## GENERATE DOCUMENTATION ###########################
     generate_documentation:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         container:
             image: epitechcontent/epitest-docker
         needs: [protect_main_branch, check_program_compilation]
