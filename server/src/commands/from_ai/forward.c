@@ -48,7 +48,11 @@ void handle_command_forward(UNUSED server_t *server, UNUSED client_t *client,
         dprintf(client->socket_fd, WRONG_AI);
         return;
     }
+    my_free_ptr(my_pop_node(&(ACCESS_MAP(server->game.map,
+        client->player).clients), client->player, NULL));
     moves[client->player->orientation - 1].move_func(server, client);
+    my_push_back(&(ACCESS_MAP(server->game.map, client->player).clients),
+        client->player, UNKNOWN);
     dprintf(client->socket_fd, VALID_AI);
     send_ppo_to_gui(server, NULL, client->player);
 }

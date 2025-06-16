@@ -46,8 +46,10 @@ void handle_command_look(UNUSED server_t *server, UNUSED client_t *client,
         for (long j = 0 - i; j < i + 1; j++) {
             dprintf(client->socket_fd, (i != 0) ? "," : "");
             send_tiles(server, client,
-            (orientation % 2) ? j * (2 - orientation) : i * (3 - orientation),
-            (orientation % 2) ? i * (orientation - 2) : j * (orientation - 3));
+            (orientation % 2) ? j * (2 - (long)orientation)
+            : i * (3 - (long)orientation),
+            (orientation % 2) ? i * ((long)orientation - 2)
+            : j * ((long)orientation - 3));
         }
     }
     dprintf(client->socket_fd, " ]\n");
