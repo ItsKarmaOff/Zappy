@@ -142,7 +142,7 @@ typedef struct tile_s {
     /** The client list */
     node_t *clients;
     /** The type of resources on the tile */
-    uint8_t resources;
+    size_t resources[RESOURCES_SIZE];
 } tile_t;
 
 /**

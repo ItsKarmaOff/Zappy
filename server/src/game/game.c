@@ -25,15 +25,15 @@ void refill_resources(game_t *game)
     size_t x = 0;
     size_t y = 0;
 
-    DEBUG("Refilling resources...\n");
+    DEBUG(LIGHT_GREY "Refilling resources...\n");
     for (size_t index = 0; index < RESOURCES_SIZE; index++) {
         while (game->resources[index].current_quantity <
         game->resources[index].max_quantity) {
             x = rand() % game->game_settings.width;
             y = rand() % game->game_settings.height;
             game->resources[index].current_quantity += ((
-                (game->map[y][x].resources & (1 << index)) == 0) ? 1 : 0);
-            game->map[y][x].resources |= (1 << index);
+                game->map[y][x].resources[index] == 0) ? 1 : 0);
+            game->map[y][x].resources[index] = 1;
         }
     }
     game->last_refill_time = time(NULL);

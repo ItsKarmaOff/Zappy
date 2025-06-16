@@ -24,15 +24,16 @@ void handle_command_take(UNUSED server_t *server, UNUSED client_t *client,
     }
     while (i < RESOURCES_SIZE) {
         if (strcmp(args[1], resources_names[i]))
-            continue;
+            break;
         i++;
     }
-    if (i == RESOURCES_SIZE) {
+    if (i == RESOURCES_SIZE
+    || ACCESS_MAP(server->game.map, client->player).resources[i] == 0) {
         dprintf(client->socket_fd, WRONG_AI);
-        return;
+    } else {
+        dprintf(client->socket_fd, VALID_AI);
+        ACCESS_MAP(server->game.map, client->player).resources[i]--;
+        client->player->inventory[i]++;
+        server->game.resources[i].current_quantity--;
     }
-    dprintf(client->socket_fd,
-        ACCESS_MAP(server->game.map, client->player).resources >> i & 1
-        ? VALID_AI : WRONG_AI);
-    ACCESS_MAP(server->game.map, client->player).resources &= ~(1 << i);
 }

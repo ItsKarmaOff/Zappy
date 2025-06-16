@@ -23,8 +23,6 @@ player_t *create_player(game_t *game, team_t *team)
     player->position.x = rand() % game->game_settings.width;
     player->position.y = rand() % game->game_settings.height;
     player->orientation = rand() % 4 + 1;
-    printf("game->map[player->position.y][player->position.x].clients: %p\n",
-        game->map[player->position.y][player->position.x].clients);
     my_push_back(&(game->map[player->position.y][player->position.x].clients),
         player, UNKNOWN);
     return player;

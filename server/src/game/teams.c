@@ -61,6 +61,7 @@ player_t *get_next_egg(team_t *team)
     for (node_t *node = team->player_list; node != NULL; node = node->next) {
         if (node->data != NULL && ((player_t *)node->data)->is_egg) {
             ((player_t *)node->data)->is_egg = false;
+            ((player_t *)node->data)->level = 1;
             team->eggs_number--;
             return (player_t *) node->data;
         }
