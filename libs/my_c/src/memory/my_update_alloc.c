@@ -20,7 +20,7 @@
  * @return <b>char</b> The temporary malloc state
  * @author Nicolas TORO
  */
-char tmp_malloc_state(my_bool_t set)
+my_bool_t tmp_malloc_state(my_bool_t set)
 {
     static my_bool_t state = DEFAULT;
 
@@ -35,7 +35,7 @@ char tmp_malloc_state(my_bool_t set)
  * @return <b>void</b>
  * @author Nicolas TORO
  */
-void my_update_alloc(char type)
+void my_update_alloc(my_bool_t type)
 {
     tmp_malloc_state(type);
 }

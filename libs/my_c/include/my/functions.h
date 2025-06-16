@@ -724,10 +724,10 @@ void *my_resize_alloc(void *ptr, size_t old_size, size_t new_size);
  * @note NONE (-2): Returns just the value | DEFAULT (-1): Disable the priority
  * | FALSE (0): Basic malloc | TRUE (1): Save in garbage
  * @param set The new temporary malloc state
- * @return <b>char</b> The temporary malloc state
+ * @return <b>my_bool_t</b> The temporary malloc state
  * @author Nicolas TORO
  */
-char tmp_malloc_state(my_bool_t set);
+my_bool_t tmp_malloc_state(my_bool_t set);
 
 /**
  * @brief Updates the temporary malloc state
@@ -735,17 +735,17 @@ char tmp_malloc_state(my_bool_t set);
  * @return <b>void</b>
  * @author Nicolas TORO
  */
-void my_update_alloc(char type);
+void my_update_alloc(my_bool_t type);
 
 /**
  * @brief The malloc state variable
  * @note NONE (-2): Returns just the value | DEFAULT (-1): Free all
  * | FALSE (0): Basic malloc | TRUE (1): Save in garbage
  * @param set The new malloc state
- * @return <b>char</b> The malloc state
+ * @return <b>my_bool_t</b> The malloc state
  * @author Nicolas TORO
  */
-char malloc_state(my_bool_t set);
+my_bool_t malloc_state(my_bool_t set);
 
 /**
  * @brief Updates the malloc state
@@ -753,7 +753,7 @@ char malloc_state(my_bool_t set);
  * @return <b>void</b>
  * @author Nicolas TORO
  */
-void my_update_malloc(char type);
+void my_update_malloc(my_bool_t type);
 
 
 
@@ -1465,5 +1465,41 @@ void my_showmem(char const *str, size_t size);
  * @author Nicolas TORO
  */
 void my_showstr(char const *str);
+
+/**
+ * @brief The debug mode variable
+ * @note NONE (-2) and DEFAULT (-1): Returns just the value |
+ * FALSE (0): Debug mode disable | TRUE (1): Debug mode enable
+ * @param set The debug mode state
+ * @return <b>my_bool_t</b> The debug mode state
+ * @author Nicolas TORO
+ */
+my_bool_t debug_mode(my_bool_t set);
+
+/**
+ * @brief Updates the debug mode
+ * @param type The new debug mode state
+ * @return <b>void</b>
+ * @author Nicolas TORO
+ */
+void my_update_debug_mode(my_bool_t type);
+
+/**
+ * @brief The extra logs variable
+ * @note NONE (-2) and DEFAULT (-1): Returns just the value |
+ * FALSE (0): Extra logs disable | TRUE (1): Extra logs enable
+ * @param set The extra logs state
+ * @return <b>my_bool_t</b> The extra logs state
+ * @author Nicolas TORO
+ */
+my_bool_t extra_logs(my_bool_t set);
+
+/**
+ * @brief Updates the extra logs state
+ * @param type The new extra logs state
+ * @return <b>void</b>
+ * @author Nicolas TORO
+ */
+void my_update_extra_logs(my_bool_t type);
 
 #endif /* FUNCTIONS_H_ */

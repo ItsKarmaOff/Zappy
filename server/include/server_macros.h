@@ -38,26 +38,42 @@
 
 
 
-    /* Team macros */
+    /* Network macros */
 
     /**
-     * @brief The graphic team index
+     * @brief The ip of the google DNS server
      */
-    #define GRAPHIC_TEAM_INDEX 0
+    #define GOOGLE_DNS_IP "8.8.8.8"
 
     /**
-     * @brief The name of the graphic team
+     * @brief The default port for the DNS server
      */
-    #define GRAPHIC_TEAM_NAME "GRAPHIC"
+    #define DNS_PORT 53
 
 
 
     /* Client macros */
 
     /**
+     * @brief The default number of clients in the server
+     */
+    #define DEFAULT_NUMBER_OF_CLIENTS 1
+
+    /**
      * @brief The index of the server in the poll_fds array
      */
     #define SERVER_POLL_INDEX 0
+
+    /**
+     * @brief The index of the stdin in the poll_fds array
+     */
+    #define STDIN_POLL_INDEX 1
+
+    /**
+     * @brief The index of the stdin client (server client)
+     * in the client_list array
+     */
+    #define STDIN_CLIENT_INDEX 0
 
     /**
      * @brief The default maximum number of backlog connections
@@ -113,6 +129,25 @@
      * @brief The refill time unit until the next refill
      */
     #define REFILL_TIME 20.0
+
+    /**
+     * @brief Access the game map at a player's position
+     */
+    #define ACCESS_MAP(map, player) map[player->position.y][player->position.x]
+
+
+
+    /* Team macros */
+
+    /**
+     * @brief The graphic team index
+     */
+    #define GRAPHIC_TEAM_INDEX 0
+
+    /**
+     * @brief The name of the graphic team
+     */
+    #define GRAPHIC_TEAM_NAME "GRAPHIC"
 
 
 

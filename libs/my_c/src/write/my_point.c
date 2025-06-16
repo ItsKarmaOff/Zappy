@@ -32,7 +32,6 @@ void my_point(point_t point)
     my_putnbr(point.line);
     my_putstr(", FUNCTION: ");
     my_putstr(point.func);
-    my_putstr("]" RESET);
-    my_putchar('\n');
+    my_putstr("]" ENDL);
     FREE(time_str);
 }

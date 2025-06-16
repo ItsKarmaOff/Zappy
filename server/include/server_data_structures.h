@@ -27,9 +27,9 @@
  */
 typedef enum orientation_e {
     NORTH = 1, ///< The player is facing north
-    EAST = 2, ///< The player is facing east
+    EAST = 2,  ///< The player is facing east
     SOUTH = 3, ///< The player is facing south
-    WEST = 4, ///< The player is facing west
+    WEST = 4,  ///< The player is facing west
 } orientation_t;
 
 /**
@@ -37,15 +37,25 @@ typedef enum orientation_e {
  * @brief The resources available in the game
  */
 typedef enum resources_e {
-    FOOD = 0, ///< The food resource
-    LINEMATE = 1, ///< The linemate resource
-    DERAUMERE = 2, ///< The deraumere resource
-    SIBUR = 3, ///< The sibur resource
-    MENDIANE = 4, ///< The mendiane resource
-    PHIRAS = 5, ///< The phiras resource
-    THYSTAME = 6, ///< The thystame resource
+    FOOD = 0,          ///< The food resource
+    LINEMATE = 1,      ///< The linemate resource
+    DERAUMERE = 2,     ///< The deraumere resource
+    SIBUR = 3,         ///< The sibur resource
+    MENDIANE = 4,      ///< The mendiane resource
+    PHIRAS = 5,        ///< The phiras resource
+    THYSTAME = 6,      ///< The thystame resource
     RESOURCES_SIZE = 7 ///< The total number of resources
 } resources_t;
+
+/**
+ * @enum client_type_e
+ * @brief The type of client connected to the server
+ */
+typedef enum client_type_e {
+    CLIENT_AI = 0, ///< The client is an AI client
+    CLIENT_GUI = 1, ///< The client is a GUI client
+    CLIENT_SERVER = 2 ///< The client is the server itself
+} client_type_t;
 
 
 
@@ -129,10 +139,16 @@ typedef struct game_settings_s {
     /** The height of the game map */
     size_t height;
 
+    /** Whether the game is paused */
+    bool is_paused;
     /** Whether the game should end when only one team remains */
     bool auto_end;
-    /** Whether the game should display the eggs */
-    bool display_eggs;
+    /** Whether the game should show the eggs */
+    bool show_eggs;
+    /** Whether the player stop consuming food */
+    bool infinite_food;
+    /** Whether the game should refill resources */
+    bool no_refill;
 
     /** The number of teams */
     size_t teams_number;
@@ -152,6 +168,8 @@ typedef struct game_settings_s {
 typedef struct tile_s {
     /** The position of the tile on the map */
     vector2u_t position;
+    /** The list of players on the tile */
+    node_t *player_list;
     /** The number of resources on the tile */
     size_t resources[RESOURCES_SIZE];
 } tile_t;
@@ -225,8 +243,8 @@ typedef struct client_s {
     /** The name of the team the client is trying to join */
     char *team_name;
 
-    /** Whether the client is a GUI client */
-    bool is_gui;
+    /** The type of client */
+    client_type_t client_type;
     /** The associated player */
     player_t *player;
 
@@ -275,6 +293,14 @@ extern const command_t commands_ai[];
  * @brief The array of GUI commands
  */
 extern const command_t commands_gui[];
+/**
+ * @brief The array of SERVER commands
+ */
+extern const command_t commands_server[];
+/**
+ * @brief The array of commands for the server
+ */
+extern const command_t *commands[];
 
 
 
@@ -288,5 +314,11 @@ extern const char *resources_names[RESOURCES_SIZE];
  * @brief The density of each resource in the game
  */
 extern const double resources_densities[RESOURCES_SIZE];
+
+
+
+    /* Orientation arrays */
+
+extern const char *orientation_names[];
 
 #endif /* SERVER_DATA_STRUCTURES_H_ */

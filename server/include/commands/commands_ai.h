@@ -2,16 +2,16 @@
 ** EPITECH PROJECT, 2025
 ** zappy
 ** File description:
-** The ai.h
+** The commandsai.h
 */
 /**
- * @file ai.h
- * @brief The ai.h
+ * @file commands_ai.h
+ * @brief The commands_ai.h
  * @author Nicolas TORO
  */
 
-#ifndef AI_H_
-    #define AI_H_
+#ifndef COMMANDS_AI_H_
+    #define COMMANDS_AI_H_
 
     #include "network.h"
 
@@ -23,24 +23,13 @@ typedef struct move_s {
     /** The orientation of the player */
     orientation_t orientation;
     /** The function to call to move the player */
-    void (*move_func)(server_t *server, client_t *client);
+    void (*move_func)(const game_t *game, player_t *player);
 } move_t;
 
 /**
  * @brief The moves for the AI clients
  */
 extern const move_t moves[];
-
-/**
- * @struct update_orientation_s
- * @brief Represents an orientation update for AI clients
- */
-typedef struct update_orientation_s {
-    /** The orientation of the player */
-    orientation_t orientation;
-    /** The function to call to update the orientation */
-    void (*update_orientation_func)(client_t *client);
-} update_orientation_t;
 
 
 
@@ -50,7 +39,8 @@ typedef struct update_orientation_s {
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_forward(server_t *server, client_t *client, char **args);
+void handle_ai_command_forward(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "Right" command for AI clients
@@ -58,7 +48,8 @@ void handle_command_forward(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_right(server_t *server, client_t *client, char **args);
+void handle_ai_command_right(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "Left" command for AI clients
@@ -66,7 +57,8 @@ void handle_command_right(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_left(server_t *server, client_t *client, char **args);
+void handle_ai_command_left(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "Look" command for AI clients
@@ -74,7 +66,8 @@ void handle_command_left(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_look(server_t *server, client_t *client, char **args);
+void handle_ai_command_look(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "Inventory" command for AI clients
@@ -82,7 +75,8 @@ void handle_command_look(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_inventory(server_t *server, client_t *client, char **args);
+void handle_ai_command_inventory(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "Broadcast" command for AI clients
@@ -90,7 +84,8 @@ void handle_command_inventory(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_broadcast(server_t *server, client_t *client, char **args);
+void handle_ai_command_broadcast(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "Connect_nbr" command for AI clients
@@ -98,8 +93,8 @@ void handle_command_broadcast(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_connect_nbr(server_t *server, client_t *client,
-    char **args);
+void handle_ai_command_connect_nbr(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "Fork" command for AI clients
@@ -107,7 +102,8 @@ void handle_command_connect_nbr(server_t *server, client_t *client,
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_fork(server_t *server, client_t *client, char **args);
+void handle_ai_command_fork(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "Eject" command for AI clients
@@ -115,7 +111,8 @@ void handle_command_fork(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_eject(server_t *server, client_t *client, char **args);
+void handle_ai_command_eject(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "Take" command for AI clients
@@ -123,7 +120,8 @@ void handle_command_eject(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_take(server_t *server, client_t *client, char **args);
+void handle_ai_command_take(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "Set" command for AI clients
@@ -131,7 +129,8 @@ void handle_command_take(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_set(server_t *server, client_t *client, char **args);
+void handle_ai_command_set(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "Incantation" command for AI clients
@@ -139,7 +138,7 @@ void handle_command_set(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_incantation(server_t *server, client_t *client,
-    char **args);
+void handle_ai_command_incantation(
+    server_t *server, client_t *client, char **args);
 
-#endif /* AI_H_ */
+#endif /* COMMANDS_AI_H_ */

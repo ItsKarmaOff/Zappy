@@ -40,6 +40,7 @@
     #include <sys/time.h>
     #include <poll.h>
     #include <sys/ioctl.h>
+    #include <arpa/inet.h>
 
 
 
@@ -75,6 +76,7 @@
 
     /* Colors and formatting for terminal output */
 
+    #define    ENDL RESET "\n\r"
     #define    RESET "\033[0m"
     #define    BLACK "\033[0;30m"
     #define    RED "\033[0;31m"
