@@ -19,7 +19,7 @@ static void send_tiles(server_t *server, client_t *client, long x, long y)
     % server->game.game_settings.height]
     [(client->player->position.x + x + server->game.game_settings.width)
     % server->game.game_settings.width]);
-    
+
     for (node_t *c = tile->clients; c != NULL; c = c->next) {
         dprintf(client->socket_fd, " %s", ((player_t *)c->data)->is_egg
         ? "egg" : "player");
@@ -50,5 +50,5 @@ void handle_command_look(UNUSED server_t *server, UNUSED client_t *client,
             (orientation % 2) ? i * (orientation - 2) : j * (orientation - 3));
         }
     }
-    dprintf(client->socket_fd," ]\n");
+    dprintf(client->socket_fd, " ]\n");
 }

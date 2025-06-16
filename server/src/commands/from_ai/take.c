@@ -22,10 +22,9 @@ void handle_command_take(UNUSED server_t *server, UNUSED client_t *client,
         dprintf(client->socket_fd, WRONG_AI);
         return;
     }
-    while (i < RESOURCES_SIZE) {
+    for (; i < RESOURCES_SIZE; i++) {
         if (strcmp(args[1], resources_names[i]))
             break;
-        i++;
     }
     if (i == RESOURCES_SIZE
     || ACCESS_MAP(server->game.map, client->player).resources[i] == 0) {

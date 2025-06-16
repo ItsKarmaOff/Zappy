@@ -16,4 +16,5 @@ void handle_command_connect_nbr(UNUSED server_t *server,
     UNUSED client_t *client, UNUSED char **args)
 {
     DEBUG("Executing \"Connect_nbr\" command\n");
+    dprintf(client->socket_fd, "%zu\n", client->player->team->eggs_number);
 }
