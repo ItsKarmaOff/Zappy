@@ -108,7 +108,7 @@ jobs:
               timeout-minutes: 2
             - name: Compile GUI
               run: cmake -B build -S . && make zappy_gui -s -C build
-              timeout-minutes: 2
+              #timeout-minutes: 2
             - name: Compile SERVER
               run: cmake -B build -S . && make zappy_server -s -C build
               timeout-minutes: 2
