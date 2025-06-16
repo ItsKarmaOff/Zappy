@@ -15,7 +15,7 @@
 void handle_command_take(UNUSED server_t *server, UNUSED client_t *client,
     UNUSED char **args)
 {
-    uint8_t i = 0;
+    size_t i = 0;
 
     DEBUG("Executing \"Take\" command\n");
     if (my_array_len((void **) args) != 2) {
@@ -23,7 +23,7 @@ void handle_command_take(UNUSED server_t *server, UNUSED client_t *client,
         return;
     }
     for (; i < RESOURCES_SIZE; i++) {
-        if (strcmp(args[1], resources_names[i]))
+        if (strcmp(args[1], resources_names[i]) == 0)
             break;
     }
     if (i == RESOURCES_SIZE
