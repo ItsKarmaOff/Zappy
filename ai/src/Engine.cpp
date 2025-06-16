@@ -103,7 +103,7 @@ void Engine::_init()
 
     std::string response = getResponse(_socket.get());
     DEBUG << "Server response: " << response;
-    if (response == "KO") {
+    if (response == "ko") {
         throw Lib::Exceptions::Critical("Connection failed: " + response);
     }
     _amountOfPlayers = std::stoi(response);
@@ -138,7 +138,7 @@ void Engine::_createNewPlayer()
     send(_socket->getSocket(), (_parser.getName() + "\n").c_str(), _parser.getName().size() + 1, 0);
 
     std::string response = getResponse(_socket.get());
-    if (response == "KO") {
+    if (response == "ko") {
         throw Lib::Exceptions::Critical("Connection failed: " + response);
     }
     DEBUG << "Connected to server: " << response;
