@@ -16,4 +16,10 @@ void handle_command_inventory(UNUSED server_t *server, UNUSED client_t *client,
     UNUSED char **args)
 {
     DEBUG("Executing \"Inventory\" command\n");
+    dprintf(client->socket_fd, "[ ");
+    for (size_t i = 0; i < RESOURCES_SIZE; i++) {
+        dprintf(client->socket_fd, "%s%s %zu", (i != 0) ? ", " : "",
+        resources_names[i], client->player->inventory[i]);
+    }
+    dprintf(client->socket_fd, " ]\n");
 }
