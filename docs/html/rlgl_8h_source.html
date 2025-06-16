@@ -2257,7 +2257,7 @@ $(document).ready(function(){initNavTree('rlgl_8h_source.html',''); initResizabl
 <div class="line"><a id="l02170" name="l02170"></a><span class="lineno"> 2170</span><span class="comment">// Module Functions Definition - OpenGL Debug</span></div>
 <div class="line"><a id="l02171" name="l02171"></a><span class="lineno"> 2171</span><span class="comment">//----------------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l02172" name="l02172"></a><span class="lineno"> 2172</span><span class="preprocessor">#if defined(RLGL_ENABLE_OPENGL_DEBUG_CONTEXT) &amp;&amp; defined(GRAPHICS_API_OPENGL_43)</span></div>
-<div class="line"><a id="l02173" name="l02173"></a><span class="lineno"> 2173</span><span class="keyword">static</span> <span class="keywordtype">void</span> GLAPIENTRY rlDebugMessageCallback(GLenum source, GLenum type, GLuint <span class="keywordtype">id</span>, GLenum severity, GLsizei length, <span class="keyword">const</span> GLchar *message, <span class="keyword">const</span> <span class="keywordtype">void</span> *userParam)</div>
+<div class="line"><a id="l02173" name="l02173"></a><span class="lineno"> 2173</span><span class="keyword">static</span> <span class="keywordtype">void</span> GLAPIENTRY rlDebugMessageCallback(GLenum source, GLenum type, GLuint <span class="keywordtype">id</span>, GLenum severity, GLsizei length, <span class="keyword">const</span> GLchar *<a class="code hl_struct" href="structmessage.html">message</a>, <span class="keyword">const</span> <span class="keywordtype">void</span> *userParam)</div>
 <div class="line"><a id="l02174" name="l02174"></a><span class="lineno"> 2174</span>{</div>
 <div class="line"><a id="l02175" name="l02175"></a><span class="lineno"> 2175</span>    <span class="comment">// Ignore non-significant error/warning codes (NVidia drivers)</span></div>
 <div class="line"><a id="l02176" name="l02176"></a><span class="lineno"> 2176</span>    <span class="comment">// NOTE: Here there are the details with a sample output:</span></div>
@@ -2306,7 +2306,7 @@ $(document).ready(function(){initNavTree('rlgl_8h_source.html',''); initResizabl
 <div class="line"><a id="l02219" name="l02219"></a><span class="lineno"> 2219</span>        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l02220" name="l02220"></a><span class="lineno"> 2220</span>    }</div>
 <div class="line"><a id="l02221" name="l02221"></a><span class="lineno"> 2221</span> </div>
-<div class="line"><a id="l02222" name="l02222"></a><span class="lineno"> 2222</span>    TRACELOG(LOG_WARNING, <span class="stringliteral">&quot;GL: OpenGL debug message: %s&quot;</span>, message);</div>
+<div class="line"><a id="l02222" name="l02222"></a><span class="lineno"> 2222</span>    TRACELOG(LOG_WARNING, <span class="stringliteral">&quot;GL: OpenGL debug message: %s&quot;</span>, <a class="code hl_struct" href="structmessage.html">message</a>);</div>
 <div class="line"><a id="l02223" name="l02223"></a><span class="lineno"> 2223</span>    TRACELOG(LOG_WARNING, <span class="stringliteral">&quot;    &gt; Type: %s&quot;</span>, msgType);</div>
 <div class="line"><a id="l02224" name="l02224"></a><span class="lineno"> 2224</span>    TRACELOG(LOG_WARNING, <span class="stringliteral">&quot;    &gt; Source = %s&quot;</span>, msgSource);</div>
 <div class="line"><a id="l02225" name="l02225"></a><span class="lineno"> 2225</span>    TRACELOG(LOG_WARNING, <span class="stringliteral">&quot;    &gt; Severity = %s&quot;</span>, msgSeverity);</div>
@@ -5352,6 +5352,7 @@ $(document).ready(function(){initNavTree('rlgl_8h_source.html',''); initResizabl
 <div class="line"><a id="l05265" name="l05265"></a><span class="lineno"> 5265</span> </div>
 <div class="line"><a id="l05266" name="l05266"></a><span class="lineno"> 5266</span><span class="preprocessor">#endif  </span><span class="comment">// RLGL_IMPLEMENTATION</span></div>
 <div class="ttc" id="astructMatrix_html"><div class="ttname"><a href="structMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> raylib.h:239</div></div>
+<div class="ttc" id="astructmessage_html"><div class="ttname"><a href="structmessage.html">message</a></div><div class="ttdef"><b>Definition:</b> Chatbox.hpp:18</div></div>
 <div class="ttc" id="astructrlDrawCall_html"><div class="ttname"><a href="structrlDrawCall.html">rlDrawCall</a></div><div class="ttdef"><b>Definition:</b> rlgl.h:405</div></div>
 <div class="ttc" id="astructrlRenderBatch_html"><div class="ttname"><a href="structrlRenderBatch.html">rlRenderBatch</a></div><div class="ttdef"><b>Definition:</b> rlgl.h:418</div></div>
 <div class="ttc" id="astructrlVertexBuffer_html"><div class="ttname"><a href="structrlVertexBuffer.html">rlVertexBuffer</a></div><div class="ttdef"><b>Definition:</b> rlgl.h:384</div></div>

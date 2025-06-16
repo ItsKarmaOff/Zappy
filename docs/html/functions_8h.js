@@ -1,8 +1,10 @@
 var functions_8h =
 [
+    [ "debug_mode", "functions_8h.html#a71a6c8c664ca271ab7f05e287a31bcf3", null ],
+    [ "extra_logs", "functions_8h.html#aa93d8d245e61d9714b02e5b91b012501", null ],
     [ "get_precision", "functions_8h.html#a66e6d4634b5d00a87556a087e8a66480", null ],
     [ "get_width", "functions_8h.html#ac2034dd0e290f3062c580759c7c8110b", null ],
-    [ "malloc_state", "functions_8h.html#ad3b69e932307bf7fde6c3f78655cde86", null ],
+    [ "malloc_state", "functions_8h.html#a2966495ab39f65945af4f06f45abb175", null ],
     [ "my_add_chr", "functions_8h.html#a6c1e9d53d3713fa367e24142b06cc400", null ],
     [ "my_add_to_garbage", "functions_8h.html#a4cc16bcd718f5b644254d5a30414e244", null ],
     [ "my_array_len", "functions_8h.html#aca5262b52802604572fd966c0d137c4e", null ],
@@ -144,11 +146,13 @@ var functions_8h =
     [ "my_strupcase", "functions_8h.html#a4bf819fb044cfcf1d9632cd30050bebf", null ],
     [ "my_swap", "functions_8h.html#a2cd02d2d23c5c4edd026ad1fd3dafc8f", null ],
     [ "my_swap_endian_color", "functions_8h.html#a2fe303430978fa0cff55b8f413287fd0", null ],
-    [ "my_update_alloc", "functions_8h.html#a781fe2c9bfe08a3fdc08932222ed636c", null ],
-    [ "my_update_malloc", "functions_8h.html#af6cd0c8bfa69e5530a827131eb25e1ba", null ],
+    [ "my_update_alloc", "functions_8h.html#afe15433312d1e3b1e0cd91e52719b2b3", null ],
+    [ "my_update_debug_mode", "functions_8h.html#a4f853f830adecfb131c45c3ef0db1c95", null ],
+    [ "my_update_extra_logs", "functions_8h.html#acd71be9cd9cb86a2c9005bc3bf24968f", null ],
+    [ "my_update_malloc", "functions_8h.html#a1f22e6eca067e45c55a45e4067505a3f", null ],
     [ "my_wcslen", "functions_8h.html#a84f3a4ef176cf9eadfed8531cb71bee2", null ],
     [ "my_wcstombs", "functions_8h.html#a43a8c4cf191df247ab714658f5de8bc1", null ],
     [ "my_word_array_len", "functions_8h.html#a1bef38310af7ccd0f48995e8276609e8", null ],
-    [ "tmp_malloc_state", "functions_8h.html#a87bba92bc139c04ab266b79de13ee99a", null ],
+    [ "tmp_malloc_state", "functions_8h.html#a269e57f87660ddd640fb2fc82ca495b5", null ],
     [ "update_sign_attributes", "functions_8h.html#a0569090e01428560567ba02702232d9c", null ]
 ];

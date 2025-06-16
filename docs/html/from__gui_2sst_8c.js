@@ -1,4 +1,4 @@
 var from__gui_2sst_8c =
 [
-    [ "handle_command_sst", "from__gui_2sst_8c.html#ae686127251977770e205f0b6cb5d77ad", null ]
+    [ "handle_gui_command_sst", "from__gui_2sst_8c.html#add1ff1fd76f34cebf34c0d1b21aada6b", null ]
 ];

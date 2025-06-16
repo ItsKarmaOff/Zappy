@@ -28,11 +28,11 @@ var searchData=
   ['font_25',['Font',['../structFont.html',1,'']]],
   ['food_26',['FOOD',['../server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01abaad2be1abe0cffbc3a0bbf032a604c4',1,'server_data_structures.h']]],
   ['food_5ftime_5funit_27',['FOOD_TIME_UNIT',['../server__macros_8h.html#acae956016df8654ed1ebe6eab24cb0db',1,'server_macros.h']]],
-  ['fork_2ec_28',['fork.c',['../fork_8c.html',1,'']]],
+  ['fork_2ec_28',['fork.c',['../from__ai_2fork_8c.html',1,'(Global Namespace)'],['../from__server_2fork_8c.html',1,'(Global Namespace)']]],
   ['format_5fs_29',['format_s',['../structformat__s.html',1,'']]],
   ['forward_2ec_30',['forward.c',['../forward_8c.html',1,'']]],
   ['frequency_31',['frequency',['../structgame__settings__s.html#a5ba3edc1f7681e498633f37eceb0cf61',1,'game_settings_s']]],
-  ['frequency_2ec_32',['frequency.c',['../frequency_8c.html',1,'']]],
+  ['frequency_2ec_32',['frequency.c',['../commands_2from__server_2frequency_8c.html',1,'(Global Namespace)'],['../parsing_2options_2frequency_8c.html',1,'(Global Namespace)']]],
   ['function_33',['function',['../structoption__s.html#a6a8e86a4732fbd49f873ed4511262ee3',1,'option_s']]],
   ['functions_2eh_34',['functions.h',['../functions_8h.html',1,'']]]
 ];

@@ -21,8 +21,8 @@ var searchData=
   ['flag_5fuppercase_5fn_2ec_18',['flag_uppercase_n.c',['../flag__uppercase__n_8c.html',1,'']]],
   ['flag_5fuppercase_5fs_2ec_19',['flag_uppercase_s.c',['../flag__uppercase__s_8c.html',1,'']]],
   ['flag_5fuppercase_5fx_2ec_20',['flag_uppercase_x.c',['../flag__uppercase__x_8c.html',1,'']]],
-  ['fork_2ec_21',['fork.c',['../fork_8c.html',1,'']]],
+  ['fork_2ec_21',['fork.c',['../from__ai_2fork_8c.html',1,'(Global Namespace)'],['../from__server_2fork_8c.html',1,'(Global Namespace)']]],
   ['forward_2ec_22',['forward.c',['../forward_8c.html',1,'']]],
-  ['frequency_2ec_23',['frequency.c',['../frequency_8c.html',1,'']]],
+  ['frequency_2ec_23',['frequency.c',['../commands_2from__server_2frequency_8c.html',1,'(Global Namespace)'],['../parsing_2options_2frequency_8c.html',1,'(Global Namespace)']]],
   ['functions_2eh_24',['functions.h',['../functions_8h.html',1,'']]]
 ];

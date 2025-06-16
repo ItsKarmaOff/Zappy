@@ -100,6 +100,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a22a438713ce2ba354d8848cf0fd9dd19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8h.html#a22a438713ce2ba354d8848cf0fd9dd19">create_server</a> (int argc, char **argv)</td></tr>
 <tr class="memdesc:a22a438713ce2ba354d8848cf0fd9dd19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a server instance.  <a href="server_8h.html#a22a438713ce2ba354d8848cf0fd9dd19">More...</a><br /></td></tr>
 <tr class="separator:a22a438713ce2ba354d8848cf0fd9dd19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f032b59316bfbef03f437e57c468e05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8h.html#a8f032b59316bfbef03f437e57c468e05">display_server</a> (const <a class="el" href="structserver__s.html">server_t</a> *server, bool display_details)</td></tr>
+<tr class="memdesc:a8f032b59316bfbef03f437e57c468e05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the server information.  <a href="server_8h.html#a8f032b59316bfbef03f437e57c468e05">More...</a><br /></td></tr>
+<tr class="separator:a8f032b59316bfbef03f437e57c468e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b7a5b070ee9efccda6606e0b1b952e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8h.html#a7b7a5b070ee9efccda6606e0b1b952e2">run</a> (<a class="el" href="structserver__s.html">server_t</a> *server)</td></tr>
 <tr class="memdesc:a7b7a5b070ee9efccda6606e0b1b952e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the server.  <a href="server_8h.html#a7b7a5b070ee9efccda6606e0b1b952e2">More...</a><br /></td></tr>
 <tr class="separator:a7b7a5b070ee9efccda6606e0b1b952e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,6 +149,43 @@ Functions</h2></td></tr>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">FAILURE</td><td>If the server creation fails </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8f032b59316bfbef03f437e57c468e05" name="a8f032b59316bfbef03f437e57c468e05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f032b59316bfbef03f437e57c468e05">&#9670;&nbsp;</a></span>display_server()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void display_server </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>display_details</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Displays the server information. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance to display </td></tr>
+    <tr><td class="paramname">display_details</td><td>Whether to display detailed information </td></tr>
   </table>
   </dd>
 </dl>

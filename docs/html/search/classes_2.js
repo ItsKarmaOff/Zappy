@@ -2,11 +2,14 @@ var searchData=
 [
   ['camera2d_0',['Camera2D',['../structCamera2D.html',1,'']]],
   ['camera3d_1',['Camera3D',['../structCamera3D.html',1,'']]],
-  ['client_5fs_2',['client_s',['../structclient__s.html',1,'']]],
-  ['color_3',['Color',['../structColor.html',1,'']]],
-  ['color_5fargb_5fu_4',['color_argb_u',['../unioncolor__argb__u.html',1,'']]],
-  ['command_5fs_5',['command_s',['../structcommand__s.html',1,'']]],
-  ['commands_6',['Commands',['../classGui_1_1Commands.html',1,'Gui']]],
-  ['core_7',['Core',['../classGui_1_1Core.html',1,'Gui']]],
-  ['critical_8',['Critical',['../classLib_1_1Exceptions_1_1Critical.html',1,'Lib::Exceptions']]]
+  ['chatbox_2',['Chatbox',['../classGui_1_1Chatbox.html',1,'Gui']]],
+  ['client_5fs_3',['client_s',['../structclient__s.html',1,'']]],
+  ['color_4',['Color',['../structColor.html',1,'']]],
+  ['color_5fargb_5fu_5',['color_argb_u',['../unioncolor__argb__u.html',1,'']]],
+  ['command_5fhelp_5fs_6',['command_help_s',['../structcommand__help__s.html',1,'']]],
+  ['command_5fs_7',['command_s',['../structcommand__s.html',1,'']]],
+  ['commands_8',['Commands',['../classGui_1_1Commands.html',1,'Gui']]],
+  ['commandsqueue_9',['CommandsQueue',['../classCommandsQueue.html',1,'']]],
+  ['core_10',['Core',['../classGui_1_1Core.html',1,'Gui']]],
+  ['critical_11',['Critical',['../classLib_1_1Exceptions_1_1Critical.html',1,'Lib::Exceptions']]]
 ];

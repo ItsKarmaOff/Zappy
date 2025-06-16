@@ -90,18 +90,63 @@ $(document).ready(function(){initNavTree('look_8c.html',''); initResizable(); })
 
 <p>The <a class="el" href="look_8c.html" title="The look.c.">look.c</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="ai_8h_source.html">commands/ai.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="commands__ai_8h_source.html">commands/commands_ai.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aeba54d3dbf6847caa11574a698d01c95"><td class="memItemLeft" align="right" valign="top"><a id="aeba54d3dbf6847caa11574a698d01c95" name="aeba54d3dbf6847caa11574a698d01c95"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>handle_command_look</b> (UNUSED <a class="el" href="structserver__s.html">server_t</a> *server, UNUSED <a class="el" href="structclient__s.html">client_t</a> *client, UNUSED char **args)</td></tr>
-<tr class="separator:aeba54d3dbf6847caa11574a698d01c95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a63bddd8995d0ee91ca1fdbdc36113c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="look_8c.html#a2a63bddd8995d0ee91ca1fdbdc36113c">handle_ai_command_look</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client, char **args)</td></tr>
+<tr class="memdesc:a2a63bddd8995d0ee91ca1fdbdc36113c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the "Look" command for AI clients.  <a href="look_8c.html#a2a63bddd8995d0ee91ca1fdbdc36113c">More...</a><br /></td></tr>
+<tr class="separator:a2a63bddd8995d0ee91ca1fdbdc36113c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="look_8c.html" title="The look.c.">look.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a2a63bddd8995d0ee91ca1fdbdc36113c" name="a2a63bddd8995d0ee91ca1fdbdc36113c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a63bddd8995d0ee91ca1fdbdc36113c">&#9670;&nbsp;</a></span>handle_ai_command_look()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void handle_ai_command_look </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles the "Look" command for AI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">client</td><td>The client instance </td></tr>
+    <tr><td class="paramname">args</td><td>The arguments passed with the command </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

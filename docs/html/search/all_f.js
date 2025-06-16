@@ -1,29 +1,6 @@
 var searchData=
 [
-  ['random_5fdouble_0',['random_double',['../Lib_8hpp.html#ae8857dcf75600277c0cbc79a687090ab',1,'Lib::random_double(double min, double max)'],['../Lib_8hpp.html#a98b7c682bb6ace85fb747cd2f14db72b',1,'Lib::random_double()']]],
-  ['random_5fint_1',['random_int',['../Lib_8hpp.html#ad7954e6a1b9ea073c7bc894dc5af85a9',1,'Lib']]],
-  ['ray_2',['Ray',['../structRay.html',1,'']]],
-  ['raycollision_3',['RayCollision',['../structRayCollision.html',1,'']]],
-  ['read_5fclient_5faction_4',['read_client_action',['../read__client__action_8c.html#abd3e4044e1e148eac99945962061fad2',1,'read_client_action(server_t *server, size_t index):&#160;read_client_action.c'],['../network_8h.html#abd3e4044e1e148eac99945962061fad2',1,'read_client_action(server_t *server, size_t index):&#160;read_client_action.c']]],
-  ['read_5fclient_5faction_2ec_5',['read_client_action.c',['../read__client__action_8c.html',1,'']]],
-  ['rectangle_6',['Rectangle',['../structRectangle.html',1,'']]],
-  ['refill_5fresources_7',['refill_resources',['../game_8c.html#afa0ff604ea4c04300c76f608928e1920',1,'refill_resources(game_t *game):&#160;game.c'],['../game_8h.html#afa0ff604ea4c04300c76f608928e1920',1,'refill_resources(game_t *game):&#160;game.c']]],
-  ['refill_5ftime_8',['REFILL_TIME',['../server__macros_8h.html#ad318f57821359c6c5c1913f4e142b261',1,'server_macros.h']]],
-  ['remove_5fclient_9',['remove_client',['../remove__client_8c.html#aa311f169d6c14986672b1f2e85c40e0d',1,'remove_client(server_t *server, size_t index):&#160;remove_client.c'],['../network_8h.html#aa311f169d6c14986672b1f2e85c40e0d',1,'remove_client(server_t *server, size_t index):&#160;remove_client.c']]],
-  ['remove_5fclient_2ec_10',['remove_client.c',['../remove__client_8c.html',1,'']]],
-  ['removeresource_11',['removeResource',['../classGui_1_1PlayerInfo.html#aca9d8a1467ce9fa3c127a8b540ef2df3',1,'Gui::PlayerInfo']]],
-  ['rendertexture_12',['RenderTexture',['../structRenderTexture.html',1,'']]],
-  ['resize_5fclient_5flist_13',['resize_client_list',['../network_2clients_8c.html#a3a56304d07f0def9dbdef94a4b34c8d7',1,'resize_client_list(server_t *server, size_t new_size):&#160;clients.c'],['../network_8h.html#a3a56304d07f0def9dbdef94a4b34c8d7',1,'resize_client_list(server_t *server, size_t new_size):&#160;clients.c']]],
-  ['resource_2ec_14',['resource.c',['../resource_8c.html',1,'']]],
-  ['resources_15',['resources',['../structgame__s.html#a172ab2e0b39e4ac9c4466a63ab9fdfa7',1,'game_s::resources()'],['../structtile__s.html#a55633d06308171be32d0d140a5f84c75',1,'tile_s::resources()']]],
-  ['resources_5fdensities_16',['resources_densities',['../server__data__structures_8h.html#a19d1d00ccca0124f6828d566e8a6ac5e',1,'resources_densities():&#160;resource.c'],['../resource_8c.html#a19d1d00ccca0124f6828d566e8a6ac5e',1,'resources_densities():&#160;resource.c']]],
-  ['resources_5fe_17',['resources_e',['../server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01',1,'server_data_structures.h']]],
-  ['resources_5fnames_18',['resources_names',['../resource_8c.html#a81faea77ea06eda3508227d83f9f9b2c',1,'resources_names():&#160;resource.c'],['../server__data__structures_8h.html#a81faea77ea06eda3508227d83f9f9b2c',1,'resources_names():&#160;resource.c']]],
-  ['resources_5fsize_19',['RESOURCES_SIZE',['../server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01a71ebc62bf482ebe7f7c937fc2b7d7010',1,'server_data_structures.h']]],
-  ['resourcetype_20',['ResourceType',['../classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1',1,'Gui::PlayerInfo']]],
-  ['right_2ec_21',['right.c',['../right_8c.html',1,'']]],
-  ['rldrawcall_22',['rlDrawCall',['../structrlDrawCall.html',1,'']]],
-  ['rlrenderbatch_23',['rlRenderBatch',['../structrlRenderBatch.html',1,'']]],
-  ['rlvertexbuffer_24',['rlVertexBuffer',['../structrlVertexBuffer.html',1,'']]],
-  ['run_25',['run',['../classGui_1_1Core.html#a13a43e6d814de94978c515cb084873b1',1,'Gui::Core::run()'],['../server_8h.html#a7b7a5b070ee9efccda6606e0b1b952e2',1,'run(server_t *server):&#160;server.c'],['../server_8c.html#a7b7a5b070ee9efccda6606e0b1b952e2',1,'run(server_t *server):&#160;server.c']]]
+  ['quantity_5fs_0',['quantity_s',['../structquantity__s.html',1,'']]],
+  ['queuemanager_1',['QueueManager',['../classGui_1_1QueueManager.html',1,'Gui']]],
+  ['quit_2ec_2',['quit.c',['../quit_8c.html',1,'']]]
 ];

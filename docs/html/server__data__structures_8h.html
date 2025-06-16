@@ -138,6 +138,9 @@ typedef enum <a class="el" href="server__data__structures_8h.html#a0946e64c8ac05
 <tr class="memitem:a7be35761bab6d400b990d0e145d3c5ab"><td class="memItemLeft" align="right" valign="top"><a id="a7be35761bab6d400b990d0e145d3c5ab" name="a7be35761bab6d400b990d0e145d3c5ab"></a>
 typedef enum <a class="el" href="server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01">resources_e</a>&#160;</td><td class="memItemRight" valign="bottom"><b>resources_t</b></td></tr>
 <tr class="separator:a7be35761bab6d400b990d0e145d3c5ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3d38121149f93898e87bfd534df1423"><td class="memItemLeft" align="right" valign="top"><a id="af3d38121149f93898e87bfd534df1423" name="af3d38121149f93898e87bfd534df1423"></a>
+typedef enum <a class="el" href="server__data__structures_8h.html#ae549bdb7c866157e3fb6a16f0c78219d">client_type_e</a>&#160;</td><td class="memItemRight" valign="bottom"><b>client_type_t</b></td></tr>
+<tr class="separator:af3d38121149f93898e87bfd534df1423"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefdc4a36eee5199c976dfc9566db77bf"><td class="memItemLeft" align="right" valign="top"><a id="aefdc4a36eee5199c976dfc9566db77bf" name="aefdc4a36eee5199c976dfc9566db77bf"></a>
 typedef struct <a class="el" href="structplayer__s.html">player_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>player_t</b></td></tr>
 <tr class="separator:aefdc4a36eee5199c976dfc9566db77bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,6 +195,12 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:aae2b3328e62fb75c902bda5a9d257c01"><td class="mdescLeft">&#160;</td><td class="mdescRight">The resources available in the game.  <a href="server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01">More...</a><br /></td></tr>
 <tr class="separator:aae2b3328e62fb75c902bda5a9d257c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae549bdb7c866157e3fb6a16f0c78219d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__data__structures_8h.html#ae549bdb7c866157e3fb6a16f0c78219d">client_type_e</a> { <a class="el" href="server__data__structures_8h.html#ae549bdb7c866157e3fb6a16f0c78219da414da040efdcb9bb9e35a96fbdc0ed23">CLIENT_AI</a> = 0
+, <a class="el" href="server__data__structures_8h.html#ae549bdb7c866157e3fb6a16f0c78219daaca3e6aa0be5840aa322677f108ca8e4">CLIENT_GUI</a> = 1
+, <a class="el" href="server__data__structures_8h.html#ae549bdb7c866157e3fb6a16f0c78219dadf34124357ec737a982bcc47dfd6f35a">CLIENT_SERVER</a> = 2
+ }</td></tr>
+<tr class="memdesc:ae549bdb7c866157e3fb6a16f0c78219d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of client connected to the server.  <a href="server__data__structures_8h.html#ae549bdb7c866157e3fb6a16f0c78219d">More...</a><br /></td></tr>
+<tr class="separator:ae549bdb7c866157e3fb6a16f0c78219d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -203,6 +212,14 @@ const <a class="el" href="structcommand__s.html">command_t</a>&#160;</td><td cla
 const <a class="el" href="structcommand__s.html">command_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>commands_gui</b> []</td></tr>
 <tr class="memdesc:a4c465063f2423532e81f0c074d46dffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The array of GUI commands. <br /></td></tr>
 <tr class="separator:a4c465063f2423532e81f0c074d46dffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9603b1d2a3881cf15d42131928bcd4d9"><td class="memItemLeft" align="right" valign="top"><a id="a9603b1d2a3881cf15d42131928bcd4d9" name="a9603b1d2a3881cf15d42131928bcd4d9"></a>
+const <a class="el" href="structcommand__s.html">command_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>commands_server</b> []</td></tr>
+<tr class="memdesc:a9603b1d2a3881cf15d42131928bcd4d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The array of SERVER commands. <br /></td></tr>
+<tr class="separator:a9603b1d2a3881cf15d42131928bcd4d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed602511cdc515209997d1d5d3c0a8fd"><td class="memItemLeft" align="right" valign="top"><a id="aed602511cdc515209997d1d5d3c0a8fd" name="aed602511cdc515209997d1d5d3c0a8fd"></a>
+const <a class="el" href="structcommand__s.html">command_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>commands</b> []</td></tr>
+<tr class="memdesc:aed602511cdc515209997d1d5d3c0a8fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The array of commands for the server. <br /></td></tr>
+<tr class="separator:aed602511cdc515209997d1d5d3c0a8fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81faea77ea06eda3508227d83f9f9b2c"><td class="memItemLeft" align="right" valign="top"><a id="a81faea77ea06eda3508227d83f9f9b2c" name="a81faea77ea06eda3508227d83f9f9b2c"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>resources_names</b> [<a class="el" href="server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01a71ebc62bf482ebe7f7c937fc2b7d7010">RESOURCES_SIZE</a>]</td></tr>
 <tr class="memdesc:a81faea77ea06eda3508227d83f9f9b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The names of the resources in the game. <br /></td></tr>
@@ -211,11 +228,38 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>resources_nam
 const double&#160;</td><td class="memItemRight" valign="bottom"><b>resources_densities</b> [<a class="el" href="server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01a71ebc62bf482ebe7f7c937fc2b7d7010">RESOURCES_SIZE</a>]</td></tr>
 <tr class="memdesc:a19d1d00ccca0124f6828d566e8a6ac5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The density of each resource in the game. <br /></td></tr>
 <tr class="separator:a19d1d00ccca0124f6828d566e8a6ac5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f76b1c818a54af5da814a8eafa86a52"><td class="memItemLeft" align="right" valign="top"><a id="a6f76b1c818a54af5da814a8eafa86a52" name="a6f76b1c818a54af5da814a8eafa86a52"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>orientation_names</b> []</td></tr>
+<tr class="separator:a6f76b1c818a54af5da814a8eafa86a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="server__data__structures_8h.html" title="The server_data_structures.h.">server_data_structures.h</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ae549bdb7c866157e3fb6a16f0c78219d" name="ae549bdb7c866157e3fb6a16f0c78219d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae549bdb7c866157e3fb6a16f0c78219d">&#9670;&nbsp;</a></span>client_type_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="server__data__structures_8h.html#ae549bdb7c866157e3fb6a16f0c78219d">client_type_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The type of client connected to the server. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae549bdb7c866157e3fb6a16f0c78219da414da040efdcb9bb9e35a96fbdc0ed23" name="ae549bdb7c866157e3fb6a16f0c78219da414da040efdcb9bb9e35a96fbdc0ed23"></a>CLIENT_AI&#160;</td><td class="fielddoc"><p >The client is an AI client. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae549bdb7c866157e3fb6a16f0c78219daaca3e6aa0be5840aa322677f108ca8e4" name="ae549bdb7c866157e3fb6a16f0c78219daaca3e6aa0be5840aa322677f108ca8e4"></a>CLIENT_GUI&#160;</td><td class="fielddoc"><p >The client is a GUI client. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae549bdb7c866157e3fb6a16f0c78219dadf34124357ec737a982bcc47dfd6f35a" name="ae549bdb7c866157e3fb6a16f0c78219dadf34124357ec737a982bcc47dfd6f35a"></a>CLIENT_SERVER&#160;</td><td class="fielddoc"><p >The client is the server itself. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <a id="a0946e64c8ac05ac1c9740a2375232ceb" name="a0946e64c8ac05ac1c9740a2375232ceb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0946e64c8ac05ac1c9740a2375232ceb">&#9670;&nbsp;</a></span>orientation_e</h2>
 

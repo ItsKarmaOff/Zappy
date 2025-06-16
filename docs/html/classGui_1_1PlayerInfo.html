@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('classGui_1_1PlayerInfo.html',''); init
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a871118a09520247c78a71ecd7b0abd58"><td class="memItemLeft" align="right" valign="top"><a id="a871118a09520247c78a71ecd7b0abd58" name="a871118a09520247c78a71ecd7b0abd58"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#a871118a09520247c78a71ecd7b0abd58">Orientation</a> { <b>NORTH</b>
+<tr class="memitem:a871118a09520247c78a71ecd7b0abd58"><td class="memItemLeft" align="right" valign="top"><a id="a871118a09520247c78a71ecd7b0abd58" name="a871118a09520247c78a71ecd7b0abd58"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#a871118a09520247c78a71ecd7b0abd58">Orientation</a> { <b>NORTH</b> = 1
 , <b>EAST</b>
 , <b>SOUTH</b>
 , <b>WEST</b>
@@ -142,7 +142,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5c371814fa8cc34395d72bee82acfd19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the level of the player.  <a href="classGui_1_1PlayerInfo.html#a5c371814fa8cc34395d72bee82acfd19">More...</a><br /></td></tr>
 <tr class="separator:a5c371814fa8cc34395d72bee82acfd19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2f9edd3b36c52cb3c14fd52846fe2ec"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structVector2.html">Vector2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#af2f9edd3b36c52cb3c14fd52846fe2ec">getPos</a> () const</td></tr>
-<tr class="memdesc:af2f9edd3b36c52cb3c14fd52846fe2ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the position of the player.  <a href="classGui_1_1PlayerInfo.html#af2f9edd3b36c52cb3c14fd52846fe2ec">More...</a><br /></td></tr>
+<tr class="memdesc:af2f9edd3b36c52cb3c14fd52846fe2ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the position of the player (tile position).  <a href="classGui_1_1PlayerInfo.html#af2f9edd3b36c52cb3c14fd52846fe2ec">More...</a><br /></td></tr>
 <tr class="separator:af2f9edd3b36c52cb3c14fd52846fe2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f2a0eb391046676368df8a465acec23"><td class="memItemLeft" align="right" valign="top">const std::map&lt; <a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>, size_t &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#a0f2a0eb391046676368df8a465acec23">getInventory</a> () const</td></tr>
 <tr class="memdesc:a0f2a0eb391046676368df8a465acec23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the inventory of the player.  <a href="classGui_1_1PlayerInfo.html#a0f2a0eb391046676368df8a465acec23">More...</a><br /></td></tr>
@@ -150,21 +150,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afdbc7b14aad874a1b2d2890e2681e2c6"><td class="memItemLeft" align="right" valign="top">const PlayerState &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#afdbc7b14aad874a1b2d2890e2681e2c6">getState</a> (void) const</td></tr>
 <tr class="memdesc:afdbc7b14aad874a1b2d2890e2681e2c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the State object.  <a href="classGui_1_1PlayerInfo.html#afdbc7b14aad874a1b2d2890e2681e2c6">More...</a><br /></td></tr>
 <tr class="separator:afdbc7b14aad874a1b2d2890e2681e2c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a132035c0062ad2b312c5caf86be65d10"><td class="memItemLeft" align="right" valign="top"><a id="a132035c0062ad2b312c5caf86be65d10" name="a132035c0062ad2b312c5caf86be65d10"></a>
-std::queue&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMessagesToBroadcast</b> (void)</td></tr>
-<tr class="separator:a132035c0062ad2b312c5caf86be65d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdb1e395d5eaadd60afc2aac6c7baa64"><td class="memItemLeft" align="right" valign="top"><a id="abdb1e395d5eaadd60afc2aac6c7baa64" name="abdb1e395d5eaadd60afc2aac6c7baa64"></a>
 const <a class="el" href="structColor.html">Color</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getColor</b> (void) const</td></tr>
 <tr class="separator:abdb1e395d5eaadd60afc2aac6c7baa64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a272e508bdc0a79827db75525215d30b1"><td class="memItemLeft" align="right" valign="top"><a id="a272e508bdc0a79827db75525215d30b1" name="a272e508bdc0a79827db75525215d30b1"></a>
-std::chrono::steady_clock::time_point &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getClock</b> (void)</td></tr>
-<tr class="separator:a272e508bdc0a79827db75525215d30b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bfc08d374c989786677f8a280b943db"><td class="memItemLeft" align="right" valign="top"><a id="a5bfc08d374c989786677f8a280b943db" name="a5bfc08d374c989786677f8a280b943db"></a>
-const bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>isBroadcasting</b> (void) const</td></tr>
-<tr class="separator:a5bfc08d374c989786677f8a280b943db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae452441a808d036705a95f67eb23000d"><td class="memItemLeft" align="right" valign="top"><a id="ae452441a808d036705a95f67eb23000d" name="ae452441a808d036705a95f67eb23000d"></a>
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTeamName</b> (void) const</td></tr>
 <tr class="separator:ae452441a808d036705a95f67eb23000d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca0a8c67ca0869513f14883398034841"><td class="memItemLeft" align="right" valign="top"><a id="aca0a8c67ca0869513f14883398034841" name="aca0a8c67ca0869513f14883398034841"></a>
+const bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>isSelected</b> (void) const</td></tr>
+<tr class="separator:aca0a8c67ca0869513f14883398034841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a641eab52ce421ea254650d786b2edd14"><td class="memItemLeft" align="right" valign="top"><a id="a641eab52ce421ea254650d786b2edd14" name="a641eab52ce421ea254650d786b2edd14"></a>
+bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>isSelected</b> (void)</td></tr>
+<tr class="separator:a641eab52ce421ea254650d786b2edd14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b3e72d459245ad871a4c691ee323e1f"><td class="memItemLeft" align="right" valign="top"><a id="a0b3e72d459245ad871a4c691ee323e1f" name="a0b3e72d459245ad871a4c691ee323e1f"></a>
+const bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>isIncanting</b> (void) const</td></tr>
+<tr class="separator:a0b3e72d459245ad871a4c691ee323e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ac5f97324aa32c1812468693906a80c"><td class="memItemLeft" align="right" valign="top"><a id="a0ac5f97324aa32c1812468693906a80c" name="a0ac5f97324aa32c1812468693906a80c"></a>
+bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>isIncanting</b> (void)</td></tr>
+<tr class="separator:a0ac5f97324aa32c1812468693906a80c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dc41c3c2630da8b872ae1c1a2ab94f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#a6dc41c3c2630da8b872ae1c1a2ab94f2">setOrientation</a> (<a class="el" href="classGui_1_1PlayerInfo.html#a871118a09520247c78a71ecd7b0abd58">Orientation</a> orientation)</td></tr>
 <tr class="memdesc:a6dc41c3c2630da8b872ae1c1a2ab94f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the orientation of the player.  <a href="classGui_1_1PlayerInfo.html#a6dc41c3c2630da8b872ae1c1a2ab94f2">More...</a><br /></td></tr>
 <tr class="separator:a6dc41c3c2630da8b872ae1c1a2ab94f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,18 +189,33 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ge
 <tr class="memitem:a8f9227d43a49b5c5420a7c0b7fe9f408"><td class="memItemLeft" align="right" valign="top"><a id="a8f9227d43a49b5c5420a7c0b7fe9f408" name="a8f9227d43a49b5c5420a7c0b7fe9f408"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setColor</b> (<a class="el" href="structColor.html">Color</a> color)</td></tr>
 <tr class="separator:a8f9227d43a49b5c5420a7c0b7fe9f408"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaeaf3c3bee8ac52798bd300354c29eef"><td class="memItemLeft" align="right" valign="top"><a id="aaeaf3c3bee8ac52798bd300354c29eef" name="aaeaf3c3bee8ac52798bd300354c29eef"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setBroadcasting</b> (bool broadcasting)</td></tr>
-<tr class="separator:aaeaf3c3bee8ac52798bd300354c29eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7eaa255e8d037af27125fdc6e72c48dc"><td class="memItemLeft" align="right" valign="top"><a id="a7eaa255e8d037af27125fdc6e72c48dc" name="a7eaa255e8d037af27125fdc6e72c48dc"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setTeamName</b> (std::string teamName_)</td></tr>
 <tr class="separator:a7eaa255e8d037af27125fdc6e72c48dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad42accd39af295a957386c68dac3dcae"><td class="memItemLeft" align="right" valign="top"><a id="ad42accd39af295a957386c68dac3dcae" name="ad42accd39af295a957386c68dac3dcae"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSelected</b> (bool selected)</td></tr>
+<tr class="separator:ad42accd39af295a957386c68dac3dcae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a832505fd7e0d728c00b6f96b59c3fdd4"><td class="memItemLeft" align="right" valign="top"><a id="a832505fd7e0d728c00b6f96b59c3fdd4" name="a832505fd7e0d728c00b6f96b59c3fdd4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setIncanting</b> (bool incanting)</td></tr>
+<tr class="separator:a832505fd7e0d728c00b6f96b59c3fdd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ddad6d980b406fc680f483809bffc83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#a3ddad6d980b406fc680f483809bffc83">addResource</a> (<a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> type, size_t quantity)</td></tr>
 <tr class="memdesc:a3ddad6d980b406fc680f483809bffc83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a resource to the player's inventory.  <a href="classGui_1_1PlayerInfo.html#a3ddad6d980b406fc680f483809bffc83">More...</a><br /></td></tr>
 <tr class="separator:a3ddad6d980b406fc680f483809bffc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca9d8a1467ce9fa3c127a8b540ef2df3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PlayerInfo.html#aca9d8a1467ce9fa3c127a8b540ef2df3">removeResource</a> (<a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> type, size_t quantity)</td></tr>
 <tr class="memdesc:aca9d8a1467ce9fa3c127a8b540ef2df3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a resource from the player's inventory.  <a href="classGui_1_1PlayerInfo.html#aca9d8a1467ce9fa3c127a8b540ef2df3">More...</a><br /></td></tr>
 <tr class="separator:aca9d8a1467ce9fa3c127a8b540ef2df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc6a61f84041fc7e6e51bad5e42f026a"><td class="memItemLeft" align="right" valign="top"><a id="afc6a61f84041fc7e6e51bad5e42f026a" name="afc6a61f84041fc7e6e51bad5e42f026a"></a>
+const <a class="el" href="structVector3.html">Vector3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getModelPos</b> (void) const</td></tr>
+<tr class="separator:afc6a61f84041fc7e6e51bad5e42f026a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab641f52fc6c7754e386652e1a5373219"><td class="memItemLeft" align="right" valign="top"><a id="ab641f52fc6c7754e386652e1a5373219" name="ab641f52fc6c7754e386652e1a5373219"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setModelPos</b> (const <a class="el" href="structVector3.html">Vector3</a> &amp;pos)</td></tr>
+<tr class="separator:ab641f52fc6c7754e386652e1a5373219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0109f20f753e6122d8faef2553e27a4c"><td class="memItemLeft" align="right" valign="top"><a id="a0109f20f753e6122d8faef2553e27a4c" name="a0109f20f753e6122d8faef2553e27a4c"></a>
+const <a class="el" href="structMatrix.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getModelTransform</b> (void) const</td></tr>
+<tr class="separator:a0109f20f753e6122d8faef2553e27a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd8e70d99a6acf5f13e8643a25cb846c"><td class="memItemLeft" align="right" valign="top"><a id="afd8e70d99a6acf5f13e8643a25cb846c" name="afd8e70d99a6acf5f13e8643a25cb846c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setModelTransform</b> (const <a class="el" href="structMatrix.html">Matrix</a> &amp;transform)</td></tr>
+<tr class="separator:afd8e70d99a6acf5f13e8643a25cb846c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="classGui_1_1PlayerInfo.html" title="The PlayerInfo class represents a player in the game with position, orientation, level and inventory.">PlayerInfo</a> class represents a player in the game with position, orientation, level and inventory. </p>
@@ -314,7 +332,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setTeamName</b> (std:
       </table>
 </div><div class="memdoc">
 
-<p>Get the position of the player. </p>
+<p>Get the position of the player (tile position). </p>
 <dl class="section return"><dt>Returns</dt><dd>The position of the player </dd></dl>
 
 </div>

@@ -139,10 +139,10 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>FREE_WORD_ARRAY</b>(ptr)&#160;&#160;&#160;<a class="el" href="my__free__array_8c.html#ab2e552192501c66d109c9f9b1a7438fd">my_free_array</a>((void **)ptr)</td></tr>
 <tr class="separator:a197c22bcd714edc4c556629900a3e4f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a794fb426d9efc20daf787678edfeaf98"><td class="memItemLeft" align="right" valign="top"><a id="a794fb426d9efc20daf787678edfeaf98" name="a794fb426d9efc20daf787678edfeaf98"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MA</b>(type,  func, ...)&#160;&#160;&#160;(<a class="el" href="my__update__malloc_8c.html#af6cd0c8bfa69e5530a827131eb25e1ba">my_update_malloc</a>(type), func(__VA_ARGS__))</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MA</b>(type,  func, ...)&#160;&#160;&#160;(<a class="el" href="my__update__malloc_8c.html#a1f22e6eca067e45c55a45e4067505a3f">my_update_malloc</a>(type), func(__VA_ARGS__))</td></tr>
 <tr class="separator:a794fb426d9efc20daf787678edfeaf98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25ea1686940daa6094f9f2ab635add57"><td class="memItemLeft" align="right" valign="top"><a id="a25ea1686940daa6094f9f2ab635add57" name="a25ea1686940daa6094f9f2ab635add57"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>AL</b>(type,  func, ...)&#160;&#160;&#160;(<a class="el" href="my__update__alloc_8c.html#a781fe2c9bfe08a3fdc08932222ed636c">my_update_alloc</a>(type), func(__VA_ARGS__))</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AL</b>(type,  func, ...)&#160;&#160;&#160;(<a class="el" href="my__update__alloc_8c.html#afe15433312d1e3b1e0cd91e52719b2b3">my_update_alloc</a>(type), func(__VA_ARGS__))</td></tr>
 <tr class="separator:a25ea1686940daa6094f9f2ab635add57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ad8063d86b221f7c4ccc9a753be5676"><td class="memItemLeft" align="right" valign="top"><a id="a7ad8063d86b221f7c4ccc9a753be5676" name="a7ad8063d86b221f7c4ccc9a753be5676"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>CAST_FREE_FUNC</b>&#160;&#160;&#160;(void (*)(void *))</td></tr>
@@ -154,16 +154,19 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>POINT</b>&#160;&#160;&#160;<a class="el" href="my__point_8c.html#a91a35fa2a80e87c31337970c4d0d9ffe">my_point</a>(POINT_STRUCT)</td></tr>
 <tr class="separator:a43011aabc923f9b33f1f51dc03b23539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cac31129e83905c4c78b86e2f84c5da"><td class="memItemLeft" align="right" valign="top"><a id="a5cac31129e83905c4c78b86e2f84c5da" name="a5cac31129e83905c4c78b86e2f84c5da"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG</b>(type,  message)&#160;&#160;&#160;<a class="el" href="my__logs__message_8c.html#aa430dfc60bec8e99bcdb068dfdbc7e44">my_logs_message</a>(POINT_STRUCT, type, message)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG</b>(type,  <a class="el" href="structmessage.html">message</a>)&#160;&#160;&#160;<a class="el" href="my__logs__message_8c.html#aa430dfc60bec8e99bcdb068dfdbc7e44">my_logs_message</a>(POINT_STRUCT, type, <a class="el" href="structmessage.html">message</a>)</td></tr>
 <tr class="separator:a5cac31129e83905c4c78b86e2f84c5da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a809f816dd6df4e17499413cff1926fd4"><td class="memItemLeft" align="right" valign="top"><a id="a809f816dd6df4e17499413cff1926fd4" name="a809f816dd6df4e17499413cff1926fd4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>INFO</b>(<a class="el" href="structmessage.html">message</a>)&#160;&#160;&#160;LOG(LOGS_NONE, <a class="el" href="structmessage.html">message</a>)</td></tr>
+<tr class="separator:a809f816dd6df4e17499413cff1926fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab94a24f0a37b3963eb64f201cebf60a9"><td class="memItemLeft" align="right" valign="top"><a id="ab94a24f0a37b3963eb64f201cebf60a9" name="ab94a24f0a37b3963eb64f201cebf60a9"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEBUG</b>(message)&#160;&#160;&#160;LOG(LOGS_DEBUG, message)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEBUG</b>(<a class="el" href="structmessage.html">message</a>)&#160;&#160;&#160;LOG(LOGS_DEBUG, <a class="el" href="structmessage.html">message</a>)</td></tr>
 <tr class="separator:ab94a24f0a37b3963eb64f201cebf60a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae225ab718bd4f5e2221129f026d3d8f1"><td class="memItemLeft" align="right" valign="top"><a id="ae225ab718bd4f5e2221129f026d3d8f1" name="ae225ab718bd4f5e2221129f026d3d8f1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>ERROR</b>(message)&#160;&#160;&#160;LOG(LOGS_ERROR, message)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ERROR</b>(<a class="el" href="structmessage.html">message</a>)&#160;&#160;&#160;LOG(LOGS_ERROR, <a class="el" href="structmessage.html">message</a>)</td></tr>
 <tr class="separator:ae225ab718bd4f5e2221129f026d3d8f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf99b8fcaa4b837f684ea0505ed34487"><td class="memItemLeft" align="right" valign="top"><a id="aaf99b8fcaa4b837f684ea0505ed34487" name="aaf99b8fcaa4b837f684ea0505ed34487"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>WARNING</b>(message)&#160;&#160;&#160;LOG(LOGS_WARNING, message)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>WARNING</b>(<a class="el" href="structmessage.html">message</a>)&#160;&#160;&#160;LOG(LOGS_WARNING, <a class="el" href="structmessage.html">message</a>)</td></tr>
 <tr class="separator:aaf99b8fcaa4b837f684ea0505ed34487"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

@@ -16,5 +16,7 @@ var dir_27af2f0d19ca6bc5ae5478b6fde96c3e =
     [ "my_show_param_array.c", "my__show__param__array_8c.html", "my__show__param__array_8c" ],
     [ "my_show_word_array.c", "my__show__word__array_8c.html", "my__show__word__array_8c" ],
     [ "my_showmem.c", "my__showmem_8c.html", "my__showmem_8c" ],
-    [ "my_showstr.c", "my__showstr_8c.html", "my__showstr_8c" ]
+    [ "my_showstr.c", "my__showstr_8c.html", "my__showstr_8c" ],
+    [ "my_update_debug_mode.c", "my__update__debug__mode_8c.html", "my__update__debug__mode_8c" ],
+    [ "my_update_extra_logs.c", "my__update__extra__logs_8c.html", "my__update__extra__logs_8c" ]
 ];

@@ -90,18 +90,63 @@ $(document).ready(function(){initNavTree('eject_8c.html',''); initResizable(); }
 
 <p>The <a class="el" href="eject_8c.html" title="The eject.c.">eject.c</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="ai_8h_source.html">commands/ai.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="commands__ai_8h_source.html">commands/commands_ai.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a24b9d34a4a0047e5f3cf18280dfb1a25"><td class="memItemLeft" align="right" valign="top"><a id="a24b9d34a4a0047e5f3cf18280dfb1a25" name="a24b9d34a4a0047e5f3cf18280dfb1a25"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>handle_command_eject</b> (UNUSED <a class="el" href="structserver__s.html">server_t</a> *server, UNUSED <a class="el" href="structclient__s.html">client_t</a> *client, UNUSED char **args)</td></tr>
-<tr class="separator:a24b9d34a4a0047e5f3cf18280dfb1a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a472c7613c1c2f72eeb043060e078f345"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eject_8c.html#a472c7613c1c2f72eeb043060e078f345">handle_ai_command_eject</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client, char **args)</td></tr>
+<tr class="memdesc:a472c7613c1c2f72eeb043060e078f345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the "Eject" command for AI clients.  <a href="eject_8c.html#a472c7613c1c2f72eeb043060e078f345">More...</a><br /></td></tr>
+<tr class="separator:a472c7613c1c2f72eeb043060e078f345"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="eject_8c.html" title="The eject.c.">eject.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a472c7613c1c2f72eeb043060e078f345" name="a472c7613c1c2f72eeb043060e078f345"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a472c7613c1c2f72eeb043060e078f345">&#9670;&nbsp;</a></span>handle_ai_command_eject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void handle_ai_command_eject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles the "Eject" command for AI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">client</td><td>The client instance </td></tr>
+    <tr><td class="paramname">args</td><td>The arguments passed with the command </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

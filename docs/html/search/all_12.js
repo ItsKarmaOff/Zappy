@@ -1,8 +1,26 @@
 var searchData=
 [
-  ['update_5fgame_0',['update_game',['../game_8h.html#a0506714c51062ff04c267a57d6dfb56d',1,'game.h']]],
-  ['update_5forientation_5ffunc_1',['update_orientation_func',['../structupdate__orientation__s.html#a14cb637ff176628e0b87fe6072d37bcd',1,'update_orientation_s']]],
-  ['update_5forientation_5fs_2',['update_orientation_s',['../structupdate__orientation__s.html',1,'']]],
-  ['update_5fplayer_3',['update_player',['../game_8h.html#a91cd566d959621c4d232c2c385896b64',1,'update_player(server_t *server, player_t *player, node_t **dead_players):&#160;players.c'],['../players_8c.html#a91cd566d959621c4d232c2c385896b64',1,'update_player(server_t *server, player_t *player, node_t **dead_players):&#160;players.c']]],
-  ['update_5fsign_5fattributes_4',['update_sign_attributes',['../functions_8h.html#a0569090e01428560567ba02702232d9c',1,'update_sign_attributes(format_t *str_struct, long double nb):&#160;attributes.c'],['../attributes_8c.html#a0569090e01428560567ba02702232d9c',1,'update_sign_attributes(format_t *str_struct, long double nb):&#160;attributes.c']]]
+  ['take_2ec_0',['take.c',['../take_8c.html',1,'']]],
+  ['team_1',['team',['../structplayer__s.html#a5325fd4025c743c6a254dc0e819ca5c1',1,'player_s']]],
+  ['team_2ec_2',['team.c',['../team_8c.html',1,'']]],
+  ['team_5flist_3',['team_list',['../structgame__s.html#ad976bc913de580407e94c07989afed8a',1,'game_s']]],
+  ['team_5fname_4',['team_name',['../structclient__s.html#aaa1dce31be8b072b60a3182342b05999',1,'client_s']]],
+  ['team_5fname_5flist_5',['team_name_list',['../structparsing__s.html#aed426ec1aa21dd5ae3cd21fe4ffa1ab8',1,'parsing_s']]],
+  ['team_5fs_6',['team_s',['../structteam__s.html',1,'']]],
+  ['teaminfo_7',['TeamInfo',['../classGui_1_1TeamInfo.html',1,'Gui']]],
+  ['teams_2ec_8',['teams.c',['../commands_2from__server_2teams_8c.html',1,'(Global Namespace)'],['../game_2teams_8c.html',1,'(Global Namespace)']]],
+  ['teams_5fnumber_9',['teams_number',['../structgame__settings__s.html#ae19a77790185a9cd36970e59c9dc6b76',1,'game_settings_s']]],
+  ['texture_10',['Texture',['../structTexture.html',1,'']]],
+  ['thystame_11',['THYSTAME',['../server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01ae4ec89137c3adb98896a1beead6cf185',1,'server_data_structures.h']]],
+  ['tile_2ec_12',['tile.c',['../tile_8c.html',1,'']]],
+  ['tile_5fs_13',['tile_s',['../structtile__s.html',1,'']]],
+  ['tileinfo_14',['TileInfo',['../classGui_1_1TileInfo.html',1,'Gui']]],
+  ['time_15',['Time',['../classLib_1_1Logs_1_1Time.html',1,'Lib::Logs']]],
+  ['time_5fto_5fwait_16',['time_to_wait',['../structaction__s.html#a5c9660da4d3d16cf5dfdccc29989a92c',1,'action_s::time_to_wait()'],['../structcommand__s.html#a5c9660da4d3d16cf5dfdccc29989a92c',1,'command_s::time_to_wait()']]],
+  ['tmp_5fmalloc_5fstate_17',['tmp_malloc_state',['../functions_8h.html#a269e57f87660ddd640fb2fc82ca495b5',1,'tmp_malloc_state(my_bool_t set):&#160;my_update_alloc.c'],['../my__update__alloc_8c.html#a269e57f87660ddd640fb2fc82ca495b5',1,'tmp_malloc_state(my_bool_t set):&#160;my_update_alloc.c']]],
+  ['tna_2ec_18',['tna.c',['../from__gui_2tna_8c.html',1,'(Global Namespace)'],['../to__gui_2tna_8c.html',1,'(Global Namespace)']]],
+  ['tolower_19',['toLower',['../Lib_8hpp.html#a96432d89bc886bc9cdd1d73f86b2bbca',1,'Lib']]],
+  ['tp_2ec_20',['tp.c',['../tp_8c.html',1,'']]],
+  ['transform_21',['Transform',['../structTransform.html',1,'']]],
+  ['type_22',['type',['../structoption__s.html#a2c81d907bd594546bb57660a5a638874',1,'option_s']]]
 ];

@@ -103,80 +103,84 @@ $(document).ready(function(){initNavTree('network_8h_source.html',''); initResiz
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#aada73ba907b4bb9e21cdd0eabd0e7112">start_server</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server);</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/* Polling functions */</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#ae28bf8216a6f4a9cd49d5e25e0fb303b">analyse_poll</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <span class="keywordtype">size_t</span> index);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">/* Remove client functions */</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#aa311f169d6c14986672b1f2e85c40e0d">remove_client</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <span class="keywordtype">size_t</span> index);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">/* Write client functions */</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#a48e0709f9367d33b4f14b8c807ced000">authenticate_client</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <span class="keywordtype">size_t</span> index);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#ace09bba3aaf850ac20d6bc1dd6c1a703">write_client_action</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <span class="keywordtype">size_t</span> index);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">/* Read client functions */</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keywordtype">char</span> *<a class="code hl_function" href="network_8h.html#acc320763d6d013bbc7a1fb5de1df3f44">get_response</a>(<span class="keywordtype">int</span> socket_fd);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#abd3e4044e1e148eac99945962061fad2">read_client_action</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <span class="keywordtype">size_t</span> index);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">/* Add new client functions */</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#abca66d4f6115c95c880ee5bc7bd9dce4">add_new_client</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">char</span> *<a class="code hl_function" href="network_8h.html#ae132f49313f0c975d2225550b4e43304">get_ip_address</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">/* Polling functions */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#ae28bf8216a6f4a9cd49d5e25e0fb303b">analyse_poll</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <span class="keywordtype">size_t</span> index);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">/* Remove client functions */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#aa311f169d6c14986672b1f2e85c40e0d">remove_client</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <span class="keywordtype">size_t</span> index);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">/* Write client functions */</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#a48e0709f9367d33b4f14b8c807ced000">authenticate_client</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <span class="keywordtype">size_t</span> index);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#ace09bba3aaf850ac20d6bc1dd6c1a703">write_client_action</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <span class="keywordtype">size_t</span> index);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">/* Read client functions */</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keywordtype">char</span> *<a class="code hl_function" href="network_8h.html#acc320763d6d013bbc7a1fb5de1df3f44">get_response</a>(<span class="keywordtype">int</span> socket_fd);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#abd3e4044e1e148eac99945962061fad2">read_client_action</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <span class="keywordtype">size_t</span> index);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">/* Add new client functions */</span></div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">/* Send message to GUI functions */</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#ae6e651e58b0db2e511e582d4fb18806c">send_message_to_gui</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <span class="keyword">const</span> <span class="keywordtype">char</span> *message);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">/* Clients */</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#a49a3683fb6560cbc2d4d1777742f12dd">destroy_client</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <a class="code hl_struct" href="structclient__s.html">client_t</a> *client);</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#a78cb8131561b4d698b5a659e3e488f55">destroy_clients</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server);</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#a3a56304d07f0def9dbdef94a4b34c8d7">resize_client_list</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <span class="keywordtype">size_t</span> new_size);</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#adf5b3db475ec8a519709c79ecae1e12b">execute_actions</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server);</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keywordtype">size_t</span> <a class="code hl_function" href="network_8h.html#a27a79b52f6ca524f0c9a0dacdcc18ff6">get_client_index</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <a class="code hl_struct" href="structclient__s.html">client_t</a> *client);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#abca66d4f6115c95c880ee5bc7bd9dce4">add_new_client</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">/* Send message to GUI functions */</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#ae6e651e58b0db2e511e582d4fb18806c">send_message_to_gui</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_struct" href="structmessage.html">message</a>);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">/* Clients */</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#a589c3bd58221719c58248464620d22c3">destroy_client</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <a class="code hl_struct" href="structclient__s.html">client_t</a> *client, <span class="keywordtype">bool</span> is_closing);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#a78cb8131561b4d698b5a659e3e488f55">destroy_clients</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#a3a56304d07f0def9dbdef94a4b34c8d7">resize_client_list</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <span class="keywordtype">size_t</span> new_size);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keywordtype">void</span> <a class="code hl_function" href="network_8h.html#adf5b3db475ec8a519709c79ecae1e12b">execute_actions</a>(<a class="code hl_struct" href="structserver__s.html">server_t</a> *server);</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="preprocessor">#endif </span><span class="comment">/* NETWORK_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keywordtype">size_t</span> <a class="code hl_function" href="network_8h.html#a27a79b52f6ca524f0c9a0dacdcc18ff6">get_client_index</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structserver__s.html">server_t</a> *server, <a class="code hl_struct" href="structclient__s.html">client_t</a> *client);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="preprocessor">#endif </span><span class="comment">/* NETWORK_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="acommands_8h_html"><div class="ttname"><a href="commands_8h.html">commands.h</a></div><div class="ttdoc">The commands.h.</div></div>
 <div class="ttc" id="agame_8h_html"><div class="ttname"><a href="game_8h.html">game.h</a></div><div class="ttdoc">The game.h.</div></div>
-<div class="ttc" id="anetwork_8h_html_a27a79b52f6ca524f0c9a0dacdcc18ff6"><div class="ttname"><a href="network_8h.html#a27a79b52f6ca524f0c9a0dacdcc18ff6">get_client_index</a></div><div class="ttdeci">size_t get_client_index(const server_t *server, client_t *client)</div><div class="ttdoc">Get the index of a client in the server's client list.</div><div class="ttdef"><b>Definition:</b> clients.c:50</div></div>
-<div class="ttc" id="anetwork_8h_html_a3a56304d07f0def9dbdef94a4b34c8d7"><div class="ttname"><a href="network_8h.html#a3a56304d07f0def9dbdef94a4b34c8d7">resize_client_list</a></div><div class="ttdeci">void resize_client_list(server_t *server, size_t new_size)</div><div class="ttdoc">Resize the client list.</div><div class="ttdef"><b>Definition:</b> clients.c:39</div></div>
+<div class="ttc" id="anetwork_8h_html_a27a79b52f6ca524f0c9a0dacdcc18ff6"><div class="ttname"><a href="network_8h.html#a27a79b52f6ca524f0c9a0dacdcc18ff6">get_client_index</a></div><div class="ttdeci">size_t get_client_index(const server_t *server, client_t *client)</div><div class="ttdoc">Get the index of a client in the server's client list.</div><div class="ttdef"><b>Definition:</b> clients.c:54</div></div>
+<div class="ttc" id="anetwork_8h_html_a3a56304d07f0def9dbdef94a4b34c8d7"><div class="ttname"><a href="network_8h.html#a3a56304d07f0def9dbdef94a4b34c8d7">resize_client_list</a></div><div class="ttdeci">void resize_client_list(server_t *server, size_t new_size)</div><div class="ttdoc">Resize the client list.</div><div class="ttdef"><b>Definition:</b> clients.c:43</div></div>
 <div class="ttc" id="anetwork_8h_html_a48e0709f9367d33b4f14b8c807ced000"><div class="ttname"><a href="network_8h.html#a48e0709f9367d33b4f14b8c807ced000">authenticate_client</a></div><div class="ttdeci">void authenticate_client(server_t *server, size_t index)</div><div class="ttdoc">Authenticate a client.</div><div class="ttdef"><b>Definition:</b> authenticate_client.c:117</div></div>
-<div class="ttc" id="anetwork_8h_html_a49a3683fb6560cbc2d4d1777742f12dd"><div class="ttname"><a href="network_8h.html#a49a3683fb6560cbc2d4d1777742f12dd">destroy_client</a></div><div class="ttdeci">void destroy_client(server_t *server, client_t *client)</div><div class="ttdoc">Destroy a client.</div><div class="ttdef"><b>Definition:</b> clients.c:15</div></div>
-<div class="ttc" id="anetwork_8h_html_a78cb8131561b4d698b5a659e3e488f55"><div class="ttname"><a href="network_8h.html#a78cb8131561b4d698b5a659e3e488f55">destroy_clients</a></div><div class="ttdeci">void destroy_clients(server_t *server)</div><div class="ttdoc">Destroy all clients in the server.</div><div class="ttdef"><b>Definition:</b> clients.c:28</div></div>
+<div class="ttc" id="anetwork_8h_html_a589c3bd58221719c58248464620d22c3"><div class="ttname"><a href="network_8h.html#a589c3bd58221719c58248464620d22c3">destroy_client</a></div><div class="ttdeci">void destroy_client(server_t *server, client_t *client, bool is_closing)</div><div class="ttdoc">Destroy a client.</div><div class="ttdef"><b>Definition:</b> clients.c:15</div></div>
+<div class="ttc" id="anetwork_8h_html_a78cb8131561b4d698b5a659e3e488f55"><div class="ttname"><a href="network_8h.html#a78cb8131561b4d698b5a659e3e488f55">destroy_clients</a></div><div class="ttdeci">void destroy_clients(server_t *server)</div><div class="ttdoc">Destroy all clients in the server.</div><div class="ttdef"><b>Definition:</b> clients.c:31</div></div>
 <div class="ttc" id="anetwork_8h_html_aa311f169d6c14986672b1f2e85c40e0d"><div class="ttname"><a href="network_8h.html#aa311f169d6c14986672b1f2e85c40e0d">remove_client</a></div><div class="ttdeci">void remove_client(server_t *server, size_t index)</div><div class="ttdoc">Remove a client from the server.</div><div class="ttdef"><b>Definition:</b> remove_client.c:15</div></div>
-<div class="ttc" id="anetwork_8h_html_aada73ba907b4bb9e21cdd0eabd0e7112"><div class="ttname"><a href="network_8h.html#aada73ba907b4bb9e21cdd0eabd0e7112">start_server</a></div><div class="ttdeci">void start_server(server_t *server)</div><div class="ttdoc">Configure and start the server.</div><div class="ttdef"><b>Definition:</b> start_server.c:25</div></div>
+<div class="ttc" id="anetwork_8h_html_aada73ba907b4bb9e21cdd0eabd0e7112"><div class="ttname"><a href="network_8h.html#aada73ba907b4bb9e21cdd0eabd0e7112">start_server</a></div><div class="ttdeci">void start_server(server_t *server)</div><div class="ttdoc">Configure and start the server.</div><div class="ttdef"><b>Definition:</b> start_server.c:36</div></div>
 <div class="ttc" id="anetwork_8h_html_abca66d4f6115c95c880ee5bc7bd9dce4"><div class="ttname"><a href="network_8h.html#abca66d4f6115c95c880ee5bc7bd9dce4">add_new_client</a></div><div class="ttdeci">void add_new_client(server_t *server)</div><div class="ttdoc">Add a new client to the server.</div><div class="ttdef"><b>Definition:</b> add_new_client.c:26</div></div>
 <div class="ttc" id="anetwork_8h_html_abd3e4044e1e148eac99945962061fad2"><div class="ttname"><a href="network_8h.html#abd3e4044e1e148eac99945962061fad2">read_client_action</a></div><div class="ttdeci">void read_client_action(server_t *server, size_t index)</div><div class="ttdoc">Read the action of a client.</div><div class="ttdef"><b>Definition:</b> read_client_action.c:92</div></div>
 <div class="ttc" id="anetwork_8h_html_acc320763d6d013bbc7a1fb5de1df3f44"><div class="ttname"><a href="network_8h.html#acc320763d6d013bbc7a1fb5de1df3f44">get_response</a></div><div class="ttdeci">char * get_response(int socket_fd)</div><div class="ttdoc">Get the response from a client.</div><div class="ttdef"><b>Definition:</b> get_response.c:29</div></div>
-<div class="ttc" id="anetwork_8h_html_ace09bba3aaf850ac20d6bc1dd6c1a703"><div class="ttname"><a href="network_8h.html#ace09bba3aaf850ac20d6bc1dd6c1a703">write_client_action</a></div><div class="ttdeci">void write_client_action(server_t *server, size_t index)</div><div class="ttdoc">Write the action of a client.</div><div class="ttdef"><b>Definition:</b> write_client_action.c:145</div></div>
+<div class="ttc" id="anetwork_8h_html_ace09bba3aaf850ac20d6bc1dd6c1a703"><div class="ttname"><a href="network_8h.html#ace09bba3aaf850ac20d6bc1dd6c1a703">write_client_action</a></div><div class="ttdeci">void write_client_action(server_t *server, size_t index)</div><div class="ttdoc">Write the action of a client.</div><div class="ttdef"><b>Definition:</b> write_client_action.c:183</div></div>
 <div class="ttc" id="anetwork_8h_html_adf5b3db475ec8a519709c79ecae1e12b"><div class="ttname"><a href="network_8h.html#adf5b3db475ec8a519709c79ecae1e12b">execute_actions</a></div><div class="ttdeci">void execute_actions(server_t *server)</div><div class="ttdoc">Execute actions for all clients.</div><div class="ttdef"><b>Definition:</b> execute_actions.c:15</div></div>
+<div class="ttc" id="anetwork_8h_html_ae132f49313f0c975d2225550b4e43304"><div class="ttname"><a href="network_8h.html#ae132f49313f0c975d2225550b4e43304">get_ip_address</a></div><div class="ttdeci">char * get_ip_address(void)</div><div class="ttdoc">Get the IP address of the server.</div><div class="ttdef"><b>Definition:</b> get_ip.c:29</div></div>
 <div class="ttc" id="anetwork_8h_html_ae28bf8216a6f4a9cd49d5e25e0fb303b"><div class="ttname"><a href="network_8h.html#ae28bf8216a6f4a9cd49d5e25e0fb303b">analyse_poll</a></div><div class="ttdeci">void analyse_poll(server_t *server, size_t index)</div><div class="ttdoc">Analyse the poll events for a specific client.</div><div class="ttdef"><b>Definition:</b> analyse_poll.c:15</div></div>
 <div class="ttc" id="anetwork_8h_html_ae6e651e58b0db2e511e582d4fb18806c"><div class="ttname"><a href="network_8h.html#ae6e651e58b0db2e511e582d4fb18806c">send_message_to_gui</a></div><div class="ttdeci">void send_message_to_gui(server_t *server, const char *message)</div><div class="ttdoc">Send a message to all GUI clients.</div><div class="ttdef"><b>Definition:</b> send_message_to_gui.c:15</div></div>
-<div class="ttc" id="astructclient__s_html"><div class="ttname"><a href="structclient__s.html">client_s</a></div><div class="ttdoc">A structure representing a client connected to the server.</div><div class="ttdef"><b>Definition:</b> server_data_structures.h:217</div></div>
-<div class="ttc" id="astructserver__s_html"><div class="ttname"><a href="structserver__s.html">server_s</a></div><div class="ttdoc">A structure representing the server.</div><div class="ttdef"><b>Definition:</b> server_data_structures.h:245</div></div>
+<div class="ttc" id="astructclient__s_html"><div class="ttname"><a href="structclient__s.html">client_s</a></div><div class="ttdoc">A structure representing a client connected to the server.</div><div class="ttdef"><b>Definition:</b> server_data_structures.h:235</div></div>
+<div class="ttc" id="astructmessage_html"><div class="ttname"><a href="structmessage.html">message</a></div><div class="ttdef"><b>Definition:</b> Chatbox.hpp:18</div></div>
+<div class="ttc" id="astructserver__s_html"><div class="ttname"><a href="structserver__s.html">server_s</a></div><div class="ttdoc">A structure representing the server.</div><div class="ttdef"><b>Definition:</b> server_data_structures.h:263</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

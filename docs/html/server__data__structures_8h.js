@@ -10,6 +10,11 @@ var server__data__structures_8h =
     [ "command_s", "structcommand__s.html", "structcommand__s" ],
     [ "client_s", "structclient__s.html", "structclient__s" ],
     [ "server_s", "structserver__s.html", "structserver__s" ],
+    [ "client_type_e", "server__data__structures_8h.html#ae549bdb7c866157e3fb6a16f0c78219d", [
+      [ "CLIENT_AI", "server__data__structures_8h.html#ae549bdb7c866157e3fb6a16f0c78219da414da040efdcb9bb9e35a96fbdc0ed23", null ],
+      [ "CLIENT_GUI", "server__data__structures_8h.html#ae549bdb7c866157e3fb6a16f0c78219daaca3e6aa0be5840aa322677f108ca8e4", null ],
+      [ "CLIENT_SERVER", "server__data__structures_8h.html#ae549bdb7c866157e3fb6a16f0c78219dadf34124357ec737a982bcc47dfd6f35a", null ]
+    ] ],
     [ "orientation_e", "server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232ceb", [
       [ "NORTH", "server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232cebad0611de6f28d4a9c9eac959f5344698e", null ],
       [ "EAST", "server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232cebab5b3793b961949c817c7c0d99c05dad7", null ],
@@ -26,8 +31,10 @@ var server__data__structures_8h =
       [ "THYSTAME", "server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01ae4ec89137c3adb98896a1beead6cf185", null ],
       [ "RESOURCES_SIZE", "server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01a71ebc62bf482ebe7f7c937fc2b7d7010", null ]
     ] ],
+    [ "commands", "server__data__structures_8h.html#aed602511cdc515209997d1d5d3c0a8fd", null ],
     [ "commands_ai", "server__data__structures_8h.html#a9232cd39de42fd94e9dc12428f994667", null ],
     [ "commands_gui", "server__data__structures_8h.html#a4c465063f2423532e81f0c074d46dffb", null ],
+    [ "commands_server", "server__data__structures_8h.html#a9603b1d2a3881cf15d42131928bcd4d9", null ],
     [ "resources_densities", "server__data__structures_8h.html#a19d1d00ccca0124f6828d566e8a6ac5e", null ],
     [ "resources_names", "server__data__structures_8h.html#a81faea77ea06eda3508227d83f9f9b2c", null ]
 ];

@@ -99,6 +99,7 @@ Public Types</h2></td></tr>
 <tr class="memitem:acf721625ddb3197a5be044f6d5600600"><td class="memItemLeft" align="right" valign="top"><a id="acf721625ddb3197a5be044f6d5600600" name="acf721625ddb3197a5be044f6d5600600"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Scene</b> { <b>MENU</b>
 , <b>GAME</b>
 , <b>SCOREBOARD</b>
+, <b>PAUSE</b>
  }</td></tr>
 <tr class="separator:acf721625ddb3197a5be044f6d5600600"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -116,6 +117,9 @@ std::shared_ptr&lt; <a class="el" href="classGui_1_1GameInfo.html">GameInfo</a> 
 <tr class="memitem:aab6c6a29dcd4fa906fe5f5e63a365afc"><td class="memItemLeft" align="right" valign="top"><a id="aab6c6a29dcd4fa906fe5f5e63a365afc" name="aab6c6a29dcd4fa906fe5f5e63a365afc"></a>
 std::shared_ptr&lt; <a class="el" href="classGui_1_1MenuInfo.html">MenuInfo</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMenu</b> (void)</td></tr>
 <tr class="separator:aab6c6a29dcd4fa906fe5f5e63a365afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4b9e9e9039386ae3aa100a6fd1fbe99"><td class="memItemLeft" align="right" valign="top"><a id="ad4b9e9e9039386ae3aa100a6fd1fbe99" name="ad4b9e9e9039386ae3aa100a6fd1fbe99"></a>
+std::shared_ptr&lt; <a class="el" href="classGui_1_1Chatbox.html">Chatbox</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getChatbox</b> (void)</td></tr>
+<tr class="separator:ad4b9e9e9039386ae3aa100a6fd1fbe99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00eb95f45073cceea0689b4434b7684d"><td class="memItemLeft" align="right" valign="top"><a id="a00eb95f45073cceea0689b4434b7684d" name="a00eb95f45073cceea0689b4434b7684d"></a>
 <a class="el" href="structVector2.html">Vector2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMousePos</b> (void)</td></tr>
 <tr class="separator:a00eb95f45073cceea0689b4434b7684d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,6 +129,12 @@ std::shared_ptr&lt; <a class="el" href="classGui_1_1QueueManager.html">QueueMana
 <tr class="memitem:a93cb968c656e847d2b3a703ddd132cd8"><td class="memItemLeft" align="right" valign="top"><a id="a93cb968c656e847d2b3a703ddd132cd8" name="a93cb968c656e847d2b3a703ddd132cd8"></a>
 <a class="el" href="classGui_1_1AssetsManager.html">AssetsManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getAssetsManager</b> (void)</td></tr>
 <tr class="separator:a93cb968c656e847d2b3a703ddd132cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c991c74b53543c3ad19287054935c29"><td class="memItemLeft" align="right" valign="top"><a id="a2c991c74b53543c3ad19287054935c29" name="a2c991c74b53543c3ad19287054935c29"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPause</b> (std::shared_ptr&lt; <a class="el" href="classGui_1_1PauseInfo.html">PauseInfo</a> &gt; pause)</td></tr>
+<tr class="separator:a2c991c74b53543c3ad19287054935c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f90a257eed64219aa160cc9d0ea8181"><td class="memItemLeft" align="right" valign="top"><a id="a4f90a257eed64219aa160cc9d0ea8181" name="a4f90a257eed64219aa160cc9d0ea8181"></a>
+std::shared_ptr&lt; <a class="el" href="classGui_1_1PauseInfo.html">PauseInfo</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPause</b> (void)</td></tr>
+<tr class="separator:a4f90a257eed64219aa160cc9d0ea8181"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2858154e2009b0e6e616f313177762bc"><td class="memItemLeft" align="right" valign="top"><a id="a2858154e2009b0e6e616f313177762bc" name="a2858154e2009b0e6e616f313177762bc"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (void)</td></tr>
 <tr class="separator:a2858154e2009b0e6e616f313177762bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,6 +153,7 @@ ConnectionState&#160;</td><td class="memItemRight" valign="bottom"><b>state</b><
 <li>gui/src/graphical/Graphics.cpp</li>
 <li>gui/src/graphical/scenes/Game.cpp</li>
 <li>gui/src/graphical/scenes/Menu.cpp</li>
+<li>gui/src/graphical/scenes/Pause.cpp</li>
 <li>gui/src/graphical/scenes/Scoreboard.cpp</li>
 </ul>
 </div><!-- contents -->

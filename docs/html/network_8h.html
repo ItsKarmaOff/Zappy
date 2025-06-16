@@ -100,6 +100,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aada73ba907b4bb9e21cdd0eabd0e7112"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8h.html#aada73ba907b4bb9e21cdd0eabd0e7112">start_server</a> (<a class="el" href="structserver__s.html">server_t</a> *server)</td></tr>
 <tr class="memdesc:aada73ba907b4bb9e21cdd0eabd0e7112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure and start the server.  <a href="network_8h.html#aada73ba907b4bb9e21cdd0eabd0e7112">More...</a><br /></td></tr>
 <tr class="separator:aada73ba907b4bb9e21cdd0eabd0e7112"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae132f49313f0c975d2225550b4e43304"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8h.html#ae132f49313f0c975d2225550b4e43304">get_ip_address</a> (void)</td></tr>
+<tr class="memdesc:ae132f49313f0c975d2225550b4e43304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the IP address of the server.  <a href="network_8h.html#ae132f49313f0c975d2225550b4e43304">More...</a><br /></td></tr>
+<tr class="separator:ae132f49313f0c975d2225550b4e43304"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae28bf8216a6f4a9cd49d5e25e0fb303b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8h.html#ae28bf8216a6f4a9cd49d5e25e0fb303b">analyse_poll</a> (<a class="el" href="structserver__s.html">server_t</a> *server, size_t index)</td></tr>
 <tr class="memdesc:ae28bf8216a6f4a9cd49d5e25e0fb303b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyse the poll events for a specific client.  <a href="network_8h.html#ae28bf8216a6f4a9cd49d5e25e0fb303b">More...</a><br /></td></tr>
 <tr class="separator:ae28bf8216a6f4a9cd49d5e25e0fb303b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,12 +124,12 @@ Functions</h2></td></tr>
 <tr class="memitem:abca66d4f6115c95c880ee5bc7bd9dce4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8h.html#abca66d4f6115c95c880ee5bc7bd9dce4">add_new_client</a> (<a class="el" href="structserver__s.html">server_t</a> *server)</td></tr>
 <tr class="memdesc:abca66d4f6115c95c880ee5bc7bd9dce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new client to the server.  <a href="network_8h.html#abca66d4f6115c95c880ee5bc7bd9dce4">More...</a><br /></td></tr>
 <tr class="separator:abca66d4f6115c95c880ee5bc7bd9dce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6e651e58b0db2e511e582d4fb18806c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8h.html#ae6e651e58b0db2e511e582d4fb18806c">send_message_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, const char *message)</td></tr>
+<tr class="memitem:ae6e651e58b0db2e511e582d4fb18806c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8h.html#ae6e651e58b0db2e511e582d4fb18806c">send_message_to_gui</a> (<a class="el" href="structserver__s.html">server_t</a> *server, const char *<a class="el" href="structmessage.html">message</a>)</td></tr>
 <tr class="memdesc:ae6e651e58b0db2e511e582d4fb18806c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a message to all GUI clients.  <a href="network_8h.html#ae6e651e58b0db2e511e582d4fb18806c">More...</a><br /></td></tr>
 <tr class="separator:ae6e651e58b0db2e511e582d4fb18806c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49a3683fb6560cbc2d4d1777742f12dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8h.html#a49a3683fb6560cbc2d4d1777742f12dd">destroy_client</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client)</td></tr>
-<tr class="memdesc:a49a3683fb6560cbc2d4d1777742f12dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy a client.  <a href="network_8h.html#a49a3683fb6560cbc2d4d1777742f12dd">More...</a><br /></td></tr>
-<tr class="separator:a49a3683fb6560cbc2d4d1777742f12dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a589c3bd58221719c58248464620d22c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8h.html#a589c3bd58221719c58248464620d22c3">destroy_client</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client, bool is_closing)</td></tr>
+<tr class="memdesc:a589c3bd58221719c58248464620d22c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy a client.  <a href="network_8h.html#a589c3bd58221719c58248464620d22c3">More...</a><br /></td></tr>
+<tr class="separator:a589c3bd58221719c58248464620d22c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78cb8131561b4d698b5a659e3e488f55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8h.html#a78cb8131561b4d698b5a659e3e488f55">destroy_clients</a> (<a class="el" href="structserver__s.html">server_t</a> *server)</td></tr>
 <tr class="memdesc:a78cb8131561b4d698b5a659e3e488f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy all clients in the server.  <a href="network_8h.html#a78cb8131561b4d698b5a659e3e488f55">More...</a><br /></td></tr>
 <tr class="separator:a78cb8131561b4d698b5a659e3e488f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -244,8 +247,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a49a3683fb6560cbc2d4d1777742f12dd" name="a49a3683fb6560cbc2d4d1777742f12dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49a3683fb6560cbc2d4d1777742f12dd">&#9670;&nbsp;</a></span>destroy_client()</h2>
+<a id="a589c3bd58221719c58248464620d22c3" name="a589c3bd58221719c58248464620d22c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a589c3bd58221719c58248464620d22c3">&#9670;&nbsp;</a></span>destroy_client()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -260,7 +263,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
-          <td class="paramname"><em>client</em>&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>is_closing</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -275,6 +284,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">server</td><td>The server containing the client </td></tr>
     <tr><td class="paramname">client</td><td>The client to destroy </td></tr>
+    <tr><td class="paramname">is_closing</td><td>Whether the server is closing (to avoid sending messages to GUI) </td></tr>
   </table>
   </dd>
 </dl>
@@ -368,6 +378,27 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The index of the client in the server's client list </dd></dl>
+
+</div>
+</div>
+<a id="ae132f49313f0c975d2225550b4e43304" name="ae132f49313f0c975d2225550b4e43304"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae132f49313f0c975d2225550b4e43304">&#9670;&nbsp;</a></span>get_ip_address()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * get_ip_address </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the IP address of the server. </p>
+<dl class="section return"><dt>Returns</dt><dd>A string containing the IP address of the server </dd></dl>
 
 </div>
 </div>

@@ -94,9 +94,9 @@ $(document).ready(function(){initNavTree('network_2clients_8c.html',''); initRes
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a49a3683fb6560cbc2d4d1777742f12dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_2clients_8c.html#a49a3683fb6560cbc2d4d1777742f12dd">destroy_client</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client)</td></tr>
-<tr class="memdesc:a49a3683fb6560cbc2d4d1777742f12dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy a client.  <a href="network_2clients_8c.html#a49a3683fb6560cbc2d4d1777742f12dd">More...</a><br /></td></tr>
-<tr class="separator:a49a3683fb6560cbc2d4d1777742f12dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20ebbea516180c1b0badb0970e8d5c90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_2clients_8c.html#a20ebbea516180c1b0badb0970e8d5c90">destroy_client</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client, bool close_server)</td></tr>
+<tr class="memdesc:a20ebbea516180c1b0badb0970e8d5c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy a client.  <a href="network_2clients_8c.html#a20ebbea516180c1b0badb0970e8d5c90">More...</a><br /></td></tr>
+<tr class="separator:a20ebbea516180c1b0badb0970e8d5c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78cb8131561b4d698b5a659e3e488f55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_2clients_8c.html#a78cb8131561b4d698b5a659e3e488f55">destroy_clients</a> (<a class="el" href="structserver__s.html">server_t</a> *server)</td></tr>
 <tr class="memdesc:a78cb8131561b4d698b5a659e3e488f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy all clients in the server.  <a href="network_2clients_8c.html#a78cb8131561b4d698b5a659e3e488f55">More...</a><br /></td></tr>
 <tr class="separator:a78cb8131561b4d698b5a659e3e488f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,8 +111,8 @@ Functions</h2></td></tr>
 <div class="textblock"><p >The clients.c. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a49a3683fb6560cbc2d4d1777742f12dd" name="a49a3683fb6560cbc2d4d1777742f12dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49a3683fb6560cbc2d4d1777742f12dd">&#9670;&nbsp;</a></span>destroy_client()</h2>
+<a id="a20ebbea516180c1b0badb0970e8d5c90" name="a20ebbea516180c1b0badb0970e8d5c90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20ebbea516180c1b0badb0970e8d5c90">&#9670;&nbsp;</a></span>destroy_client()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,7 +127,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
-          <td class="paramname"><em>client</em>&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>is_closing</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -142,6 +148,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">server</td><td>The server containing the client </td></tr>
     <tr><td class="paramname">client</td><td>The client to destroy </td></tr>
+    <tr><td class="paramname">is_closing</td><td>Whether the server is closing (to avoid sending messages to GUI) </td></tr>
   </table>
   </dd>
 </dl>
