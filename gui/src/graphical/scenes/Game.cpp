@@ -90,7 +90,7 @@ namespace Gui {
             }
         }
 
-        if (IsKeyPressed(KEY_ESCAPE)) {
+        if (IsKeyReleased(KEY_ESCAPE)) {
             bool playerSelected = false;
             for (auto &[id, player] : _game->getPlayers()) {
                 if (player->isSelected()) {
@@ -100,7 +100,7 @@ namespace Gui {
                 }
             }
             if (!playerSelected) {
-                _windowShouldRun = false;
+                switchToPause(GAME);
             }
         }
     }
