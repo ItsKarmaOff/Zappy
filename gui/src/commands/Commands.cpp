@@ -248,6 +248,8 @@ namespace Gui
         }
         if (_graphical.getGame()->getPlayers()[playerId]->getPos() != Vector2{static_cast<float>(width), static_cast<float>(height)})
             _graphical.getGame()->getPlayers()[playerId]->setPos({static_cast<float>(width), static_cast<float>(height)});
+        if (_graphical.getGame()->getPlayers()[playerId]->getOrientation() != static_cast<size_t>(orientation))
+            _graphical.getGame()->getPlayers()[playerId]->setOrientation(static_cast<size_t>(orientation));
     }
 
     void Commands::handlePLV(std::string &param)
@@ -385,7 +387,11 @@ namespace Gui
             ERROR << "Player " << playerId << "doesn't exist.";
             return;
         }
-        _graphical.getGame()->getPlayers()[playerId]->getMessagesToBroadcast().push(message);
+        _graphical.getChatbox()->addMessage(
+            message,
+            "Player#" + std::to_string(playerId),
+            _graphical.getGame()->getPlayers().at(playerId)->getColor()
+        );
         DEBUG_CONCAT << "Player #" << playerId << " broadcasts: " << message;
     }
 
@@ -419,6 +425,14 @@ namespace Gui
 
         DEBUG_CONCAT << "Incantation started at (" << width << ", " << height << ") level " << level << " with "
             << playerIds.size() << " players";
+        for (int playerId : playerIds) {
+            if (!_graphical.getGame()->getPlayers().contains(playerId)) {
+                ERROR << "Player " << playerId << "doesn't exist.";
+                continue;
+            }
+            std::shared_ptr<PlayerInfo> &playerInfo = _graphical.getGame()->getPlayers()[playerId];
+            playerInfo->setIncanting(true);
+        }
     }
 
     void Commands::handlePIE(std::string &param)
@@ -437,6 +451,12 @@ namespace Gui
 
         DEBUG_CONCAT << "Incantation at (" << width << ", " << height << ") "
             << (incantationResult ? "succeeded" : "failed");
+        for (auto &[id, player] : _graphical.getGame()->getPlayers()) {
+            if (player->getPos() == Vector2{static_cast<float>(width), static_cast<float>(height)}) {
+                player->setIncanting(false);
+                _graphical.getQueueManager()->pushCommand({"plv", ("#" + std::to_string(id))});
+            }
+        }
     }
 
     void Commands::handlePFK(std::string &param)
@@ -477,6 +497,7 @@ namespace Gui
             ERROR << "Invalid resource number for PDR command: " << resourceNumber;
 
         playerId = std::stoi(player.substr(1));
+        std::shared_ptr<PlayerInfo> playerInfo = _graphical.getGame()->getPlayers()[playerId];
 
         DEBUG_CONCAT << "Player #" << playerId << " dropped resource number " << resourceNumber;
 
@@ -485,6 +506,8 @@ namespace Gui
             return;
         }
         _graphical.getGame()->getPlayers()[playerId]->removeResource(static_cast<PlayerInfo::ResourceType>(resourceNumber), 1);
+        _graphical.getQueueManager()->pushCommand({"bct", std::to_string(playerInfo->getPos().x), std::to_string(playerInfo->getPos().y)});
+
     }
 
     void Commands::handlePGT(std::string &param)
@@ -506,10 +529,12 @@ namespace Gui
             ERROR << "Invalid resource number for PGT command: " << resourceNumber;
 
         playerId = std::stoi(player.substr(1));
+        std::shared_ptr<PlayerInfo> playerInfo = _graphical.getGame()->getPlayers()[playerId];
 
         DEBUG_CONCAT << "Player #" << playerId << " got resource number " << resourceNumber;
 
-        _graphical.getGame()->getPlayers()[playerId]->addResource(static_cast<PlayerInfo::ResourceType>(resourceNumber), 1);
+        playerInfo->addResource(static_cast<PlayerInfo::ResourceType>(resourceNumber), 1);
+        _graphical.getQueueManager()->pushCommand({"bct", std::to_string(playerInfo->getPos().x), std::to_string(playerInfo->getPos().y)});
     }
 
     void Commands::handlePDI(std::string &param)
@@ -527,6 +552,16 @@ namespace Gui
             ERROR << "Invalid player format for PDI command: " << player;
 
         playerId = std::stoi(player.substr(1));
+        if (!_graphical.getGame()->getPlayers().contains(playerId)) {
+            ERROR << "Player " << playerId << "doesn't exist.";
+            return;
+        }
+        for (auto &[k, team] : _graphical.getGame()->getTeams()) {
+            // return 0 si ça n'a pas trouvé, donc on peut le faire pour chaque team sans conséquence
+            team.getPlayers().erase(playerId);
+        }
+        _graphical.getGame()->getPlayers().erase(playerId);
+        DEBUG_CONCAT << "Player #" << playerId << " has been expelled";
 
         DEBUG_CONCAT << "Player #" << playerId << " has died";
     }
@@ -612,6 +647,10 @@ namespace Gui
         if (time < 0)
             ERROR << "Invalid time for SGT command: " << time;
 
+        if (!_graphical.getPause())
+            _graphical.setPause(std::make_shared<PauseInfo>());
+        _graphical.getPause()->setTimeUnit(time);
+
         DEBUG_CONCAT << "Server time unit retrieved: " << time;
     }
 
@@ -628,6 +667,9 @@ namespace Gui
         if (time <= 0)
             ERROR << "Invalid time for SST command: " << time;
 
+        if (!_graphical.getPause())
+            _graphical.setPause(std::make_shared<PauseInfo>());
+        _graphical.getPause()->setTimeUnit(time);
         DEBUG_CONCAT << "Server time unit modified to: " << time;
     }
 
@@ -658,6 +700,11 @@ namespace Gui
             ERROR << "Message cannot be empty for SMG command";
 
         DEBUG_CONCAT << "Server message: " << message;
+        _graphical.getChatbox()->addMessage(
+            message,
+            "Server",
+            WHITE
+        );
     }
 
     void Commands::handleSUC(std::string &param)
