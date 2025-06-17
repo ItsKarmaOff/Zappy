@@ -71,7 +71,7 @@ static void send_broadcast(server_t *server, client_t *client, char *message)
             continue;
         calculate_direction(server, current_client, client->player->position,
             message);
-        dprintf(current_client->socket_fd, message);
+        dprintf(current_client->socket_fd, "%s", message);
     }
 }
 
