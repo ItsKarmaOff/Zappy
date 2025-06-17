@@ -36,8 +36,8 @@ static double get_angle(server_t *server, client_t *current_client,
         dy -= (int)server->game.game_settings.height;
     if (dy < -(int)server->game.game_settings.height / 2)
         dy += (int)server->game.game_settings.height;
-    angle = atan2(dx, -dy)
-    - ((current_client->player->orientation - 1) * M_PI) / 2.0;
+    angle = atan2(dx, - dy)
+        - ((current_client->player->orientation - 1) * M_PI) / 2.0;
     while (angle < 0)
         angle += 2 * M_PI;
     while (angle >= 2 * M_PI)
@@ -73,6 +73,7 @@ static void send_broadcast(server_t *server, client_t *client, char *message)
             message);
         dprintf(current_client->socket_fd, "%s", message);
     }
+    send_pbc_to_gui(server, NULL, client->player, message + 8);
 }
 
 void handle_ai_command_broadcast(
