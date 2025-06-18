@@ -510,7 +510,9 @@ namespace Gui
             return;
         }
         _graphical.getGame()->getPlayers()[playerId]->removeResource(static_cast<PlayerInfo::ResourceType>(resourceNumber), 1);
-        _graphical.getQueueManager()->pushCommand({"bct", std::to_string(playerInfo->getPos().x), std::to_string(playerInfo->getPos().y)});
+        _graphical.getQueueManager()->pushCommand({"bct",
+            std::to_string(static_cast<int>(playerInfo->getPos().x)),
+            std::to_string(static_cast<int>(playerInfo->getPos().y))});
 
     }
 
@@ -538,7 +540,9 @@ namespace Gui
         DEBUG_CONCAT << "Player #" << playerId << " got resource number " << resourceNumber;
 
         playerInfo->addResource(static_cast<PlayerInfo::ResourceType>(resourceNumber), 1);
-        _graphical.getQueueManager()->pushCommand({"bct", std::to_string(playerInfo->getPos().x), std::to_string(playerInfo->getPos().y)});
+        _graphical.getQueueManager()->pushCommand({"bct",
+            std::to_string(static_cast<int>(playerInfo->getPos().x)),
+            std::to_string(static_cast<int>(playerInfo->getPos().y))});
     }
 
     void Commands::handlePDI(std::string &param)
