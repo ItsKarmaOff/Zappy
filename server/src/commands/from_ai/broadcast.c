@@ -13,16 +13,6 @@
 #include "commands/commands_ai.h"
 #include <math.h>
 
-static size_t get_message_size(char **args)
-{
-    size_t size = 0;
-
-    for (size_t i = 0; args[i] != NULL; i++) {
-        size += strlen(args[i]) + 1;
-    }
-    return size;
-}
-
 static double get_angle(server_t *server, client_t *current_client,
     int dx, int dy)
 {
@@ -57,7 +47,7 @@ static void calculate_direction(server_t *server, client_t *current_client,
         return;
     }
     message[8] = (char)((int)((get_angle(server, current_client, dx, dy)
-    + M_PI / 8.0) / (M_PI / 4.0)) % 8 + 1) + '0';
+        + M_PI / 8.0) / (M_PI / 4.0)) % 8 + 1) + '0';
 }
 
 static void send_broadcast(server_t *server, client_t *client, char *message)
@@ -67,7 +57,7 @@ static void send_broadcast(server_t *server, client_t *client, char *message)
     for (size_t i = 0; i < server->current_clients_number; i++) {
         current_client = server->client_list[i];
         if (current_client == client
-            || current_client->client_type != CLIENT_AI)
+        || current_client->client_type != CLIENT_AI)
             continue;
         calculate_direction(server, current_client, client->player->position,
             message);
@@ -77,16 +67,18 @@ static void send_broadcast(server_t *server, client_t *client, char *message)
 }
 
 void handle_ai_command_broadcast(
-    UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
+    server_t *server, client_t *client, char **args)
 {
-    char message[sizeof("message K,\n") + get_message_size(args + 1) + 1];
+    char message[sizeof("message K, \n") + my_strlen(args[1])];
 
     DEBUG("Executing \"Broadcast\" command");
-    strcpy(message, "message K,");
-    for (size_t i = 1; args[i] != NULL; i++) {
-        strcat(message, " ");
-        strcat(message, args[i]);
+    if (my_array_len((void **) args) != 2) {
+        dprintf(client->socket_fd, WRONG_AI);
+        return;
     }
-    strcat(message, "\n");
+    my_memset(message, 0, sizeof(message));
+    my_strcpy(message, "message K, ");
+    my_strcat(message, args[1]);
+    my_strcat(message, "\n");
     send_broadcast(server, client, message);
 }
