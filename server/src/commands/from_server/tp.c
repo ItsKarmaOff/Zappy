@@ -32,7 +32,7 @@ static void update_position(
     server_t *server, player_t *player, vector2u_t position)
 {
     player->position = position;
-    send_plv_to_gui(server, NULL, player);
+    send_ppo_to_gui(server, NULL, player);
     printf("Teleport player #%zu's to (%zu, %zu)\n",
         player->id, position.x, position.y);
 }
