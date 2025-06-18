@@ -65,12 +65,10 @@ namespace Gui {
                 _pause->setCurrentSubscene(PauseInfo::RESUME);
             if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
                 if (_pause->getButtonsSettings()[PauseInfo::PLUS_BUTTON].isMouseOver(_mousePos)) {
-                    _pause->setTimeUnit(_pause->getTimeUnit() + 1);
-                    _queueManager->pushCommand({"sst", std::to_string(_pause->getTimeUnit())});
+                    _queueManager->pushCommand({"sst", std::to_string(_pause->getTimeUnit() + 1)});
                 } else if (_pause->getButtonsSettings()[PauseInfo::MINUS_BUTTON].isMouseOver(_mousePos)) {
                     if (_pause->getTimeUnit() > 1) {
-                        _pause->setTimeUnit(_pause->getTimeUnit() - 1);
-                        _queueManager->pushCommand({"sst", std::to_string(_pause->getTimeUnit())});
+                        _queueManager->pushCommand({"sst", std::to_string(_pause->getTimeUnit() - 1)});
                     }
 
                 }
