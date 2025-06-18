@@ -158,6 +158,8 @@ namespace Gui {
     {
         int i = 0;
         for (auto &[key, team] : _game->getTeams()) {
+            if (key == "UnknownTeam")
+                continue;
             // draw team name
             float textHeight = 40;
             float textWidth = MeasureText(key.c_str(), textHeight);
@@ -229,6 +231,8 @@ namespace Gui {
                 playerModel->getAligned(playerModel->getBoundingBox().min.y) + playerModel->getDimensions().y,
                 tile.getPos().z
             };
+            if (player->getLevel() == 0)
+                continue;
             Vector2 textPosScreen = GetWorldToScreenEx(textPos, _game->getCamera(), GetScreenWidth(), GetScreenHeight());
             DrawText(("Player" + std::to_string(id)).c_str(),
                 textPosScreen.x - MeasureText(("Player" + std::to_string(id)).c_str(), 40) / 2,

@@ -9,6 +9,7 @@
 #include "Graphics.hpp"
 #include "Logs.hpp"
 #include "PlayerInfo.hpp"
+#include "TeamInfo.hpp"
 #include <cstdlib>
 #include <functional>
 #include <map>
@@ -476,6 +477,9 @@ namespace Gui
         playerId = std::stoi(player.substr(1));
 
         DEBUG_CONCAT << "Player #" << playerId << " has laid an egg";
+
+        Vector2 PlayerPos = _graphical.getGame()->getPlayers()[playerId]->getPos();
+        _graphical.getGame()->getPlayers()[playerId]->setPos(PlayerPos);
     }
 
     void Commands::handlePDR(std::string &param)
@@ -594,6 +598,17 @@ namespace Gui
 
         DEBUG_CONCAT << "Egg #" << eggId << " laid by Player #" << playerId
             << " at (" << width << ", " << height << ")";
+
+        TeamInfo &team = _graphical.getGame()->getTeams()["UnknownTeam"];
+        if (!team.getPlayers().contains(eggId)) {
+            team.getPlayers()[eggId] = std::make_shared<PlayerInfo>("UnknownTeam");
+            _graphical.getGame()->getPlayers()[eggId] = team.getPlayers()[eggId];
+        }
+
+        std::shared_ptr<PlayerInfo> &eggI = team.getPlayers()[eggId];
+        eggI->setLevel(0);
+        eggI->setPos({static_cast<float>(width), static_cast<float>(height)});
+        eggI->setColor(WHITE);
     }
 
     void Commands::handleEBO(std::string &param)

@@ -148,6 +148,4 @@ namespace Gui {
     {
         return _modelTransform;
     }
-
-
 }

@@ -64,6 +64,7 @@ namespace Gui
                 IDLE,         ///< Player is idle/normal state
                 INCANTATION,  ///< Player is performing an incantation
                 EXPELLED,     ///< Player has been expelled
+                EGG,         ///< Player is an egg
             };
 
             /////////////// Constructors and Destructor ///////////////////////

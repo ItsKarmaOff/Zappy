@@ -53,6 +53,8 @@ namespace Gui {
         _models["island"]->setScale(_models["island"]->scaleToSize(TILE_SIZE - 0.5));
 
         /* player */
+        _models["player0"] = std::make_shared<ModelInfo>("gui/assets/egg.glb");
+
         _models["player1"] = std::make_shared<ModelInfo>("gui/assets/poisson_steve.glb");
         _models["player1"]->setScale(_models["player1"]->scaleToSize(4.0f));
 
