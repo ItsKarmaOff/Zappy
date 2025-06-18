@@ -65,13 +65,13 @@ namespace Gui {
             const std::string &getText() const;
             const Color &getTextColor() const;
             ////////////////////////////////////// SETTERS //////////////////////////////////////
-            void setButton(const Rectangle &button);
-            void setPosition(const Vector2 &pos);
-            void setSize(const Vector2 &size);
-            void setColors(const std::pair<Color, Color> &colors);
-            void setCurrentColor(const Color &color);
-            void setText(const std::string &text, Color color = BLACK);
-            void setTextColor(const Color &color);
+            Button &setButton(const Rectangle &button);
+            Button &setPosition(const Vector2 &pos);
+            Button &setSize(const Vector2 &size);
+            Button &setColors(const std::pair<Color, Color> &colors);
+            Button &setCurrentColor(const Color &color);
+            Button &setText(const std::string &text, Color color = BLACK);
+            Button &setTextColor(const Color &color);
             ////////////////////////////////////// UTILITY METHODS //////////////////////////////
 
             /**
