@@ -14,7 +14,7 @@
 
 void option_authors(UNUSED server_t *server, UNUSED parsing_t *parsing)
 {
-    my_putstr(BOLD "AUTHORS:\n" RESET
+    my_putstr(BOLD "AUTHORS:" ENDL
         "\tChristophe VANDEVOIR\n"
         "\tGianni TUERO\n"
         "\tLou PELLEGRINO\n"

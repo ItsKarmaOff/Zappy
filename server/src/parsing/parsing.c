@@ -12,33 +12,60 @@
 
 #include "parsing.h"
 
+/// Letters used : p, x, y, n, c, f, s, e, i, r, d, l, h, v, a
+
 const option_t options[] = {
-    {'p', "port", "port",
+    {'p', "port", "\tport",
         "\tThe port of the server",
         PORT_OPTION, &option_port},
-    {'x', "width", "width",
+    {'x', "width", "\twidth",
         "\tThe width of the world",
         WIDTH_OPTION, &option_width},
-    {'y', "height", "height",
+    {'y', "height", "\theight",
         "\tThe height of the world",
         HEIGHT_OPTION, &option_height},
-    {'n', "names", "name1 name2 ...",
+    {'n', "names", "\tname1 name2 ...",
         "The names of the teams",
         NAMES_OPTION, &option_names},
-    {'c', "clients", "clientsNb",
+    {'c', "clients", "\tclientsNb",
         "The number of clients per team",
         CLIENTS_OPTION, &option_clients},
-    {'f', "frequency", "frequency",
-        "The reciprocal of time unit for execution of action (default: 100)",
+    {'f', "frequency", "\tfrequency",
+        "The reciprocal of time unit for execution of action "
+        "(default: 100)",
         NOT_REQUIRED, &option_frequency},
-    {'h', "help", "",
-        "\tDisplay this help message",
+    {'s', "showEggs", GREEN "\ttrue" RESET "|" RED "false" RESET,
+        "Show eggs in the game "
+        "(default: " RED "false" RESET ")",
+        NOT_REQUIRED, &option_show_eggs},
+    {'e', "autoEnd", GREEN "\ttrue" RESET "|" RED "false" RESET,
+        "Automatically end the game when only one team remains "
+        "(default: " RED "false" RESET ")",
+        NOT_REQUIRED, &option_auto_end},
+    {'i', "infiniteFood", GREEN "true" RESET "|" RED "false" RESET,
+        "Enable infinite food for players "
+        "(default: " RED "false" RESET ")",
+        NOT_REQUIRED, &option_infinite_food},
+    {'r', "noRefill", GREEN "\ttrue" RESET "|" RED "false" RESET,
+        "Disable resource refill on tiles "
+        "(default: " RED "false" RESET ")",
+        NOT_REQUIRED, &option_no_refill},
+    {'d', "debugMode", GREEN "\ttrue" RESET "|" RED "false" RESET,
+        "Enable debug mode for debugging purposes "
+        "(default: " GREEN "true" RESET ")",
+        NOT_REQUIRED, &option_debug_mode},
+    {'l', "extraLogs", GREEN "\ttrue" RESET "|" RED "false" RESET,
+        "Enable extra logs for debugging purposes "
+        "(default: " RED "false" RESET ")",
+        NOT_REQUIRED, &option_extra_logs},
+    {'h', "help", "\t\t",
+        "Display this help message",
         NOT_REQUIRED, &option_help},
-    {'v', "version", "",
-        "\tDisplay the version of the server",
+    {'v', "version", "\t\t",
+        "Display the version of the server",
         NOT_REQUIRED, &option_version},
-    {'a', "authors", "",
-        "\tDisplay the authors of the project",
+    {'a', "authors", "\t\t",
+        "Display the authors of the project",
         NOT_REQUIRED, &option_authors},
     {0, NULL, NULL, NULL, NOT_REQUIRED, NULL}
 };
@@ -78,7 +105,7 @@ static void analyse_arg(server_t *server, parsing_t *parsing)
             return;
         }
     }
-    THROW(my_create_str("EXCEPTION: Invalid argument: %s\n",
+    THROW(my_create_str("EXCEPTION: Invalid argument: %s",
         parsing->argv[parsing->index]));
 }
 
@@ -88,7 +115,7 @@ static void missing_options(uint8_t options_found)
     option_index++) {
         if (options[option_index].type != NOT_REQUIRED &&
         (options_found & options[option_index].type) == 0) {
-            THROW(my_create_str("EXCEPTION: Missing option: -%c or --%s\n",
+            THROW(my_create_str("EXCEPTION: Missing option: -%c or --%s",
                 options[option_index].short_name,
                 options[option_index].long_name));
         }
@@ -109,10 +136,10 @@ void init_server_from_args(server_t *server, int argc, char **argv)
     if (parsing.options_found != (PORT_OPTION | WIDTH_OPTION | HEIGHT_OPTION |
     NAMES_OPTION | CLIENTS_OPTION))
         missing_options(parsing.options_found);
+    create_game_map(&server->game);
     for (node_t *tmp = parsing.team_name_list; tmp != NULL; tmp = tmp->next) {
         server->game.team_list[team_index] =
             create_team(&server->game, tmp->data);
         team_index++;
     }
-    create_game_map(&server->game);
 }

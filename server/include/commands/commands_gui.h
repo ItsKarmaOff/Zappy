@@ -2,18 +2,18 @@
 ** EPITECH PROJECT, 2025
 ** zappy
 ** File description:
-** The gui.h
+** The commands_gui.h
 */
 /**
- * @file gui.h
- * @brief The gui.h
+ * @file commands_gui.h
+ * @brief The commands_gui.h
  * @author Nicolas TORO
  */
 
-#ifndef GUI_H_
-    #define GUI_H_
+#ifndef COMMANDS_GUI_H_
+    #define COMMANDS_GUI_H_
 
-    #include "server_data_structures.h"
+    #include "network.h"
 
 /* Command handler functions for GUI clients */
 
@@ -23,7 +23,8 @@
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_msz(server_t *server, client_t *client, char **args);
+void handle_gui_command_msz(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "bct" command for GUI clients
@@ -31,7 +32,8 @@ void handle_command_msz(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_bct(server_t *server, client_t *client, char **args);
+void handle_gui_command_bct(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "mct" command for GUI clients
@@ -39,7 +41,8 @@ void handle_command_bct(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_mct(server_t *server, client_t *client, char **args);
+void handle_gui_command_mct(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "tna" command for GUI clients
@@ -47,7 +50,8 @@ void handle_command_mct(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_tna(server_t *server, client_t *client, char **args);
+void handle_gui_command_tna(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "ppo" command for GUI clients
@@ -55,7 +59,8 @@ void handle_command_tna(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_ppo(server_t *server, client_t *client, char **args);
+void handle_gui_command_ppo(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "plv" command for GUI clients
@@ -63,7 +68,8 @@ void handle_command_ppo(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_plv(server_t *server, client_t *client, char **args);
+void handle_gui_command_plv(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "pin" command for GUI clients
@@ -71,7 +77,8 @@ void handle_command_plv(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_pin(server_t *server, client_t *client, char **args);
+void handle_gui_command_pin(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "sgt" command for GUI clients
@@ -79,7 +86,8 @@ void handle_command_pin(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_sgt(server_t *server, client_t *client, char **args);
+void handle_gui_command_sgt(
+    server_t *server, client_t *client, char **args);
 
 /**
  * @brief Handles the "sst" command for GUI clients
@@ -87,7 +95,8 @@ void handle_command_sgt(server_t *server, client_t *client, char **args);
  * @param client The client instance
  * @param args The arguments passed with the command
  */
-void handle_command_sst(server_t *server, client_t *client, char **args);
+void handle_gui_command_sst(
+    server_t *server, client_t *client, char **args);
 
 
 
@@ -153,6 +162,17 @@ void send_pnw_to_gui(server_t *server, client_t *client,
  */
 void send_ppo_to_gui(server_t *server, client_t *client,
     player_t *player);
+
+/**
+ * @brief Send the "plv" command to all GUI clients
+ * @note To send to a specific GUI client, use the `client` parameter,
+ * otherwise it will send to all GUI clients
+ * @param server The server instance
+ * @param client The client instance to send the command to
+ * @param player The player whose information is being sent
+ */
+void send_plv_to_gui(UNUSED server_t *server, UNUSED client_t *client,
+    UNUSED player_t *player);
 
 /**
  * @brief Send the "pin" command to all GUI clients
@@ -318,8 +338,7 @@ void send_sst_to_gui(server_t *server, client_t *client);
  * @param client The client instance to send the command to
  * @param team The team whose information is being sent
  */
-void send_seg_to_gui(server_t *server, client_t *client,
-    team_t *team);
+void send_seg_to_gui(server_t *server, client_t *client);
 
 /**
  * @brief Send the "smg" command to all GUI clients
@@ -350,6 +369,4 @@ void send_suc_to_gui(server_t *server, client_t *client);
  */
 void send_sbp_to_gui(server_t *server, client_t *client);
 
-
-
-#endif /* GUI_H_ */
+#endif /* COMMANDS_GUI_H_ */

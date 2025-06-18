@@ -115,7 +115,7 @@ trap cleanup SIGINT SIGTERM
 
 # Lancement du serveur
 log_info "Lancement du serveur..."
-SERVER_CMD="./linux/zappy_server -p $PORT -x $WIDTH -y $HEIGHT -n$TEAM_STRING -c $CLIENTS_NB -f $FREQ"
+SERVER_CMD="./bonus/linux/zappy_server -p $PORT -x $WIDTH -y $HEIGHT -n$TEAM_STRING -c $CLIENTS_NB -f $FREQ"
 echo "Commande: $SERVER_CMD"
 $SERVER_CMD &
 SERVER_PID=$!

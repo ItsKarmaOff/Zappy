@@ -20,7 +20,7 @@
  * @return <b>char</b> The malloc state
  * @author Nicolas TORO
  */
-char malloc_state(my_bool_t set)
+my_bool_t malloc_state(my_bool_t set)
 {
     static my_bool_t state = FALSE;
 
@@ -35,7 +35,7 @@ char malloc_state(my_bool_t set)
  * @return <b>void</b>
  * @author Nicolas TORO
  */
-void my_update_malloc(char type)
+void my_update_malloc(my_bool_t type)
 {
     malloc_state(type);
 }

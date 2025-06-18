@@ -22,10 +22,11 @@
  */
 char *my_strndup(char const *src, size_t n)
 {
-    char *dest = my_calloc(n + 1, sizeof(char *));
+    char *dest = NULL;
 
-    if (src == NULL)
+    if (src == NULL || n == 0)
         return NULL;
+    dest = my_calloc(n + 1, sizeof(char *));
     for (size_t i = 0; src[i] != '\0' && i < n; i++)
         dest[i] = src[i];
     return dest;

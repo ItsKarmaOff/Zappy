@@ -10,18 +10,18 @@
  * @author Nicolas TORO
  */
 
-#include "commands/gui.h"
+#include "commands/commands_gui.h"
 
-void handle_command_tna(UNUSED server_t *server, UNUSED client_t *client,
-    UNUSED char **args)
+void handle_gui_command_tna(
+    server_t *server, client_t *client, char **args)
 {
-    DEBUG("Executing \"tna\" command\n");
+    DEBUG("Executing \"tna\" command");
     if (my_array_len((void **)args) != 1) {
-        DEBUG("Invalid number of arguments for \"tna\" command\n");
+        DEBUG("Invalid number of arguments for \"tna\" command");
         send_sbp_to_gui(server, client);
         return;
     }
-    for (size_t index = 0; index < server->game.game_settings.teams_number;
+    for (size_t index = 1; index < server->game.game_settings.teams_number;
     index++)
         send_tna_to_gui(server, client, server->game.team_list[index]);
 }

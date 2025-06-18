@@ -10,9 +10,9 @@
  * @author Nicolas TORO
  */
 
-#include "commands/gui.h"
+#include "commands/commands_gui.h"
 
-void send_sgt_to_gui(UNUSED server_t *server, UNUSED client_t *client)
+void send_sgt_to_gui(server_t *server, client_t *client)
 {
     if (server == NULL)
         return;
@@ -22,7 +22,7 @@ void send_sgt_to_gui(UNUSED server_t *server, UNUSED client_t *client)
         return;
     }
     for (size_t index = 0; index < server->current_clients_number; index++) {
-        if (server->client_list[index]->is_gui)
+        if (server->client_list[index]->client_type == CLIENT_GUI)
             dprintf(server->client_list[index]->socket_fd,
                 "sgt %zu\n", server->game.game_settings.frequency);
     }

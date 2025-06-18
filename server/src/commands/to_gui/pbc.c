@@ -10,10 +10,20 @@
  * @author Nicolas TORO
  */
 
-#include "commands/gui.h"
+#include "commands/commands_gui.h"
 
-void send_pbc_to_gui(UNUSED server_t *server, UNUSED client_t *client,
-    UNUSED player_t *player, UNUSED const char *message)
+void send_pbc_to_gui(server_t *server, client_t *client,
+    player_t *player, const char *message)
 {
-    return;
+    if (server == NULL || player == NULL || message == NULL)
+        return;
+    if (client != NULL) {
+        dprintf(client->socket_fd, "pbc #%zu %s\n", player->id, message);
+        return;
+    }
+    for (size_t index = 0; index < server->current_clients_number; index++) {
+        if (server->client_list[index]->client_type == CLIENT_GUI)
+            dprintf(server->client_list[index]->socket_fd,
+                "pbc #%zu %s\n", player->id, message);
+    }
 }

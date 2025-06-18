@@ -10,9 +10,9 @@
  * @author Nicolas TORO
  */
 
-#include "commands/gui.h"
+#include "commands/commands_gui.h"
 
-void send_mct_to_gui(server_t *server, UNUSED client_t *client)
+void send_mct_to_gui(server_t *server, client_t *client)
 {
     for (size_t x = 0; x < server->game.game_settings.width; x++) {
         for (size_t y = 0; y < server->game.game_settings.height; y++)

@@ -14,19 +14,23 @@
 
 static void configure_server(server_t *server)
 {
-    server->max_clients_number = server->game.game_settings.
-        start_clients_per_team * server->game.game_settings.teams_number;
     server->address.sin_family = AF_INET;
     server->address.sin_addr.s_addr = INADDR_ANY;
     server->address.sin_port = htons(server->port);
     server->poll_fds = AL(FALSE, my_calloc,
-        server->max_clients_number + 1, sizeof(pollfd_t));
-    for (size_t index = 0; index < server->max_clients_number + 1; index++) {
-        server->poll_fds[index].fd = -1;
-        server->poll_fds[index].events = POLLIN;
-    }
+        DEFAULT_NUMBER_OF_CLIENTS + 1, sizeof(pollfd_t));
+    server->poll_fds[SERVER_POLL_INDEX].fd = -1;
+    server->poll_fds[SERVER_POLL_INDEX].events = POLLIN;
+    server->current_clients_number = DEFAULT_NUMBER_OF_CLIENTS;
+    server->poll_fds[STDIN_POLL_INDEX].fd = STDIN_FILENO;
+    server->poll_fds[STDIN_POLL_INDEX].events = POLLIN;
     server->client_list = AL(FALSE, my_calloc,
-        server->max_clients_number, sizeof(client_t *));
+        DEFAULT_NUMBER_OF_CLIENTS, sizeof(client_t *));
+    server->client_list[STDIN_CLIENT_INDEX] = AL(FALSE, my_calloc,
+        DEFAULT_NUMBER_OF_CLIENTS, sizeof(client_t));
+    server->client_list[STDIN_CLIENT_INDEX]->socket_fd = STDIN_FILENO;
+    server->client_list[STDIN_CLIENT_INDEX]->client_type = CLIENT_SERVER;
+    server->client_list[STDIN_CLIENT_INDEX]->is_authenticated = true;
 }
 
 void start_server(server_t *server)
@@ -35,12 +39,12 @@ void start_server(server_t *server)
     server->socket_fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (server->socket_fd < 0)
         THROW(my_create_str("EXCEPTION: "
-            "Socket creation failed: %s\n", STRERR));
+            "Socket creation failed: %s", STRERR));
     my_add_to_garbage(true, &server->socket_fd, &my_close);
-    server->poll_fds[0].fd = server->socket_fd;
+    server->poll_fds[SERVER_POLL_INDEX].fd = server->socket_fd;
     if (bind(server->socket_fd, (struct sockaddr *)&server->address,
     sizeof(server->address)) < 0)
-        THROW(my_create_str("EXCEPTION: Bind failed: %s\n", STRERR));
-    if (listen(server->socket_fd, (int)server->max_clients_number + 1) < 0)
-        THROW(my_create_str("EXCEPTION: Listen failed: %s\n", STRERR));
+        THROW(my_create_str("EXCEPTION: Bind failed: %s", STRERR));
+    if (listen(server->socket_fd, DEFAULT_LISTEN_BACKLOG) < 0)
+        THROW(my_create_str("EXCEPTION: Listen failed: %s", STRERR));
 }
