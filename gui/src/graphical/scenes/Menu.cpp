@@ -23,13 +23,18 @@ namespace Gui {
         if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) {
             if (_menu->getButtons()[MenuInfo::PLAY_BUTTON].isMouseOver(_mousePos)) {
                 _scene = GAME;
-                if (!_game)
+                if (!_game) {
+                    _assetsManager.loadAssets();
                     _game = std::make_shared<GameInfo>();
+                }
                 if (state == WELCOME_STATE) {
                     _queueManager->pushCommand({"GRAPHIC"});
                     state = TEAM_NAME;
                 }
                 DisableCursor();
+            }
+            if (_menu->getButtons()[MenuInfo::EXIT_BUTTON].isMouseOver(_mousePos)) {
+                CloseWindow();
             }
         }
     }

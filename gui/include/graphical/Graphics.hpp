@@ -10,20 +10,24 @@
     #define GRAPHICS_HPP
     #include <cstddef>
     #include <memory>
-#include <queue>
+    #include <queue>
+    #include <string>
     #include <unordered_map>
+    #include "AssetsManager.hpp"
     #include "GameInfo.hpp"
-#include "MenuInfo.hpp"
+    #include "MenuInfo.hpp"
     #include "raylib.h"
     #include <cstring>
-#include <vector>
-#include "QueueManager.hpp"
+    #include <vector>
+    #include "QueueManager.hpp"
+    #include "VarManager.hpp"
 
 
 
 namespace Gui {
     constexpr size_t WINDOW_WIDTH = 1200;
     constexpr size_t WINDOW_HEIGHT = 600;
+    constexpr float TILE_SIZE = 5.0;
 
     class Graphics {
         public:
@@ -35,9 +39,9 @@ namespace Gui {
             enum Scene {
                 MENU,
                 GAME,
+                SCOREBOARD,
             };
         public:
-            // Modifiez le constructeur pour prendre QueueManager au lieu des queues
             Graphics(std::shared_ptr<QueueManager> queueManager);
             ~Graphics();
 
@@ -48,11 +52,13 @@ namespace Gui {
             Vector2 &getMousePos(void) { return _mousePos; }
             std::shared_ptr<QueueManager> &getQueueManager(void) { return _queueManager; }
             ConnectionState state;
+            AssetsManager &getAssetsManager(void) { return _assetsManager; }
 
 
         ////////////////////////////////////// GRAPHIC //////////////////////////////////////
             void init(void);
             void run(std::atomic<bool> &);
+
         private:
             void handleEvents(void);
             void update(void);
@@ -70,18 +76,28 @@ namespace Gui {
             void updateGame(void);
             void drawGame(void);
             void drawGameMap(void);
+            void drawTeams(void);
+            void drawPlayers(void);
+
+        ////////////////////////////////////// SCOREBOARD //////////////////////////////////////
+        private:
+            void handleEventsScoreboard();
+            void updateScoreboard();
+            void drawScoreboard();
+            void drawTabs();
 
         private:
             std::shared_ptr<QueueManager> _queueManager;
-
             Scene _scene;
+            Vector2 _mousePos;
             std::unordered_map<Scene, void (Graphics::*)(void)> _handlers;
             std::unordered_map<Scene, void (Graphics::*)(void)> _updaters;
             std::unordered_map<Scene, void (Graphics::*)(void)> _drawers;
 
-            std::shared_ptr<GameInfo> _game;
+
             std::shared_ptr<MenuInfo> _menu;
-            Vector2 _mousePos;
+            std::shared_ptr<GameInfo> _game;
+            AssetsManager _assetsManager;
     };
 }
 

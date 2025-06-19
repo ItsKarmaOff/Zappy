@@ -12,7 +12,7 @@
 
 namespace Gui {
     Graphics::Graphics(std::shared_ptr<QueueManager> queueManager)
-        : _queueManager(queueManager), _mousePos({0, 0})
+        : _queueManager(queueManager), _mousePos({0, 0}), _assetsManager()
     {
         _scene = MENU;
         state = WELCOME_STATE;
@@ -24,7 +24,6 @@ namespace Gui {
     {
         if (IsWindowReady())
             CloseWindow();
-
     }
 
     void Graphics::init(void)
@@ -35,16 +34,19 @@ namespace Gui {
         _handlers = {
             {MENU, &Graphics::handleEventsMenu},
             {GAME, &Graphics::handleEventsGame},
+            {SCOREBOARD, &Graphics::handleEventsScoreboard},
         };
 
         _updaters = {
             {MENU, &Graphics::updateMenu},
             {GAME, &Graphics::updateGame},
+            {SCOREBOARD, &Graphics::updateScoreboard},
         };
 
         _drawers = {
             {MENU, &Graphics::drawMenu},
             {GAME, &Graphics::drawGame},
+            {SCOREBOARD, &Graphics::drawScoreboard},
         };
     }
 
@@ -52,9 +54,9 @@ namespace Gui {
     void Graphics::run(std::atomic<bool> &isRunning)
     {
         Commands cmd(*this);
-        while (!WindowShouldClose() && isRunning == true) {
+        while (!WindowShouldClose() && isRunning) {
             _mousePos = GetMousePosition();
-            cmd.handleCommand(_queueManager);
+            cmd.handleResponses(_queueManager);
             handleEvents();
             update();
             draw();
@@ -64,16 +66,22 @@ namespace Gui {
 
     void Graphics::handleEvents(void)
     {
+        if (!IsWindowReady())
+            return;
         (this->*_handlers[_scene])();
     }
 
     void Graphics::update(void)
     {
+        if (!IsWindowReady())
+            return;
         (this->*_updaters[_scene])();
     }
 
     void Graphics::draw(void)
     {
+        if (!IsWindowReady())
+            return;
         BeginDrawing();
         (this->*_drawers[_scene])();
         EndDrawing();

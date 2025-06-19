@@ -235,6 +235,7 @@ bool my_char_is_printable(char c);
 
 /**
  * @brief Get the index of a char in a str according to its occurrence
+ * @note The first occurrence is 1, the second is 2, etc.
  * @param str The string to check
  * @param c The letter to find
  * @param occurrence The occurrence of the letter to find
@@ -259,6 +260,17 @@ char my_get_last_char(char *str);
  * @return <b>void</b>
  */
 void my_replace_char(char *str, char to_replace, char replace_by);
+
+/**
+ * @brief Replace a char in a string by another char at a specific occurrence
+ * @param str The string to modify
+ * @param to_replace The char to replace
+ * @param replace_by The char to replace by
+ * @param occurrence The occurrence of the char to replace
+ * @return <b>void</b>
+ */
+void my_replace_char_at(char *str, char to_replace, char replace_by,
+    size_t occurrence);
 
 
 
@@ -697,6 +709,15 @@ void my_program_destroy(void (*destroy_func)(void *ptr));
  * @author Nicolas TORO
  */
 void *my_realloc(void *pointer, size_t size);
+
+/**
+ * @brief Resize an allocated memory block.
+ * @param ptr Pointer to the previously allocated memory block.
+ * @param old_size Size of the previously allocated memory block.
+ * @param new_size New size for the memory block.
+ * @return Pointer to the resized memory block, or NULL if new_size is 0.
+ */
+void *my_resize_alloc(void *ptr, size_t old_size, size_t new_size);
 
 /**
  * @brief The temporary malloc state variable

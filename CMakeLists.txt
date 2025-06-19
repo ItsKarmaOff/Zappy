@@ -105,7 +105,7 @@ else()
     endif()
 endif()
 
-target_compile_options(${GUI} PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
+target_compile_options(${GUI} PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-missing-field-initializers)
 ###############################################################################
 
 

@@ -14,19 +14,21 @@
 
 void remove_client(server_t *server, size_t index)
 {
+    if (server == NULL || index == 0)
+        return;
     DEBUG(my_create_str("Removing client at index %zu\n", index));
     close(server->poll_fds[index].fd);
+    destroy_client(server, server->client_list[index - 1]);
     if (server->current_clients_number == 1) {
-        server->poll_fds[index].fd = -1;
-        my_delete_list(&server->client_list[index - 1]->command_queue);
         server->client_list[index - 1] = NULL;
+        server->poll_fds[index].fd = -1;
+        server->poll_fds[index].events = POLLIN;
+        server->poll_fds[index].revents = 0;
     } else {
         server->poll_fds[index] =
             server->poll_fds[server->current_clients_number];
         server->client_list[index - 1] =
             server->client_list[server->current_clients_number - 1];
-        server->poll_fds[server->current_clients_number].fd = -1;
-        server->client_list[server->current_clients_number - 1] = NULL;
     }
-    server->current_clients_number--;
+    resize_client_list(server, server->current_clients_number - 1);
 }

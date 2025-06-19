@@ -13,58 +13,83 @@
 #include "parsing.h"
 
 const option_t options[] = {
-    {'p', "port", "port",
+    {'p', "port", "\tport",
         "\tThe port of the server",
         PORT_OPTION, &option_port},
-    {'x', "width", "width",
+    {'x', "width", "\twidth",
         "\tThe width of the world",
         WIDTH_OPTION, &option_width},
-    {'y', "height", "height",
+    {'y', "height", "\theight",
         "\tThe height of the world",
         HEIGHT_OPTION, &option_height},
-    {'n', "names", "name1 name2 ...",
+    {'n', "names", "\tname1 name2 ...",
         "The names of the teams",
         NAMES_OPTION, &option_names},
-    {'c', "clients", "clientsNb",
+    {'c', "clients", "\tclientsNb",
         "The number of clients per team",
         CLIENTS_OPTION, &option_clients},
-    {'f', "frequency", "frequency",
-        "The reciprocal of time unit for execution of action",
-        FREQUENCY_OPTION, &option_frequency},
-    {'h', "help", "",
-        "\tDisplay this help message",
+    {'f', "frequency", "\tfrequency",
+        "The reciprocal of time unit for execution of action (default: 100)",
+        NOT_REQUIRED, &option_frequency},
+    {'d', "displayEggs", "true|false",
+        "Display eggs in the game (default: false)",
+        NOT_REQUIRED, &option_display_eggs},
+    {'e', "autoEnd", "\ttrue|false",
+        "Automatically end the game when only one team remains "
+        "(default: false)",
+        NOT_REQUIRED, &option_auto_end},
+    {'h', "help", "\t\t",
+        "Display this help message",
         NOT_REQUIRED, &option_help},
-    {'v', "version", "",
-        "\tDisplay the version of the server",
+    {'v', "version", "\t\t",
+        "Display the version of the server",
         NOT_REQUIRED, &option_version},
-    {'a', "authors", "",
-        "\tDisplay the authors of the project",
+    {'a', "authors", "\t\t",
+        "Display the authors of the project",
         NOT_REQUIRED, &option_authors},
     {0, NULL, NULL, NULL, NOT_REQUIRED, NULL}
 };
 
-static void analyse_arg(server_t *server, int argc, char **argv, size_t *index)
+static bool is_valid_short_option(parsing_t *parsing, size_t option_index)
+{
+    if (my_strlen(parsing->argv[parsing->index]) == 2
+    && parsing->argv[parsing->index][0] == '-'
+    && parsing->argv[parsing->index][1] == options[option_index].short_name)
+        return true;
+    return false;
+}
+
+static bool is_valid_long_option(parsing_t *parsing, size_t option_index)
+{
+    if (my_strlen(parsing->argv[parsing->index]) > 2
+    && parsing->argv[parsing->index][0] == '-'
+    && parsing->argv[parsing->index][1] == '-'
+    && my_strcmp(parsing->argv[parsing->index] + 2,
+    options[option_index].long_name) == 0)
+        return true;
+    return false;
+}
+
+static void analyse_arg(server_t *server, parsing_t *parsing)
 {
     for (size_t option_index = 0; options[option_index].short_name != 0;
     option_index++) {
-        if (my_strlen(argv[*index]) == 2 && argv[*index][0] == '-'
-        && argv[*index][1] == options[option_index].short_name) {
-            options[option_index].function(server, argc, argv, index);
-            server->options_found |= options[option_index].type;
+        if (is_valid_short_option(parsing, option_index)) {
+            options[option_index].function(server, parsing);
+            parsing->options_found |= options[option_index].type;
             return;
         }
-        if (my_strlen(argv[*index]) > 2
-        && argv[*index][0] == '-' && argv[*index][1] == '-'
-        && my_strcmp(argv[*index] + 2, options[option_index].long_name) == 0) {
-            options[option_index].function(server, argc, argv, index);
-            server->options_found |= options[option_index].type;
+        if (is_valid_long_option(parsing, option_index)) {
+            options[option_index].function(server, parsing);
+            parsing->options_found |= options[option_index].type;
             return;
         }
     }
-    THROW(my_create_str("EXCEPTION: Invalid argument: %s\n", argv[*index]));
+    THROW(my_create_str("EXCEPTION: Invalid argument: %s\n",
+        parsing->argv[parsing->index]));
 }
 
-static void missing_options(uint32_t options_found)
+static void missing_options(uint8_t options_found)
 {
     for (size_t option_index = 0; options[option_index].short_name != 0;
     option_index++) {
@@ -79,10 +104,22 @@ static void missing_options(uint32_t options_found)
 
 void init_server_from_args(server_t *server, int argc, char **argv)
 {
-    for (size_t index = 1; index < (size_t)argc; index++) {
-        analyse_arg(server, argc, argv, &index);
+    parsing_t parsing = {0};
+    size_t team_index = 0;
+
+    parsing.argc = argc;
+    parsing.argv = argv;
+    server->game.game_settings.frequency = DEFAULT_FREQUENCY;
+    server->game.game_settings.next_player_id = 1;
+    for (parsing.index = 1; parsing.index < parsing.argc; parsing.index++)
+        analyse_arg(server, &parsing);
+    if (parsing.options_found != (PORT_OPTION | WIDTH_OPTION | HEIGHT_OPTION |
+    NAMES_OPTION | CLIENTS_OPTION))
+        missing_options(parsing.options_found);
+    for (node_t *tmp = parsing.team_name_list; tmp != NULL; tmp = tmp->next) {
+        server->game.team_list[team_index] =
+            create_team(&server->game, tmp->data);
+        team_index++;
     }
-    if (server->options_found != (PORT_OPTION | WIDTH_OPTION | HEIGHT_OPTION |
-    NAMES_OPTION | CLIENTS_OPTION | FREQUENCY_OPTION))
-        missing_options(server->options_found);
+    create_game_map(&server->game);
 }

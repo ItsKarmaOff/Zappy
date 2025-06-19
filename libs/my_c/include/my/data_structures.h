@@ -135,6 +135,33 @@ extern const char *logs_type_strings[];
 /* The logs type colors */
 extern const char *logs_type_color[];
 
+/* The vector2s structure */
+typedef struct vector2s_s {
+    ssize_t x; /* The x coordinate */
+    ssize_t y; /* The y coordinate */
+} vector2s_t;
+
+/* The vector2u structure */
+typedef struct vector2u_s {
+    size_t x; /* The x coordinate */
+    size_t y; /* The y coordinate */
+} vector2u_t;
+
+/* The vector2d structure */
+typedef struct vector2d_s {
+    double x; /* The x coordinate */
+    double y; /* The y coordinate */
+} vector2d_t;
+
+
+
+/* Network aliases */
+
+typedef struct pollfd pollfd_t;
+typedef struct sockaddr_in sockaddr_in_t;
+
+
+
 typedef union my_double_s {
     double value;
     struct {

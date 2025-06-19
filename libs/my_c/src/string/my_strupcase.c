@@ -20,6 +20,8 @@
  */
 char *my_strupcase(char *str)
 {
+    if (str == NULL)
+        return NULL;
     for (size_t i = 0; str[i] != '\0'; i++) {
         if (str[i] >= 97 && str[i] <= 122)
             str[i] = str[i] - 32;
