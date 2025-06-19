@@ -10,6 +10,7 @@
     #define ASSETSMANAGER_HPP
 
 #include "ModelInfo.hpp"
+#include "PlayerInfo.hpp"
 #include <memory>
 #include <raylib.h>
 #include <string>
@@ -58,6 +59,13 @@ namespace Gui {
              * @return Reference to the unordered map of models
              */
             std::unordered_map<std::string, std::shared_ptr<ModelInfo>> &getModels(void);
+
+            /**
+             * @brief Gets the icon texture for a specific resource type
+             * @param Key The resource type for which to get the icon
+             * @return The texture representing the resource icon
+             */
+            Texture2D getResourceIcon(PlayerInfo::ResourceType Key);
 
         private:
             std::unordered_map<std::string, std::shared_ptr<ModelInfo>> _models; //< Map of loaded models

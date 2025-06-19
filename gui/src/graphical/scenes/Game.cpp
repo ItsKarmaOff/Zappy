@@ -198,21 +198,60 @@ namespace Gui {
             );
         }
     }
+    // void Graphics::drawPlayerInventory()
+    // {
+    //     int i = 0;
+    //     int fontSize = GetScreenHeight() / 20;
+    //     for (auto &[id, player] : _game->getPlayers()) {
+    //         if (player->isSelected()) {
+    //             for (auto &[key, nb] : player->getInventory()) {
+    //                 std::shared_ptr<ModelInfo> model = _assetsManager.getModels()[ResourceToString.at(key)];
+    //                 std::string textToDraw = std::to_string(nb) + " " + ResourceToString.at(key);
+    //                 int width = MeasureText(textToDraw.c_str(), fontSize);
+    //                 Vector2 pos = {
+    //                 GetScreenWidth() - width - 10.0f,
+    //                 GetScreenHeight() - (i + 1) * fontSize - 10.0f
+    //                 };
+    //                 DrawText(textToDraw.c_str(), pos.x, pos.y, fontSize, WHITE);
+    //                 i++;
+    //             }
+    //             break;
+    //         }
+    //     }
+    // }
+
     void Graphics::drawPlayerInventory()
     {
         int i = 0;
         int fontSize = GetScreenHeight() / 20;
+        int iconSize = fontSize;
+
         for (auto &[id, player] : _game->getPlayers()) {
             if (player->isSelected()) {
                 for (auto &[key, nb] : player->getInventory()) {
                     std::shared_ptr<ModelInfo> model = _assetsManager.getModels()[ResourceToString.at(key)];
-                    std::string textToDraw = std::to_string(nb) + " " + ResourceToString.at(key);
-                    int width = MeasureText(textToDraw.c_str(), fontSize);
+                    Texture2D resourceIcon = _assetsManager.getResourceIcon(key);
+                    std::string numberText = std::to_string(nb);
+                    int nomberWidth = MeasureText(numberText.c_str(), fontSize);
+
                     Vector2 pos = {
-                    GetScreenWidth() - width - 10.0f,
-                    GetScreenHeight() - (i + 1) * fontSize - 10.0f
+                        GetScreenWidth() - iconSize - nomberWidth - 20.0f,
+                        GetScreenHeight() - (i + 1) * fontSize - 10.0f
                     };
-                    DrawText(textToDraw.c_str(), pos.x, pos.y, fontSize, WHITE);
+
+                    DrawText(numberText.c_str(), pos.x, pos.y, fontSize, WHITE);
+
+                    Vector2 iconPos = {
+                        pos.x + nomberWidth + 5.0f,
+                        pos.y
+                    };
+
+                    Rectangle sourceRec = {0, 0, (float)resourceIcon.width, (float)resourceIcon.height};
+                    Rectangle destRec = {iconPos.x, iconPos.y, (float)iconSize, (float)iconSize};
+                    Vector2 origin = {0, 0};
+
+                    DrawTexturePro(resourceIcon, sourceRec, destRec, origin, 0.0f, WHITE);
+
                     i++;
                 }
                 break;
