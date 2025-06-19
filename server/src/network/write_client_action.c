@@ -160,7 +160,7 @@ static void write_action(server_t *server, size_t index)
 {
     char *command = get_next_command(server, index - 1);
     char **args = MA(FALSE,
-        my_str_to_word_array, command, " \t\n", LIST_SEPARATOR);
+        my_str2array, command, CHAR_SEPARATORS, " \t\n");
 
     my_update_malloc(TRUE);
     if (IS_NULL(args) || IS_NULL(args[0]) || IS_NULL(command)) {
