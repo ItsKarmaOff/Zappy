@@ -9,10 +9,12 @@
 #include "Graphics.hpp"
 #include "Logs.hpp"
 #include "PlayerInfo.hpp"
+#include "SoundsManager.hpp"
 #include "TeamInfo.hpp"
 #include <cstdlib>
 #include <functional>
 #include <map>
+#include <raylib.h>
 #include <unordered_map>
 #include <vector>
 
@@ -543,6 +545,7 @@ namespace Gui
         _graphical.getQueueManager()->pushCommand({"bct",
             std::to_string(static_cast<int>(playerInfo->getPos().x)),
             std::to_string(static_cast<int>(playerInfo->getPos().y))});
+        PlaySound(SoundsManager::getInstance().getSounds()[SoundsManager::PICKUP_SOUND]);
     }
 
     void Commands::handlePDI(std::string &param)

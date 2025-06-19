@@ -62,9 +62,6 @@ namespace Gui {
             Color _color; ///< The color associated with the team
 
     };
-
-
-
 }
 
 #endif // TEAMINFO_HPP
