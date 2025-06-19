@@ -477,9 +477,6 @@ namespace Gui
         playerId = std::stoi(player.substr(1));
 
         DEBUG_CONCAT << "Player #" << playerId << " has laid an egg";
-
-        Vector2 PlayerPos = _graphical.getGame()->getPlayers()[playerId]->getPos();
-        _graphical.getGame()->getPlayers()[playerId]->setPos(PlayerPos);
     }
 
     void Commands::handlePDR(std::string &param)
@@ -651,6 +648,11 @@ namespace Gui
         eggId = std::stoi(eggNumber.substr(1));
 
         DEBUG_CONCAT << "Egg #" << eggId << " has been destroyed";
+
+        if (!_graphical.getGame()->getPlayers().contains(eggId))
+            ERROR << "Egg #" << eggId << " not found in players list";
+
+        _graphical.getGame()->getPlayers().erase(eggId);
     }
 
     void Commands::handleSGT(std::string &param)
