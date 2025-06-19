@@ -60,6 +60,11 @@ std::string Engine::getResponse(Lib::Socket *socket)
     while (!response.empty() && response.back() == '\n')
         response.pop_back();
     DEBUG << "Received: [" << response << "]";
+    std::regex r(R"(^\[[^\]]+\])");
+    if (std::regex_search(response, r)) {
+        _player->addToBroadcastList(response);
+        return getResponse(socket);
+    }
     return response;
 }
 
@@ -98,7 +103,7 @@ void Engine::_init()
 
     if (getResponse(_socket.get()) != "WELCOME")
         throw Lib::Exceptions::Critical("Connection failed.");
-    DEBUG << "Connected to server: " << _parser.getMachine() << ":" << _parser.getPort();
+    DEBUG << "Connected to server: " << _parser.getMachine() << ":" << _parser.getPort() << " as " << _parser.getName();
     send(_socket->getSocket(), (_parser.getName() + "\n").c_str(), _parser.getName().size() + 1, 0);
 
     std::string response = getResponse(_socket.get());

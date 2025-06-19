@@ -15,6 +15,8 @@
 #include "CommandsQueue.hpp"
 #include "Algo.hpp"
 
+#include <regex>
+
 class Engine {
     public:
         Engine(Parser &parser);
