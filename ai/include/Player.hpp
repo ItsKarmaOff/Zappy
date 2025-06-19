@@ -35,9 +35,16 @@ class Player {
         const std::vector<std::string>& getView() const { return _view; }
         void setView(const std::vector<std::string> &view) { _view = view; }
         const std::vector<std::string>& getBroadcastList() const { return _broadcastList; };
-        int getBroadcastSizex() const { return _broadcastList.size(); }
+        int getBroadcastSize() const { return _broadcastList.size(); }
         void addToBroadcastList(const std::string &message) {
             _broadcastList.push_back(message);
+            _bcIndex = (_bcIndex + 1) % _broadcastList.size();  
+        }
+        std::string getLastBroadcast() const {
+            if (_broadcastList.empty()) {
+                return "";
+            }
+            return _broadcastList[_bcIndex];
         }
         //Engine related
         void run();
