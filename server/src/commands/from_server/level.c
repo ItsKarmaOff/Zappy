@@ -24,6 +24,10 @@ static bool check_level_args(char **args, size_t *level)
 
 static void update_level(server_t *server, player_t *player, size_t level)
 {
+    if (player->is_egg) {
+        printf("Cannot set level for an egg (ID: %zu)\n", player->id);
+        return;
+    }
     player->level = level;
     send_plv_to_gui(server, NULL, player);
     printf("Player #%zu's set to level %zu\n", player->id, level);

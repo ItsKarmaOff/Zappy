@@ -136,7 +136,7 @@ void init_server_from_args(server_t *server, int argc, char **argv)
     if (parsing.options_found != (PORT_OPTION | WIDTH_OPTION | HEIGHT_OPTION |
     NAMES_OPTION | CLIENTS_OPTION))
         missing_options(parsing.options_found);
-    create_game_map(&server->game);
+    create_game_map(server, &server->game);
     for (node_t *tmp = parsing.team_name_list; tmp != NULL; tmp = tmp->next) {
         server->game.team_list[team_index] =
             create_team(&server->game, tmp->data);

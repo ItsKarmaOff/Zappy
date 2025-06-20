@@ -15,6 +15,7 @@
 void execute_actions(server_t *server)
 {
     client_t *client = NULL;
+    action_t action = {NULL, 0, NULL};
 
     for (size_t index = 0; index < server->current_clients_number; index++) {
         client = server->client_list[index];
@@ -26,11 +27,11 @@ void execute_actions(server_t *server)
         client->next_action.time_to_wait /
         (double)server->game.game_settings.frequency) {
             DEBUG(my_create_str("Executing action for client %zu", index));
-            client->next_action.cmd_function(server, client,
-                client->next_action.action_args);
-            FREE_WORD_ARRAY(client->next_action.action_args);
+            action = client->next_action;
             client->next_action.cmd_function = NULL;
             client->next_action.action_args = NULL;
+            action.cmd_function(server, client, action.action_args);
+            FREE_WORD_ARRAY(action.action_args);
         }
     }
 }

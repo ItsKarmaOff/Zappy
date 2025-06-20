@@ -11,19 +11,22 @@
  */
 
 #include "game.h"
+#include "my/functions.h"
 
 void destroy_game(game_t *game)
 {
     for (size_t index = 0; index < game->game_settings.teams_number; index++)
         my_delete_list(&game->team_list[index]->player_list);
     for (size_t y = 0; y < game->game_settings.height; y++) {
-        for (size_t x = 0; x < game->game_settings.width; x++)
+        for (size_t x = 0; x < game->game_settings.width; x++) {
             my_delete_list(&game->map[y][x].player_list);
+            my_delete_list(&game->map[y][x].incantation_list);
+        }
     }
     game->game_settings.teams_number = 0;
 }
 
-void refill_resources(game_t *game)
+void refill_resources(server_t *server, game_t *game)
 {
     size_t x = 0;
     size_t y = 0;
@@ -36,13 +39,15 @@ void refill_resources(game_t *game)
             y = rand() % game->game_settings.height;
             game->resources[index].current_quantity += ((
                 game->map[y][x].resources[index] == 0) ? 1 : 0);
-            game->map[y][x].resources[index] = 1;
+            game->map[y][x].resources[index] += ((
+                game->map[y][x].resources[index] == 0) ? 1 : 0);
+            send_bct_to_gui(server, NULL, (vector2u_t){x, y});
         }
     }
     game->last_refill_time = time(NULL);
 }
 
-void create_game_map(game_t *game)
+void create_game_map(server_t *server, game_t *game)
 {
     game->map = my_calloc(1, sizeof(tile_t *) * game->game_settings.height);
     for (size_t y = 0; y < game->game_settings.height; y++) {
@@ -58,7 +63,7 @@ void create_game_map(game_t *game)
             game->game_settings.width * game->game_settings.height
             * resources_densities[index];
     }
-    refill_resources(game);
+    refill_resources(server, game);
 }
 
 static void disconnect_player(server_t *server, player_t *player)
@@ -116,7 +121,7 @@ void update_game(server_t *server)
     if (server->game.game_settings.no_refill == false &&
     difftime(time(NULL), server->game.last_refill_time) >=
     REFILL_TIME / (double)server->game.game_settings.frequency)
-        refill_resources(&server->game);
+        refill_resources(server, &server->game);
     for (size_t index = 1; index < server->game.game_settings.teams_number;
     index++) {
         for (node_t *node = server->game.team_list[index]->player_list;

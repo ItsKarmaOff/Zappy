@@ -36,8 +36,10 @@ void send_bct_to_gui(server_t *server, client_t *client,
     position.y >= server->game.game_settings.height)
         return;
     tile = &server->game.map[position.y][position.x];
-    if (client != NULL)
+    if (client != NULL) {
         send_bct(client, tile);
+        return;
+    }
     for (size_t index = 0; index < server->current_clients_number; index++) {
         if (server->client_list[index]->client_type == CLIENT_GUI)
             send_bct(server->client_list[index], tile);

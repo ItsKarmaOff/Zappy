@@ -13,6 +13,10 @@
 #ifndef CONSTANTS_H_
     #define CONSTANTS_H_
 
+/* Libmy C constants */
+
+
+
     /* Include standard libraries */
 
     #include <dirent.h>
@@ -104,6 +108,13 @@
     #define    FORMAT_ATTRIBUTES "-+ #0"
     #define    FORMAT_PRECISION "."
     #define    FORMAT_NUMBERS "0123456789"
+
+
+
+    /* my_str_to_array function constants */
+
+    #define DEFAULT_INHIBITOR_SINGLE "\\"
+    #define DEFAULT_INHIBITOR_DOUBLE "\"\'`"
 
 
 
