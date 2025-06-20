@@ -63,32 +63,12 @@ std::string Engine::getResponse(Lib::Socket *socket)
     return response;
 }
 
-//void Engine::_communicate(Lib::Socket *socket)
-//{
-//    auto commandsQueue = std::make_shared<CommandsQueue>();
-//    _player->setCommandsQueue(commandsQueue);
-//
-//    while (_isRunning) {
-//        if (commandsQueue->hasCommands()) {
-//            commandsQueue->getCommandsQueueMutex().lock();
-//            std::string command = commandsQueue->popCommand();
-//            commandsQueue->getCommandsQueueMutex().unlock();
-//            DEBUG << "Sending command: " << command;
-//            send(socket->getSocket(), command.c_str(), command.size(), 0);
-//            std::string response = getResponse(socket);
-//            commandsQueue->getResponsesQueueMutex().lock();
-//            commandsQueue->pushResponse(response);
-//            commandsQueue->getResponseCondition().notify_one();
-//            commandsQueue->getResponsesQueueMutex().unlock();
-//        }
-//    }
-//}
-
 void Engine::_readIfResponse(Lib::Socket *socket)
 {
     if (poll(&_pollFd, 1, 0) > 0 && (_pollFd.revents & POLLIN)) {
         std::string answer = getResponse(socket);
         if (!answer.empty()) {
+            std::lock_guard<std::mutex> lock(_player->getCommandsQueue().getResponsesQueueMutex());
             if (answer.find("message", 0) == 0) {
                 _player->addToBroadcastList(answer.substr(8));
             }
@@ -96,10 +76,8 @@ void Engine::_readIfResponse(Lib::Socket *socket)
                 //remplir d'où on a été éjecter
             }
             else {
-                _player->getCommandsQueue().getResponsesQueueMutex().lock();
                 _player->getCommandsQueue().pushResponse(answer);
                 _player->getCommandsQueue().getResponseCondition().notify_one();
-                _player->getCommandsQueue().getResponsesQueueMutex().unlock();
             }
         }
     }
@@ -107,10 +85,9 @@ void Engine::_readIfResponse(Lib::Socket *socket)
 
 void Engine::_sendIfCommand(Lib::Socket *socket)
 {
+    std::lock_guard<std::mutex> lock(_player->getCommandsQueue().getCommandsQueueMutex());
     if (_player->getCommandsQueue().hasCommands()) {
-        _player->getCommandsQueue().getCommandsQueueMutex().lock();
         std::string command = _player->getCommandsQueue().popCommand();
-        _player->getCommandsQueue().getCommandsQueueMutex().unlock();
         DEBUG << "Sending command: " << command;
         send(socket->getSocket(), command.c_str(), command.size(), 0);
     }
@@ -149,6 +126,7 @@ void Engine::_init()
     if (response == "ko") {
         throw Lib::Exceptions::Critical("Connection failed: " + response);
     }
+    getResponse(_socket.get());
     _amountOfPlayers = std::stoi(response);
     _player = std::make_shared<Player>(_parser.getName(), std::thread(&Engine::_communicate, this, _socket.get()));
     _pollFd = {_socket->getSocket(), POLLIN, 0};
@@ -185,6 +163,8 @@ void Engine::_createNewPlayer()
     if (response == "ko") {
         throw Lib::Exceptions::Critical("Connection failed: " + response);
     }
+    getResponse(_socket.get());
+    getResponse(_socket.get());
     DEBUG << "Connected to server: " << response;
     _player = std::make_shared<Player>(_parser.getName(), std::thread(&Engine::_communicate, this, _socket.get()));
     _pollFd = {_socket->getSocket(), POLLIN, 0};
