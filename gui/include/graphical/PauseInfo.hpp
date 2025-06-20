@@ -54,7 +54,8 @@ namespace Gui {
             enum ButtonSettingsIndex {
                 TIME_UNIT_BUTTON, ///< Button displaying current time unit
                 PLUS_BUTTON,      ///< Button to increase time unit
-                MINUS_BUTTON      ///< Button to decrease time unit
+                MINUS_BUTTON,     ///< Button to decrease time unit
+                VOLUME_BUTTON     ///< Slider button for adjusting volume
             };
 
             /**
@@ -81,6 +82,8 @@ namespace Gui {
              */
             void resetCallbacks();
 
+
+            ////////////////////////////////////// UPDATERS //////////////////////////////////////
             /**
              * @brief Updates the pause menu state
              * Updates buttons and calls the background update callback if set
@@ -99,6 +102,8 @@ namespace Gui {
              */
             void updateSettingsButtons(std::vector<Button> &buttons);
 
+
+            ////////////////////////////////////// DRAWERS //////////////////////////////////////
             /**
              * @brief Draws the pause menu
              * Calls the background draw callback and draws the appropriate buttons
@@ -110,6 +115,14 @@ namespace Gui {
              * @param buttons Reference to the vector of buttons to draw
              */
             void drawButtons(std::vector<Button> &buttons);
+
+            /**
+             * @brief Draws the volume slider in the settings menu
+             * Displays a slider for adjusting the volume level
+             */
+            void drawVolumeSlider();
+
+            ////////////////////////////////////// GETTERS //////////////////////////////////////
 
             /**
              * @brief Gets the main pause menu buttons
@@ -147,6 +160,17 @@ namespace Gui {
              */
             void setTimeUnit(int timeUnit);
 
+            /**
+             * @brief Gets the current volume level
+             * @return The current volume level
+             */
+            int getVolume() const;
+            /**
+             * @brief Sets the volume level
+             * @param volume The new volume level
+             */
+            void setVolume(int volume);
+
         private:
             std::function<void()> _updateBackgroundCallback; ///< Callback to update the background
             std::function<void()> _drawBackgroundCallback;   ///< Callback to draw the background
@@ -156,6 +180,8 @@ namespace Gui {
             std::vector<Button> _buttonsSettings;           ///< Settings menu buttons
             PauseSubscene _currentSubscene;                 ///< Currently active subscene
             int _timeUnit;                                  ///< Time unit value for game speed
+
+            int _volume;                                    ///< Volume level
     };
 }
 

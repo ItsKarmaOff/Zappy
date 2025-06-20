@@ -12,7 +12,8 @@
 
 namespace Gui {
     PauseInfo::PauseInfo()
-        : _updateBackgroundCallback(nullptr), _drawBackgroundCallback(nullptr)
+        : _updateBackgroundCallback(nullptr), _drawBackgroundCallback(nullptr),
+        _volume(100)
     {
         _timeUnit = 1;
         _currentSubscene = RESUME;
@@ -135,12 +136,39 @@ namespace Gui {
         }
     }
 
+    void PauseInfo::drawVolumeSlider()
+    {
+        float width = GetScreenWidth() / 5;
+        float height = GetScreenHeight() / 10;
+        Vector2 buttonSize = {width, height};
+        Vector2 buttonPosition = {
+            GetScreenWidth() / 2 - width / 2,
+            GetScreenHeight() / 2 - height / 2
+        };
+
+        Rectangle sliderBar = {buttonPosition.x, buttonPosition.y + (height + (height / 2)), buttonSize.x, buttonSize.y / 2};
+        float knobWidth = (height / 2);
+        float knobHeight = (height / 2) * 1.5f;
+
+
+        float knobPos = buttonPosition.x + (_volume / 100.0f) * buttonSize.x;
+        Rectangle knob = {knobPos - knobWidth / 2, sliderBar.y - (knobHeight - sliderBar.height) / 2, knobWidth, knobHeight};
+
+
+        DrawRectangleRec(sliderBar, WHITE);
+        DrawRectangleRec(knob, DARKBLUE);
+        DrawText(TextFormat("Volume: %d", _volume), buttonPosition.x, buttonPosition.y + height, buttonSize.y / 2, WHITE);
+    }
+
+
     void PauseInfo::draw()
     {
         if (_drawBackgroundCallback) {
             _drawBackgroundCallback();
         }
         drawButtons(*_buttonsMap[_currentSubscene]);
+        if (_currentSubscene == SETTINGS)
+            drawVolumeSlider();
     }
 
     ////////////////////////////////////// GETTERS //////////////////////////////////////
@@ -173,6 +201,16 @@ namespace Gui {
     void PauseInfo::setTimeUnit(int timeUnit)
     {
         _timeUnit = timeUnit;
+    }
+
+    int PauseInfo::getVolume() const
+    {
+        return _volume;
+    }
+
+    void PauseInfo::setVolume(int volume)
+    {
+        _volume = volume;
     }
 
 }
