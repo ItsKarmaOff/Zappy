@@ -60,32 +60,70 @@ std::string Engine::getResponse(Lib::Socket *socket)
     while (!response.empty() && response.back() == '\n')
         response.pop_back();
     DEBUG << "Received: [" << response << "]";
-    std::regex r(R"(^\[[^\]]+\])");
-    if (std::regex_search(response, r)) {
-        _player->addToBroadcastList(response);
-        return getResponse(socket);
-    }
     return response;
 }
 
-void Engine::_communicate(Lib::Socket *socket)
+//void Engine::_communicate(Lib::Socket *socket)
+//{
+//    auto commandsQueue = std::make_shared<CommandsQueue>();
+//    _player->setCommandsQueue(commandsQueue);
+//
+//    while (_isRunning) {
+//        if (commandsQueue->hasCommands()) {
+//            commandsQueue->getCommandsQueueMutex().lock();
+//            std::string command = commandsQueue->popCommand();
+//            commandsQueue->getCommandsQueueMutex().unlock();
+//            DEBUG << "Sending command: " << command;
+//            send(socket->getSocket(), command.c_str(), command.size(), 0);
+//            std::string response = getResponse(socket);
+//            commandsQueue->getResponsesQueueMutex().lock();
+//            commandsQueue->pushResponse(response);
+//            commandsQueue->getResponseCondition().notify_one();
+//            commandsQueue->getResponsesQueueMutex().unlock();
+//        }
+//    }
+//}
+
+void Engine::_readIfResponse(Lib::Socket *socket)
+{
+    if (poll(&_pollFd, 1, 0) > 0 && (_pollFd.revents & POLLIN)) {
+        std::string answer = getResponse(socket);
+        if (!answer.empty()) {
+            if (answer.find("message", 0) == 0) {
+                _player->addToBroadcastList(answer.substr(8));
+            }
+            else if (answer.find("eject:", 0) == 0) {
+                //remplir d'où on a été éjecter
+            }
+            else {
+                _player->getCommandsQueue().getResponsesQueueMutex().lock();
+                _player->getCommandsQueue().pushResponse(answer);
+                _player->getCommandsQueue().getResponseCondition().notify_one();
+                _player->getCommandsQueue().getResponsesQueueMutex().unlock();
+            }
+        }
+    }
+}
+
+void Engine::_sendIfCommand(Lib::Socket *socket)
+{
+    if (_player->getCommandsQueue().hasCommands()) {
+        _player->getCommandsQueue().getCommandsQueueMutex().lock();
+        std::string command = _player->getCommandsQueue().popCommand();
+        _player->getCommandsQueue().getCommandsQueueMutex().unlock();
+        DEBUG << "Sending command: " << command;
+        send(socket->getSocket(), command.c_str(), command.size(), 0);
+    }
+}
+
+void Engine::_communicate(Lib::Socket *clientSocket)
 {
     auto commandsQueue = std::make_shared<CommandsQueue>();
     _player->setCommandsQueue(commandsQueue);
 
     while (_isRunning) {
-        if (commandsQueue->hasCommands()) {
-            commandsQueue->getCommandsQueueMutex().lock();
-            std::string command = commandsQueue->popCommand();
-            commandsQueue->getCommandsQueueMutex().unlock();
-            DEBUG << "Sending command: " << command;
-            send(socket->getSocket(), command.c_str(), command.size(), 0);
-            std::string response = getResponse(socket);
-            commandsQueue->getResponsesQueueMutex().lock();
-            commandsQueue->pushResponse(response);
-            commandsQueue->getResponseCondition().notify_one();
-            commandsQueue->getResponsesQueueMutex().unlock();
-        }
+        _sendIfCommand(clientSocket);
+        _readIfResponse(clientSocket);
     }
 }
 
@@ -113,6 +151,7 @@ void Engine::_init()
     }
     _amountOfPlayers = std::stoi(response);
     _player = std::make_shared<Player>(_parser.getName(), std::thread(&Engine::_communicate, this, _socket.get()));
+    _pollFd = {_socket->getSocket(), POLLIN, 0};
     _player->setForkPlayerCallback([this]() {
         pid_t pid = fork();
         if (pid < 0) {
@@ -148,7 +187,7 @@ void Engine::_createNewPlayer()
     }
     DEBUG << "Connected to server: " << response;
     _player = std::make_shared<Player>(_parser.getName(), std::thread(&Engine::_communicate, this, _socket.get()));
-
+    _pollFd = {_socket->getSocket(), POLLIN, 0};
     _player->setForkPlayerCallback([this]() {
         pid_t pid = fork();
         if (pid < 0) {

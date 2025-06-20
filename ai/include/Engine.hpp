@@ -26,8 +26,11 @@ class Engine {
     protected:
     private:
         void _communicate(Lib::Socket *clientSocket);
+        void _readIfResponse(Lib::Socket *clientSocket);
+        void _sendIfCommand(Lib::Socket *clientSocket);
         void _init();
         Parser _parser;
+        pollfd _pollFd;
         void _createNewPlayer();
         std::shared_ptr<Lib::Socket> _socket;
         struct sockaddr_in _client;
