@@ -31,8 +31,12 @@ static bool check_position_args(
 static void update_position(
     server_t *server, player_t *player, vector2u_t position)
 {
+    my_delete_nodes(&ACCESS_MAP(server->game.map, player).player_list,
+        player, NULL);
     player->position = position;
-    send_plv_to_gui(server, NULL, player);
+    AL(FALSE, my_push_back,
+        &ACCESS_MAP(server->game.map, player).player_list, player, UNKNOWN);
+    send_ppo_to_gui(server, NULL, player);
     printf("Teleport player #%zu's to (%zu, %zu)\n",
         player->id, position.x, position.y);
 }

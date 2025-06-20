@@ -24,7 +24,7 @@ const command_t commands_ai[] = {
     {"Eject", 7, &handle_ai_command_eject},
     {"Take", 7, &handle_ai_command_take},
     {"Set", 7, &handle_ai_command_set},
-    {"Incantation", 300, &handle_ai_command_incantation},
+    {"Incantation", 0, &handle_ai_command_incantation},
     {NULL, 0, NULL}
 };
 
@@ -110,7 +110,7 @@ static bool add_command_to_str(client_t *client, node_t *command,
         command->data = tmp;
         return true;
     } else {
-        command_size = strlen(command->data);
+        command_size = my_strlen(command->data);
         my_strncpy(next_command + *command_index, command->data, command_size);
         *command_index += command_size;
         FREE(command->data);
@@ -160,7 +160,7 @@ static void write_action(server_t *server, size_t index)
 {
     char *command = get_next_command(server, index - 1);
     char **args = MA(FALSE,
-        my_str_to_word_array, command, " \t\n", LIST_SEPARATOR);
+        my_str2array, command, CHAR_SEPARATORS, " \t\n");
 
     my_update_malloc(TRUE);
     if (IS_NULL(args) || IS_NULL(args[0]) || IS_NULL(command)) {

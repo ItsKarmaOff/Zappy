@@ -18,7 +18,7 @@
  * @return <b>void</b>
  * @author Nicolas TORO
  */
-void my_show_param_array(struct info_param const *par)
+void my_show_param_array(info_param_t const *par)
 {
     for (size_t index = 0; par[index].length != 0; index++) {
         my_putstr(par[index].str);

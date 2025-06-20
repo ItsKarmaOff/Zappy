@@ -16,20 +16,21 @@
  * @brief Returns a info_params struct of the argc (ac) and the argv (av)
  * @param ac The number of parameters
  * @param av The array of parameters
- * @return <b>struct info_param*</b> The information of the parameters
+ * @return <b>info_param_t *</b> The information of the parameters
  * @author Nicolas TORO
  */
-struct info_param *my_params_to_array(int ac, char **av)
+info_param_t *my_params_to_array(int ac, char **av)
 {
-    struct info_param *result;
+    info_param_t *result;
     int i = 0;
 
-    result = my_calloc(ac + 1, sizeof(struct info_param));
+    result = my_calloc(ac + 1, sizeof(info_param_t));
     for (; i < ac; i++) {
         result[i].length = my_strlen(av[i]);
         result[i].str = av[i];
         result[i].copy = my_strdup(av[i]);
-        result[i].word_array = STR2ARRAY(av[i], "", DEFAULT_SEPARATOR);
+        result[i].word_array = my_str_to_word_array(
+            av[i], DEFAULT_SEPARATORS, "");
     }
     result[i].length = 0;
     result[i].str = 0;

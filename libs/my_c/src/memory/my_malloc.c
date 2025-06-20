@@ -24,10 +24,10 @@ void *my_secure_malloc(size_t size)
     void *ptr = NULL;
 
     if (size == 0)
-        THROW("my_malloc: Allocating 0 bytes\n");
+        THROW("my_malloc: Allocating 0 bytes");
     ptr = malloc(size);
     if (ptr == NULL && size != 0)
-        THROW("my_malloc: Not enough memory to allocate\n");
+        THROW("my_malloc: Not enough memory to allocate");
     return ptr;
 }
 

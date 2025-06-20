@@ -16,7 +16,7 @@ static char *get_text(format_t *str_struct)
 {
     char **array = va_arg(str_struct->format_list, char **);
     size_t array_len = my_array_len((void **)array);
-    size_t total_len = my_word_array_len(array, array_len);
+    size_t total_len = my_word_array_len(array, array_len, NULL);
     char *tmp = my_calloc((array_len -1) * 4 + total_len + 5, sizeof(char));
     char *result = NULL;
 
