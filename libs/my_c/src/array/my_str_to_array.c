@@ -163,7 +163,6 @@ char **my_str_to_array(const char *str, array_settings_t array_settings)
     if (data.nb_words == 0)
         return NULL;
     data.array = my_calloc(data.nb_words + 1, sizeof(char *));
-    printf("Number of words: %zu\n", data.nb_words);
     for (size_t word_index = 0; word_index < data.nb_words; word_index++) {
         move_to_next_word(&data);
         count_next_word_letters(&data);
