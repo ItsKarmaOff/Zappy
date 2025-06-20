@@ -15,6 +15,12 @@
 #include <string>
 #include <unordered_map>
 
+/**
+ * @file TileInfo.hpp
+ * @brief The TileInfo class for representing tile data in the game
+ * @author Gianni TUERO
+ */
+
 namespace Gui {
     class TileInfo {
         public:
@@ -27,14 +33,24 @@ namespace Gui {
             void setPos(const Vector3 &pos);
 
             std::map<std::string, int> &getContent(void);
+
             void setContent(const std::map<std::string, int> &cont);
 
             ////////////////////////////////////// UTILITY //////////////////////////////////////
+            /**
+             * @brief Draw the tile
+             * @param assetsManager Reference to the AssetsManager
+             */
             void draw(AssetsManager &assetsManager);
+            /**
+             * @brief Draw the tile content
+             * @param assetsManager Reference to the AssetsManager
+             */
+            void drawContent(AssetsManager &assetsManager) const;
 
         private:
-            Vector3 _pos;
-            std::map<std::string, int> _content;
+            Vector3 _pos; ///< Position of the tile in 3D space
+            std::map<std::string, int> _content; ///< Map of content on the tile, e.g., resources and their quantities
 
     };
 

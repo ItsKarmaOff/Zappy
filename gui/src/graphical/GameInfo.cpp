@@ -17,7 +17,8 @@ namespace Gui {
         _camera.target = {0, 0, 0};
         _camera.up = {0, 1.0, 0};
         _camera.projection = CAMERA_PERSPECTIVE;
-        _camera.fovy = 45.0f;
+        
+        _camera.fovy = 60.0f;
         _tiles = {};
         _teams = {};
         _players = {};

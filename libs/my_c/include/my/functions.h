@@ -15,9 +15,10 @@
 
     #include "data_structures.h"
 
+/* Libmy C functions */
 
 
-    // Array functions :
+    /* Array functions */
 
 /**
  * @brief Returns the length of an array (array)
@@ -38,27 +39,50 @@ void my_sort_int_array(int *array, size_t size);
 
 /**
  * @brief Returns an array of words delimited
- * by a separator (separator) from a string (str)
+ * by a separator (array_settings.separator) from a string (str)
+ * @note Compared to my_str_to_word_array,
+ * this function will use an array_settings to personalize the conversion
  * @param str The string to convert
- * @param separator The separator to use
- * @param type The type of separator
+ * @param array_settings The settings for the convertion
  * @return <b>char**</b> The array of words
  * @author Nicolas TORO
  */
-char **my_str_to_word_array(char *str, char *separator, separator_type_t type);
+char **my_str_to_array(const char *str, array_settings_t array_settings);
+
+/**
+ * @brief Returns an array of words delimited
+ * by a separator (separator) from a string (str)
+ * @param str The string to convert
+ * @param type The type of separator
+ * @param separator The separator to use
+ * @return <b>char**</b> The array of words
+ * @author Nicolas TORO
+ */
+char **my_str_to_word_array(const char *str,
+    separator_type_t type, const char *separator);
 
 /**
  * @brief Returns the length of an word array (array)
  * @param array The array to check
  * @param nb_str The number of strings in the array
+ * @param stop_at_null If true,
+ * the function will stop counting at the first NULL
  * @return <b>size_t</b> The length of the word array
  * @author Nicolas TORO
  */
-size_t my_word_array_len(char **array, size_t nb_str);
+size_t my_word_array_len(char **array, size_t nb_str, bool stop_at_null);
+
+/**
+ * @brief Converts an array of words to a string
+ * @param word_array The array of words to convert
+ * @param separator The separator to use between words
+ * @return <b>char *</b> The string containing the words
+ */
+char *my_word_array_to_str(char **word_array, const char *separator);
 
 
 
-    // Calculs functions :
+    /* Calculs functions */
 
 /**
  * @brief Returns the factorial of a number (nb)
@@ -188,7 +212,7 @@ long double my_split_long_double(long double value, long double *integer_part);
 double my_trunc(double value);
 
 
-    // Char functions :
+    /* Char functions */
 
 /**
 * @brief Adds a char (chr) at the end of a string (str)
@@ -274,7 +298,7 @@ void my_replace_char_at(char *str, char to_replace, char replace_by,
 
 
 
-    // Hash functions :
+    /* Hash functions */
 
 /**
 * @brief Creates a hashtable
@@ -363,7 +387,7 @@ char *my_ht_search(hashtable_t *ht, char *key);
 
 
 
-    // List functions :
+    /* List functions */
 
 /**
  * @brief Concatenates two linked lists
@@ -553,7 +577,7 @@ void my_sort_list(node_t **begin, int (*cmp)());
 
 
 
-    // Memory functions :
+    /* Memory functions */
 
 /**
  * @brief Adds a pointer to the garbage collector
@@ -724,10 +748,10 @@ void *my_resize_alloc(void *ptr, size_t old_size, size_t new_size);
  * @note NONE (-2): Returns just the value | DEFAULT (-1): Disable the priority
  * | FALSE (0): Basic malloc | TRUE (1): Save in garbage
  * @param set The new temporary malloc state
- * @return <b>char</b> The temporary malloc state
+ * @return <b>my_bool_t</b> The temporary malloc state
  * @author Nicolas TORO
  */
-char tmp_malloc_state(my_bool_t set);
+my_bool_t tmp_malloc_state(my_bool_t set);
 
 /**
  * @brief Updates the temporary malloc state
@@ -735,17 +759,17 @@ char tmp_malloc_state(my_bool_t set);
  * @return <b>void</b>
  * @author Nicolas TORO
  */
-void my_update_alloc(char type);
+void my_update_alloc(my_bool_t type);
 
 /**
  * @brief The malloc state variable
  * @note NONE (-2): Returns just the value | DEFAULT (-1): Free all
  * | FALSE (0): Basic malloc | TRUE (1): Save in garbage
  * @param set The new malloc state
- * @return <b>char</b> The malloc state
+ * @return <b>my_bool_t</b> The malloc state
  * @author Nicolas TORO
  */
-char malloc_state(my_bool_t set);
+my_bool_t malloc_state(my_bool_t set);
 
 /**
  * @brief Updates the malloc state
@@ -753,11 +777,11 @@ char malloc_state(my_bool_t set);
  * @return <b>void</b>
  * @author Nicolas TORO
  */
-void my_update_malloc(char type);
+void my_update_malloc(my_bool_t type);
 
 
 
-    // Number functions :
+    /* Number functions */
 
 /**
 * @brief Returns the result of the conversion of a number (nbr)
@@ -940,7 +964,7 @@ uint32_t my_swap_endian_color(uint32_t color);
 
 
 
-    // Params functions :
+    /* Params functions */
 
 /**
 * @brief Returns a string with all the arguments (argc and argv) concatenated
@@ -952,13 +976,13 @@ uint32_t my_swap_endian_color(uint32_t color);
 char *my_concat_params(int argc, char **argv);
 
 /**
- * @brief Returns a info_params struct of the argc (ac) and the argv (av)
+ * @brief Returns a info_param struct of the argc (ac) and the argv (av)
  * @param ac The number of parameters
  * @param av The array of parameters
- * @return <b>struct info_param*</b> The information of the parameters
+ * @return <b>info_param_t *</b> The information of the parameters
  * @author Nicolas TORO
  */
-struct info_param *my_params_to_array(int ac, char **av);
+info_param_t *my_params_to_array(int ac, char **av);
 
 /**
  * @brief Prints all the parameters of the program
@@ -1041,7 +1065,7 @@ char *get_precision(format_t *str_struct, char *nbr_str);
 
 
 
-    // String functions :
+    /* String functions */
 
 /**
 * @brief Counts the number of times a letter (c) is in a string (str)
@@ -1315,7 +1339,7 @@ ssize_t my_wcstombs(char *dest, const wchar_t *src, size_t n);
 
 
 
-    // Write functions :
+    /* Write functions */
 
 /**
  * @brief Print a formatted string to a file descriptor
@@ -1438,7 +1462,7 @@ void my_show_list(node_t *list);
  * @return <b>void</b>
  * @author Nicolas TORO
  */
-void my_show_param_array(struct info_param const *par);
+void my_show_param_array(info_param_t const *par);
 
 /**
  * @brief Prints all word in an array (tab)
@@ -1465,5 +1489,41 @@ void my_showmem(char const *str, size_t size);
  * @author Nicolas TORO
  */
 void my_showstr(char const *str);
+
+/**
+ * @brief The debug mode variable
+ * @note NONE (-2) and DEFAULT (-1): Returns just the value |
+ * FALSE (0): Debug mode disable | TRUE (1): Debug mode enable
+ * @param set The debug mode state
+ * @return <b>my_bool_t</b> The debug mode state
+ * @author Nicolas TORO
+ */
+my_bool_t debug_mode(my_bool_t set);
+
+/**
+ * @brief Updates the debug mode
+ * @param type The new debug mode state
+ * @return <b>void</b>
+ * @author Nicolas TORO
+ */
+void my_update_debug_mode(my_bool_t type);
+
+/**
+ * @brief The extra logs variable
+ * @note NONE (-2) and DEFAULT (-1): Returns just the value |
+ * FALSE (0): Extra logs disable | TRUE (1): Extra logs enable
+ * @param set The extra logs state
+ * @return <b>my_bool_t</b> The extra logs state
+ * @author Nicolas TORO
+ */
+my_bool_t extra_logs(my_bool_t set);
+
+/**
+ * @brief Updates the extra logs state
+ * @param type The new extra logs state
+ * @return <b>void</b>
+ * @author Nicolas TORO
+ */
+void my_update_extra_logs(my_bool_t type);
 
 #endif /* FUNCTIONS_H_ */

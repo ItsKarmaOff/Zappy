@@ -9,7 +9,8 @@
 #include <string>
 
 namespace Gui {
-    PlayerInfo::PlayerInfo(std::string teamName_)
+    PlayerInfo::PlayerInfo(std::string teamName_) :
+    _isSelected(false), _modelPos()
     {
         _teamName = teamName_;
     }
@@ -82,11 +83,6 @@ namespace Gui {
             _inventory[type] = 0;
     }
 
-    std::queue<std::string> &PlayerInfo::getMessagesToBroadcast(void)
-    {
-        return _messagesToBroadcast;
-    }
-
     const Color &PlayerInfo::getColor(void) const
     {
         return _teamColor;
@@ -95,21 +91,6 @@ namespace Gui {
     void PlayerInfo::setColor(Color col)
     {
         _teamColor = col;
-    }
-
-    std::chrono::steady_clock::time_point &PlayerInfo::getClock(void)
-    {
-        return _clock;
-    }
-
-    const bool &PlayerInfo::isBroadcasting(void) const
-    {
-        return _broadcast;
-    }
-
-    void PlayerInfo::setBroadcasting(bool broadcasting)
-    {
-        _broadcast = broadcasting;
     }
 
     const std::string &PlayerInfo::getTeamName(void) const
@@ -122,4 +103,49 @@ namespace Gui {
         _teamName = name_;
     }
 
+    bool &PlayerInfo::isIncanting(void)
+    {
+        return _isIncanting;
+    }
+    const bool &PlayerInfo::isIncanting(void) const
+    {
+        return _isIncanting;
+    }
+    void PlayerInfo::setIncanting(bool incanting)
+    {
+        _isIncanting = incanting;
+    }
+
+    ////////////////////////////////////// FOR CLICKING ON PLAYER //////////////////////////////////////
+    const bool &PlayerInfo::isSelected(void) const
+    {
+        return _isSelected;
+    }
+
+    bool &PlayerInfo::isSelected(void)
+    {
+        return _isSelected;
+    }
+
+    void PlayerInfo::setSelected(bool selected)
+    {
+        _isSelected = selected;
+    }
+
+    ////////////////////////////////////// Model Methods //////////////////////////////////////
+
+    const Vector3 &PlayerInfo::getModelPos(void) const
+    {
+        return _modelPos;
+    }
+
+    void PlayerInfo::setModelPos(const Vector3 &pos)
+    {
+        _modelPos = pos;
+    }
+
+    const Matrix &PlayerInfo::getModelTransform(void) const
+    {
+        return _modelTransform;
+    }
 }

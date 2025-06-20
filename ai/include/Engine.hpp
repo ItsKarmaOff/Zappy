@@ -14,7 +14,6 @@
 #include "Player.hpp"
 #include "CommandsQueue.hpp"
 #include "Algo.hpp"
-
 #include <regex>
 
 class Engine {

@@ -8,19 +8,41 @@
 #include "Button.hpp"
 
 namespace Gui {
+    Button::Button()
+    {
+        init();
+    }
     Button::Button(const Rectangle &button)
     {
         setButton(button);
+        _colors = {YELLOW, DARKGRAY}; // Default colors, can be changed later
+        _currentColor = _colors.first; // Default current color
+        _text = "Default";
+        _textColor = WHITE; // Default text color
     }
     Button::Button(const Vector2 &pos, const Vector2 &size)
+    {
+        init(pos, size);
+    }
+
+    Button::Button(const std::string &text)
+    {
+        init();
+        _text = text;
+    }
+
+    void Button::init(const Vector2 &pos, const Vector2 &size)
     {
         _button = {pos.x, pos.y, size.x, size.y};
         _pos = pos;
         _size = size;
         _colors = {YELLOW, DARKGRAY}; // Default colors, can be changed later
         _currentColor = _colors.first; // Default current color
+        _text = "Default";
+        _textColor = WHITE; // Default text color
     }
 
+    ////////////////////////////////////// GETTERS //////////////////////////////////////
     const Rectangle& Button::getButton() const
     {
         return _button;
@@ -45,37 +67,40 @@ namespace Gui {
         return _currentColor;
     }
 
-    void Button::setCurrentColor(const Color &color)
+    Button& Button::setCurrentColor(const Color &color)
     {
         _currentColor = color;
+        return *this;
     }
 
-    void Button::setButton(const Rectangle &button)
+    Button& Button::setButton(const Rectangle &button)
     {
         _button = button;
         _pos = {button.x, button.y};
         _size = {button.width, button.height};
-        _colors = {YELLOW, DARKGRAY}; // Default colors, can be changed later
+        return *this;
     }
 
-    void Button::setPosition(const Vector2 &pos)
+    Button& Button::setPosition(const Vector2 &pos)
     {
         _pos = pos;
         _button.x = pos.x;
         _button.y = pos.y;
-
+        return *this;
     }
 
-    void Button::setSize(const Vector2 &size)
+    Button& Button::setSize(const Vector2 &size)
     {
         _size = size;
         _button.width = size.x;
         _button.height = size.y;
+        return *this;
     }
 
-    void Button::setColors(const std::pair<Color, Color> &colors)
+    Button& Button::setColors(const std::pair<Color, Color> &colors)
     {
         _colors = colors;
+        return *this;
     }
 
     bool Button::isMouseOver(Vector2 mousePos) const
@@ -83,10 +108,11 @@ namespace Gui {
         return CheckCollisionPointRec(mousePos, _button);
     }
 
-    void Button::setText(const std::string &text, Color color)
+    Button& Button::setText(const std::string &text, Color color)
     {
         _text = text;
         _textColor = color;
+        return *this;
     }
 
     Vector2 Button::getCenteredPositionForText(int fontSize) const
@@ -106,8 +132,16 @@ namespace Gui {
     {
         return _textColor;
     }
-    void Button::setTextColor(const Color &color)
+    Button& Button::setTextColor(const Color &color)
     {
         _textColor = color;
+        return *this;
+    }
+
+    ////////////////////////////////////// UTILITY //////////////////////////////////////
+
+    void Button::switchColorsIfHover(Vector2 mousePos)
+    {
+        setCurrentColor(isMouseOver(mousePos) ? _colors.second : _colors.first);
     }
 }

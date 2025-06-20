@@ -8,6 +8,7 @@
 #include "Graphics.hpp"
 #include "Commands.hpp"
 #include "Logs.hpp"
+#include "SoundsManager.hpp"
 #include <raylib.h>
 
 namespace Gui {
@@ -26,21 +27,27 @@ namespace Gui {
                 if (!_game) {
                     _assetsManager.loadAssets();
                     _game = std::make_shared<GameInfo>();
+                    _chatbox = std::make_shared<Chatbox>();
                 }
                 if (state == WELCOME_STATE) {
                     _queueManager->pushCommand({"GRAPHIC"});
                     state = TEAM_NAME;
                 }
                 DisableCursor();
+                StopMusicStream(SoundsManager::getInstance().getMusics()[SoundsManager::MENU_SONG]);
             }
             if (_menu->getButtons()[MenuInfo::EXIT_BUTTON].isMouseOver(_mousePos)) {
-                CloseWindow();
+                _windowShouldRun = false;
+                StopMusicStream(SoundsManager::getInstance().getMusics()[SoundsManager::MENU_SONG]);
             }
         }
     }
 
     void Graphics::updateMenu(void)
     {
+        if (!IsMusicStreamPlaying(SoundsManager::getInstance().getMusics()[SoundsManager::MENU_SONG]))
+            PlayMusicStream(SoundsManager::getInstance().getMusics()[SoundsManager::MENU_SONG]);
+        UpdateMusicStream(SoundsManager::getInstance().getMusics()[SoundsManager::MENU_SONG]);
         float width = GetScreenWidth() / 5;
         float height = GetScreenHeight() / 10;
 

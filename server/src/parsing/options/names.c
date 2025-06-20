@@ -33,14 +33,14 @@ void option_names(server_t *server, parsing_t *parsing)
     size_t name_index = parsing->index + 1;
 
     if (parsing->argc <= parsing->index + 1)
-        EXCEPTION("Missing argument for -n (or --names) option\n");
+        EXCEPTION("Missing argument for -n (or --names) option");
     for (; name_index < parsing->argc; name_index++) {
         if (parsing->argv[name_index][0] == '-')
             break;
     }
     if (name_index - parsing->index < 2)
         EXCEPTION("At least two team names are required "
-            "for -n (or --names) option\n");
+            "for -n (or --names) option");
     add_teams(server, parsing, name_index);
     parsing->index = name_index - 1;
 }

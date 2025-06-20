@@ -43,11 +43,12 @@ namespace Gui
         isRunning = true;
 
         std::thread communicationThread(&Core::_communicationThread, this);
-        std::thread debug(&Core::manual, this);
+        /* fonction qui permet d'envoyer des commandes dans le graphique */
+        // std::thread debug(&Core::manual, this);
         _gameThread();
 
         communicationThread.join();
-        debug.join();
+        // debug.join();
     }
 
     void Core::manual()
@@ -251,6 +252,7 @@ namespace Gui
                 sendCommand(_clientSocket->getSocket(), command);
         }
     }
+
     void Core::_communicationThread()
     {
         while (isRunning) {

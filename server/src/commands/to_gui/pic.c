@@ -10,7 +10,7 @@
  * @author Nicolas TORO
  */
 
-#include "commands/gui.h"
+#include "commands/commands_gui.h"
 
 static void send_pic(client_t *client,
     node_t *player_list, size_t level)
@@ -35,7 +35,7 @@ void send_pic_to_gui(server_t *server, client_t *client,
         return;
     }
     for (size_t index = 0; index < server->current_clients_number; index++) {
-        if (server->client_list[index]->is_gui)
+        if (server->client_list[index]->client_type == CLIENT_GUI)
             send_pic(server->client_list[index],
                 player_list, level);
     }

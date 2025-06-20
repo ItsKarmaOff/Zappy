@@ -26,6 +26,12 @@
  */
 void start_server(server_t *server);
 
+/**
+ * @brief Get the IP address of the server
+ * @return A string containing the IP address of the server
+ */
+char *get_ip_address(void);
+
 
 
 /* Polling functions */
@@ -114,8 +120,10 @@ void send_message_to_gui(server_t *server, const char *message);
  * @brief Destroy a client
  * @param server The server containing the client
  * @param client The client to destroy
+ * @param is_closing Whether the server is closing
+ * (to avoid sending messages to GUI)
  */
-void destroy_client(server_t *server, client_t *client);
+void destroy_client(server_t *server, client_t *client, bool is_closing);
 
 /**
  * @brief Destroy all clients in the server

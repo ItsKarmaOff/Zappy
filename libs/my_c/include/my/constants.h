@@ -13,6 +13,10 @@
 #ifndef CONSTANTS_H_
     #define CONSTANTS_H_
 
+/* Libmy C constants */
+
+
+
     /* Include standard libraries */
 
     #include <dirent.h>
@@ -40,6 +44,7 @@
     #include <sys/time.h>
     #include <poll.h>
     #include <sys/ioctl.h>
+    #include <arpa/inet.h>
 
 
 
@@ -75,6 +80,7 @@
 
     /* Colors and formatting for terminal output */
 
+    #define    ENDL RESET "\n\r"
     #define    RESET "\033[0m"
     #define    BLACK "\033[0;30m"
     #define    RED "\033[0;31m"
@@ -102,6 +108,13 @@
     #define    FORMAT_ATTRIBUTES "-+ #0"
     #define    FORMAT_PRECISION "."
     #define    FORMAT_NUMBERS "0123456789"
+
+
+
+    /* my_str_to_array function constants */
+
+    #define DEFAULT_INHIBITOR_SINGLE "\\"
+    #define DEFAULT_INHIBITOR_DOUBLE "\"\'`"
 
 
 

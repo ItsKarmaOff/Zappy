@@ -21,6 +21,8 @@
  */
 bool my_char_is(char c, const char *char_list)
 {
+    if (char_list == NULL)
+        return false;
     for (size_t i = 0; char_list[i]; i++)
         if (c == char_list[i])
             return true;

@@ -10,14 +10,14 @@
  * @author Nicolas TORO
  */
 
-#include "commands/gui.h"
+#include "commands/commands_gui.h"
 
-void handle_command_mct(server_t *server, client_t *client,
-    char **args)
+void handle_gui_command_mct(
+    server_t *server, client_t *client, char **args)
 {
-    DEBUG("Executing \"mct\" command\n");
+    DEBUG("Executing \"mct\" command");
     if (my_array_len((void **)args) != 1) {
-        DEBUG("Invalid number of arguments for \"mct\" command\n");
+        DEBUG("Invalid number of arguments for \"mct\" command");
         send_sbp_to_gui(server, client);
         return;
     }
