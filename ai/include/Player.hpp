@@ -16,7 +16,7 @@
 class Player {
     public:
         //class related
-        Player(std::string team, std::thread communicationThread);
+        Player(std::string team);
         ~Player();
         bool isAlive() const { return _isAlive; }
         void setAlive(bool alive) { _isAlive = alive; }
@@ -32,6 +32,25 @@ class Player {
         CommandsQueue &getCommandsQueue() { return *_commandsQueue; }
         void setCommandsQueue(const std::shared_ptr<CommandsQueue> &commandsQueue) { _commandsQueue = commandsQueue; }
         void setForkPlayerCallback(const std::function<void()> &callback) { _forkPlayerCallback = callback; }
+        const std::vector<std::string>& getView() const { return _view; }
+        void setView(const std::vector<std::string> &view) { _view = view; }
+        const std::vector<std::string>& getBroadcastList() const { return _broadcastList; };
+        int getBroadcastSize() const { return _broadcastList.size(); }
+        void addToBroadcastList(const std::string &message) {
+            _broadcastList.push_back(message);
+            if (!_broadcastList.empty()) {
+                _bcIndex = (_bcIndex + 1) % _broadcastList.size();  
+            }
+        }
+        std::string getLastBroadcast() const {
+            if (_broadcastList.empty()) {
+                return "";
+            }
+            return _broadcastList[_bcIndex];
+        }
+        void setCommunicationThread(std::thread thread) {
+            _communicationThread = std::move(thread);
+        }
         //Engine related
         void run();
         //commands
@@ -55,6 +74,8 @@ class Player {
         std::string _teamName;
         std::vector<std::pair<std::string, int>> _inventory;
         std::vector<std::string> _view;
+        std::vector<std::string> _broadcastList;
+        int _bcIndex = 0;
         std::thread _communicationThread;
         std::shared_ptr<CommandsQueue> _commandsQueue;
         std::function<void()> _forkPlayerCallback = nullptr;
