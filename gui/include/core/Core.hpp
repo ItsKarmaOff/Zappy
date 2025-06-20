@@ -60,7 +60,14 @@ namespace Gui
              */
             std::string getResponse();
 
+            /**
+            * @brief readIfResponse checks if there is a response from the server and processes it.
+            */
             void readIfResponse();
+
+            /**
+             * @brief sendIfCommand checks if there is a command to send and sends it to the server.
+             */
             void sendIfCommand();
 
 
@@ -130,6 +137,9 @@ namespace Gui
 			 */
             void _gameThread();
 
+            /**
+             * @brief manual allows the user to manually input commands in the console.
+             */
             void manual();
 
             //////////////// Private Attributes ////////////////////////////////
@@ -143,7 +153,7 @@ namespace Gui
 
 
             pollfd _pollFd; // Poll file descriptor for monitoring events on the socket
-            std::string _answer; 
+            std::string _answer;
     };
 }
 

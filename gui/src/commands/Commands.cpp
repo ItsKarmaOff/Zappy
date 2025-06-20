@@ -9,9 +9,12 @@
 #include "Graphics.hpp"
 #include "Logs.hpp"
 #include "PlayerInfo.hpp"
+#include "SoundsManager.hpp"
+#include "TeamInfo.hpp"
 #include <cstdlib>
 #include <functional>
 #include <map>
+#include <raylib.h>
 #include <unordered_map>
 #include <vector>
 
@@ -506,7 +509,9 @@ namespace Gui
             return;
         }
         _graphical.getGame()->getPlayers()[playerId]->removeResource(static_cast<PlayerInfo::ResourceType>(resourceNumber), 1);
-        _graphical.getQueueManager()->pushCommand({"bct", std::to_string(playerInfo->getPos().x), std::to_string(playerInfo->getPos().y)});
+        _graphical.getQueueManager()->pushCommand({"bct",
+            std::to_string(static_cast<int>(playerInfo->getPos().x)),
+            std::to_string(static_cast<int>(playerInfo->getPos().y))});
 
     }
 
@@ -534,7 +539,10 @@ namespace Gui
         DEBUG_CONCAT << "Player #" << playerId << " got resource number " << resourceNumber;
 
         playerInfo->addResource(static_cast<PlayerInfo::ResourceType>(resourceNumber), 1);
-        _graphical.getQueueManager()->pushCommand({"bct", std::to_string(playerInfo->getPos().x), std::to_string(playerInfo->getPos().y)});
+        _graphical.getQueueManager()->pushCommand({"bct",
+            std::to_string(static_cast<int>(playerInfo->getPos().x)),
+            std::to_string(static_cast<int>(playerInfo->getPos().y))});
+        PlaySound(SoundsManager::getInstance().getSounds()[SoundsManager::PICKUP_SOUND]);
     }
 
     void Commands::handlePDI(std::string &param)
@@ -594,6 +602,17 @@ namespace Gui
 
         DEBUG_CONCAT << "Egg #" << eggId << " laid by Player #" << playerId
             << " at (" << width << ", " << height << ")";
+
+        TeamInfo &team = _graphical.getGame()->getTeams()["UnknownTeam"];
+        if (!team.getPlayers().contains(eggId)) {
+            team.getPlayers()[eggId] = std::make_shared<PlayerInfo>("UnknownTeam");
+            _graphical.getGame()->getPlayers()[eggId] = team.getPlayers()[eggId];
+        }
+
+        std::shared_ptr<PlayerInfo> &eggI = team.getPlayers()[eggId];
+        eggI->setLevel(0);
+        eggI->setPos({static_cast<float>(width), static_cast<float>(height)});
+        eggI->setColor(WHITE);
     }
 
     void Commands::handleEBO(std::string &param)
@@ -632,6 +651,11 @@ namespace Gui
         eggId = std::stoi(eggNumber.substr(1));
 
         DEBUG_CONCAT << "Egg #" << eggId << " has been destroyed";
+
+        if (!_graphical.getGame()->getPlayers().contains(eggId))
+            ERROR << "Egg #" << eggId << " not found in players list";
+
+        _graphical.getGame()->getPlayers().erase(eggId);
     }
 
     void Commands::handleSGT(std::string &param)
