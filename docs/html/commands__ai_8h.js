@@ -1,6 +1,7 @@
 var commands__ai_8h =
 [
     [ "move_s", "structmove__s.html", "structmove__s" ],
+    [ "incantation_s", "structincantation__s.html", "structincantation__s" ],
     [ "handle_ai_command_broadcast", "commands__ai_8h.html#ae8fb5cb33882c0f641d84853df5d57d2", null ],
     [ "handle_ai_command_connect_nbr", "commands__ai_8h.html#af8607a66cd40d30362f6d298c82e31a4", null ],
     [ "handle_ai_command_eject", "commands__ai_8h.html#a472c7613c1c2f72eeb043060e078f345", null ],
@@ -13,5 +14,6 @@ var commands__ai_8h =
     [ "handle_ai_command_right", "commands__ai_8h.html#ab452c1e31cbc877e119cb9519a79585b", null ],
     [ "handle_ai_command_set", "commands__ai_8h.html#a66e1f305654f2f15b2da107f1678e809", null ],
     [ "handle_ai_command_take", "commands__ai_8h.html#acdfac9775175396c88e0e5e355a68e55", null ],
+    [ "incantations", "commands__ai_8h.html#aa11f49bf1617eee7a84aa59757a7941a", null ],
     [ "moves", "commands__ai_8h.html#ac9614bc590f9eaa56b7fc933c9c82477", null ]
 ];

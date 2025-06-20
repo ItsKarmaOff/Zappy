@@ -102,12 +102,18 @@ Functions</h2></td></tr>
 <tr class="memitem:aa087f5b641f4c296f090729c0de06740"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#aa087f5b641f4c296f090729c0de06740">my_sort_int_array</a> (int *array, size_t size)</td></tr>
 <tr class="memdesc:aa087f5b641f4c296f090729c0de06740"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts an array (array) with a defined size (size) of integers in ascending order.  <a href="functions_8h.html#aa087f5b641f4c296f090729c0de06740">More...</a><br /></td></tr>
 <tr class="separator:aa087f5b641f4c296f090729c0de06740"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c1400ca631042d911eb7ba49d319109"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a6c1400ca631042d911eb7ba49d319109">my_str_to_word_array</a> (char *str, char *separator, separator_type_t type)</td></tr>
-<tr class="memdesc:a6c1400ca631042d911eb7ba49d319109"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of words delimited by a separator (separator) from a string (str)  <a href="functions_8h.html#a6c1400ca631042d911eb7ba49d319109">More...</a><br /></td></tr>
-<tr class="separator:a6c1400ca631042d911eb7ba49d319109"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bef38310af7ccd0f48995e8276609e8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a1bef38310af7ccd0f48995e8276609e8">my_word_array_len</a> (char **array, size_t nb_str)</td></tr>
-<tr class="memdesc:a1bef38310af7ccd0f48995e8276609e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the length of an word array (array)  <a href="functions_8h.html#a1bef38310af7ccd0f48995e8276609e8">More...</a><br /></td></tr>
-<tr class="separator:a1bef38310af7ccd0f48995e8276609e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf0937ecfcd2c41bf105a5baeaa0bf6b"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#aaf0937ecfcd2c41bf105a5baeaa0bf6b">my_str_to_array</a> (const char *str, <a class="el" href="structarray__settings__s.html">array_settings_t</a> array_settings)</td></tr>
+<tr class="memdesc:aaf0937ecfcd2c41bf105a5baeaa0bf6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of words delimited by a separator (array_settings.separator) from a string (str)  <a href="functions_8h.html#aaf0937ecfcd2c41bf105a5baeaa0bf6b">More...</a><br /></td></tr>
+<tr class="separator:aaf0937ecfcd2c41bf105a5baeaa0bf6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4ad6add8786ad5fa5270122879d8f23"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#aa4ad6add8786ad5fa5270122879d8f23">my_str_to_word_array</a> (const char *str, separator_type_t type, const char *separator)</td></tr>
+<tr class="memdesc:aa4ad6add8786ad5fa5270122879d8f23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of words delimited by a separator (separator) from a string (str)  <a href="functions_8h.html#aa4ad6add8786ad5fa5270122879d8f23">More...</a><br /></td></tr>
+<tr class="separator:aa4ad6add8786ad5fa5270122879d8f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acde4744ff26f600946388c185d9ae832"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#acde4744ff26f600946388c185d9ae832">my_word_array_len</a> (char **array, size_t nb_str, bool stop_at_null)</td></tr>
+<tr class="memdesc:acde4744ff26f600946388c185d9ae832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the length of an word array (array)  <a href="functions_8h.html#acde4744ff26f600946388c185d9ae832">More...</a><br /></td></tr>
+<tr class="separator:acde4744ff26f600946388c185d9ae832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0face882aeac1394eee575528fc2810"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#ae0face882aeac1394eee575528fc2810">my_word_array_to_str</a> (char **word_array, const char *separator)</td></tr>
+<tr class="memdesc:ae0face882aeac1394eee575528fc2810"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an array of words to a string.  <a href="functions_8h.html#ae0face882aeac1394eee575528fc2810">More...</a><br /></td></tr>
+<tr class="separator:ae0face882aeac1394eee575528fc2810"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b4ed22709b392d8abf6b80d4d420bf6"><td class="memItemLeft" align="right" valign="top">intmax_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a2b4ed22709b392d8abf6b80d4d420bf6">my_compute_factorial</a> (intmax_t nb)</td></tr>
 <tr class="memdesc:a2b4ed22709b392d8abf6b80d4d420bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the factorial of a number (nb)  <a href="functions_8h.html#a2b4ed22709b392d8abf6b80d4d420bf6">More...</a><br /></td></tr>
 <tr class="separator:a2b4ed22709b392d8abf6b80d4d420bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -393,9 +399,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>my_trunc</b> (doubl
 <tr class="memitem:aa2f4356b6cb70c280bac520f68868c5d"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#aa2f4356b6cb70c280bac520f68868c5d">my_concat_params</a> (int argc, char **argv)</td></tr>
 <tr class="memdesc:aa2f4356b6cb70c280bac520f68868c5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string with all the arguments (argc and argv) concatenated.  <a href="functions_8h.html#aa2f4356b6cb70c280bac520f68868c5d">More...</a><br /></td></tr>
 <tr class="separator:aa2f4356b6cb70c280bac520f68868c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0b72fe06358e0540f534cbd4a77fbe7"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structinfo__param.html">info_param</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#aa0b72fe06358e0540f534cbd4a77fbe7">my_params_to_array</a> (int ac, char **av)</td></tr>
-<tr class="memdesc:aa0b72fe06358e0540f534cbd4a77fbe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a info_params struct of the argc (ac) and the argv (av)  <a href="functions_8h.html#aa0b72fe06358e0540f534cbd4a77fbe7">More...</a><br /></td></tr>
-<tr class="separator:aa0b72fe06358e0540f534cbd4a77fbe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a0cce71a5574eb9a1df5b9cfb287a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structinfo__param__s.html">info_param_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#ad7a0cce71a5574eb9a1df5b9cfb287a2">my_params_to_array</a> (int ac, char **av)</td></tr>
+<tr class="memdesc:ad7a0cce71a5574eb9a1df5b9cfb287a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a info_param struct of the argc (ac) and the argv (av)  <a href="functions_8h.html#ad7a0cce71a5574eb9a1df5b9cfb287a2">More...</a><br /></td></tr>
+<tr class="separator:ad7a0cce71a5574eb9a1df5b9cfb287a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27bb53a4d020f9d1fc473d99745f3db4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a27bb53a4d020f9d1fc473d99745f3db4">my_print_params</a> (int argc, char **argv)</td></tr>
 <tr class="memdesc:a27bb53a4d020f9d1fc473d99745f3db4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints all the parameters of the program.  <a href="functions_8h.html#a27bb53a4d020f9d1fc473d99745f3db4">More...</a><br /></td></tr>
 <tr class="separator:a27bb53a4d020f9d1fc473d99745f3db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -609,9 +615,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flag_uppercase_x</b> 
 <tr class="memitem:ad72ba929b91f331b713fcc9325f9aee9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#ad72ba929b91f331b713fcc9325f9aee9">my_show_list</a> (<a class="el" href="structnode__s.html">node_t</a> *list)</td></tr>
 <tr class="memdesc:ad72ba929b91f331b713fcc9325f9aee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the linked list.  <a href="functions_8h.html#ad72ba929b91f331b713fcc9325f9aee9">More...</a><br /></td></tr>
 <tr class="separator:ad72ba929b91f331b713fcc9325f9aee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0be4e68d7efa2ae1df3b6244d3b4a5fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a0be4e68d7efa2ae1df3b6244d3b4a5fd">my_show_param_array</a> (struct <a class="el" href="structinfo__param.html">info_param</a> const *par)</td></tr>
-<tr class="memdesc:a0be4e68d7efa2ae1df3b6244d3b4a5fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the information of a parameter array (par)  <a href="functions_8h.html#a0be4e68d7efa2ae1df3b6244d3b4a5fd">More...</a><br /></td></tr>
-<tr class="separator:a0be4e68d7efa2ae1df3b6244d3b4a5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ca5d0c7fe15faedf01f01e7d2a53c70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a2ca5d0c7fe15faedf01f01e7d2a53c70">my_show_param_array</a> (<a class="el" href="structinfo__param__s.html">info_param_t</a> const *par)</td></tr>
+<tr class="memdesc:a2ca5d0c7fe15faedf01f01e7d2a53c70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the information of a parameter array (par)  <a href="functions_8h.html#a2ca5d0c7fe15faedf01f01e7d2a53c70">More...</a><br /></td></tr>
+<tr class="separator:a2ca5d0c7fe15faedf01f01e7d2a53c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05a9b1758c5442b2fbf5f24eac7f1c09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a05a9b1758c5442b2fbf5f24eac7f1c09">my_show_word_array</a> (char *const *tab)</td></tr>
 <tr class="memdesc:a05a9b1758c5442b2fbf5f24eac7f1c09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints all word in an array (tab)  <a href="functions_8h.html#a05a9b1758c5442b2fbf5f24eac7f1c09">More...</a><br /></td></tr>
 <tr class="separator:a05a9b1758c5442b2fbf5f24eac7f1c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3554,14 +3560,14 @@ The allocation type is defined by the malloc state, or by the temporary malloc s
 
 </div>
 </div>
-<a id="aa0b72fe06358e0540f534cbd4a77fbe7" name="aa0b72fe06358e0540f534cbd4a77fbe7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0b72fe06358e0540f534cbd4a77fbe7">&#9670;&nbsp;</a></span>my_params_to_array()</h2>
+<a id="ad7a0cce71a5574eb9a1df5b9cfb287a2" name="ad7a0cce71a5574eb9a1df5b9cfb287a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a0cce71a5574eb9a1df5b9cfb287a2">&#9670;&nbsp;</a></span>my_params_to_array()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="structinfo__param.html">info_param</a> * my_params_to_array </td>
+          <td class="memname"><a class="el" href="structinfo__param__s.html">info_param_t</a> * my_params_to_array </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>ac</em>, </td>
@@ -3580,7 +3586,7 @@ The allocation type is defined by the malloc state, or by the temporary malloc s
       </table>
 </div><div class="memdoc">
 
-<p>Returns a info_params struct of the argc (ac) and the argv (av) </p>
+<p>Returns a info_param struct of the argc (ac) and the argv (av) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ac</td><td>The number of parameters </td></tr>
@@ -3588,7 +3594,17 @@ The allocation type is defined by the malloc state, or by the temporary malloc s
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>struct info_param*</b> The information of the parameters </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>info_param_t *</b> The information of the parameters </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Nicolas TORO</dd></dl>
+<p>Returns a info_param struct of the argc (ac) and the argv (av)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ac</td><td>The number of parameters </td></tr>
+    <tr><td class="paramname">av</td><td>The array of parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>info_param_t *</b> The information of the parameters </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
 
 </div>
@@ -4784,8 +4800,8 @@ The allocation type is defined by the malloc state, or by the temporary malloc s
 
 </div>
 </div>
-<a id="a0be4e68d7efa2ae1df3b6244d3b4a5fd" name="a0be4e68d7efa2ae1df3b6244d3b4a5fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0be4e68d7efa2ae1df3b6244d3b4a5fd">&#9670;&nbsp;</a></span>my_show_param_array()</h2>
+<a id="a2ca5d0c7fe15faedf01f01e7d2a53c70" name="a2ca5d0c7fe15faedf01f01e7d2a53c70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ca5d0c7fe15faedf01f01e7d2a53c70">&#9670;&nbsp;</a></span>my_show_param_array()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4793,7 +4809,7 @@ The allocation type is defined by the malloc state, or by the temporary malloc s
         <tr>
           <td class="memname">void my_show_param_array </td>
           <td>(</td>
-          <td class="paramtype">struct <a class="el" href="structinfo__param.html">info_param</a> const *&#160;</td>
+          <td class="paramtype"><a class="el" href="structinfo__param__s.html">info_param_t</a> const *&#160;</td>
           <td class="paramname"><em>par</em></td><td>)</td>
           <td></td>
         </tr>
@@ -5316,8 +5332,48 @@ The allocation type is defined by the malloc state, or by the temporary malloc s
 
 </div>
 </div>
-<a id="a6c1400ca631042d911eb7ba49d319109" name="a6c1400ca631042d911eb7ba49d319109"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c1400ca631042d911eb7ba49d319109">&#9670;&nbsp;</a></span>my_str_to_word_array()</h2>
+<a id="aaf0937ecfcd2c41bf105a5baeaa0bf6b" name="aaf0937ecfcd2c41bf105a5baeaa0bf6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf0937ecfcd2c41bf105a5baeaa0bf6b">&#9670;&nbsp;</a></span>my_str_to_array()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char ** my_str_to_array </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structarray__settings__s.html">array_settings_t</a>&#160;</td>
+          <td class="paramname"><em>array_settings</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns an array of words delimited by a separator (array_settings.separator) from a string (str) </p>
+<dl class="section note"><dt>Note</dt><dd>Compared to my_str_to_word_array, this function will use an array_settings to personalize the conversion </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The string to convert </td></tr>
+    <tr><td class="paramname">array_settings</td><td>The settings for the convertion </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>char**</b> The array of words </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
+
+</div>
+</div>
+<a id="aa4ad6add8786ad5fa5270122879d8f23" name="aa4ad6add8786ad5fa5270122879d8f23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4ad6add8786ad5fa5270122879d8f23">&#9670;&nbsp;</a></span>my_str_to_word_array()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5325,20 +5381,20 @@ The allocation type is defined by the malloc state, or by the temporary malloc s
         <tr>
           <td class="memname">char ** my_str_to_word_array </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>str</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>separator</em>, </td>
+          <td class="paramtype">separator_type_t&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">separator_type_t&#160;</td>
-          <td class="paramname"><em>type</em>&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>separator</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -5352,8 +5408,8 @@ The allocation type is defined by the malloc state, or by the temporary malloc s
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">str</td><td>The string to convert </td></tr>
-    <tr><td class="paramname">separator</td><td>The separator to use </td></tr>
     <tr><td class="paramname">type</td><td>The type of separator </td></tr>
+    <tr><td class="paramname">separator</td><td>The separator to use </td></tr>
   </table>
   </dd>
 </dl>
@@ -6148,8 +6204,8 @@ The allocation type is defined by the malloc state, or by the temporary malloc s
 
 </div>
 </div>
-<a id="a1bef38310af7ccd0f48995e8276609e8" name="a1bef38310af7ccd0f48995e8276609e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bef38310af7ccd0f48995e8276609e8">&#9670;&nbsp;</a></span>my_word_array_len()</h2>
+<a id="acde4744ff26f600946388c185d9ae832" name="acde4744ff26f600946388c185d9ae832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acde4744ff26f600946388c185d9ae832">&#9670;&nbsp;</a></span>my_word_array_len()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6164,7 +6220,13 @@ The allocation type is defined by the malloc state, or by the temporary malloc s
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>nb_str</em>&#160;</td>
+          <td class="paramname"><em>nb_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>stop_at_null</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -6179,11 +6241,50 @@ The allocation type is defined by the malloc state, or by the temporary malloc s
   <table class="params">
     <tr><td class="paramname">array</td><td>The array to check </td></tr>
     <tr><td class="paramname">nb_str</td><td>The number of strings in the array </td></tr>
+    <tr><td class="paramname">stop_at_null</td><td>If true, the function will stop counting at the first NULL </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><b>size_t</b> The length of the word array </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
+
+</div>
+</div>
+<a id="ae0face882aeac1394eee575528fc2810" name="ae0face882aeac1394eee575528fc2810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0face882aeac1394eee575528fc2810">&#9670;&nbsp;</a></span>my_word_array_to_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * my_word_array_to_str </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>word_array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>separator</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts an array of words to a string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">word_array</td><td>The array of words to convert </td></tr>
+    <tr><td class="paramname">separator</td><td>The separator to use between words </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>char *</b> The string containing the words </dd></dl>
 
 </div>
 </div>

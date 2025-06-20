@@ -87,19 +87,175 @@ $(document).ready(function(){initNavTree('classGui_1_1Chatbox.html',''); initRes
   <div class="headertitle"><div class="title">Chatbox Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manages the display and storage of chat messages with timed expiration.  
+ <a href="classGui_1_1Chatbox.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Chatbox_8hpp_source.html">Chatbox.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a225deec20895d230fc426c2efd424f47"><td class="memItemLeft" align="right" valign="top"><a id="a225deec20895d230fc426c2efd424f47" name="a225deec20895d230fc426c2efd424f47"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addMessage</b> (const std::string &amp;content, const std::string &amp;sender, <a class="el" href="structColor.html">Color</a> color=WHITE)</td></tr>
+<tr class="memitem:a1ee23dfc127231bbcd4ae40ccbbf6c35"><td class="memItemLeft" align="right" valign="top"><a id="a1ee23dfc127231bbcd4ae40ccbbf6c35" name="a1ee23dfc127231bbcd4ae40ccbbf6c35"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Chatbox</b> ()</td></tr>
+<tr class="memdesc:a1ee23dfc127231bbcd4ae40ccbbf6c35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor Initializes the chatbox with default settings and loads the font. <br /></td></tr>
+<tr class="separator:a1ee23dfc127231bbcd4ae40ccbbf6c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83930a69a5bcd48c6be7b6be7e776cd7"><td class="memItemLeft" align="right" valign="top"><a id="a83930a69a5bcd48c6be7b6be7e776cd7" name="a83930a69a5bcd48c6be7b6be7e776cd7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~Chatbox</b> ()=default</td></tr>
+<tr class="memdesc:a83930a69a5bcd48c6be7b6be7e776cd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
+<tr class="separator:a83930a69a5bcd48c6be7b6be7e776cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a225deec20895d230fc426c2efd424f47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1Chatbox.html#a225deec20895d230fc426c2efd424f47">addMessage</a> (const std::string &amp;content, const std::string &amp;sender, <a class="el" href="structColor.html">Color</a> color=WHITE)</td></tr>
+<tr class="memdesc:a225deec20895d230fc426c2efd424f47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new message to the chatbox.  <a href="classGui_1_1Chatbox.html#a225deec20895d230fc426c2efd424f47">More...</a><br /></td></tr>
 <tr class="separator:a225deec20895d230fc426c2efd424f47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a686ff403201aae9a27044c4537491933"><td class="memItemLeft" align="right" valign="top"><a id="a686ff403201aae9a27044c4537491933" name="a686ff403201aae9a27044c4537491933"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>wrapText</b> (const std::string &amp;text, int maxWidth, int fontSize, <a class="el" href="structFont.html">Font</a> font)</td></tr>
+<tr class="memitem:a686ff403201aae9a27044c4537491933"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1Chatbox.html#a686ff403201aae9a27044c4537491933">wrapText</a> (const std::string &amp;text, int maxWidth, int fontSize, <a class="el" href="structFont.html">Font</a> font)</td></tr>
+<tr class="memdesc:a686ff403201aae9a27044c4537491933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wraps text to fit within a specified width.  <a href="classGui_1_1Chatbox.html#a686ff403201aae9a27044c4537491933">More...</a><br /></td></tr>
 <tr class="separator:a686ff403201aae9a27044c4537491933"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2c827783d0ad462eac5ea9a510c069c"><td class="memItemLeft" align="right" valign="top"><a id="ac2c827783d0ad462eac5ea9a510c069c" name="ac2c827783d0ad462eac5ea9a510c069c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (<a class="el" href="structVector2.html">Vector2</a> position, <a class="el" href="structVector2.html">Vector2</a> size, int fontSize=GetScreenHeight()/30)</td></tr>
+<tr class="memitem:ac2c827783d0ad462eac5ea9a510c069c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1Chatbox.html#ac2c827783d0ad462eac5ea9a510c069c">draw</a> (<a class="el" href="structVector2.html">Vector2</a> position, <a class="el" href="structVector2.html">Vector2</a> size, int fontSize=GetScreenHeight()/30)</td></tr>
+<tr class="memdesc:ac2c827783d0ad462eac5ea9a510c069c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the chatbox with all current messages.  <a href="classGui_1_1Chatbox.html#ac2c827783d0ad462eac5ea9a510c069c">More...</a><br /></td></tr>
 <tr class="separator:ac2c827783d0ad462eac5ea9a510c069c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Manages the display and storage of chat messages with timed expiration. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a225deec20895d230fc426c2efd424f47" name="a225deec20895d230fc426c2efd424f47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a225deec20895d230fc426c2efd424f47">&#9670;&nbsp;</a></span>addMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addMessage </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>content</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sender</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structColor.html">Color</a>&#160;</td>
+          <td class="paramname"><em>color</em> = <code>WHITE</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a new message to the chatbox. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">content</td><td>The text content of the message </td></tr>
+    <tr><td class="paramname">sender</td><td>The name/identifier of the message sender </td></tr>
+    <tr><td class="paramname">color</td><td>The color used to display the message (default: WHITE) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac2c827783d0ad462eac5ea9a510c069c" name="ac2c827783d0ad462eac5ea9a510c069c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2c827783d0ad462eac5ea9a510c069c">&#9670;&nbsp;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void draw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structVector2.html">Vector2</a>&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structVector2.html">Vector2</a>&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fontSize</em> = <code>GetScreenHeight()&#160;/&#160;30</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws the chatbox with all current messages. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>The position where to draw the chatbox </td></tr>
+    <tr><td class="paramname">size</td><td>The size of the chatbox </td></tr>
+    <tr><td class="paramname">fontSize</td><td>The size of the font (default: scaled to screen height) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a686ff403201aae9a27044c4537491933" name="a686ff403201aae9a27044c4537491933"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a686ff403201aae9a27044c4537491933">&#9670;&nbsp;</a></span>wrapText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; wrapText </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fontSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structFont.html">Font</a>&#160;</td>
+          <td class="paramname"><em>font</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wraps text to fit within a specified width. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>The text to wrap </td></tr>
+    <tr><td class="paramname">maxWidth</td><td>The maximum width for the text in pixels </td></tr>
+    <tr><td class="paramname">fontSize</td><td>The size of the font </td></tr>
+    <tr><td class="paramname">font</td><td>The font used for measuring text dimensions </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of strings with each line wrapped to fit the width </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>gui/include/graphical/<a class="el" href="Chatbox_8hpp_source.html">Chatbox.hpp</a></li>
 <li>gui/src/graphical/Chatbox.cpp</li>

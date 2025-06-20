@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['options_0',['options',['../parsing_8h.html#a67dbe04b0f8ac57004bb14b6e634fbfb',1,'options():&#160;parsing.c'],['../parsing_8c.html#a67dbe04b0f8ac57004bb14b6e634fbfb',1,'options():&#160;parsing.c']]],
-  ['options_5ffound_1',['options_found',['../structparsing__s.html#aae8eb0dd2fd09c93b4a32d4fed6a757e',1,'parsing_s']]],
-  ['orientation_2',['orientation',['../structmove__s.html#a1b09aac684c444244dea820406f11875',1,'move_s::orientation()'],['../structplayer__s.html#a1b09aac684c444244dea820406f11875',1,'player_s::orientation()']]]
+  ['map_0',['map',['../structgame__s.html#ab3e2ff1da567447d6a8bdeb43d44ab59',1,'game_s']]],
+  ['max_5fquantity_1',['max_quantity',['../structquantity__s.html#a57033beb478967fed0afac1375c2ce7b',1,'quantity_s']]],
+  ['move_5ffunc_2',['move_func',['../structmove__s.html#a3c971bbbde05c935962c0a25534bcbb7',1,'move_s']]],
+  ['moves_3',['moves',['../commands__ai_8h.html#ac9614bc590f9eaa56b7fc933c9c82477',1,'moves():&#160;forward.c'],['../forward_8c.html#ac9614bc590f9eaa56b7fc933c9c82477',1,'moves():&#160;forward.c']]],
+  ['multiple_5fsigne_4',['multiple_signe',['../structnumber__settings__s.html#abd63c7070c2ffc8cc6d5c0b7ba8355d4',1,'number_settings_s']]],
+  ['my_5ferrno_5',['my_errno',['../my__get__number_8c.html#ac9a70045ab91a59a04050805ac52928b',1,'my_get_number.c']]]
 ];

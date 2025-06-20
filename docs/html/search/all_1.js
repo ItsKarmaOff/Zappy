@@ -1,8 +1,12 @@
 var searchData=
 [
   ['bct_2ec_0',['bct.c',['../from__gui_2bct_8c.html',1,'(Global Namespace)'],['../to__gui_2bct_8c.html',1,'(Global Namespace)']]],
-  ['boneinfo_1',['BoneInfo',['../structBoneInfo.html',1,'']]],
-  ['boundingbox_2',['BoundingBox',['../structBoundingBox.html',1,'']]],
-  ['broadcast_2ec_3',['broadcast.c',['../from__ai_2broadcast_8c.html',1,'(Global Namespace)'],['../from__server_2broadcast_8c.html',1,'(Global Namespace)']]],
-  ['button_4',['Button',['../classGui_1_1Button.html',1,'Gui']]]
+  ['blue_1',['blue',['../unioncolor__argb__u.html#a287b397e90d7b995c81ff54e741f96b2',1,'color_argb_u']]],
+  ['boneinfo_2',['BoneInfo',['../structBoneInfo.html',1,'']]],
+  ['boundingbox_3',['BoundingBox',['../structBoundingBox.html',1,'']]],
+  ['broadcast_2ec_4',['broadcast.c',['../from__ai_2broadcast_8c.html',1,'(Global Namespace)'],['../from__server_2broadcast_8c.html',1,'(Global Namespace)']]],
+  ['button_5',['Button',['../classGui_1_1Button.html#adf271b1be4c753b7f9ddf23e8f67c530',1,'Gui::Button::Button()'],['../classGui_1_1Button.html#aa5c9eb7c2524f8a6e301b43e809b7e5b',1,'Gui::Button::Button(const Rectangle &amp;button)'],['../classGui_1_1Button.html#ab7be68f51c8894ebf97e83be04ffb3f9',1,'Gui::Button::Button(const Vector2 &amp;pos, const Vector2 &amp;size)'],['../classGui_1_1Button.html#a70f58279404267a44f7b3d6e64334577',1,'Gui::Button::Button(const std::string &amp;text)'],['../classGui_1_1Button.html',1,'Button']]],
+  ['button_2ehpp_6',['Button.hpp',['../Button_8hpp.html',1,'']]],
+  ['buttonindex_7',['ButtonIndex',['../classGui_1_1PauseInfo.html#a2a5fd61108d6b9e3b6eac1aa53dd3aac',1,'Gui::PauseInfo']]],
+  ['buttonsettingsindex_8',['ButtonSettingsIndex',['../classGui_1_1PauseInfo.html#ae409384b112dfbfe6a6256586022d00c',1,'Gui::PauseInfo']]]
 ];

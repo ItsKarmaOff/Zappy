@@ -94,16 +94,16 @@ $(document).ready(function(){initNavTree('my__word__array__len_8c.html',''); ini
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1bef38310af7ccd0f48995e8276609e8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="my__word__array__len_8c.html#a1bef38310af7ccd0f48995e8276609e8">my_word_array_len</a> (char **array, size_t nb_str)</td></tr>
-<tr class="memdesc:a1bef38310af7ccd0f48995e8276609e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the length of an word array (array)  <a href="my__word__array__len_8c.html#a1bef38310af7ccd0f48995e8276609e8">More...</a><br /></td></tr>
-<tr class="separator:a1bef38310af7ccd0f48995e8276609e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acde4744ff26f600946388c185d9ae832"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="my__word__array__len_8c.html#acde4744ff26f600946388c185d9ae832">my_word_array_len</a> (char **array, size_t nb_str, bool stop_at_null)</td></tr>
+<tr class="memdesc:acde4744ff26f600946388c185d9ae832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the length of an word array (array)  <a href="my__word__array__len_8c.html#acde4744ff26f600946388c185d9ae832">More...</a><br /></td></tr>
+<tr class="separator:acde4744ff26f600946388c185d9ae832"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The file containing the my_word_array_len function. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a1bef38310af7ccd0f48995e8276609e8" name="a1bef38310af7ccd0f48995e8276609e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bef38310af7ccd0f48995e8276609e8">&#9670;&nbsp;</a></span>my_word_array_len()</h2>
+<a id="acde4744ff26f600946388c185d9ae832" name="acde4744ff26f600946388c185d9ae832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acde4744ff26f600946388c185d9ae832">&#9670;&nbsp;</a></span>my_word_array_len()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -118,7 +118,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>nb_str</em>&#160;</td>
+          <td class="paramname"><em>nb_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>stop_at_null</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -133,6 +139,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">array</td><td>The array to check </td></tr>
     <tr><td class="paramname">nb_str</td><td>The number of strings in the array </td></tr>
+    <tr><td class="paramname">stop_at_null</td><td>If true, the function will stop counting at the first NULL </td></tr>
   </table>
   </dd>
 </dl>

@@ -91,17 +91,63 @@ $(document).ready(function(){initNavTree('from__ai_2broadcast_8c.html',''); init
 <p>The broadcast.c.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="commands__ai_8h_source.html">commands/commands_ai.h</a>&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afedc6831ae665db0a92d66428901ca72"><td class="memItemLeft" align="right" valign="top"><a id="afedc6831ae665db0a92d66428901ca72" name="afedc6831ae665db0a92d66428901ca72"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>handle_ai_command_broadcast</b> (UNUSED <a class="el" href="structserver__s.html">server_t</a> *server, UNUSED <a class="el" href="structclient__s.html">client_t</a> *client, UNUSED char **args)</td></tr>
-<tr class="separator:afedc6831ae665db0a92d66428901ca72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8fb5cb33882c0f641d84853df5d57d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="from__ai_2broadcast_8c.html#ae8fb5cb33882c0f641d84853df5d57d2">handle_ai_command_broadcast</a> (<a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="structclient__s.html">client_t</a> *client, char **args)</td></tr>
+<tr class="memdesc:ae8fb5cb33882c0f641d84853df5d57d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the "Broadcast" command for AI clients.  <a href="from__ai_2broadcast_8c.html#ae8fb5cb33882c0f641d84853df5d57d2">More...</a><br /></td></tr>
+<tr class="separator:ae8fb5cb33882c0f641d84853df5d57d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The broadcast.c. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="ae8fb5cb33882c0f641d84853df5d57d2" name="ae8fb5cb33882c0f641d84853df5d57d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8fb5cb33882c0f641d84853df5d57d2">&#9670;&nbsp;</a></span>handle_ai_command_broadcast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void handle_ai_command_broadcast </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structclient__s.html">client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles the "Broadcast" command for AI clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server instance </td></tr>
+    <tr><td class="paramname">client</td><td>The client instance </td></tr>
+    <tr><td class="paramname">args</td><td>The arguments passed with the command </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

@@ -87,28 +87,176 @@ $(document).ready(function(){initNavTree('classGui_1_1QueueManager.html',''); in
   <div class="headertitle"><div class="title">QueueManager Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manages queues for commands and responses with thread-safety.  
+ <a href="classGui_1_1QueueManager.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="QueueManager_8hpp_source.html">QueueManager.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a46e4e84aaa322dcd3fea91c06ca4cf19"><td class="memItemLeft" align="right" valign="top"><a id="a46e4e84aaa322dcd3fea91c06ca4cf19" name="a46e4e84aaa322dcd3fea91c06ca4cf19"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pushCommand</b> (const std::vector&lt; std::string &gt; &amp;command)</td></tr>
+<tr class="memitem:af6dd4877864157fef8bec42103b6744a"><td class="memItemLeft" align="right" valign="top"><a id="af6dd4877864157fef8bec42103b6744a" name="af6dd4877864157fef8bec42103b6744a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>QueueManager</b> ()=default</td></tr>
+<tr class="memdesc:af6dd4877864157fef8bec42103b6744a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="separator:af6dd4877864157fef8bec42103b6744a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a733e27f0ac5c2894ebb72c4c8e914421"><td class="memItemLeft" align="right" valign="top"><a id="a733e27f0ac5c2894ebb72c4c8e914421" name="a733e27f0ac5c2894ebb72c4c8e914421"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~QueueManager</b> ()=default</td></tr>
+<tr class="memdesc:a733e27f0ac5c2894ebb72c4c8e914421"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
+<tr class="separator:a733e27f0ac5c2894ebb72c4c8e914421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46e4e84aaa322dcd3fea91c06ca4cf19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1QueueManager.html#a46e4e84aaa322dcd3fea91c06ca4cf19">pushCommand</a> (const std::vector&lt; std::string &gt; &amp;command)</td></tr>
+<tr class="memdesc:a46e4e84aaa322dcd3fea91c06ca4cf19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a command to the commands queue.  <a href="classGui_1_1QueueManager.html#a46e4e84aaa322dcd3fea91c06ca4cf19">More...</a><br /></td></tr>
 <tr class="separator:a46e4e84aaa322dcd3fea91c06ca4cf19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c137a79ac51175222c86b1aea6d52e8"><td class="memItemLeft" align="right" valign="top"><a id="a7c137a79ac51175222c86b1aea6d52e8" name="a7c137a79ac51175222c86b1aea6d52e8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasCommands</b> () const</td></tr>
+<tr class="memitem:a7c137a79ac51175222c86b1aea6d52e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1QueueManager.html#a7c137a79ac51175222c86b1aea6d52e8">hasCommands</a> () const</td></tr>
+<tr class="memdesc:a7c137a79ac51175222c86b1aea6d52e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are commands in the queue.  <a href="classGui_1_1QueueManager.html#a7c137a79ac51175222c86b1aea6d52e8">More...</a><br /></td></tr>
 <tr class="separator:a7c137a79ac51175222c86b1aea6d52e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adaf2b95608683c12ca32e0354010ea8a"><td class="memItemLeft" align="right" valign="top"><a id="adaf2b95608683c12ca32e0354010ea8a" name="adaf2b95608683c12ca32e0354010ea8a"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>popCommand</b> ()</td></tr>
+<tr class="memitem:adaf2b95608683c12ca32e0354010ea8a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1QueueManager.html#adaf2b95608683c12ca32e0354010ea8a">popCommand</a> ()</td></tr>
+<tr class="memdesc:adaf2b95608683c12ca32e0354010ea8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves and removes the first command from the queue.  <a href="classGui_1_1QueueManager.html#adaf2b95608683c12ca32e0354010ea8a">More...</a><br /></td></tr>
 <tr class="separator:adaf2b95608683c12ca32e0354010ea8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5295730bdab90e95262d867e6ea9ba9"><td class="memItemLeft" align="right" valign="top"><a id="ad5295730bdab90e95262d867e6ea9ba9" name="ad5295730bdab90e95262d867e6ea9ba9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pushResponse</b> (const std::string &amp;response)</td></tr>
+<tr class="memitem:ad5295730bdab90e95262d867e6ea9ba9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1QueueManager.html#ad5295730bdab90e95262d867e6ea9ba9">pushResponse</a> (const std::string &amp;response)</td></tr>
+<tr class="memdesc:ad5295730bdab90e95262d867e6ea9ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a response to the responses queue.  <a href="classGui_1_1QueueManager.html#ad5295730bdab90e95262d867e6ea9ba9">More...</a><br /></td></tr>
 <tr class="separator:ad5295730bdab90e95262d867e6ea9ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91ecde0590666ddb2fa52cc896cc8e18"><td class="memItemLeft" align="right" valign="top"><a id="a91ecde0590666ddb2fa52cc896cc8e18" name="a91ecde0590666ddb2fa52cc896cc8e18"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasResponses</b> () const</td></tr>
+<tr class="memitem:a91ecde0590666ddb2fa52cc896cc8e18"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1QueueManager.html#a91ecde0590666ddb2fa52cc896cc8e18">hasResponses</a> () const</td></tr>
+<tr class="memdesc:a91ecde0590666ddb2fa52cc896cc8e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are responses in the queue.  <a href="classGui_1_1QueueManager.html#a91ecde0590666ddb2fa52cc896cc8e18">More...</a><br /></td></tr>
 <tr class="separator:a91ecde0590666ddb2fa52cc896cc8e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9970c19efc6a3e03a041a6bbf4e358ad"><td class="memItemLeft" align="right" valign="top"><a id="a9970c19efc6a3e03a041a6bbf4e358ad" name="a9970c19efc6a3e03a041a6bbf4e358ad"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>popResponse</b> ()</td></tr>
+<tr class="memitem:a9970c19efc6a3e03a041a6bbf4e358ad"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1QueueManager.html#a9970c19efc6a3e03a041a6bbf4e358ad">popResponse</a> ()</td></tr>
+<tr class="memdesc:a9970c19efc6a3e03a041a6bbf4e358ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves and removes the first response from the queue.  <a href="classGui_1_1QueueManager.html#a9970c19efc6a3e03a041a6bbf4e358ad">More...</a><br /></td></tr>
 <tr class="separator:a9970c19efc6a3e03a041a6bbf4e358ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Manages queues for commands and responses with thread-safety. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7c137a79ac51175222c86b1aea6d52e8" name="a7c137a79ac51175222c86b1aea6d52e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c137a79ac51175222c86b1aea6d52e8">&#9670;&nbsp;</a></span>hasCommands()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hasCommands </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if there are commands in the queue. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the commands queue is not empty, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a91ecde0590666ddb2fa52cc896cc8e18" name="a91ecde0590666ddb2fa52cc896cc8e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91ecde0590666ddb2fa52cc896cc8e18">&#9670;&nbsp;</a></span>hasResponses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hasResponses </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if there are responses in the queue. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the responses queue is not empty, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="adaf2b95608683c12ca32e0354010ea8a" name="adaf2b95608683c12ca32e0354010ea8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf2b95608683c12ca32e0354010ea8a">&#9670;&nbsp;</a></span>popCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; popCommand </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves and removes the first command from the queue. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector of strings representing the command and its arguments </dd></dl>
+
+</div>
+</div>
+<a id="a9970c19efc6a3e03a041a6bbf4e358ad" name="a9970c19efc6a3e03a041a6bbf4e358ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9970c19efc6a3e03a041a6bbf4e358ad">&#9670;&nbsp;</a></span>popResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string popResponse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves and removes the first response from the queue. </p>
+<dl class="section return"><dt>Returns</dt><dd>String representing the response </dd></dl>
+
+</div>
+</div>
+<a id="a46e4e84aaa322dcd3fea91c06ca4cf19" name="a46e4e84aaa322dcd3fea91c06ca4cf19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46e4e84aaa322dcd3fea91c06ca4cf19">&#9670;&nbsp;</a></span>pushCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pushCommand </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a command to the commands queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>Vector of strings representing the command and its arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad5295730bdab90e95262d867e6ea9ba9" name="ad5295730bdab90e95262d867e6ea9ba9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5295730bdab90e95262d867e6ea9ba9">&#9670;&nbsp;</a></span>pushResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pushResponse </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>response</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a response to the responses queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">response</td><td>String representing the response </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>gui/include/core/<a class="el" href="QueueManager_8hpp_source.html">QueueManager.hpp</a></li>
 <li>gui/src/core/QueueManager.cpp</li>

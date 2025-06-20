@@ -27,5 +27,6 @@ var searchData=
   ['orientation_24',['orientation',['../structplayer__s.html#a1b09aac684c444244dea820406f11875',1,'player_s::orientation()'],['../structmove__s.html#a1b09aac684c444244dea820406f11875',1,'move_s::orientation()']]],
   ['orientation_25',['Orientation',['../classGui_1_1PlayerInfo.html#a871118a09520247c78a71ecd7b0abd58',1,'Gui::PlayerInfo']]],
   ['orientation_2ec_26',['orientation.c',['../orientation_8c.html',1,'']]],
-  ['orientation_5fe_27',['orientation_e',['../server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232ceb',1,'server_data_structures.h']]]
+  ['orientation_5fe_27',['orientation_e',['../server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232ceb',1,'server_data_structures.h']]],
+  ['overflow_28',['overflow',['../structnumber__settings__s.html#a49aa97067a36875627e1380c3fb3833d',1,'number_settings_s']]]
 ];

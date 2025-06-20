@@ -87,19 +87,127 @@ $(document).ready(function(){initNavTree('classGui_1_1AssetsManager.html',''); i
   <div class="headertitle"><div class="title">AssetsManager Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class managing game assets.  
+ <a href="classGui_1_1AssetsManager.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="AssetsManager_8hpp_source.html">AssetsManager.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a252e595519ca8241fad0c03af17172b4"><td class="memItemLeft" align="right" valign="top"><a id="a252e595519ca8241fad0c03af17172b4" name="a252e595519ca8241fad0c03af17172b4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>loadAssets</b> ()</td></tr>
+<tr class="memitem:ad9f94e77883acbb50a16b7a23801fc89"><td class="memItemLeft" align="right" valign="top"><a id="ad9f94e77883acbb50a16b7a23801fc89" name="ad9f94e77883acbb50a16b7a23801fc89"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AssetsManager</b> ()=default</td></tr>
+<tr class="memdesc:ad9f94e77883acbb50a16b7a23801fc89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="separator:ad9f94e77883acbb50a16b7a23801fc89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43eb7289b0211e9f29db7b7490b96244"><td class="memItemLeft" align="right" valign="top"><a id="a43eb7289b0211e9f29db7b7490b96244" name="a43eb7289b0211e9f29db7b7490b96244"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~AssetsManager</b> ()</td></tr>
+<tr class="memdesc:a43eb7289b0211e9f29db7b7490b96244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
+<tr class="separator:a43eb7289b0211e9f29db7b7490b96244"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a252e595519ca8241fad0c03af17172b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1AssetsManager.html#a252e595519ca8241fad0c03af17172b4">loadAssets</a> ()</td></tr>
+<tr class="memdesc:a252e595519ca8241fad0c03af17172b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads all required assets into memory.  <a href="classGui_1_1AssetsManager.html#a252e595519ca8241fad0c03af17172b4">More...</a><br /></td></tr>
 <tr class="separator:a252e595519ca8241fad0c03af17172b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a279658d228d1cb778389b29740c4382f"><td class="memItemLeft" align="right" valign="top"><a id="a279658d228d1cb778389b29740c4382f" name="a279658d228d1cb778389b29740c4382f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unloadAssets</b> ()</td></tr>
+<tr class="memitem:a279658d228d1cb778389b29740c4382f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1AssetsManager.html#a279658d228d1cb778389b29740c4382f">unloadAssets</a> ()</td></tr>
+<tr class="memdesc:a279658d228d1cb778389b29740c4382f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unloads all assets from memory.  <a href="classGui_1_1AssetsManager.html#a279658d228d1cb778389b29740c4382f">More...</a><br /></td></tr>
 <tr class="separator:a279658d228d1cb778389b29740c4382f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf9784bc467a3b3f72e652d73e8fda43"><td class="memItemLeft" align="right" valign="top"><a id="abf9784bc467a3b3f72e652d73e8fda43" name="abf9784bc467a3b3f72e652d73e8fda43"></a>
-std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classGui_1_1ModelInfo.html">ModelInfo</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getModels</b> (void)</td></tr>
+<tr class="memitem:abf9784bc467a3b3f72e652d73e8fda43"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classGui_1_1ModelInfo.html">ModelInfo</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1AssetsManager.html#abf9784bc467a3b3f72e652d73e8fda43">getModels</a> (void)</td></tr>
+<tr class="memdesc:abf9784bc467a3b3f72e652d73e8fda43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the map containing all loaded 3D models.  <a href="classGui_1_1AssetsManager.html#abf9784bc467a3b3f72e652d73e8fda43">More...</a><br /></td></tr>
 <tr class="separator:abf9784bc467a3b3f72e652d73e8fda43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c44a04fd859e4496329110c655c5cae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTexture.html">Texture2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1AssetsManager.html#a0c44a04fd859e4496329110c655c5cae">getResourceIcon</a> (<a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">PlayerInfo::ResourceType</a> Key)</td></tr>
+<tr class="memdesc:a0c44a04fd859e4496329110c655c5cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the icon texture for a specific resource type.  <a href="classGui_1_1AssetsManager.html#a0c44a04fd859e4496329110c655c5cae">More...</a><br /></td></tr>
+<tr class="separator:a0c44a04fd859e4496329110c655c5cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Class managing game assets. </p>
+<p >This class is responsible for loading, unloading, and providing access to game assets such as 3D models. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="abf9784bc467a3b3f72e652d73e8fda43" name="abf9784bc467a3b3f72e652d73e8fda43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf9784bc467a3b3f72e652d73e8fda43">&#9670;&nbsp;</a></span>getModels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classGui_1_1ModelInfo.html">ModelInfo</a> &gt; &gt; &amp; getModels </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the map containing all loaded 3D models. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the unordered map of models </dd></dl>
+
+</div>
+</div>
+<a id="a0c44a04fd859e4496329110c655c5cae" name="a0c44a04fd859e4496329110c655c5cae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c44a04fd859e4496329110c655c5cae">&#9670;&nbsp;</a></span>getResourceIcon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTexture.html">Texture2D</a> getResourceIcon </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">PlayerInfo::ResourceType</a>&#160;</td>
+          <td class="paramname"><em>Key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the icon texture for a specific resource type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Key</td><td>The resource type for which to get the icon </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The texture representing the resource icon </dd></dl>
+
+</div>
+</div>
+<a id="a252e595519ca8241fad0c03af17172b4" name="a252e595519ca8241fad0c03af17172b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a252e595519ca8241fad0c03af17172b4">&#9670;&nbsp;</a></span>loadAssets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loadAssets </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads all required assets into memory. </p>
+<p >Initializes and loads all required game assets such as 3D models </p>
+
+</div>
+</div>
+<a id="a279658d228d1cb778389b29740c4382f" name="a279658d228d1cb778389b29740c4382f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a279658d228d1cb778389b29740c4382f">&#9670;&nbsp;</a></span>unloadAssets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void unloadAssets </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unloads all assets from memory. </p>
+<p >Properly cleans up and releases all loaded game assets </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>gui/include/graphical/<a class="el" href="AssetsManager_8hpp_source.html">AssetsManager.hpp</a></li>
 <li>gui/src/graphical/AssetsManager.cpp</li>

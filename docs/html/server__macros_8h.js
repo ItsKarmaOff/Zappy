@@ -9,6 +9,7 @@ var server__macros_8h =
     [ "DEFAULT_LISTEN_BACKLOG", "server__macros_8h.html#ab5da6bbb562df8ddc215dff560ceedec", null ],
     [ "DEFAULT_NUMBER_OF_CLIENTS", "server__macros_8h.html#a00673d5ceeaa107cc2a671bd74e6c0d6", null ],
     [ "DNS_PORT", "server__macros_8h.html#ab1d3f5c08428c20521a92ca2fa20f46c", null ],
+    [ "ELEVATION_OK", "server__macros_8h.html#ab8429e5e94cf450eeeb8daece8f5dd63", null ],
     [ "FOOD_TIME_UNIT", "server__macros_8h.html#acae956016df8654ed1ebe6eab24cb0db", null ],
     [ "GOOGLE_DNS_IP", "server__macros_8h.html#a80f8ca92ad09cc02bb0703b835685fb6", null ],
     [ "GRAPHIC_TEAM_INDEX", "server__macros_8h.html#a3ba273f2b980d47385809b316a4ce0d3", null ],

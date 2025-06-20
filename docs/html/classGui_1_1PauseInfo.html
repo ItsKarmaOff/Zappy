@@ -88,67 +88,468 @@ $(document).ready(function(){initNavTree('classGui_1_1PauseInfo.html',''); initR
   <div class="headertitle"><div class="title">PauseInfo Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manages the pause menu state, buttons, and interactions.  
+ <a href="classGui_1_1PauseInfo.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="PauseInfo_8hpp_source.html">PauseInfo.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a2a5fd61108d6b9e3b6eac1aa53dd3aac"><td class="memItemLeft" align="right" valign="top"><a id="a2a5fd61108d6b9e3b6eac1aa53dd3aac" name="a2a5fd61108d6b9e3b6eac1aa53dd3aac"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>ButtonIndex</b> { <b>RESUME_BUTTON</b>
-, <b>SETTINGS_BUTTON</b>
-, <b>QUIT_BUTTON</b>
+<tr class="memitem:a2a5fd61108d6b9e3b6eac1aa53dd3aac"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#a2a5fd61108d6b9e3b6eac1aa53dd3aac">ButtonIndex</a> { <a class="el" href="classGui_1_1PauseInfo.html#a2a5fd61108d6b9e3b6eac1aa53dd3aacac7fa15cdc7bd4f83b240ed38dd9064bc">RESUME_BUTTON</a>
+, <a class="el" href="classGui_1_1PauseInfo.html#a2a5fd61108d6b9e3b6eac1aa53dd3aacad567750c19c09aa7656fed982416ebb3">SETTINGS_BUTTON</a>
+, <a class="el" href="classGui_1_1PauseInfo.html#a2a5fd61108d6b9e3b6eac1aa53dd3aaca688de96d0ed9d324db1e4c8ed4ae6a20">QUIT_BUTTON</a>
  }</td></tr>
+<tr class="memdesc:a2a5fd61108d6b9e3b6eac1aa53dd3aac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indices for the main pause menu buttons.  <a href="classGui_1_1PauseInfo.html#a2a5fd61108d6b9e3b6eac1aa53dd3aac">More...</a><br /></td></tr>
 <tr class="separator:a2a5fd61108d6b9e3b6eac1aa53dd3aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5db75f8f4ae500b4601eabcee4b2f0e"><td class="memItemLeft" align="right" valign="top"><a id="af5db75f8f4ae500b4601eabcee4b2f0e" name="af5db75f8f4ae500b4601eabcee4b2f0e"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>PauseSubscene</b> { <b>RESUME</b>
-, <b>SETTINGS</b>
-, <b>QUIT</b>
+<tr class="memitem:af5db75f8f4ae500b4601eabcee4b2f0e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#af5db75f8f4ae500b4601eabcee4b2f0e">PauseSubscene</a> { <a class="el" href="classGui_1_1PauseInfo.html#af5db75f8f4ae500b4601eabcee4b2f0ea401283aaa98a76b506f2198465bd7009">RESUME</a>
+, <a class="el" href="classGui_1_1PauseInfo.html#af5db75f8f4ae500b4601eabcee4b2f0eac678338caea29d77d56be2ea56325610">SETTINGS</a>
+, <a class="el" href="classGui_1_1PauseInfo.html#af5db75f8f4ae500b4601eabcee4b2f0ea76bdc8adfd6c6463ab269ff4c06be9b4">QUIT</a>
  }</td></tr>
+<tr class="memdesc:af5db75f8f4ae500b4601eabcee4b2f0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents different sub-menus within the pause screen.  <a href="classGui_1_1PauseInfo.html#af5db75f8f4ae500b4601eabcee4b2f0e">More...</a><br /></td></tr>
 <tr class="separator:af5db75f8f4ae500b4601eabcee4b2f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae409384b112dfbfe6a6256586022d00c"><td class="memItemLeft" align="right" valign="top"><a id="ae409384b112dfbfe6a6256586022d00c" name="ae409384b112dfbfe6a6256586022d00c"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>ButtonSettingsIndex</b> { <b>TIME_UNIT_BUTTON</b>
-, <b>PLUS_BUTTON</b>
-, <b>MINUS_BUTTON</b>
+<tr class="memitem:ae409384b112dfbfe6a6256586022d00c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#ae409384b112dfbfe6a6256586022d00c">ButtonSettingsIndex</a> { <a class="el" href="classGui_1_1PauseInfo.html#ae409384b112dfbfe6a6256586022d00ca7fdf4e9c883763831785e022309063c0">TIME_UNIT_BUTTON</a>
+, <a class="el" href="classGui_1_1PauseInfo.html#ae409384b112dfbfe6a6256586022d00ca2a6ff3add969455527e8caa71de59c3b">PLUS_BUTTON</a>
+, <a class="el" href="classGui_1_1PauseInfo.html#ae409384b112dfbfe6a6256586022d00ca131503a06218c5bbd87b0f790a5b84aa">MINUS_BUTTON</a>
+, <a class="el" href="classGui_1_1PauseInfo.html#ae409384b112dfbfe6a6256586022d00ca8f2dec9c208e2b3694009efb94ebc073">VOLUME_BUTTON</a>
  }</td></tr>
+<tr class="memdesc:ae409384b112dfbfe6a6256586022d00c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indices for buttons in the settings sub-menu.  <a href="classGui_1_1PauseInfo.html#ae409384b112dfbfe6a6256586022d00c">More...</a><br /></td></tr>
 <tr class="separator:ae409384b112dfbfe6a6256586022d00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aeb9ed6020fd3acef33b07f7874a8ff75"><td class="memItemLeft" align="right" valign="top"><a id="aeb9ed6020fd3acef33b07f7874a8ff75" name="aeb9ed6020fd3acef33b07f7874a8ff75"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setBackgroundCallbacks</b> (std::function&lt; void()&gt; updateCallback, std::function&lt; void()&gt; drawCallback)</td></tr>
+<tr class="memitem:aab7e5cbb738db7690b0753ead211414b"><td class="memItemLeft" align="right" valign="top"><a id="aab7e5cbb738db7690b0753ead211414b" name="aab7e5cbb738db7690b0753ead211414b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PauseInfo</b> ()</td></tr>
+<tr class="memdesc:aab7e5cbb738db7690b0753ead211414b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor Initializes buttons and default values for the pause menu. <br /></td></tr>
+<tr class="separator:aab7e5cbb738db7690b0753ead211414b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac619433f200ad37ffab0e265a10127db"><td class="memItemLeft" align="right" valign="top"><a id="ac619433f200ad37ffab0e265a10127db" name="ac619433f200ad37ffab0e265a10127db"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~PauseInfo</b> ()</td></tr>
+<tr class="memdesc:ac619433f200ad37ffab0e265a10127db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
+<tr class="separator:ac619433f200ad37ffab0e265a10127db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb9ed6020fd3acef33b07f7874a8ff75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#aeb9ed6020fd3acef33b07f7874a8ff75">setBackgroundCallbacks</a> (std::function&lt; void()&gt; updateCallback, std::function&lt; void()&gt; drawCallback)</td></tr>
+<tr class="memdesc:aeb9ed6020fd3acef33b07f7874a8ff75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets callbacks to update and draw the background behind the pause menu.  <a href="classGui_1_1PauseInfo.html#aeb9ed6020fd3acef33b07f7874a8ff75">More...</a><br /></td></tr>
 <tr class="separator:aeb9ed6020fd3acef33b07f7874a8ff75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e3035350632f53a37dce04ee5396d4c"><td class="memItemLeft" align="right" valign="top"><a id="a5e3035350632f53a37dce04ee5396d4c" name="a5e3035350632f53a37dce04ee5396d4c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>resetCallbacks</b> ()</td></tr>
+<tr class="memdesc:a5e3035350632f53a37dce04ee5396d4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the background callbacks to nullptr. <br /></td></tr>
 <tr class="separator:a5e3035350632f53a37dce04ee5396d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5c54df7ed3b930268c8d7752c101725"><td class="memItemLeft" align="right" valign="top"><a id="ac5c54df7ed3b930268c8d7752c101725" name="ac5c54df7ed3b930268c8d7752c101725"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="memdesc:ac5c54df7ed3b930268c8d7752c101725"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the pause menu state Updates buttons and calls the background update callback if set. <br /></td></tr>
 <tr class="separator:ac5c54df7ed3b930268c8d7752c101725"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a165fbf5419908c28e2e2b4defd1abcb9"><td class="memItemLeft" align="right" valign="top"><a id="a165fbf5419908c28e2e2b4defd1abcb9" name="a165fbf5419908c28e2e2b4defd1abcb9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateButtons</b> (std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp;buttons)</td></tr>
+<tr class="memitem:a165fbf5419908c28e2e2b4defd1abcb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#a165fbf5419908c28e2e2b4defd1abcb9">updateButtons</a> (std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp;buttons)</td></tr>
+<tr class="memdesc:a165fbf5419908c28e2e2b4defd1abcb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates positions and sizes of buttons in the main pause menu.  <a href="classGui_1_1PauseInfo.html#a165fbf5419908c28e2e2b4defd1abcb9">More...</a><br /></td></tr>
 <tr class="separator:a165fbf5419908c28e2e2b4defd1abcb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e1f706ab6215c78c75c5d5ed25c2802"><td class="memItemLeft" align="right" valign="top"><a id="a6e1f706ab6215c78c75c5d5ed25c2802" name="a6e1f706ab6215c78c75c5d5ed25c2802"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateSettingsButtons</b> (std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp;buttons)</td></tr>
+<tr class="memitem:a6e1f706ab6215c78c75c5d5ed25c2802"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#a6e1f706ab6215c78c75c5d5ed25c2802">updateSettingsButtons</a> (std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp;buttons)</td></tr>
+<tr class="memdesc:a6e1f706ab6215c78c75c5d5ed25c2802"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates positions and sizes of buttons in the settings menu.  <a href="classGui_1_1PauseInfo.html#a6e1f706ab6215c78c75c5d5ed25c2802">More...</a><br /></td></tr>
 <tr class="separator:a6e1f706ab6215c78c75c5d5ed25c2802"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56c5cf8a568cff737ff95520cbe6b405"><td class="memItemLeft" align="right" valign="top"><a id="a56c5cf8a568cff737ff95520cbe6b405" name="a56c5cf8a568cff737ff95520cbe6b405"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> ()</td></tr>
+<tr class="memdesc:a56c5cf8a568cff737ff95520cbe6b405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the pause menu Calls the background draw callback and draws the appropriate buttons. <br /></td></tr>
 <tr class="separator:a56c5cf8a568cff737ff95520cbe6b405"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa51b31fec06b82be47c75d5fe0186f08"><td class="memItemLeft" align="right" valign="top"><a id="aa51b31fec06b82be47c75d5fe0186f08" name="aa51b31fec06b82be47c75d5fe0186f08"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawButtons</b> (std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp;buttons)</td></tr>
+<tr class="memitem:aa51b31fec06b82be47c75d5fe0186f08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#aa51b31fec06b82be47c75d5fe0186f08">drawButtons</a> (std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp;buttons)</td></tr>
+<tr class="memdesc:aa51b31fec06b82be47c75d5fe0186f08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the buttons for the current subscene.  <a href="classGui_1_1PauseInfo.html#aa51b31fec06b82be47c75d5fe0186f08">More...</a><br /></td></tr>
 <tr class="separator:aa51b31fec06b82be47c75d5fe0186f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8a7e6ff64bb69f92fcc0186fbcd9b1a"><td class="memItemLeft" align="right" valign="top"><a id="ad8a7e6ff64bb69f92fcc0186fbcd9b1a" name="ad8a7e6ff64bb69f92fcc0186fbcd9b1a"></a>
-std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getButtons</b> ()</td></tr>
+<tr class="memitem:a4040c77328ec00ee91dd23b7b23ecf6d"><td class="memItemLeft" align="right" valign="top"><a id="a4040c77328ec00ee91dd23b7b23ecf6d" name="a4040c77328ec00ee91dd23b7b23ecf6d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawVolumeSlider</b> ()</td></tr>
+<tr class="memdesc:a4040c77328ec00ee91dd23b7b23ecf6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the volume slider in the settings menu Displays a slider for adjusting the volume level. <br /></td></tr>
+<tr class="separator:a4040c77328ec00ee91dd23b7b23ecf6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8a7e6ff64bb69f92fcc0186fbcd9b1a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#ad8a7e6ff64bb69f92fcc0186fbcd9b1a">getButtons</a> ()</td></tr>
+<tr class="memdesc:ad8a7e6ff64bb69f92fcc0186fbcd9b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the main pause menu buttons.  <a href="classGui_1_1PauseInfo.html#ad8a7e6ff64bb69f92fcc0186fbcd9b1a">More...</a><br /></td></tr>
 <tr class="separator:ad8a7e6ff64bb69f92fcc0186fbcd9b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c1b548bead71aaead2ba8550886ee34"><td class="memItemLeft" align="right" valign="top"><a id="a3c1b548bead71aaead2ba8550886ee34" name="a3c1b548bead71aaead2ba8550886ee34"></a>
-std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getButtonsSettings</b> ()</td></tr>
+<tr class="memitem:a3c1b548bead71aaead2ba8550886ee34"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#a3c1b548bead71aaead2ba8550886ee34">getButtonsSettings</a> ()</td></tr>
+<tr class="memdesc:a3c1b548bead71aaead2ba8550886ee34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the settings menu buttons.  <a href="classGui_1_1PauseInfo.html#a3c1b548bead71aaead2ba8550886ee34">More...</a><br /></td></tr>
 <tr class="separator:a3c1b548bead71aaead2ba8550886ee34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a213d747ba159a969cb610b48a9f0b8a4"><td class="memItemLeft" align="right" valign="top"><a id="a213d747ba159a969cb610b48a9f0b8a4" name="a213d747ba159a969cb610b48a9f0b8a4"></a>
-PauseSubscene&#160;</td><td class="memItemRight" valign="bottom"><b>getCurrentSubscene</b> () const</td></tr>
+<tr class="memitem:a213d747ba159a969cb610b48a9f0b8a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGui_1_1PauseInfo.html#af5db75f8f4ae500b4601eabcee4b2f0e">PauseSubscene</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#a213d747ba159a969cb610b48a9f0b8a4">getCurrentSubscene</a> () const</td></tr>
+<tr class="memdesc:a213d747ba159a969cb610b48a9f0b8a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current subscene being displayed.  <a href="classGui_1_1PauseInfo.html#a213d747ba159a969cb610b48a9f0b8a4">More...</a><br /></td></tr>
 <tr class="separator:a213d747ba159a969cb610b48a9f0b8a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7891a94703215e80986548607400fe0"><td class="memItemLeft" align="right" valign="top"><a id="ae7891a94703215e80986548607400fe0" name="ae7891a94703215e80986548607400fe0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrentSubscene</b> (PauseSubscene action)</td></tr>
+<tr class="memitem:ae7891a94703215e80986548607400fe0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#ae7891a94703215e80986548607400fe0">setCurrentSubscene</a> (<a class="el" href="classGui_1_1PauseInfo.html#af5db75f8f4ae500b4601eabcee4b2f0e">PauseSubscene</a> action)</td></tr>
+<tr class="memdesc:ae7891a94703215e80986548607400fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the current subscene to display.  <a href="classGui_1_1PauseInfo.html#ae7891a94703215e80986548607400fe0">More...</a><br /></td></tr>
 <tr class="separator:ae7891a94703215e80986548607400fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0267290deb68c6304d6aa64818a71578"><td class="memItemLeft" align="right" valign="top"><a id="a0267290deb68c6304d6aa64818a71578" name="a0267290deb68c6304d6aa64818a71578"></a>
-const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTimeUnit</b> () const</td></tr>
+<tr class="memitem:a0267290deb68c6304d6aa64818a71578"><td class="memItemLeft" align="right" valign="top">const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#a0267290deb68c6304d6aa64818a71578">getTimeUnit</a> () const</td></tr>
+<tr class="memdesc:a0267290deb68c6304d6aa64818a71578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current time unit value.  <a href="classGui_1_1PauseInfo.html#a0267290deb68c6304d6aa64818a71578">More...</a><br /></td></tr>
 <tr class="separator:a0267290deb68c6304d6aa64818a71578"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4d4be3173cb35349ee66effe4bd0c14"><td class="memItemLeft" align="right" valign="top"><a id="ad4d4be3173cb35349ee66effe4bd0c14" name="ad4d4be3173cb35349ee66effe4bd0c14"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTimeUnit</b> (int timeUnit)</td></tr>
+<tr class="memitem:ad4d4be3173cb35349ee66effe4bd0c14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#ad4d4be3173cb35349ee66effe4bd0c14">setTimeUnit</a> (int timeUnit)</td></tr>
+<tr class="memdesc:ad4d4be3173cb35349ee66effe4bd0c14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the time unit value.  <a href="classGui_1_1PauseInfo.html#ad4d4be3173cb35349ee66effe4bd0c14">More...</a><br /></td></tr>
 <tr class="separator:ad4d4be3173cb35349ee66effe4bd0c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade83644572c1a896aca411af6ec77940"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#ade83644572c1a896aca411af6ec77940">getVolume</a> () const</td></tr>
+<tr class="memdesc:ade83644572c1a896aca411af6ec77940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current volume level.  <a href="classGui_1_1PauseInfo.html#ade83644572c1a896aca411af6ec77940">More...</a><br /></td></tr>
+<tr class="separator:ade83644572c1a896aca411af6ec77940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6715d5315d47c73b3838f2cb771e7b58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1PauseInfo.html#a6715d5315d47c73b3838f2cb771e7b58">setVolume</a> (int volume)</td></tr>
+<tr class="memdesc:a6715d5315d47c73b3838f2cb771e7b58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the volume level.  <a href="classGui_1_1PauseInfo.html#a6715d5315d47c73b3838f2cb771e7b58">More...</a><br /></td></tr>
+<tr class="separator:a6715d5315d47c73b3838f2cb771e7b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Manages the pause menu state, buttons, and interactions. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a2a5fd61108d6b9e3b6eac1aa53dd3aac" name="a2a5fd61108d6b9e3b6eac1aa53dd3aac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a5fd61108d6b9e3b6eac1aa53dd3aac">&#9670;&nbsp;</a></span>ButtonIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classGui_1_1PauseInfo.html#a2a5fd61108d6b9e3b6eac1aa53dd3aac">ButtonIndex</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Indices for the main pause menu buttons. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2a5fd61108d6b9e3b6eac1aa53dd3aacac7fa15cdc7bd4f83b240ed38dd9064bc" name="a2a5fd61108d6b9e3b6eac1aa53dd3aacac7fa15cdc7bd4f83b240ed38dd9064bc"></a>RESUME_BUTTON&#160;</td><td class="fielddoc"><p ><a class="el" href="classGui_1_1Button.html">Button</a> to resume the game. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a5fd61108d6b9e3b6eac1aa53dd3aacad567750c19c09aa7656fed982416ebb3" name="a2a5fd61108d6b9e3b6eac1aa53dd3aacad567750c19c09aa7656fed982416ebb3"></a>SETTINGS_BUTTON&#160;</td><td class="fielddoc"><p ><a class="el" href="classGui_1_1Button.html">Button</a> to access settings. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a5fd61108d6b9e3b6eac1aa53dd3aaca688de96d0ed9d324db1e4c8ed4ae6a20" name="a2a5fd61108d6b9e3b6eac1aa53dd3aaca688de96d0ed9d324db1e4c8ed4ae6a20"></a>QUIT_BUTTON&#160;</td><td class="fielddoc"><p ><a class="el" href="classGui_1_1Button.html">Button</a> to quit the game. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ae409384b112dfbfe6a6256586022d00c" name="ae409384b112dfbfe6a6256586022d00c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae409384b112dfbfe6a6256586022d00c">&#9670;&nbsp;</a></span>ButtonSettingsIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classGui_1_1PauseInfo.html#ae409384b112dfbfe6a6256586022d00c">ButtonSettingsIndex</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Indices for buttons in the settings sub-menu. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae409384b112dfbfe6a6256586022d00ca7fdf4e9c883763831785e022309063c0" name="ae409384b112dfbfe6a6256586022d00ca7fdf4e9c883763831785e022309063c0"></a>TIME_UNIT_BUTTON&#160;</td><td class="fielddoc"><p ><a class="el" href="classGui_1_1Button.html">Button</a> displaying current time unit. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae409384b112dfbfe6a6256586022d00ca2a6ff3add969455527e8caa71de59c3b" name="ae409384b112dfbfe6a6256586022d00ca2a6ff3add969455527e8caa71de59c3b"></a>PLUS_BUTTON&#160;</td><td class="fielddoc"><p ><a class="el" href="classGui_1_1Button.html">Button</a> to increase time unit. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae409384b112dfbfe6a6256586022d00ca131503a06218c5bbd87b0f790a5b84aa" name="ae409384b112dfbfe6a6256586022d00ca131503a06218c5bbd87b0f790a5b84aa"></a>MINUS_BUTTON&#160;</td><td class="fielddoc"><p ><a class="el" href="classGui_1_1Button.html">Button</a> to decrease time unit. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae409384b112dfbfe6a6256586022d00ca8f2dec9c208e2b3694009efb94ebc073" name="ae409384b112dfbfe6a6256586022d00ca8f2dec9c208e2b3694009efb94ebc073"></a>VOLUME_BUTTON&#160;</td><td class="fielddoc"><p >Slider button for adjusting volume. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="af5db75f8f4ae500b4601eabcee4b2f0e" name="af5db75f8f4ae500b4601eabcee4b2f0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5db75f8f4ae500b4601eabcee4b2f0e">&#9670;&nbsp;</a></span>PauseSubscene</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classGui_1_1PauseInfo.html#af5db75f8f4ae500b4601eabcee4b2f0e">PauseSubscene</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Represents different sub-menus within the pause screen. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af5db75f8f4ae500b4601eabcee4b2f0ea401283aaa98a76b506f2198465bd7009" name="af5db75f8f4ae500b4601eabcee4b2f0ea401283aaa98a76b506f2198465bd7009"></a>RESUME&#160;</td><td class="fielddoc"><p >Main pause menu with resume option. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af5db75f8f4ae500b4601eabcee4b2f0eac678338caea29d77d56be2ea56325610" name="af5db75f8f4ae500b4601eabcee4b2f0eac678338caea29d77d56be2ea56325610"></a>SETTINGS&#160;</td><td class="fielddoc"><p >Settings sub-menu. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af5db75f8f4ae500b4601eabcee4b2f0ea76bdc8adfd6c6463ab269ff4c06be9b4" name="af5db75f8f4ae500b4601eabcee4b2f0ea76bdc8adfd6c6463ab269ff4c06be9b4"></a>QUIT&#160;</td><td class="fielddoc"><p >Quit confirmation sub-menu. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa51b31fec06b82be47c75d5fe0186f08" name="aa51b31fec06b82be47c75d5fe0186f08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa51b31fec06b82be47c75d5fe0186f08">&#9670;&nbsp;</a></span>drawButtons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawButtons </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buttons</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws the buttons for the current subscene. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttons</td><td>Reference to the vector of buttons to draw </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad8a7e6ff64bb69f92fcc0186fbcd9b1a" name="ad8a7e6ff64bb69f92fcc0186fbcd9b1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8a7e6ff64bb69f92fcc0186fbcd9b1a">&#9670;&nbsp;</a></span>getButtons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp; getButtons </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the main pause menu buttons. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the vector of main pause menu buttons </dd></dl>
+
+</div>
+</div>
+<a id="a3c1b548bead71aaead2ba8550886ee34" name="a3c1b548bead71aaead2ba8550886ee34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c1b548bead71aaead2ba8550886ee34">&#9670;&nbsp;</a></span>getButtonsSettings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp; getButtonsSettings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the settings menu buttons. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the vector of settings menu buttons </dd></dl>
+
+</div>
+</div>
+<a id="a213d747ba159a969cb610b48a9f0b8a4" name="a213d747ba159a969cb610b48a9f0b8a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a213d747ba159a969cb610b48a9f0b8a4">&#9670;&nbsp;</a></span>getCurrentSubscene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGui_1_1PauseInfo.html#af5db75f8f4ae500b4601eabcee4b2f0e">PauseInfo::PauseSubscene</a> getCurrentSubscene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the current subscene being displayed. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current PauseSubscene value </dd></dl>
+
+</div>
+</div>
+<a id="a0267290deb68c6304d6aa64818a71578" name="a0267290deb68c6304d6aa64818a71578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0267290deb68c6304d6aa64818a71578">&#9670;&nbsp;</a></span>getTimeUnit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int &amp; getTimeUnit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the current time unit value. </p>
+<dl class="section return"><dt>Returns</dt><dd>Constant reference to the time unit value </dd></dl>
+
+</div>
+</div>
+<a id="ade83644572c1a896aca411af6ec77940" name="ade83644572c1a896aca411af6ec77940"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade83644572c1a896aca411af6ec77940">&#9670;&nbsp;</a></span>getVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getVolume </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the current volume level. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current volume level </dd></dl>
+
+</div>
+</div>
+<a id="aeb9ed6020fd3acef33b07f7874a8ff75" name="aeb9ed6020fd3acef33b07f7874a8ff75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb9ed6020fd3acef33b07f7874a8ff75">&#9670;&nbsp;</a></span>setBackgroundCallbacks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setBackgroundCallbacks </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>updateCallback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>drawCallback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets callbacks to update and draw the background behind the pause menu. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">updateCallback</td><td>Function to update the background </td></tr>
+    <tr><td class="paramname">drawCallback</td><td>Function to draw the background </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae7891a94703215e80986548607400fe0" name="ae7891a94703215e80986548607400fe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7891a94703215e80986548607400fe0">&#9670;&nbsp;</a></span>setCurrentSubscene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setCurrentSubscene </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGui_1_1PauseInfo.html#af5db75f8f4ae500b4601eabcee4b2f0e">PauseSubscene</a>&#160;</td>
+          <td class="paramname"><em>action</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the current subscene to display. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td>The PauseSubscene to switch to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad4d4be3173cb35349ee66effe4bd0c14" name="ad4d4be3173cb35349ee66effe4bd0c14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4d4be3173cb35349ee66effe4bd0c14">&#9670;&nbsp;</a></span>setTimeUnit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setTimeUnit </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>timeUnit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the time unit value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeUnit</td><td>The new time unit value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6715d5315d47c73b3838f2cb771e7b58" name="a6715d5315d47c73b3838f2cb771e7b58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6715d5315d47c73b3838f2cb771e7b58">&#9670;&nbsp;</a></span>setVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setVolume </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>volume</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the volume level. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">volume</td><td>The new volume level </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a165fbf5419908c28e2e2b4defd1abcb9" name="a165fbf5419908c28e2e2b4defd1abcb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a165fbf5419908c28e2e2b4defd1abcb9">&#9670;&nbsp;</a></span>updateButtons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateButtons </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buttons</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates positions and sizes of buttons in the main pause menu. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttons</td><td>Reference to the vector of buttons to update </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6e1f706ab6215c78c75c5d5ed25c2802" name="a6e1f706ab6215c78c75c5d5ed25c2802"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e1f706ab6215c78c75c5d5ed25c2802">&#9670;&nbsp;</a></span>updateSettingsButtons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateSettingsButtons </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classGui_1_1Button.html">Button</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buttons</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates positions and sizes of buttons in the settings menu. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttons</td><td>Reference to the vector of settings buttons to update </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>gui/include/graphical/<a class="el" href="PauseInfo_8hpp_source.html">PauseInfo.hpp</a></li>
 <li>gui/src/graphical/PauseInfo.cpp</li>

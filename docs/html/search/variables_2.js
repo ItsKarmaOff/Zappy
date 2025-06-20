@@ -1,5 +1,19 @@
 var searchData=
 [
-  ['data_0',['data',['../structoption__s.html#a8f64897c7ccc5c13f276d1d07c4e7095',1,'option_s']]],
-  ['description_1',['description',['../structcommand__help__s.html#a68344fa88cf4e86b5079fd69a5c22d57',1,'command_help_s::description()'],['../structoption__s.html#a68344fa88cf4e86b5079fd69a5c22d57',1,'option_s::description()']]]
+  ['client_0',['client',['../structplayer__s.html#ad72bb670c0751a5e8729d02bf7482d63',1,'player_s']]],
+  ['client_5flist_1',['client_list',['../structserver__s.html#ae9450dbadc06c5ed77feac85bbf81f37',1,'server_s']]],
+  ['client_5ftype_2',['client_type',['../structclient__s.html#a274767bffb7dddab5c96c468f7fdabb0',1,'client_s']]],
+  ['cmd_5ffunction_3',['cmd_function',['../structaction__s.html#a848a0f68b3acb813834d9c4c78572de9',1,'action_s::cmd_function()'],['../structcommand__s.html#a848a0f68b3acb813834d9c4c78572de9',1,'command_s::cmd_function()']]],
+  ['color_4',['color',['../structmessage.html#aa5f4d1eda21c196bd8401ff73f105073',1,'message::color()'],['../unioncolor__argb__u.html#a66b2ef8398a8bbb0f5816f22a7b138da',1,'color_argb_u::color()']]],
+  ['command_5',['command',['../structcommand__help__s.html#a9f83d3c4b4c3bb790f90ad79865e37ab',1,'command_help_s::command()'],['../structcommand__s.html#a9f83d3c4b4c3bb790f90ad79865e37ab',1,'command_s::command()']]],
+  ['command_5fqueue_6',['command_queue',['../structclient__s.html#a01a02c07f4d3287e4c41addaca2edd68',1,'client_s']]],
+  ['commands_7',['commands',['../server__data__structures_8h.html#aed602511cdc515209997d1d5d3c0a8fd',1,'commands():&#160;write_client_action.c'],['../write__client__action_8c.html#aed602511cdc515209997d1d5d3c0a8fd',1,'commands():&#160;write_client_action.c']]],
+  ['commands_5fai_8',['commands_ai',['../write__client__action_8c.html#a9232cd39de42fd94e9dc12428f994667',1,'commands_ai():&#160;write_client_action.c'],['../server__data__structures_8h.html#a9232cd39de42fd94e9dc12428f994667',1,'commands_ai():&#160;write_client_action.c']]],
+  ['commands_5fgui_9',['commands_gui',['../write__client__action_8c.html#a4c465063f2423532e81f0c074d46dffb',1,'commands_gui():&#160;write_client_action.c'],['../server__data__structures_8h.html#a4c465063f2423532e81f0c074d46dffb',1,'commands_gui():&#160;write_client_action.c']]],
+  ['commands_5fserver_10',['commands_server',['../write__client__action_8c.html#a9603b1d2a3881cf15d42131928bcd4d9',1,'commands_server():&#160;write_client_action.c'],['../server__data__structures_8h.html#a9603b1d2a3881cf15d42131928bcd4d9',1,'commands_server():&#160;write_client_action.c']]],
+  ['content_11',['content',['../structmessage.html#acaab7594675ee66e7abbf9eb5f3f37b1',1,'message']]],
+  ['copy_12',['copy',['../structinfo__param__s.html#ac5cfd44dcdd30874b25acd56be53b81d',1,'info_param_s']]],
+  ['creator_5fid_13',['creator_id',['../structplayer__s.html#aef7813d400cb43ed2b8fc02f565a51ca',1,'player_s']]],
+  ['current_5fclients_5fnumber_14',['current_clients_number',['../structserver__s.html#a007e7c0c6e568c24b548424d6003447a',1,'server_s']]],
+  ['current_5fquantity_15',['current_quantity',['../structquantity__s.html#a94b7f889977c8966f0aeb23fda477ff8',1,'quantity_s']]]
 ];

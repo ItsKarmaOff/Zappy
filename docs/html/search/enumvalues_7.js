@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['names_5foption_0',['NAMES_OPTION',['../parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9fae35b5f3cac6dc3204d5db7fd8315adfd',1,'parsing.h']]],
-  ['north_1',['NORTH',['../server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232cebad0611de6f28d4a9c9eac959f5344698e',1,'server_data_structures.h']]],
-  ['not_5frequired_2',['NOT_REQUIRED',['../parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9fae79ba002cf0163d634b562a676808674',1,'parsing.h']]]
+  ['linemate_0',['LINEMATE',['../classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1a8c5241e45d7a43f38ab379e79e9466eb',1,'Gui::PlayerInfo::LINEMATE()'],['../server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01a8c5241e45d7a43f38ab379e79e9466eb',1,'LINEMATE():&#160;server_data_structures.h']]]
 ];

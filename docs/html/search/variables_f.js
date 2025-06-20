@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['team_0',['team',['../structplayer__s.html#a5325fd4025c743c6a254dc0e819ca5c1',1,'player_s']]],
-  ['team_5flist_1',['team_list',['../structgame__s.html#ad976bc913de580407e94c07989afed8a',1,'game_s']]],
-  ['team_5fname_2',['team_name',['../structclient__s.html#aaa1dce31be8b072b60a3182342b05999',1,'client_s']]],
-  ['team_5fname_5flist_3',['team_name_list',['../structparsing__s.html#aed426ec1aa21dd5ae3cd21fe4ffa1ab8',1,'parsing_s']]],
-  ['teams_5fnumber_4',['teams_number',['../structgame__settings__s.html#ae19a77790185a9cd36970e59c9dc6b76',1,'game_settings_s']]],
-  ['time_5fto_5fwait_5',['time_to_wait',['../structaction__s.html#a5c9660da4d3d16cf5dfdccc29989a92c',1,'action_s::time_to_wait()'],['../structcommand__s.html#a5c9660da4d3d16cf5dfdccc29989a92c',1,'command_s::time_to_wait()']]],
-  ['type_6',['type',['../structoption__s.html#a2c81d907bd594546bb57660a5a638874',1,'option_s']]]
+  ['red_0',['red',['../unioncolor__argb__u.html#ad47d918910aaa51c73160ac85999d09c',1,'color_argb_u']]],
+  ['required_5fplayers_1',['required_players',['../structincantation__s.html#ae469b6811124ce5cef0610b091a66d66',1,'incantation_s']]],
+  ['required_5fresources_2',['required_resources',['../structincantation__s.html#a432ae2f5dcca45e9d59beba0ce2522c4',1,'incantation_s']]],
+  ['resources_3',['resources',['../structtile__s.html#a55633d06308171be32d0d140a5f84c75',1,'tile_s::resources()'],['../structgame__s.html#a172ab2e0b39e4ac9c4466a63ab9fdfa7',1,'game_s::resources()']]],
+  ['resources_5fdensities_4',['resources_densities',['../server__data__structures_8h.html#a19d1d00ccca0124f6828d566e8a6ac5e',1,'resources_densities():&#160;resource.c'],['../resource_8c.html#a19d1d00ccca0124f6828d566e8a6ac5e',1,'resources_densities():&#160;resource.c']]],
+  ['resources_5fnames_5',['resources_names',['../server__data__structures_8h.html#a81faea77ea06eda3508227d83f9f9b2c',1,'resources_names():&#160;resource.c'],['../resource_8c.html#a81faea77ea06eda3508227d83f9f9b2c',1,'resources_names():&#160;resource.c']]]
 ];

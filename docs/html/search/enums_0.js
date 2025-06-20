@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['client_5ftype_5fe_0',['client_type_e',['../server__data__structures_8h.html#ae549bdb7c866157e3fb6a16f0c78219d',1,'server_data_structures.h']]]
+  ['buttonindex_0',['ButtonIndex',['../classGui_1_1PauseInfo.html#a2a5fd61108d6b9e3b6eac1aa53dd3aac',1,'Gui::PauseInfo']]],
+  ['buttonsettingsindex_1',['ButtonSettingsIndex',['../classGui_1_1PauseInfo.html#ae409384b112dfbfe6a6256586022d00c',1,'Gui::PauseInfo']]]
 ];

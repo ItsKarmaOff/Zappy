@@ -3681,7 +3681,7 @@ $(document).ready(function(){initNavTree('rlgl_8h_source.html',''); initResizabl
 <div class="line"><a id="l03594" name="l03594"></a><span class="lineno"> 3594</span><span class="preprocessor">        #define MIN(a,b) (((a)&lt;(b))? (a):(b))</span></div>
 <div class="line"><a id="l03595" name="l03595"></a><span class="lineno"> 3595</span><span class="preprocessor">        #define MAX(a,b) (((a)&gt;(b))? (a):(b))</span></div>
 <div class="line"><a id="l03596" name="l03596"></a><span class="lineno"> 3596</span> </div>
-<div class="line"><a id="l03597" name="l03597"></a><span class="lineno"> 3597</span>        *mipmaps = 1 + (int)floor(log(MAX(width, height))/log(2));</div>
+<div class="line"><a id="l03597" name="l03597"></a><span class="lineno"> 3597</span>        *mipmaps = 1 + (int)floor(log(<a class="code hl_define" href="macros_8h.html#afa99ec4acc4ecb2dc3c2d05da15d0e3f">MAX</a>(width, height))/log(2));</div>
 <div class="line"><a id="l03598" name="l03598"></a><span class="lineno"> 3598</span>        TRACELOG(RL_LOG_INFO, <span class="stringliteral">&quot;TEXTURE: [ID %i] Mipmaps generated automatically, total: %i&quot;</span>, <span class="keywordtype">id</span>, *mipmaps);</div>
 <div class="line"><a id="l03599" name="l03599"></a><span class="lineno"> 3599</span>    }</div>
 <div class="line"><a id="l03600" name="l03600"></a><span class="lineno"> 3600</span>    <span class="keywordflow">else</span> TRACELOG(RL_LOG_WARNING, <span class="stringliteral">&quot;TEXTURE: [ID %i] Failed to generate mipmaps&quot;</span>, <span class="keywordtype">id</span>);</div>
@@ -5351,8 +5351,9 @@ $(document).ready(function(){initNavTree('rlgl_8h_source.html',''); initResizabl
 <div class="line"><a id="l05264" name="l05264"></a><span class="lineno"> 5264</span>}</div>
 <div class="line"><a id="l05265" name="l05265"></a><span class="lineno"> 5265</span> </div>
 <div class="line"><a id="l05266" name="l05266"></a><span class="lineno"> 5266</span><span class="preprocessor">#endif  </span><span class="comment">// RLGL_IMPLEMENTATION</span></div>
+<div class="ttc" id="amacros_8h_html_afa99ec4acc4ecb2dc3c2d05da15d0e3f"><div class="ttname"><a href="macros_8h.html#afa99ec4acc4ecb2dc3c2d05da15d0e3f">MAX</a></div><div class="ttdeci">#define MAX(a, b)</div><div class="ttdoc">Gets the maximum value between two numbers.</div><div class="ttdef"><b>Definition:</b> macros.h:65</div></div>
 <div class="ttc" id="astructMatrix_html"><div class="ttname"><a href="structMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> raylib.h:239</div></div>
-<div class="ttc" id="astructmessage_html"><div class="ttname"><a href="structmessage.html">message</a></div><div class="ttdef"><b>Definition:</b> Chatbox.hpp:18</div></div>
+<div class="ttc" id="astructmessage_html"><div class="ttname"><a href="structmessage.html">message</a></div><div class="ttdoc">Represents a message in the chatbox with content, sender information, timestamp, and color.</div><div class="ttdef"><b>Definition:</b> Chatbox.hpp:22</div></div>
 <div class="ttc" id="astructrlDrawCall_html"><div class="ttname"><a href="structrlDrawCall.html">rlDrawCall</a></div><div class="ttdef"><b>Definition:</b> rlgl.h:405</div></div>
 <div class="ttc" id="astructrlRenderBatch_html"><div class="ttname"><a href="structrlRenderBatch.html">rlRenderBatch</a></div><div class="ttdef"><b>Definition:</b> rlgl.h:418</div></div>
 <div class="ttc" id="astructrlVertexBuffer_html"><div class="ttname"><a href="structrlVertexBuffer.html">rlVertexBuffer</a></div><div class="ttdef"><b>Definition:</b> rlgl.h:384</div></div>

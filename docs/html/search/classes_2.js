@@ -6,10 +6,11 @@ var searchData=
   ['client_5fs_3',['client_s',['../structclient__s.html',1,'']]],
   ['color_4',['Color',['../structColor.html',1,'']]],
   ['color_5fargb_5fu_5',['color_argb_u',['../unioncolor__argb__u.html',1,'']]],
-  ['command_5fhelp_5fs_6',['command_help_s',['../structcommand__help__s.html',1,'']]],
-  ['command_5fs_7',['command_s',['../structcommand__s.html',1,'']]],
-  ['commands_8',['Commands',['../classGui_1_1Commands.html',1,'Gui']]],
-  ['commandsqueue_9',['CommandsQueue',['../classCommandsQueue.html',1,'']]],
-  ['core_10',['Core',['../classGui_1_1Core.html',1,'Gui']]],
-  ['critical_11',['Critical',['../classLib_1_1Exceptions_1_1Critical.html',1,'Lib::Exceptions']]]
+  ['color_5frgb_5fu_6',['color_rgb_u',['../unioncolor__rgb__u.html',1,'']]],
+  ['command_5fhelp_5fs_7',['command_help_s',['../structcommand__help__s.html',1,'']]],
+  ['command_5fs_8',['command_s',['../structcommand__s.html',1,'']]],
+  ['commands_9',['Commands',['../classGui_1_1Commands.html',1,'Gui']]],
+  ['commandsqueue_10',['CommandsQueue',['../classCommandsQueue.html',1,'']]],
+  ['core_11',['Core',['../classGui_1_1Core.html',1,'Gui']]],
+  ['critical_12',['Critical',['../classLib_1_1Exceptions_1_1Critical.html',1,'Lib::Exceptions']]]
 ];

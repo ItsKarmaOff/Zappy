@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['resources_0',['resources',['../structtile__s.html#a55633d06308171be32d0d140a5f84c75',1,'tile_s::resources()'],['../structgame__s.html#a172ab2e0b39e4ac9c4466a63ab9fdfa7',1,'game_s::resources()']]],
-  ['resources_5fdensities_1',['resources_densities',['../server__data__structures_8h.html#a19d1d00ccca0124f6828d566e8a6ac5e',1,'resources_densities():&#160;resource.c'],['../resource_8c.html#a19d1d00ccca0124f6828d566e8a6ac5e',1,'resources_densities():&#160;resource.c']]],
-  ['resources_5fnames_2',['resources_names',['../server__data__structures_8h.html#a81faea77ea06eda3508227d83f9f9b2c',1,'resources_names():&#160;resource.c'],['../resource_8c.html#a81faea77ea06eda3508227d83f9f9b2c',1,'resources_names():&#160;resource.c']]]
+  ['options_0',['options',['../parsing_8h.html#a67dbe04b0f8ac57004bb14b6e634fbfb',1,'options():&#160;parsing.c'],['../parsing_8c.html#a67dbe04b0f8ac57004bb14b6e634fbfb',1,'options():&#160;parsing.c']]],
+  ['options_5ffound_1',['options_found',['../structparsing__s.html#aae8eb0dd2fd09c93b4a32d4fed6a757e',1,'parsing_s']]],
+  ['orientation_2',['orientation',['../structmove__s.html#a1b09aac684c444244dea820406f11875',1,'move_s::orientation()'],['../structplayer__s.html#a1b09aac684c444244dea820406f11875',1,'player_s::orientation()']]],
+  ['overflow_3',['overflow',['../structnumber__settings__s.html#a49aa97067a36875627e1380c3fb3833d',1,'number_settings_s']]]
 ];

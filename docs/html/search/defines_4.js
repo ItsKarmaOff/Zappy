@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['google_5fdns_5fip_0',['GOOGLE_DNS_IP',['../server__macros_8h.html#a80f8ca92ad09cc02bb0703b835685fb6',1,'server_macros.h']]],
-  ['graphic_5fteam_5findex_1',['GRAPHIC_TEAM_INDEX',['../server__macros_8h.html#a3ba273f2b980d47385809b316a4ce0d3',1,'server_macros.h']]],
-  ['graphic_5fteam_5fname_2',['GRAPHIC_TEAM_NAME',['../server__macros_8h.html#af488fb511800bdd753e0442c15e1eaea',1,'server_macros.h']]]
+  ['food_5ftime_5funit_0',['FOOD_TIME_UNIT',['../server__macros_8h.html#acae956016df8654ed1ebe6eab24cb0db',1,'server_macros.h']]],
+  ['format_5fchar_1',['FORMAT_CHAR',['../macros_8h.html#aeb7fb1d98bb972105415bef946116d47',1,'macros.h']]],
+  ['free_2',['FREE',['../macros_8h.html#a105949c59c998e38aad80266afac92bf',1,'macros.h']]],
+  ['free_5fword_5farray_3',['FREE_WORD_ARRAY',['../macros_8h.html#a197c22bcd714edc4c556629900a3e4f2',1,'macros.h']]]
 ];

@@ -6,8 +6,10 @@ var classGui_1_1Core =
     [ "getPort", "classGui_1_1Core.html#aa290067db950b3fe0df39fb03d52f809", null ],
     [ "getResponse", "classGui_1_1Core.html#a1aeac4546c279395dce068fb7310e4fc", null ],
     [ "printUsage", "classGui_1_1Core.html#ae611c00639ead5776f4e982bbfd65ba5", null ],
+    [ "readIfResponse", "classGui_1_1Core.html#ace6fff2bf756b04c283ba36624fea724", null ],
     [ "run", "classGui_1_1Core.html#a13a43e6d814de94978c515cb084873b1", null ],
     [ "sendCommand", "classGui_1_1Core.html#af63adedc90b02ca5bcd6cc16ba750704", null ],
+    [ "sendIfCommand", "classGui_1_1Core.html#af66d5d71424ccce360307bf1c15410fa", null ],
     [ "setHostname", "classGui_1_1Core.html#a2df2fad81223c159018d93716fd1a54e", null ],
     [ "setPort", "classGui_1_1Core.html#af45efe538711d5e2e17f5962e80da4f6", null ]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['west_0',['WEST',['../server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232cebae9449e8683a8199dad36b07a63b2f523',1,'server_data_structures.h']]],
-  ['width_5foption_1',['WIDTH_OPTION',['../parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9faf8ee40f6e5bdb8cf6c69fe9c7f0ccb66',1,'parsing.h']]]
+  ['resources_5fsize_0',['RESOURCES_SIZE',['../server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01a71ebc62bf482ebe7f7c937fc2b7d7010',1,'server_data_structures.h']]],
+  ['resume_1',['RESUME',['../classGui_1_1PauseInfo.html#af5db75f8f4ae500b4601eabcee4b2f0ea401283aaa98a76b506f2198465bd7009',1,'Gui::PauseInfo']]],
+  ['resume_5fbutton_2',['RESUME_BUTTON',['../classGui_1_1PauseInfo.html#a2a5fd61108d6b9e3b6eac1aa53dd3aacac7fa15cdc7bd4f83b240ed38dd9064bc',1,'Gui::PauseInfo']]]
 ];

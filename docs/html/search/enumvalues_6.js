@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['mendiane_0',['MENDIANE',['../server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01a52a4fda632b2e9f5d1472ba2190218f9',1,'server_data_structures.h']]]
+  ['idle_0',['IDLE',['../classGui_1_1PlayerInfo.html#a3c730f37b1b3a893159bada67637fdb1afd6a0e4343048b10646dd2976cc5ad18',1,'Gui::PlayerInfo']]],
+  ['incantation_1',['INCANTATION',['../classGui_1_1PlayerInfo.html#a3c730f37b1b3a893159bada67637fdb1aee95d3d1b19c2c5a63ace354d7728207',1,'Gui::PlayerInfo']]]
 ];

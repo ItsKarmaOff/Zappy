@@ -65,10 +65,11 @@ var NAVTREE =
       [ "Data Structure Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Data Fields", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Enumerations", "functions_enum.html", null ]
+        [ "Enumerations", "functions_enum.html", null ],
+        [ "Enumerator", "functions_eval.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -88,11 +89,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Algo_8hpp_source.html",
-"commands__server_8h.html",
-"functions_8h.html#aa6386bacc109fe5e088fa6b21aefda38",
-"my__get__local__time_8c.html",
-"parsing_2options_2no__refill_8c.html#aa610b81bcb705ee522d47c999c667c0b",
-"structplayer__s.html#a059fe8471c52b9f3c71f9cdffa9a209c"
+"classGui_1_1PlayerInfo.html#a3c730f37b1b3a893159bada67637fdb1",
+"display_8c.html",
+"functions_func_~.html",
+"my__getnbr__base_8c.html#ab18f7f34c38bf41ed40abb9a4090d160",
+"parsing_8c.html",
+"structmessage.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -83,7 +83,8 @@ $(document).ready(function(){initNavTree('incantation_8c.html',''); initResizabl
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">incantation.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -95,13 +96,45 @@ $(document).ready(function(){initNavTree('incantation_8c.html',''); initResizabl
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a1d92a453a1c5940e9e2a137a6375107f"><td class="memItemLeft" align="right" valign="top"><a id="a1d92a453a1c5940e9e2a137a6375107f" name="a1d92a453a1c5940e9e2a137a6375107f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>handle_ai_command_incantation</b> (UNUSED <a class="el" href="structserver__s.html">server_t</a> *server, UNUSED <a class="el" href="structclient__s.html">client_t</a> *client, UNUSED char **args)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>handle_ai_command_incantation</b> (<a class="el" href="macros_8h.html#addf5ec070e9499d36b7f2009ce736076">UNUSED</a> <a class="el" href="structserver__s.html">server_t</a> *server, <a class="el" href="macros_8h.html#addf5ec070e9499d36b7f2009ce736076">UNUSED</a> <a class="el" href="structclient__s.html">client_t</a> *client, <a class="el" href="macros_8h.html#addf5ec070e9499d36b7f2009ce736076">UNUSED</a> char **args)</td></tr>
 <tr class="separator:a1d92a453a1c5940e9e2a137a6375107f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aa11f49bf1617eee7a84aa59757a7941a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structincantation__s.html">incantation_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="incantation_8c.html#aa11f49bf1617eee7a84aa59757a7941a">incantations</a> [<a class="el" href="server__macros_8h.html#aea2628329db2b47d8302e6dd117a21d4">MAX_PLAYER_LEVEL</a> - 1]</td></tr>
+<tr class="memdesc:aa11f49bf1617eee7a84aa59757a7941a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The incantations for the AI clients.  <a href="incantation_8c.html#aa11f49bf1617eee7a84aa59757a7941a">More...</a><br /></td></tr>
+<tr class="separator:aa11f49bf1617eee7a84aa59757a7941a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="incantation_8c.html" title="The incantation.c.">incantation.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Variable Documentation</h2>
+<a id="aa11f49bf1617eee7a84aa59757a7941a" name="aa11f49bf1617eee7a84aa59757a7941a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa11f49bf1617eee7a84aa59757a7941a">&#9670;&nbsp;</a></span>incantations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structincantation__s.html">incantation_t</a> incantations[<a class="el" href="server__macros_8h.html#aea2628329db2b47d8302e6dd117a21d4">MAX_PLAYER_LEVEL</a> - 1]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {2, {0, 1, 0, 0, 0, 0, 0}},</div>
+<div class="line">    {2, {0, 1, 1, 1, 0, 0, 0}},</div>
+<div class="line">    {2, {0, 2, 0, 1, 0, 2, 0}},</div>
+<div class="line">    {4, {0, 1, 1, 2, 0, 1, 0}},</div>
+<div class="line">    {4, {0, 1, 2, 1, 3, 0, 0}},</div>
+<div class="line">    {6, {0, 1, 2, 3, 0, 1, 0}},</div>
+<div class="line">    {6, {0, 2, 2, 2, 2, 2, 1}}</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>The incantations for the AI clients. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
