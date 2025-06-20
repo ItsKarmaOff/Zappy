@@ -20,11 +20,22 @@ void Engine::run()
     _init();
 
     for (int i = 0; i < _amountOfPlayers; ++i) {
+        DEBUG << "Forking player " << i + 1 << "/" << _amountOfPlayers;
         pid_t pid = fork();
         if (pid < 0) {
             throw Lib::Exceptions::Critical("Fork failed: " + std::string(strerror(errno)));
         } else if (pid == 0) {
-            _createNewPlayer();
+            DEBUG << "Forking new player process";
+            try {
+                _createNewPlayer();
+            } catch (const std::exception &e) {
+                std::cerr << "Exception in forked player: " << e.what() << std::endl;
+                std::exit(1);
+            } catch (...) {
+                std::cerr << "Unknown exception in forked player." << std::endl;
+                std::exit(1);
+            }
+            DEBUG << "Running player in child process";
             _player->run();
             _player->getCommunicationThread().join();
             exit(0);
@@ -33,6 +44,9 @@ void Engine::run()
             continue;
         }
     }
+    std::thread communicationThread(&Engine::_communicate, this, _socket.get());
+    _player->setCommunicationThread(std::move(communicationThread));
+    DEBUG << "All players forked, running main player process";
     _player->run();
     _player->getCommunicationThread().join();
     for (pid_t pid : _processes) {
@@ -74,8 +88,11 @@ void Engine::_readIfResponse(Lib::Socket *socket)
             }
             else if (answer.find("eject:", 0) == 0) {
                 //remplir d'où on a été éjecter
-            }
-            else {
+            } else if (answer.find("dead", 0) == 0) {
+                DEBUG << "Player " << _player->getTeamName() << " is dead.";
+                _player->setAlive(false);
+                std::quick_exit(0);
+            } else {
                 _player->getCommandsQueue().pushResponse(answer);
                 _player->getCommandsQueue().getResponseCondition().notify_one();
             }
@@ -126,9 +143,9 @@ void Engine::_init()
     if (response == "ko") {
         throw Lib::Exceptions::Critical("Connection failed: " + response);
     }
-    getResponse(_socket.get());
     _amountOfPlayers = std::stoi(response);
-    _player = std::make_shared<Player>(_parser.getName(), std::thread(&Engine::_communicate, this, _socket.get()));
+    getResponse(_socket.get());
+    _player = std::make_shared<Player>(_parser.getName());
     _pollFd = {_socket->getSocket(), POLLIN, 0};
     _player->setForkPlayerCallback([this]() {
         pid_t pid = fork();
@@ -163,12 +180,15 @@ void Engine::_createNewPlayer()
     if (response == "ko") {
         throw Lib::Exceptions::Critical("Connection failed: " + response);
     }
-    getResponse(_socket.get());
-    getResponse(_socket.get());
+    response = getResponse(_socket.get());
     DEBUG << "Connected to server: " << response;
-    _player = std::make_shared<Player>(_parser.getName(), std::thread(&Engine::_communicate, this, _socket.get()));
+    _player = std::make_shared<Player>(_parser.getName());
+    
+    DEBUG << "Creating new player with name: " << _parser.getName();
     _pollFd = {_socket->getSocket(), POLLIN, 0};
+    DEBUG << "Setting up fork callback for player";
     _player->setForkPlayerCallback([this]() {
+        DEBUG << "Forking player process in callback";
         pid_t pid = fork();
         if (pid < 0) {
             throw Lib::Exceptions::Critical("Fork failed: " + std::string(strerror(errno)));
@@ -181,4 +201,6 @@ void Engine::_createNewPlayer()
             _processes.push_back(pid);
         }
     });
+    std::thread communicationThread(&Engine::_communicate, this, _socket.get());
+    _player->setCommunicationThread(std::move(communicationThread));
 }

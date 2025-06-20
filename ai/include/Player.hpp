@@ -16,7 +16,7 @@
 class Player {
     public:
         //class related
-        Player(std::string team, std::thread communicationThread);
+        Player(std::string team);
         ~Player();
         bool isAlive() const { return _isAlive; }
         void setAlive(bool alive) { _isAlive = alive; }
@@ -38,13 +38,18 @@ class Player {
         int getBroadcastSize() const { return _broadcastList.size(); }
         void addToBroadcastList(const std::string &message) {
             _broadcastList.push_back(message);
-            _bcIndex = (_bcIndex + 1) % _broadcastList.size();  
+            if (!_broadcastList.empty()) {
+                _bcIndex = (_bcIndex + 1) % _broadcastList.size();  
+            }
         }
         std::string getLastBroadcast() const {
             if (_broadcastList.empty()) {
                 return "";
             }
             return _broadcastList[_bcIndex];
+        }
+        void setCommunicationThread(std::thread thread) {
+            _communicationThread = std::move(thread);
         }
         //Engine related
         void run();
