@@ -72,6 +72,14 @@ char **my_str_to_word_array(const char *str,
  */
 size_t my_word_array_len(char **array, size_t nb_str, bool stop_at_null);
 
+/**
+ * @brief Converts an array of words to a string
+ * @param word_array The array of words to convert
+ * @param separator The separator to use between words
+ * @return <b>char *</b> The string containing the words
+ */
+char *my_word_array_to_str(char **word_array, const char *separator);
+
 
 
     /* Calculs functions */
