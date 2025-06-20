@@ -15,7 +15,8 @@
 void analyse_poll(server_t *server, size_t index)
 {
     if (server->poll_fds[index].revents & (POLLERR | POLLHUP | POLLNVAL)) {
-        ERROR(my_create_str("Error on client %zu", index));
+        ERROR(my_create_str("Error on client %zu "
+            "(the client stop the connection)", index - 1));
         return remove_client(server, index);
     }
     if (server->poll_fds[index].revents & POLLOUT)
