@@ -25,10 +25,13 @@ namespace Gui {
     {
         if (IsWindowReady())
             CloseWindow();
+        if (IsAudioDeviceReady())
+            CloseAudioDevice();
     }
 
     void Graphics::init(void)
     {
+        InitAudioDevice();
         InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Zappy");
         SetTargetFPS(60);
         SetExitKey(KEY_NULL);

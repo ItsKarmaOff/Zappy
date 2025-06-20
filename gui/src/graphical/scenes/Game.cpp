@@ -9,6 +9,7 @@
 #include "TileInfo.hpp"
 #include "Logs.hpp"
 #include "VarManager.hpp"
+#include "SoundsManager.hpp"
 #include <chrono>
 #include <raylib.h>
 #include <raymath.h>
@@ -107,7 +108,9 @@ namespace Gui {
 
     void Graphics::updateGame(void)
     {
-
+        if (!IsMusicStreamPlaying(SoundsManager::getInstance().getMusics()[SoundsManager::GAME_SONG]))
+            PlayMusicStream(SoundsManager::getInstance().getMusics()[SoundsManager::GAME_SONG]);
+        UpdateMusicStream(SoundsManager::getInstance().getMusics()[SoundsManager::GAME_SONG]);
         for (auto &[id, player] : _game->getPlayers()) {
             if (player->isSelected()) {
                 _game->getCamera().target = {
