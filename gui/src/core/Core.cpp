@@ -252,6 +252,7 @@ namespace Gui
                 sendCommand(_clientSocket->getSocket(), command);
         }
     }
+
     void Core::_communicationThread()
     {
         while (isRunning) {

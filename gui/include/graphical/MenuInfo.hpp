@@ -13,6 +13,12 @@
     #include <raylib.h>
     #include <vector>
 
+/**
+ * @file MenuInfo.hpp
+ * @brief The MenuInfo class for managing menu buttons and interactions
+ * @author Gianni TUERO
+ */
+
 namespace Gui {
     class MenuInfo {
         public:
@@ -23,10 +29,14 @@ namespace Gui {
             MenuInfo();
             ~MenuInfo() = default;
 
+            /**
+             * @brief Gets the reference to the buttons in the menu
+             * @return Reference to the vector of Button objects
+             */
             std::vector<Button> &getButtons();
 
         private:
-            std::vector<Button> _buttons;
+            std::vector<Button> _buttons; ///< Vector containing all buttons in the menu
 
     };
 

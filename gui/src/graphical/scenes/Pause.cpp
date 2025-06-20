@@ -7,6 +7,7 @@
 
 #include "Graphics.hpp"
 #include "PauseInfo.hpp"
+#include "SoundsManager.hpp"
 #include <raylib.h>
 
 namespace Gui {
@@ -65,14 +66,36 @@ namespace Gui {
                 _pause->setCurrentSubscene(PauseInfo::RESUME);
             if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
                 if (_pause->getButtonsSettings()[PauseInfo::PLUS_BUTTON].isMouseOver(_mousePos)) {
-                    _pause->setTimeUnit(_pause->getTimeUnit() + 1);
-                    _queueManager->pushCommand({"sst", std::to_string(_pause->getTimeUnit())});
+                    _queueManager->pushCommand({"sst", std::to_string(_pause->getTimeUnit() + 1)});
                 } else if (_pause->getButtonsSettings()[PauseInfo::MINUS_BUTTON].isMouseOver(_mousePos)) {
                     if (_pause->getTimeUnit() > 1) {
-                        _pause->setTimeUnit(_pause->getTimeUnit() - 1);
-                        _queueManager->pushCommand({"sst", std::to_string(_pause->getTimeUnit())});
+                        _queueManager->pushCommand({"sst", std::to_string(_pause->getTimeUnit() - 1)});
                     }
+                }
+            }
+            if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
+                float width = GetScreenWidth() / 5;
+                float height = GetScreenHeight() / 10;
+                Vector2 buttonSize = {width, height};
+                Vector2 buttonPosition = {
+                    GetScreenWidth() / 2 - width / 2,
+                    GetScreenHeight() / 2 - height / 2
+                };
 
+                float sliderY = buttonPosition.y + (height + (height / 2));
+                Rectangle sliderArea = {
+                    buttonPosition.x,
+                    sliderY,
+                    buttonSize.x,
+                    buttonSize.y / 2
+                };
+                if (CheckCollisionPointRec(_mousePos, sliderArea)) {
+                    float relativeX = _mousePos.x - sliderArea.x;
+                    int newVolume = static_cast<int>((relativeX / sliderArea.width) * 100);
+                    newVolume = std::clamp(newVolume, 0, 100);
+                    _pause->setVolume(newVolume);
+                    for (auto &music : SoundsManager::getInstance().getMusics())
+                        SetMusicVolume(music.second, newVolume / 100.0f);
                 }
             }
         }
