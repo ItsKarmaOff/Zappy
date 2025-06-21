@@ -143,7 +143,9 @@ jobs:
                 apt-get update
                 apt-get install -y cmake doxygen graphviz
             - name: Generate documentation
-              run: cmake -B build -S . -DDOC_ONLY=ON && make doc -s -C build -j
+              run: |
+                cmake -B build -S . -DDOC_ONLY=ON && make doc -s -C build -j
+                rm -rf docs/html/*~*
 
             - name: Configure Git
               run: |
