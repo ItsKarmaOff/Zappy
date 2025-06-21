@@ -389,7 +389,7 @@ namespace Gui
         }
         _graphical.getChatbox()->addMessage(
             message,
-            (playerId != -1) ? "Player#" + std::to_string(playerId) : "Server",
+            (playerId != -1) ? "Player#" + std::to_string(playerId) : "Server Broadcast",
             (playerId != -1) ? _graphical.getGame()->getPlayers().at(playerId)->getColor() : WHITE
         );
         DEBUG_CONCAT << "Player #" << playerId << " broadcasts: " << message;
