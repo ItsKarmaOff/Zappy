@@ -178,4 +178,14 @@
      */
     #define NUMBER_OF_PLAYER_LEVEL_MAX_TO_WIN 6
 
+    /**
+     * @brief The message send to ai when the elevation is accepted
+     */
+    #define ELEVATION_OK "Elevation underway\n"
+
+    /**
+     * @brief The prefix of the broadcast message sent to clients
+     */
+    #define BROADCAST_MESSAGE_PREFIX "message K, "
+
 #endif /* SERVER_MACROS_H_ */

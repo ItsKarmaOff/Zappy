@@ -94,6 +94,8 @@ typedef struct player_s {
 
     /** The level of the player */
     size_t level;
+    /** Whether the player is incanting */
+    bool is_incanting;
     /** The last time the player ate */
     time_t last_eat_time;
     /** The inventory of the player */
@@ -172,6 +174,8 @@ typedef struct tile_s {
     node_t *player_list;
     /** The number of resources on the tile */
     size_t resources[RESOURCES_SIZE];
+    /* The list of the current incantations on the tile */
+    node_t *incantation_list;
 } tile_t;
 
 /**

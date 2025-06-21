@@ -128,15 +128,17 @@ void destroy_game(game_t *game);
 
 /**
  * @brief Refills the resources in the game
+ * @param server The server containing the game
  * @param game The game to refill resources for
  */
-void refill_resources(game_t *game);
+void refill_resources(server_t *server, game_t *game);
 
 /**
  * @brief Creates the game map
+ * @param server The server containing the game
  * @param game The game to create the map for
  */
-void create_game_map(game_t *game);
+void create_game_map(server_t *server, game_t *game);
 
 /**
  * @brief Updates the game

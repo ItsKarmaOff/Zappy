@@ -47,11 +47,11 @@ void update_sign_attributes(format_t *str_struct, long double nb)
 char *get_width(format_t *str_struct, char **str_list, size_t len)
 {
     char width_char = ' ';
-    size_t str_size = my_word_array_len(str_list, len);
+    size_t str_size = my_word_array_len(str_list, len, NULL);
     char *width_str = NULL;
 
     str_struct->total_len += str_size;
-    str_struct->current_flag.width -= my_word_array_len(str_list, len);
+    str_struct->current_flag.width -= my_word_array_len(str_list, len, NULL);
     if (str_struct->current_flag.width <= 0)
         return width_str;
     str_struct->total_len += str_struct->current_flag.width;

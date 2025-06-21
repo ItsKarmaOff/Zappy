@@ -7,8 +7,7 @@
 
 #include "Player.hpp"
 
-Player::Player(std::string team, std::thread communicationThread) : _teamName(team), 
-    _communicationThread(std::move(communicationThread))
+Player::Player(std::string team) : _teamName(team)
 {
 }
 

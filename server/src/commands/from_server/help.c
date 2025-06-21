@@ -15,7 +15,7 @@
 const command_help_t server_commands_help[] = {
     {"all", "\t\t\t\t\t",
         "Display all server information"},
-    {"broadcast", "<message>\t\t\t",
+    {"broadcast", "<x> <y> <message>\t\t",
         "Broadcast a message to all clients"},
     {"clear", "\t\t\t\t\t",
         "Clear the console"},

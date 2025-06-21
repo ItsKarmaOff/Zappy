@@ -16,8 +16,8 @@
     #include "network.h"
 
 /**
- * @enum orientation_e
- * @brief The orientation of the player
+ * @struct move_s
+ * @brief A structure representing a move for AI clients
  */
 typedef struct move_s {
     /** The orientation of the player */
@@ -30,6 +30,19 @@ typedef struct move_s {
  * @brief The moves for the AI clients
  */
 extern const move_t moves[];
+
+
+typedef struct incantation_s {
+    /** The number of players required for the incantation */
+    size_t required_players;
+    /** The resources required for the incantation */
+    resources_t required_resources[RESOURCES_SIZE];
+} incantation_t;
+
+/**
+ * @brief The incantations for the AI clients
+ */
+extern const incantation_t incantations[MAX_PLAYER_LEVEL - 1];
 
 
 
