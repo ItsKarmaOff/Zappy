@@ -28,9 +28,9 @@ void Player::addToInventory(const std::string &item, int quantity)
 
 void Player::run()
 {
-    while (_isAlive) {
-        
-    }
+    auto algo = std::make_shared<Algo>();
+    algo->setPlayer(this);
+    algo->run();
 }
 
 void Player::broadcast(const std::string &message)
