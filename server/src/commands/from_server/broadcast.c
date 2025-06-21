@@ -13,6 +13,22 @@
 #include "commands/commands_server.h"
 #include <math.h>
 
+static bool check_position_args(
+    const game_t *game, char **args, vector2u_t *position)
+{
+    position->x = my_get_number(args[1], DEFAULT_NB);
+    if (my_errno != SUCCESS || position->x >= game->game_settings.width) {
+        ERROR(my_create_str("Invalid position x: %s", args[1]));
+        return false;
+    }
+    position->y = my_get_number(args[2], DEFAULT_NB);
+    if (my_errno != SUCCESS || position->y >= game->game_settings.height) {
+        ERROR(my_create_str("Invalid position y: %s", args[2]));
+        return false;
+    }
+    return true;
+}
+
 static double get_angle(server_t *server, client_t *current_client,
     int dx, int dy)
 {
@@ -36,10 +52,10 @@ static double get_angle(server_t *server, client_t *current_client,
 }
 
 static void calculate_direction(server_t *server, client_t *current_client,
-    vector2u_t target_position, char *message)
+    vector2u_t *target_position, char *message)
 {
-    int dx = (int)target_position.x - (int)current_client->player->position.x;
-    int dy = (int)target_position.y - (int)current_client->player->position.y;
+    int dx = (int)target_position->x - (int)current_client->player->position.x;
+    int dy = (int)target_position->y - (int)current_client->player->position.y;
     double angle = 0.0;
 
     if (dx == 0 && dy == 0) {
@@ -50,35 +66,39 @@ static void calculate_direction(server_t *server, client_t *current_client,
         + M_PI / 8.0) / (M_PI / 4.0)) % 8 + 1) + '0';
 }
 
-static void send_broadcast(server_t *server, client_t *client, char *message)
+static void send_broadcast(
+    server_t *server, vector2u_t *position, char *message)
 {
     client_t *current_client = NULL;
 
     for (size_t i = 0; i < server->current_clients_number; i++) {
         current_client = server->client_list[i];
-        if (current_client == client
-            || current_client->client_type != CLIENT_AI)
+        if (current_client->client_type != CLIENT_AI)
             continue;
-        calculate_direction(server, current_client, client->player->position,
+        calculate_direction(server, current_client, position,
             message);
         dprintf(current_client->socket_fd, "%s", message);
     }
-    send_pbc_to_gui(server, NULL, client->player, message + 8);
+    send_pbc_to_gui(server, NULL, NULL,
+        message + my_strlen(BROADCAST_MESSAGE_PREFIX));
 }
 
 void handle_server_command_broadcast(
     UNUSED server_t *server, UNUSED client_t *client, UNUSED char **args)
 {
     char message[sizeof("message K, \n") + my_strlen(args[1])];
+    vector2u_t position = {0, 0};
 
     DEBUG("Executing \"Broadcast\" command");
     if (my_array_len((void **) args) != 4) {
         ERROR("Invalid number of arguments for \"Broadcast\" command");
         return;
     }
+    if (!check_position_args(&server->game, args, &position))
+        return;
     my_memset(message, 0, sizeof(message));
-    my_strcpy(message, "message K, ");
-    my_strcat(message, args[1]);
+    my_strcpy(message, BROADCAST_MESSAGE_PREFIX);
+    my_strcat(message, args[3]);
     my_strcat(message, "\n");
-    send_broadcast(server, client, message);
+    send_broadcast(server, &position, message);
 }
