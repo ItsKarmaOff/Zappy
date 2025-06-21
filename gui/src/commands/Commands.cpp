@@ -4,6 +4,12 @@
 ** File description:
 ** Commands implementation
 */
+/**
+ * @file Commands.cpp
+ * @brief Commands implementation for the GUI
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "Commands.hpp"
 #include "Graphics.hpp"
@@ -20,6 +26,8 @@
 
 namespace Gui
 {
+    //////////////////////// Constructors and Destructor ///////////////////////
+
     Commands::Commands(Graphics &graphical)
         : _graphical(graphical)
     {
@@ -50,6 +58,11 @@ namespace Gui
             {SBP, [this](std::string &param) { handleSBP(param); }}
         };
     }
+
+
+
+    //////////////////////// Main Methods //////////////////////////////////////
+
     void Commands::handleResponses(std::shared_ptr<QueueManager> &queueManager)
     {
         while (queueManager->hasResponses()) {

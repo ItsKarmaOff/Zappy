@@ -5,26 +5,19 @@
 ** AssetsManager declaration
 */
 
-
 #ifndef ASSETSMANAGER_HPP
     #define ASSETSMANAGER_HPP
 
-#include "ModelInfo.hpp"
-#include "PlayerInfo.hpp"
-#include <memory>
-#include <raylib.h>
-#include <string>
-#include <tuple>
-#include <unordered_map>
+    #include "ModelInfo.hpp"
+    #include "PlayerInfo.hpp"
+    #include <memory>
+    #include <raylib.h>
+    #include <string>
+    #include <tuple>
+    #include <unordered_map>
 
-/**
- * @file AssetsManager.hpp
- * @brief The AssetsManager class
- * @author Gianni TUERO
- */
-
-namespace Gui {
-
+namespace Gui
+{
     /**
      * @brief Class managing game assets
      * @details This class is responsible for loading, unloading, and providing access to game assets
@@ -32,6 +25,9 @@ namespace Gui {
      */
     class AssetsManager {
         public:
+
+            //////////////// Constructors and Destructor ///////////////////////
+
             /**
              * @brief Default constructor
              */
@@ -41,6 +37,10 @@ namespace Gui {
              * @brief Destructor
              */
             ~AssetsManager();
+
+
+
+            //////////////// Main Methods //////////////////////////////////////
 
             /**
              * @brief Loads all required assets into memory
@@ -68,10 +68,11 @@ namespace Gui {
             Texture2D getResourceIcon(PlayerInfo::ResourceType Key);
 
         private:
+
+            //////////////// Private Attributes ////////////////////////////////
+
             std::unordered_map<std::string, std::shared_ptr<ModelInfo>> _models; //< Map of loaded models
-
     };
-
 }
 
 #endif // ASSETSMANAGER_HPP
