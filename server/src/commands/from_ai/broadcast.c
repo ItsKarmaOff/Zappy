@@ -63,7 +63,8 @@ static void send_broadcast(server_t *server, client_t *client, char *message)
             message);
         dprintf(current_client->socket_fd, "%s", message);
     }
-    send_pbc_to_gui(server, NULL, client->player, message + 8);
+    send_pbc_to_gui(server, NULL, client->player,
+        message + sizeof("message K, "));
 }
 
 void handle_ai_command_broadcast(
@@ -81,4 +82,5 @@ void handle_ai_command_broadcast(
     my_strcat(message, args[1]);
     my_strcat(message, "\n");
     send_broadcast(server, client, message);
+    dprintf(client->socket_fd, VALID_AI);
 }
