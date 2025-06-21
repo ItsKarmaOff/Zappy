@@ -79,7 +79,8 @@ static void send_broadcast(
             message);
         dprintf(current_client->socket_fd, "%s", message);
     }
-    send_pbc_to_gui(server, NULL, NULL, message + 8);
+    send_pbc_to_gui(server, NULL, NULL,
+        message + my_strlen(BROADCAST_MESSAGE_PREFIX));
 }
 
 void handle_server_command_broadcast(
@@ -96,7 +97,7 @@ void handle_server_command_broadcast(
     if (!check_position_args(&server->game, args, &position))
         return;
     my_memset(message, 0, sizeof(message));
-    my_strcpy(message, "message K, ");
+    my_strcpy(message, BROADCAST_MESSAGE_PREFIX);
     my_strcat(message, args[3]);
     my_strcat(message, "\n");
     send_broadcast(server, &position, message);
