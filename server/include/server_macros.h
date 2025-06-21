@@ -183,4 +183,9 @@
      */
     #define ELEVATION_OK "Elevation underway\n"
 
+    /**
+     * @brief The prefix of the broadcast message sent to clients
+     */
+    #define BROADCAST_MESSAGE_PREFIX "message K, "
+
 #endif /* SERVER_MACROS_H_ */

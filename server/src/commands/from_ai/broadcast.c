@@ -36,10 +36,10 @@ static double get_angle(server_t *server, client_t *current_client,
 }
 
 static void calculate_direction(server_t *server, client_t *current_client,
-    vector2u_t target_position, char *message)
+    vector2u_t *target_position, char *message)
 {
-    int dx = (int)target_position.x - (int)current_client->player->position.x;
-    int dy = (int)target_position.y - (int)current_client->player->position.y;
+    int dx = (int)target_position->x - (int)current_client->player->position.x;
+    int dy = (int)target_position->y - (int)current_client->player->position.y;
     double angle = 0.0;
 
     if (dx == 0 && dy == 0) {
@@ -59,11 +59,12 @@ static void send_broadcast(server_t *server, client_t *client, char *message)
         if (current_client == client
         || current_client->client_type != CLIENT_AI)
             continue;
-        calculate_direction(server, current_client, client->player->position,
+        calculate_direction(server, current_client, &client->player->position,
             message);
         dprintf(current_client->socket_fd, "%s", message);
     }
-    send_pbc_to_gui(server, NULL, client->player, message + 8);
+    send_pbc_to_gui(server, NULL, client->player,
+        message + my_strlen(BROADCAST_MESSAGE_PREFIX));
 }
 
 void handle_ai_command_broadcast(
@@ -77,8 +78,9 @@ void handle_ai_command_broadcast(
         return;
     }
     my_memset(message, 0, sizeof(message));
-    my_strcpy(message, "message K, ");
+    my_strcpy(message, BROADCAST_MESSAGE_PREFIX);
     my_strcat(message, args[1]);
     my_strcat(message, "\n");
     send_broadcast(server, client, message);
+    dprintf(client->socket_fd, VALID_AI);
 }

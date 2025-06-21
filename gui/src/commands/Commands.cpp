@@ -386,14 +386,14 @@ namespace Gui
 
         if (message[0] == ' ')
             message = message.substr(1);
-        if (!_graphical.getGame()->getPlayers().contains(playerId)) {
-            ERROR << "Player " << playerId << "doesn't exist.";
+        if (playerId != -1 && !_graphical.getGame()->getPlayers().contains(playerId)) {
+            ERROR << "Player " << playerId << " doesn't exist.";
             return;
         }
         _graphical.getChatbox()->addMessage(
             message,
-            "Player#" + std::to_string(playerId),
-            _graphical.getGame()->getPlayers().at(playerId)->getColor()
+            (playerId != -1) ? "Player#" + std::to_string(playerId) : "Server Broadcast",
+            (playerId != -1) ? _graphical.getGame()->getPlayers().at(playerId)->getColor() : WHITE
         );
         DEBUG_CONCAT << "Player #" << playerId << " broadcasts: " << message;
     }
