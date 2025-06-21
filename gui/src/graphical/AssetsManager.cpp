@@ -4,6 +4,12 @@
 ** File description:
 ** AssetsManager in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
 */
+/**
+ * @file AssetsManager.cpp
+ * @brief AssetsManager implementation for the GUI
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "AssetsManager.hpp"
 #include "Graphics.hpp"
@@ -13,11 +19,19 @@
 #include <raylib.h>
 #include <tuple>
 
-namespace Gui {
+namespace Gui
+{
+    //////////////////////// Constructors and Destructor ///////////////////////
+
     AssetsManager::~AssetsManager()
     {
         unloadAssets();
     }
+
+
+
+    //////////////////////// Main Methods //////////////////////////////////////
+
     void AssetsManager::loadAssets()
     {
         /* food */

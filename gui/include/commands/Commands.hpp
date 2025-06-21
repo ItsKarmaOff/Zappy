@@ -16,31 +16,36 @@ namespace Gui
 {
     //////////////////// Custom Constants //////////////////////////////////
 
-        static constexpr const char *MSZ = "msz"; // Map size
-        static constexpr const char *BCT = "bct"; // Content
-        static constexpr const char *TNA = "tna"; // Name of all the teams
-        static constexpr const char *PNW = "pnw"; // Connection of a new player
-        static constexpr const char *PPO = "ppo"; // Player's position
-        static constexpr const char *PLV = "plv"; // Player's level
-        static constexpr const char *PIN = "pin"; // Player inventory
-        static constexpr const char *PEX = "pex"; // Expulsion
-        static constexpr const char *PBC = "pbc"; // Broadcast
-        static constexpr const char *PIC = "pic"; // Start of an incantation (by the first player)
-        static constexpr const char *PIE = "pie"; // End of an incantation
-        static constexpr const char *PFK = "pfk"; // Egg laying by the player
-        static constexpr const char *PDR = "pdr"; // Resource dropping
-        static constexpr const char *PGT = "pgt"; // Resource collecting
-        static constexpr const char *PDI = "pdi"; // Death of a player
-        static constexpr const char *ENW = "enw"; // An egg was laid by a player
-        static constexpr const char *EBO = "ebo"; // Player connection for an egg
-        static constexpr const char *EDI = "edi"; // Death of an egg
-        static constexpr const char *SGT = "sgt"; // Time unit request
-        static constexpr const char *SST = "sst"; // Time unit modification
-        static constexpr const char *SEG = "seg"; // End of game
-        static constexpr const char *SMG = "smg"; // Message from the server
-        static constexpr const char *SUC = "suc"; // Unknown command
-        static constexpr const char *SBP = "sbp"; // Command parameter
+    static constexpr const char *MSZ = "msz"; // Map size
+    static constexpr const char *BCT = "bct"; // Content
+    static constexpr const char *TNA = "tna"; // Name of all the teams
+    static constexpr const char *PNW = "pnw"; // Connection of a new player
+    static constexpr const char *PPO = "ppo"; // Player's position
+    static constexpr const char *PLV = "plv"; // Player's level
+    static constexpr const char *PIN = "pin"; // Player inventory
+    static constexpr const char *PEX = "pex"; // Expulsion
+    static constexpr const char *PBC = "pbc"; // Broadcast
+    static constexpr const char *PIC = "pic"; // Start of an incantation (by the first player)
+    static constexpr const char *PIE = "pie"; // End of an incantation
+    static constexpr const char *PFK = "pfk"; // Egg laying by the player
+    static constexpr const char *PDR = "pdr"; // Resource dropping
+    static constexpr const char *PGT = "pgt"; // Resource collecting
+    static constexpr const char *PDI = "pdi"; // Death of a player
+    static constexpr const char *ENW = "enw"; // An egg was laid by a player
+    static constexpr const char *EBO = "ebo"; // Player connection for an egg
+    static constexpr const char *EDI = "edi"; // Death of an egg
+    static constexpr const char *SGT = "sgt"; // Time unit request
+    static constexpr const char *SST = "sst"; // Time unit modification
+    static constexpr const char *SEG = "seg"; // End of game
+    static constexpr const char *SMG = "smg"; // Message from the server
+    static constexpr const char *SUC = "suc"; // Unknown command
+    static constexpr const char *SBP = "sbp"; // Command parameter
 
+
+
+    /*** @class Commands
+     * @brief The Commands class handles the commands received from the server.
+     */
     class Commands {
         public:
 
