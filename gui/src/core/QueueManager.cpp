@@ -4,10 +4,19 @@
 ** File description:
 ** QueueManager in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/core
 */
+/**
+ * @file QueueManager.cpp
+ * @brief QueueManager implementation for the GUI
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "QueueManager.hpp"
 
-namespace Gui {
+namespace Gui
+{
+    //////////////////////// Commands queue methods ////////////////////////////
+
     void QueueManager::pushCommand(const std::vector<std::string>& command) {
         std::lock_guard<std::mutex> lock(_commandsQueueMutex);
         _commandsQueue.push(command);
@@ -26,6 +35,10 @@ namespace Gui {
         _commandsQueue.pop();
         return command;
     }
+
+
+
+    //////////////////////// Response queue methods ////////////////////////////
 
     void QueueManager::pushResponse(const std::string& response) {
         std::lock_guard<std::mutex> lock(_responseQueueMutex);
