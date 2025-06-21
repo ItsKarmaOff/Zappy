@@ -11,7 +11,7 @@
     #include <memory>
     #include <atomic>
     #include <string>
-#include <sys/poll.h>
+    #include <sys/poll.h>
     #include "Graphics.hpp"
     #include "Socket.hpp"
     #include "QueueManager.hpp"
@@ -150,10 +150,8 @@ namespace Gui
             std::atomic<bool> isRunning;  // Flag to indicate if the application is running
             struct sockaddr_in _client; // Structure to hold the client address information
             std::shared_ptr<QueueManager> _queueManager; // Shared pointer to the queue manager for handling commands and responses
-
-
             pollfd _pollFd; // Poll file descriptor for monitoring events on the socket
-            std::string _answer;
+            std::string _answer;    // String to hold the response from the server
     };
 }
 

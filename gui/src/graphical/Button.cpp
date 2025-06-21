@@ -4,14 +4,24 @@
 ** File description:
 ** Button in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
 */
+/**
+ * @file Button.cpp
+ * @brief Button implementation for the GUI
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "Button.hpp"
 
-namespace Gui {
+namespace Gui
+{
+    //////////////////////// Constructors and Destructor ///////////////////////
+
     Button::Button()
     {
         init();
     }
+
     Button::Button(const Rectangle &button)
     {
         setButton(button);
@@ -20,6 +30,7 @@ namespace Gui {
         _text = "Default";
         _textColor = WHITE; // Default text color
     }
+
     Button::Button(const Vector2 &pos, const Vector2 &size)
     {
         init(pos, size);
@@ -30,6 +41,10 @@ namespace Gui {
         init();
         _text = text;
     }
+
+
+
+    //////////////////////// Initialization Methods ////////////////////////////
 
     void Button::init(const Vector2 &pos, const Vector2 &size)
     {
@@ -42,7 +57,10 @@ namespace Gui {
         _textColor = WHITE; // Default text color
     }
 
-    ////////////////////////////////////// GETTERS //////////////////////////////////////
+
+
+    //////////////////////// Getters ///////////////////////////////////////////
+
     const Rectangle& Button::getButton() const
     {
         return _button;
@@ -66,6 +84,10 @@ namespace Gui {
     {
         return _currentColor;
     }
+
+
+
+    // ///////////////////// Setters ///////////////////////////////////////////
 
     Button& Button::setCurrentColor(const Color &color)
     {
@@ -103,6 +125,10 @@ namespace Gui {
         return *this;
     }
 
+
+
+    //////////////////////// Utility Methods ///////////////////////////////////
+
     bool Button::isMouseOver(Vector2 mousePos) const
     {
         return CheckCollisionPointRec(mousePos, _button);
@@ -124,21 +150,22 @@ namespace Gui {
             _button.y + (_button.height - textHeight) / 2
         };
     }
+
     const std::string& Button::getText() const
     {
         return _text;
     }
+
     const Color& Button::getTextColor() const
     {
         return _textColor;
     }
+
     Button& Button::setTextColor(const Color &color)
     {
         _textColor = color;
         return *this;
     }
-
-    ////////////////////////////////////// UTILITY //////////////////////////////////////
 
     void Button::switchColorsIfHover(Vector2 mousePos)
     {
