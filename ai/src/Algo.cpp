@@ -1,15 +1,15 @@
 /*
-** EPITECH PROJECT, 2024
-** zappy [WSL: Ubuntu]
+** EPITECH PROJECT, 2025
+** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** Algo.cpp
+** Algo.cpp - Version Simplifiée
 */
 
 #include "Algo.hpp"
 #include "Player.hpp"
 #include "Lib.hpp"
 
-Algo::Algo() : _playerPtr(nullptr), _testCounter(0)
+Algo::Algo() : _player(nullptr), _testCounter(0)
 {
 }
 
@@ -17,143 +17,127 @@ Algo::~Algo()
 {
 }
 
-void Algo::setPlayer(std::shared_ptr<Player> player)
+void Algo::setPlayer(Player* player)
 {
     _player = player;
 }
 
-void Algo::setPlayer(Player* player)
-{
-    _playerPtr = player;
-}
-
 void Algo::run()
 {
-    Player* player = _player ? _player.get() : _playerPtr;
-    
-    if (!player) {
+    if (!_player) {
         ERROR << "Player not set in Algo::run()";
         return;
     }
 
-    DEBUG << "Starting command testing algorithm...";
-    testLookCommand();
-    testInventoryCommand();
-    testMovementCommands();
-    testBroadcastCommand();
-    testConnectNbrCommand();
-    testTakeSetCommands();
-    testEjectCommand();
-    testForkCommand();
-    testIncantationCommand();
+    DEBUG << "Starting simple test algorithm...";
     
-    DEBUG << "All command tests completed. Starting continuous cycle...";
+    _player->inventory();
     
-    int cycleCount = 0;
-    while (player->isAlive()) {
-        cycleCount++;
-        DEBUG << "=== Cycle " << cycleCount << " ===";
-        player->look();
-        player->inventory();
-        player->forward();
-        player->right();
-        player->take("food");
+    for (int i = 0; i < 10000000 && _player->isAlive(); ++i) {
+    }
+    
+    _player->look();
+    
+    for (int i = 0; i < 10000000 && _player->isAlive(); ++i) {
+    }
+    
+    _player->forward();
+    
+    for (int i = 0; i < 10000000 && _player->isAlive(); ++i) {
+    }
+    
+    DEBUG << "Simple test completed.";
+    
+    while (_player->isAlive()) {
+        for (int i = 0; i < 100000000 && _player->isAlive(); ++i) {
+        }
     }
 }
 
 void Algo::testMovementCommands()
 {
-    Player* player = _player ? _player.get() : _playerPtr;
     logTest("Movement Commands");
-    
+
     DEBUG << "Testing forward command...";
-    player->forward();
-    
+    _player->forward();
+
     DEBUG << "Testing right turn...";
-    player->right();
-    
+    _player->right();
+
     DEBUG << "Testing left turn...";
-    player->left();
-    
+    _player->left();
+
     DEBUG << "Testing another forward...";
-    player->forward();
+    _player->forward();
 }
 
 void Algo::testLookCommand()
 {
-    Player* player = _player ? _player.get() : _playerPtr;
     logTest("Look Command");
     DEBUG << "Testing look command...";
-    player->look();
+    _player->look();
 }
 
 void Algo::testInventoryCommand()
 {
-    Player* player = _player ? _player.get() : _playerPtr;
     logTest("Inventory Command");
     DEBUG << "Testing inventory command...";
-    player->inventory();
+    _player->inventory();
 }
 
 void Algo::testTakeSetCommands()
 {
-    Player* player = _player ? _player.get() : _playerPtr;
     logTest("Take/Set Commands");
-    
+
     std::vector<std::string> resources = {
         "food", "linemate", "deraumere", "sibur", 
         "mendiane", "phiras", "thystame"
     };
-    
+
     for (const auto& resource : resources) {
         DEBUG << "Testing take command for: " << resource;
-        player->take(resource);
+        _player->take(resource);
     }
-    
+
     for (const auto& resource : resources) {
         DEBUG << "Testing set command for: " << resource;
-        player->set(resource);
+        _player->set(resource);
     }
 }
 
 void Algo::testBroadcastCommand()
 {
-    Player* player = _player ? _player.get() : _playerPtr;
     logTest("Broadcast Command");
     DEBUG << "Testing broadcast command...";
-    player->broadcast("Hello from AI test!");
+    _player->broadcast("Hello from AI test!");
 }
 
 void Algo::testConnectNbrCommand()
 {
-    Player* player = _player ? _player.get() : _playerPtr;
     logTest("Connect_nbr Command");
     DEBUG << "Testing connect_nbr command...";
-    player->connect_nbr();
+    _player->connect_nbr();
 }
 
 void Algo::testEjectCommand()
 {
-    Player* player = _player ? _player.get() : _playerPtr;
     logTest("Eject Command");
     DEBUG << "Testing eject command...";
-    player->eject();
+    _player->eject();
 }
 
 void Algo::testForkCommand()
 {
-    Player* player = _player ? _player.get() : _playerPtr;
     logTest("Fork Command");
     DEBUG << "Testing fork command...";
-    player->fork();
+    _player->fork();
 }
 
 void Algo::testIncantationCommand()
 {
-    Player* player = _player ? _player.get() : _playerPtr;
     logTest("Incantation Command");
     DEBUG << "Testing incantation command...";
-    player->incantation();
+    _player->incantation();
 }
 
 void Algo::logTest(const std::string& testName)
