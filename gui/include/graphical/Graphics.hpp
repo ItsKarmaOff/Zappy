@@ -12,6 +12,7 @@
     #include <memory>
     #include <unordered_map>
     #include "AssetsManager.hpp"
+#include "EndInfo.hpp"
     #include "GameInfo.hpp"
     #include "MenuInfo.hpp"
 #include "PauseInfo.hpp"
@@ -51,11 +52,13 @@ namespace Gui {
              * @enum Scene
              * @brief Represents the current scene being displayed
              */
+
             enum Scene {
                 MENU,           ///< Main menu scene
                 GAME,           ///< Game play scene
                 SCOREBOARD,     ///< Scoreboard display scene
                 PAUSE,          ///< Pause menu scene
+                END,           ///< End of game scene
             };
         public:
             /**
@@ -129,6 +132,12 @@ namespace Gui {
              * @return Shared pointer reference to the PauseInfo object
              */
             std::shared_ptr<PauseInfo> &getPause(void) { return _pause; }
+
+            /**
+             * @brief Gets the reference to the end scene information
+             * @return Shared pointer reference to the EndInfo object
+             */
+            std::shared_ptr<EndInfo> &getEndInfo(void) { return _end; }
 
 
         ////////////////////////////////////// GRAPHIC //////////////////////////////////////
@@ -277,6 +286,23 @@ namespace Gui {
              */
             void switchToPreviousScene(void);
 
+        ////////////////////////////////////// END //////////////////////////////////////
+        private:
+            /**
+             * @brief Handles input events for the end scene
+             */
+            void handleEventsEnd(void);
+
+            /**
+             * @brief Updates the end scene state
+             */
+            void updateEnd(void);
+
+            /**
+             * @brief Renders the end scene
+             */
+            void drawEnd(void);
+
         private:
             std::shared_ptr<QueueManager> _queueManager;  ///< Queue manager for communication with server
             Scene _scene;                                 ///< Current active scene
@@ -290,6 +316,7 @@ namespace Gui {
             std::shared_ptr<MenuInfo> _menu;        ///< Menu scene information
             std::shared_ptr<GameInfo> _game;        ///< Game scene information
             std::shared_ptr<PauseInfo> _pause;      ///< Pause scene information
+            std::shared_ptr<EndInfo> _end;          ///< End scene information
             std::shared_ptr<Chatbox> _chatbox;      ///< Chat display and messaging
 
             AssetsManager _assetsManager;           ///< Manager for game assets and resources
