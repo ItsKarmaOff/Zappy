@@ -8,35 +8,35 @@
 #ifndef ENGINE_HPP_
 #define ENGINE_HPP_
 
-#include "Parser.hpp"
-#include "Socket.hpp"
 #include "Lib.hpp"
+#include "Socket.hpp"
+#include "Parser.hpp"
 #include "Player.hpp"
 #include "CommandsQueue.hpp"
-#include "Algo.hpp"
-#include <regex>
 
 class Engine {
     public:
         Engine(Parser &parser);
         ~Engine();
         void run();
-        std::string getResponse(Lib::Socket *socket);
+        std::string getResponse();
+        void sendCommand(const std::vector<std::string> &command);
+
     protected:
     private:
-        void _communicate(Lib::Socket *clientSocket);
-        void _readIfResponse(Lib::Socket *clientSocket);
-        void _sendIfCommand(Lib::Socket *clientSocket);
         void _init();
-        Parser _parser;
-        pollfd _pollFd;
-        void _createNewPlayer();
-        std::shared_ptr<Lib::Socket> _socket;
+        void _communicationThread();
+        void _readIfResponse();
+        void _sendIfCommand();
+
+        Parser &_parser;
+        std::unique_ptr<Lib::Socket> _clientSocket;
         struct sockaddr_in _client;
-        bool _isRunning = true;
         std::shared_ptr<Player> _player;
-        int _amountOfPlayers = 0;
-        std::vector<pid_t> _processes;
+        std::shared_ptr<CommandsQueue> _commandsQueue;
+        struct pollfd _pollFd;
+        int _amountOfPlayers;
+        bool _isRunning;
 };
 
-#endif
+#endif /* !ENGINE_HPP_ */
