@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2025
 ** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** CommandsQueue
+** CommandsQueue - Version basée sur le GUI (utilise std::vector<std::string>)
 */
 
 #include "CommandsQueue.hpp"
@@ -15,7 +15,7 @@ CommandsQueue::~CommandsQueue()
 {
 }
 
-void CommandsQueue::pushCommand(const std::string& command)
+void CommandsQueue::pushCommand(const std::vector<std::string>& command)
 {
     std::lock_guard<std::mutex> lock(_commandsQueueMutex);
     _commandsQueue.push(command);
@@ -27,35 +27,35 @@ bool CommandsQueue::hasCommands() const
     return !_commandsQueue.empty();
 }
 
-std::string CommandsQueue::popCommand()
+std::vector<std::string> CommandsQueue::popCommand()
 {
     std::lock_guard<std::mutex> lock(_commandsQueueMutex);
     if (_commandsQueue.empty())
         return {};
-    std::string command = _commandsQueue.front();
+    std::vector<std::string> command = _commandsQueue.front();
     _commandsQueue.pop();
     return command;
 }
 
 void CommandsQueue::pushResponse(const std::string& response)
 {
-    std::lock_guard<std::mutex> lock(_responsesQueueMutex);
-    _responsesQueue.push(response);
+    std::lock_guard<std::mutex> lock(_responseQueueMutex);
+    _responseQueue.push(response);
 }
 
 bool CommandsQueue::hasResponses() const
 {
-    std::lock_guard<std::mutex> lock(_responsesQueueMutex);
-    return !_responsesQueue.empty();
+    std::lock_guard<std::mutex> lock(_responseQueueMutex);
+    return !_responseQueue.empty();
 }
 
 std::string CommandsQueue::popResponse()
 {
-    std::lock_guard<std::mutex> lock(_responsesQueueMutex);
-    if (_responsesQueue.empty())
-        return {};
-    std::string response = _responsesQueue.front();
-    _responsesQueue.pop();
+    std::lock_guard<std::mutex> lock(_responseQueueMutex);
+    if (_responseQueue.empty())
+        return "";
+    std::string response = _responseQueue.front();
+    _responseQueue.pop();
     return response;
 }
 
@@ -68,7 +68,7 @@ void CommandsQueue::clearCommands()
 
 void CommandsQueue::clearResponses()
 {
-    std::lock_guard<std::mutex> lock(_responsesQueueMutex);
-    while (!_responsesQueue.empty())
-        _responsesQueue.pop();
+    std::lock_guard<std::mutex> lock(_responseQueueMutex);
+    while (!_responseQueue.empty())
+        _responseQueue.pop();
 }
