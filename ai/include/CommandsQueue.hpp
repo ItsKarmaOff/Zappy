@@ -14,9 +14,9 @@ class CommandsQueue {
     public:
         CommandsQueue();
         ~CommandsQueue();
-        void pushCommand(const std::vector<std::string> &command);
+        void pushCommand(const std::string &command);
         bool hasCommands() const;
-        std::vector<std::string> popCommand();
+        std::string popCommand();
         void pushResponse(const std::string &response);
         bool hasResponses() const;
         std::string popResponse();
@@ -25,10 +25,10 @@ class CommandsQueue {
 
     protected:
     private:
-        std::queue<std::vector<std::string>> _commandsQueue;
-        std::queue<std::string> _responseQueue;
+        std::queue<std::string> _commandsQueue;
+        std::queue<std::string> _responsesQueue;
         mutable std::mutex _commandsQueueMutex;
-        mutable std::mutex _responseQueueMutex;
+        mutable std::mutex _responsesQueueMutex;
 };
 
 #endif /* !COMMANDSQUEUE_HPP_ */

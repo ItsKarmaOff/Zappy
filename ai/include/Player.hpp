@@ -36,15 +36,22 @@ class Player {
         bool isAlive() const { return _alive; }
         const std::vector<std::pair<std::string, int>> &getInventory() const { return _inventory; }
         const std::vector<std::string> &getView() const { return _view; }
+        std::shared_ptr<CommandsQueue> getCommandsQueue() const { return _commandsQueue; }
+        std::thread &getCommunicationThread() { return _communicationThread; }
 
         void setAlive(bool alive) { _alive = alive; }
         void setCommandsQueue(std::shared_ptr<CommandsQueue> queue) { _commandsQueue = queue; }
+        void setCommunicationThread(std::thread &&thread) { _communicationThread = std::move(thread); }
         void addToBroadcastList(const std::string &message) { _broadcastMessages.push_back(message); }
         void addToInventory(const std::string &item, int quantity);
+        void setForkPlayerCallback(std::function<void()> callback) { _forkPlayerCallback = callback; }
+
         void processResponse(const std::string &response);
 
     protected:
     private:
+        void parseViewResponse(const std::string &response);
+        void parseInventoryResponse(const std::string &response);
 
         std::string _teamName;
         bool _alive;
@@ -52,6 +59,8 @@ class Player {
         std::vector<std::string> _view;
         std::vector<std::string> _broadcastMessages;
         std::shared_ptr<CommandsQueue> _commandsQueue;
+        std::thread _communicationThread;
+        std::function<void()> _forkPlayerCallback;
 };
 
 #endif /* !PLAYER_HPP_ */

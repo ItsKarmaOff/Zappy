@@ -19,24 +19,24 @@ class Engine {
         Engine(Parser &parser);
         ~Engine();
         void run();
-        std::string getResponse();
-        void sendCommand(const std::vector<std::string> &command);
+        std::string getResponse(Lib::Socket *socket);
 
     protected:
     private:
         void _init();
-        void _communicationThread();
-        void _readIfResponse();
-        void _sendIfCommand();
+        void _createNewPlayer();
+        void _communicate(Lib::Socket *clientSocket);
+        void _readIfResponse(Lib::Socket *socket);
+        void _sendIfCommand(Lib::Socket *socket);
 
         Parser &_parser;
-        std::unique_ptr<Lib::Socket> _clientSocket;
+        std::unique_ptr<Lib::Socket> _socket;
         struct sockaddr_in _client;
         std::shared_ptr<Player> _player;
-        std::shared_ptr<CommandsQueue> _commandsQueue;
         struct pollfd _pollFd;
         int _amountOfPlayers;
         bool _isRunning;
+        std::vector<pid_t> _processes;
 };
 
 #endif /* !ENGINE_HPP_ */

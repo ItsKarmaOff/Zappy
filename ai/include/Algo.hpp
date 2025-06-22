@@ -16,6 +16,7 @@ class Algo {
     public:
         Algo();
         ~Algo();
+        void setPlayer(std::shared_ptr<Player> player);
         void setPlayer(Player* player);
         void run();
 
@@ -31,8 +32,10 @@ class Algo {
         void testForkCommand();
         void testIncantationCommand();
         void logTest(const std::string& testName);
+        void waitAndProcessResponses(Player* player, int waitTimeMs);
 
-        Player* _player;
+        std::shared_ptr<Player> _player;
+        Player* _playerPtr;
         int _testCounter;
 };
 
