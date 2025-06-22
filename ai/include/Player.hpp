@@ -1,84 +1,57 @@
 /*
-** EPITECH PROJECT, 2024
-** zappy [WSL: Ubuntu]
+** EPITECH PROJECT, 2025
+** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** Player.hpp
+** Player
 */
 
 #ifndef PLAYER_HPP_
 #define PLAYER_HPP_
 
 #include "Lib.hpp"
-#include "Algo.hpp"
-
 #include "CommandsQueue.hpp"
+
+class Algo;
 
 class Player {
     public:
-        //class related
         Player(std::string team);
         ~Player();
-        bool isAlive() const { return _isAlive; }
-        void setAlive(bool alive) { _isAlive = alive; }
-        bool isKing() const { return _isKing; }
-        void setKing(bool king) { _isKing = king; }
-        int getLevel() const { return _level; }
-        void setLevel(int level) { _level = level; }
-        std::string getTeamName() const { return _teamName; }
-        void setTeamName(const std::string &teamName) { _teamName = teamName; }
-        const std::vector<std::pair<std::string, int>>& getInventory() const { return _inventory; }
-        void addToInventory(const std::string &item, int quantity);
-        std::thread &getCommunicationThread() { return _communicationThread; }
-        CommandsQueue &getCommandsQueue() { return *_commandsQueue; }
-        void setCommandsQueue(const std::shared_ptr<CommandsQueue> &commandsQueue) { _commandsQueue = commandsQueue; }
-        void setForkPlayerCallback(const std::function<void()> &callback) { _forkPlayerCallback = callback; }
-        const std::vector<std::string>& getView() const { return _view; }
-        void setView(const std::vector<std::string> &view) { _view = view; }
-        const std::vector<std::string>& getBroadcastList() const { return _broadcastList; };
-        int getBroadcastSize() const { return _broadcastList.size(); }
-        void addToBroadcastList(const std::string &message) {
-            _broadcastList.push_back(message);
-            if (!_broadcastList.empty()) {
-                _bcIndex = (_bcIndex + 1) % _broadcastList.size();  
-            }
-        }
-        std::string getLastBroadcast() const {
-            if (_broadcastList.empty()) {
-                return "";
-            }
-            return _broadcastList[_bcIndex];
-        }
-        void setCommunicationThread(std::thread thread) {
-            _communicationThread = std::move(thread);
-        }
-        //Engine related
         void run();
-        //commands
-        void broadcast(const std::string &message);
-        void eject();
-        void fork();
-        void inventory();
-        void look();
+        
         void forward();
         void right();
         void left();
+        void look();
+        void inventory();
+        void broadcast(const std::string &message);
         void connect_nbr();
+        void fork();
+        void eject();
         void take(const std::string &item);
         void set(const std::string &item);
         void incantation();
+
+        const std::string &getTeamName() const { return _teamName; }
+        bool isAlive() const { return _alive; }
+        const std::vector<std::pair<std::string, int>> &getInventory() const { return _inventory; }
+        const std::vector<std::string> &getView() const { return _view; }
+
+        void setAlive(bool alive) { _alive = alive; }
+        void setCommandsQueue(std::shared_ptr<CommandsQueue> queue) { _commandsQueue = queue; }
+        void addToBroadcastList(const std::string &message) { _broadcastMessages.push_back(message); }
+        void addToInventory(const std::string &item, int quantity);
+        void processResponse(const std::string &response);
+
     protected:
     private:
-        bool _isAlive = true;
-        bool _isKing = false;
-        int _level = 1;
+
         std::string _teamName;
+        bool _alive;
         std::vector<std::pair<std::string, int>> _inventory;
         std::vector<std::string> _view;
-        std::vector<std::string> _broadcastList;
-        int _bcIndex = 0;
-        std::thread _communicationThread;
+        std::vector<std::string> _broadcastMessages;
         std::shared_ptr<CommandsQueue> _commandsQueue;
-        std::function<void()> _forkPlayerCallback = nullptr;
 };
 
-#endif
+#endif /* !PLAYER_HPP_ */
