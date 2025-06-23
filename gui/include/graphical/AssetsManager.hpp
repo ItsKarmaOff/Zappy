@@ -62,16 +62,23 @@ namespace Gui
 
             /**
              * @brief Gets the icon texture for a specific resource type
-             * @param Key The resource type for which to get the icon
-             * @return The texture representing the resource icon
+             * @param Key The resource type key
+             * @return The texture associated with the resource type
              */
             Texture2D getResourceIcon(PlayerInfo::ResourceType Key);
+
+            /**
+             * @brief Gets the map containing all loaded textures
+             * @return Reference to the unordered map of textures
+             */
+            std::unordered_map<std::string, std::shared_ptr<Texture2D>> &getTextures(void);
 
         private:
 
             //////////////// Private Attributes ////////////////////////////////
 
             std::unordered_map<std::string, std::shared_ptr<ModelInfo>> _models; //< Map of loaded models
+
     };
 }
 
