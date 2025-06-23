@@ -168,10 +168,11 @@ function(create_unit_tests_target)
         target_compile_options(server_lib PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function --coverage)
     endif()
 
+    file(GLOB_RECURSE TEST_SOURCES "tests/*.c")
     file(GLOB_RECURSE AI_TEST_SOURCES "tests/ai/*.cpp")
     file(GLOB_RECURSE SERVER_TEST_SOURCES "tests/server/*.c")
 
-    set(ALL_TEST_SOURCES ${AI_TEST_SOURCES} ${SERVER_TEST_SOURCES})
+    set(ALL_TEST_SOURCES ${TEST_SOURCES} ${AI_TEST_SOURCES} ${SERVER_TEST_SOURCES})
     if(NOT ALL_TEST_SOURCES)
         message(FATAL_ERROR "No test sources found in tests/ai/ or tests/server/")
     endif()
