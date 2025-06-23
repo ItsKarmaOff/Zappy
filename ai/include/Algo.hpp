@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2025
 ** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** Algo - Survival Algorithm
+** Algo.hpp - Improved Smart Food Search Algorithm
 */
 
 #ifndef ALGO_HPP_
@@ -11,6 +11,10 @@
 #include "Lib.hpp"
 #include <string>
 #include <regex>
+#include <vector>
+#include <random>
+#include <chrono>
+#include <thread>
 
 class Player;
 
@@ -24,26 +28,28 @@ class Algo {
 
     protected:
     private:
-        // Core survival methods
-        void survivalCycle(Player* player);
-        void exploreForFood(Player* player);
+        // Core survival methods - améliorés
+        void smartSurvivalCycle(Player* player);
+        void smartFoodSearch(Player* player);
+        void normalExploration(Player* player);
+        void randomExploration(Player* player);
         bool needsFood() const;
-        void searchAndTakeFood(Player* player);
+        
+        // Nouveau système de ciblage
+        void moveToTargetTile(Player* player);
         
         // Response processing
         void waitAndProcessResponses(Player* player, int waitTimeMs);
+        void processAllResponses(Player* player);
         void processStructuredResponse(const std::string& response);
         void updateInventory(const std::string& inventoryResponse);
         void analyzeLookResponse(const std::string& lookResponse);
         
-        // Parsing utilities
+        // Parsing utilities - améliorés
         int parseInventoryForFood(const std::string& inventoryResponse);
+        std::vector<std::string> parseLookResponse(const std::string& lookResponse);
         bool isFoodNearby(const std::string& lookResponse);
         bool isFoodOnCurrentTile(const std::string& lookResponse);
-        
-        // Movement and exploration
-        void moveRandomly(Player* player);
-        void searchPattern(Player* player);
 
         // Player references
         std::shared_ptr<Player> _player;
@@ -58,9 +64,14 @@ class Algo {
         bool _foodNearby;
         bool _foodOnCurrentTile;
         
-        // Exploration state
+        // Nouveaux états pour la recherche intelligente
         int _explorationSteps;
-        int _maxExplorationSteps;
+        int _maxExplorationSteps;  
+        int _targetTile;           // Après _maxExplorationSteps
+        bool _isSearchingFood;     // Après _targetTile
+        
+        // Générateur de nombres aléatoires
+        std::mt19937 _rng;
 };
 
 #endif /* !ALGO_HPP_ */
