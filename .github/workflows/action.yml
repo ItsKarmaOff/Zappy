@@ -96,7 +96,7 @@ jobs:
         runs-on: self-hosted
         container:
             image: epitechcontent/epitest-docker
-        #needs: check_coding_style
+        needs: check_coding_style
 
         #################### STEPS ############################################
         steps:
