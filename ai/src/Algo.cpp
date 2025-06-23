@@ -55,24 +55,18 @@ void Algo::survivalCycle(Player* player)
     static int cycleCount = 0;
     cycleCount++;
     
-    // Simple strategy: queue up commands and let Engine handle the timing
-    
-    // Check inventory occasionally
     if (cycleCount % 10 == 0) {
         player->inventory();
     }
     
-    // Always try to take food
     player->take("food");
     
-    // Simple movement pattern
     if (cycleCount % 7 == 0) {
         player->right();
     } else {
         player->forward();
     }
     
-    // Process any responses that came back
     while (player->getCommandsQueue()->hasResponses()) {
         std::string response = player->getCommandsQueue()->popResponse();
         if (response == "dead") {
@@ -116,7 +110,6 @@ void Algo::waitAndProcessResponses(Player* player, int waitTimeMs)
     DEBUG << "Waiting for server responses (max " << waitTimeMs << "ms)...";
     
     while (totalWaited < waitTimeMs && player->isAlive()) {
-        // Check for responses
         while (player->getCommandsQueue()->hasResponses()) {
             std::string response = player->getCommandsQueue()->popResponse();
             gotResponse = true;
@@ -140,7 +133,6 @@ void Algo::waitAndProcessResponses(Player* player, int waitTimeMs)
             player->processResponse(response);
         }
         
-        // If we got a response, we can exit early for some commands
         if (gotResponse && waitTimeMs < 500) {
             DEBUG << "Got response early, continuing...";
             break;
@@ -157,7 +149,6 @@ void Algo::waitAndProcessResponses(Player* player, int waitTimeMs)
 
 void Algo::processStructuredResponse(const std::string& response)
 {
-    // Only process inventory responses (contain numbers)
     if (response.find("food") != std::string::npos && 
         std::regex_search(response, std::regex(R"(\d+)"))) {
         updateInventory(response);
@@ -191,12 +182,10 @@ void Algo::updateInventory(const std::string& inventoryResponse)
 
 void Algo::analyzeLookResponse(const std::string& lookResponse)
 {
-    // Not used in this simple algorithm
 }
 
 int Algo::parseInventoryForFood(const std::string& inventoryResponse)
 {
-    // Parse: [food 345, sibur 3, phiras 5, ..., deraumere 0]
     std::regex foodRegex(R"(food\s+(\d+))");
     std::smatch match;
     
@@ -205,7 +194,7 @@ int Algo::parseInventoryForFood(const std::string& inventoryResponse)
     }
     
     DEBUG << "Could not parse food from inventory: " << inventoryResponse;
-    return _currentFood; // Keep current value if parsing fails
+    return _currentFood;
 }
 
 bool Algo::isFoodNearby(const std::string& lookResponse)
@@ -215,7 +204,7 @@ bool Algo::isFoodNearby(const std::string& lookResponse)
 
 bool Algo::isFoodOnCurrentTile(const std::string& lookResponse)
 {
-    return false; // Not used in simple algorithm
+    return false;
 }
 
 void Algo::moveRandomly(Player* player)
