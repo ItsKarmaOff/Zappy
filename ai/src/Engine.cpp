@@ -92,7 +92,10 @@ void Engine::_communicate(Lib::Socket *clientSocket)
             std::string answer = getResponse(clientSocket);
             if (!answer.empty()) {
                 gotResponse = true;
-                commandsSent = std::max(0, commandsSent - 1);
+
+                if (answer != "ko") {
+                    commandsSent = std::max(0, commandsSent - 1);
+                }
                 
                 if (answer.find("message", 0) == 0) {
                     _player->addToBroadcastList(answer.substr(8));
