@@ -89,12 +89,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Algo_8hpp_source.html",
-"classGui_1_1PlayerInfo.html#a3c730f37b1b3a893159bada67637fdb1",
-"display_8c.html",
-"functions_func_~.html",
-"my__getnbr__base_8c.html",
-"parsing_2options_2no__refill_8c.html#aa610b81bcb705ee522d47c999c667c0b",
-"structinfo__param__s.html#ac5cfd44dcdd30874b25acd56be53b81d"
+"classGui_1_1PauseInfo.html#ae409384b112dfbfe6a6256586022d00ca131503a06218c5bbd87b0f790a5b84aa",
+"dir_7a345da2daccad8f375dd5beaab2903e.html",
+"functions_enum.html",
+"my__find__prime__inf_8c.html",
+"network_8h.html#abca66d4f6115c95c880ee5bc7bd9dce4",
+"structgame__settings__s.html#ae001672e64f6addb0e334a526d328e16"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

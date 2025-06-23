@@ -85,32 +85,36 @@ $(document).ready(function(){initNavTree('AssetsManager_8hpp_source.html',''); i
   <div class="headertitle"><div class="title">AssetsManager.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="AssetsManager_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">** EPITECH PROJECT, 2025</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">** AssetsManager.hpp</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">** File description:</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">** AssetsManager declaration</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef ASSETSMANAGER_HPP</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">    #define ASSETSMANAGER_HPP</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="ModelInfo_8hpp.html">ModelInfo.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="PlayerInfo_8hpp.html">PlayerInfo.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;raylib.h&gt;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;tuple&gt;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span>Gui {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classGui_1_1AssetsManager.html">   33</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classGui_1_1AssetsManager.html">AssetsManager</a> {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classGui_1_1AssetsManager.html#ad9f94e77883acbb50a16b7a23801fc89">   38</a></span>            <a class="code hl_function" href="classGui_1_1AssetsManager.html#ad9f94e77883acbb50a16b7a23801fc89">AssetsManager</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <a class="code hl_function" href="classGui_1_1AssetsManager.html#a43eb7289b0211e9f29db7b7490b96244">~AssetsManager</a>();</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef ASSETSMANAGER_HPP</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">    #define ASSETSMANAGER_HPP</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">    #include &quot;<a class="code" href="ModelInfo_8hpp.html">ModelInfo.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">    #include &quot;<a class="code" href="PlayerInfo_8hpp.html">PlayerInfo.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">    #include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">    #include &lt;raylib.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">    #include &lt;string&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">    #include &lt;tuple&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">    #include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span>Gui</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classGui_1_1AssetsManager.html">   26</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classGui_1_1AssetsManager.html">AssetsManager</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classGui_1_1AssetsManager.html#ad9f94e77883acbb50a16b7a23801fc89">   34</a></span>            <a class="code hl_function" href="classGui_1_1AssetsManager.html#ad9f94e77883acbb50a16b7a23801fc89">AssetsManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <a class="code hl_function" href="classGui_1_1AssetsManager.html#a43eb7289b0211e9f29db7b7490b96244">~AssetsManager</a>();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classGui_1_1AssetsManager.html#a252e595519ca8241fad0c03af17172b4">loadAssets</a>();</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
@@ -121,21 +125,21 @@ $(document).ready(function(){initNavTree('AssetsManager_8hpp_source.html',''); i
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <a class="code hl_struct" href="structTexture.html">Texture2D</a> <a class="code hl_function" href="classGui_1_1AssetsManager.html#a0c44a04fd859e4496329110c655c5cae">getResourceIcon</a>(<a class="code hl_enumeration" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">PlayerInfo::ResourceType</a> Key);</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            std::unordered_map&lt;std::string, std::shared_ptr&lt;ModelInfo&gt;&gt; _models; <span class="comment">//&lt; Map of loaded models</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    };</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#endif </span><span class="comment">// ASSETSMANAGER_HPP</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            std::unordered_map&lt;std::string, std::shared_ptr&lt;ModelInfo&gt;&gt; _models; <span class="comment">//&lt; Map of loaded models</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    };</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif </span><span class="comment">// ASSETSMANAGER_HPP</span></div>
 <div class="ttc" id="aModelInfo_8hpp_html"><div class="ttname"><a href="ModelInfo_8hpp.html">ModelInfo.hpp</a></div><div class="ttdoc">The ModelInfo class for managing 3D model data and rendering.</div></div>
 <div class="ttc" id="aPlayerInfo_8hpp_html"><div class="ttname"><a href="PlayerInfo_8hpp.html">PlayerInfo.hpp</a></div><div class="ttdoc">The PlayerInfo class for representing player data in the game.</div></div>
-<div class="ttc" id="aclassGui_1_1AssetsManager_html"><div class="ttname"><a href="classGui_1_1AssetsManager.html">Gui::AssetsManager</a></div><div class="ttdoc">Class managing game assets.</div><div class="ttdef"><b>Definition:</b> AssetsManager.hpp:33</div></div>
-<div class="ttc" id="aclassGui_1_1AssetsManager_html_a0c44a04fd859e4496329110c655c5cae"><div class="ttname"><a href="classGui_1_1AssetsManager.html#a0c44a04fd859e4496329110c655c5cae">Gui::AssetsManager::getResourceIcon</a></div><div class="ttdeci">Texture2D getResourceIcon(PlayerInfo::ResourceType Key)</div><div class="ttdoc">Gets the icon texture for a specific resource type.</div><div class="ttdef"><b>Definition:</b> AssetsManager.cpp:111</div></div>
-<div class="ttc" id="aclassGui_1_1AssetsManager_html_a252e595519ca8241fad0c03af17172b4"><div class="ttname"><a href="classGui_1_1AssetsManager.html#a252e595519ca8241fad0c03af17172b4">Gui::AssetsManager::loadAssets</a></div><div class="ttdeci">void loadAssets()</div><div class="ttdoc">Loads all required assets into memory.</div><div class="ttdef"><b>Definition:</b> AssetsManager.cpp:21</div></div>
-<div class="ttc" id="aclassGui_1_1AssetsManager_html_a279658d228d1cb778389b29740c4382f"><div class="ttname"><a href="classGui_1_1AssetsManager.html#a279658d228d1cb778389b29740c4382f">Gui::AssetsManager::unloadAssets</a></div><div class="ttdeci">void unloadAssets()</div><div class="ttdoc">Unloads all assets from memory.</div><div class="ttdef"><b>Definition:</b> AssetsManager.cpp:92</div></div>
-<div class="ttc" id="aclassGui_1_1AssetsManager_html_a43eb7289b0211e9f29db7b7490b96244"><div class="ttname"><a href="classGui_1_1AssetsManager.html#a43eb7289b0211e9f29db7b7490b96244">Gui::AssetsManager::~AssetsManager</a></div><div class="ttdeci">~AssetsManager()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> AssetsManager.cpp:17</div></div>
-<div class="ttc" id="aclassGui_1_1AssetsManager_html_abf9784bc467a3b3f72e652d73e8fda43"><div class="ttname"><a href="classGui_1_1AssetsManager.html#abf9784bc467a3b3f72e652d73e8fda43">Gui::AssetsManager::getModels</a></div><div class="ttdeci">std::unordered_map&lt; std::string, std::shared_ptr&lt; ModelInfo &gt; &gt; &amp; getModels(void)</div><div class="ttdoc">Gets the map containing all loaded 3D models.</div><div class="ttdef"><b>Definition:</b> AssetsManager.cpp:106</div></div>
+<div class="ttc" id="aclassGui_1_1AssetsManager_html"><div class="ttname"><a href="classGui_1_1AssetsManager.html">Gui::AssetsManager</a></div><div class="ttdoc">Class managing game assets.</div><div class="ttdef"><b>Definition:</b> AssetsManager.hpp:26</div></div>
+<div class="ttc" id="aclassGui_1_1AssetsManager_html_a0c44a04fd859e4496329110c655c5cae"><div class="ttname"><a href="classGui_1_1AssetsManager.html#a0c44a04fd859e4496329110c655c5cae">Gui::AssetsManager::getResourceIcon</a></div><div class="ttdeci">Texture2D getResourceIcon(PlayerInfo::ResourceType Key)</div><div class="ttdoc">Gets the icon texture for a specific resource type.</div><div class="ttdef"><b>Definition:</b> AssetsManager.cpp:125</div></div>
+<div class="ttc" id="aclassGui_1_1AssetsManager_html_a252e595519ca8241fad0c03af17172b4"><div class="ttname"><a href="classGui_1_1AssetsManager.html#a252e595519ca8241fad0c03af17172b4">Gui::AssetsManager::loadAssets</a></div><div class="ttdeci">void loadAssets()</div><div class="ttdoc">Loads all required assets into memory.</div><div class="ttdef"><b>Definition:</b> AssetsManager.cpp:35</div></div>
+<div class="ttc" id="aclassGui_1_1AssetsManager_html_a279658d228d1cb778389b29740c4382f"><div class="ttname"><a href="classGui_1_1AssetsManager.html#a279658d228d1cb778389b29740c4382f">Gui::AssetsManager::unloadAssets</a></div><div class="ttdeci">void unloadAssets()</div><div class="ttdoc">Unloads all assets from memory.</div><div class="ttdef"><b>Definition:</b> AssetsManager.cpp:106</div></div>
+<div class="ttc" id="aclassGui_1_1AssetsManager_html_a43eb7289b0211e9f29db7b7490b96244"><div class="ttname"><a href="classGui_1_1AssetsManager.html#a43eb7289b0211e9f29db7b7490b96244">Gui::AssetsManager::~AssetsManager</a></div><div class="ttdeci">~AssetsManager()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> AssetsManager.cpp:26</div></div>
+<div class="ttc" id="aclassGui_1_1AssetsManager_html_abf9784bc467a3b3f72e652d73e8fda43"><div class="ttname"><a href="classGui_1_1AssetsManager.html#abf9784bc467a3b3f72e652d73e8fda43">Gui::AssetsManager::getModels</a></div><div class="ttdeci">std::unordered_map&lt; std::string, std::shared_ptr&lt; ModelInfo &gt; &gt; &amp; getModels(void)</div><div class="ttdoc">Gets the map containing all loaded 3D models.</div><div class="ttdef"><b>Definition:</b> AssetsManager.cpp:120</div></div>
 <div class="ttc" id="aclassGui_1_1AssetsManager_html_ad9f94e77883acbb50a16b7a23801fc89"><div class="ttname"><a href="classGui_1_1AssetsManager.html#ad9f94e77883acbb50a16b7a23801fc89">Gui::AssetsManager::AssetsManager</a></div><div class="ttdeci">AssetsManager()=default</div><div class="ttdoc">Default constructor.</div></div>
 <div class="ttc" id="aclassGui_1_1PlayerInfo_html_a8571efa4409be32e28abf3ea74a0dbb1"><div class="ttname"><a href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">Gui::PlayerInfo::ResourceType</a></div><div class="ttdeci">ResourceType</div><div class="ttdoc">The ResourceType enum represents the types of resources a player can have in their inventory.</div><div class="ttdef"><b>Definition:</b> PlayerInfo.hpp:49</div></div>
 <div class="ttc" id="astructTexture_html"><div class="ttname"><a href="structTexture.html">Texture</a></div><div class="ttdef"><b>Definition:</b> raylib.h:272</div></div>
@@ -144,7 +148,7 @@ $(document).ready(function(){initNavTree('AssetsManager_8hpp_source.html',''); i
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_11bc0974ce736ce9a6fadebbeb7a8314.html">gui</a></li><li class="navelem"><a class="el" href="dir_0bf746f78b41ad2d950165f57c7aa05a.html">include</a></li><li class="navelem"><a class="el" href="dir_24ade9396333ead6cb3a97d90cf3723d.html">graphical</a></li><li class="navelem"><a class="el" href="AssetsManager_8hpp.html">AssetsManager.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_11bc0974ce736ce9a6fadebbeb7a8314.html">gui</a></li><li class="navelem"><a class="el" href="dir_0bf746f78b41ad2d950165f57c7aa05a.html">include</a></li><li class="navelem"><a class="el" href="dir_24ade9396333ead6cb3a97d90cf3723d.html">graphical</a></li><li class="navelem"><b>AssetsManager.hpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>

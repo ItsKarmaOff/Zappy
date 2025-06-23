@@ -1,7 +1,7 @@
 var dir_24ade9396333ead6cb3a97d90cf3723d =
 [
-    [ "AssetsManager.hpp", "AssetsManager_8hpp.html", "AssetsManager_8hpp" ],
-    [ "Button.hpp", "Button_8hpp.html", "Button_8hpp" ],
+    [ "AssetsManager.hpp", "AssetsManager_8hpp_source.html", null ],
+    [ "Button.hpp", "Button_8hpp_source.html", null ],
     [ "Chatbox.hpp", "Chatbox_8hpp.html", "Chatbox_8hpp" ],
     [ "GameInfo.hpp", "GameInfo_8hpp.html", "GameInfo_8hpp" ],
     [ "Graphics.hpp", "Graphics_8hpp.html", "Graphics_8hpp" ],
