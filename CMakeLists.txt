@@ -15,12 +15,32 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 
 
+############################ FUNCTIONS ########################################
+function(get_all_targets out_var)
+    set(targets)
+    get_all_targets_recursive(targets "${CMAKE_CURRENT_SOURCE_DIR}")
+    set(${out_var} ${targets} PARENT_SCOPE)
+endfunction()
+
+function(get_all_targets_recursive targets_var dir)
+    get_property(subdirectories DIRECTORY "${dir}" PROPERTY SUBDIRECTORIES)
+    foreach(subdir IN LISTS subdirectories)
+        get_all_targets_recursive("${targets_var}" "${subdir}")
+    endforeach()
+
+    get_property(current_targets DIRECTORY "${dir}" PROPERTY BUILDSYSTEM_TARGETS)
+    set(${targets_var} ${${targets_var}} ${current_targets} PARENT_SCOPE)
+endfunction()
+###############################################################################
+
+
+
 ############################ LIBRARIES ########################################
 # my_cpp
 file(GLOB_RECURSE LIB_CPP_SOURCES "libs/my_cpp/src/*.cpp")
 add_library(my_cpp ${LIB_CPP_SOURCES})
 target_include_directories(my_cpp PUBLIC
-        ${CMAKE_SOURCE_DIR}/libs/my_cpp/include
+    ${CMAKE_SOURCE_DIR}/libs/my_cpp/include
 )
 target_compile_options(my_cpp PUBLIC -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
 
@@ -44,7 +64,7 @@ add_custom_target(my_c_asm_objs ALL DEPENDS ${ASM_OBJECTS})
 add_library(my_c ${LIB_C_SOURCES} ${ASM_OBJECTS})
 add_dependencies(my_c my_c_asm_objs)
 target_include_directories(my_c PUBLIC
-        ${CMAKE_SOURCE_DIR}/libs/my_c/include
+   ${CMAKE_SOURCE_DIR}/libs/my_c/include
 )
 target_compile_options(my_c PUBLIC -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
 ###############################################################################
@@ -55,13 +75,8 @@ target_compile_options(my_c PUBLIC -Wall -Wextra -Werror -Wno-unused-result -Wno
 set(AI "zappy_ai")
 file(GLOB_RECURSE AI_SOURCES "ai/src/*.cpp")
 add_executable(${AI} ${AI_SOURCES})
-target_include_directories(${AI} PRIVATE
+target_include_directories(${AI} PUBLIC
     ${CMAKE_SOURCE_DIR}/ai/include
-    ${CMAKE_SOURCE_DIR}/ai/include/parser
-    ${CMAKE_SOURCE_DIR}/ai/include/engine
-    ${CMAKE_SOURCE_DIR}/ai/include/algo
-    ${CMAKE_SOURCE_DIR}/ai/include/commandsqueue
-    ${CMAKE_SOURCE_DIR}/ai/include/player
 )
 target_link_libraries(${AI} PUBLIC my_cpp)
 target_compile_options(${AI} PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
@@ -75,7 +90,7 @@ option(USE_LOCAL_RAYLIB "Force using local raylib instead of system package" OFF
 set(GUI "zappy_gui")
 file(GLOB_RECURSE GUI_SOURCES "gui/src/*.cpp")
 add_executable(${GUI} ${GUI_SOURCES})
-target_include_directories(${GUI} PRIVATE
+target_include_directories(${GUI} PUBLIC
     ${CMAKE_SOURCE_DIR}/gui/include
     ${CMAKE_SOURCE_DIR}/gui/include/commands
     ${CMAKE_SOURCE_DIR}/gui/include/core
@@ -114,7 +129,7 @@ target_compile_options(${GUI} PRIVATE -Wall -Wextra -Werror -Wno-unused-result -
 set(SERVER "zappy_server")
 file(GLOB_RECURSE SERVER_SOURCES "server/src/*.c")
 add_executable(${SERVER} ${SERVER_SOURCES})
-target_include_directories(${SERVER} PRIVATE
+target_include_directories(${SERVER} PUBLIC
     ${CMAKE_SOURCE_DIR}/server/include
 )
 target_link_libraries(${SERVER} PUBLIC my_c m)
@@ -123,24 +138,92 @@ target_compile_options(${SERVER} PRIVATE -Wall -Wextra -Werror -Wno-unused-resul
 
 
 
+############################ TESTS ############################################
+function(create_unit_tests_target)
+    find_package(PkgConfig QUIET)
+    if(NOT PkgConfig_FOUND)
+        message(FATAL_ERROR "PkgConfig not found - required for Criterion detection")
+    endif()
+    pkg_check_modules(CRITERION REQUIRED criterion)
+
+    file(GLOB_RECURSE AI_LIB_SOURCES "ai/src/*.cpp")
+    list(FILTER AI_LIB_SOURCES EXCLUDE REGEX ".*[Mm]ain\\.cpp$")
+    if(AI_LIB_SOURCES)
+        add_library(ai_lib ${AI_LIB_SOURCES})
+        target_include_directories(ai_lib PUBLIC
+                ${CMAKE_SOURCE_DIR}/ai/include
+        )
+        target_link_libraries(ai_lib PUBLIC my_cpp)
+        target_compile_options(ai_lib PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function --coverage)
+    endif()
+
+    file(GLOB_RECURSE SERVER_LIB_SOURCES "server/src/*.c")
+    list(FILTER SERVER_LIB_SOURCES EXCLUDE REGEX ".*[Mm]ain\\.c$")
+    if(SERVER_LIB_SOURCES)
+        add_library(server_lib ${SERVER_LIB_SOURCES})
+        target_include_directories(server_lib PUBLIC
+                ${CMAKE_SOURCE_DIR}/server/include
+        )
+        target_link_libraries(server_lib PUBLIC my_c m)
+        target_compile_options(server_lib PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function --coverage)
+    endif()
+
+    file(GLOB_RECURSE AI_TEST_SOURCES "tests/ai/*.cpp")
+    file(GLOB_RECURSE SERVER_TEST_SOURCES "tests/server/*.c")
+
+    set(ALL_TEST_SOURCES ${AI_TEST_SOURCES} ${SERVER_TEST_SOURCES})
+    if(NOT ALL_TEST_SOURCES)
+        message(FATAL_ERROR "No test sources found in tests/ai/ or tests/server/")
+    endif()
+
+    add_executable(unit_tests ${ALL_TEST_SOURCES})
+    target_include_directories(unit_tests PRIVATE
+            ${CMAKE_SOURCE_DIR}/tests
+            ${CMAKE_SOURCE_DIR}/tests/ai
+            ${CMAKE_SOURCE_DIR}/tests/server
+    )
+    set(TEST_LIBRARIES ${CRITERION_LIBRARIES} gcov)
+
+    if(AI_LIB_SOURCES)
+        target_include_directories(unit_tests PRIVATE
+                ${CMAKE_SOURCE_DIR}/ai/include
+        )
+        list(APPEND TEST_LIBRARIES ai_lib)
+    endif()
+    if(SERVER_LIB_SOURCES)
+        target_include_directories(unit_tests PRIVATE
+                ${CMAKE_SOURCE_DIR}/server/include
+        )
+        list(APPEND TEST_LIBRARIES server_lib m)
+    endif()
+
+    target_link_libraries(unit_tests PRIVATE ${TEST_LIBRARIES})
+    target_compile_options(unit_tests PRIVATE ${CRITERION_CFLAGS} --coverage)
+    target_link_directories(unit_tests PRIVATE ${CRITERION_LIBRARY_DIRS})
+
+    message(STATUS "Unit tests executable configured successfully")
+endfunction()
+
+create_unit_tests_target()
+
+add_custom_target(tests_run
+    DEPENDS unit_tests
+    COMMENT "Running unit tests and generating coverage report"
+    COMMAND ${CMAKE_COMMAND} -E echo "Running unit tests..."
+    COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/unit_tests --verbose
+    COMMAND ${CMAKE_COMMAND} -E echo "Generating coverage report with gcovr..."
+    COMMAND mkdir -p docs/tests
+    COMMAND gcovr --branch --html --html-details docs/tests/test.html
+    COMMAND gcovr
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    VERBATIM
+)
+###############################################################################
+
+
+
 ############################ DEBUG MODE #######################################
 OPTION(DEBUG_MODE "Option to build in debugging mode" OFF)
-
-function(get_all_targets out_var)
-    set(targets)
-    get_all_targets_recursive(targets "${CMAKE_CURRENT_SOURCE_DIR}")
-    set(${out_var} ${targets} PARENT_SCOPE)
-endfunction()
-
-function(get_all_targets_recursive targets_var dir)
-    get_property(subdirectories DIRECTORY "${dir}" PROPERTY SUBDIRECTORIES)
-    foreach(subdir IN LISTS subdirectories)
-        get_all_targets_recursive("${targets_var}" "${subdir}")
-    endforeach()
-
-    get_property(current_targets DIRECTORY "${dir}" PROPERTY BUILDSYSTEM_TARGETS)
-    set(${targets_var} ${${targets_var}} ${current_targets} PARENT_SCOPE)
-endfunction()
 
 get_all_targets(ALL_TARGETS)
 
@@ -172,11 +255,12 @@ endif()
 
 ############################ CLEAN ALL ########################################
 add_custom_target(clean_all
-        COMMAND ${CMAKE_COMMAND} -E rm -rf ${CMAKE_BINARY_DIR}/*
-        COMMAND ${CMAKE_COMMAND} -E rm -f ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/zappy_gui
-        COMMAND ${CMAKE_COMMAND} -E rm -f ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/zappy_ai
-        COMMAND ${CMAKE_COMMAND} -E rm -f ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/zappy_server
-        COMMENT "Cleaning all build files"
+    COMMAND ${CMAKE_COMMAND} -E rm -rf ${CMAKE_BINARY_DIR}/*
+    COMMAND ${CMAKE_COMMAND} -E rm -f ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/zappy_gui
+    COMMAND ${CMAKE_COMMAND} -E rm -f ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/zappy_ai
+    COMMAND ${CMAKE_COMMAND} -E rm -f ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/zappy_server
+    COMMAND ${CMAKE_COMMAND} -E rm -f ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/unit_tests
+    COMMENT "Cleaning all build files"
 )
 ###############################################################################
 
