@@ -15,7 +15,6 @@ Engine::~Engine()
 {
 }
 
-
 void Engine::run()
 {
     _init();
@@ -81,8 +80,58 @@ std::string Engine::getResponse(Lib::Socket *socket)
     return response;
 }
 
+void Engine::_communicate(Lib::Socket *clientSocket)
+{
+    int commandsSent = 0;
+    const int MAX_PENDING_COMMANDS = 8; // Garde une marge de sécurité (max 10)
+    
+    while (_isRunning && _player->isAlive()) {
+        bool gotResponse = false;
+        
+        // PHASE 1: Traiter toutes les réponses disponibles (PRIORITÉ)
+        while (poll(&_pollFd, 1, 0) > 0 && (_pollFd.revents & POLLIN)) {
+            std::string answer = getResponse(clientSocket);
+            if (!answer.empty()) {
+                gotResponse = true;
+                commandsSent = std::max(0, commandsSent - 1); // Décrémente le compteur
+                
+                if (answer.find("message", 0) == 0) {
+                    _player->addToBroadcastList(answer.substr(8));
+                }
+                else if (answer.find("eject:", 0) == 0) {
+                    // Handle eject
+                } else if (answer.find("dead", 0) == 0) {
+                    DEBUG << "Player " << _player->getTeamName() << " is dead.";
+                    _player->setAlive(false);
+                    return;
+                } else {
+                    _player->getCommandsQueue()->pushResponse(answer);
+                }
+            }
+        }
+        
+        // PHASE 2: Envoyer UNE commande si on a de la place dans la queue serveur
+        if (commandsSent < MAX_PENDING_COMMANDS && _player->getCommandsQueue()->hasCommands()) {
+            std::string command = _player->getCommandsQueue()->popCommand();
+            DEBUG << "Sending command: " << command << " (pending: " << commandsSent << "/" << MAX_PENDING_COMMANDS << ")";
+            
+            std::string commandWithNewline = command + "\n";
+            send(clientSocket->getSocket(), commandWithNewline.c_str(), commandWithNewline.size(), 0);
+            commandsSent++;
+        }
+        
+        // PHASE 3: Petite pause pour éviter 100% CPU (condition: pas de réponse reçue)
+        if (!gotResponse) {
+            // Pause très courte seulement si aucune activité
+            usleep(1000); // 1ms en microsecondes
+        }
+    }
+}
+
 void Engine::_readIfResponse(Lib::Socket *socket)
 {
+    // Cette fonction n'est plus utilisée car la logique est dans _communicate
+    // Gardée pour compatibilité si appelée ailleurs
     if (poll(&_pollFd, 1, 0) > 0 && (_pollFd.revents & POLLIN)) {
         std::string answer = getResponse(socket);
         if (!answer.empty()) {
@@ -103,21 +152,14 @@ void Engine::_readIfResponse(Lib::Socket *socket)
 
 void Engine::_sendIfCommand(Lib::Socket *socket)
 {
+    // Cette fonction n'est plus utilisée car la logique est dans _communicate
+    // Gardée pour compatibilité si appelée ailleurs
     if (_player->getCommandsQueue()->hasCommands()) {
         std::string command = _player->getCommandsQueue()->popCommand();
         DEBUG << "Sending command: " << command;
         
         std::string commandWithNewline = command + "\n";
         send(socket->getSocket(), commandWithNewline.c_str(), commandWithNewline.size(), 0);
-    }
-}
-
-void Engine::_communicate(Lib::Socket *clientSocket)
-{
-    while (_isRunning && _player->isAlive()) {
-        _sendIfCommand(clientSocket);
-        _readIfResponse(clientSocket);
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
 }
 
