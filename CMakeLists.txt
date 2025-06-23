@@ -53,7 +53,7 @@ foreach(ASM_FILE ${LIB_ASM_SOURCES})
     set(ASM_OBJ "${CMAKE_BINARY_DIR}/${ASM_NAME}.o")
     add_custom_command(
         OUTPUT ${ASM_OBJ}
-        COMMAND nasm -f elf64 -fPIE -o ${ASM_OBJ} ${ASM_FILE}
+        COMMAND nasm -f elf64 -o ${ASM_OBJ} ${ASM_FILE}
         DEPENDS ${ASM_FILE}
         COMMENT "Assembling ${ASM_FILE} with NASM"
         VERBATIM
