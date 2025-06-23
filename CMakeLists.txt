@@ -66,7 +66,7 @@ add_dependencies(my_c my_c_asm_objs)
 target_include_directories(my_c PUBLIC
    ${CMAKE_SOURCE_DIR}/libs/my_c/include
 )
-target_compile_options(my_c PUBLIC -fPIE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
+target_compile_options(my_c PUBLIC -fPIC -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
 ###############################################################################
 
 
@@ -79,7 +79,7 @@ target_include_directories(${AI} PUBLIC
     ${CMAKE_SOURCE_DIR}/ai/include
 )
 target_link_libraries(${AI} PUBLIC my_cpp)
-target_compile_options(${AI} PRIVATE -fPIE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
+target_compile_options(${AI} PRIVATE -fPIC -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
 ###############################################################################
 
 
@@ -120,7 +120,7 @@ else()
     endif()
 endif()
 
-target_compile_options(${GUI} PRIVATE -fPIE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-missing-field-initializers)
+target_compile_options(${GUI} PRIVATE -fPIC -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-missing-field-initializers)
 ###############################################################################
 
 
@@ -133,7 +133,7 @@ target_include_directories(${SERVER} PUBLIC
     ${CMAKE_SOURCE_DIR}/server/include
 )
 target_link_libraries(${SERVER} PUBLIC my_c m)
-target_compile_options(${SERVER} PRIVATE -fPIE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
+target_compile_options(${SERVER} PRIVATE -fPIC -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
 ###############################################################################
 
 
