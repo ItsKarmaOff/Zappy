@@ -66,7 +66,7 @@ add_dependencies(my_c my_c_asm_objs)
 target_include_directories(my_c PUBLIC
    ${CMAKE_SOURCE_DIR}/libs/my_c/include
 )
-target_compile_options(my_c PUBLIC -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
+target_compile_options(my_c PUBLIC -fPIC -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
 ###############################################################################
 
 
