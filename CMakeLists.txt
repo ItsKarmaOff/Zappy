@@ -134,6 +134,7 @@ target_include_directories(${SERVER} PUBLIC
 )
 target_link_libraries(${SERVER} PUBLIC my_c m)
 target_compile_options(${SERVER} PRIVATE -fPIC -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
+target_link_options(${SERVER} PRIVATE -no-pie)
 ###############################################################################
 
 
