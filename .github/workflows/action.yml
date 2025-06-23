@@ -70,25 +70,25 @@ jobs:
                 .github/scripts/check_commit "$COMMIT_MSG"
     ###########################################################################
 
-#    ######################## CODING-STYLE #####################################
-#    check_coding_style:
-#        runs-on: self-hosted
-#        container:
-#            image: ghcr.io/epitech/coding-style-checker:latest
-#        needs: check_commit
-#
-#        #################### STEPS ############################################
-#        steps:
-#            - name: Checkout
-#              uses: actions/checkout@v4.1.1
-#
-#            - name: Launch coding style checker
-#              run: check.sh $(pwd) $(pwd)
-#            - name: Check coding style
-#              run: |
-#                cat coding-style-reports.log;
-#                .github/scripts/display_coding_style
-#    ###########################################################################
+    ######################## CODING-STYLE #####################################
+    check_coding_style:
+        runs-on: self-hosted
+        container:
+            image: ghcr.io/epitech/coding-style-checker:latest
+        needs: check_commit
+
+        #################### STEPS ############################################
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+
+            - name: Launch coding style checker
+              run: check.sh $(pwd) $(pwd)
+            - name: Check coding style
+              run: |
+                cat coding-style-reports.log;
+                .github/scripts/display_coding_style
+    ###########################################################################
 
 
     ######################## PROGRAM-CHECK ####################################
