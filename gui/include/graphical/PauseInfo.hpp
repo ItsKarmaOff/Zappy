@@ -11,6 +11,7 @@
 #include <functional>
 #include <map>
 #include <memory>
+#include "AssetsManager.hpp"
 #include "Button.hpp"
 #include "raylib.h"
 
@@ -108,7 +109,7 @@ namespace Gui {
              * @brief Draws the pause menu
              * Calls the background draw callback and draws the appropriate buttons
              */
-            void draw();
+            void draw(AssetsManager &);
 
             /**
              * @brief Draws the buttons for the current subscene

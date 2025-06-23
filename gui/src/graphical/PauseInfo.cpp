@@ -6,6 +6,7 @@
 */
 
 #include "PauseInfo.hpp"
+#include "AssetsManager.hpp"
 #include <algorithm>
 #include <map>
 #include <raylib.h>
@@ -161,11 +162,15 @@ namespace Gui {
     }
 
 
-    void PauseInfo::draw()
+    void PauseInfo::draw(AssetsManager &assetsManager)
     {
         if (_drawBackgroundCallback) {
             _drawBackgroundCallback();
         }
+        float scaleX = static_cast<float>(GetScreenWidth()) / AssetsManager::getTextures()["blur"]->width;
+        float scaleY = static_cast<float>(GetScreenHeight()) / AssetsManager::getTextures()["blur"]->height;
+        float scale = std::max(scaleX, scaleY);
+        DrawTextureEx(*assetsManager.getTextures()["blur"], {0, 0}, 0, scale, WHITE);
         drawButtons(*_buttonsMap[_currentSubscene]);
         if (_currentSubscene == SETTINGS)
             drawVolumeSlider();

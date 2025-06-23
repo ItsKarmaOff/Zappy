@@ -130,6 +130,7 @@ namespace Gui
         static std::unordered_map<std::string, std::shared_ptr<Texture2D>> textures;
         if (textures.empty()) {
             textures["menu"] = std::make_shared<Texture2D>(LoadTexture("gui/assets/menu.jpg"));
+            textures["blur"] = std::make_shared<Texture2D>(LoadTexture("gui/assets/blur.png"));
         }
 
         return textures;

@@ -71,7 +71,7 @@ namespace Gui
              * @brief Gets the map containing all loaded textures
              * @return Reference to the unordered map of textures
              */
-            std::unordered_map<std::string, std::shared_ptr<Texture2D>> &getTextures(void);
+            static std::unordered_map<std::string, std::shared_ptr<Texture2D>> &getTextures(void);
 
         private:
 
