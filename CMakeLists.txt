@@ -202,6 +202,7 @@ function(create_unit_tests_target)
     target_link_libraries(unit_tests PRIVATE ${TEST_LIBRARIES})
     target_compile_options(unit_tests PRIVATE ${CRITERION_CFLAGS} --coverage)
     target_link_directories(unit_tests PRIVATE ${CRITERION_LIBRARY_DIRS})
+    target_link_options(unit_tests PRIVATE -no-pie)
 
     message(STATUS "Unit tests executable configured successfully")
 endfunction()
