@@ -1,15 +1,19 @@
 /*
-** EPITECH PROJECT, 2024
-** zappy [WSL: Ubuntu]
+** EPITECH PROJECT, 2025
+** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** Algo.cpp
+** Algo.cpp - Queue-Safe Survival Algorithm
 */
 
 #include "Algo.hpp"
 #include "Player.hpp"
 #include "Lib.hpp"
+#include <regex>
+#include <sstream>
 
-Algo::Algo() : _playerPtr(nullptr), _testCounter(0)
+Algo::Algo() : _playerPtr(nullptr), _currentFood(10), _minFoodThreshold(3), 
+               _maxFoodTarget(20), _foodNearby(false), _foodOnCurrentTile(false),
+               _explorationSteps(0), _maxExplorationSteps(1)
 {
 }
 
@@ -36,259 +40,190 @@ void Algo::run()
         return;
     }
 
-    DEBUG << "Starting comprehensive command testing algorithm...";
+    DEBUG << "Starting QUEUE-SAFE SURVIVAL algorithm...";
+    DEBUG << "Strategy: Respect server queue limits (max 10 commands)";
     
-    DEBUG << "=== PHASE 1: Basic Commands ===";
-    testLookCommand();
-    waitAndProcessResponses(player, 1000);
-    
-    testInventoryCommand();
-    waitAndProcessResponses(player, 1000);
-    
-    testMovementCommands();
-    waitAndProcessResponses(player, 3000);
-    
-    DEBUG << "=== PHASE 2: Communication Commands ===";
-    testBroadcastCommand();
-    waitAndProcessResponses(player, 1000);
-    
-    testConnectNbrCommand();
-    waitAndProcessResponses(player, 1000);
-    
-    DEBUG << "=== PHASE 3: Object Interaction Commands ===";
-    testTakeSetCommands();
-    waitAndProcessResponses(player, 5000);
-    
-    DEBUG << "=== PHASE 4: Advanced Commands ===";
-    testEjectCommand();
-    waitAndProcessResponses(player, 1000);
-    
-    testForkCommand();
-    waitAndProcessResponses(player, 2000);
-    
-    testIncantationCommand();
-    waitAndProcessResponses(player, 2000);
-
-    DEBUG << "=== All command tests completed ===";
-    DEBUG << "=== Starting continuous validation cycle ===";
-
-    int cycleCount = 0;
-    int successfulCommands = 0;
-    int totalCommands = 0;
-    
-    while (player->isAlive() && cycleCount < 20) {
-        cycleCount++;
-        DEBUG << "=== Validation Cycle " << cycleCount << " ===";
-        
-        DEBUG << "Checking for food...";
-        player->look();
-        totalCommands++;
-        waitAndProcessResponses(player, 500);
-        
-        if (!player->isAlive()) break;
-        
-        player->inventory();
-        totalCommands++;
-        waitAndProcessResponses(player, 500);
-        
-        if (!player->isAlive()) break;
-        
-        player->take("food");
-        totalCommands++;
-        waitAndProcessResponses(player, 500);
-        
-        if (!player->isAlive()) break;
-        
-        player->forward();
-        totalCommands++;
-        waitAndProcessResponses(player, 500);
-        
-        if (!player->isAlive()) break;
-        
-        player->right();
-        totalCommands++;
-        waitAndProcessResponses(player, 500);
-        
-        if (!player->isAlive()) break;
-        
-        if (cycleCount % 5 == 0) {
-            double successRate = totalCommands > 0 ? (double)successfulCommands / totalCommands * 100.0 : 0.0;
-            DEBUG << "=== Performance Stats after " << cycleCount << " cycles ===";
-            DEBUG << "Total commands sent: " << totalCommands;
-            DEBUG << "Player still alive: " << (player->isAlive() ? "YES" : "NO");
-        }
-        
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    while (player->isAlive()) {
+        survivalCycle(player);
     }
     
-    double finalSuccessRate = (double)successfulCommands / totalCommands * 100.0;
-    DEBUG << "=== FINAL TEST REPORT ===";
-    DEBUG << "Total cycles completed: " << cycleCount;
-    DEBUG << "Total commands sent: " << totalCommands;
-    DEBUG << "Successful commands: " << successfulCommands;
-    DEBUG << "Final success rate: " << finalSuccessRate << "%";
-    DEBUG << "Client test completed successfully!";
+    DEBUG << "Player died or algorithm ended.";
+}
+
+void Algo::survivalCycle(Player* player)
+{
+    static int cycleCount = 0;
+    cycleCount++;
+    
+    // Simple strategy: queue up commands and let Engine handle the timing
+    
+    // Check inventory occasionally
+    if (cycleCount % 10 == 0) {
+        player->inventory();
+    }
+    
+    // Always try to take food
+    player->take("food");
+    
+    // Simple movement pattern
+    if (cycleCount % 7 == 0) {
+        player->right();
+    } else {
+        player->forward();
+    }
+    
+    // Process any responses that came back
+    while (player->getCommandsQueue()->hasResponses()) {
+        std::string response = player->getCommandsQueue()->popResponse();
+        if (response == "dead") {
+            return;
+        }
+        processStructuredResponse(response);
+        player->processResponse(response);
+    }
+    
+}
+
+bool Algo::needsFood() const
+{
+    return _currentFood < _minFoodThreshold;
+}
+
+void Algo::searchAndTakeFood(Player* player)
+{
+    player->take("food");
+    waitAndProcessResponses(player, 700);
+}
+
+void Algo::exploreForFood(Player* player)
+{
+    player->forward();
+    waitAndProcessResponses(player, 700);
+}
+
+void Algo::searchPattern(Player* player)
+{
+    player->forward();
+    waitAndProcessResponses(player, 700);
 }
 
 void Algo::waitAndProcessResponses(Player* player, int waitTimeMs)
 {
-    DEBUG << "Waiting " << waitTimeMs << "ms for responses...";
-    
-    int checkInterval = 100;
+    int checkInterval = 50;
     int totalWaited = 0;
-    int responseCount = 0;
+    bool gotResponse = false;
+    
+    DEBUG << "Waiting for server responses (max " << waitTimeMs << "ms)...";
     
     while (totalWaited < waitTimeMs && player->isAlive()) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(checkInterval));
-        totalWaited += checkInterval;
-        
+        // Check for responses
         while (player->getCommandsQueue()->hasResponses()) {
             std::string response = player->getCommandsQueue()->popResponse();
-            responseCount++;
-            DEBUG << "Response " << responseCount << ": [" << response << "]";
+            gotResponse = true;
             
-            if (response == "ko") {
-                ERROR << "Command failed (got 'ko' response)";
-            } else if (response == "dead") {
+            DEBUG << "Server response: [" << response << "]";
+            
+            if (response == "dead") {
                 ERROR << "Player died!";
                 return;
+            } else if (response == "ko") {
+                DEBUG << "Command failed (ko)";
             } else if (response == "ok") {
-                DEBUG << "Command successful";
+                DEBUG << "Command successful (ok)";
             } else if (response.find("[") != std::string::npos) {
-                DEBUG << "Structured response (look/inventory): " << response;
-            } else if (std::isdigit(response[0])) {
-                DEBUG << "Numeric response (connect_nbr?): " << response;
+                DEBUG << "Structured response received";
+                processStructuredResponse(response);
             } else {
                 DEBUG << "Other response: " << response;
             }
             
             player->processResponse(response);
         }
+        
+        // If we got a response, we can exit early for some commands
+        if (gotResponse && waitTimeMs < 500) {
+            DEBUG << "Got response early, continuing...";
+            break;
+        }
+        totalWaited += checkInterval;
     }
     
-    if (responseCount > 0) {
-        DEBUG << "Processed " << responseCount << " total responses in " << totalWaited << "ms";
+    if (gotResponse) {
+        DEBUG << "Response received after " << totalWaited << "ms";
     } else {
-        DEBUG << "No responses received after " << totalWaited << "ms";
+        DEBUG << "No response received after " << waitTimeMs << "ms";
     }
 }
 
-void Algo::testMovementCommands()
+void Algo::processStructuredResponse(const std::string& response)
 {
-    Player* player = _player ? _player.get() : _playerPtr;
-    logTest("Movement Commands");
+    // Only process inventory responses (contain numbers)
+    if (response.find("food") != std::string::npos && 
+        std::regex_search(response, std::regex(R"(\d+)"))) {
+        updateInventory(response);
+    }
+}
+
+void Algo::updateInventory(const std::string& inventoryResponse)
+{
+    int newFood = parseInventoryForFood(inventoryResponse);
+    if (newFood != _currentFood) {
+        int oldFood = _currentFood;
+        _currentFood = newFood;
         
-    DEBUG << "Testing forward command...";
-    player->forward();
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+        if (_currentFood > oldFood) {
+            DEBUG << "Food INCREASED: " << oldFood << " -> " << _currentFood << " (+food found!)";
+        } else {
+            DEBUG << "Food DECREASED: " << oldFood << " -> " << _currentFood << " (time passed)";
+        }
         
-    DEBUG << "Testing right turn...";
-    player->right();
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-        
-    DEBUG << "Testing left turn...";
-    player->left();
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-        
-    DEBUG << "Testing another forward...";
-    player->forward();
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+        if (_currentFood <= 1) {
+            ERROR << "CRITICAL: Almost dead! (" << _currentFood << " units)";
+        } else if (_currentFood <= 3) {
+            ERROR << "WARNING: Very low food! (" << _currentFood << " units)";
+        } else if (_currentFood < _minFoodThreshold) {
+            DEBUG << "Low food warning (" << _currentFood << " units)";
+        } else {
+            DEBUG << "Food level OK (" << _currentFood << " units)";
+        }
+    }
+}
+
+void Algo::analyzeLookResponse(const std::string& lookResponse)
+{
+    // Not used in this simple algorithm
+}
+
+int Algo::parseInventoryForFood(const std::string& inventoryResponse)
+{
+    // Parse: [food 345, sibur 3, phiras 5, ..., deraumere 0]
+    std::regex foodRegex(R"(food\s+(\d+))");
+    std::smatch match;
     
-    DEBUG << "Movement commands test completed";
-}
-
-void Algo::testLookCommand()
-{
-    Player* player = _player ? _player.get() : _playerPtr;
-    logTest("Look Command");
-    DEBUG << "Testing look command...";
-    player->look();
-    DEBUG << "Look command sent";
-}
-
-void Algo::testInventoryCommand()
-{
-    Player* player = _player ? _player.get() : _playerPtr;
-    logTest("Inventory Command");
-    DEBUG << "Testing inventory command...";
-    player->inventory();
-    DEBUG << "Inventory command sent";
-}
-
-void Algo::testTakeSetCommands()
-{
-    Player* player = _player ? _player.get() : _playerPtr;
-    logTest("Take/Set Commands");
-        
-    std::vector<std::string> resources = {
-        "food", "linemate", "deraumere", "sibur", 
-        "mendiane", "phiras", "thystame"
-    };
-        
-    DEBUG << "Testing take commands...";
-    for (const auto& resource : resources) {
-        DEBUG << "Testing take command for: " << resource;
-        player->take(resource);
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    }
-        
-    DEBUG << "Testing set commands...";
-    for (const auto& resource : resources) {
-        DEBUG << "Testing set command for: " << resource;
-        player->set(resource);
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    if (std::regex_search(inventoryResponse, match, foodRegex)) {
+        return std::stoi(match[1].str());
     }
     
-    DEBUG << "Take/Set commands test completed";
+    DEBUG << "Could not parse food from inventory: " << inventoryResponse;
+    return _currentFood; // Keep current value if parsing fails
 }
 
-void Algo::testBroadcastCommand()
+bool Algo::isFoodNearby(const std::string& lookResponse)
 {
-    Player* player = _player ? _player.get() : _playerPtr;
-    logTest("Broadcast Command");
-    DEBUG << "Testing broadcast command...";
-    player->broadcast("Hello from AI test! Cycle " + std::to_string(_testCounter));
-    DEBUG << "Broadcast command sent";
+    return lookResponse.find("food") != std::string::npos;
 }
 
-void Algo::testConnectNbrCommand()
+bool Algo::isFoodOnCurrentTile(const std::string& lookResponse)
 {
-    Player* player = _player ? _player.get() : _playerPtr;
-    logTest("Connect_nbr Command");
-    DEBUG << "Testing connect_nbr command...";
-    player->connect_nbr();
-    DEBUG << "Connect_nbr command sent";
+    return false; // Not used in simple algorithm
 }
 
-void Algo::testEjectCommand()
+void Algo::moveRandomly(Player* player)
 {
-    Player* player = _player ? _player.get() : _playerPtr;
-    logTest("Eject Command");
-    DEBUG << "Testing eject command...";
-    player->eject();
-    DEBUG << "Eject command sent";
-}
-
-void Algo::testForkCommand()
-{
-    Player* player = _player ? _player.get() : _playerPtr;
-    logTest("Fork Command");
-    DEBUG << "Testing fork command...";
-    player->fork();
-    DEBUG << "Fork command sent";
-}
-
-void Algo::testIncantationCommand()
-{
-    Player* player = _player ? _player.get() : _playerPtr;
-    logTest("Incantation Command");
-    DEBUG << "Testing incantation command...";
-    player->incantation();
-    DEBUG << "Incantation command sent";
-}
-
-void Algo::logTest(const std::string& testName)
-{
-    _testCounter++;
-    DEBUG << "=== TEST " << _testCounter << ": " << testName << " ===";
+    if (rand() % 4 == 0) {
+        player->right();
+    } else {
+        player->forward();
+    }
+    waitAndProcessResponses(player, 700);
 }
