@@ -72,3 +72,37 @@ void CommandsQueue::clearResponses()
     while (!_responsesQueue.empty())
         _responsesQueue.pop();
 }
+
+void CommandsQueue::pushPendingCommand(const std::string& command)
+{
+    std::lock_guard<std::mutex> lock(_pendingMutex);
+    _pendingCommands.push(command);
+}
+
+std::string CommandsQueue::getCurrentPendingCommand() const
+{
+    std::lock_guard<std::mutex> lock(_pendingMutex);
+    if (_pendingCommands.empty())
+        return "";
+    return _pendingCommands.front();
+}
+
+void CommandsQueue::popPendingCommand()
+{
+    std::lock_guard<std::mutex> lock(_pendingMutex);
+    if (!_pendingCommands.empty())
+        _pendingCommands.pop();
+}
+
+bool CommandsQueue::hasPendingCommand() const
+{
+    std::lock_guard<std::mutex> lock(_pendingMutex);
+    return !_pendingCommands.empty();
+}
+
+void CommandsQueue::clearPendingCommands()
+{
+    std::lock_guard<std::mutex> lock(_pendingMutex);
+    while (!_pendingCommands.empty())
+        _pendingCommands.pop();
+}

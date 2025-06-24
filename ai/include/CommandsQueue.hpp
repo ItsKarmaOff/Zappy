@@ -22,9 +22,16 @@ class CommandsQueue {
         std::string popResponse();
         void clearCommands();
         void clearResponses();
+        void pushPendingCommand(const std::string& command);
+        std::string getCurrentPendingCommand() const;
+        void popPendingCommand();
+        bool hasPendingCommand() const;
+        void clearPendingCommands();
 
     protected:
     private:
+        std::queue<std::string> _pendingCommands;
+        mutable std::mutex _pendingMutex;
         std::queue<std::string> _commandsQueue;
         std::queue<std::string> _responsesQueue;
         mutable std::mutex _commandsQueueMutex;
