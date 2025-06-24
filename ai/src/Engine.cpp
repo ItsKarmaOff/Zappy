@@ -80,19 +80,18 @@ std::string Engine::getResponse(Lib::Socket *socket)
     return response;
 }
 
-void Engine::_communicate(Lib::Socket *clientSocket)
-{
+void Engine::_communicate(Lib::Socket *clientSocket) {
     int commandsSent = 0;
     const int MAX_PENDING_COMMANDS = 8;
     
     while (_isRunning && _player->isAlive()) {
-        bool gotResponse = false;
+        //bool gotResponse = false;
         
         while (poll(&_pollFd, 1, 0) > 0 && (_pollFd.revents & POLLIN)) {
             std::string answer = getResponse(clientSocket);
             if (!answer.empty()) {
-                gotResponse = true;
-
+                //gotResponse = true;
+                
                 if (answer != "ko") {
                     commandsSent = std::max(0, commandsSent - 1);
                 }
@@ -120,12 +119,11 @@ void Engine::_communicate(Lib::Socket *clientSocket)
             commandsSent++;
         }
         
-        if (!gotResponse) {
-            usleep(1000);
-        }
+        //if (!gotResponse && !_player->getCommandsQueue()->hasCommands()) {
+        //    usleep(1000);  // Seulement si vraiment rien à faire
+        //}
     }
 }
-
 void Engine::_readIfResponse(Lib::Socket *socket)
 {
     if (poll(&_pollFd, 1, 0) > 0 && (_pollFd.revents & POLLIN)) {
