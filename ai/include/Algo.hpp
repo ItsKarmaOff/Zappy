@@ -2,76 +2,78 @@
 ** EPITECH PROJECT, 2025
 ** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** Algo.hpp - Improved Smart Food Search Algorithm
+** Algo.hpp - Ultra Simplified
 */
 
-#ifndef ALGO_HPP_
-#define ALGO_HPP_
+#pragma once
 
-#include "Lib.hpp"
+#include <memory>
 #include <string>
-#include <regex>
 #include <vector>
 #include <random>
-#include <chrono>
-#include <thread>
+#include "ZappyTypes.hpp"
+#include <map>
 
+// Forward declaration
 class Player;
 
 class Algo {
-    public:
-        Algo();
-        ~Algo();
-        void setPlayer(std::shared_ptr<Player> player);
-        void setPlayer(Player* player);
-        void run();
+public:
+    Algo();
+    ~Algo();
+    
+    // Player management
+    void setPlayer(std::shared_ptr<Player> player);
+    void setPlayer(Player* player);
+    
+    // Main algorithm
+    void run();
 
-    protected:
-    private:
-        // Core survival methods - améliorés
-        void smartSurvivalCycle(Player* player);
-        void smartFoodSearch(Player* player);
-        void normalExploration(Player* player);
-        void randomExploration(Player* player);
-        bool needsFood() const;
-        
-        // Nouveau système de ciblage
-        void moveToTargetTile(Player* player);
-        
-        // Response processing
-        void waitAndProcessResponses(Player* player, int waitTimeMs);
-        void processAllResponses(Player* player);
-        void processStructuredResponse(const std::string& response);
-        void updateInventory(const std::string& inventoryResponse);
-        void analyzeLookResponse(const std::string& lookResponse);
-        
-        // Parsing utilities - améliorés
-        int parseInventoryForFood(const std::string& inventoryResponse);
-        std::vector<std::string> parseLookResponse(const std::string& lookResponse);
-        bool isFoodNearby(const std::string& lookResponse);
-        bool isFoodOnCurrentTile(const std::string& lookResponse);
+private:
+    // Core cycle
+    void simpleSurvivalAndEvolution(Player* player);
+    
+    // Evolution
+    bool canEvolveWithInventory(Player* player) const;
+    void attemptEvolution(Player* player);
+    
+    // Resource collection
+    void collectResources(Player* player);
+    
+    // Movement
+    void simpleExploration(Player* player);
+    void attemptEvolutionWithVerification(Player* player);
+    // Response handling
+    void waitForResponse(Player* player);
+    void processLookResponse(const std::string& response);
+    std::vector<std::string> parseLookResponse(const std::string& lookResponse);
+    bool verifyResourcesOnGround(const std::map<ResourceType, int>& required);
+    
+    // Player references
+    std::shared_ptr<Player> _player;
+    Player* _playerPtr;
+    
+    // Simple state
+    int _minFoodThreshold;
+    int _maxFoodTarget;
+    bool _foodNearby;
+    bool _resourceOnCurrentTile;
+    int _explorationSteps;
 
-        // Player references
-        std::shared_ptr<Player> _player;
-        Player* _playerPtr;
-        
-        // Survival state
-        int _currentFood;
-        int _minFoodThreshold;
-        int _maxFoodTarget;
-        std::string _lastInventoryResponse;
-        std::string _lastLookResponse;
-        bool _foodNearby;
-        bool _foodOnCurrentTile;
-        
-        // Nouveaux états pour la recherche intelligente
-        int _explorationSteps;
-        int _maxExplorationSteps;  
-        int _targetTile;           // Après _maxExplorationSteps
-        bool _isSearchingFood;     // Après _targetTile
-        
-        // Générateur de nombres aléatoires
-        std::mt19937 _rng;
+    int _maxExplorationSteps;
+    int _targetTile;
+    bool _isSearchingResource;
+    bool _isNavigating;
+    int _navigationTarget;
+    ResourceType _priorityResource;
+    int _currentLevel;
+    bool _evolutionInProgress;
+    
+    // Random
+    std::mt19937 _rng;
+    
+    // Last responses
+    std::string _lastLookResponse;
+    
+    // Unused but kept for compatibility
 };
-
-#endif /* !ALGO_HPP_ */

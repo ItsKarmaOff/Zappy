@@ -2,43 +2,40 @@
 ** EPITECH PROJECT, 2025
 ** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** Algo.cpp - Improved Smart Food Search Algorithm
+** Algo.cpp - Place resources + verify with look before incantation
 */
 
 #include "Algo.hpp"
 #include "Player.hpp"
 #include "Lib.hpp"
+#include "ZappyTypes.hpp"
 #include <regex>
 #include <sstream>
 #include <vector>
 #include <random>
 
-Algo::Algo() : _playerPtr(nullptr), _currentFood(10), _minFoodThreshold(3), 
-               _maxFoodTarget(20), _foodNearby(false), _foodOnCurrentTile(false),
+Algo::Algo() : _playerPtr(nullptr), _minFoodThreshold(5), 
+               _maxFoodTarget(15), _foodNearby(false), _resourceOnCurrentTile(false),
                _explorationSteps(0), _maxExplorationSteps(1), _targetTile(-1),
-               _isSearchingFood(false)
+               _isSearchingResource(false), _isNavigating(false), _navigationTarget(-1),
+               _priorityResource(ResourceType::FOOD), _currentLevel(1), _evolutionInProgress(false)
 {
-    // Initialiser le générateur de nombres aléatoires
     std::random_device rd;
     _rng.seed(rd());
 }
 
-Algo::~Algo()
-{
+Algo::~Algo() {
 }
 
-void Algo::setPlayer(std::shared_ptr<Player> player)
-{
+void Algo::setPlayer(std::shared_ptr<Player> player) {
     _player = player;
 }
 
-void Algo::setPlayer(Player* player)
-{
+void Algo::setPlayer(Player* player) {
     _playerPtr = player;
 }
 
-void Algo::run()
-{
+void Algo::run() {
     Player* player = _player ? _player.get() : _playerPtr;
         
     if (!player) {
@@ -46,291 +43,257 @@ void Algo::run()
         return;
     }
 
-    DEBUG << "Starting SMART FOOD SEARCH algorithm...";
-    DEBUG << "Strategy: Look before moving, target food intelligently";
+    DEBUG << "Starting SMART EVOLUTION algorithm with GROUND VERIFICATION...";
     
     while (player->isAlive()) {
-        smartSurvivalCycle(player);
+        simpleSurvivalAndEvolution(player);
     }
     
     DEBUG << "Player died or algorithm ended.";
 }
 
-void Algo::smartSurvivalCycle(Player* player)
-{
+void Algo::simpleSurvivalAndEvolution(Player* player) {
     static int cycleCount = 0;
     cycleCount++;
     
-    // Vérifier l'inventaire périodiquement
-    if (cycleCount % 10 == 0) {
+    // Update level if changed
+    int realLevel = player->getLevel();
+    if (realLevel != _currentLevel) {
+        DEBUG << "🎉 Level up! " << _currentLevel << " -> " << realLevel;
+        _currentLevel = realLevel;
+        _evolutionInProgress = false;
+    }
+    
+    // Periodic inventory sync
+    if (cycleCount % 15 == 0) {
         player->inventory();
-        waitAndProcessResponses(player, 500);
+        waitForResponse(player);
     }
     
-    // Prendre de la nourriture si on est sur une case qui en contient
-    player->take("food");
-    waitAndProcessResponses(player, 200);
+    // Look around
+    player->look();
+    waitForResponse(player);
     
-    // Si on a peu de nourriture, chercher activement
-    if (needsFood() || _isSearchingFood) {
-        DEBUG << "Low food (" << _currentFood << "), starting smart search...";
-        smartFoodSearch(player);
-    } else {
-        // Exploration normale avec recherche opportuniste
-        normalExploration(player);
-    }
+    // Collect resources if any on current tile
+    collectResources(player);
     
-    // Traiter les réponses en attente
-    processAllResponses(player);
-}
-
-void Algo::smartFoodSearch(Player* player)
-{
-    _isSearchingFood = true;
-    
-    // Si on a déjà une cible, aller vers elle
-    if (_targetTile >= 0) {
-        moveToTargetTile(player);
+    // Try evolution if we have the resources
+    if (!_evolutionInProgress && canEvolveWithInventory(player)) {
+        DEBUG << "=== CAN EVOLVE! Attempting evolution with ground verification ===";
+        attemptEvolutionWithVerification(player);
         return;
     }
     
-    // Sinon, regarder autour et trouver une cible
-    DEBUG << "Looking around for food...";
-    player->look();
-    waitAndProcessResponses(player, 500);
-    
-    // Si on n'a pas trouvé de nourriture visible, explorer aléatoirement
-    if (_targetTile < 0) {
-        DEBUG << "No food visible, random exploration...";
-        randomExploration(player);
-    }
-    
-    // Arrêter la recherche si on a assez de nourriture
-    if (_currentFood >= _maxFoodTarget) {
-        _isSearchingFood = false;
-        _targetTile = -1;
-        DEBUG << "Food target reached (" << _currentFood << "), stopping search";
-    }
+    // Simple exploration
+    simpleExploration(player);
 }
 
-void Algo::normalExploration(Player* player)
-{
-    // Regarder de temps en temps pour des opportunités
-    static int lookCounter = 0;
-    lookCounter++;
+bool Algo::canEvolveWithInventory(Player* player) const {
+    return player->canEvolveToLevel(_currentLevel + 1);
+}
+
+void Algo::attemptEvolutionWithVerification(Player* player) {
+    _evolutionInProgress = true;
     
-    if (lookCounter % 5 == 0) {
-        DEBUG << "Opportunistic look around...";
-        player->look();
-        waitAndProcessResponses(player, 300);
+    auto required = player->getRequiredItemsForLevel(_currentLevel + 1);
+    
+    DEBUG << "📦 Step 1: Placing evolution resources on ground";
+    
+    // Step 1: Place all required resources on ground
+    for (const auto& req : required) {
+        std::string resourceName = resourceTypeToString(req.first);
+        int needed = req.second;
         
-        // Si on voit de la nourriture, la prendre
-        if (_targetTile >= 0) {
-            DEBUG << "Found food opportunity!";
-            moveToTargetTile(player);
-            return;
+        for (int i = 0; i < needed; i++) {
+            DEBUG << "Setting " << resourceName << " on ground (" << (i+1) << "/" << needed << ")";
+            player->set(resourceName);
+            waitForResponse(player);
         }
     }
     
-    // Mouvement d'exploration normal
-    if (lookCounter % 7 == 0) {
+    DEBUG << "✅ Step 2: All resources placed, now verifying with Look...";
+    
+    // Step 2: Look to verify resources are on ground
+    player->look();
+    waitForResponse(player);
+    
+    // Step 3: Verify that all required resources are on current tile
+    if (verifyResourcesOnGround(required)) {
+        DEBUG << "✅ Step 3: Resources confirmed on ground! Launching incantation...";
+        player->incantation();
+        waitForResponse(player);
+    } else {
+        DEBUG << "❌ Step 3: Resources NOT found on ground! Aborting evolution.";
+        DEBUG << "Current tile content: " << _lastLookResponse;
+    }
+    
+    _evolutionInProgress = false;
+}
+
+bool Algo::verifyResourcesOnGround(const std::map<ResourceType, int>& required) {
+    // Parse the current tile (tile 0)
+    std::vector<std::string> tiles = parseLookResponse(_lastLookResponse);
+    
+    if (tiles.empty()) {
+        DEBUG << "❌ No tiles found in look response";
+        return false;
+    }
+    
+    std::string currentTile = tiles[0];
+    DEBUG << "🔍 Checking current tile: [" << currentTile << "]";
+    
+    // Count each required resource on the ground
+    for (const auto& req : required) {
+        std::string resourceName = resourceTypeToString(req.first);
+        int needed = req.second;
+        
+        // Count occurrences of this resource in the tile
+        int found = 0;
+        size_t pos = 0;
+        while ((pos = currentTile.find(resourceName, pos)) != std::string::npos) {
+            found++;
+            pos += resourceName.length();
+        }
+        
+        DEBUG << "🔍 Resource " << resourceName << ": found " << found << ", needed " << needed;
+        
+        if (found < needed) {
+            DEBUG << "❌ Not enough " << resourceName << " on ground";
+            return false;
+        }
+    }
+    
+    DEBUG << "✅ All required resources verified on ground!";
+    return true;
+}
+
+void Algo::collectResources(Player* player) {
+    if (!_resourceOnCurrentTile) {
+        return;
+    }
+    
+    DEBUG << "🎯 Collecting resources on current tile";
+    
+    // Priority: resources needed for evolution, then food
+    std::vector<std::string> priorityResources;
+    
+    auto required = player->getRequiredItemsForLevel(_currentLevel + 1);
+    for (const auto& req : required) {
+        if (player->getItemCount(req.first) < req.second) {
+            priorityResources.push_back(resourceTypeToString(req.first));
+        }
+    }
+    priorityResources.push_back("food");
+    
+    for (const std::string& resName : priorityResources) {
+        if (_lastLookResponse.find(resName) != std::string::npos) {
+            DEBUG << "📦 Taking " << resName;
+            player->take(resName);
+            waitForResponse(player);
+            break;
+        }
+    }
+}
+
+void Algo::simpleExploration(Player* player) {
+    static int moveCounter = 0;
+    moveCounter++;
+    
+    if (moveCounter % 10 == 0) {
         player->right();
+        DEBUG << "Turning right";
     } else {
         player->forward();
-    }
-    waitAndProcessResponses(player, 300);
-}
-
-void Algo::randomExploration(Player* player)
-{
-    std::uniform_int_distribution<int> dist(0, 5);
-    int action = dist(_rng);
-    
-    switch (action) {
-        case 0:
-        case 1:
-            player->right();
-            break;
-        case 2:
-            player->left();
-            break;
-        default:
-            player->forward();
-            break;
-    }
-    waitAndProcessResponses(player, 400);
-}
-
-void Algo::moveToTargetTile(Player* player)
-{
-    if (_targetTile < 0) return;
-    
-    DEBUG << "Moving towards target tile " << _targetTile;
-    
-    // Logique pour aller vers la tile cible
-    // Tile 0 = position actuelle, tiles 1-3 = devant, etc.
-    switch (_targetTile) {
-        case 0:
-            // Déjà sur la bonne case, prendre la nourriture
-            DEBUG << "Already on target tile, taking food";
-            player->take("food");
-            _targetTile = -1; // Reset target
-            break;
-            
-        case 1:
-        case 2:
-        case 3:
-            // Cases devant nous
-            DEBUG << "Moving forward to tile " << _targetTile;
-            player->forward();
-            break;
-            
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-        case 8:
-            // Cases sur les côtés ou derrière - tourner d'abord
-            DEBUG << "Turning to face tile " << _targetTile;
-            if (_targetTile <= 6) {
-                player->right(); // Tourner à droite pour les tiles de droite
-            } else {
-                player->left();  // Tourner à gauche pour les tiles de gauche
-            }
-            break;
+        DEBUG << "Moving forward";
     }
     
-    waitAndProcessResponses(player, 400);
+    waitForResponse(player);
 }
 
-bool Algo::needsFood() const
-{
-    return _currentFood < _minFoodThreshold;
-}
-
-void Algo::processAllResponses(Player* player)
-{
-    while (player->getCommandsQueue()->hasResponses()) {
-        std::string response = player->getCommandsQueue()->popResponse();
-        if (response == "dead") {
-            return;
-        }
-        processStructuredResponse(response);
-        player->processResponse(response);
+void Algo::waitForResponse(Player* player) {
+    if (!player->getCommandsQueue()->hasPendingCommand()) {
+        return;
     }
-}
-
-void Algo::waitAndProcessResponses(Player* player, int waitTimeMs)
-{
-    int checkInterval = 50;
-    int totalWaited = 0;
-    bool gotResponse = false;
     
-    while (totalWaited < waitTimeMs && player->isAlive()) {
+    std::string expectedCommand = player->getCommandsQueue()->getCurrentPendingCommand();
+    
+    while (player->isAlive()) {
         while (player->getCommandsQueue()->hasResponses()) {
             std::string response = player->getCommandsQueue()->popResponse();
-            gotResponse = true;
             
             if (response == "dead") {
                 ERROR << "Player died!";
                 return;
-            } else if (response == "ko") {
-                DEBUG << "Command failed (ko)";
-            } else if (response == "ok") {
-                DEBUG << "Command successful (ok)";
-            } else if (response.find("[") != std::string::npos) {
-                DEBUG << "Structured response received: " << response;
-                processStructuredResponse(response);
             }
             
+            DEBUG << "📨 Received: " << response;
+            
             player->processResponse(response);
-        }
-        
-        if (gotResponse && waitTimeMs < 500) {
-            break;
-        }
-        
-        std::this_thread::sleep_for(std::chrono::milliseconds(checkInterval));
-        totalWaited += checkInterval;
-    }
-}
-
-void Algo::processStructuredResponse(const std::string& response)
-{
-    // Traiter les réponses d'inventaire
-    if (response.find("food") != std::string::npos && 
-        std::regex_search(response, std::regex(R"(\d+)"))) {
-        updateInventory(response);
-    }
-    
-    // Traiter les réponses de look
-    if (response.find("[") == 0 && response.find("]") != std::string::npos) {
-        analyzeLookResponse(response);
-    }
-}
-
-void Algo::updateInventory(const std::string& inventoryResponse)
-{
-    int newFood = parseInventoryForFood(inventoryResponse);
-    if (newFood != _currentFood) {
-        int oldFood = _currentFood;
-        _currentFood = newFood;
-        
-        if (_currentFood > oldFood) {
-            DEBUG << "Food INCREASED: " << oldFood << " -> " << _currentFood << " (+food found!)";
-        } else {
-            DEBUG << "Food DECREASED: " << oldFood << " -> " << _currentFood << " (time passed)";
-        }
-        
-        if (_currentFood <= 1) {
-            ERROR << "CRITICAL: Almost dead! (" << _currentFood << " units)";
-        } else if (_currentFood <= 3) {
-            ERROR << "WARNING: Very low food! (" << _currentFood << " units)";
+            
+            bool isResponseForCommand = false;
+            
+            if (response == "ok" || response == "ko") {
+                isResponseForCommand = true;
+            } else if (response.find("[") != std::string::npos) {
+                if (expectedCommand == "Look" || expectedCommand == "Inventory") {
+                    processLookResponse(response);
+                    isResponseForCommand = true;
+                }
+            } else if (response == "Elevation underway" || response.find("Current level:") == 0) {
+                if (expectedCommand == "Incantation") {
+                    isResponseForCommand = true;
+                }
+            }
+            
+            if (isResponseForCommand) {
+                DEBUG << "✅ Got response for: " << expectedCommand;
+                player->getCommandsQueue()->popPendingCommand();
+                return;
+            }
         }
     }
 }
 
-void Algo::analyzeLookResponse(const std::string& lookResponse)
-{
-    DEBUG << "Analyzing look response: " << lookResponse;
+void Algo::processLookResponse(const std::string& response) {
+    if (response.find("food ") != std::string::npos && 
+        std::regex_search(response, std::regex(R"(food\s+\d+)"))) {
+        return;
+    }
     
-    // Parser la réponse look: [tile0, tile1, tile2, ...]
-    std::vector<std::string> tiles = parseLookResponse(lookResponse);
+    _lastLookResponse = response;
     
-    // Chercher la nourriture dans les tiles visibles
-    _targetTile = -1;
-    for (size_t i = 0; i < tiles.size(); i++) {
-        if (tiles[i].find("food") != std::string::npos) {
-            _targetTile = static_cast<int>(i);
-            DEBUG << "Food found on tile " << i << " content: [" << tiles[i] << "]";
-            break;
+    std::vector<std::string> tiles = parseLookResponse(response);
+    
+    _resourceOnCurrentTile = false;
+    
+    if (!tiles.empty()) {
+        std::string currentTile = tiles[0];
+        
+        std::vector<std::string> resources = {
+            "food", "linemate", "deraumere", "sibur", "mendiane", "phiras", "thystame"
+        };
+        
+        for (const std::string& res : resources) {
+            if (currentTile.find(res) != std::string::npos) {
+                _resourceOnCurrentTile = true;
+                DEBUG << "🎯 Found " << res << " on current tile";
+                break;
+            }
         }
     }
-    
-    if (_targetTile >= 0) {
-        DEBUG << "Setting target tile to " << _targetTile;
-    } else {
-        DEBUG << "No food visible in current field of view";
-    }
-    
-    _lastLookResponse = lookResponse;
 }
 
-std::vector<std::string> Algo::parseLookResponse(const std::string& lookResponse)
-{
+std::vector<std::string> Algo::parseLookResponse(const std::string& lookResponse) {
     std::vector<std::string> tiles;
     
-    // Enlever les crochets
     std::string content = lookResponse;
     if (content.front() == '[') content.erase(0, 1);
     if (content.back() == ']') content.pop_back();
     
-    // Séparer par les virgules
     std::stringstream ss(content);
     std::string tile;
     
     while (std::getline(ss, tile, ',')) {
-        // Enlever les espaces en début et fin
         size_t start = tile.find_first_not_of(" \t");
         size_t end = tile.find_last_not_of(" \t");
         
@@ -343,29 +306,5 @@ std::vector<std::string> Algo::parseLookResponse(const std::string& lookResponse
         tiles.push_back(tile);
     }
     
-    DEBUG << "Parsed " << tiles.size() << " tiles from look response";
     return tiles;
-}
-
-int Algo::parseInventoryForFood(const std::string& inventoryResponse)
-{
-    std::regex foodRegex(R"(food\s+(\d+))");
-    std::smatch match;
-    
-    if (std::regex_search(inventoryResponse, match, foodRegex)) {
-        return std::stoi(match[1].str());
-    }
-    
-    return _currentFood;
-}
-
-bool Algo::isFoodNearby(const std::string& lookResponse)
-{
-    return lookResponse.find("food") != std::string::npos;
-}
-
-bool Algo::isFoodOnCurrentTile(const std::string& lookResponse)
-{
-    std::vector<std::string> tiles = parseLookResponse(lookResponse);
-    return !tiles.empty() && tiles[0].find("food") != std::string::npos;
 }
