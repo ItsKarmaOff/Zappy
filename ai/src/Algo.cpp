@@ -56,7 +56,6 @@ void Algo::simpleSurvivalAndEvolution(Player* player) {
     static int cycleCount = 0;
     cycleCount++;
     
-    // Update level if changed
     int realLevel = player->getLevel();
     if (realLevel != _currentLevel) {
         DEBUG << "🎉 Level up! " << _currentLevel << " -> " << realLevel;
@@ -64,27 +63,19 @@ void Algo::simpleSurvivalAndEvolution(Player* player) {
         _evolutionInProgress = false;
     }
     
-    // Periodic inventory sync
     if (cycleCount % 15 == 0) {
         player->inventory();
         waitForResponse(player);
     }
     
-    // Look around
     player->look();
     waitForResponse(player);
-    
-    // Collect resources if any on current tile
     collectResources(player);
-    
-    // Try evolution if we have the resources
     if (!_evolutionInProgress && canEvolveWithInventory(player)) {
         DEBUG << "=== CAN EVOLVE! Attempting evolution with ground verification ===";
         attemptEvolutionWithVerification(player);
         return;
     }
-    
-    // Simple exploration
     simpleExploration(player);
 }
 
@@ -99,7 +90,6 @@ void Algo::attemptEvolutionWithVerification(Player* player) {
     
     DEBUG << "📦 Step 1: Placing evolution resources on ground";
     
-    // Step 1: Place all required resources on ground
     for (const auto& req : required) {
         std::string resourceName = resourceTypeToString(req.first);
         int needed = req.second;
