@@ -108,7 +108,7 @@ namespace Gui {
 
     void Graphics::drawPause(void)
     {
-        _pause->draw();
+        _pause->draw(_assetsManager);
     }
 
 }

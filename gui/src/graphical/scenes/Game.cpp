@@ -254,9 +254,12 @@ namespace Gui {
                     Vector2 origin = {0, 0};
 
                     DrawTexturePro(resourceIcon, sourceRec, destRec, origin, 0.0f, WHITE);
-
                     i++;
                 }
+                DrawText(("Player#" + std::to_string(id)).c_str(),
+                GetScreenWidth() - MeasureText(("Player#" + std::to_string(id)).c_str(), fontSize) - 5,
+                GetScreenHeight() - (i + 1) * fontSize - 10.0f,
+                fontSize, player->getColor());
                 break;
             }
         }
@@ -276,8 +279,8 @@ namespace Gui {
             if (player->getLevel() == 0)
                 continue;
             Vector2 textPosScreen = GetWorldToScreenEx(textPos, _game->getCamera(), GetScreenWidth(), GetScreenHeight());
-            DrawText(("Player" + std::to_string(id)).c_str(),
-                textPosScreen.x - MeasureText(("Player" + std::to_string(id)).c_str(), 40) / 2,
+            DrawText(("Player#" + std::to_string(id)).c_str(),
+                textPosScreen.x - MeasureText(("Player#" + std::to_string(id)).c_str(), 40) / 2,
                 textPosScreen.y,
                 40,
                 player->getColor());
