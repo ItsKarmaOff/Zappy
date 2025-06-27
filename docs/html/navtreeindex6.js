@@ -1,5 +1,18 @@
 var NAVTREEINDEX6 =
 {
+"structgame__s.html#ab3e2ff1da567447d6a8bdeb43d44ab59":[4,0,27,2],
+"structgame__s.html#ad30e25050e0ba9b176b32fd9e152212c":[4,0,27,0],
+"structgame__s.html#ad976bc913de580407e94c07989afed8a":[4,0,27,4],
+"structgame__s.html#aeddc1dfadab7dd948b9fa89b1382f911":[4,0,27,5],
+"structgame__settings__s.html":[4,0,28],
+"structgame__settings__s.html#a02afeaaf8574e7a78d6b466ff2695052":[4,0,28,2],
+"structgame__settings__s.html#a02bed8590a9ddf520e58a060059518ec":[4,0,28,10],
+"structgame__settings__s.html#a140acb9db4fc091a0906946111bba15c":[4,0,28,7],
+"structgame__settings__s.html#a4eff910a1a090ee99b40b073d420c42e":[4,0,28,8],
+"structgame__settings__s.html#a5ba3edc1f7681e498633f37eceb0cf61":[4,0,28,1],
+"structgame__settings__s.html#a620f61df982e845bb466738ec47fe8e0":[4,0,28,6],
+"structgame__settings__s.html#abbafacd624ab56159b1bd789f4a0c8ef":[4,0,28,0],
+"structgame__settings__s.html#ac11c92540ec51f6fc5a62b437f332ea8":[4,0,28,4],
 "structgame__settings__s.html#ae001672e64f6addb0e334a526d328e16":[4,0,28,3],
 "structgame__settings__s.html#ae19a77790185a9cd36970e59c9dc6b76":[4,0,28,9],
 "structgame__settings__s.html#afddd41b4efb5fb552c69923c0ccb1682":[4,0,28,5],

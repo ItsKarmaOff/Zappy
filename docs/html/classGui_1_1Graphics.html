@@ -102,10 +102,14 @@ Public Types</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:acdd867d72142510ce53521a63a062f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the state of the connection to the server.  <a href="classGui_1_1Graphics.html#acdd867d72142510ce53521a63a062f9b">More...</a><br /></td></tr>
 <tr class="separator:acdd867d72142510ce53521a63a062f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf721625ddb3197a5be044f6d5600600"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600">Scene</a> { <a class="el" href="classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600a4c40e60bc71a32b924ce1f08d57f9721">MENU</a>
+<tr class="memitem:acf721625ddb3197a5be044f6d5600600"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600">Scene</a> { <br />
+&#160;&#160;<a class="el" href="classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600a4c40e60bc71a32b924ce1f08d57f9721">MENU</a>
 , <a class="el" href="classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600ad50cf309d7568040619ed26ee6835a84">GAME</a>
 , <a class="el" href="classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600aedb8021c05603471ad7d382d8288223b">SCOREBOARD</a>
 , <a class="el" href="classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600a56b36d0d0bb01b339cf1041adc08e262">PAUSE</a>
+, <br />
+&#160;&#160;<a class="el" href="classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600adc6f24fd6915a3f2786a1b7045406924">END</a>
+<br />
  }</td></tr>
 <tr class="memdesc:acf721625ddb3197a5be044f6d5600600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the current scene being displayed.  <a href="classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600">More...</a><br /></td></tr>
 <tr class="separator:acf721625ddb3197a5be044f6d5600600"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,6 +150,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4f90a257eed64219aa160cc9d0ea8181"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classGui_1_1PauseInfo.html">PauseInfo</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1Graphics.html#a4f90a257eed64219aa160cc9d0ea8181">getPause</a> (void)</td></tr>
 <tr class="memdesc:a4f90a257eed64219aa160cc9d0ea8181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the reference to the pause menu information.  <a href="classGui_1_1Graphics.html#a4f90a257eed64219aa160cc9d0ea8181">More...</a><br /></td></tr>
 <tr class="separator:a4f90a257eed64219aa160cc9d0ea8181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e0779a04e2656b9849927c3ffde8dc4"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classGui_1_1EndInfo.html">EndInfo</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1Graphics.html#a7e0779a04e2656b9849927c3ffde8dc4">getEndInfo</a> (void)</td></tr>
+<tr class="memdesc:a7e0779a04e2656b9849927c3ffde8dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the reference to the end scene information.  <a href="classGui_1_1Graphics.html#a7e0779a04e2656b9849927c3ffde8dc4">More...</a><br /></td></tr>
+<tr class="separator:a7e0779a04e2656b9849927c3ffde8dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2858154e2009b0e6e616f313177762bc"><td class="memItemLeft" align="right" valign="top"><a id="a2858154e2009b0e6e616f313177762bc" name="a2858154e2009b0e6e616f313177762bc"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (void)</td></tr>
 <tr class="memdesc:a2858154e2009b0e6e616f313177762bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the graphics system Sets up the window, frame rate, and callback mappings. <br /></td></tr>
@@ -207,6 +214,8 @@ Data Fields</h2></td></tr>
 <tr><td class="fieldname"><a id="acf721625ddb3197a5be044f6d5600600aedb8021c05603471ad7d382d8288223b" name="acf721625ddb3197a5be044f6d5600600aedb8021c05603471ad7d382d8288223b"></a>SCOREBOARD&#160;</td><td class="fielddoc"><p >Scoreboard display scene. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="acf721625ddb3197a5be044f6d5600600a56b36d0d0bb01b339cf1041adc08e262" name="acf721625ddb3197a5be044f6d5600600a56b36d0d0bb01b339cf1041adc08e262"></a>PAUSE&#160;</td><td class="fielddoc"><p >Pause menu scene. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="acf721625ddb3197a5be044f6d5600600adc6f24fd6915a3f2786a1b7045406924" name="acf721625ddb3197a5be044f6d5600600adc6f24fd6915a3f2786a1b7045406924"></a>END&#160;</td><td class="fielddoc"><p >End of game scene. </p>
 </td></tr>
 </table>
 
@@ -295,6 +304,35 @@ Data Fields</h2></td></tr>
 
 <p>Gets the reference to the chatbox. </p>
 <dl class="section return"><dt>Returns</dt><dd>Shared pointer reference to the <a class="el" href="classGui_1_1Chatbox.html" title="Manages the display and storage of chat messages with timed expiration.">Chatbox</a> object </dd></dl>
+
+</div>
+</div>
+<a id="a7e0779a04e2656b9849927c3ffde8dc4" name="a7e0779a04e2656b9849927c3ffde8dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e0779a04e2656b9849927c3ffde8dc4">&#9670;&nbsp;</a></span>getEndInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classGui_1_1EndInfo.html">EndInfo</a> &gt; &amp; getEndInfo </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the reference to the end scene information. </p>
+<dl class="section return"><dt>Returns</dt><dd>Shared pointer reference to the <a class="el" href="classGui_1_1EndInfo.html" title="Contains information and methods related to the end scene of the game.">EndInfo</a> object </dd></dl>
 
 </div>
 </div>
@@ -535,6 +573,7 @@ Data Fields</h2></td></tr>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>gui/include/graphical/<a class="el" href="Graphics_8hpp_source.html">Graphics.hpp</a></li>
 <li>gui/src/graphical/Graphics.cpp</li>
+<li>gui/src/graphical/scenes/End.cpp</li>
 <li>gui/src/graphical/scenes/Game.cpp</li>
 <li>gui/src/graphical/scenes/Menu.cpp</li>
 <li>gui/src/graphical/scenes/Pause.cpp</li>

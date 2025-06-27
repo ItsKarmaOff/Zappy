@@ -6,6 +6,7 @@ var annotated_dup =
       [ "Chatbox", "classGui_1_1Chatbox.html", "classGui_1_1Chatbox" ],
       [ "Commands", "classGui_1_1Commands.html", "classGui_1_1Commands" ],
       [ "Core", "classGui_1_1Core.html", "classGui_1_1Core" ],
+      [ "EndInfo", "classGui_1_1EndInfo.html", "classGui_1_1EndInfo" ],
       [ "GameInfo", "classGui_1_1GameInfo.html", "classGui_1_1GameInfo" ],
       [ "Graphics", "classGui_1_1Graphics.html", "classGui_1_1Graphics" ],
       [ "MenuInfo", "classGui_1_1MenuInfo.html", "classGui_1_1MenuInfo" ],

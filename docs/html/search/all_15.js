@@ -13,12 +13,13 @@ var searchData=
   ['width_5foption_10',['WIDTH_OPTION',['../parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9faf8ee40f6e5bdb8cf6c69fe9c7f0ccb66',1,'parsing.h']]],
   ['window_5fheight_11',['WINDOW_HEIGHT',['../Graphics_8hpp.html#a79de3a9d6489ebc09f44f6de1889e02a',1,'Gui']]],
   ['window_5fwidth_12',['WINDOW_WIDTH',['../Graphics_8hpp.html#af70daab500c9a36bade78e4f240dd438',1,'Gui']]],
-  ['winner_5fteam_5fname_13',['winner_team_name',['../structgame__s.html#aeddc1dfadab7dd948b9fa89b1382f911',1,'game_s']]],
-  ['word_5farray_14',['word_array',['../structinfo__param__s.html#ac1ba17c7f484d1031ca33ab5287b953c',1,'info_param_s']]],
-  ['word_5farray_5flen_15',['WORD_ARRAY_LEN',['../macros_8h.html#a888acc2ac37e7804eff027554f61570f',1,'macros.h']]],
-  ['wraptext_16',['wrapText',['../classGui_1_1Chatbox.html#a686ff403201aae9a27044c4537491933',1,'Gui::Chatbox']]],
-  ['write_5fclient_5faction_17',['write_client_action',['../network_8h.html#ace09bba3aaf850ac20d6bc1dd6c1a703',1,'write_client_action(server_t *server, size_t index):&#160;write_client_action.c'],['../write__client__action_8c.html#ace09bba3aaf850ac20d6bc1dd6c1a703',1,'write_client_action(server_t *server, size_t index):&#160;write_client_action.c']]],
-  ['write_5fclient_5faction_2ec_18',['write_client_action.c',['../write__client__action_8c.html',1,'']]],
-  ['wrong_5fai_19',['WRONG_AI',['../server__macros_8h.html#a251ba67fbdb04f9e85fa7499e23da353',1,'server_macros.h']]],
-  ['wrong_5fgui_20',['WRONG_GUI',['../server__macros_8h.html#a7b12a87c260b0438c7ffda7cd4bbbcec',1,'server_macros.h']]]
+  ['winner_13',['winner',['../classGui_1_1EndInfo.html#aa69a69bf75f005028d1c62defad4d08e',1,'Gui::EndInfo']]],
+  ['winner_5fteam_5fname_14',['winner_team_name',['../structgame__s.html#aeddc1dfadab7dd948b9fa89b1382f911',1,'game_s']]],
+  ['word_5farray_15',['word_array',['../structinfo__param__s.html#ac1ba17c7f484d1031ca33ab5287b953c',1,'info_param_s']]],
+  ['word_5farray_5flen_16',['WORD_ARRAY_LEN',['../macros_8h.html#a888acc2ac37e7804eff027554f61570f',1,'macros.h']]],
+  ['wraptext_17',['wrapText',['../classGui_1_1Chatbox.html#a686ff403201aae9a27044c4537491933',1,'Gui::Chatbox']]],
+  ['write_5fclient_5faction_18',['write_client_action',['../network_8h.html#ace09bba3aaf850ac20d6bc1dd6c1a703',1,'write_client_action(server_t *server, size_t index):&#160;write_client_action.c'],['../write__client__action_8c.html#ace09bba3aaf850ac20d6bc1dd6c1a703',1,'write_client_action(server_t *server, size_t index):&#160;write_client_action.c']]],
+  ['write_5fclient_5faction_2ec_19',['write_client_action.c',['../write__client__action_8c.html',1,'']]],
+  ['wrong_5fai_20',['WRONG_AI',['../server__macros_8h.html#a251ba67fbdb04f9e85fa7499e23da353',1,'server_macros.h']]],
+  ['wrong_5fgui_21',['WRONG_GUI',['../server__macros_8h.html#a7b12a87c260b0438c7ffda7cd4bbbcec',1,'server_macros.h']]]
 ];

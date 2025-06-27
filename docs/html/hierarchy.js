@@ -23,6 +23,7 @@ var hierarchy =
     [ "CommandsQueue", "classCommandsQueue.html", null ],
     [ "Core", "classGui_1_1Core.html", null ],
     [ "Debug", "classLib_1_1Logs_1_1Debug.html", null ],
+    [ "EndInfo", "classGui_1_1EndInfo.html", null ],
     [ "Engine", "classEngine.html", null ],
     [ "Error", "classLib_1_1Logs_1_1Error.html", null ],
     [ "exception", null, [

@@ -8,12 +8,14 @@ var classGui_1_1Graphics =
       [ "MENU", "classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600a4c40e60bc71a32b924ce1f08d57f9721", null ],
       [ "GAME", "classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600ad50cf309d7568040619ed26ee6835a84", null ],
       [ "SCOREBOARD", "classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600aedb8021c05603471ad7d382d8288223b", null ],
-      [ "PAUSE", "classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600a56b36d0d0bb01b339cf1041adc08e262", null ]
+      [ "PAUSE", "classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600a56b36d0d0bb01b339cf1041adc08e262", null ],
+      [ "END", "classGui_1_1Graphics.html#acf721625ddb3197a5be044f6d5600600adc6f24fd6915a3f2786a1b7045406924", null ]
     ] ],
     [ "Graphics", "classGui_1_1Graphics.html#a4dd8a8b11a3355ca17dfc1628e20fb00", null ],
     [ "~Graphics", "classGui_1_1Graphics.html#a6822b013923c974b1dde915948dd1d34", null ],
     [ "getAssetsManager", "classGui_1_1Graphics.html#a93cb968c656e847d2b3a703ddd132cd8", null ],
     [ "getChatbox", "classGui_1_1Graphics.html#ad4b9e9e9039386ae3aa100a6fd1fbe99", null ],
+    [ "getEndInfo", "classGui_1_1Graphics.html#a7e0779a04e2656b9849927c3ffde8dc4", null ],
     [ "getGame", "classGui_1_1Graphics.html#aa9208bedd6e9fa707551ae97c2177674", null ],
     [ "getMenu", "classGui_1_1Graphics.html#aab6c6a29dcd4fa906fe5f5e63a365afc", null ],
     [ "getMousePos", "classGui_1_1Graphics.html#a00eb95f45073cceea0689b4434b7684d", null ],
