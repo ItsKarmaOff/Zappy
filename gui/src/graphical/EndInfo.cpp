@@ -12,7 +12,7 @@ namespace Gui {
     // Default constructor initializes winner to an empty string and teamColor to white
     EndInfo::EndInfo() : winner(""), teamColor(WHITE)
     {
-        buttons[RESTART] = Button("Restart").setColors({DARKGREEN, LIME});
+        buttons[RESTART] = Button("Menu").setColors({DARKBLUE, BLUE});
         buttons[EXIT] = Button("Exit").setColors({MAROON, RED});
     }
 
