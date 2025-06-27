@@ -41,6 +41,7 @@ namespace Gui {
             {GAME, &Graphics::handleEventsGame},
             {SCOREBOARD, &Graphics::handleEventsScoreboard},
             {PAUSE, &Graphics::handleEventsPause},
+            {END, &Graphics::handleEventsEnd},
         };
 
         _updaters = {
@@ -48,6 +49,7 @@ namespace Gui {
             {GAME, &Graphics::updateGame},
             {SCOREBOARD, &Graphics::updateScoreboard},
             {PAUSE, &Graphics::updatePause},
+            {END, &Graphics::updateEnd},
         };
 
         _drawers = {
@@ -55,6 +57,7 @@ namespace Gui {
             {GAME, &Graphics::drawGame},
             {SCOREBOARD, &Graphics::drawScoreboard},
             {PAUSE, &Graphics::drawPause},
+            {END, &Graphics::drawEnd},
         };
     }
 
