@@ -34,7 +34,13 @@ const ZappyWebsite = () => {
     }, [showVideoModal, isMobileMenuOpen]);
 
     const openGitHub = () => {
-        window.open('https://github.com/EpitechPromo2028/B-YEP-400-NCE-4-1-zappy-nicolas.toro', '_blank');
+        const githubUrl = process.env.REACT_APP_GITHUB_URL;
+
+        if (githubUrl) {
+            window.open(githubUrl, '_blank');
+        } else {
+            console.error('GitHub URL not configured');
+        }
     };
 
     const openDemo = () => {
