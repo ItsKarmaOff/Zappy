@@ -91,14 +91,14 @@ For more information, please see the help section.
 ```sh
 > ./zappy_server --help
 USAGE:
-        ./zappy_server -p port -x width -y height -n team1 team2 ... -c clientsNb
+        ./zappy_server -p port -x width -y height -n team1 team2 ... -c clientsNumber
 
 OPTIONS:
         -p, --port              port                    The port of the server
         -x, --width             width                   The width of the world
         -y, --height            height                  The height of the world
         -n, --names             name1 name2 ...         The names of the teams
-        -c, --clients           clientsNb               The number of clients per team
+        -c, --clients           clientsNumber           The number of clients per team
         -f, --frequency         frequency               The reciprocal of time unit for execution of action (default: 100)
         -s, --showEggs          true|false              Show eggs in the game (default: false)
         -e, --autoEnd           true|false              Automatically end the game when only one team remains (default: false)
