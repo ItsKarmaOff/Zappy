@@ -1,16 +1,21 @@
 /*
 ** EPITECH PROJECT, 2025
-** Commands.hpp
+** Zappy
 ** File description:
-** Commands declaration
+** The Commands class declaration
 */
+/**
+ * @file Commands.hpp
+ * @brief The Commands class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #ifndef COMMANDS_HPP
     #define COMMANDS_HPP
 
     #include "Graphics.hpp"
     #include "QueueManager.hpp"
-    #include <functional>
 
 namespace Gui
 {
@@ -43,7 +48,8 @@ namespace Gui
 
 
 
-    /*** @class Commands
+    /**
+     * @class Commands
      * @brief The Commands class handles the commands received from the server.
      */
     class Commands {
@@ -190,9 +196,11 @@ namespace Gui
          */
         void handleSBP(std::string &param);
 
+
+
     private:
-        std::unordered_map<std::string, std::function<void(std::string &)>> _commandHandlers;
-        Graphics &_graphical; // Reference to the graphical object for drawing
+        std::unordered_map<std::string, std::function<void(std::string &)>> _commandHandlers; ///< Map of command handlers
+        Graphics &_graphical; ///< Reference to the graphical object for drawing
     };
 }
 
