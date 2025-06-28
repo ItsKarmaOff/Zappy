@@ -15,6 +15,7 @@
 void option_authors(UNUSED server_t *server, UNUSED parsing_t *parsing)
 {
     my_putstr(BOLD "AUTHORS:" ENDL
+        ITALIC "\t- Students of EPITECH Nice 2025 -" ENDL
         "\tChristophe VANDEVOIR\n"
         "\tGianni TUERO\n"
         "\tLou PELLEGRINO\n"
