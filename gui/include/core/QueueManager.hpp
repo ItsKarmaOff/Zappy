@@ -84,9 +84,9 @@ namespace Gui
 
 
 
-            //////////////// Private Attributes ////////////////////////////////
-
         private:
+
+            //////////////// Private Attributes ////////////////////////////////
 
             mutable std::mutex _commandsQueueMutex; ///< Mutex for thread-safe access to the commands queue
             std::queue<std::vector<std::string>> _commandsQueue; ///< Queue for commands

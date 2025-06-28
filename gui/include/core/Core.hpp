@@ -114,9 +114,9 @@ namespace Gui
 
 
 
-            //////////////// Private Methods ///////////////////////////////////
-
         private:
+
+            //////////////// Private Methods ///////////////////////////////////
 
             /**
             * @brief Parse the command line arguments.

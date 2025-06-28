@@ -199,6 +199,9 @@ namespace Gui
 
 
     private:
+
+        //////////////// Private Attributes ////////////////////////////////
+
         std::unordered_map<std::string, std::function<void(std::string &)>> _commandHandlers; ///< Map of command handlers
         Graphics &_graphical; ///< Reference to the graphical object for drawing
     };
