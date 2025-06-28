@@ -1,32 +1,28 @@
 /*
 ** EPITECH PROJECT, 2025
-** ModelInfo.hpp
+** Zappy
 ** File description:
-** ModelInfo declaration
+** The ModelInfo class declaration
 */
-
+/**
+ * @file ModelInfo.hpp
+ * @brief The ModelInfo class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #ifndef MODELINFO_HPP
     #define MODELINFO_HPP
 
-#include <memory>
-#include <raylib.h>
-#include <string>
-#include <vector>
-#include <chrono>
-
-/**
- * @file ModelInfo.hpp
- * @brief The ModelInfo class for managing 3D model data and rendering
- * @author Gianni TUERO
- */
+    #include "Lib.hpp"
+    #include <raylib.h>
 
 namespace Gui {
     /**
      * @class ModelInfo
      * @brief Manages 3D model data, transformations, and rendering operations
      */
-    class   ModelInfo {
+    class ModelInfo {
         public:
             /**
              * @brief Constructor for the ModelInfo class
@@ -47,7 +43,10 @@ namespace Gui {
              */
             void init();
 
-            ////////////////////////////////////// GETTERS / SETTERS //////////////////////////////////////
+
+
+            //////////////// GETTERS / SETTERS /////////////////////////////////
+
             /**
              * @brief Gets the model as a constant reference
              * @return Constant reference to the Model object
@@ -172,7 +171,10 @@ namespace Gui {
              */
             void setPos(const Vector3 &pos);
 
-            ////////////////////////////////////// UTILITY //////////////////////////////////////
+
+
+            //////////////// UTILITY ///////////////////////////////////////////
+
             /**
              * @brief Draws the model at the specified position with the given color
              * @param position The position vector in world space
@@ -237,18 +239,21 @@ namespace Gui {
              */
             inline void updateTransformedBoundingBox();
 
+
+
         private:
-            Model _model;                       ///< The 3D model
-            BoundingBox _boundingBox;           ///< Original bounding box of the model
+
+            //////////////// Private Attributes ////////////////////////////////
+
+            Model _model;                        ///< The 3D model
+            BoundingBox _boundingBox;            ///< Original bounding box of the model
             BoundingBox _transformedBoundingBox; ///< Bounding box after transformations
-            float _scale;                       ///< Scale factor for the model
-            Vector3 _dimensions;                ///< Dimensions of the model
-            std::vector<Texture2D> _textures;   ///< Textures used by the model
-            RayCollision _collision;            ///< Ray collision information
-            Vector3 _pos;                       ///< Current position of the model
+            float _scale;                        ///< Scale factor for the model
+            Vector3 _dimensions;                 ///< Dimensions of the model
+            std::vector<Texture2D> _textures;    ///< Textures used by the model
+            RayCollision _collision;             ///< Ray collision information
+            Vector3 _pos;                        ///< Current position of the model
     };
-
-
 }
 
 #endif // MODELINFO_HPP
