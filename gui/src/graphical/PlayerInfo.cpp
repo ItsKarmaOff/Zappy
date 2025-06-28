@@ -1,12 +1,17 @@
 /*
 ** EPITECH PROJECT, 2025
-** PlayerInfo.cpp
+** Zappy
 ** File description:
-** PlayerInfo in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
+** The PlayerInfo class implementation
 */
+/**
+ * @file PlayerInfo.cpp
+ * @brief The PlayerInfo class implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "PlayerInfo.hpp"
-#include <string>
 
 namespace Gui {
     PlayerInfo::PlayerInfo(std::string teamName_) :

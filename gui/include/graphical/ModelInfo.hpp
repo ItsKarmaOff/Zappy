@@ -14,8 +14,9 @@
 #ifndef MODELINFO_HPP
     #define MODELINFO_HPP
 
-    #include "Lib.hpp"
+    #include "VarManager.hpp"
     #include <raylib.h>
+    #include <raymath.h>
 
 namespace Gui {
     /**

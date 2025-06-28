@@ -2,17 +2,16 @@
 ** EPITECH PROJECT, 2025
 ** Zappy
 ** File description:
-** The main function of the gui
+** The main function of the GUI
 */
 /**
  * @file Main.cpp
- * @brief The main function of the gui
+ * @brief The main function of the GUI
  * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
  * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
 */
 
 #include "Core.hpp"
-#include "Logs.hpp"
 
 int main(int argc, char **argv)
 {

@@ -12,11 +12,6 @@
  */
 
 #include "Core.hpp"
-#include "Lib.hpp"
-#include "Logs.hpp"
-#include <iostream>
-#include <mutex>
-#include <string>
 
 namespace Gui
 {

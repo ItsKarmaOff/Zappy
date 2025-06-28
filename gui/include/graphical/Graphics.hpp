@@ -20,6 +20,8 @@
     #include "PauseInfo.hpp"
     #include "QueueManager.hpp"
     #include "Chatbox.hpp"
+    #include "VarManager.hpp"
+    #include "SoundsManager.hpp"
 
 namespace Gui {
     constexpr size_t WINDOW_WIDTH = 1200;     ///< Default window width

@@ -1,9 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** EndInfo.cpp
+** Zappy
 ** File description:
-** EndInfo in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
+** The EndInfo class implementation
 */
+/**
+ * @file EndInfo.cpp
+ * @brief The EndInfo class implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "EndInfo.hpp"
 
