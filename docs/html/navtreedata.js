@@ -60,6 +60,23 @@ var NAVTREE =
         [ "Server commands", "md_resources_README.html#autotoc_md25", null ]
       ] ]
     ] ],
+    [ "Zappy", "md_website_README.html", [
+      [ "Prerequisites", "md_website_README.html#autotoc_md27", null ],
+      [ "Installation", "md_website_README.html#autotoc_md28", [
+        [ "1. Install dependencies", "md_website_README.html#autotoc_md29", null ],
+        [ "2. Environment variables configuration", "md_website_README.html#autotoc_md30", null ]
+      ] ],
+      [ "Available Scripts", "md_website_README.html#autotoc_md31", [
+        [ "Development", "md_website_README.html#autotoc_md32", null ],
+        [ "Build", "md_website_README.html#autotoc_md33", null ]
+      ] ],
+      [ "Configuration", "md_website_README.html#autotoc_md34", [
+        [ "Environment Variables", "md_website_README.html#autotoc_md35", null ]
+      ] ],
+      [ "Troubleshooting", "md_website_README.html#autotoc_md36", [
+        [ "Port Error", "md_website_README.html#autotoc_md37", null ]
+      ] ]
+    ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -92,9 +109,9 @@ var NAVTREEINDEX =
 "classGui_1_1PauseInfo.html#a4040c77328ec00ee91dd23b7b23ecf6d",
 "dir_3f64d78ef5ae6b1a137103dded274cbd.html",
 "functions_8h.html#af296630a682cb392385c7929c0028222",
-"my__create__table_8c.html#acf104b73825ac1169223adcc6eb6fecd",
-"network_2clients_8c.html",
-"structgame__s.html#ab3e2ff1da567447d6a8bdeb43d44ab59"
+"my__concat__params_8c.html#aa2f4356b6cb70c280bac520f68868c5d",
+"my__update__malloc_8c.html#a1f22e6eca067e45c55a45e4067505a3f",
+"structcommand__help__s.html#a9f83d3c4b4c3bb790f90ad79865e37ab"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
