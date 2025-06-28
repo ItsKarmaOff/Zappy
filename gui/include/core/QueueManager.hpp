@@ -23,7 +23,6 @@ namespace Gui
      * @brief Manages queues for commands and responses with thread-safety
      */
     class QueueManager {
-
         public:
 
             //////////////// Constructors and Destructor ///////////////////////
