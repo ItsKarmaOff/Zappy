@@ -1,17 +1,21 @@
 /*
 ** EPITECH PROJECT, 2025
-** MenuInfo.hpp
+** Zappy
 ** File description:
-** MenuInfo declaration
+** The MenuInfo class declaration
 */
+/**
+ * @file MenuInfo.hpp
+ * @brief The MenuInfo class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 
 #ifndef MENUINFO_HPP
     #define MENUINFO_HPP
 
     #include "Button.hpp"
-    #include <raylib.h>
-    #include <vector>
 
 /**
  * @file MenuInfo.hpp
@@ -37,9 +41,7 @@ namespace Gui {
 
         private:
             std::vector<Button> _buttons; ///< Vector containing all buttons in the menu
-
     };
-
 }
 
 #endif // GAMEINFO_HPP
