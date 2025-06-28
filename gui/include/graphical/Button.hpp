@@ -25,6 +25,7 @@ namespace Gui
      */
     class Button {
         public:
+
             //////////////// Constructors and Destructor ///////////////////////
 
             /**
