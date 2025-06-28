@@ -1,16 +1,21 @@
 /*
 ** EPITECH PROJECT, 2025
-** Button.hpp
+** Zappy
 ** File description:
-** Button declaration
+** The Button class declaration
 */
+/**
+ * @file Button.hpp
+ * @brief The Button class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #ifndef BUTTON_HPP
     #define BUTTON_HPP
 
+    #include "Lib.hpp"
     #include <raylib.h>
-    #include <string>
-    #include <utility>
 
 namespace Gui
 {
@@ -50,7 +55,10 @@ namespace Gui
              */
             ~Button() = default;
 
+
+
             //////////////// Initialization Methods ////////////////////////////
+
             /**
              * @brief Initialize the button with given position and size
              * @param pos Position of the button (default: {0, 0})
@@ -183,17 +191,19 @@ namespace Gui
              */
             void switchColorsIfHover(Vector2 mousePos);
 
+
+
         private:
 
             //////////////// Private Attributes ////////////////////////////////
 
-            Rectangle _button; // Rectangle representing the button area
-            Vector2 _pos; // Position of the button
-            Vector2 _size; // Size of the button
-            std::pair<Color, Color> _colors; // Pair of colors for the button, first is normal, second is hover
-            Color _currentColor; // Current color for the button, can be used for hover effects
-            std::string _text; // Text to display on the button, if any
-            Color _textColor; // Color of the text displayed on the button
+            Rectangle _button; ///< Rectangle representing the button area
+            Vector2 _pos; ///< Position of the button
+            Vector2 _size; ///< Size of the button
+            std::pair<Color, Color> _colors; ///< Pair of colors for the button, first is normal, second is hover
+            Color _currentColor; ///< Current color for the button, can be used for hover effects
+            std::string _text; ///< Text to display on the button, if any
+            Color _textColor; ///< Color of the text displayed on the button
     };
 };
 
