@@ -1,25 +1,21 @@
 /*
 ** EPITECH PROJECT, 2025
-** PauseInfo.hpp
+** Zappy
 ** File description:
-** PauseInfo declaration
+** The PauseInfo class declaration
 */
-
-#ifndef PAUSEINFO_HPP
-#define PAUSEINFO_HPP
-
-#include <functional>
-#include <map>
-#include <memory>
-#include "AssetsManager.hpp"
-#include "Button.hpp"
-#include "raylib.h"
-
 /**
  * @file PauseInfo.hpp
- * @brief The PauseInfo class for managing the pause menu
- * @author Gianni TUERO
+ * @brief The PauseInfo class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
+
+#ifndef PAUSEINFO_HPP
+    #define PAUSEINFO_HPP
+
+    #include "AssetsManager.hpp"
+    #include "Button.hpp"
 
 namespace Gui {
     /**
@@ -84,7 +80,9 @@ namespace Gui {
             void resetCallbacks();
 
 
+
             ////////////////////////////////////// UPDATERS //////////////////////////////////////
+
             /**
              * @brief Updates the pause menu state
              * Updates buttons and calls the background update callback if set
@@ -122,6 +120,8 @@ namespace Gui {
              * Displays a slider for adjusting the volume level
              */
             void drawVolumeSlider();
+
+
 
             ////////////////////////////////////// GETTERS //////////////////////////////////////
 
@@ -172,7 +172,12 @@ namespace Gui {
              */
             void setVolume(int volume);
 
+
+
         private:
+
+            //////////////// Private Attributes ////////////////////////////////
+
             std::function<void()> _updateBackgroundCallback; ///< Callback to update the background
             std::function<void()> _drawBackgroundCallback;   ///< Callback to draw the background
 
