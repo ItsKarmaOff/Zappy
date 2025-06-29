@@ -15,7 +15,7 @@ var searchData=
   ['no_5frefill_2ec_12',['no_refill.c',['../commands_2from__server_2no__refill_8c.html',1,'(Global Namespace)'],['../parsing_2options_2no__refill_8c.html',1,'(Global Namespace)']]],
   ['node_5fs_13',['node_s',['../structnode__s.html',1,'']]],
   ['north_14',['NORTH',['../classGui_1_1PlayerInfo.html#a871118a09520247c78a71ecd7b0abd58ad0611de6f28d4a9c9eac959f5344698e',1,'Gui::PlayerInfo::NORTH()'],['../server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232cebad0611de6f28d4a9c9eac959f5344698e',1,'NORTH():&#160;server_data_structures.h']]],
-  ['not_5frequired_15',['NOT_REQUIRED',['../parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9fae79ba002cf0163d634b562a676808674',1,'parsing.h']]],
+  ['not_5frequired_15',['NOT_REQUIRED',['../parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9fae79ba002cf0163d634b562a676808674',1,'NOT_REQUIRED():&#160;parsing.h'],['../gui_2include_2core_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6ae79ba002cf0163d634b562a676808674',1,'Gui::NOT_REQUIRED()']]],
   ['npatchinfo_16',['NPatchInfo',['../structNPatchInfo.html',1,'']]],
   ['number_5fof_5fplayer_5flevel_5fmax_5fto_5fwin_17',['NUMBER_OF_PLAYER_LEVEL_MAX_TO_WIN',['../server__macros_8h.html#a49ba7ba690f3b0131ddc235f67995d04',1,'server_macros.h']]],
   ['number_5fsettings_5fs_18',['number_settings_s',['../structnumber__settings__s.html',1,'']]]

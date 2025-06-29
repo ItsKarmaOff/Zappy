@@ -83,7 +83,8 @@ $(document).ready(function(){initNavTree('classGui_1_1AssetsManager.html',''); i
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
   <div class="headertitle"><div class="title">AssetsManager Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -115,6 +116,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0c44a04fd859e4496329110c655c5cae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTexture.html">Texture2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1AssetsManager.html#a0c44a04fd859e4496329110c655c5cae">getResourceIcon</a> (<a class="el" href="classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1">PlayerInfo::ResourceType</a> Key)</td></tr>
 <tr class="memdesc:a0c44a04fd859e4496329110c655c5cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the icon texture for a specific resource type.  <a href="classGui_1_1AssetsManager.html#a0c44a04fd859e4496329110c655c5cae">More...</a><br /></td></tr>
 <tr class="separator:a0c44a04fd859e4496329110c655c5cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:adf7cdd470bdda723276ff61cac0959e9"><td class="memItemLeft" align="right" valign="top">static std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="structTexture.html">Texture2D</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGui_1_1AssetsManager.html#adf7cdd470bdda723276ff61cac0959e9">getTextures</a> (void)</td></tr>
+<tr class="memdesc:adf7cdd470bdda723276ff61cac0959e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the map containing all loaded textures.  <a href="classGui_1_1AssetsManager.html#adf7cdd470bdda723276ff61cac0959e9">More...</a><br /></td></tr>
+<tr class="separator:adf7cdd470bdda723276ff61cac0959e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Class managing game assets. </p>
@@ -160,11 +167,40 @@ Public Member Functions</h2></td></tr>
 <p>Gets the icon texture for a specific resource type. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Key</td><td>The resource type for which to get the icon </td></tr>
+    <tr><td class="paramname">Key</td><td>The resource type key </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The texture representing the resource icon </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The texture associated with the resource type </dd></dl>
+
+</div>
+</div>
+<a id="adf7cdd470bdda723276ff61cac0959e9" name="adf7cdd470bdda723276ff61cac0959e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf7cdd470bdda723276ff61cac0959e9">&#9670;&nbsp;</a></span>getTextures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="structTexture.html">Texture2D</a> &gt; &gt; &amp; getTextures </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the map containing all loaded textures. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the unordered map of textures </dd></dl>
 
 </div>
 </div>

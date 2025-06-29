@@ -18,7 +18,7 @@ var classGui_1_1PauseInfo =
     ] ],
     [ "PauseInfo", "classGui_1_1PauseInfo.html#aab7e5cbb738db7690b0753ead211414b", null ],
     [ "~PauseInfo", "classGui_1_1PauseInfo.html#ac619433f200ad37ffab0e265a10127db", null ],
-    [ "draw", "classGui_1_1PauseInfo.html#a56c5cf8a568cff737ff95520cbe6b405", null ],
+    [ "draw", "classGui_1_1PauseInfo.html#a6c6d7b18c92d99e7c8394998fb2bfd83", null ],
     [ "drawButtons", "classGui_1_1PauseInfo.html#aa51b31fec06b82be47c75d5fe0186f08", null ],
     [ "drawVolumeSlider", "classGui_1_1PauseInfo.html#a4040c77328ec00ee91dd23b7b23ecf6d", null ],
     [ "getButtons", "classGui_1_1PauseInfo.html#ad8a7e6ff64bb69f92fcc0186fbcd9b1a", null ],
