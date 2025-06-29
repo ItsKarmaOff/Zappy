@@ -27,7 +27,7 @@ const option_t options[] = {
     {'n', "names", "\tname1 name2 ...",
         "The names of the teams",
         NAMES_OPTION, &option_names},
-    {'c', "clients", "\tclientsNb",
+    {'c', "clients", "\tclientsNumber",
         "The number of clients per team",
         CLIENTS_OPTION, &option_clients},
     {'f', "frequency", "\tfrequency",
@@ -58,15 +58,15 @@ const option_t options[] = {
         "Enable extra logs for debugging purposes "
         "(default: " RED "false" RESET ")",
         NOT_REQUIRED, &option_extra_logs},
-    {'h', "help", "\t\t",
+    {'H', "help", "\t\t",
         "Display this help message",
-        NOT_REQUIRED, &option_help},
-    {'v', "version", "\t\t",
-        "Display the version of the server",
-        NOT_REQUIRED, &option_version},
-    {'a', "authors", "\t\t",
+        META_OPTION, &option_help},
+    {'V', "version", "\t\t",
+        "Display the version of the program",
+        META_OPTION, &option_version},
+    {'A', "authors", "\t\t",
         "Display the authors of the project",
-        NOT_REQUIRED, &option_authors},
+        META_OPTION, &option_authors},
     {0, NULL, NULL, NULL, NOT_REQUIRED, NULL}
 };
 
@@ -105,7 +105,8 @@ static void analyse_arg(server_t *server, parsing_t *parsing)
             return;
         }
     }
-    THROW(my_create_str("EXCEPTION: Invalid argument: %s",
+    THROW(my_create_str("EXCEPTION: Invalid options: \"%s\"\n"
+        "Please use -H or --help to see the list of available options.",
         parsing->argv[parsing->index]));
 }
 
