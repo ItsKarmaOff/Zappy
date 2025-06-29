@@ -28,7 +28,7 @@ var hierarchy =
     [ "Error", "classLib_1_1Logs_1_1Error.html", null ],
     [ "exception", null, [
       [ "Exceptions::Critical", "classLib_1_1Exceptions_1_1Critical.html", null ],
-      [ "Exceptions::Help", "classLib_1_1Exceptions_1_1Help.html", null ],
+      [ "Exceptions::Success", "classLib_1_1Exceptions_1_1Success.html", null ],
       [ "Exceptions::Warning", "classLib_1_1Exceptions_1_1Warning.html", null ]
     ] ],
     [ "Exceptions", "classLib_1_1Exceptions.html", null ],
@@ -55,7 +55,7 @@ var hierarchy =
     [ "Matrix", "structMatrix.html", null ],
     [ "MenuInfo", "classGui_1_1MenuInfo.html", null ],
     [ "Mesh", "structMesh.html", null ],
-    [ "message", "structmessage.html", null ],
+    [ "message", "structGui_1_1message.html", null ],
     [ "Model", "structModel.html", null ],
     [ "ModelAnimation", "structModelAnimation.html", null ],
     [ "ModelInfo", "classGui_1_1ModelInfo.html", null ],
@@ -66,8 +66,10 @@ var hierarchy =
     [ "node_s", "structnode__s.html", null ],
     [ "NPatchInfo", "structNPatchInfo.html", null ],
     [ "number_settings_s", "structnumber__settings__s.html", null ],
+    [ "Option", "structGui_1_1Option.html", null ],
     [ "option_s", "structoption__s.html", null ],
     [ "option_t", "structoption__t.html", null ],
+    [ "Parser", "classGui_1_1Parser.html", null ],
     [ "Parser", "classParser.html", null ],
     [ "parsing_s", "structparsing__s.html", null ],
     [ "PauseInfo", "classGui_1_1PauseInfo.html", null ],

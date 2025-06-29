@@ -5,7 +5,7 @@ var searchData=
   ['matrix_2',['Matrix',['../structMatrix.html',1,'']]],
   ['menuinfo_3',['MenuInfo',['../classGui_1_1MenuInfo.html',1,'Gui']]],
   ['mesh_4',['Mesh',['../structMesh.html',1,'']]],
-  ['message_5',['message',['../structmessage.html',1,'']]],
+  ['message_5',['message',['../structGui_1_1message.html',1,'Gui']]],
   ['model_6',['Model',['../structModel.html',1,'']]],
   ['modelanimation_7',['ModelAnimation',['../structModelAnimation.html',1,'']]],
   ['modelinfo_8',['ModelInfo',['../classGui_1_1ModelInfo.html',1,'Gui']]],

@@ -7,7 +7,7 @@ var searchData=
   ['welcome_5fmessage_4',['WELCOME_MESSAGE',['../server__macros_8h.html#a4102c912e07db36235dbf80dc4f9728a',1,'server_macros.h']]],
   ['welcome_5fstate_5',['WELCOME_STATE',['../classGui_1_1Graphics.html#acdd867d72142510ce53521a63a062f9ba219c185a44e9146f577eb8fa3b5668a4',1,'Gui::Graphics']]],
   ['west_6',['WEST',['../server__data__structures_8h.html#a0946e64c8ac05ac1c9740a2375232cebae9449e8683a8199dad36b07a63b2f523',1,'WEST():&#160;server_data_structures.h'],['../classGui_1_1PlayerInfo.html#a871118a09520247c78a71ecd7b0abd58ae9449e8683a8199dad36b07a63b2f523',1,'Gui::PlayerInfo::WEST()']]],
-  ['what_7',['what',['../classLib_1_1Exceptions_1_1Critical.html#abf843cbb29dec939d0731e491bab6f70',1,'Lib::Exceptions::Critical::what()'],['../classLib_1_1Exceptions_1_1Warning.html#abf843cbb29dec939d0731e491bab6f70',1,'Lib::Exceptions::Warning::what()'],['../classLib_1_1Exceptions_1_1Help.html#abf843cbb29dec939d0731e491bab6f70',1,'Lib::Exceptions::Help::what()']]],
+  ['what_7',['what',['../classLib_1_1Exceptions_1_1Critical.html#abf843cbb29dec939d0731e491bab6f70',1,'Lib::Exceptions::Critical::what()'],['../classLib_1_1Exceptions_1_1Warning.html#abf843cbb29dec939d0731e491bab6f70',1,'Lib::Exceptions::Warning::what()'],['../classLib_1_1Exceptions_1_1Success.html#abf843cbb29dec939d0731e491bab6f70',1,'Lib::Exceptions::Success::what()']]],
   ['width_8',['width',['../structgame__settings__s.html#a02bed8590a9ddf520e58a060059518ec',1,'game_settings_s']]],
   ['width_2ec_9',['width.c',['../width_8c.html',1,'']]],
   ['width_5foption_10',['WIDTH_OPTION',['../parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9faf8ee40f6e5bdb8cf6c69fe9c7f0ccb66',1,'parsing.h']]],

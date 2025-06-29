@@ -11,11 +11,12 @@ var searchData=
   ['_7eerror_8',['~Error',['../classLib_1_1Logs_1_1Error.html#a9e90ca50dff9f67db785f712731faa43',1,'Lib::Logs::Error']]],
   ['_7egameinfo_9',['~GameInfo',['../classGui_1_1GameInfo.html#adbdc98c8313b68b9dddc3e1393e9c1cc',1,'Gui::GameInfo']]],
   ['_7egraphics_10',['~Graphics',['../classGui_1_1Graphics.html#a6822b013923c974b1dde915948dd1d34',1,'Gui::Graphics']]],
-  ['_7ehelp_11',['~Help',['../classLib_1_1Exceptions_1_1Help.html#a52e863f8db7511ca2cd5783a77ed8669',1,'Lib::Exceptions::Help']]],
-  ['_7emodelinfo_12',['~ModelInfo',['../classGui_1_1ModelInfo.html#a25c63bab9149799b78ec2e26a432d54a',1,'Gui::ModelInfo']]],
+  ['_7emodelinfo_11',['~ModelInfo',['../classGui_1_1ModelInfo.html#a25c63bab9149799b78ec2e26a432d54a',1,'Gui::ModelInfo']]],
+  ['_7eparser_12',['~Parser',['../classGui_1_1Parser.html#afb927943cae3ef783a6623389f39c78d',1,'Gui::Parser']]],
   ['_7epauseinfo_13',['~PauseInfo',['../classGui_1_1PauseInfo.html#ac619433f200ad37ffab0e265a10127db',1,'Gui::PauseInfo']]],
   ['_7eplayerinfo_14',['~PlayerInfo',['../classGui_1_1PlayerInfo.html#afe23c640efef1657e8c681103585cf82',1,'Gui::PlayerInfo']]],
   ['_7equeuemanager_15',['~QueueManager',['../classGui_1_1QueueManager.html#a733e27f0ac5c2894ebb72c4c8e914421',1,'Gui::QueueManager']]],
   ['_7esocket_16',['~Socket',['../classLib_1_1Socket.html#af387aca495ea9a25c511cd7d02d997bb',1,'Lib::Socket']]],
-  ['_7ewarning_17',['~Warning',['../classLib_1_1Exceptions_1_1Warning.html#a54176bdb5d29d2ed67e4c5426dce58cb',1,'Lib::Exceptions::Warning::~Warning()'],['../classLib_1_1Logs_1_1Warning.html#ac62afcffcc583f9d2f91f40487fd1081',1,'Lib::Logs::Warning::~Warning()']]]
+  ['_7esuccess_17',['~Success',['../classLib_1_1Exceptions_1_1Success.html#ab56b67a45dc9df631da82853eed75150',1,'Lib::Exceptions::Success']]],
+  ['_7ewarning_18',['~Warning',['../classLib_1_1Exceptions_1_1Warning.html#a54176bdb5d29d2ed67e4c5426dce58cb',1,'Lib::Exceptions::Warning::~Warning()'],['../classLib_1_1Logs_1_1Warning.html#ac62afcffcc583f9d2f91f40487fd1081',1,'Lib::Logs::Warning::~Warning()']]]
 ];
