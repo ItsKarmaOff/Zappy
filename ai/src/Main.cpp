@@ -18,8 +18,7 @@
 int main(int argc, char **argv)
 {
     try {
-        Parser parser;
-        parser.parse(argc, argv);
+        Parser parser(argc, argv);
         Engine engine(parser);
         engine.run();
     } catch (const Lib::Exceptions::Success &e) {
