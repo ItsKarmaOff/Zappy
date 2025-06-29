@@ -18,9 +18,18 @@ int main(int argc, char **argv)
     try {
         Gui::Core core(argc, argv);
         core.run();
+    } catch (const Lib::Exceptions::Success &e) {
+        if (!std::string(e.what()).empty())
+            DEBUG << "SUCCESS: " << e.what();
         return 0;
+    } catch (const Lib::Exceptions::Critical &e) {
+        if (!std::string(e.what()).empty())
+            ERROR << "CRITICAL: " << e.what();
+        return 84;
     } catch (const std::exception &e) {
-        ERROR << "EXCEPTION: " << e.what();
+        if (!std::string(e.what()).empty())
+            ERROR << "EXCEPTION: " << e.what();
         return 84;
     }
+    return 0;
 }

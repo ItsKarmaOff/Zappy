@@ -16,6 +16,7 @@
 
     #include "Graphics.hpp"
     #include "QueueManager.hpp"
+    #include "Parser.hpp"
 
 namespace Gui
 {
@@ -73,57 +74,9 @@ namespace Gui
 
 
 
-            //////////////// Getters ///////////////////////////////////////////
-
-            /**
-            * @brief Get the port number.
-            * @return The port number
-            */
-            int getPort() const;
-
-            /**
-            * @brief Get the hostname.
-            * @return The hostname
-            */
-            const std::string &getHostname() const;
-
-
-
-            //////////////// Setters ///////////////////////////////////////////
-
-            /**
-            * @brief Set the port number.
-            * @param port The port number
-            */
-            void setPort(int port);
-
-            /**
-            * @brief Set the hostname.
-            * @param hostname The hostname
-            */
-            void setHostname(const std::string &hostname);
-
-
-
-            //////////////// Utility Methods ///////////////////////////////////
-
-            /**
-            * @brief Print the usage of the program.
-            */
-            void printUsage() const;
-
-
-
         private:
 
             //////////////// Private Methods ///////////////////////////////////
-
-            /**
-            * @brief Parse the command line arguments.
-            * @param argc The number of arguments
-            * @param argv The arguments
-            */
-            void _parseArguments(int argc, char **argv);
 
             /**
              * @brief Initialize the client socket and connect to the server.
