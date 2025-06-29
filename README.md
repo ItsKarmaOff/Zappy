@@ -53,7 +53,7 @@ OPTIONS:
 
 META-OPTIONS:
         -H, --help                                      Display this help message
-        -V, --version                                   Display the version of the server
+        -V, --version                                   Display the version of the program
         -A, --authors                                   Display the authors of the project
 ```
 
@@ -76,7 +76,7 @@ OPTIONS:
 
 META-OPTIONS:
         -H, --help                                      Display this help message
-        -V, --version                                   Display the version of the server
+        -V, --version                                   Display the version of the program
         -A, --authors                                   Display the authors of the project
 ```
 
@@ -109,7 +109,7 @@ OPTIONS:
         
 META-OPTIONS:
         -H, --help                                      Display this help message
-        -V, --version                                   Display the version of the server
+        -V, --version                                   Display the version of the program
         -A, --authors                                   Display the authors of the project
 ```
 
