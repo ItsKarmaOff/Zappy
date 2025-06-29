@@ -1,0 +1,27 @@
+var macros_8h =
+[
+    [ "ABS", "macros_8h.html#a322ccb036d02432a1496931e4585c4b0", null ],
+    [ "AL", "macros_8h.html#a25ea1686940daa6094f9f2ab635add57", null ],
+    [ "CAST_FREE_FUNC", "macros_8h.html#a7ad8063d86b221f7c4ccc9a753be5676", null ],
+    [ "DEBUG", "macros_8h.html#ab94a24f0a37b3963eb64f201cebf60a9", null ],
+    [ "ERROR", "macros_8h.html#ae225ab718bd4f5e2221129f026d3d8f1", null ],
+    [ "EXCEPTION", "macros_8h.html#a5e3ac1341383066fb40319e80d38a2d9", null ],
+    [ "FORMAT_CHAR", "macros_8h.html#aeb7fb1d98bb972105415bef946116d47", null ],
+    [ "FREE", "macros_8h.html#a105949c59c998e38aad80266afac92bf", null ],
+    [ "FREE_WORD_ARRAY", "macros_8h.html#a197c22bcd714edc4c556629900a3e4f2", null ],
+    [ "INFO", "macros_8h.html#a809f816dd6df4e17499413cff1926fd4", null ],
+    [ "IS_NULL", "macros_8h.html#a68d06bea352ea69be2950b66ab51ad52", null ],
+    [ "LOG", "macros_8h.html#a5cac31129e83905c4c78b86e2f84c5da", null ],
+    [ "MA", "macros_8h.html#a794fb426d9efc20daf787678edfeaf98", null ],
+    [ "MAX", "macros_8h.html#afa99ec4acc4ecb2dc3c2d05da15d0e3f", null ],
+    [ "MIN", "macros_8h.html#a3acffbd305ee72dcd4593c0d8af64a4f", null ],
+    [ "NB", "macros_8h.html#a58e95dc1eb9d6ce16f515e77beeadd58", null ],
+    [ "POINT", "macros_8h.html#a43011aabc923f9b33f1f51dc03b23539", null ],
+    [ "POINT_STRUCT", "macros_8h.html#a18e7d170504554513155c1befd931c06", null ],
+    [ "STR_CONTAINS", "macros_8h.html#aa8042a334f38e2649db392333bd2e834", null ],
+    [ "STRERR", "macros_8h.html#a5d36fdf512f53df12f66bf0592f48c73", null ],
+    [ "THROW", "macros_8h.html#aa9dcf1f190d09192bac2a56a331061a1", null ],
+    [ "UNUSED", "macros_8h.html#addf5ec070e9499d36b7f2009ce736076", null ],
+    [ "WARNING", "macros_8h.html#aaf99b8fcaa4b837f684ea0505ed34487", null ],
+    [ "WORD_ARRAY_LEN", "macros_8h.html#a888acc2ac37e7804eff027554f61570f", null ]
+];
