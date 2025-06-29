@@ -1,13 +1,17 @@
 /*
 ** EPITECH PROJECT, 2025
-** GameInfo.cpp
+** Zappy
 ** File description:
-** GameInfo in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
+** The GameInfo class implementation
 */
+/**
+ * @file GameInfo.cpp
+ * @brief The GameInfo class implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "GameInfo.hpp"
-#include "Lib.hpp"
-#include <raylib.h>
 
 namespace Gui {
     GameInfo::GameInfo()

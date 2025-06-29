@@ -1,12 +1,12 @@
 /*
 ** EPITECH PROJECT, 2025
-** Button.cpp
+** Zappy
 ** File description:
-** Button in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
+** The Button class implementation
 */
 /**
  * @file Button.cpp
- * @brief Button implementation for the GUI
+ * @brief The Button class implementation
  * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
  * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */

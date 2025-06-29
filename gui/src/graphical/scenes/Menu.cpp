@@ -1,15 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** Menu.cpp
+** Zappy
 ** File description:
-** Menu in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical/scenes
+** The Menu scene implementation
 */
+/**
+ * @file Menu.cpp
+ * @brief The Menu scene implementation
+ */
 
 #include "Graphics.hpp"
-#include "Commands.hpp"
-#include "Logs.hpp"
-#include "SoundsManager.hpp"
-#include <raylib.h>
 
 namespace Gui {
     void Graphics::handleEventsMenu(void)

@@ -1,15 +1,17 @@
 /*
 ** EPITECH PROJECT, 2025
-** ModelInfo.cpp
+** Zappy
 ** File description:
-** ModelInfo in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
+** The ModelInfo class implementation
 */
+/**
+ * @file ModelInfo.cpp
+ * @brief The ModelInfo class implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "ModelInfo.hpp"
-#include "Logs.hpp"
-#include "VarManager.hpp"
-#include "Lib.hpp"
-#include <raymath.h>
 
 namespace Gui {
     ModelInfo::ModelInfo(const std::string &modelPath, float scale)

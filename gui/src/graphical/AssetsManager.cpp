@@ -1,24 +1,18 @@
 /*
 ** EPITECH PROJECT, 2025
-** AssetsManager.cpp
+** Zappy
 ** File description:
-** AssetsManager in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
+** The AssetsManager class implementation
 */
 /**
  * @file AssetsManager.cpp
- * @brief AssetsManager implementation for the GUI
+ * @brief The AssetsManager class implementation
  * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
  * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "AssetsManager.hpp"
 #include "Graphics.hpp"
-#include "Logs.hpp"
-#include "ModelInfo.hpp"
-#include <memory>
-#include <raylib.h>
-#include <tuple>
-#include <unordered_map>
 
 namespace Gui
 {

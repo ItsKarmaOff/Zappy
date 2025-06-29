@@ -1,15 +1,21 @@
 /*
 ** EPITECH PROJECT, 2025
-** VarManager.hpp
+** Zappy
 ** File description:
-** VarManager declaration
+** The VarManager clas declaration
 */
-
+/**
+ * @file VarManager.hpp
+ * @brief The VarManager class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #ifndef VARMANAGER_HPP
     #define VARMANAGER_HPP
 
-#include <unordered_map>
+    #include "Lib.hpp"
+
 namespace Gui {
     class VarManager {
         public:

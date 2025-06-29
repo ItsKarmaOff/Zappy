@@ -1,15 +1,17 @@
 /*
 ** EPITECH PROJECT, 2025
-** PauseInfo.cpp
+** Zappy
 ** File description:
-** PauseInfo in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
+** The PauseInfo class implementation
 */
+/**
+ * @file PauseInfo.cpp
+ * @brief The PauseInfo class implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "PauseInfo.hpp"
-#include "AssetsManager.hpp"
-#include <algorithm>
-#include <map>
-#include <raylib.h>
 
 namespace Gui {
     PauseInfo::PauseInfo()
