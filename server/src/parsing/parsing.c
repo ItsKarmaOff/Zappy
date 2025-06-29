@@ -62,7 +62,7 @@ const option_t options[] = {
         "Display this help message",
         META_OPTION, &option_help},
     {'V', "version", "\t\t",
-        "Display the version of the server",
+        "Display the version of the program",
         META_OPTION, &option_version},
     {'A', "authors", "\t\t",
         "Display the authors of the project",
