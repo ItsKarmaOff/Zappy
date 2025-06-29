@@ -17,21 +17,22 @@
 
 int main(int argc, char **argv)
 {
-    Parser parser;
     try {
+        Parser parser;
         parser.parse(argc, argv);
-    } catch (const Lib::Exceptions::Critical &e) {
-        Lib::Logs::Error() << e.what();
-        return 84;
-    } catch (const Lib::Exceptions::Help &e) {
-        std::cout << e.what();
-        return 0;
-    }
-    try {
         Engine engine(parser);
         engine.run();
-    } catch (Lib::Exceptions::Critical &e) {
-        Lib::Logs::Error() << e.what();
+    } catch (const Lib::Exceptions::Success &e) {
+        if (!std::string(e.what()).empty())
+            DEBUG << "SUCCESS: " << e.what();
+        return 0;
+    } catch (const Lib::Exceptions::Critical &e) {
+        if (!std::string(e.what()).empty())
+            ERROR << "CRITICIAL: " << e.what();
+        return 84;
+    } catch (const std::exception &e) {
+        if (!std::string(e.what()).empty())
+            ERROR << "EXCEPTION: " << e.what();
         return 84;
     }
     return 0;

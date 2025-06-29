@@ -21,7 +21,7 @@ Parser::~Parser()
 void Parser::parse(int argc, char **argv)
 {
     if (argc == 2 && (std::string(argv[1]) == "--help" || std::string(argv[1]) == "-h")) {
-        throw Lib::Exceptions::Help("USAGE: ./zappy_ai -p port -n name -h machine\n");
+        throw Lib::Exceptions::Success("USAGE: ./zappy_ai -p port -n name -h machine\n");
     }
     if (argc != 7) {
         throw Lib::Exceptions::Critical("Not enough arguments provided.");

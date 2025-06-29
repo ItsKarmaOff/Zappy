@@ -1,12 +1,17 @@
 /*
 ** EPITECH PROJECT, 2025
-** MenuInfo.cpp
+** Zappy
 ** File description:
-** MenuInfo in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
+** The MenuInfo class implementation
 */
+/**
+ * @file MenuInfo.cpp
+ * @brief The MenuInfo class implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "MenuInfo.hpp"
-#include <raylib.h>
 
 namespace Gui {
     MenuInfo::MenuInfo()

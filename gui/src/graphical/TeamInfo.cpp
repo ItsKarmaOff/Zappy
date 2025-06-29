@@ -1,9 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** TeamInfo.cpp
+** Zappy
 ** File description:
-** TeamInfo in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
+** The TeamInfo class implementation
 */
+/**
+ * @file TeamInfo.cpp
+ * @brief The TeamInfo class implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "TeamInfo.hpp"
 
