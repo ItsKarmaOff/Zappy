@@ -40,6 +40,6 @@ var searchData=
   ['frequency_37',['frequency',['../structgame__settings__s.html#a5ba3edc1f7681e498633f37eceb0cf61',1,'game_settings_s']]],
   ['frequency_2ec_38',['frequency.c',['../parsing_2options_2frequency_8c.html',1,'(Global Namespace)'],['../commands_2from__server_2frequency_8c.html',1,'(Global Namespace)']]],
   ['func_39',['func',['../structpoint__s.html#afc4e949c7b7d0ab565ecfb62c3380171',1,'point_s']]],
-  ['function_40',['function',['../structoption__s.html#a6a8e86a4732fbd49f873ed4511262ee3',1,'option_s']]],
+  ['function_40',['function',['../structGui_1_1Option.html#a55c8ba996abb72a881636be0655b1cdc',1,'Gui::Option::function()'],['../structoption__s.html#a6a8e86a4732fbd49f873ed4511262ee3',1,'option_s::function()']]],
   ['functions_2eh_41',['functions.h',['../functions_8h.html',1,'']]]
 ];

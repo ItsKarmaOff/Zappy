@@ -11,5 +11,6 @@ var searchData=
   ['level_8',['level',['../structplayer__s.html#af1cd5c067fda870cc8631b8790fee06c',1,'player_s']]],
   ['line_9',['line',['../structpoint__s.html#a37cd62bb27ae6b3f0003d61d8602e0b0',1,'point_s']]],
   ['logs_5ftype_5fstrings_10',['logs_type_strings',['../my__logs__message_8c.html#a6033c5bcda3762882e0ac59d0b50bf61',1,'my_logs_message.c']]],
-  ['long_5fname_11',['long_name',['../structoption__s.html#a4c33c7528c496ba2624340a9f3b561d3',1,'option_s']]]
+  ['long_5fname_11',['long_name',['../structoption__s.html#a4c33c7528c496ba2624340a9f3b561d3',1,'option_s']]],
+  ['longname_12',['longName',['../structGui_1_1Option.html#a22157dc9ac39d6bd13c2429f6c96f623',1,'Gui::Option']]]
 ];

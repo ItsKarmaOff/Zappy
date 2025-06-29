@@ -60,6 +60,23 @@ var NAVTREE =
         [ "Server commands", "md_resources_README.html#autotoc_md25", null ]
       ] ]
     ] ],
+    [ "Zappy", "md_website_README.html", [
+      [ "Prerequisites", "md_website_README.html#autotoc_md27", null ],
+      [ "Installation", "md_website_README.html#autotoc_md28", [
+        [ "1. Install dependencies", "md_website_README.html#autotoc_md29", null ],
+        [ "2. Environment variables configuration", "md_website_README.html#autotoc_md30", null ]
+      ] ],
+      [ "Available Scripts", "md_website_README.html#autotoc_md31", [
+        [ "Development", "md_website_README.html#autotoc_md32", null ],
+        [ "Build", "md_website_README.html#autotoc_md33", null ]
+      ] ],
+      [ "Configuration", "md_website_README.html#autotoc_md34", [
+        [ "Environment Variables", "md_website_README.html#autotoc_md35", null ]
+      ] ],
+      [ "Troubleshooting", "md_website_README.html#autotoc_md36", [
+        [ "Port Error", "md_website_README.html#autotoc_md37", null ]
+      ] ]
+    ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -89,12 +106,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Algo_8hpp_source.html",
-"classGui_1_1PauseInfo.html#ae409384b112dfbfe6a6256586022d00ca131503a06218c5bbd87b0f790a5b84aa",
-"dir_7a345da2daccad8f375dd5beaab2903e.html",
-"functions_enum.html",
-"my__find__prime__inf_8c.html",
-"network_8h.html#abca66d4f6115c95c880ee5bc7bd9dce4",
-"structgame__settings__s.html#ae001672e64f6addb0e334a526d328e16"
+"classGui_1_1ModelInfo.html#aa3c8a133f68598708ca8b7bf2b03076c",
+"connect__nbr_8c.html",
+"functions_8h.html#acde4744ff26f600946388c185d9ae832",
+"my__add__chr_8c.html#a6c1e9d53d3713fa367e24142b06cc400",
+"my__strerror_8c.html",
+"structMaterial.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['random_5fdouble_0',['random_double',['../Lib_8hpp.html#ae8857dcf75600277c0cbc79a687090ab',1,'Lib::random_double(double min, double max)'],['../Lib_8hpp.html#a98b7c682bb6ace85fb747cd2f14db72b',1,'Lib::random_double()']]],
+  ['random_5fdouble_0',['random_double',['../Lib_8hpp.html#a98b7c682bb6ace85fb747cd2f14db72b',1,'Lib::random_double()'],['../Lib_8hpp.html#ae8857dcf75600277c0cbc79a687090ab',1,'Lib::random_double(double min, double max)']]],
   ['random_5fint_1',['random_int',['../Lib_8hpp.html#ad7954e6a1b9ea073c7bc894dc5af85a9',1,'Lib']]],
   ['ray_2',['Ray',['../structRay.html',1,'']]],
   ['raycollision_3',['RayCollision',['../structRayCollision.html',1,'']]],
@@ -18,19 +18,20 @@ var searchData=
   ['required_5fplayers_15',['required_players',['../structincantation__s.html#ae469b6811124ce5cef0610b091a66d66',1,'incantation_s']]],
   ['required_5fresources_16',['required_resources',['../structincantation__s.html#a432ae2f5dcca45e9d59beba0ce2522c4',1,'incantation_s']]],
   ['resetcallbacks_17',['resetCallbacks',['../classGui_1_1PauseInfo.html#a5e3035350632f53a37dce04ee5396d4c',1,'Gui::PauseInfo']]],
-  ['resize_5fclient_5flist_18',['resize_client_list',['../network_2clients_8c.html#a3a56304d07f0def9dbdef94a4b34c8d7',1,'resize_client_list(server_t *server, size_t new_size):&#160;clients.c'],['../network_8h.html#a3a56304d07f0def9dbdef94a4b34c8d7',1,'resize_client_list(server_t *server, size_t new_size):&#160;clients.c']]],
+  ['resize_5fclient_5flist_18',['resize_client_list',['../network_8h.html#a3a56304d07f0def9dbdef94a4b34c8d7',1,'resize_client_list(server_t *server, size_t new_size):&#160;clients.c'],['../network_2clients_8c.html#a3a56304d07f0def9dbdef94a4b34c8d7',1,'resize_client_list(server_t *server, size_t new_size):&#160;clients.c']]],
   ['resource_2ec_19',['resource.c',['../resource_8c.html',1,'']]],
-  ['resources_20',['resources',['../structtile__s.html#a55633d06308171be32d0d140a5f84c75',1,'tile_s::resources()'],['../structgame__s.html#a172ab2e0b39e4ac9c4466a63ab9fdfa7',1,'game_s::resources()']]],
+  ['resources_20',['resources',['../structgame__s.html#a172ab2e0b39e4ac9c4466a63ab9fdfa7',1,'game_s::resources()'],['../structtile__s.html#a55633d06308171be32d0d140a5f84c75',1,'tile_s::resources()']]],
   ['resources_5fdensities_21',['resources_densities',['../server__data__structures_8h.html#a19d1d00ccca0124f6828d566e8a6ac5e',1,'resources_densities():&#160;resource.c'],['../resource_8c.html#a19d1d00ccca0124f6828d566e8a6ac5e',1,'resources_densities():&#160;resource.c']]],
   ['resources_5fe_22',['resources_e',['../server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01',1,'server_data_structures.h']]],
   ['resources_5fnames_23',['resources_names',['../server__data__structures_8h.html#a81faea77ea06eda3508227d83f9f9b2c',1,'resources_names():&#160;resource.c'],['../resource_8c.html#a81faea77ea06eda3508227d83f9f9b2c',1,'resources_names():&#160;resource.c']]],
   ['resources_5fsize_24',['RESOURCES_SIZE',['../server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01a71ebc62bf482ebe7f7c937fc2b7d7010',1,'server_data_structures.h']]],
   ['resourcetype_25',['ResourceType',['../classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1',1,'Gui::PlayerInfo']]],
-  ['resume_26',['RESUME',['../classGui_1_1PauseInfo.html#af5db75f8f4ae500b4601eabcee4b2f0ea401283aaa98a76b506f2198465bd7009',1,'Gui::PauseInfo']]],
-  ['resume_5fbutton_27',['RESUME_BUTTON',['../classGui_1_1PauseInfo.html#a2a5fd61108d6b9e3b6eac1aa53dd3aacac7fa15cdc7bd4f83b240ed38dd9064bc',1,'Gui::PauseInfo']]],
-  ['right_2ec_28',['right.c',['../right_8c.html',1,'']]],
-  ['rldrawcall_29',['rlDrawCall',['../structrlDrawCall.html',1,'']]],
-  ['rlrenderbatch_30',['rlRenderBatch',['../structrlRenderBatch.html',1,'']]],
-  ['rlvertexbuffer_31',['rlVertexBuffer',['../structrlVertexBuffer.html',1,'']]],
-  ['run_32',['run',['../server_8h.html#a7b7a5b070ee9efccda6606e0b1b952e2',1,'run(server_t *server):&#160;server.c'],['../server_8c.html#a7b7a5b070ee9efccda6606e0b1b952e2',1,'run(server_t *server):&#160;server.c'],['../classGui_1_1Graphics.html#ab9522d2db01044f9530856c13222ba59',1,'Gui::Graphics::run()'],['../classGui_1_1Core.html#a13a43e6d814de94978c515cb084873b1',1,'Gui::Core::run()']]]
+  ['restart_26',['RESTART',['../classGui_1_1EndInfo.html#ae2d5c50fae96a83cc4f5974af78e6943a262553c759e1d1a9398bc406b1fadcb7',1,'Gui::EndInfo']]],
+  ['resume_27',['RESUME',['../classGui_1_1PauseInfo.html#af5db75f8f4ae500b4601eabcee4b2f0ea401283aaa98a76b506f2198465bd7009',1,'Gui::PauseInfo']]],
+  ['resume_5fbutton_28',['RESUME_BUTTON',['../classGui_1_1PauseInfo.html#a2a5fd61108d6b9e3b6eac1aa53dd3aacac7fa15cdc7bd4f83b240ed38dd9064bc',1,'Gui::PauseInfo']]],
+  ['right_2ec_29',['right.c',['../right_8c.html',1,'']]],
+  ['rldrawcall_30',['rlDrawCall',['../structrlDrawCall.html',1,'']]],
+  ['rlrenderbatch_31',['rlRenderBatch',['../structrlRenderBatch.html',1,'']]],
+  ['rlvertexbuffer_32',['rlVertexBuffer',['../structrlVertexBuffer.html',1,'']]],
+  ['run_33',['run',['../classGui_1_1Graphics.html#ab9522d2db01044f9530856c13222ba59',1,'Gui::Graphics::run()'],['../classGui_1_1Core.html#a13a43e6d814de94978c515cb084873b1',1,'Gui::Core::run()'],['../server_8h.html#a7b7a5b070ee9efccda6606e0b1b952e2',1,'run(server_t *server):&#160;server.c'],['../server_8c.html#a7b7a5b070ee9efccda6606e0b1b952e2',1,'run(server_t *server):&#160;server.c']]]
 ];

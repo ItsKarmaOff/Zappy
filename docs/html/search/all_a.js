@@ -21,5 +21,6 @@ var searchData=
   ['logs_2ehpp_18',['Logs.hpp',['../Logs_8hpp.html',1,'']]],
   ['logs_5ftype_5fstrings_19',['logs_type_strings',['../my__logs__message_8c.html#a6033c5bcda3762882e0ac59d0b50bf61',1,'my_logs_message.c']]],
   ['long_5fname_20',['long_name',['../structoption__s.html#a4c33c7528c496ba2624340a9f3b561d3',1,'option_s']]],
-  ['look_2ec_21',['look.c',['../look_8c.html',1,'']]]
+  ['longname_21',['longName',['../structGui_1_1Option.html#a22157dc9ac39d6bd13c2429f6c96f623',1,'Gui::Option']]],
+  ['look_2ec_22',['look.c',['../look_8c.html',1,'']]]
 ];
