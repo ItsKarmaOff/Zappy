@@ -1,17 +1,22 @@
 /*
 ** EPITECH PROJECT, 2025
-** SoundsManager.hpp
+** Zappy
 ** File description:
-** SoundsManager declaration
+** The SoundsManager class declaration
 */
-
+/**
+ * @file SoundsManager.hpp
+ * @brief The SoundsManager class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #ifndef SOUNDSMANAGER_HPP
     #define SOUNDSMANAGER_HPP
 
-
+    #include "Lib.hpp"
     #include <raylib.h>
-#include <unordered_map>
+    #include <raymath.h>
 
 namespace Gui {
     class SoundsManager {
@@ -38,7 +43,6 @@ namespace Gui {
         private:
             std::unordered_map<SongType, Sound> _sounds;
             std::unordered_map<MusicType, Music> _musics;
-
     };
 }
 

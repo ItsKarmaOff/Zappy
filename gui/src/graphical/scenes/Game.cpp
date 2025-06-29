@@ -1,19 +1,17 @@
 /*
 ** EPITECH PROJECT, 2025
-** Game.cpp
+** Zappy
 ** File description:
-** Game in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical/scenes
+** The Game scene implementation
 */
+/**
+ * @file Game.cpp
+ * @brief The Game scene implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "Graphics.hpp"
-#include "PlayerInfo.hpp"
-#include "TileInfo.hpp"
-#include "Logs.hpp"
-#include "VarManager.hpp"
-#include "SoundsManager.hpp"
-#include <chrono>
-#include <raylib.h>
-#include <raymath.h>
 
 namespace Gui {
     void Graphics::handleEventsGame(void)
@@ -54,7 +52,7 @@ namespace Gui {
 
                 player->setSelected(collision.hit);
                 if (collision.hit) {
-                    std::string player = "#" + std::to_string(id);
+                    //std::string player = "#" + std::to_string(id);
                     _queueManager->pushCommand({"pin", "#" + std::to_string(id)});
                     break;
                 }

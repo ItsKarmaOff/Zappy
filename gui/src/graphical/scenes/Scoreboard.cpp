@@ -1,15 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** Scoreboard.cpp
+** Zappy
 ** File description:
-** Scoreboard in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical/scenes
+** The Scoreboard scene implementation
 */
+/**
+ * @file Scoreboard.cpp
+ * @brief The Scoreboard scene implementation
+ */
 
 #include "Graphics.hpp"
-#include "Logs.hpp"
-#include "SoundsManager.hpp"
-#include <raylib.h>
-#include <streambuf>
 
 namespace Gui {
     int titleSize = GetScreenHeight() / 10;

@@ -1,25 +1,22 @@
 /*
 ** EPITECH PROJECT, 2025
-** PlayerInfo.hpp
+** Zappy
 ** File description:
-** PlayerInfo declaration
+** The PlayerInfo class declaration
 */
-
+/**
+ * @file PlayerInfo.hpp
+ * @brief The PlayerInfo class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #ifndef PLAYERINFO_HPP
     #define PLAYERINFO_HPP
-#include <chrono>
-#include <cstddef>
-#include <map>
-#include <queue>
-#include <raylib.h>
-#include <string>
 
-/**
- * @file PlayerInfo.hpp
- * @brief The PlayerInfo class for representing player data in the game
- * @author Gianni TUERO
- */
+    #include "Lib.hpp"
+    #include <raylib.h>
+    #include <raymath.h>
 
 namespace Gui
 {
@@ -29,6 +26,7 @@ namespace Gui
      */
     class PlayerInfo {
         public:
+
             /////////////// Enumerations //////////////////////////////////////
 
             /**
@@ -67,6 +65,8 @@ namespace Gui
                 EGG,         ///< Player is an egg
             };
 
+
+
             /////////////// Constructors and Destructor ///////////////////////
 
             /**
@@ -84,6 +84,8 @@ namespace Gui
              * @brief Destroy the PlayerInfo object.
              */
             ~PlayerInfo() = default;
+
+
 
             //////////////// Getters ///////////////////////////////////////////
 
@@ -153,6 +155,8 @@ namespace Gui
              */
             bool &isIncanting(void);
 
+
+
             //////////////// Setters ///////////////////////////////////////////
 
             /**
@@ -215,6 +219,8 @@ namespace Gui
              */
             void setIncanting(bool incanting);
 
+
+
             //////////////// Inventory Management Methods //////////////////////
 
             /**
@@ -231,7 +237,10 @@ namespace Gui
              */
             void removeResource(ResourceType type, size_t quantity);
 
-            ////////////////////////////////////// Model Methods //////////////////////////////////////
+
+
+            //////////////// Model Methods /////////////////////////////////////
+
             /**
              * @brief Get the 3D position of the player's model
              * @return Constant reference to the model position Vector3
@@ -256,8 +265,12 @@ namespace Gui
              */
             void setModelTransform(const Matrix &transform);
 
+
+
         private:
+
             //////////////// Private Attributes ////////////////////////////////
+
             Color _teamColor;                              ///< Color associated with the player's team
             Orientation _orientation;                      ///< The orientation of the player
             PlayerState _state;                            ///< The current state of the player
@@ -271,6 +284,8 @@ namespace Gui
             Matrix _modelTransform;                        ///< Transformation matrix for the model
             bool _isIncanting = false;                     ///< Whether the player is currently performing an incantation
     };
+
+
 
     /**
      * @brief Mapping from resource types to their string representations

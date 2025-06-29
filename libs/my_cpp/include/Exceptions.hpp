@@ -92,22 +92,22 @@ namespace Lib {
 
 
             /**
-             * @class Help
+             * @class Success
              * @brief Class for all help exceptions
              */
-            class Help : public std::exception
+            class Success : public std::exception
             {
                 public:
                     /**
-                     * @brief Constructor of the Help
-                     * @param message The message of the Help
+                     * @brief Constructor of the Success
+                     * @param message The message of the Success
                      */
-                    Help(const std::string &message) : _message(message) { }
+                    Success(const std::string &message) : _message(message) { }
 
                     /**
-                     * @brief Destructor of the Help
+                     * @brief Destructor of the Success
                      */
-                    ~Help() override = default;
+                    ~Success() override = default;
 
                     /**
                      * @brief Get the message of the exception

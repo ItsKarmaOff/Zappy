@@ -1,20 +1,21 @@
 /*
 ** EPITECH PROJECT, 2025
-** AssetsManager.hpp
+** Zappy
 ** File description:
-** AssetsManager declaration
+** The AssetsManager class declaration
 */
+/**
+ * @file AssetsManager.hpp
+ * @brief The AssetsManager class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #ifndef ASSETSMANAGER_HPP
     #define ASSETSMANAGER_HPP
 
     #include "ModelInfo.hpp"
     #include "PlayerInfo.hpp"
-    #include <memory>
-    #include <raylib.h>
-    #include <string>
-    #include <tuple>
-    #include <unordered_map>
 
 namespace Gui
 {
@@ -73,12 +74,13 @@ namespace Gui
              */
             static std::unordered_map<std::string, std::shared_ptr<Texture2D>> &getTextures(void);
 
+
+
         private:
 
             //////////////// Private Attributes ////////////////////////////////
 
             std::unordered_map<std::string, std::shared_ptr<ModelInfo>> _models; //< Map of loaded models
-
     };
 }
 

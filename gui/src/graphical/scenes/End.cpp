@@ -1,13 +1,17 @@
 /*
 ** EPITECH PROJECT, 2025
-** End.cpp
+** Zappy
 ** File description:
-** End in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical/scenes
+** The End scene implementation
 */
+/**
+ * @file End.cpp
+ * @brief The End scene implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
-#include "EndInfo.hpp"
 #include "Graphics.hpp"
-#include <raylib.h>
 
 namespace Gui {
     void Graphics::handleEventsEnd(void)

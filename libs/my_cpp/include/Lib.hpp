@@ -14,8 +14,7 @@
 #ifndef LIB_HPP_
     #define LIB_HPP_
 
-    #include "Exceptions.hpp"
-    #include "Logs.hpp"
+    #include "Socket.hpp"
 
 namespace Lib {
     /**

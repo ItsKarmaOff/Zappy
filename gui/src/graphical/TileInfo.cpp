@@ -1,17 +1,17 @@
 /*
 ** EPITECH PROJECT, 2025
-** TileInfo.cpp
+** Zappy
 ** File description:
-** TileInfo in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
+** The TileInfo class implementation
 */
+/**
+ * @file TileInfo.cpp
+ * @brief The TileInfo class implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "TileInfo.hpp"
-#include "AssetsManager.hpp"
-#include "Graphics.hpp"
-#include "Lib.hpp"
-#include "Logs.hpp"
-#include <chrono>
-#include <raymath.h>
 
 namespace Gui {
     TileInfo::TileInfo(const Vector3 &pos)
