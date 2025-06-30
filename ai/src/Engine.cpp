@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2025
-** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
+** Zappy
 ** File description:
 ** Engine
 */

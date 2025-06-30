@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2024
-** zappy [WSL: Ubuntu]
+** Zappy
 ** File description:
 ** Player.hpp
 */
