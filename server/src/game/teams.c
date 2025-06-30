@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The teams.c
+** The file containing the team management functions
 */
 /**
  * @file teams.c
- * @brief The teams.c
- * @author Nicolas TORO
+ * @brief The file containing the team management functions
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "game.h"

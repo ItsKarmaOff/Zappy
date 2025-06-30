@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The sgt.c
+** The file containing the sending of the "sgt" command for GUI clients
 */
 /**
  * @file sgt.c
- * @brief The sgt.c
- * @author Nicolas TORO
+ * @brief The file containing the sending of
+ * the "sgt" command for GUI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_gui.h"

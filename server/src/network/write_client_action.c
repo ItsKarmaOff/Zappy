@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The write_client_action.c
+** The file containing the function to write client actions
 */
 /**
  * @file write_client_action.c
- * @brief The write_client_action.c
- * @author Nicolas TORO
+ * @brief The file containing the function to write client actions
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"

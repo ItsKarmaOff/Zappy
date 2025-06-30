@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The no_refill.c
+** The file containing the function for the "no_refill" option
 */
 /**
  * @file no_refill.c
- * @brief The no_refill.c
- * @author Nicolas TORO
+ * @brief The file containing the function for the "no_refill" option
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "parsing.h"

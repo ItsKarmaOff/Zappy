@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The authenticate_client.c
+** The file containing the function to authenticate a client
 */
 /**
  * @file authenticate_client.c
- * @brief The authenticate_client.c
- * @author Nicolas TORO
+ * @brief The file containing the function to authenticate a client
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"

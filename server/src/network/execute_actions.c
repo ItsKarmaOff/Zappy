@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The execute_actions.c
+** The file containing the function to execute actions for clients
 */
 /**
  * @file execute_actions.c
- * @brief The execute_actions.c
- * @author Nicolas TORO
+ * @brief The file containing the function to execute actions for clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"

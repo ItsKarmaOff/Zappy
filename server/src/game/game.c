@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The game.c
+** The file containing the game management functions
 */
 /**
  * @file game.c
- * @brief The game.c
- * @author Nicolas TORO
+ * @brief The file containing the game management functions
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "game.h"

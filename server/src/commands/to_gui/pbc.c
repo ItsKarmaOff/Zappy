@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The pbc.c
+** The file containing the sending of the "pbc" command for GUI clients
 */
 /**
  * @file pbc.c
- * @brief The pbc.c
- * @author Nicolas TORO
+ * @brief The file containing the sending of
+ * the "pbc" command for GUI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_gui.h"

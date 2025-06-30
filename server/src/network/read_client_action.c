@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The read_client_action.c
+** The file containing the function to read client actions
 */
 /**
  * @file read_client_action.c
- * @brief The read_client_action.c
- * @author Nicolas TORO
+ * @brief The file containing the function to read client actions
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"

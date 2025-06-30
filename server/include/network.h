@@ -42,7 +42,7 @@ char *get_ip_address(void);
  * @param server The server containing the client
  * @param index The index of the client in the poll_fds array
  */
-void analyse_poll(server_t *server, size_t index);
+void analyze_poll(server_t *server, size_t index);
 
 
 

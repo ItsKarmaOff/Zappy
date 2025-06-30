@@ -1,13 +1,16 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The infinite_food.c
+** The file containing the handling of
+ * the "infinite_food" command for server clients
 */
 /**
  * @file infinite_food.c
- * @brief The infinite_food.c
- * @author Nicolas TORO
+ * @brief The file containing the handling of
+ * the "Infinite Food" command for server clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_server.h"

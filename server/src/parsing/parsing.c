@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The parsing.c
+** The file containing the parsing functions
 */
 /**
  * @file parsing.c
- * @brief The parsing.c
- * @author Nicolas TORO
+ * @brief The file containing the parsing functions
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "parsing.h"
@@ -90,7 +91,7 @@ static bool is_valid_long_option(parsing_t *parsing, size_t option_index)
     return false;
 }
 
-static void analyse_arg(server_t *server, parsing_t *parsing)
+static void analyze_arg(server_t *server, parsing_t *parsing)
 {
     for (size_t option_index = 0; options[option_index].short_name != 0;
     option_index++) {
@@ -133,7 +134,7 @@ void init_server_from_args(server_t *server, int argc, char **argv)
     server->game.game_settings.frequency = DEFAULT_FREQUENCY;
     server->game.game_settings.next_player_id = 1;
     for (parsing.index = 1; parsing.index < parsing.argc; parsing.index++)
-        analyse_arg(server, &parsing);
+        analyze_arg(server, &parsing);
     if (parsing.options_found != (PORT_OPTION | WIDTH_OPTION | HEIGHT_OPTION |
     NAMES_OPTION | CLIENTS_OPTION))
         missing_options(parsing.options_found);

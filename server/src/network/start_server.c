@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The start_server.c
+** The file containing the function to start the server
 */
 /**
  * @file start_server.c
- * @brief The start_server.c
- * @author Nicolas TORO
+ * @brief The file containing the function to start the server
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"

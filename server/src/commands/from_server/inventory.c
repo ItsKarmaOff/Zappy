@@ -1,13 +1,16 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The inventory.c
+** The file containing the handling of
+ * the "inventory" command for server clients
 */
 /**
  * @file inventory.c
- * @brief The inventory.c
- * @author Nicolas TORO
+ * @brief The file containing the handling of
+ * the "inventory" command for server clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_server.h"

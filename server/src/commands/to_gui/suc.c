@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The suc.c
+** The file containing the sending of the "suc" command for GUI clients
 */
 /**
  * @file suc.c
- * @brief The suc.c
- * @author Nicolas TORO
+ * @brief The file containing the sending of
+ * the "suc" command for GUI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_gui.h"

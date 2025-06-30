@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The ppo.c
+** The file containing the sending of the "ppo" command for GUI clients
 */
 /**
  * @file ppo.c
- * @brief The ppo.c
- * @author Nicolas TORO
+ * @brief The file containing the sending of
+ * the "ppo" command for GUI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_gui.h"

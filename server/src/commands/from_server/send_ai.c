@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The send_ai.c
+** The file containing the handling of the "send_ai" command for server clients
 */
 /**
  * @file send_ai.c
- * @brief The send_ai.c
- * @author Nicolas TORO
+ * @brief The file containing the handling of
+ * the "send_ai" command for server clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_server.h"
