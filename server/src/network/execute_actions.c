@@ -23,7 +23,7 @@ void execute_actions(server_t *server)
         && client->client_type == CLIENT_AI)
             continue;
         if (client->next_action.cmd_function != NULL &&
-        difftime(time(NULL), client->last_action_time) >=
+        my_difftime(my_get_time(), client->last_action_time) >=
         client->next_action.time_to_wait /
         (double)server->game.game_settings.frequency) {
             DEBUG(my_create_str("Executing action for client %zu", index));

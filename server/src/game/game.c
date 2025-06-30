@@ -44,7 +44,7 @@ void refill_resources(server_t *server, game_t *game)
             send_bct_to_gui(server, NULL, (vector2u_t){x, y});
         }
     }
-    game->last_refill_time = time(NULL);
+    game->last_refill_time = my_get_time();
 }
 
 void create_game_map(server_t *server, game_t *game)
@@ -119,7 +119,7 @@ void update_game(server_t *server)
     node_t *dead_players = NULL;
 
     if (server->game.game_settings.no_refill == false &&
-    difftime(time(NULL), server->game.last_refill_time) >=
+    my_difftime(my_get_time(), server->game.last_refill_time) >=
     REFILL_TIME / (double)server->game.game_settings.frequency)
         refill_resources(server, &server->game);
     for (size_t index = 1; index < server->game.game_settings.teams_number;

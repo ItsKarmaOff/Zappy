@@ -808,6 +808,15 @@ char *my_convert_base_unsigned(char const *nbr,
     char const *base_from, char const *base_to);
 
 /**
+ * @brief Calculates the difference in seconds between two timespec_t
+ * @param end The end time
+ * @param start The start time
+ * @return <b>double</b> The difference in seconds
+ * @author Nicolas TORO
+ */
+double my_difftime(timespec_t end, timespec_t start);
+
+/**
  * @brief Returns an int number starting from a string number (number)
  * and change my_errno if an error occurs depending on the settings (settings)
  * @note The function will change <u>my_errno</u> by 1 if an error occurs
@@ -818,6 +827,12 @@ char *my_convert_base_unsigned(char const *nbr,
  * @author Nicolas TORO
  */
 intmax_t my_get_number(char *number, number_settings_t settings);
+
+/**
+ * @brief Gets the current time using CLOCK_MONOTONIC
+ * @return <b>timespec_t</b> The current time
+ */
+timespec_t my_get_time(void);
 
 /**
  * @brief Returns a number starting from a string number (str)

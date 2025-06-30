@@ -146,7 +146,7 @@ static void update_players_in_incantation(
         ((player_t *)tmp->data)->client->next_action.time_to_wait = 300;
         ((player_t *)tmp->data)->client->next_action.cmd_function =
             &handle_ai_command_finish_incantation;
-        ((player_t *)tmp->data)->client->last_action_time = time(NULL);
+        ((player_t *)tmp->data)->client->last_action_time = my_get_time();
     }
 }
 

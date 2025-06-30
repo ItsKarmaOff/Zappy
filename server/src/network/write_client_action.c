@@ -148,7 +148,7 @@ static bool set_next_action(server_t *server, size_t index,
                 selected_commands[cmd].time_to_wait;
             server->client_list[index - 1]->next_action.cmd_function =
                 selected_commands[cmd].cmd_function;
-            server->client_list[index - 1]->last_action_time = time(NULL);
+            server->client_list[index - 1]->last_action_time = my_get_time();
             FREE(command);
             return true;
         }
