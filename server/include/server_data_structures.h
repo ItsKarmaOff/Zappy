@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The server_data_structures.h
+** The data structures used by the server
 */
 /**
  * @file server_data_structures.h
- * @brief The server_data_structures.h
- * @author Nicolas TORO
+ * @brief The data structures used by the server
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #ifndef SERVER_DATA_STRUCTURES_H_

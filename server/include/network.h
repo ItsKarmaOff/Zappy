@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The network.h
+** The file containing the network functions
 */
 /**
  * @file network.h
- * @brief The network.h
- * @author Nicolas TORO
+ * @brief The file containing the network functions
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #ifndef NETWORK_H_
