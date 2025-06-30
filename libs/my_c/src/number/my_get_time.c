@@ -1,12 +1,12 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Libmy
 ** File description:
-** The my_get_time.c
+** The file containing the my_get_time function
 */
 /**
  * @file my_get_time.c
- * @brief The my_getime.c
+ * @brief The file containing the my_get_time function
  * @author Nicolas TORO
  */
 
