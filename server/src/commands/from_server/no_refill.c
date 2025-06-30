@@ -3,7 +3,7 @@
 ** Zappy
 ** File description:
 ** The file containing the handling of
- * the "no_refill" command for server clients
+** the "no_refill" command for server clients
 */
 /**
  * @file no_refill.c

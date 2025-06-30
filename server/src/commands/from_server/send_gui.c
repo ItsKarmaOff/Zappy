@@ -3,7 +3,7 @@
 ** Zappy
 ** File description:
 ** The file containing the handling of
- * the "send_gui" command for server clients
+** the "send_gui" command for server clients
 */
 /**
  * @file send_gui.c

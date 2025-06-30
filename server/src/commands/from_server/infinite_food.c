@@ -3,7 +3,7 @@
 ** Zappy
 ** File description:
 ** The file containing the handling of
- * the "infinite_food" command for server clients
+** the "infinite_food" command for server clients
 */
 /**
  * @file infinite_food.c

@@ -3,7 +3,7 @@
 ** Zappy
 ** File description:
 ** The file containing the handling of
- * the "frequency" command for server clients
+** the "frequency" command for server clients
 */
 /**
  * @file frequency.c

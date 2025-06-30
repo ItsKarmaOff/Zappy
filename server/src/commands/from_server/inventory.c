@@ -3,7 +3,7 @@
 ** Zappy
 ** File description:
 ** The file containing the handling of
- * the "inventory" command for server clients
+** the "inventory" command for server clients
 */
 /**
  * @file inventory.c

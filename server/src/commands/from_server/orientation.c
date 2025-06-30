@@ -3,7 +3,7 @@
 ** Zappy
 ** File description:
 ** The file containing the handling of
- * the "orientation" command for server clients
+** the "orientation" command for server clients
 */
 /**
  * @file orientation.c
