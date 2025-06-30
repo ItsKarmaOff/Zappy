@@ -104,8 +104,6 @@ void update_player(server_t *server, player_t *player, node_t **dead_players)
     }
     if (server->game.game_settings.infinite_food == false
     && my_difftime(my_get_time(), player->last_eat_time) >=
-    FOOD_TIME_UNIT / (double)server->game.game_settings.frequency) {
-        printf("%f\n", my_difftime(my_get_time(), player->last_eat_time));
+    FOOD_TIME_UNIT / (double)server->game.game_settings.frequency)
         player_eat(server, player, dead_players);
-    }
 }
