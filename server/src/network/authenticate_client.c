@@ -83,9 +83,8 @@ static void respond_to_client(server_t *server, client_t *client,
     size_t team_index)
 {
     if (team_index != GRAPHIC_TEAM_INDEX) {
-        dprintf(client->socket_fd, "%zu\n",
-            server->game.team_list[team_index]->eggs_number - 1);
-        dprintf(client->socket_fd, "%zu %zu\n",
+        dprintf(client->socket_fd, "%zu\n%zu %zu\n",
+            server->game.team_list[team_index]->eggs_number - 1,
             server->game.game_settings.width,
             server->game.game_settings.height);
     } else {
