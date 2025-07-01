@@ -84,5 +84,5 @@ var searchData=
   ['height_2ec_81',['height.c',['../height_8c.html',1,'']]],
   ['height_5foption_82',['HEIGHT_OPTION',['../parsing_8h.html#a493efbd4033206ee546f1d4df5f22a9fa7593295dc4d0396ecff8c9c85d77e971',1,'parsing.h']]],
   ['help_2ec_83',['help.c',['../parsing_2options_2help_8c.html',1,'(Global Namespace)'],['../commands_2from__server_2help_8c.html',1,'(Global Namespace)']]],
-  ['hostname_5foption_84',['HOSTNAME_OPTION',['../ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6a612d7f8799dde845e23b2c56255d426a',1,'HOSTNAME_OPTION():&#160;Parser.hpp'],['../gui_2include_2core_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6a612d7f8799dde845e23b2c56255d426a',1,'Gui::HOSTNAME_OPTION()']]]
+  ['hostname_5foption_84',['HOSTNAME_OPTION',['../gui_2include_2core_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6a612d7f8799dde845e23b2c56255d426a',1,'Gui']]]
 ];

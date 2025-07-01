@@ -87,135 +87,25 @@ $(document).ready(function(){initNavTree('classParser.html',''); initResizable()
   <div class="headertitle"><div class="title">Parser Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>The <a class="el" href="classParser.html" title="The Parser class is responsible for parsing command line arguments and options.">Parser</a> class is responsible for parsing command line arguments and options.  
- <a href="classParser.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="ai_2include_2Parser_8hpp_source.html">Parser.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5e146520b0cb99f04311e6c46a19a9f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a5e146520b0cb99f04311e6c46a19a9f0">Parser</a> (int const &amp;argc, char **const &amp;argv)</td></tr>
-<tr class="memdesc:a5e146520b0cb99f04311e6c46a19a9f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classParser.html" title="The Parser class is responsible for parsing command line arguments and options.">Parser</a> class.  <a href="classParser.html#a5e146520b0cb99f04311e6c46a19a9f0">More...</a><br /></td></tr>
-<tr class="separator:a5e146520b0cb99f04311e6c46a19a9f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb927943cae3ef783a6623389f39c78d"><td class="memItemLeft" align="right" valign="top"><a id="afb927943cae3ef783a6623389f39c78d" name="afb927943cae3ef783a6623389f39c78d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~Parser</b> ()</td></tr>
-<tr class="memdesc:afb927943cae3ef783a6623389f39c78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classParser.html" title="The Parser class is responsible for parsing command line arguments and options.">Parser</a> class. <br /></td></tr>
-<tr class="separator:afb927943cae3ef783a6623389f39c78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4da9eed11bbf6e4b9b094be0798dbf9d"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a4da9eed11bbf6e4b9b094be0798dbf9d">getHostname</a> () const</td></tr>
-<tr class="memdesc:a4da9eed11bbf6e4b9b094be0798dbf9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the hostname.  <a href="classParser.html#a4da9eed11bbf6e4b9b094be0798dbf9d">More...</a><br /></td></tr>
-<tr class="separator:a4da9eed11bbf6e4b9b094be0798dbf9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79a105b3fefc648b715bb0a00105217e"><td class="memItemLeft" align="right" valign="top">const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a79a105b3fefc648b715bb0a00105217e">getPort</a> () const</td></tr>
-<tr class="memdesc:a79a105b3fefc648b715bb0a00105217e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the port number.  <a href="classParser.html#a79a105b3fefc648b715bb0a00105217e">More...</a><br /></td></tr>
-<tr class="separator:a79a105b3fefc648b715bb0a00105217e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fd7335faa33dce2f87c7e50eef3e294"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a3fd7335faa33dce2f87c7e50eef3e294">getName</a> () const</td></tr>
-<tr class="memdesc:a3fd7335faa33dce2f87c7e50eef3e294"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the name of the team.  <a href="classParser.html#a3fd7335faa33dce2f87c7e50eef3e294">More...</a><br /></td></tr>
+<tr class="memitem:a66fa8f960eac1bf561ba2cb8be0cc58a"><td class="memItemLeft" align="right" valign="top"><a id="a66fa8f960eac1bf561ba2cb8be0cc58a" name="a66fa8f960eac1bf561ba2cb8be0cc58a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parse</b> (int argc, char **argv)</td></tr>
+<tr class="separator:a66fa8f960eac1bf561ba2cb8be0cc58a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa290067db950b3fe0df39fb03d52f809"><td class="memItemLeft" align="right" valign="top"><a id="aa290067db950b3fe0df39fb03d52f809" name="aa290067db950b3fe0df39fb03d52f809"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getPort</b> () const</td></tr>
+<tr class="separator:aa290067db950b3fe0df39fb03d52f809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fd7335faa33dce2f87c7e50eef3e294"><td class="memItemLeft" align="right" valign="top"><a id="a3fd7335faa33dce2f87c7e50eef3e294" name="a3fd7335faa33dce2f87c7e50eef3e294"></a>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () const</td></tr>
 <tr class="separator:a3fd7335faa33dce2f87c7e50eef3e294"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1439d6837b4dd111ea8f4ceaf4609092"><td class="memItemLeft" align="right" valign="top"><a id="a1439d6837b4dd111ea8f4ceaf4609092" name="a1439d6837b4dd111ea8f4ceaf4609092"></a>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMachine</b> () const</td></tr>
+<tr class="separator:a1439d6837b4dd111ea8f4ceaf4609092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >The <a class="el" href="classParser.html" title="The Parser class is responsible for parsing command line arguments and options.">Parser</a> class is responsible for parsing command line arguments and options. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5e146520b0cb99f04311e6c46a19a9f0" name="a5e146520b0cb99f04311e6c46a19a9f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e146520b0cb99f04311e6c46a19a9f0">&#9670;&nbsp;</a></span>Parser()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classParser.html">Parser</a> </td>
-          <td>(</td>
-          <td class="paramtype">int const &amp;&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **const &amp;&#160;</td>
-          <td class="paramname"><em>argv</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor for the <a class="el" href="classParser.html" title="The Parser class is responsible for parsing command line arguments and options.">Parser</a> class. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">argc</td><td>The number of arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>The arguments </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4da9eed11bbf6e4b9b094be0798dbf9d" name="a4da9eed11bbf6e4b9b094be0798dbf9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4da9eed11bbf6e4b9b094be0798dbf9d">&#9670;&nbsp;</a></span>getHostname()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::string &amp; getHostname </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the hostname. </p>
-<dl class="section return"><dt>Returns</dt><dd>The hostname </dd></dl>
-
-</div>
-</div>
-<a id="a3fd7335faa33dce2f87c7e50eef3e294" name="a3fd7335faa33dce2f87c7e50eef3e294"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3fd7335faa33dce2f87c7e50eef3e294">&#9670;&nbsp;</a></span>getName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::string &amp; getName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the name of the team. </p>
-<dl class="section return"><dt>Returns</dt><dd>The name of the team </dd></dl>
-
-</div>
-</div>
-<a id="a79a105b3fefc648b715bb0a00105217e" name="a79a105b3fefc648b715bb0a00105217e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79a105b3fefc648b715bb0a00105217e">&#9670;&nbsp;</a></span>getPort()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int &amp; getPort </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the port number. </p>
-<dl class="section return"><dt>Returns</dt><dd>The port number </dd></dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>ai/include/<a class="el" href="ai_2include_2Parser_8hpp_source.html">Parser.hpp</a></li>
-<li>ai/src/<a class="el" href="ai_2src_2Parser_8cpp.html">Parser.cpp</a></li>
+<li>ai/src/Parser.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

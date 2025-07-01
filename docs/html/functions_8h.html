@@ -348,9 +348,15 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>my_trunc</b> (doubl
 <tr class="memitem:a73c2778de3724d1e4c1343511dcdb30f"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a73c2778de3724d1e4c1343511dcdb30f">my_convert_base_unsigned</a> (char const *nbr, char const *base_from, char const *base_to)</td></tr>
 <tr class="memdesc:a73c2778de3724d1e4c1343511dcdb30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the conversion of a unsigned number (nbr) in a specific base (base_from) to another base (base_to)  <a href="functions_8h.html#a73c2778de3724d1e4c1343511dcdb30f">More...</a><br /></td></tr>
 <tr class="separator:a73c2778de3724d1e4c1343511dcdb30f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adede9c1d3fc6bfe5f7d4bebd4156387e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#adede9c1d3fc6bfe5f7d4bebd4156387e">my_difftime</a> (timespec_t end, timespec_t start)</td></tr>
+<tr class="memdesc:adede9c1d3fc6bfe5f7d4bebd4156387e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the difference in seconds between two timespec_t.  <a href="functions_8h.html#adede9c1d3fc6bfe5f7d4bebd4156387e">More...</a><br /></td></tr>
+<tr class="separator:adede9c1d3fc6bfe5f7d4bebd4156387e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46a4369d7cfc2dfa3f4e06ec8d644462"><td class="memItemLeft" align="right" valign="top">intmax_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a46a4369d7cfc2dfa3f4e06ec8d644462">my_get_number</a> (char *number, <a class="el" href="structnumber__settings__s.html">number_settings_t</a> settings)</td></tr>
 <tr class="memdesc:a46a4369d7cfc2dfa3f4e06ec8d644462"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an int number starting from a string number (number) and change my_errno if an error occurs depending on the settings (settings)  <a href="functions_8h.html#a46a4369d7cfc2dfa3f4e06ec8d644462">More...</a><br /></td></tr>
 <tr class="separator:a46a4369d7cfc2dfa3f4e06ec8d644462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad00edc4bfe479d8a0b5c0406a2dd097a"><td class="memItemLeft" align="right" valign="top">timespec_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#ad00edc4bfe479d8a0b5c0406a2dd097a">my_get_time</a> (void)</td></tr>
+<tr class="memdesc:ad00edc4bfe479d8a0b5c0406a2dd097a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current time using CLOCK_MONOTONIC.  <a href="functions_8h.html#ad00edc4bfe479d8a0b5c0406a2dd097a">More...</a><br /></td></tr>
+<tr class="separator:ad00edc4bfe479d8a0b5c0406a2dd097a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab18f7f34c38bf41ed40abb9a4090d160"><td class="memItemLeft" align="right" valign="top">intmax_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#ab18f7f34c38bf41ed40abb9a4090d160">my_getnbr_base</a> (char const *str, char const *base)</td></tr>
 <tr class="memdesc:ab18f7f34c38bf41ed40abb9a4090d160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a number starting from a string number (str) in the requested base (base)  <a href="functions_8h.html#ab18f7f34c38bf41ed40abb9a4090d160">More...</a><br /></td></tr>
 <tr class="separator:ab18f7f34c38bf41ed40abb9a4090d160"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1829,6 +1835,45 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flag_uppercase_x</b> 
 
 </div>
 </div>
+<a id="adede9c1d3fc6bfe5f7d4bebd4156387e" name="adede9c1d3fc6bfe5f7d4bebd4156387e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adede9c1d3fc6bfe5f7d4bebd4156387e">&#9670;&nbsp;</a></span>my_difftime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double my_difftime </td>
+          <td>(</td>
+          <td class="paramtype">timespec_t&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">timespec_t&#160;</td>
+          <td class="paramname"><em>start</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the difference in seconds between two timespec_t. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">end</td><td>The end time </td></tr>
+    <tr><td class="paramname">start</td><td>The start time </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>double</b> The difference in seconds </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
+
+</div>
+</div>
 <a id="a5f1ab6e20e3789bc0e6fba11a0faddb6" name="a5f1ab6e20e3789bc0e6fba11a0faddb6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f1ab6e20e3789bc0e6fba11a0faddb6">&#9670;&nbsp;</a></span>my_dprintf()</h2>
 
@@ -2304,6 +2349,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flag_uppercase_x</b> 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><b>intmax_t</b> The number found in the string </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
+
+</div>
+</div>
+<a id="ad00edc4bfe479d8a0b5c0406a2dd097a" name="ad00edc4bfe479d8a0b5c0406a2dd097a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad00edc4bfe479d8a0b5c0406a2dd097a">&#9670;&nbsp;</a></span>my_get_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">timespec_t my_get_time </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the current time using CLOCK_MONOTONIC. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>timespec_t</b> The current time </dd></dl>
 
 </div>
 </div>

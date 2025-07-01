@@ -12,7 +12,7 @@ var searchData=
   ['_7egameinfo_9',['~GameInfo',['../classGui_1_1GameInfo.html#adbdc98c8313b68b9dddc3e1393e9c1cc',1,'Gui::GameInfo']]],
   ['_7egraphics_10',['~Graphics',['../classGui_1_1Graphics.html#a6822b013923c974b1dde915948dd1d34',1,'Gui::Graphics']]],
   ['_7emodelinfo_11',['~ModelInfo',['../classGui_1_1ModelInfo.html#a25c63bab9149799b78ec2e26a432d54a',1,'Gui::ModelInfo']]],
-  ['_7eparser_12',['~Parser',['../classParser.html#afb927943cae3ef783a6623389f39c78d',1,'Parser::~Parser()'],['../classGui_1_1Parser.html#afb927943cae3ef783a6623389f39c78d',1,'Gui::Parser::~Parser()']]],
+  ['_7eparser_12',['~Parser',['../classGui_1_1Parser.html#afb927943cae3ef783a6623389f39c78d',1,'Gui::Parser']]],
   ['_7epauseinfo_13',['~PauseInfo',['../classGui_1_1PauseInfo.html#ac619433f200ad37ffab0e265a10127db',1,'Gui::PauseInfo']]],
   ['_7eplayerinfo_14',['~PlayerInfo',['../classGui_1_1PlayerInfo.html#afe23c640efef1657e8c681103585cf82',1,'Gui::PlayerInfo']]],
   ['_7equeuemanager_15',['~QueueManager',['../classGui_1_1QueueManager.html#a733e27f0ac5c2894ebb72c4c8e914421',1,'Gui::QueueManager']]],

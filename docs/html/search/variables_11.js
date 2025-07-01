@@ -10,5 +10,5 @@ var searchData=
   ['tile_5fsize_7',['TILE_SIZE',['../Graphics_8hpp.html#ad227ee83b09f00192c24031234c313de',1,'Gui']]],
   ['time_5fto_5fwait_8',['time_to_wait',['../structaction__s.html#a5c9660da4d3d16cf5dfdccc29989a92c',1,'action_s::time_to_wait()'],['../structcommand__s.html#a5c9660da4d3d16cf5dfdccc29989a92c',1,'command_s::time_to_wait()']]],
   ['timestamp_9',['timestamp',['../structGui_1_1message.html#aeaf8ab5e60b763a7b0246de3eca6443d',1,'Gui::message']]],
-  ['type_10',['type',['../structOption.html#ad79e7824e1cf503d045fafae6ac1f1f8',1,'Option::type()'],['../structGui_1_1Option.html#ad79e7824e1cf503d045fafae6ac1f1f8',1,'Gui::Option::type()'],['../structnode__s.html#af1165402d8fcc6220b3798dfa855de0f',1,'node_s::type()'],['../structarray__settings__s.html#a6193622a1708b2b879d41828d6c3b17a',1,'array_settings_s::type()'],['../structoption__s.html#a2c81d907bd594546bb57660a5a638874',1,'option_s::type()']]]
+  ['type_10',['type',['../structGui_1_1Option.html#ad79e7824e1cf503d045fafae6ac1f1f8',1,'Gui::Option::type()'],['../structnode__s.html#af1165402d8fcc6220b3798dfa855de0f',1,'node_s::type()'],['../structarray__settings__s.html#a6193622a1708b2b879d41828d6c3b17a',1,'array_settings_s::type()'],['../structoption__s.html#a2c81d907bd594546bb57660a5a638874',1,'option_s::type()']]]
 ];

@@ -2,7 +2,9 @@ var dir_1dc3bc4e3116c1b7c00573c31848650a =
 [
     [ "my_convert_base_signed.c", "my__convert__base__signed_8c.html", "my__convert__base__signed_8c" ],
     [ "my_convert_base_unsigned.c", "my__convert__base__unsigned_8c.html", "my__convert__base__unsigned_8c" ],
+    [ "my_difftime.c", "my__difftime_8c.html", "my__difftime_8c" ],
     [ "my_get_number.c", "my__get__number_8c.html", "my__get__number_8c" ],
+    [ "my_get_time.c", "my__get__time_8c.html", "my__get__time_8c" ],
     [ "my_getnbr_base.c", "my__getnbr__base_8c.html", "my__getnbr__base_8c" ],
     [ "my_getnbr_float.c", "my__getnbr__float_8c.html", "my__getnbr__float_8c" ],
     [ "my_isinf_double.c", "my__isinf__double_8c.html", "my__isinf__double_8c" ],

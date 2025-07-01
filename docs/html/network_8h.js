@@ -1,7 +1,7 @@
 var network_8h =
 [
     [ "add_new_client", "network_8h.html#abca66d4f6115c95c880ee5bc7bd9dce4", null ],
-    [ "analyse_poll", "network_8h.html#ae28bf8216a6f4a9cd49d5e25e0fb303b", null ],
+    [ "analyze_poll", "network_8h.html#a0ad30131f1a04bad34e5af149e22f1a3", null ],
     [ "authenticate_client", "network_8h.html#a48e0709f9367d33b4f14b8c807ced000", null ],
     [ "destroy_client", "network_8h.html#a589c3bd58221719c58248464620d22c3", null ],
     [ "destroy_clients", "network_8h.html#a78cb8131561b4d698b5a659e3e488f55", null ],

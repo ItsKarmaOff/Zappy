@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['last_5faction_5ftime_0',['last_action_time',['../structclient__s.html#acf6e742622e9992bc0f3b6dab5f7968c',1,'client_s']]],
-  ['last_5feat_5ftime_1',['last_eat_time',['../structplayer__s.html#a945e907c0735c98f0380e79b4f87b878',1,'player_s']]],
-  ['last_5frefill_5ftime_2',['last_refill_time',['../structgame__s.html#a872de5205c07b0c80e174d7bb16656cd',1,'game_s']]],
+  ['last_5faction_5ftime_0',['last_action_time',['../structclient__s.html#ac727a3e912dc2b8b0bfe062a4a2684ca',1,'client_s']]],
+  ['last_5feat_5ftime_1',['last_eat_time',['../structplayer__s.html#ac468b347360fd4bf9b59246b3083cf92',1,'player_s']]],
+  ['last_5frefill_5ftime_2',['last_refill_time',['../structgame__s.html#a6c7e848ac0814e60d02270d229bb4cf2',1,'game_s']]],
   ['last_5fseparator_5fsize_3',['last_separator_size',['../structstr__to__array__s.html#a3c5a980bb751caa6f535aaeb04e31f1b',1,'str_to_array_s']]],
   ['left_2ec_4',['left.c',['../left_8c.html',1,'']]],
   ['len_5',['len',['../structhashtable__s.html#a7360b55975153b822efc5217b7734e6a',1,'hashtable_s']]],
@@ -21,6 +21,6 @@ var searchData=
   ['logs_2ehpp_18',['Logs.hpp',['../Logs_8hpp.html',1,'']]],
   ['logs_5ftype_5fstrings_19',['logs_type_strings',['../my__logs__message_8c.html#a6033c5bcda3762882e0ac59d0b50bf61',1,'my_logs_message.c']]],
   ['long_5fname_20',['long_name',['../structoption__s.html#a4c33c7528c496ba2624340a9f3b561d3',1,'option_s']]],
-  ['longname_21',['longName',['../structOption.html#a22157dc9ac39d6bd13c2429f6c96f623',1,'Option::longName()'],['../structGui_1_1Option.html#a22157dc9ac39d6bd13c2429f6c96f623',1,'Gui::Option::longName()']]],
+  ['longname_21',['longName',['../structGui_1_1Option.html#a22157dc9ac39d6bd13c2429f6c96f623',1,'Gui::Option']]],
   ['look_2ec_22',['look.c',['../look_8c.html',1,'']]]
 ];

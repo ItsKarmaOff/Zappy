@@ -85,118 +85,44 @@ $(document).ready(function(){initNavTree('ai_2include_2Parser_8hpp_source.html',
   <div class="headertitle"><div class="title">Parser.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="ai_2include_2Parser_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">** EPITECH PROJECT, 2025</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">** Zappy</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">** File description:</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">** The Parser class declaration</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">** Parser</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef PARSER_HPP_</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">    #define PARSER_HPP_</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">    #include &quot;<a class="code" href="Lib_8hpp.html">Lib.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">//namespace Ai</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">//{</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">class </span><a class="code hl_class" href="classParser.html">Parser</a>;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef PARSER_HPP_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define PARSER_HPP_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="Lib_8hpp.html">Lib.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classParser.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classParser.html">Parser</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <a class="code hl_class" href="classParser.html">Parser</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <a class="code hl_class" href="classParser.html">~Parser</a>();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordtype">void</span> parse(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordtype">int</span> getPort()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _port; }</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keyword">const</span> std::string &amp;getName()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _name; }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keyword">const</span> std::string &amp;getMachine()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _machine; }</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="ai_2include_2Parser_8hpp.html#aee916eaf4fc86d161239bd4bc5a0faf4">   23</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="ai_2include_2Parser_8hpp.html#aee916eaf4fc86d161239bd4bc5a0faf4">MAX_PORT_NUMBER</a> = 65535; </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6">   29</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6">OptionType</a> {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6ae79ba002cf0163d634b562a676808674">   30</a></span>        <a class="code hl_enumvalue" href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6ae79ba002cf0163d634b562a676808674">NOT_REQUIRED</a> = 0, </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6a612d7f8799dde845e23b2c56255d426a">   31</a></span>        <a class="code hl_enumvalue" href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6a612d7f8799dde845e23b2c56255d426a">HOSTNAME_OPTION</a> = 1 &lt;&lt; 0, </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6a50e84e87bf81ce3bc5f7de4ffafc186a">   32</a></span>        <a class="code hl_enumvalue" href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6a50e84e87bf81ce3bc5f7de4ffafc186a">PORT_OPTION</a> = 1 &lt;&lt; 1, </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6a8cec7716460a7567b26769812da62686">   33</a></span>        <a class="code hl_enumvalue" href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6a8cec7716460a7567b26769812da62686">NAME_OPTION</a> = 1 &lt;&lt; 2, </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6aa5e18446409cf209239534b847a7ea27">   34</a></span>        <a class="code hl_enumvalue" href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6aa5e18446409cf209239534b847a7ea27">META_OPTION</a> = 1 &lt;&lt; 3, </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    };</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structOption.html">   41</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structOption.html">Option</a> {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="structOption.html#a008363c7dd972d08fc7e0f75972f5eaf">   42</a></span>        std::string <a class="code hl_variable" href="structOption.html#a008363c7dd972d08fc7e0f75972f5eaf">shortName</a>; </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structOption.html#a22157dc9ac39d6bd13c2429f6c96f623">   43</a></span>        std::string <a class="code hl_variable" href="structOption.html#a22157dc9ac39d6bd13c2429f6c96f623">longName</a>;  </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structOption.html#af9eac05ac990ecdd7937eec7daa5b251">   44</a></span>        std::string <a class="code hl_variable" href="structOption.html#af9eac05ac990ecdd7937eec7daa5b251">argument</a>; </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structOption.html#a2e1454f6988673f814408646edaeb320">   45</a></span>        std::string <a class="code hl_variable" href="structOption.html#a2e1454f6988673f814408646edaeb320">description</a>; </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structOption.html#ad79e7824e1cf503d045fafae6ac1f1f8">   46</a></span>        <a class="code hl_enumeration" href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6">OptionType</a> <a class="code hl_variable" href="structOption.html#ad79e7824e1cf503d045fafae6ac1f1f8">type</a>; </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structOption.html#a55c8ba996abb72a881636be0655b1cdc">   47</a></span>        void (<a class="code hl_class" href="classParser.html">Parser</a>::*<a class="code hl_variable" href="structOption.html#a55c8ba996abb72a881636be0655b1cdc">function</a>)(<span class="keywordtype">size_t</span> &amp;index); </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    };</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classParser.html">   54</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classParser.html">Parser</a></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <a class="code hl_function" href="classParser.html#a5e146520b0cb99f04311e6c46a19a9f0">Parser</a>(<span class="keywordtype">int</span> <span class="keyword">const</span> &amp;argc, <span class="keywordtype">char</span> ** <span class="keyword">const</span> &amp;argv);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <a class="code hl_function" href="classParser.html#afb927943cae3ef783a6623389f39c78d">~Parser</a>();</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keyword">const</span> std::string &amp;<a class="code hl_function" href="classParser.html#a4da9eed11bbf6e4b9b094be0798dbf9d">getHostname</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;<a class="code hl_function" href="classParser.html#a79a105b3fefc648b715bb0a00105217e">getPort</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="keyword">const</span> std::string &amp;<a class="code hl_function" href="classParser.html#a3fd7335faa33dce2f87c7e50eef3e294">getName</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <span class="keywordtype">void</span> _optionHostname(<span class="keywordtype">size_t</span> &amp;index);</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <span class="keywordtype">void</span> _optionPort(<span class="keywordtype">size_t</span> &amp;index);</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <span class="keywordtype">void</span> _optionName(<span class="keywordtype">size_t</span> &amp;index);</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <span class="keywordtype">void</span> _optionHelp(<span class="keywordtype">size_t</span> &amp;index);</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            <span class="keywordtype">void</span> _optionVersion(<span class="keywordtype">size_t</span> &amp;index);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            <span class="keywordtype">void</span> _optionAuthors(<span class="keywordtype">size_t</span> &amp;index);</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            <span class="keywordtype">int</span> <span class="keyword">const</span> &amp;_argc; </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            <span class="keywordtype">char</span> ** <span class="keyword">const</span> &amp;_argv; </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            std::vector&lt;Option&gt; _options; </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            uint8_t _optionsFound = 0; </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            <span class="keywordtype">int</span> _port; </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            std::string _hostname; </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            std::string _name; </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    };</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">//}</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="preprocessor">#endif </span><span class="comment">/* PARSER_HPP_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordtype">int</span> _port;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        std::string _name;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        std::string _machine;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif </span><span class="comment">/* !PARSER_HPP_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aLib_8hpp_html"><div class="ttname"><a href="Lib_8hpp.html">Lib.hpp</a></div><div class="ttdoc">The Lib functions declaration.</div></div>
-<div class="ttc" id="aai_2include_2Parser_8hpp_html_a976bded296a67e09242af85291a639d6"><div class="ttname"><a href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6">OptionType</a></div><div class="ttdeci">OptionType</div><div class="ttdoc">Represents the type of an option.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:29</div></div>
-<div class="ttc" id="aai_2include_2Parser_8hpp_html_a976bded296a67e09242af85291a639d6a50e84e87bf81ce3bc5f7de4ffafc186a"><div class="ttname"><a href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6a50e84e87bf81ce3bc5f7de4ffafc186a">PORT_OPTION</a></div><div class="ttdeci">@ PORT_OPTION</div><div class="ttdoc">The option is a port option.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:32</div></div>
-<div class="ttc" id="aai_2include_2Parser_8hpp_html_a976bded296a67e09242af85291a639d6a612d7f8799dde845e23b2c56255d426a"><div class="ttname"><a href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6a612d7f8799dde845e23b2c56255d426a">HOSTNAME_OPTION</a></div><div class="ttdeci">@ HOSTNAME_OPTION</div><div class="ttdoc">The option is a hostname option.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:31</div></div>
-<div class="ttc" id="aai_2include_2Parser_8hpp_html_a976bded296a67e09242af85291a639d6a8cec7716460a7567b26769812da62686"><div class="ttname"><a href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6a8cec7716460a7567b26769812da62686">NAME_OPTION</a></div><div class="ttdeci">@ NAME_OPTION</div><div class="ttdoc">The option is a names option.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:33</div></div>
-<div class="ttc" id="aai_2include_2Parser_8hpp_html_a976bded296a67e09242af85291a639d6aa5e18446409cf209239534b847a7ea27"><div class="ttname"><a href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6aa5e18446409cf209239534b847a7ea27">META_OPTION</a></div><div class="ttdeci">@ META_OPTION</div><div class="ttdoc">The option is a meta option.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:34</div></div>
-<div class="ttc" id="aai_2include_2Parser_8hpp_html_a976bded296a67e09242af85291a639d6ae79ba002cf0163d634b562a676808674"><div class="ttname"><a href="ai_2include_2Parser_8hpp.html#a976bded296a67e09242af85291a639d6ae79ba002cf0163d634b562a676808674">NOT_REQUIRED</a></div><div class="ttdeci">@ NOT_REQUIRED</div><div class="ttdoc">The option is not required.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:30</div></div>
-<div class="ttc" id="aai_2include_2Parser_8hpp_html_aee916eaf4fc86d161239bd4bc5a0faf4"><div class="ttname"><a href="ai_2include_2Parser_8hpp.html#aee916eaf4fc86d161239bd4bc5a0faf4">MAX_PORT_NUMBER</a></div><div class="ttdeci">constexpr int MAX_PORT_NUMBER</div><div class="ttdoc">Maximum port number allowed.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:23</div></div>
-<div class="ttc" id="aclassParser_html"><div class="ttname"><a href="classParser.html">Parser</a></div><div class="ttdoc">The Parser class is responsible for parsing command line arguments and options.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:55</div></div>
-<div class="ttc" id="aclassParser_html_a3fd7335faa33dce2f87c7e50eef3e294"><div class="ttname"><a href="classParser.html#a3fd7335faa33dce2f87c7e50eef3e294">Parser::getName</a></div><div class="ttdeci">const std::string &amp; getName() const</div><div class="ttdoc">Get the name of the team.</div><div class="ttdef"><b>Definition:</b> Parser.cpp:71</div></div>
-<div class="ttc" id="aclassParser_html_a4da9eed11bbf6e4b9b094be0798dbf9d"><div class="ttname"><a href="classParser.html#a4da9eed11bbf6e4b9b094be0798dbf9d">Parser::getHostname</a></div><div class="ttdeci">const std::string &amp; getHostname() const</div><div class="ttdoc">Get the hostname.</div><div class="ttdef"><b>Definition:</b> Parser.cpp:61</div></div>
-<div class="ttc" id="aclassParser_html_a5e146520b0cb99f04311e6c46a19a9f0"><div class="ttname"><a href="classParser.html#a5e146520b0cb99f04311e6c46a19a9f0">Parser::Parser</a></div><div class="ttdeci">Parser(int const &amp;argc, char **const &amp;argv)</div><div class="ttdoc">Constructor for the Parser class.</div><div class="ttdef"><b>Definition:</b> Parser.cpp:18</div></div>
-<div class="ttc" id="aclassParser_html_a79a105b3fefc648b715bb0a00105217e"><div class="ttname"><a href="classParser.html#a79a105b3fefc648b715bb0a00105217e">Parser::getPort</a></div><div class="ttdeci">const int &amp; getPort() const</div><div class="ttdoc">Get the port number.</div><div class="ttdef"><b>Definition:</b> Parser.cpp:66</div></div>
-<div class="ttc" id="aclassParser_html_afb927943cae3ef783a6623389f39c78d"><div class="ttname"><a href="classParser.html#afb927943cae3ef783a6623389f39c78d">Parser::~Parser</a></div><div class="ttdeci">~Parser()</div><div class="ttdoc">Destructor for the Parser class.</div><div class="ttdef"><b>Definition:</b> Parser.cpp:56</div></div>
-<div class="ttc" id="astructOption_html"><div class="ttname"><a href="structOption.html">Option</a></div><div class="ttdoc">Represents a program option.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:41</div></div>
-<div class="ttc" id="astructOption_html_a008363c7dd972d08fc7e0f75972f5eaf"><div class="ttname"><a href="structOption.html#a008363c7dd972d08fc7e0f75972f5eaf">Option::shortName</a></div><div class="ttdeci">std::string shortName</div><div class="ttdoc">The short name of the option.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:42</div></div>
-<div class="ttc" id="astructOption_html_a22157dc9ac39d6bd13c2429f6c96f623"><div class="ttname"><a href="structOption.html#a22157dc9ac39d6bd13c2429f6c96f623">Option::longName</a></div><div class="ttdeci">std::string longName</div><div class="ttdoc">The long name of the option.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:43</div></div>
-<div class="ttc" id="astructOption_html_a2e1454f6988673f814408646edaeb320"><div class="ttname"><a href="structOption.html#a2e1454f6988673f814408646edaeb320">Option::description</a></div><div class="ttdeci">std::string description</div><div class="ttdoc">The description of the option.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:45</div></div>
-<div class="ttc" id="astructOption_html_a55c8ba996abb72a881636be0655b1cdc"><div class="ttname"><a href="structOption.html#a55c8ba996abb72a881636be0655b1cdc">Option::function</a></div><div class="ttdeci">void(Parser::* function)(size_t &amp;index)</div><div class="ttdoc">The function to call when the option is found.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:47</div></div>
-<div class="ttc" id="astructOption_html_ad79e7824e1cf503d045fafae6ac1f1f8"><div class="ttname"><a href="structOption.html#ad79e7824e1cf503d045fafae6ac1f1f8">Option::type</a></div><div class="ttdeci">OptionType type</div><div class="ttdoc">The type of the option.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:46</div></div>
-<div class="ttc" id="astructOption_html_af9eac05ac990ecdd7937eec7daa5b251"><div class="ttname"><a href="structOption.html#af9eac05ac990ecdd7937eec7daa5b251">Option::argument</a></div><div class="ttdeci">std::string argument</div><div class="ttdoc">The argument of the option.</div><div class="ttdef"><b>Definition:</b> Parser.hpp:44</div></div>
+<div class="ttc" id="aclassParser_html"><div class="ttname"><a href="classParser.html">Parser</a></div><div class="ttdef"><b>Definition:</b> Parser.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_eb8cc02461988d7ac71e6ab0aa3c7205.html">ai</a></li><li class="navelem"><a class="el" href="dir_3f64d78ef5ae6b1a137103dded274cbd.html">include</a></li><li class="navelem"><a class="el" href="ai_2include_2Parser_8hpp.html">Parser.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_eb8cc02461988d7ac71e6ab0aa3c7205.html">ai</a></li><li class="navelem"><a class="el" href="dir_3f64d78ef5ae6b1a137103dded274cbd.html">include</a></li><li class="navelem"><b>Parser.hpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>

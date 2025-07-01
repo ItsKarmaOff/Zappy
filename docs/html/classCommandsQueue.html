@@ -114,15 +114,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearCommands</b> ()<
 <tr class="memitem:a009c9bd4ac9c39a0dd23649c1f7b29a3"><td class="memItemLeft" align="right" valign="top"><a id="a009c9bd4ac9c39a0dd23649c1f7b29a3" name="a009c9bd4ac9c39a0dd23649c1f7b29a3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>clearResponses</b> ()</td></tr>
 <tr class="separator:a009c9bd4ac9c39a0dd23649c1f7b29a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dec9cff036dc78738d1637f488f09bf"><td class="memItemLeft" align="right" valign="top"><a id="a7dec9cff036dc78738d1637f488f09bf" name="a7dec9cff036dc78738d1637f488f09bf"></a>
-std::mutex &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getCommandsQueueMutex</b> () const</td></tr>
-<tr class="separator:a7dec9cff036dc78738d1637f488f09bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b60b1869b318a9838e2ab5ff65cefc9"><td class="memItemLeft" align="right" valign="top"><a id="a9b60b1869b318a9838e2ab5ff65cefc9" name="a9b60b1869b318a9838e2ab5ff65cefc9"></a>
-std::mutex &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getResponsesQueueMutex</b> () const</td></tr>
-<tr class="separator:a9b60b1869b318a9838e2ab5ff65cefc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae002a208085b2df157444b2fe6d840ff"><td class="memItemLeft" align="right" valign="top"><a id="ae002a208085b2df157444b2fe6d840ff" name="ae002a208085b2df157444b2fe6d840ff"></a>
-std::condition_variable &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getResponseCondition</b> ()</td></tr>
-<tr class="separator:ae002a208085b2df157444b2fe6d840ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a825337c064ec1c067d2af0137e33b176"><td class="memItemLeft" align="right" valign="top"><a id="a825337c064ec1c067d2af0137e33b176" name="a825337c064ec1c067d2af0137e33b176"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pushPendingCommand</b> (const std::string &amp;command)</td></tr>
+<tr class="separator:a825337c064ec1c067d2af0137e33b176"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a468f50ce2ff54166bcf098ab7c53c317"><td class="memItemLeft" align="right" valign="top"><a id="a468f50ce2ff54166bcf098ab7c53c317" name="a468f50ce2ff54166bcf098ab7c53c317"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getCurrentPendingCommand</b> () const</td></tr>
+<tr class="separator:a468f50ce2ff54166bcf098ab7c53c317"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6e7a7527cc6363d81fcd744e72d68b7"><td class="memItemLeft" align="right" valign="top"><a id="ad6e7a7527cc6363d81fcd744e72d68b7" name="ad6e7a7527cc6363d81fcd744e72d68b7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>popPendingCommand</b> ()</td></tr>
+<tr class="separator:ad6e7a7527cc6363d81fcd744e72d68b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e65336c1b8975c0277c968a6f1cd854"><td class="memItemLeft" align="right" valign="top"><a id="a0e65336c1b8975c0277c968a6f1cd854" name="a0e65336c1b8975c0277c968a6f1cd854"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasPendingCommand</b> () const</td></tr>
+<tr class="separator:a0e65336c1b8975c0277c968a6f1cd854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d6160d4d62c22cdfb539af76933f59c"><td class="memItemLeft" align="right" valign="top"><a id="a5d6160d4d62c22cdfb539af76933f59c" name="a5d6160d4d62c22cdfb539af76933f59c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clearPendingCommands</b> ()</td></tr>
+<tr class="separator:a5d6160d4d62c22cdfb539af76933f59c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>ai/include/<a class="el" href="CommandsQueue_8hpp_source.html">CommandsQueue.hpp</a></li>

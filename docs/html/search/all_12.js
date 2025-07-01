@@ -36,5 +36,5 @@ var searchData=
   ['tolower_33',['toLower',['../Lib_8hpp.html#a96432d89bc886bc9cdd1d73f86b2bbca',1,'Lib']]],
   ['tp_2ec_34',['tp.c',['../tp_8c.html',1,'']]],
   ['transform_35',['Transform',['../structTransform.html',1,'']]],
-  ['type_36',['type',['../structnode__s.html#af1165402d8fcc6220b3798dfa855de0f',1,'node_s::type()'],['../structarray__settings__s.html#a6193622a1708b2b879d41828d6c3b17a',1,'array_settings_s::type()'],['../structoption__s.html#a2c81d907bd594546bb57660a5a638874',1,'option_s::type()'],['../structGui_1_1Option.html#ad79e7824e1cf503d045fafae6ac1f1f8',1,'Gui::Option::type()'],['../structOption.html#ad79e7824e1cf503d045fafae6ac1f1f8',1,'Option::type()']]]
+  ['type_36',['type',['../structarray__settings__s.html#a6193622a1708b2b879d41828d6c3b17a',1,'array_settings_s::type()'],['../structoption__s.html#a2c81d907bd594546bb57660a5a638874',1,'option_s::type()'],['../structnode__s.html#af1165402d8fcc6220b3798dfa855de0f',1,'node_s::type()'],['../structGui_1_1Option.html#ad79e7824e1cf503d045fafae6ac1f1f8',1,'Gui::Option::type()']]]
 ];

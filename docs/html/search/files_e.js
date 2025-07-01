@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['parser_2ecpp_0',['Parser.cpp',['../ai_2src_2Parser_8cpp.html',1,'(Global Namespace)'],['../gui_2src_2core_2Parser_8cpp.html',1,'(Global Namespace)']]],
-  ['parser_2ehpp_1',['Parser.hpp',['../gui_2include_2core_2Parser_8hpp.html',1,'(Global Namespace)'],['../ai_2include_2Parser_8hpp.html',1,'(Global Namespace)']]],
+  ['parser_2ecpp_0',['Parser.cpp',['../gui_2src_2core_2Parser_8cpp.html',1,'']]],
+  ['parser_2ehpp_1',['Parser.hpp',['../gui_2include_2core_2Parser_8hpp.html',1,'']]],
   ['parsing_2ec_2',['parsing.c',['../parsing_8c.html',1,'']]],
   ['parsing_2eh_3',['parsing.h',['../parsing_8h.html',1,'']]],
   ['pause_2ec_4',['pause.c',['../pause_8c.html',1,'']]],

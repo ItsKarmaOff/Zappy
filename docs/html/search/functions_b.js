@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['parser_0',['Parser',['../classParser.html#a5e146520b0cb99f04311e6c46a19a9f0',1,'Parser::Parser()'],['../classGui_1_1Parser.html#a5e146520b0cb99f04311e6c46a19a9f0',1,'Gui::Parser::Parser()']]],
+  ['parser_0',['Parser',['../classGui_1_1Parser.html#a5e146520b0cb99f04311e6c46a19a9f0',1,'Gui::Parser']]],
   ['pauseinfo_1',['PauseInfo',['../classGui_1_1PauseInfo.html#aab7e5cbb738db7690b0753ead211414b',1,'Gui::PauseInfo']]],
   ['playerinfo_2',['PlayerInfo',['../classGui_1_1PlayerInfo.html#a6fe55768f55f09f2b8050fca464d0448',1,'Gui::PlayerInfo::PlayerInfo()=default'],['../classGui_1_1PlayerInfo.html#a4cef2c824459dc5bb170523db4c838f1',1,'Gui::PlayerInfo::PlayerInfo(std::string teamName_)']]],
   ['point_3',['point',['../classLib_1_1Logs_1_1Debug.html#a7be4b8c3058898440d39454d1e36596e',1,'Lib::Logs::Debug']]],

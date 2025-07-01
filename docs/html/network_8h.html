@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('network_8h.html',''); initResizable();
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="network_8h.html" title="The network.h.">network.h</a>.  
+<p>The file containing the network functions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="game_8h_source.html">game.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="commands_8h_source.html">commands.h</a>&quot;</code><br />
@@ -103,9 +103,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ae132f49313f0c975d2225550b4e43304"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8h.html#ae132f49313f0c975d2225550b4e43304">get_ip_address</a> (void)</td></tr>
 <tr class="memdesc:ae132f49313f0c975d2225550b4e43304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the IP address of the server.  <a href="network_8h.html#ae132f49313f0c975d2225550b4e43304">More...</a><br /></td></tr>
 <tr class="separator:ae132f49313f0c975d2225550b4e43304"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae28bf8216a6f4a9cd49d5e25e0fb303b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8h.html#ae28bf8216a6f4a9cd49d5e25e0fb303b">analyse_poll</a> (<a class="el" href="structserver__s.html">server_t</a> *server, size_t index)</td></tr>
-<tr class="memdesc:ae28bf8216a6f4a9cd49d5e25e0fb303b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyse the poll events for a specific client.  <a href="network_8h.html#ae28bf8216a6f4a9cd49d5e25e0fb303b">More...</a><br /></td></tr>
-<tr class="separator:ae28bf8216a6f4a9cd49d5e25e0fb303b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ad30131f1a04bad34e5af149e22f1a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8h.html#a0ad30131f1a04bad34e5af149e22f1a3">analyze_poll</a> (<a class="el" href="structserver__s.html">server_t</a> *server, size_t index)</td></tr>
+<tr class="memdesc:a0ad30131f1a04bad34e5af149e22f1a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyse the poll events for a specific client.  <a href="network_8h.html#a0ad30131f1a04bad34e5af149e22f1a3">More...</a><br /></td></tr>
+<tr class="separator:a0ad30131f1a04bad34e5af149e22f1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa311f169d6c14986672b1f2e85c40e0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8h.html#aa311f169d6c14986672b1f2e85c40e0d">remove_client</a> (<a class="el" href="structserver__s.html">server_t</a> *server, size_t index)</td></tr>
 <tr class="memdesc:aa311f169d6c14986672b1f2e85c40e0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a client from the server.  <a href="network_8h.html#aa311f169d6c14986672b1f2e85c40e0d">More...</a><br /></td></tr>
 <tr class="separator:aa311f169d6c14986672b1f2e85c40e0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,8 +144,8 @@ Functions</h2></td></tr>
 <tr class="separator:a27a79b52f6ca524f0c9a0dacdcc18ff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >The <a class="el" href="network_8h.html" title="The network.h.">network.h</a>. </p>
-<dl class="section author"><dt>Author</dt><dd>Nicolas TORO </dd></dl>
+<div class="textblock"><p >The file containing the network functions. </p>
+<dl class="section author"><dt>Author</dt><dd>Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO, Nicolas TORO, Olivier POUECH and Raphael LAUNAY </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="abca66d4f6115c95c880ee5bc7bd9dce4" name="abca66d4f6115c95c880ee5bc7bd9dce4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abca66d4f6115c95c880ee5bc7bd9dce4">&#9670;&nbsp;</a></span>add_new_client()</h2>
@@ -173,14 +173,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae28bf8216a6f4a9cd49d5e25e0fb303b" name="ae28bf8216a6f4a9cd49d5e25e0fb303b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae28bf8216a6f4a9cd49d5e25e0fb303b">&#9670;&nbsp;</a></span>analyse_poll()</h2>
+<a id="a0ad30131f1a04bad34e5af149e22f1a3" name="a0ad30131f1a04bad34e5af149e22f1a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ad30131f1a04bad34e5af149e22f1a3">&#9670;&nbsp;</a></span>analyze_poll()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void analyse_poll </td>
+          <td class="memname">void analyze_poll </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structserver__s.html">server_t</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
