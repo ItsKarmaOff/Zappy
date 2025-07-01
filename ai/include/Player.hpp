@@ -6,7 +6,7 @@
 */
 
 #ifndef PLAYER_HPP_
-#define PLAYER_HPP_
+    #define PLAYER_HPP_
 
 #include "Lib.hpp"
 #include "Algo.hpp"
@@ -109,3 +109,5 @@ private:
     static const std::map<int, std::map<ResourceType, int>> EVOLUTION_REQUIREMENTS;
     std::queue<std::string> _broadcastQueue;
 };
+
+#endif
