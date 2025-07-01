@@ -61,9 +61,22 @@ void Player::eject() {
 }
 
 void Player::fork() {
+    DEBUG << "🔍 Player::fork() called";
+    
+    // 1. Envoyer la commande au serveur
     std::string command = "Fork";
     _commandsQueue->pushCommand(command);
     _commandsQueue->pushPendingCommand(command);
+    DEBUG << "📤 Fork command sent to server";
+    
+    // 2. Vérifier si le callback existe
+    if (_forkPlayerCallback) {
+        DEBUG << "🚀 Fork callback found, executing...";
+        _forkPlayerCallback();
+        DEBUG << "✅ Fork callback executed";
+    } else {
+        DEBUG << "❌ No fork callback available!";
+    }
 }
 
 void Player::inventory() {
@@ -282,4 +295,24 @@ ResourceType Player::stringToResourceType(const std::string &str) const {
 
 std::string Player::resourceTypeToString(ResourceType type) const {
     return ::resourceTypeToString(type); // Utiliser la fonction globale
+}
+
+bool Player::hasPendingBroadcasts() const {
+    bool hasBroadcasts = !_broadcastQueue.empty();
+    if (hasBroadcasts) {
+        DEBUG << "📨 PLAYER: hasPendingBroadcasts() = TRUE, queue size: " << _broadcastQueue.size();
+    }
+    return hasBroadcasts;
+}
+
+std::string Player::getNextBroadcast() {
+    if (_broadcastQueue.empty()) {
+        DEBUG << "📨 PLAYER: getNextBroadcast() called but queue is EMPTY!";
+        return "";
+    }
+    
+    std::string broadcast = _broadcastQueue.front();
+    _broadcastQueue.pop();
+    DEBUG << "📨 PLAYER: Retrieved broadcast from queue: [" << broadcast << "] - Queue size now: " << _broadcastQueue.size();
+    return broadcast;
 }

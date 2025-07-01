@@ -36,6 +36,7 @@ public:
     void set(const std::string &item);
     void incantation();
 
+    std::function<void()> getForkPlayerCallback() const { return _forkPlayerCallback; }
     // Getters
     bool isAlive() const { return _alive; }
     std::string getTeamName() const { return _teamName; }
@@ -60,15 +61,17 @@ public:
     std::thread& getCommunicationThread() { return _communicationThread; }
     
     // Broadcast management (for Engine compatibility)
-    void addToBroadcastList(const std::string& message) { 
-        _broadcastMessages.push_back(message); 
-        DEBUG << "Received broadcast: " << message;
+    void addToBroadcastList(const std::string& broadcast) {
+    _broadcastQueue.push(broadcast);
+    DEBUG << "📨 PLAYER: Added broadcast to queue: [" << broadcast << "] - Queue size now: " << _broadcastQueue.size();
     }
     const std::vector<std::string>& getBroadcastMessages() const { return _broadcastMessages; }
 
     // Processing
     void processResponse(const std::string &response);
     int getLevel() const { return _level; }
+    bool hasPendingBroadcasts() const;
+    std::string getNextBroadcast();
 
 private:
     // Variables membres
@@ -106,4 +109,5 @@ private:
     
     // Tables de correspondance pour l'évolution
     static const std::map<int, std::map<ResourceType, int>> EVOLUTION_REQUIREMENTS;
+    std::queue<std::string> _broadcastQueue;
 };

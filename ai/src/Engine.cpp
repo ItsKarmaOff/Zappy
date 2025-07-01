@@ -82,48 +82,50 @@ std::string Engine::getResponse(Lib::Socket *socket)
 
 void Engine::_communicate(Lib::Socket *clientSocket) {
     int commandsSent = 0;
-    const int MAX_PENDING_COMMANDS = 8;
+    const int MAX_PENDING_COMMANDS = 10; // ✅ Augmenté de 8 à 10
     
     while (_isRunning && _player->isAlive()) {
-        //bool gotResponse = false;
         
         while (poll(&_pollFd, 1, 0) > 0 && (_pollFd.revents & POLLIN)) {
             std::string answer = getResponse(clientSocket);
             if (!answer.empty()) {
-                //gotResponse = true;
                 
                 if (answer != "ko") {
                     commandsSent = std::max(0, commandsSent - 1);
                 }
                 
-                if (answer.find("message", 0) == 0) {
-                    _player->addToBroadcastList(answer.substr(8));
+                if (answer.find("message") == 0) {
+                    DEBUG << "🔊 RECEIVED BROADCAST: " << answer;
+                    std::string broadcastContent = answer.substr(8); // ✅ 8 au lieu de 7 ! "message " = 8 chars
+                    _player->addToBroadcastList(broadcastContent);
                 }
-                else if (answer.find("eject:", 0) == 0) {
-                } else if (answer.find("dead", 0) == 0) {
-                    DEBUG << "Player " << _player->getTeamName() << " is dead.";
+                else if (answer.find("eject:") == 0) {
+                    DEBUG << "⚡ EJECTED: " << answer;
+                } 
+                else if (answer.find("dead") == 0) {
+                    DEBUG << "☠️ Player " << _player->getTeamName() << " is dead.";
                     _player->setAlive(false);
                     return;
-                } else {
+                } 
+                else {
                     _player->getCommandsQueue()->pushResponse(answer);
                 }
             }
         }
         
-        if (commandsSent < MAX_PENDING_COMMANDS && _player->getCommandsQueue()->hasCommands()) {
+        int commandsToSend = std::min(3, MAX_PENDING_COMMANDS - commandsSent); // ✅ 3 à la fois
+        for (int i = 0; i < commandsToSend && _player->getCommandsQueue()->hasCommands(); i++) {
             std::string command = _player->getCommandsQueue()->popCommand();
-            DEBUG << "Sending command: " << command << " (pending: " << commandsSent << "/" << MAX_PENDING_COMMANDS << ")";
+            DEBUG << "📤 Sending command: " << command << " (pending: " << commandsSent << "/" << MAX_PENDING_COMMANDS << ")";
             
             std::string commandWithNewline = command + "\n";
             send(clientSocket->getSocket(), commandWithNewline.c_str(), commandWithNewline.size(), 0);
             commandsSent++;
         }
         
-        //if (!gotResponse && !_player->getCommandsQueue()->hasCommands()) {
-        //    usleep(1000);  // Seulement si vraiment rien à faire
-        //}
     }
 }
+
 void Engine::_readIfResponse(Lib::Socket *socket)
 {
     if (poll(&_pollFd, 1, 0) > 0 && (_pollFd.revents & POLLIN)) {
@@ -186,22 +188,50 @@ void Engine::_init()
     
     _pollFd = {_socket->getSocket(), POLLIN, 0};
     _player->setForkPlayerCallback([this]() {
-        pid_t pid = fork();
-        if (pid < 0) {
-            throw Lib::Exceptions::Critical("Fork failed: " + std::string(strerror(errno)));
-        } else if (pid == 0) {
+    DEBUG << "🎯 Fork callback STARTED";
+    pid_t pid = fork();
+    DEBUG << "🔄 fork() system call returned: " << pid;
+    
+    if (pid < 0) {
+        ERROR << "Fork failed: " << strerror(errno);
+    } else if (pid == 0) {
+        DEBUG << "👶 In child process, setting up follower";
+        try {
+            setenv("ZAPPY_IS_FOLLOWER", "1", 1);
+            
             _createNewPlayer();
+            
+            DEBUG << "👶 CHILD: About to start player->run()";
             _player->run();
+            DEBUG << "👶 CHILD: player->run() finished";
+            
+            DEBUG << "👶 CHILD: About to join communication thread";
             _player->getCommunicationThread().join();
+            DEBUG << "👶 CHILD: Communication thread joined";
+            
             exit(0);
-        } else {
-            _processes.push_back(pid);
+        } catch (const std::exception& e) {
+            ERROR << "👶 CHILD: Exception caught: " << e.what();
+            exit(1);
+        } catch (...) {
+            ERROR << "👶 CHILD: Unknown exception caught";
+            exit(1);
         }
-    });
+    } else {
+        DEBUG << "👨 In parent process, child PID: " << pid;
+        _processes.push_back(pid);
+    }
+});
 }
 
 void Engine::_createNewPlayer()
 {
+    DEBUG << "👶 CHILD: Starting _createNewPlayer() - PID: " << getpid();
+    DEBUG << "👶 CHILD: Environment ZAPPY_IS_FOLLOWER = " << (getenv("ZAPPY_IS_FOLLOWER") ? getenv("ZAPPY_IS_FOLLOWER") : "NOT SET");
+    
+    try {
+        DEBUG << "👶 CHILD: Creating socket...";
+        _socket = std::make_unique<Lib::Socket>(AF_INET, SOCK_STREAM, 0);
     _socket = std::make_unique<Lib::Socket>(AF_INET, SOCK_STREAM, 0);
     _client.sin_family = AF_INET;
     _client.sin_port = htons(_parser.getPort());
@@ -244,4 +274,10 @@ void Engine::_createNewPlayer()
     });
     std::thread communicationThread(&Engine::_communicate, this, _socket.get());
     _player->setCommunicationThread(std::move(communicationThread));
+   DEBUG << "👶 CHILD: Socket connected successfully!";
+    } catch (const std::exception& e) {
+        ERROR << "👶 CHILD: Exception in _createNewPlayer: " << e.what();
+        exit(1);
+    }
+
 }
