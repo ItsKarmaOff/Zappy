@@ -1,15 +1,9 @@
 /*
 ** EPITECH PROJECT, 2025
-** Zappy
+** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** The Parser class declaration
+** Parser
 */
-/**
- * @file Parser.hpp
- * @brief The Parser class declaration
- * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
- * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
- */
 
 #ifndef PARSER_HPP_
     #define PARSER_HPP_

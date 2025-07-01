@@ -15,7 +15,7 @@
 #include "commands/commands_ai.h"
 
 const incantation_t incantations[MAX_PLAYER_LEVEL - 1] = {
-    {2, {0, 1, 0, 0, 0, 0, 0}},
+    {1, {0, 1, 0, 0, 0, 0, 0}},
     {2, {0, 1, 1, 1, 0, 0, 0}},
     {2, {0, 2, 0, 1, 0, 2, 0}},
     {4, {0, 1, 1, 2, 0, 1, 0}},
