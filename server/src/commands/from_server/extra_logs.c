@@ -1,13 +1,16 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The extra_logs.c
+** The file containing the handling of
+** the "extra_logs" command for server clients
 */
 /**
  * @file extra_logs.c
- * @brief The extra_logs.c
- * @author Nicolas TORO
+ * @brief The file containing the handling of
+ * the "extra_logs" command for server clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_server.h"

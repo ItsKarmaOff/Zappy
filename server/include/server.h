@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** Project
+** Zappy
 ** File description:
-** The server.h
+** The server class declaration
 */
 /**
  * @file server.h
- * @brief The server.h
- * @author Nicolas TORO
+ * @brief The server class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #ifndef SERVER_H_

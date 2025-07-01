@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The level.c
+** The file containing the handling of the "level" command for server clients
 */
 /**
  * @file level.c
- * @brief The level.c
- * @author Nicolas TORO
+ * @brief The file containing the handling of
+ * the "level" command for server clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_server.h"

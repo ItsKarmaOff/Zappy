@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The players.c
+** The file containing the players management functions
 */
 /**
  * @file players.c
- * @brief The players.c
- * @author Nicolas TORO
+ * @brief The file containing the players management functions
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "game.h"
@@ -25,7 +26,7 @@ player_t *create_player(game_t *game, team_t *team)
     player->orientation = rand() % 4 + 1;
     player->level = 1;
     player->inventory[FOOD] = DEFAULT_FOOD_NUMBER;
-    player->last_eat_time = time(NULL);
+    player->last_eat_time = my_get_time();
     AL(FALSE, my_push_back, &game->map[player->position.y][player->position.x]
         .player_list, player, UNKNOWN);
     return player;
@@ -45,7 +46,7 @@ player_t *create_player_from_player(game_t *game, player_t *creator)
     player->orientation = creator->orientation;
     player->level = 1;
     player->inventory[FOOD] = DEFAULT_FOOD_NUMBER;
-    player->last_eat_time = time(NULL);
+    player->last_eat_time = my_get_time();
     AL(FALSE, my_push_back, &game->map[player->position.y][player->position.x]
         .player_list, player, UNKNOWN);
     return player;
@@ -80,8 +81,6 @@ player_t *get_player_by_id(const game_t *game, size_t player_id)
 static void player_eat(
     server_t *server, player_t *player, node_t **dead_players)
 {
-    player->inventory[FOOD]--;
-    send_pin_to_gui(server, NULL, player);
     if (player->inventory[FOOD] == 0) {
         DEBUG(my_create_str("Player %zu died", player->id));
         dprintf(player->client->socket_fd, DEATH_MESSAGE);
@@ -89,8 +88,11 @@ static void player_eat(
         AL(FALSE, my_push_front, dead_players, player, UNKNOWN);
         player->client->player = NULL;
         remove_client(server, get_client_index(server, player->client));
+    } else {
+        player->inventory[FOOD]--;
+        send_pin_to_gui(server, NULL, player);
     }
-    player->last_eat_time = time(NULL);
+    player->last_eat_time = my_get_time();
 }
 
 void update_player(server_t *server, player_t *player, node_t **dead_players)
@@ -98,11 +100,11 @@ void update_player(server_t *server, player_t *player, node_t **dead_players)
     if (server == NULL || player == NULL || player->is_egg)
         return;
     if (server->game.game_settings.is_paused == true) {
-        player->last_eat_time = time(NULL);
+        player->last_eat_time = my_get_time();
         return;
     }
     if (server->game.game_settings.infinite_food == false
-    && difftime(time(NULL), player->last_eat_time) >=
+    && my_difftime(my_get_time(), player->last_eat_time) >=
     FOOD_TIME_UNIT / (double)server->game.game_settings.frequency)
         player_eat(server, player, dead_players);
 }

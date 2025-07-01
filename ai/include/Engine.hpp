@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2025
-** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
+** Zappy
 ** File description:
 ** Engine
 */
@@ -8,13 +8,11 @@
 #ifndef ENGINE_HPP_
 #define ENGINE_HPP_
 
-#include "Parser.hpp"
-#include "Socket.hpp"
 #include "Lib.hpp"
+#include "Socket.hpp"
+#include "Parser.hpp"
 #include "Player.hpp"
 #include "CommandsQueue.hpp"
-#include "Algo.hpp"
-#include <regex>
 
 class Engine {
     public:
@@ -22,21 +20,23 @@ class Engine {
         ~Engine();
         void run();
         std::string getResponse(Lib::Socket *socket);
+
     protected:
     private:
-        void _communicate(Lib::Socket *clientSocket);
-        void _readIfResponse(Lib::Socket *clientSocket);
-        void _sendIfCommand(Lib::Socket *clientSocket);
         void _init();
-        Parser _parser;
-        pollfd _pollFd;
         void _createNewPlayer();
-        std::shared_ptr<Lib::Socket> _socket;
+        void _communicate(Lib::Socket *clientSocket);
+        void _readIfResponse(Lib::Socket *socket);
+        void _sendIfCommand(Lib::Socket *socket);
+
+        Parser &_parser;
+        std::unique_ptr<Lib::Socket> _socket;
         struct sockaddr_in _client;
-        bool _isRunning = true;
         std::shared_ptr<Player> _player;
-        int _amountOfPlayers = 0;
+        struct pollfd _pollFd;
+        int _amountOfPlayers;
+        bool _isRunning;
         std::vector<pid_t> _processes;
 };
 
-#endif
+#endif /* !ENGINE_HPP_ */

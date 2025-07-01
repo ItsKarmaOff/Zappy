@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The execute_actions.c
+** The file containing the function to execute actions for clients
 */
 /**
  * @file execute_actions.c
- * @brief The execute_actions.c
- * @author Nicolas TORO
+ * @brief The file containing the function to execute actions for clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"
@@ -23,14 +24,14 @@ void execute_actions(server_t *server)
         && client->client_type == CLIENT_AI)
             continue;
         if (client->next_action.cmd_function != NULL &&
-        difftime(time(NULL), client->last_action_time) >=
+        my_difftime(my_get_time(), client->last_action_time) >=
         client->next_action.time_to_wait /
         (double)server->game.game_settings.frequency) {
-            DEBUG(my_create_str("Executing action for client %zu", index));
             action = client->next_action;
             client->next_action.cmd_function = NULL;
             client->next_action.action_args = NULL;
             action.cmd_function(server, client, action.action_args);
+            client->last_action_time = my_get_time();
             FREE_WORD_ARRAY(action.action_args);
         }
     }

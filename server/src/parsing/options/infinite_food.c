@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The infinite_food.c
+** The file containing the function for the "infinite_food" option
 */
 /**
  * @file infinite_food.c
- * @brief The infinite_food.c
- * @author Nicolas TORO
+ * @brief The file containing the function for the "infinite_food" option
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "parsing.h"

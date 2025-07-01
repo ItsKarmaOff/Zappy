@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The pie.c
+** The file containing the sending of the "pie" command for GUI clients
 */
 /**
  * @file pie.c
- * @brief The pie.c
- * @author Nicolas TORO
+ * @brief The file containing the sending of
+ * the "pie" command for GUI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_gui.h"

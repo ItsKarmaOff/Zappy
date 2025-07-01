@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The help.c
+** The file containing the function for the "help" option
 */
 /**
  * @file help.c
- * @brief The help.c
- * @author Nicolas TORO
+ * @brief The file containing the function for the "help" option
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "parsing.h"

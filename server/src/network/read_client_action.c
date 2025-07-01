@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The read_client_action.c
+** The file containing the function to read client actions
 */
 /**
  * @file read_client_action.c
- * @brief The read_client_action.c
- * @author Nicolas TORO
+ * @brief The file containing the function to read client actions
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"
@@ -43,6 +44,22 @@ static bool is_queue_full(client_t *client, size_t index, char *command)
     return false;
 }
 
+static void analyze_read_command(server_t *server, size_t index,
+    char *command)
+{
+    if (server->client_list[index - 1]->next_action.cmd_function == NULL)
+        server->client_list[index - 1]->last_action_time = my_get_time();
+    if (is_queue_full(server->client_list[index - 1], index, command)) {
+        ERROR(my_create_str("Client %zu command queue is full", index));
+        FREE(command);
+        return;
+    }
+    AL(FALSE, my_push_back, &server->client_list[index - 1]->command_queue,
+        command, STRING);
+    if (my_str_contains(command, "\n"))
+        server->poll_fds[index].events |= POLLOUT;
+}
+
 static void read_authenticated_client_action(server_t *server, size_t index)
 {
     size_t read_size = 0;
@@ -55,15 +72,7 @@ static void read_authenticated_client_action(server_t *server, size_t index)
     command = AL(FALSE, my_calloc, read_size + 1, sizeof(char));
     if (read(server->poll_fds[index].fd, command, read_size) < 0)
         return disconnect_client(server, index, command);
-    if (is_queue_full(server->client_list[index - 1], index, command)) {
-        ERROR(my_create_str("Client %zu command queue is full", index));
-        FREE(command);
-        return;
-    }
-    AL(FALSE, my_push_back, &server->client_list[index - 1]->command_queue,
-        command, STRING);
-    if (my_str_contains(command, "\n"))
-        server->poll_fds[index].events |= POLLOUT;
+    analyze_read_command(server, index, command);
 }
 
 static void read_unauthenticated_client_action(server_t *server, size_t index)

@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The parsing.h
+** The file containing the parsing functions
 */
 /**
  * @file parsing.h
- * @brief The parsing.h
- * @author Nicolas TORO
+ * @brief The file containing the parsing functions
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #ifndef PARSING_H_

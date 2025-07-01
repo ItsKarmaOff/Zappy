@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The version.c
+** The file containing the function for the "version" option
 */
 /**
  * @file version.c
- * @brief The version.c
- * @author Nicolas TORO
+ * @brief The file containing the function for the "version" option
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "parsing.h"

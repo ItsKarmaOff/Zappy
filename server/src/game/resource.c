@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The resource.c
+** The file containing the resource array definition
 */
 /**
  * @file resource.c
  * @brief The resource.c
- * @author Nicolas TORO
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "game.h"

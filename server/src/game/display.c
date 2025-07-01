@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The display.c
+** The file containing the display functions for the game
 */
 /**
  * @file display.c
- * @brief The display.c
- * @author Nicolas TORO
+ * @brief The file containing the display functions for the game
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "game.h"

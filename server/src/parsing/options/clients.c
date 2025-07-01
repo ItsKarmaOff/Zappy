@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The clients.c
+** The file containing the function for the "clients" option
 */
 /**
  * @file clients.c
- * @brief The clients.c
- * @author Nicolas TORO
+ * @brief The file containing the function for the "clients" option
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "parsing.h"

@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The map.c
+** The file containing the handling of the "map" command for server clients
 */
 /**
  * @file map.c
- * @brief The map.c
- * @author Nicolas TORO
+ * @brief The file containing the handling of
+ * the "map" command for server clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_server.h"

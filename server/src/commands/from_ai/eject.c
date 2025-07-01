@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The eject.c
+** The file containing the handling of the "eject" command for AI clients
 */
 /**
  * @file eject.c
- * @brief The eject.c
- * @author Nicolas TORO
+ * @brief The file containing the handling of
+ * the "eject" command for AI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_ai.h"

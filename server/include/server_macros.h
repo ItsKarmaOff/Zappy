@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The server_macros.h
+** The macros of the server
 */
 /**
  * @file server_macros.h
- * @brief The server_macros.h
- * @author Nicolas TORO
+ * @brief The macros of the server
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #ifndef SERVER_MACROS_H_
