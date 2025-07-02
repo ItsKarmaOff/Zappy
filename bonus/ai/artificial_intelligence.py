@@ -100,9 +100,9 @@ class Ai:
                 print(f"Cannot connect to team {self.team}, no more places available.")
                 self.alive = False
                 return
+            self.step = Step.LOOK
             if int(nb_places) != 0:
                 subprocess.Popen(["python3", self.binary, "-h", self.hostname, "-p", str(self.port), "-n", self.team, '-c'])
-                self.step = Step.LOOK
             if not self.is_child:
                 self.nb_players_to_fork = 6 - int(nb_places) - 1
                 self.step = Step.CREATE_PLAYERS

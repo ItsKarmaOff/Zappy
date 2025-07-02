@@ -90,7 +90,7 @@ class Connection:
         self.my_ai.to_send += self.team
 
     def handle_dead(self, line):
-        print(f"{RED}Player is dead !{RESET}")
+        print(f"{RED}{self.my_ai.id}Player is dead !{RESET}")
         self.my_ai.alive = False
         self.socket.close()
         exit(0)
@@ -108,6 +108,13 @@ class Connection:
         direction = int(tmp[0].split(" ")[1])
         message = tmp[1][1:]
 
+        if message[:len(self.my_ai.team)] != self.my_ai.team:
+            print(f"{YELLOW}{self.my_ai.id}: Received message from the wrong team: {message}{RESET}")
+        for loot in LOOTS:
+            if loot == message[len(self.my_ai.team) + 1:]:
+                self.my_ai.inventory[loot] += 1
+                print(f"{GREEN}Shared inventory updated: {loot} + 1{RESET}")
+                return
 
     def handle_eject(self, line):
         direction = int(line.split(" ")[1])
