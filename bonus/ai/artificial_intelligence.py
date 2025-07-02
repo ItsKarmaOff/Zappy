@@ -162,6 +162,8 @@ class Ai:
 
     def collect(self):
         next_loot = self.get_next_loot()
+        if next_loot is None and "food" in self.last_look[0]:
+            next_loot = "food"
 
         if not self.waiting_response and next_loot is not None:
             self.to_send = f"Take {next_loot}"
@@ -186,7 +188,7 @@ class Ai:
 
     def inform(self):
         if not self.waiting_response:
-            self.to_send = f"Broadcast {self.last_collect}"
+            self.to_send = f"Broadcast {self.team}:{self.last_collect}"
             self.waiting_response = True
             return
 
