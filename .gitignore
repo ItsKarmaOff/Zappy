@@ -35,6 +35,7 @@ vgcore.*
 .vscode
 .idea
 .cache
+__pycache__
 
 # Backup files
 *.old
