@@ -47,15 +47,15 @@ class Connection:
         lines = self.buffer.split('\n')
         self.buffer = lines[-1]
         complete_lines = [line for line in lines[:-1] if line]
-        if complete_lines:
-            print(f"{MAGENTA}{self.my_ai.id}: Received data: {complete_lines}{RESET}")
+        #if complete_lines:
+            #print(f"{MAGENTA}{self.my_ai.id}: Received data: {complete_lines}{RESET}")
         return complete_lines
 
 
     def send_data(self, data):
         data += '\n'
         self.socket.sendall(data.encode('utf-8'))
-        print(f"{BLUE}{self.my_ai.id}: Sent data: [{data[:-1]}]{RESET}")
+        #print(f"{BLUE}{self.my_ai.id}: Sent data: [{data[:-1]}]{RESET}")
 
 
     def poll(self):
@@ -74,7 +74,7 @@ class Connection:
                                 break
                         #if not find:
                         #    print(f"{RED}Cannot find an handler for: " + self.my_ai.response_queue[line_index] + f"{RESET}")
-                    for line_index in response_to_erase:
+                    for line_index in sorted(response_to_erase, reverse=True):
                         self.my_ai.response_queue.pop(line_index)
                     #print(f"{MAGENTA}{self.my_ai.id}: Response queue: {self.my_ai.response_queue}{RESET}")
 
@@ -113,7 +113,7 @@ class Connection:
         for loot in LOOTS:
             if loot == message[len(self.my_ai.team) + 1:]:
                 self.my_ai.inventory[loot] += 1
-                print(f"{GREEN}Shared inventory updated: {loot} + 1{RESET}")
+                print(f"{GREEN}{self.my_ai.id}: Shared inventory updated: {loot} + 1{RESET}")
                 return
 
     def handle_eject(self, line):

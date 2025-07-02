@@ -31,6 +31,9 @@ class Step:
     COLLECT = 3
     INFORM = 4
     MOVE = 5
+    WAIT_TEAMMATES = 6
+    JOIN_TEAM = 7
+    INCANTATION = 8
 
 
 class Ai:
@@ -64,7 +67,10 @@ class Ai:
             Step.LOOK: self.look,
             Step.COLLECT: self.collect,
             Step.INFORM: self.inform,
-            Step.MOVE: self.move
+            Step.MOVE: self.move,
+            Step.WAIT_TEAMMATES: self.wait_teammates,
+            Step.JOIN_TEAM: self.connect_to_team,
+            Step.INCANTATION: self.wait_teammates
         }
         self.waiting_response = False
         self.map_size = [0, 0]
@@ -72,6 +78,9 @@ class Ai:
         self.last_look = []
         self.last_collect = ""
         self.next_moves = []
+
+    def algorithm(self):
+        self.actions[self.step]()
 
     def parse_look(self, line):
         tmp = line[1:-1].split(",")
@@ -161,6 +170,13 @@ class Ai:
 
 
     def collect(self):
+        if not self.is_child:
+            for loot in self.inventory:
+                if self.inventory[loot] < TOTAL_REQUIREMENTS[loot]:
+                    break
+            self.step = Step.WAIT_TEAMMATES
+
+
         next_loot = self.get_next_loot()
         if next_loot is None and "food" in self.last_look[0]:
             next_loot = "food"
@@ -180,7 +196,7 @@ class Ai:
             response = self.response_queue.pop(0)
             if response == "ok":
                 self.inventory[self.last_collect] += 1
-                print(f"Collected {self.last_collect}, inventory: {self.inventory}")
+                #print(f"Collected {self.last_collect}, inventory: {self.inventory}")
                 if self.last_collect != "food":
                     self.step = Step.INFORM
             self.waiting_response = False
@@ -217,5 +233,34 @@ class Ai:
                 self.step = Step.COLLECT
 
 
-    def algorithm(self):
-        self.actions[self.step]()
+    def wait_teammates(self):
+        if not self.waiting_response and self.last_look == []:
+            self.to_send = "Look"
+            self.waiting_response = True
+            return
+
+        elif not self.waiting_response:
+            self.to_send = f"Broadcast {self.team}:here"
+            self.waiting_response = True
+            return
+
+        elif self.waiting_response and len(self.response_queue) != 0 and self.last_look == []:
+            self.last_look = self.parse_look(self.response_queue.pop(0))
+            self.waiting_response = False
+            if self.last_look.count("player") >= 6:
+                print(f"{self.id}: All teammates are here, let's incantate!")
+                self.step = Step.INCANTATION
+            return
+
+        elif self.waiting_response and len(self.response_queue) != 0:
+            self.response_queue.pop(0)
+            self.waiting_response = False
+            return
+
+
+    def join_team(self):
+        pass
+
+
+    def incantation(self):
+        pass
