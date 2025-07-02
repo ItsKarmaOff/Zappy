@@ -71,21 +71,25 @@ class Connection:
                             if self.my_ai.response_queue[line_index][:len(command["keyword"])] == command["keyword"]:
                                 command["function"](self.my_ai.response_queue[line_index])
                                 break
-                        #if not find:
-                        #    print(f"{RED}Cannot find an handler for: " + self.my_ai.response_queue[line_index] + f"{RESET}")
-                    for line_index in response_to_erase:
-                        self.my_ai.response_queue.pop(line_index)
-
-
+                        if line.count('[') == 1 and line.count(']') == 1 and line.count(',') == 6:
+                            self.handle_inventory(my_ai, line)
+                            find = True
+                        elif line.count('[') == 1 and line.count(']') == 1:
+                            self.handle_look(my_ai, line)
+                            find = True
+                        if find == False:
+                            print(f"{RED}Cannot find an handler for: " + line + f"{RESET}")
+                my_ai.algo()
                 if event & select.POLLOUT:
-                    if self.my_ai.to_send:
-                        self.send_data(self.my_ai.to_send)
-                        self.my_ai.to_send = ""
-                    self.my_ai.algorithm()
+                    if my_ai.to_send:
+                        self.send_data(my_ai.to_send)
+                        my_ai.to_send = ""
+                    continue
 
 
-    def handle_welcome(self, line):
-        self.my_ai.to_send += self.team
+    def handle_welcome(self, my_ai: Ai, line):
+        my_ai.to_send += self.team
+        my_ai.state = State.IDLE
 
     def handle_dead(self, line):
         print(f"{RED}Player is dead !{RESET}")
@@ -118,6 +122,7 @@ class Connection:
             key, value = item.split(" ")
             self.my_ai.inventory[key] = int(value)
         print(f"{GREEN}Inventory updated !{RESET}")
+        my_ai.state = State.SEARCHING_FOOD
 
     def handle_look(self, line):
         tmp = line[1:-1].split(",")
@@ -130,5 +135,6 @@ class Connection:
                 if item:
                     self.my_ai.look[case_index].append(item)
 
-        self.my_ai.look_is_up_to_date = True
-        print(f"{GREEN}Look command updated: {self.my_ai.look}{RESET}")
+        print(f"{GREEN}Look command updated: {my_ai.look}{RESET}")
+        my_ai.state = State.PROCESSING_LOOK
+        pass
