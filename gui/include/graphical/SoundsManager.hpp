@@ -18,9 +18,13 @@
     #include <raylib.h>
     #include <raymath.h>
 
-namespace Gui {
+namespace Gui
+{
     class SoundsManager {
         public:
+
+            //////////////// Enumerations //////////////////////////////////////
+
             enum SongType {
                 MENU_SOUND,
                 GAME_SOUND,
@@ -32,11 +36,18 @@ namespace Gui {
                 GAME_SONG,
             };
 
+
+
+            //////////////// Constructors and Destructor ///////////////////////
+
             SoundsManager();
             ~SoundsManager();
 
-            static SoundsManager &getInstance(void);
 
+
+            //////////////// Getters ///////////////////////////////////////////
+
+            static SoundsManager &getInstance(void);
             std::unordered_map<SongType, Sound> &getSounds(void);
             std::unordered_map<MusicType, Music> &getMusics(void);
 

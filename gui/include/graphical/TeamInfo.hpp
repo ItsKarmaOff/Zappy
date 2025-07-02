@@ -16,16 +16,19 @@
 
     #include "PlayerInfo.hpp"
 
-namespace Gui {
-
+namespace Gui
+{
     class TeamInfo {
         public:
+
+            //////////////// Constructors and Destructor ///////////////////////
+
             TeamInfo();
             ~TeamInfo() = default;
 
 
 
-            ////////////////////////////////////// GETTERS //////////////////////////////////////
+            //////////////// Getters ///////////////////////////////////////////
 
             /**
              * @brief Gets the players in the team
@@ -38,18 +41,23 @@ namespace Gui {
              * @return Constant reference to the team's score
              */
             const size_t &getScore(void) const;
-            /**
-             * @brief Gets the color associated with the team
-             * @return Constant reference to the team's color
-             */
-            void setScore(size_t score);
 
             /**
-             * @brief Gets the color associated with the team
-             * @return Constant reference to the team's color
-             */
+            * @brief Gets the color associated with the team
+            * @return Constant reference to the team's color
+            */
             const Color &getColor(void) const;
 
+
+
+            //////////////// Setters ///////////////////////////////////////////
+
+            /**
+             * @brief Gets the color associated with the team
+             * @return Constant reference to the team's color
+             */
+
+            void setScore(size_t score);
             /**
              * @brief Gets the players in the team
              * @return Reference to the unordered map of player IDs to PlayerInfo objects
