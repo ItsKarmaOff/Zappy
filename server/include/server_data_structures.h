@@ -53,9 +53,10 @@ typedef enum resources_e {
  * @brief The type of client connected to the server
  */
 typedef enum client_type_e {
-    CLIENT_AI = 0, ///< The client is an AI client
-    CLIENT_GUI = 1, ///< The client is a GUI client
-    CLIENT_SERVER = 2 ///< The client is the server itself
+    CLIENT_UNKNOWN = 0, ///< The client is unknown
+    CLIENT_AI = 1, ///< The client is an AI client
+    CLIENT_GUI = 2, ///< The client is a GUI client
+    CLIENT_SERVER = 3 ///< The client is the server itself
 } client_type_t;
 
 
