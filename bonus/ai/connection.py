@@ -9,7 +9,7 @@ class Connection:
     def __init__(self, my_ai: Ai):
         self.my_ai = my_ai
         self.socket = self.connect()
-        self.my_ai.id = self.socket
+        #self.my_ai.id = self.socket.fileno()
         self.poller = select.poll()
         self.poller.register(self.socket, select.POLLIN | select.POLLOUT)
         self.udp_handler = [
@@ -48,14 +48,14 @@ class Connection:
         self.buffer = lines[-1]
         complete_lines = [line for line in lines[:-1] if line]
         if complete_lines:
-            print(f"{MAGENTA}Received data: {complete_lines}{RESET}")
+            print(f"{MAGENTA}{self.my_ai.id}: Received data: {complete_lines}{RESET}")
         return complete_lines
 
 
     def send_data(self, data):
         data += '\n'
         self.socket.sendall(data.encode('utf-8'))
-        print(f"{BLUE}Sent data: [{data[:-1]}]{RESET}")
+        print(f"{BLUE}{self.my_ai.id}: Sent data: [{data[:-1]}]{RESET}")
 
 
     def poll(self):
@@ -70,11 +70,13 @@ class Connection:
                         for command in self.udp_handler:
                             if self.my_ai.response_queue[line_index][:len(command["keyword"])] == command["keyword"]:
                                 command["function"](self.my_ai.response_queue[line_index])
+                                response_to_erase.append(line_index)
                                 break
                         #if not find:
                         #    print(f"{RED}Cannot find an handler for: " + self.my_ai.response_queue[line_index] + f"{RESET}")
                     for line_index in response_to_erase:
                         self.my_ai.response_queue.pop(line_index)
+                    #print(f"{MAGENTA}{self.my_ai.id}: Response queue: {self.my_ai.response_queue}{RESET}")
 
 
                 if event & select.POLLOUT:
@@ -103,7 +105,7 @@ class Connection:
 
     def handle_message(self, line):
         tmp = line.split(",")
-        direction = int(tmp.split(" ")[1])
+        direction = int(tmp[0].split(" ")[1])
         message = tmp[1][1:]
 
 
