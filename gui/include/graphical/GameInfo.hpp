@@ -20,7 +20,8 @@
 
 // TODO: pk dans std ??
 // Hash function specialization for Vector2
-namespace std {
+namespace std
+{
     template<>
     struct hash<Vector2> {
         std::size_t operator()(const Vector2& v) const {
@@ -29,13 +30,16 @@ namespace std {
     };
 }
 
-namespace Gui {
+namespace Gui
+{
     /**
      * @class GameInfo
      * @brief Manages and stores game state information including camera, map, tiles, teams, and players
      */
     class GameInfo {
         public:
+
+            //////////////// Constructors and Destructor ///////////////////////
 
             /**
              * @brief Default constructor
@@ -47,6 +51,9 @@ namespace Gui {
              * @brief Default destructor
              */
             ~GameInfo() = default;
+
+
+            //////////////// Getters ///////////////////////////////////////////
 
             /**
              * @brief Gets the reference to the game's camera
