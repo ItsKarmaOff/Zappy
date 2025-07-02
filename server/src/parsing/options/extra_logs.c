@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The extra_logs.c
+** The file containing the function for the "extra_logs" option
 */
 /**
  * @file extra_logs.c
- * @brief The extra_logs.c
- * @author Nicolas TORO
+ * @brief The file containing the function for the "extra_logs" option
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "parsing.h"

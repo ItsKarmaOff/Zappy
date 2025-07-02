@@ -1,0 +1,62 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ec4899;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#a855f7;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+        </linearGradient>
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="8" result="coloredBlur" />
+            <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+        <filter id="sparkle">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+            <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- Background circle -->
+    <circle cx="256" cy="256" r="240" fill="#1e1b4b" stroke="url(#gradient1)" stroke-width="24" />
+
+    <!-- Central crystal/gem shape -->
+    <path d="M256 64 L384 192 L320 256 L384 320 L256 448 L128 320 L192 256 L128 192 Z"
+        fill="url(#gradient1)" filter="url(#glow)" />
+
+    <!-- Inner crystal details -->
+    <path d="M256 128 L320 192 L256 256 L192 192 Z" fill="url(#gradient2)" opacity="0.7" />
+    <path d="M256 256 L320 320 L256 384 L192 320 Z" fill="url(#gradient2)" opacity="0.5" />
+
+    <!-- Sparkle effects -->
+    <circle cx="160" cy="128" r="16" fill="#ffffff" opacity="0.8" filter="url(#sparkle)" />
+    <circle cx="352" cy="160" r="12" fill="#ffffff" opacity="0.6" filter="url(#sparkle)" />
+    <circle cx="384" cy="384" r="20" fill="#ffffff" opacity="0.7" filter="url(#sparkle)" />
+    <circle cx="128" cy="384" r="10" fill="#ffffff" opacity="0.5" filter="url(#sparkle)" />
+
+    <!-- Additional sparkles for large version -->
+    <circle cx="96" cy="256" r="8" fill="#8b5cf6" opacity="0.6" />
+    <circle cx="416" cy="256" r="8" fill="#ec4899" opacity="0.6" />
+    <circle cx="256" cy="96" r="6" fill="#06b6d4" opacity="0.7" />
+    <circle cx="256" cy="416" r="6" fill="#a855f7" opacity="0.7" />
+
+    <!-- Small accent lines -->
+    <line x1="96" y1="256" x2="128" y2="256" stroke="#8b5cf6" stroke-width="8" opacity="0.6" />
+    <line x1="384" y1="256" x2="416" y2="256" stroke="#8b5cf6" stroke-width="8" opacity="0.6" />
+    <line x1="256" y1="96" x2="256" y2="128" stroke="#ec4899" stroke-width="8" opacity="0.6" />
+    <line x1="256" y1="384" x2="256" y2="416" stroke="#06b6d4" stroke-width="8" opacity="0.6" />
+
+    <!-- Diagonal accent lines for extra detail -->
+    <line x1="180" y1="180" x2="200" y2="200" stroke="#ffffff" stroke-width="4" opacity="0.4" />
+    <line x1="312" y1="312" x2="332" y2="332" stroke="#ffffff" stroke-width="4" opacity="0.4" />
+    <line x1="332" y1="180" x2="312" y2="200" stroke="#ffffff" stroke-width="4" opacity="0.4" />
+    <line x1="200" y1="312" x2="180" y2="332" stroke="#ffffff" stroke-width="4" opacity="0.4" />
+</svg>

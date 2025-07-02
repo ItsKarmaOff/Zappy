@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
 ** The tests.c
 */

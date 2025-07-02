@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The sbp.c
+** The file containing the sending of the "sbp" command for GUI clients
 */
 /**
  * @file sbp.c
- * @brief The sbp.c
- * @author Nicolas TORO
+ * @brief The file containing the sending of
+ * the "sbp" command for GUI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_gui.h"

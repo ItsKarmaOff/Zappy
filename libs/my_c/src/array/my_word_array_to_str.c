@@ -1,12 +1,12 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Libmy
 ** File description:
-** The my_word_array_to_str.c
+** The file containing the my_word_array_to_str function
 */
 /**
  * @file my_word_array_to_str.c
- * @brief The my_word_array_to_str.c
+ * @brief The file containing the my_word_array_to_str function
  * @author Nicolas TORO
  */
 

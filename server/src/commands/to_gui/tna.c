@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The tna.c
+** The file containing the sending of the "tna" command for GUI clients
 */
 /**
  * @file tna.c
- * @brief The tna.c
- * @author Nicolas TORO
+ * @brief The file containing the sending of
+ * the "tna" command for GUI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_gui.h"

@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The auto_end.c
+** The file containing the function for the "auto_end" option
 */
 /**
  * @file auto_end.c
- * @brief The auto_end.c
- * @author Nicolas TORO
+ * @brief The file containing the function for the "auto_end" option
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "parsing.h"

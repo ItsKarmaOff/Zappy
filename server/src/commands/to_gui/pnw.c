@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The pnw.c
+** The file containing the sending of the "pnw" command for GUI clients
 */
 /**
  * @file pnw.c
- * @brief The pnw.c
- * @author Nicolas TORO
+ * @brief The file containing the sending of
+ * the "pnw" command for GUI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_gui.h"

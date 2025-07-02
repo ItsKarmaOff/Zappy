@@ -1,12 +1,12 @@
 /*
 ** EPITECH PROJECT, 2025
-** QueueManager.cpp
+** Zappy
 ** File description:
-** QueueManager in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/core
+** The QueueManager class implementation
 */
 /**
  * @file QueueManager.cpp
- * @brief QueueManager implementation for the GUI
+ * @brief The QueueManager class implementation
  * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
  * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */

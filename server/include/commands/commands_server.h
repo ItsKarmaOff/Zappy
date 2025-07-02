@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The commands_server.h
+** The internal server commands
 */
 /**
  * @file commands_server.h
- * @brief The commands_server.h
- * @author Nicolas TORO
+ * @brief The internal server commands
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #ifndef COMMANDS_SERVER_H_

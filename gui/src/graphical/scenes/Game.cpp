@@ -1,18 +1,17 @@
 /*
 ** EPITECH PROJECT, 2025
-** Game.cpp
+** Zappy
 ** File description:
-** Game in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical/scenes
+** The Game scene implementation
 */
+/**
+ * @file Game.cpp
+ * @brief The Game scene implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "Graphics.hpp"
-#include "TileInfo.hpp"
-#include "Logs.hpp"
-#include "VarManager.hpp"
-#include "SoundsManager.hpp"
-#include <chrono>
-#include <raylib.h>
-#include <raymath.h>
 
 namespace Gui {
     void Graphics::handleEventsGame(void)
@@ -53,7 +52,7 @@ namespace Gui {
 
                 player->setSelected(collision.hit);
                 if (collision.hit) {
-                    std::string player = "#" + std::to_string(id);
+                    //std::string player = "#" + std::to_string(id);
                     _queueManager->pushCommand({"pin", "#" + std::to_string(id)});
                     break;
                 }
@@ -228,6 +227,12 @@ namespace Gui {
         int i = 0;
         int fontSize = GetScreenHeight() / 20;
         int iconSize = fontSize;
+        std::map<PlayerInfo::Orientation, std::string> orientationStrings = {
+            {PlayerInfo::Orientation::NORTH, "North"},
+            {PlayerInfo::Orientation::EAST, "East"},
+            {PlayerInfo::Orientation::SOUTH, "South"},
+            {PlayerInfo::Orientation::WEST, "West"}
+        };
 
         for (auto &[id, player] : _game->getPlayers()) {
             if (player->isSelected()) {
@@ -254,9 +259,24 @@ namespace Gui {
                     Vector2 origin = {0, 0};
 
                     DrawTexturePro(resourceIcon, sourceRec, destRec, origin, 0.0f, WHITE);
-
                     i++;
                 }
+                DrawText(("Pos: " + std::to_string((int)player->getPos().x) + ", " + std::to_string((int)player->getPos().y)).c_str(),
+                GetScreenWidth() - MeasureText(("Pos: " + std::to_string((int)player->getPos().x) + ", " + std::to_string((int)player->getPos().y)).c_str(), fontSize) - 5,
+                GetScreenHeight() - (i + 1) * fontSize - 10.0f,
+                fontSize, player->getColor());
+                i++;
+
+                DrawText((orientationStrings[player->getOrientation()]).c_str(),
+                GetScreenWidth() - MeasureText((orientationStrings[player->getOrientation()]).c_str(), fontSize) - 5,
+                GetScreenHeight() - (i + 1) * fontSize - 10.0f,
+                fontSize, player->getColor());
+                i++;
+                
+                DrawText(("Player#" + std::to_string(id)).c_str(),
+                GetScreenWidth() - MeasureText(("Player#" + std::to_string(id)).c_str(), fontSize) - 5,
+                GetScreenHeight() - (i + 1) * fontSize - 10.0f,
+                fontSize, player->getColor());
                 break;
             }
         }
@@ -276,8 +296,8 @@ namespace Gui {
             if (player->getLevel() == 0)
                 continue;
             Vector2 textPosScreen = GetWorldToScreenEx(textPos, _game->getCamera(), GetScreenWidth(), GetScreenHeight());
-            DrawText(("Player" + std::to_string(id)).c_str(),
-                textPosScreen.x - MeasureText(("Player" + std::to_string(id)).c_str(), 40) / 2,
+            DrawText(("Player#" + std::to_string(id)).c_str(),
+                textPosScreen.x - MeasureText(("Player#" + std::to_string(id)).c_str(), 40) / 2,
                 textPosScreen.y,
                 40,
                 player->getColor());

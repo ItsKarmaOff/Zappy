@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The get_response.c
+** The file containing the function to get a response from a client
 */
 /**
  * @file get_response.c
- * @brief The get_response.c
- * @author Nicolas TORO
+ * @brief The file containing the function to get a response from a client
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"

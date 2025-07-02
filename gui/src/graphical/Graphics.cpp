@@ -1,14 +1,18 @@
 /*
 ** EPITECH PROJECT, 2025
-** Graphics.cpp
+** Zappy
 ** File description:
-** Graphics in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/Graphics
+** The Graphics class implementation
 */
+/**
+ * @file Graphics.cpp
+ * @brief The Graphics class implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "Graphics.hpp"
 #include "Commands.hpp"
-#include <raylib.h>
-#include <atomic>
 
 namespace Gui {
     Graphics::Graphics(std::shared_ptr<QueueManager> queueManager)
@@ -41,6 +45,7 @@ namespace Gui {
             {GAME, &Graphics::handleEventsGame},
             {SCOREBOARD, &Graphics::handleEventsScoreboard},
             {PAUSE, &Graphics::handleEventsPause},
+            {END, &Graphics::handleEventsEnd},
         };
 
         _updaters = {
@@ -48,6 +53,7 @@ namespace Gui {
             {GAME, &Graphics::updateGame},
             {SCOREBOARD, &Graphics::updateScoreboard},
             {PAUSE, &Graphics::updatePause},
+            {END, &Graphics::updateEnd},
         };
 
         _drawers = {
@@ -55,6 +61,7 @@ namespace Gui {
             {GAME, &Graphics::drawGame},
             {SCOREBOARD, &Graphics::drawScoreboard},
             {PAUSE, &Graphics::drawPause},
+            {END, &Graphics::drawEnd},
         };
     }
 

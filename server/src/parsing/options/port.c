@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The port.c
+** The file containing the function for the "port" option
 */
 /**
  * @file port.c
- * @brief The port.c
- * @author Nicolas TORO
+ * @brief The file containing the function for the "port" option
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "parsing.h"
