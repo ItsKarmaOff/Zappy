@@ -1,43 +1,47 @@
 /*
 ** EPITECH PROJECT, 2025
-** Chatbox.hpp
+** Zappy
 ** File description:
-** Chatbox declaration
+** The Chatbox class declaration
 */
-
+/**
+ * @file Chatbox.hpp
+ * @brief The Chatbox class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #ifndef CHATBOX_HPP
     #define CHATBOX_HPP
 
-#include <queue>
-#include <raylib.h>
-#include <string>
-#include <chrono>
+    #include "Lib.hpp"
+    #include <raylib.h>
+    #include <raymath.h>
 
-/**
- * @struct message
- * @brief Represents a message in the chatbox with content, sender information, timestamp, and color
- * @author Gianni TUERO
- */
-typedef struct message {
-    std::string content;                         ///< The content of the message
-    std::string sender;                          ///< The sender of the message
-    std::chrono::steady_clock::time_point timestamp; ///< When the message was created
-    Color color;                                 ///< The color used to display the message
-} message_t;
+namespace Gui
+{
+    /**
+     * @struct message
+     * @brief Represents a message in the chatbox with content, sender information, timestamp, and color
+     */
+    typedef struct message {
+        std::string content; ///< The content of the message
+        std::string sender; ///< The sender of the message
+        std::chrono::steady_clock::time_point timestamp; ///< When the message was created
+        Color color; ///< The color used to display the message
+    } message_t;
 
-/**
- * @file Chatbox.hpp
- * @brief The Chatbox class for managing and displaying chat messages
- */
 
-namespace Gui {
+
     /**
      * @class Chatbox
      * @brief Manages the display and storage of chat messages with timed expiration
      */
     class Chatbox {
         public:
+
+            //////////////// Constructors and Destructor ///////////////////////
+
             /**
              * @brief Default constructor
              * Initializes the chatbox with default settings and loads the font
@@ -48,6 +52,10 @@ namespace Gui {
              * @brief Default destructor
              */
             ~Chatbox() = default;
+
+
+
+            //////////////// Main Methods //////////////////////////////////////
 
             /**
              * @brief Adds a new message to the chatbox
@@ -75,10 +83,15 @@ namespace Gui {
              */
             void draw(Vector2 position, Vector2 size, int fontSize = GetScreenHeight() / 30);
 
+
+
         private:
-            size_t _maxMessages;            ///< Maximum number of messages to display
+
+            //////////////// Private Attributes ////////////////////////////////
+
+            size_t _maxMessages; ///< Maximum number of messages to display
             std::deque<message_t> _messages; ///< Queue of messages
-            Font _font;                     ///< Font used for rendering messages
+            Font _font; ///< Font used for rendering messages
 
     };
 }

@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The get_ip.c
+** The file containing the function to get the IP address of the server
 */
 /**
  * @file get_ip.c
- * @brief The get_ip.c
- * @author Nicolas TORO
+ * @brief The file containing the function to get the IP address of the server
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"

@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The mct.c
+** The file containing the handling of the "mct" command for GUI clients
 */
 /**
  * @file mct.c
- * @brief The mct.c
- * @author Nicolas TORO
+ * @brief The file containing the handling of
+ * the "mct" command for GUI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_gui.h"

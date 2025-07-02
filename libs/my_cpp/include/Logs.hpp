@@ -54,6 +54,7 @@
     #include <sys/poll.h>
     #include <condition_variable>
 
+    #define    ENDL RESET "\n\r"
     #define    RESET "\033[0m"
     #define    BLACK_LOGS "\033[0;30m"
     #define    RED_LOGS "\033[0;31m"

@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The player.c
+** The file containing the handling of the "player" command for server clients
 */
 /**
  * @file player.c
- * @brief The player.c
- * @author Nicolas TORO
+ * @brief The file containing the handling of
+ * the "player" command for server clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_server.h"

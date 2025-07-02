@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The look.c
+** The file containing the handling of the "look" command for AI clients
 */
 /**
  * @file look.c
- * @brief The look.c
- * @author Nicolas TORO
+ * @brief The file containing the handling of
+ * the "look" command for AI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_ai.h"

@@ -12,17 +12,6 @@
  */
 
 #include "Commands.hpp"
-#include "Graphics.hpp"
-#include "Logs.hpp"
-#include "PlayerInfo.hpp"
-#include "SoundsManager.hpp"
-#include "TeamInfo.hpp"
-#include <cstdlib>
-#include <functional>
-#include <map>
-#include <raylib.h>
-#include <unordered_map>
-#include <vector>
 
 namespace Gui
 {
@@ -723,7 +712,16 @@ namespace Gui
         if (teamName.empty())
             ERROR << "Team name cannot be empty for SEG command";
 
+        if (!_graphical.getGame()->getTeams().contains(teamName)) {
+            ERROR << "Team: [" << teamName << "] doesn't exist";
+            return;
+        }
         DEBUG_CONCAT << "Game ended - Team " << teamName << " has won!";
+        if (!_graphical.getEndInfo())
+            _graphical.getEndInfo() = (std::make_shared<EndInfo>());
+        _graphical.getEndInfo()->winner = teamName + " has won!";
+        _graphical.getEndInfo()->teamColor = _graphical.getGame()->getTeams()[teamName].getColor();
+        _graphical.getScene() = Graphics::END;
     }
 
     void Commands::handleSMG(std::string &param)

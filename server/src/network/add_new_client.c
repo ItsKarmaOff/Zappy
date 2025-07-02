@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The add_new_client.c
+** The file containing the function to add a new client
 */
 /**
  * @file add_new_client.c
- * @brief The add_new_client.c
- * @author Nicolas TORO
+ * @brief The file containing the function to add a new client
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"

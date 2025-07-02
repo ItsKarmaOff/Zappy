@@ -12,11 +12,6 @@
  */
 
 #include "Core.hpp"
-#include "Lib.hpp"
-#include "Logs.hpp"
-#include <iostream>
-#include <mutex>
-#include <string>
 
 namespace Gui
 {
@@ -27,7 +22,10 @@ namespace Gui
     {
         DEBUG << "Construct Core";
 
-        _parseArguments(argc, argv);
+        Parser parser(argc, argv);
+        _hostname = parser.getHostname();
+        _port = parser.getPort();
+
         _initClient();
         _queueManager = std::make_shared<QueueManager>();
         _answer = "";
@@ -105,111 +103,8 @@ namespace Gui
     }
 
 
-    //////////////////////// Getters ///////////////////////////////////////////
-
-    int Core::getPort() const
-    {
-        return _port;
-    }
-
-    const std::string &Core::getHostname() const
-    {
-        return _hostname;
-    }
-
-
-
-    //////////////////////// Setters ///////////////////////////////////////////
-
-    void Core::setPort(int port)
-    {
-        if (port <= 0 || port > 65535)
-            throw std::out_of_range("Port number must be between 1 and 65535");
-
-        _port = port;
-    }
-
-    void Core::setHostname(const std::string &hostname)
-    {
-        if (hostname.empty())
-            throw std::invalid_argument("Hostname cannot be empty");
-
-        _hostname = hostname;
-    }
-
-
-
-    //////////////////////// Utility Methods ///////////////////////////////////
-
-    void Core::printUsage() const
-    {
-        std::cout << "USAGE: ./zappy_gui -p port -h machine" << std::endl;
-        std::cout << "\noption\t\tdescription" << std::endl;
-        std::cout << "-p port\t\tport number" << std::endl;
-        std::cout << "-h machine\thostname of the server" << std::endl;
-    }
-
-
 
     //////////////////////// Private Methods ///////////////////////////////////
-
-    void Core::_parseArguments(int argc, char **argv)
-    {
-        DEBUG << "Parsing arguments";
-
-        if (argc == 2 && (std::string(argv[1]) == "-h" || std::string(argv[1]) == "--help")) {
-            printUsage();
-            return;
-        } else if (std::string(argv[1]) == "-a" || std::string(argv[1]) == "--author") {
-            std::cout << "Authors:" << std::endl;
-            std::cout << "\tChristophe VANDEVOIR" << std::endl;
-            std::cout << "\tGianni TUERO" << std::endl;
-            std::cout << "\tLou PELLEGRINO" << std::endl;
-            std::cout << "\tNicolas TORO" << std::endl;
-            std::cout << "\tOlivier POUECH" << std::endl;
-            std::cout << "\tRaphael LAUNAY" << std::endl;
-            return;
-        } else if (std::string(argv[1]) == "-v" || std::string(argv[1]) == "--version") {
-            std::cout << "Zappy GUI version 1.0" << std::endl;
-            return;
-        }
-
-        if (argc < 5) {
-            printUsage();
-            throw std::invalid_argument("Not enough arguments provided");
-        } else if (argc > 5) {
-            printUsage();
-            throw std::invalid_argument("Too many arguments provided");
-        }
-
-        for (int index = 1; index < argc; index++) {
-            if (std::string(argv[index]) == "-p") {
-                if (index + 1 < argc) {
-                    setPort(std::stoi(argv[index + 1]));
-                    index++;
-                } else {
-                    throw std::invalid_argument("Missing port number after -p");
-                }
-            } else if (std::string(argv[index]) == "-h") {
-                if (index + 1 < argc) {
-                    setHostname(argv[index + 1]);
-                    index++;
-                } else {
-                    throw std::invalid_argument("Missing hostname after -h");
-                }
-            } else {
-                throw std::invalid_argument("Unknown argument: " + std::string(argv[index]));
-            }
-        }
-
-        if (_port == -1) {
-            throw std::invalid_argument("Port number is required");
-        }
-        if (_hostname.empty()) {
-            throw std::invalid_argument("Hostname is required");
-        }
-        DEBUG << "Parsed arguments: port= " << getPort() << ", hostname= " << getHostname();
-    }
 
     void Core::_initClient()
     {

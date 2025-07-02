@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The help.c
+** The file containing the handling of the "help" command for server clients
 */
 /**
  * @file help.c
- * @brief The help.c
- * @author Nicolas TORO
+ * @brief The file containing the handling of
+ * the "help" command for server clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_server.h"

@@ -1,23 +1,20 @@
 /*
 ** EPITECH PROJECT, 2025
-** QueueManager.hpp
+** Zappy
 ** File description:
-** QueueManager declaration
+** The QueueManager class declaration
 */
+/**
+ * @file QueueManager.hpp
+ * @brief The QueueManager class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #ifndef QUEUEMANAGER_HPP
     #define QUEUEMANAGER_HPP
 
-    #include <queue>
-    #include <string>
-    #include <vector>
-    #include <mutex>
-
-/**
- * @file QueueManager.hpp
- * @brief The QueueManager class
- * @author Gianni TUERO
- */
+    #include "Lib.hpp"
 
 namespace Gui
 {
@@ -26,7 +23,6 @@ namespace Gui
      * @brief Manages queues for commands and responses with thread-safety
      */
     class QueueManager {
-
         public:
 
             //////////////// Constructors and Destructor ///////////////////////
@@ -85,14 +81,16 @@ namespace Gui
             */
             std::string popResponse();
 
+
+
         private:
 
             //////////////// Private Attributes ////////////////////////////////
 
-            mutable std::mutex _commandsQueueMutex; //< Mutex for thread-safe access to the commands queue
-            std::queue<std::vector<std::string>> _commandsQueue; //< Queue for commands
-            mutable std::mutex _responseQueueMutex; //< Mutex for thread-safe access to the responses queue
-            std::queue<std::string> _responseQueue; //< Queue for responses
+            mutable std::mutex _commandsQueueMutex; ///< Mutex for thread-safe access to the commands queue
+            std::queue<std::vector<std::string>> _commandsQueue; ///< Queue for commands
+            mutable std::mutex _responseQueueMutex; ///< Mutex for thread-safe access to the responses queue
+            std::queue<std::string> _responseQueue; ///< Queue for responses
         };
 }
 

@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The bct.c
+** The file containing the handling of the "bct" command for GUI clients
 */
 /**
  * @file bct.c
- * @brief The bct.c
- * @author Nicolas TORO
+ * @brief The file containing the handling of
+ * the "bct" command for GUI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_gui.h"

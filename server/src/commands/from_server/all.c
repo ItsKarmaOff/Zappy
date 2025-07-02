@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The all.c
+** The file containing the handling of the "all" internal server command
 */
 /**
  * @file all.c
- * @brief The all.c
- * @author Nicolas TORO
+ * @brief The file containing the handling of
+ * the "all" internal server command
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_server.h"

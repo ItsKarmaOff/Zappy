@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The write_client_action.c
+** The file containing the function to write client actions
 */
 /**
  * @file write_client_action.c
- * @brief The write_client_action.c
- * @author Nicolas TORO
+ * @brief The file containing the function to write client actions
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"
@@ -148,7 +149,6 @@ static bool set_next_action(server_t *server, size_t index,
                 selected_commands[cmd].time_to_wait;
             server->client_list[index - 1]->next_action.cmd_function =
                 selected_commands[cmd].cmd_function;
-            server->client_list[index - 1]->last_action_time = time(NULL);
             FREE(command);
             return true;
         }

@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The commands_gui.h
+** The GUI commands of the server
 */
 /**
  * @file commands_gui.h
- * @brief The commands_gui.h
- * @author Nicolas TORO
+ * @brief The GUI commands of the server
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #ifndef COMMANDS_GUI_H_

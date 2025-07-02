@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The authenticate_client.c
+** The file containing the function to authenticate a client
 */
 /**
  * @file authenticate_client.c
- * @brief The authenticate_client.c
- * @author Nicolas TORO
+ * @brief The file containing the function to authenticate a client
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"
@@ -82,9 +83,8 @@ static void respond_to_client(server_t *server, client_t *client,
     size_t team_index)
 {
     if (team_index != GRAPHIC_TEAM_INDEX) {
-        dprintf(client->socket_fd, "%zu\n",
-            server->game.team_list[team_index]->eggs_number - 1);
-        dprintf(client->socket_fd, "%zu %zu\n",
+        dprintf(client->socket_fd, "%zu\n%zu %zu\n",
+            server->game.team_list[team_index]->eggs_number - 1,
             server->game.game_settings.width,
             server->game.game_settings.height);
     } else {

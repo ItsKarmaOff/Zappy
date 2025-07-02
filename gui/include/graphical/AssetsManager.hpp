@@ -1,20 +1,21 @@
 /*
 ** EPITECH PROJECT, 2025
-** AssetsManager.hpp
+** Zappy
 ** File description:
-** AssetsManager declaration
+** The AssetsManager class declaration
 */
+/**
+ * @file AssetsManager.hpp
+ * @brief The AssetsManager class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #ifndef ASSETSMANAGER_HPP
     #define ASSETSMANAGER_HPP
 
     #include "ModelInfo.hpp"
     #include "PlayerInfo.hpp"
-    #include <memory>
-    #include <raylib.h>
-    #include <string>
-    #include <tuple>
-    #include <unordered_map>
 
 namespace Gui
 {
@@ -62,10 +63,18 @@ namespace Gui
 
             /**
              * @brief Gets the icon texture for a specific resource type
-             * @param Key The resource type for which to get the icon
-             * @return The texture representing the resource icon
+             * @param Key The resource type key
+             * @return The texture associated with the resource type
              */
             Texture2D getResourceIcon(PlayerInfo::ResourceType Key);
+
+            /**
+             * @brief Gets the map containing all loaded textures
+             * @return Reference to the unordered map of textures
+             */
+            static std::unordered_map<std::string, std::shared_ptr<Texture2D>> &getTextures(void);
+
+
 
         private:
 

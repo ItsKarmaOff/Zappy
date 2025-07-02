@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** Project
+** Zappy
 ** File description:
-** The server.c
+** The server class implementation
 */
 /**
  * @file server.c
- * @brief The server.c
- * @author Nicolas TORO
+ * @brief The server class implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "server.h"
@@ -92,7 +93,7 @@ void run(server_t *server)
             THROW(my_create_str("EXCEPTION: Poll failed: %s", STRERR));
         for (size_t index = 0; index < server->current_clients_number + 1;
         index++)
-            analyse_poll(server, index);
+            analyze_poll(server, index);
         execute_actions(server);
         update_game(server);
     }

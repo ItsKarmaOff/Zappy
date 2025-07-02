@@ -1,13 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The edi.c
+** The file containing the sending of the "edi" command for GUI clients
 */
 /**
  * @file edi.c
- * @brief The edi.c
- * @author Nicolas TORO
+ * @brief The file containing the sending of
+ * the "edi" command for GUI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_gui.h"

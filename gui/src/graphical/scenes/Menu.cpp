@@ -1,15 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** Menu.cpp
+** Zappy
 ** File description:
-** Menu in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical/scenes
+** The Menu scene implementation
 */
+/**
+ * @file Menu.cpp
+ * @brief The Menu scene implementation
+ */
 
 #include "Graphics.hpp"
-#include "Commands.hpp"
-#include "Logs.hpp"
-#include "SoundsManager.hpp"
-#include <raylib.h>
 
 namespace Gui {
     void Graphics::handleEventsMenu(void)
@@ -66,6 +66,11 @@ namespace Gui {
     void Graphics::drawMenu(void)
     {
         ClearBackground(RAYWHITE);
+        float scaleX = static_cast<float>(GetScreenWidth()) / _assetsManager.getTextures()["menu"]->width;
+        float scaleY = static_cast<float>(GetScreenHeight()) / _assetsManager.getTextures()["menu"]->height;
+        float scale = std::max(scaleX, scaleY);
+        DrawTextureEx(*_assetsManager.getTextures()["menu"], {0, 0}, 0, scale, WHITE);
+
         for (const auto &button : _menu->getButtons()) {
             DrawRectangleRounded(button.getButton(), 0.2f, 1, button.getCurrentColor());
             if (!button.getText().empty()) {

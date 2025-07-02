@@ -1,14 +1,17 @@
 /*
 ** EPITECH PROJECT, 2025
-** PauseInfo.cpp
+** Zappy
 ** File description:
-** PauseInfo in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
+** The PauseInfo class implementation
 */
+/**
+ * @file PauseInfo.cpp
+ * @brief The PauseInfo class implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "PauseInfo.hpp"
-#include <algorithm>
-#include <map>
-#include <raylib.h>
 
 namespace Gui {
     PauseInfo::PauseInfo()
@@ -161,11 +164,15 @@ namespace Gui {
     }
 
 
-    void PauseInfo::draw()
+    void PauseInfo::draw(AssetsManager &assetsManager)
     {
         if (_drawBackgroundCallback) {
             _drawBackgroundCallback();
         }
+        float scaleX = static_cast<float>(GetScreenWidth()) / AssetsManager::getTextures()["blur"]->width;
+        float scaleY = static_cast<float>(GetScreenHeight()) / AssetsManager::getTextures()["blur"]->height;
+        float scale = std::max(scaleX, scaleY);
+        DrawTextureEx(*assetsManager.getTextures()["blur"], {0, 0}, 0, scale, WHITE);
         drawButtons(*_buttonsMap[_currentSubscene]);
         if (_currentSubscene == SETTINGS)
             drawVolumeSlider();

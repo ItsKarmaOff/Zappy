@@ -1,14 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** Pause.cpp
+** Zappy
 ** File description:
-** Pause in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical/scenes
+** The Pause scene implementation
 */
+/**
+ * @file Pause.cpp
+ * @brief The Pause scene implementation
+ */
 
 #include "Graphics.hpp"
-#include "PauseInfo.hpp"
-#include "SoundsManager.hpp"
-#include <raylib.h>
 
 namespace Gui {
 
@@ -108,7 +109,7 @@ namespace Gui {
 
     void Graphics::drawPause(void)
     {
-        _pause->draw();
+        _pause->draw(_assetsManager);
     }
 
 }

@@ -8,16 +8,18 @@
 #ifndef PARSER_HPP_
 #define PARSER_HPP_
 
-#include "Exceptions.hpp"
+#include "Lib.hpp"
 
 class Parser {
     public:
         Parser();
         ~Parser();
         void parse(int argc, char **argv);
+        
         int getPort() const { return _port; }
-        std::string getName() const { return _name; }
-        std::string getMachine() const { return _machine; }
+        const std::string &getName() const { return _name; }
+        const std::string &getMachine() const { return _machine; }
+
     protected:
     private:
         int _port;

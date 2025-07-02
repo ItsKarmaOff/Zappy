@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2025
-** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
+** Zappy
 ** File description:
 ** CommandsQueue
 */
@@ -22,17 +22,20 @@ class CommandsQueue {
         std::string popResponse();
         void clearCommands();
         void clearResponses();
-        std::mutex &getCommandsQueueMutex() const { return _commandsQueueMutex; }
-        std::mutex &getResponsesQueueMutex() const { return _responsesQueueMutex; }
-        std::condition_variable &getResponseCondition() { return _responseCondition; }
+        void pushPendingCommand(const std::string& command);
+        std::string getCurrentPendingCommand() const;
+        void popPendingCommand();
+        bool hasPendingCommand() const;
+        void clearPendingCommands();
 
     protected:
     private:
+        std::queue<std::string> _pendingCommands;
+        mutable std::mutex _pendingMutex;
         std::queue<std::string> _commandsQueue;
         std::queue<std::string> _responsesQueue;
         mutable std::mutex _commandsQueueMutex;
         mutable std::mutex _responsesQueueMutex;
-        std::condition_variable _responseCondition;
 };
 
 #endif /* !COMMANDSQUEUE_HPP_ */

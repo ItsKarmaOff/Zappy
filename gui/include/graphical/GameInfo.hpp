@@ -1,47 +1,46 @@
 /*
 ** EPITECH PROJECT, 2025
-** GameInfo.hpp
+** Zappy
 ** File description:
-** GameInfo declaration
+** The GameInfo class declaration
 */
-
+/**
+ * @file GameInfo.hpp
+ * @brief The GameInfo class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #ifndef GAMEINFO_HPP
     #define GAMEINFO_HPP
 
     #include "TileInfo.hpp"
     #include "TeamInfo.hpp"
-    #include <raylib.h>
-    #include <raymath.h>
-    #include <unordered_map>
-    #include <vector>
-    #include <functional>
 
-/**
- * @file GameInfo.hpp
- * @brief The GameInfo class for managing game state and data
- * @author Gianni TUERO
- */
 
+// TODO: pk dans std ??
 // Hash function specialization for Vector2
-namespace std {
+namespace std
+{
     template<>
     struct hash<Vector2> {
         std::size_t operator()(const Vector2& v) const {
             return std::hash<float>()(v.x) ^ (std::hash<float>()(v.y) << 1);
         }
     };
-
 }
 
-namespace Gui {
-
+namespace Gui
+{
     /**
      * @class GameInfo
      * @brief Manages and stores game state information including camera, map, tiles, teams, and players
      */
     class GameInfo {
         public:
+
+            //////////////// Constructors and Destructor ///////////////////////
+
             /**
              * @brief Default constructor
              * Initializes camera and map size with default values
@@ -52,6 +51,9 @@ namespace Gui {
              * @brief Default destructor
              */
             ~GameInfo() = default;
+
+
+            //////////////// Getters ///////////////////////////////////////////
 
             /**
              * @brief Gets the reference to the game's camera
@@ -83,15 +85,19 @@ namespace Gui {
              */
             std::unordered_map<size_t, std::shared_ptr<PlayerInfo>> &getPlayers();
 
+
+
         private:
-            Camera3D _camera;  ///< 3D camera used for rendering the game world
-            Vector2 _mapSize;  ///< Dimensions of the game map
-            std::unordered_map<Vector2, TileInfo> _tiles;  ///< Collection of tiles indexed by position
-            std::unordered_map<std::string, TeamInfo> _teams;  ///< Collection of teams indexed by team name
-            std::unordered_map<size_t, std::shared_ptr<PlayerInfo>> _players;  ///< Collection of players indexed by ID
 
+
+            //////////////// Private Attributes ////////////////////////////////
+
+            Camera3D _camera; ///< 3D camera used for rendering the game world
+            Vector2 _mapSize; ///< Dimensions of the game map
+            std::unordered_map<Vector2, TileInfo> _tiles; ///< Collection of tiles indexed by position
+            std::unordered_map<std::string, TeamInfo> _teams; ///< Collection of teams indexed by team name
+            std::unordered_map<size_t, std::shared_ptr<PlayerInfo>> _players; ///< Collection of players indexed by ID
     };
-
 }
 
 #endif // GAMEINFO_HPP

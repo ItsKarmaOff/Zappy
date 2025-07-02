@@ -1,19 +1,21 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The incantation.c
+** The file containing the handling of the "incantation" command for AI clients
 */
 /**
  * @file incantation.c
- * @brief The incantation.c
- * @author Nicolas TORO
+ * @brief The file containing the handling of
+ * the "incantation" command for AI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "commands/commands_ai.h"
 
 const incantation_t incantations[MAX_PLAYER_LEVEL - 1] = {
-    {2, {0, 1, 0, 0, 0, 0, 0}},
+    {1, {0, 1, 0, 0, 0, 0, 0}},
     {2, {0, 1, 1, 1, 0, 0, 0}},
     {2, {0, 2, 0, 1, 0, 2, 0}},
     {4, {0, 1, 1, 2, 0, 1, 0}},
@@ -146,7 +148,7 @@ static void update_players_in_incantation(
         ((player_t *)tmp->data)->client->next_action.time_to_wait = 300;
         ((player_t *)tmp->data)->client->next_action.cmd_function =
             &handle_ai_command_finish_incantation;
-        ((player_t *)tmp->data)->client->last_action_time = time(NULL);
+        ((player_t *)tmp->data)->client->last_action_time = my_get_time();
     }
 }
 
