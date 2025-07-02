@@ -289,6 +289,14 @@ typedef struct server_s {
 
 
 
+    /* Client arrays */
+
+/**
+ * @brief The array of client types
+ */
+extern const char *client_type_names[];
+
+
    /* Server commands arrays */
 
 /**
