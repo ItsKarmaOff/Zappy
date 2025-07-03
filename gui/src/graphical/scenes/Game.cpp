@@ -59,7 +59,7 @@ namespace Gui {
             }
         }
         // if N is pressed, select next player
-        if (IsKeyPressed(KEY_RIGHT)) {
+        if (IsKeyPressed(KEY_LEFT)) {
             bool foundSelected = false;
             for (auto &[id, player] : _game->getPlayers()) {
                 if (player->isSelected()) {
@@ -91,7 +91,7 @@ namespace Gui {
         }
 
         // if P is pressed, select previous player
-        if (IsKeyPressed(KEY_LEFT)) {
+        if (IsKeyPressed(KEY_RIGHT)) {
             bool foundSelected = false;
             for (auto &[id, player] : _game->getPlayers()) {
                 if (player->isSelected()) {
