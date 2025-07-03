@@ -1,14 +1,12 @@
 /*
 ** EPITECH PROJECT, 2025
 ** Zappy
-** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** The CommandsQueue implementation
-** CommandsQueue
+** The CommandsQueue class implementation
 */
 /**
  * @file CommandsQueue.cpp
- * @brief The CommandsQueue implementation
+ * @brief The CommandsQueue class implementation
  * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
  * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */

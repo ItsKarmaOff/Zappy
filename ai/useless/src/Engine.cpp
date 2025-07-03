@@ -1,13 +1,12 @@
 /*
 ** EPITECH PROJECT, 2025
 ** Zappy
-** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** Engine implementation
+** The Engine class implementation
 */
 /**
  * @file Engine.cpp
- * @brief Engine implementation
+ * @brief The Engine class implementation
  * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
  * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */

@@ -1,24 +1,17 @@
 /*
 ** EPITECH PROJECT, 2025
 ** Zappy
-** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** Player implementation
+** The Player class implementation
 */
 /**
  * @file Player.cpp
- * @brief Player implementation
+ * @brief The Player class implementation
  * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
  * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "Player.hpp"
-#include "Algo.hpp"
-#include "Lib.hpp"
-#include "ZappyTypes.hpp"
-#include <sstream>
-#include <algorithm>
-#include <regex>
 
 const std::map<int, std::map<ResourceType, int>> Player::EVOLUTION_REQUIREMENTS = {
     {2, {{ResourceType::LINEMATE, 1}}},

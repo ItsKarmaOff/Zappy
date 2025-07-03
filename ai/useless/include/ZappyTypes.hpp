@@ -1,20 +1,20 @@
 /*
 ** EPITECH PROJECT, 2025
 ** Zappy
-** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** ZappyTypes class implementation
+** The types used in the Zappy
 */
 /**
  * @file ZappyTypes.hpp
- * @brief ZappyTypes class implementation
+ * @brief The types used in the Zappy
  * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
  * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
-#ifndef ZAPPYTYPES_HPP_
-#define ZAPPYTYPES_HPP_
 
-#include <string>
+#ifndef ZAPPYTYPES_HPP_
+    #define ZAPPYTYPES_HPP_
+
+    #include "Lib.hpp"
 
 /**
  * @enum ResourceType

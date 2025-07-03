@@ -1,27 +1,17 @@
 /*
 ** EPITECH PROJECT, 2025
 ** Zappy
-** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** Algo implementation with lock file leader election
+** The Algo class implementation
 */
+/**
+ * @file Algo.cpp
+ * @brief The Algo class implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "Algo.hpp"
-#include "Player.hpp"
-#include "Lib.hpp"
-#include "ZappyTypes.hpp"
-#include <regex>
-#include <sstream>
-#include <vector>
-#include <random>
-#include <algorithm>
-#include <thread>
-#include <chrono>
-#include <cstring>
-#include <fstream>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <signal.h>
 
 Algo::Algo() 
     : _playerPtr(nullptr), _currentPhase(StrategyPhase::EXPLORATION),
