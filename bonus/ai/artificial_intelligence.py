@@ -34,6 +34,7 @@ class Step:
     WAIT_TEAMMATES = 6
     JOIN_TEAM = 7
     INCANTATION = 8
+    DROP_ITEMS = 9
 
 
 class Ai:
@@ -69,8 +70,9 @@ class Ai:
             Step.INFORM: self.inform,
             Step.MOVE: self.move,
             Step.WAIT_TEAMMATES: self.wait_teammates,
-            Step.JOIN_TEAM: self.connect_to_team,
-            Step.INCANTATION: self.wait_teammates
+            Step.JOIN_TEAM: self.join_team,
+            Step.INCANTATION: self.incantation,
+            Step.DROP_ITEMS: self.drop_items
         }
         self.waiting_response = False
         self.map_size = [0, 0]
@@ -171,11 +173,13 @@ class Ai:
 
     def collect(self):
         if not self.is_child:
+            all_find = True
             for loot in self.inventory:
                 if self.inventory[loot] < TOTAL_REQUIREMENTS[loot]:
+                    all_find = False
                     break
-            self.step = Step.WAIT_TEAMMATES
-
+            if all_find:
+                self.step = Step.WAIT_TEAMMATES
 
         next_loot = self.get_next_loot()
         if next_loot is None and "food" in self.last_look[0]:
@@ -247,7 +251,7 @@ class Ai:
         elif self.waiting_response and len(self.response_queue) != 0 and self.last_look == []:
             self.last_look = self.parse_look(self.response_queue.pop(0))
             self.waiting_response = False
-            if self.last_look.count("player") >= 6:
+            if self.last_look[0].count("player") >= 6:
                 print(f"{self.id}: All teammates are here, let's incantate!")
                 self.step = Step.INCANTATION
             return
@@ -259,8 +263,19 @@ class Ai:
 
 
     def join_team(self):
-        pass
+        if not self.waiting_response and self.next_moves != []:
+            self.to_send = self.next_moves[0]
+            self.waiting_response = True
+            return
 
+        elif self.waiting_response and len(self.response_queue) != 0:
+            self.next_moves.pop(0)
+            self.response_queue.pop(0)
+            self.waiting_response = False
+            return
 
     def incantation(self):
+        pass
+
+    def drop_items(self):
         pass

@@ -47,15 +47,15 @@ class Connection:
         lines = self.buffer.split('\n')
         self.buffer = lines[-1]
         complete_lines = [line for line in lines[:-1] if line]
-        #if complete_lines:
-            #print(f"{MAGENTA}{self.my_ai.id}: Received data: {complete_lines}{RESET}")
+        if complete_lines:
+            print(f"{MAGENTA}{self.my_ai.id}: Received data: {complete_lines}{RESET}")
         return complete_lines
 
 
     def send_data(self, data):
         data += '\n'
         self.socket.sendall(data.encode('utf-8'))
-        #print(f"{BLUE}{self.my_ai.id}: Sent data: [{data[:-1]}]{RESET}")
+        print(f"{BLUE}{self.my_ai.id}: Sent data: [{data[:-1]}]{RESET}")
 
 
     def poll(self):
@@ -115,6 +115,19 @@ class Connection:
                 self.my_ai.inventory[loot] += 1
                 print(f"{GREEN}{self.my_ai.id}: Shared inventory updated: {loot} + 1{RESET}")
                 return
+        if message == self.my_ai.team + ":here":
+            if self.my_ai.step != Step.DROP_ITEMS:
+                self.my_ai.step = Step.JOIN_TEAM
+            if not self.my_ai.next_moves:
+                if direction == 0:
+                    self.my_ai.step = Step.DROP_ITEMS
+                elif direction in (2, 1, 8):
+                    self.my_ai.next_moves = ["Forward"]
+                elif direction in (5, 6, 7):
+                    self.my_ai.next_moves = ["Right"]
+                else:
+                    self.my_ai.next_moves = ["Left"]
+
 
     def handle_eject(self, line):
         direction = int(line.split(" ")[1])
