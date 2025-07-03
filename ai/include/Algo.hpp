@@ -1,14 +1,14 @@
-/*Add commentMore actions
+/*
 ** EPITECH PROJECT, 2025
 ** Zappy
 ** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** The Algo class implementation
+** The Algo class implementation with lock file approach
 ** Algo
 */
 /**
- * @file Algo.cpp
- * @brief The Algo class implementation
+ * @file Algo.hpp
+ * @brief The CommandsQueue class implementation
  * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
  * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
@@ -40,7 +40,7 @@ enum class StrategyPhase {
 
 /**
  * @class Algo
- * @brief The main AI algorithm class for the Zappy game
+ * @brief The main AI algorithm class for the Zappy game with lock file leader election
  */
 class Algo {
 public:
@@ -78,6 +78,17 @@ public:
     void run();
 
 private:
+    /**
+     * @brief Try to become the leader by creating a lock file
+     * @return True if successfully became leader, false otherwise
+     */
+    bool tryBecomeLeader();
+    
+    /**
+     * @brief Clean up lock file when leader terminates
+     */
+    void cleanup();
+    
     /**
      * @brief Execute the main strategy based on current phase
      * @param player Pointer to the player
@@ -188,6 +199,12 @@ private:
     void broadcastResourcesCollected(Player* player);
     
     /**
+     * @brief Broadcast that mission is complete (level 8 reached)
+     * @param player Pointer to the player
+     */
+    void broadcastMissionComplete(Player* player);
+    
+    /**
      * @struct Position
      * @brief Represents a position on the map
      */
@@ -254,6 +271,11 @@ private:
      * @return Current direction (0-3)
      */
     int getCurrentDirection() const;
+
+    /**
+     * @brief kill all the children
+     */
+    void killAllChildren();
     
     std::mt19937 _rng; ///< Random number generator
 };
