@@ -81,7 +81,7 @@ namespace Gui
              * @param size The size of the chatbox
              * @param fontSize The size of the font (default: scaled to screen height)
              */
-            void draw(Vector2 position, Vector2 size, int fontSize = GetScreenHeight() / 30);
+            void draw(Vector2 position, Vector2 size, int fontSize = GetScreenHeight() / 35);
 
 
 
