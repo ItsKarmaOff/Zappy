@@ -57,8 +57,11 @@ class Connection:
         lines = self.buffer.split('\n')
         self.buffer = lines[-1]
         complete_lines = [line for line in lines[:-1] if line]
-        # if complete_lines:
-        #    print(f"{MAGENTA}{self.my_ai.id}: Received data: {complete_lines}{RESET}")
+        if complete_lines:
+            if not self.my_ai.is_child:
+               print(f"{BLUE}{self.my_ai.id}: Received data: {complete_lines}{RESET}")
+            else:
+                print(f"{MAGENTA}{self.my_ai.id}: Received data: {complete_lines}{RESET}")
         return complete_lines
 
 
@@ -115,10 +118,20 @@ class Connection:
             TOTAL_REQUIREMENTS[item] = REQUIREMENTS[self.my_ai.level][item] * 6 if item in REQUIREMENTS[self.my_ai.level] else 0
         # if self.my_ai.is_child:
         self.my_ai.step = Step.LOOK
-        self.my_ai.last_look = []
         self.my_ai.inventory["food"] = 0
         self.my_ai.shared_inventory["food"] = 0
-        self.waiting_response = False
+        self.my_ai.ready = False
+        self.my_ai.players_ready = 0
+        self.my_ai.need_to_clear = True
+        print(f"{self.my_ai.id} is at step: {self.my_ai.step}, level: {self.my_ai.level}, ready: {self.my_ai.ready}")
+        self.my_ai.waiting_response = False
+
+        if not self.my_ai.is_child:
+            print(f"{BLUE} {self.my_ai.id} waiting response: {self.my_ai.waiting_response}{RESET}")
+            print(f"{BLUE} {self.my_ai.id} REQUIREMENTS NOW: {TOTAL_REQUIREMENTS}{RESET}")
+            print(f"{BLUE} {self.my_ai.id} INVENTORY NOW: {self.my_ai.inventory}{RESET}")
+            print(f"{BLUE} {self.my_ai.id} SHARED INVENTORY NOW: {self.my_ai.shared_inventory}{RESET}")
+
 
 
     def handle_message(self, line):
@@ -151,6 +164,7 @@ class Connection:
             if self.my_ai.is_child == False and self.my_ai.players_ready == 6:
                 print(f"{GREEN}{self.my_ai.id}: All players are ready, starting the incantation!{RESET}")
                 self.my_ai.step = Step.INCANTATION
+                self.my_ai.can_incantation = True
         elif message.startswith(self.my_ai.team + ":drop"):
             item = message.split("-")[1]
             if item in self.my_ai.shared_inventory and self.my_ai.shared_inventory[item] > 0:

@@ -97,6 +97,8 @@ class Ai:
         self.ready = False
         self.end_level = False
         self.child_processes = []  # Track forked processes
+        self.need_to_clear = False
+        self.can_incantation = False
         for item in TOTAL_REQUIREMENTS:
             if item == "food":
                 continue
@@ -153,7 +155,7 @@ class Ai:
             tmp = self.response_queue.pop(0).split(" ")
             self.map_size[0] = int(tmp[0])
             self.map_size[1] = int(tmp[1])
-            TOTAL_REQUIREMENTS["food"] = 200 * (self.map_size[0] * self.map_size[1]) / 100
+            TOTAL_REQUIREMENTS["food"] = 100 * (self.map_size[0] * self.map_size[1]) / 100
             self.waiting_response = False
 
 
@@ -178,6 +180,11 @@ class Ai:
 
 
     def look(self):
+        if self.need_to_clear:
+            self.response_queue.clear()
+            self.last_look = []
+            self.need_to_clear = False
+
         if not self.waiting_response:
             self.to_send = "Look"
             self.waiting_response = True
@@ -185,7 +192,7 @@ class Ai:
         elif self.waiting_response == True and len(self.response_queue) != 0 and self.last_look == []:
             self.last_look = self.parse_look(self.response_queue.pop(0))
             self.waiting_response = False
-            print(f"{self.id}: Look updated: {self.last_look}")
+            # print(f"{self.id}: Look updated: {self.last_look}")
             if len(self.last_look) == 0 or self.last_look[0] == []:
                 self.to_send = "Look"
                 self.waiting_response = True
@@ -313,7 +320,8 @@ class Ai:
             return
 
         elif self.waiting_response and len(self.response_queue) != 0:
-            self.next_moves.pop(0)
+            if self.response_queue[0] == "ok":
+                self.next_moves.pop(0)
             self.response_queue.pop(0)
             self.waiting_response = False
             return
@@ -354,16 +362,19 @@ class Ai:
 
 
     def incantation(self):
-        if not self.is_child and not self.waiting_response:
+        if not self.is_child and not self.waiting_response and self.can_incantation:
+            print(f"{BLUE}{self.id} sending incantation!{RESET}")
             self.to_send = "Incantation"
             self.waiting_response = True
+            self.can_incantation = False
             return
 
         elif self.waiting_response and len(self.response_queue) != 0:
             self.response_queue.pop(0)
-            # self.state = Step.LOOK
-            #self.waiting_response = False
+            self.waiting_response = False
+            return
 
-        if self.level == 6 and not self.end_level:
+
+        if self.level == 8 and not self.end_level:
             print(f"{GREEN}{self.id}: You are level 8 !{RESET}")
             self.end_level = True
