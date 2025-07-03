@@ -15,7 +15,11 @@
 #include "Engine.hpp"
 
 Engine::Engine(Parser &parser) : _parser(parser), _isRunning(true)
-{
+{     
+    signal(SIGINT, [](int) {
+        remove("zappy_leader.lock");
+        throw std::runtime_error("Server manually stopped.");
+    });
 }
 
 Engine::~Engine()
