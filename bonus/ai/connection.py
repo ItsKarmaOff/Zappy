@@ -100,8 +100,9 @@ class Connection:
 
     def handle_current_level(self, line):
         self.my_ai.level = int(line.split("Current level:")[1])
-        self.my_ai.needs_to_lvl_up = REQUIREMENTS[self.my_ai.level]
-        self.my_ai.reset()
+        self.my_ai.step = Step.INCANTATION
+        #self.my_ai.needs_to_lvl_up = REQUIREMENTS[self.my_ai.level]
+
 
     def handle_message(self, line):
         tmp = line.split(",")

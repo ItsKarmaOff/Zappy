@@ -1,5 +1,6 @@
 import random
 import subprocess
+from color import *
 #30 bouffes par tête
 #à chaque fois qu'on trouve une ressource on l'ajoute à l'inventaire et on la broadcast
 
@@ -91,6 +92,7 @@ class Ai:
         self.next_moves = []
         self.players_ready = 0
         self.ready = False
+        self.end_level = False
 
     def algorithm(self):
         self.actions[self.step]()
@@ -131,6 +133,7 @@ class Ai:
             tmp = self.response_queue.pop(0).split(" ")
             self.map_size[0] = int(tmp[0])
             self.map_size[1] = int(tmp[1])
+            TOTAL_REQUIREMENTS["food"] = 200 * (self.map_size[0] * self.map_size[1]) / 100
             self.waiting_response = False
 
 
@@ -324,4 +327,15 @@ class Ai:
 
 
     def incantation(self):
-        pass
+        if not self.is_child and not self.waiting_response:
+            self.to_send = "Incantation\n" * 6 + "Incantation"
+            self.waiting_response = True
+            return
+
+        elif self.waiting_response and len(self.response_queue) != 0:
+            self.response_queue.pop(0)
+            #self.waiting_response = False
+
+        if self.level == 6 and not self.end_level:
+            print(f"{GREEN}{self.id}: You are level 8 !{RESET}")
+            self.end_level = True
