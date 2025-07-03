@@ -68,7 +68,10 @@ class Connection:
     def send_data(self, data):
         data += '\n'
         self.socket.sendall(data.encode('utf-8'))
-        #print(f"{BLUE}{self.my_ai.id}: Sent data: [{data[:-1]}]{RESET}")
+        if not self.my_ai.is_child:
+            print(f"{BLUE}{self.my_ai.id}: Sent data: [{data[:-1]}]{RESET}")
+        else:
+            print(f"{MAGENTA}{self.my_ai.id}: Sent data: [{data[:-1]}]{RESET}")
 
 
     def poll(self):
@@ -155,18 +158,21 @@ class Connection:
                     self.my_ai.shared_inventory[loot] += TOTAL_REQUIREMENTS[loot] / 6
                 return
         if message == self.my_ai.team + ":here":
-            if self.my_ai.step != Step.DROP_ITEMS:
-                self.my_ai.step = Step.JOIN_TEAM
+            #if self.my_ai.step != Step.DROP_ITEMS or direction != 0:
+            self.my_ai.step = Step.JOIN_TEAM
             if not self.my_ai.next_moves:
                 if direction == 0:
                     #print(f"{GREEN}{self.my_ai.id}: I will drop my items!{RESET}")
-                    self.my_ai.step = Step.DROP_ITEMS
+                    #self.my_ai.step = Step.DROP_ITEMS
+                    print(f"{GREEN}{self.my_ai.id}: I'm here")
                 elif direction in (2, 1, 8):
                     self.my_ai.next_moves = ["Forward"]
                 elif direction in (5, 6, 7):
                     self.my_ai.next_moves = ["Right"]
                 else:
                     self.my_ai.next_moves = ["Left"]
+        elif message == self.my_ai.team + ":drop":
+            self.my_ai.step = Step.DROP_ITEMS
         elif message == self.my_ai.team + ":ready":
             self.my_ai.players_ready += 1
             if self.my_ai.is_child == False and self.my_ai.players_ready == 6:

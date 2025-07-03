@@ -288,7 +288,7 @@ class Ai:
             if self.last_look[0].count("player") >= 6:
                 print(f"{self.id}: All teammates are here, let's drop items!")
                 self.step = Step.DROP_ITEMS
-                self.broadcast("here")
+                self.broadcast("drop")
                 self.waiting_response = True
             return
 

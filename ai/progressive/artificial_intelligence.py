@@ -316,7 +316,7 @@ class Ai:
             if self.last_look[0].count("player") >= 6:
                 print(f"{self.id}: All teammates are here, let's drop items!")
                 self.step = Step.DROP_ITEMS
-                self.broadcast("here")
+                self.broadcast("drop")
                 self.waiting_response = True
             return
 
@@ -369,6 +369,7 @@ class Ai:
             self.shared_inventory[next_item_to_drop] -= 1
             self.broadcast(f"drop-{next_item_to_drop}")
             self.waiting_response = True
+            print(f"{BLUE}{self.id} Next drop item: {self.get_next_item_to_drop()}")
             return
 
         elif self.waiting_response and len(self.response_queue) != 0:
