@@ -44,7 +44,7 @@ namespace Gui {
 
         while (stream >> word) {
             std::string testLine = line.empty() ? word : line + " " + word;
-            Vector2 size = MeasureTextEx(font, testLine.c_str(), fontSize, 1);
+            Vector2 size = MeasureTextEx(font, testLine.c_str(), fontSize, 5);
             if (size.x > maxWidth) {
                 if (!line.empty()) {
                     lines.push_back(line);
@@ -86,7 +86,7 @@ namespace Gui {
                     _messages.pop_back();
                     break;
                 }
-                DrawTextEx(_font, it->c_str(), textPosition, fontSize, 3, message.color);
+                DrawTextEx(_font, it->c_str(), textPosition, fontSize, 5, message.color);
                 textPosition.y -= fontSize - 5;
             }
         }

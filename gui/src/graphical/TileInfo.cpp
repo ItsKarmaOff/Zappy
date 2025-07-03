@@ -92,11 +92,11 @@ namespace Gui {
         };
 
         int gridIndex = 0;
-        int itemsPerLine = static_cast<int>(std::floor(tileRealSize / 1.5f));
+        int itemsPerLine = static_cast<int>(std::floor(tileRealSize / 1.0f));
         // Hauteur verticale pour empiler les objets
-        const float stackHeight = 0.7f;
+        const float stackHeight = 0.5f;
         // Nombre maximum d'objets à empiler dans une pile
-        const int maxStackSize = 8;
+        const int maxStackSize = 15;
 
 
         for (const auto &[key, nb] : _content) {
