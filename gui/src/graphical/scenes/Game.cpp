@@ -59,7 +59,7 @@ namespace Gui {
             }
         }
         // if N is pressed, select next player
-        if (IsKeyPressed(KEY_N)) {
+        if (IsKeyPressed(KEY_RIGHT)) {
             bool foundSelected = false;
             for (auto &[id, player] : _game->getPlayers()) {
                 if (player->isSelected()) {
@@ -89,6 +89,41 @@ namespace Gui {
                 }
             }
         }
+
+        // if P is pressed, select previous player
+        if (IsKeyPressed(KEY_LEFT)) {
+            bool foundSelected = false;
+            for (auto &[id, player] : _game->getPlayers()) {
+                if (player->isSelected()) {
+                    foundSelected = true;
+                    break;
+                }
+            }
+            if (!foundSelected) {
+                // if no player is selected, select the first one
+                for (auto &[id, player] : _game->getPlayers()) {
+                    player->setSelected(true);
+                    break;
+                }
+                return;
+            }
+            // Since unordered_map doesn't have reverse iterators, we'll use a vector of player IDs
+            std::vector<int> playerIds;
+            for (auto &[id, player] : _game->getPlayers())
+                playerIds.push_back(id);
+
+            // Find the selected player and select the previous one
+            for (int i = playerIds.size() - 1; i >= 0; i--) {
+                int id = playerIds[i];
+                if (_game->getPlayers()[id]->isSelected()) {
+                    _game->getPlayers()[id]->setSelected(false);
+                    int prevIndex = (i - 1 >= 0) ? i - 1 : playerIds.size() - 1;
+                    _game->getPlayers()[playerIds[prevIndex]]->setSelected(true);
+                    break;
+                }
+            }
+        }
+
 
         if (IsKeyReleased(KEY_ESCAPE)) {
             bool playerSelected = false;
@@ -272,7 +307,7 @@ namespace Gui {
                 GetScreenHeight() - (i + 1) * fontSize - 10.0f,
                 fontSize, player->getColor());
                 i++;
-                
+
                 DrawText(("Player#" + std::to_string(id)).c_str(),
                 GetScreenWidth() - MeasureText(("Player#" + std::to_string(id)).c_str(), fontSize) - 5,
                 GetScreenHeight() - (i + 1) * fontSize - 10.0f,
