@@ -14,7 +14,6 @@
  */
 
 #include "commands/commands_server.h"
-#include <math.h>
 
 static bool check_position_args(
     const game_t *game, char **args, vector2u_t *position)
