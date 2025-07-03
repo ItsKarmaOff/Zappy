@@ -1,5 +1,7 @@
 import random
 import subprocess
+import signal
+import os
 from color import *
 #30 bouffes par tête
 #à chaque fois qu'on trouve une ressource on l'ajoute à l'inventaire et on la broadcast
@@ -13,10 +15,11 @@ REQUIREMENTS = {
         5: {"linemate": 1, "deraumere": 2, "sibur": 1, "mendiane": 3},
         6: {"linemate": 1, "deraumere": 2, "sibur": 3, "phiras": 1},
         7: {"linemate": 2, "deraumere": 2, "sibur": 2, "mendiane": 2, "phiras": 2, "thystame": 1},
+        8: None
 }
 
 TOTAL_REQUIREMENTS = {
-    "food": 200,
+    "food": 100,
     "linemate": 9,
     "deraumere": 8,
     "sibur": 10,
@@ -93,6 +96,23 @@ class Ai:
         self.players_ready = 0
         self.ready = False
         self.end_level = False
+        self.child_processes = []  # Track forked processes
+        for item in TOTAL_REQUIREMENTS:
+            if item == "food":
+                continue
+            TOTAL_REQUIREMENTS[item] = REQUIREMENTS[self.level][item] * 6 if item in REQUIREMENTS[self.level] else 0
+
+    def cleanup_processes(self):
+        """Kill all child processes"""
+        for process in self.child_processes:
+            try:
+                process.terminate()
+                process.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                process.kill()
+            except:
+                pass
+        self.child_processes.clear()
 
     def algorithm(self):
         self.actions[self.step]()
@@ -107,7 +127,6 @@ class Ai:
             for item in items.split(" "):
                 if item:
                     look[case_index].append(item)
-
         return look
 
 
@@ -126,7 +145,8 @@ class Ai:
                 return
             self.step = Step.LOOK
             if int(nb_places) != 0:
-                subprocess.Popen(["python3", self.binary, "-h", self.hostname, "-p", str(self.port), "-n", self.team, '-c'])
+                process = subprocess.Popen(["python3", self.binary, "-h", self.hostname, "-p", str(self.port), "-n", self.team, '-c'])
+                self.child_processes.append(process)
             if not self.is_child:
                 self.nb_players_to_fork = 6 - int(nb_places) - 1
                 self.step = Step.CREATE_PLAYERS
@@ -147,7 +167,8 @@ class Ai:
 
         elif self.waiting_response == True and len(self.response_queue) != 0:
             print("A new player has been created.")
-            subprocess.Popen(["python3", self.binary, "-h", self.hostname, "-p", str(self.port), "-n", self.team, '-c'])
+            process = subprocess.Popen(["python3", self.binary, "-h", self.hostname, "-p", str(self.port), "-n", self.team, '-c'])
+            self.child_processes.append(process)
             self.response_queue.pop(0)
             self.waiting_response = False
 
@@ -164,7 +185,11 @@ class Ai:
         elif self.waiting_response == True and len(self.response_queue) != 0 and self.last_look == []:
             self.last_look = self.parse_look(self.response_queue.pop(0))
             self.waiting_response = False
-            #print(f"{self.id}: Look updated: {self.last_look}")
+            print(f"{self.id}: Look updated: {self.last_look}")
+            if len(self.last_look) == 0 or self.last_look[0] == []:
+                self.to_send = "Look"
+                self.waiting_response = True
+                return
             self.step = Step.COLLECT
             if "food" in self.last_look[0]:
                 return
@@ -318,6 +343,8 @@ class Ai:
         if not self.waiting_response and next_item_to_drop is not None:
             self.to_send = f"Set {next_item_to_drop}"
             self.inventory[next_item_to_drop] -= 1
+            self.shared_inventory[next_item_to_drop] -= 1
+            self.to_send += f"\nBroadcast {self.team}:drop-{next_item_to_drop}"
             self.waiting_response = True
             return
 
@@ -328,12 +355,13 @@ class Ai:
 
     def incantation(self):
         if not self.is_child and not self.waiting_response:
-            self.to_send = "Incantation\n" * 6 + "Incantation"
+            self.to_send = "Incantation"
             self.waiting_response = True
             return
 
         elif self.waiting_response and len(self.response_queue) != 0:
             self.response_queue.pop(0)
+            # self.state = Step.LOOK
             #self.waiting_response = False
 
         if self.level == 6 and not self.end_level:
