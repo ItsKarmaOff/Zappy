@@ -12,6 +12,9 @@
 
 #include "tests.h"
 #include "Player.hpp"
+#include <criterion/criterion.h>
+#include "Parser.hpp"
+#include "Algo.hpp"
 
 Test(create_player, test_create_player, .init = redirect_all_std)
 {
@@ -117,4 +120,56 @@ Test(CommandsQueue, stress_push_pop)
     for (int i = 0; i < 1000; ++i)
         cr_assert_eq(queue->popCommand(), "cmd" + std::to_string(i), "Command order should be preserved");
     cr_assert_not(queue->hasCommands(), "Queue should be empty after popping all");
+}
+
+Test(Parser, parses_valid_arguments)
+{
+    Parser parser;
+    const char *argv[] = {"./zappy_ai", "-p", "4242", "-n", "team", "-h", "127.0.0.1"};
+    cr_assert_no_throw(parser.parse(7, const_cast<char **>(argv)));
+    cr_assert_eq(parser.getPort(), 4242, "Port should be 4242");
+    cr_assert_eq(parser.getName(), "team", "Name should be 'team'");
+    cr_assert_eq(parser.getMachine(), "127.0.0.1", "Machine should be '127.0.0.1'");
+}
+
+Test(Parser, throws_on_help)
+{
+    Parser parser;
+    const char *argv[] = {"./zappy_ai", "--help"};
+    cr_assert_throw(parser.parse(2, const_cast<char **>(argv)), Lib::Exceptions::Critical);
+}
+
+Test(Parser, throws_on_missing_arguments)
+{
+    Parser parser;
+    const char *argv[] = {"./zappy_ai", "-p", "4242", "-n", "team"};
+    cr_assert_throw(parser.parse(5, const_cast<char **>(argv)), Lib::Exceptions::Critical);
+}
+
+Test(Parser, throws_on_invalid_port)
+{
+    Parser parser;
+    const char *argv[] = {"./zappy_ai", "-p", "0", "-n", "team", "-h", "localhost"};
+    cr_assert_throw(parser.parse(7, const_cast<char **>(argv)), Lib::Exceptions::Critical);
+}
+
+Test(Parser, throws_on_empty_name)
+{
+    Parser parser;
+    const char *argv[] = {"./zappy_ai", "-p", "4242", "-n", "", "-h", "localhost"};
+    cr_assert_throw(parser.parse(7, const_cast<char **>(argv)), Lib::Exceptions::Critical);
+}
+
+Test(Parser, throws_on_empty_machine)
+{
+    Parser parser;
+    const char *argv[] = {"./zappy_ai", "-p", "4242", "-n", "team", "-h", ""};
+    cr_assert_throw(parser.parse(7, const_cast<char **>(argv)), Lib::Exceptions::Critical);
+}
+
+Test(Parser, throws_on_unknown_argument)
+{
+    Parser parser;
+    const char *argv[] = {"./zappy_ai", "-p", "4242", "-n", "team", "-x", "foo"};
+    cr_assert_throw(parser.parse(7, const_cast<char **>(argv)), Lib::Exceptions::Critical);
 }
