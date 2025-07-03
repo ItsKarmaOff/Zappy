@@ -1,5 +1,7 @@
 import select
 import socket
+import signal
+import sys
 from artificial_intelligence import *
 from color import *
 
@@ -15,10 +17,18 @@ class Connection:
         self.udp_handler = [
             {"keyword": "dead", "function": self.handle_dead},
             {"keyword": "Current level:", "function": self.handle_current_level},
+            {"keyword": "Elevation underway", "function": self.handle_elevation},
             {"keyword": "message", "function": self.handle_message},
             {"keyword": "eject", "function": self.handle_eject},
         ]
         self.buffer = ""
+        signal.signal(signal.SIGINT, self.signal_handler)
+
+    def signal_handler(self, sig, frame):
+        print(f"\n{RED}CTRL+C received, cleaning up processes...{RESET}")
+        self.my_ai.cleanup_processes()
+        self.socket.close()
+        sys.exit(0)
 
 
     def connect(self):
@@ -58,7 +68,7 @@ class Connection:
     def send_data(self, data):
         data += '\n'
         self.socket.sendall(data.encode('utf-8'))
-        print(f"{BLUE}{self.my_ai.id}: Sent data: [{data[:-1]}]{RESET}")
+        #print(f"{BLUE}{self.my_ai.id}: Sent data: [{data[:-1]}]{RESET}")
 
 
     def poll(self):
@@ -79,7 +89,6 @@ class Connection:
                         #    print(f"{RED}Cannot find an handler for: " + self.my_ai.response_queue[line_index] + f"{RESET}")
                     for line_index in sorted(response_to_erase, reverse=True):
                         self.my_ai.response_queue.pop(line_index)
-                    #print(f"{MAGENTA}{self.my_ai.id}: Response queue: {self.my_ai.response_queue}{RESET}")
 
 
                 if event & select.POLLOUT:
@@ -103,8 +112,26 @@ class Connection:
 
     def handle_current_level(self, line):
         self.my_ai.level = int(line.split("Current level:")[1])
-        self.my_ai.step = Step.INCANTATION
-        #self.my_ai.needs_to_lvl_up = REQUIREMENTS[self.my_ai.level]
+        for item in TOTAL_REQUIREMENTS:
+            if item == "food":
+                continue
+            TOTAL_REQUIREMENTS[item] = REQUIREMENTS[self.my_ai.level][item] * 6 if item in REQUIREMENTS[self.my_ai.level] else 0
+        # if self.my_ai.is_child:
+        self.my_ai.step = Step.LOOK
+        self.my_ai.inventory["food"] = 0
+        self.my_ai.shared_inventory["food"] = 0
+        self.my_ai.ready = False
+        self.my_ai.players_ready = 0
+        self.my_ai.need_to_clear = True
+        print(f"{self.my_ai.id} is at step: {self.my_ai.step}, level: {self.my_ai.level}, ready: {self.my_ai.ready}")
+        self.my_ai.waiting_response = False
+
+        if not self.my_ai.is_child:
+            print(f"{BLUE} {self.my_ai.id} waiting response: {self.my_ai.waiting_response}{RESET}")
+            print(f"{BLUE} {self.my_ai.id} REQUIREMENTS NOW: {TOTAL_REQUIREMENTS}{RESET}")
+            print(f"{BLUE} {self.my_ai.id} INVENTORY NOW: {self.my_ai.inventory}{RESET}")
+            print(f"{BLUE} {self.my_ai.id} SHARED INVENTORY NOW: {self.my_ai.shared_inventory}{RESET}")
+
 
 
     def handle_message(self, line):
@@ -134,10 +161,14 @@ class Connection:
                     self.my_ai.next_moves = ["Left"]
         elif message == self.my_ai.team + ":ready":
             self.my_ai.players_ready += 1
-            print(f"{GREEN}{self.my_ai.id}: Player is ready! Total ready players: {self.my_ai.players_ready}{RESET}")
-            if self.my_ai.is_child == False and self.my_ai.players_ready >= 6:
+            if self.my_ai.is_child == False and self.my_ai.players_ready == 6:
                 print(f"{GREEN}{self.my_ai.id}: All players are ready, starting the incantation!{RESET}")
                 self.my_ai.step = Step.INCANTATION
+                self.my_ai.can_incantation = True
+        elif message.startswith(self.my_ai.team + ":drop"):
+            item = message.split("-")[1]
+            if item in self.my_ai.shared_inventory and self.my_ai.shared_inventory[item] > 0:
+                self.my_ai.shared_inventory[item] -= 1
 
 
     def handle_eject(self, line):
