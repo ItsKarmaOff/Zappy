@@ -12,6 +12,7 @@
  */
 
 #include "Graphics.hpp"
+#include <raylib.h>
 
 namespace Gui {
     void Graphics::handleEventsGame(void)
@@ -319,6 +320,7 @@ namespace Gui {
 
     void Graphics::drawPlayerTag()
     {
+        int fontSize = GetScreenHeight() / 40;
         for (auto &[id, player] : _game->getPlayers()) {
             std::string modelKey = "player" + std::to_string(player->getLevel());
             std::shared_ptr<ModelInfo> playerModel = _assetsManager.getModels()[modelKey];
@@ -332,9 +334,9 @@ namespace Gui {
                 continue;
             Vector2 textPosScreen = GetWorldToScreenEx(textPos, _game->getCamera(), GetScreenWidth(), GetScreenHeight());
             DrawText(("Player#" + std::to_string(id)).c_str(),
-                textPosScreen.x - MeasureText(("Player#" + std::to_string(id)).c_str(), 40) / 2,
+                textPosScreen.x - MeasureText(("Player#" + std::to_string(id)).c_str(), fontSize) / 2,
                 textPosScreen.y,
-                40,
+                fontSize,
                 player->getColor());
         }
     }
