@@ -15,7 +15,7 @@ REQUIREMENTS = {
 }
 
 TOTAL_REQUIREMENTS = {
-    "food": 30,
+    "food": 200,
     "linemate": 9,
     "deraumere": 8,
     "sibur": 10,
@@ -33,8 +33,8 @@ class Step:
     MOVE = 5
     WAIT_TEAMMATES = 6
     JOIN_TEAM = 7
-    INCANTATION = 8
-    DROP_ITEMS = 9
+    DROP_ITEMS = 8
+    INCANTATION = 9
 
 
 class Ai:
@@ -48,6 +48,15 @@ class Ai:
         self.id = random.randint(100, 999)
         self.alive = True
 
+        self.shared_inventory = {
+            "food": 0,
+            "linemate": 0,
+            "deraumere": 0,
+            "sibur": 0,
+            "mendiane": 0,
+            "phiras": 0,
+            "thystame": 0
+        }
         self.inventory = {
             "food": 0,
             "linemate": 0,
@@ -71,8 +80,8 @@ class Ai:
             Step.MOVE: self.move,
             Step.WAIT_TEAMMATES: self.wait_teammates,
             Step.JOIN_TEAM: self.join_team,
+            Step.DROP_ITEMS: self.drop_items,
             Step.INCANTATION: self.incantation,
-            Step.DROP_ITEMS: self.drop_items
         }
         self.waiting_response = False
         self.map_size = [0, 0]
@@ -80,6 +89,8 @@ class Ai:
         self.last_look = []
         self.last_collect = ""
         self.next_moves = []
+        self.players_ready = 0
+        self.ready = False
 
     def algorithm(self):
         self.actions[self.step]()
@@ -166,7 +177,7 @@ class Ai:
 
     def get_next_loot(self):
         for loot in self.last_look[0]:
-            if loot in LOOTS and self.inventory[loot] < TOTAL_REQUIREMENTS[loot]:
+            if loot in LOOTS and self.shared_inventory[loot] < TOTAL_REQUIREMENTS[loot]:
                 return loot
         return None
 
@@ -174,8 +185,8 @@ class Ai:
     def collect(self):
         if not self.is_child:
             all_find = True
-            for loot in self.inventory:
-                if self.inventory[loot] < TOTAL_REQUIREMENTS[loot]:
+            for loot in self.shared_inventory:
+                if self.shared_inventory[loot] < TOTAL_REQUIREMENTS[loot]:
                     all_find = False
                     break
             if all_find:
@@ -199,10 +210,11 @@ class Ai:
         elif self.waiting_response and len(self.response_queue) != 0:
             response = self.response_queue.pop(0)
             if response == "ok":
+                self.shared_inventory[self.last_collect] += 1
                 self.inventory[self.last_collect] += 1
                 #print(f"Collected {self.last_collect}, inventory: {self.inventory}")
-                if self.last_collect != "food":
-                    self.step = Step.INFORM
+                #if self.last_collect != "food":
+                self.step = Step.INFORM
             self.waiting_response = False
 
 
@@ -251,14 +263,18 @@ class Ai:
         elif self.waiting_response and len(self.response_queue) != 0 and self.last_look == []:
             self.last_look = self.parse_look(self.response_queue.pop(0))
             self.waiting_response = False
+            #print(f"{self.id}: Look see {self.last_look[0].count('player')} players")
             if self.last_look[0].count("player") >= 6:
-                print(f"{self.id}: All teammates are here, let's incantate!")
-                self.step = Step.INCANTATION
+                print(f"{self.id}: All teammates are here, let's drop items!")
+                self.step = Step.DROP_ITEMS
+                self.to_send = f"Broadcast {self.team}:here"
+                self.waiting_response = True
             return
 
         elif self.waiting_response and len(self.response_queue) != 0:
             self.response_queue.pop(0)
             self.waiting_response = False
+            self.last_look = []
             return
 
 
@@ -274,8 +290,38 @@ class Ai:
             self.waiting_response = False
             return
 
-    def incantation(self):
-        pass
+
+    def get_next_item_to_drop(self):
+        for item in LOOTS[1:]:
+            if self.inventory[item] > 0:
+                return item
+        return None
+
 
     def drop_items(self):
+        next_item_to_drop = self.get_next_item_to_drop()
+
+        if not self.waiting_response and next_item_to_drop is None and not self.ready:
+            self.to_send = f"Broadcast {self.team}:ready"
+            self.players_ready += 1
+            self.ready = True
+            self.waiting_response = True
+
+            if self.is_child == False and self.players_ready == 6:
+                print(f"{GREEN}{self.id}: All players are ready, starting the incantation!{RESET}")
+                self.step = Step.INCANTATION
+            return
+
+        if not self.waiting_response and next_item_to_drop is not None:
+            self.to_send = f"Set {next_item_to_drop}"
+            self.inventory[next_item_to_drop] -= 1
+            self.waiting_response = True
+            return
+
+        elif self.waiting_response and len(self.response_queue) != 0:
+            self.response_queue.pop(0)
+            self.waiting_response = False
+
+
+    def incantation(self):
         pass
