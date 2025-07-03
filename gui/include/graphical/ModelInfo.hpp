@@ -1,33 +1,34 @@
 /*
 ** EPITECH PROJECT, 2025
-** ModelInfo.hpp
+** Zappy
 ** File description:
-** ModelInfo declaration
+** The ModelInfo class declaration
 */
-
+/**
+ * @file ModelInfo.hpp
+ * @brief The ModelInfo class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #ifndef MODELINFO_HPP
     #define MODELINFO_HPP
 
-#include <memory>
-#include <raylib.h>
-#include <string>
-#include <vector>
-#include <chrono>
+    #include "VarManager.hpp"
+    #include <raylib.h>
+    #include <raymath.h>
 
-/**
- * @file ModelInfo.hpp
- * @brief The ModelInfo class for managing 3D model data and rendering
- * @author Gianni TUERO
- */
-
-namespace Gui {
+namespace Gui
+{
     /**
      * @class ModelInfo
      * @brief Manages 3D model data, transformations, and rendering operations
      */
-    class   ModelInfo {
+    class ModelInfo {
         public:
+
+            //////////////// Constructors and Destructor ///////////////////////
+
             /**
              * @brief Constructor for the ModelInfo class
              * @param modelPath Path to the 3D model file
@@ -47,7 +48,10 @@ namespace Gui {
              */
             void init();
 
-            ////////////////////////////////////// GETTERS / SETTERS //////////////////////////////////////
+
+
+            //////////////// Getters ///////////////////////////////////////////
+
             /**
              * @brief Gets the model as a constant reference
              * @return Constant reference to the Model object
@@ -60,36 +64,25 @@ namespace Gui {
              */
             Model &getModel();
 
-            /**
-             * @brief Sets the model
-             * @param model The Model object to set
-             */
-            void setModel(const Model &model);
 
             /**
-             * @brief Gets the bounding box as a constant reference
-             * @return Constant reference to the BoundingBox object
-             */
+            * @brief Gets the bounding box as a constant reference
+            * @return Constant reference to the BoundingBox object
+            */
             const BoundingBox &getBoundingBox() const;
 
             /**
-             * @brief Gets the bounding box as a mutable reference
-             * @return Reference to the BoundingBox object
-             */
+            * @brief Gets the bounding box as a mutable reference
+            * @return Reference to the BoundingBox object
+            */
             BoundingBox &getBoundingBox();
 
             /**
-             * @brief Sets the bounding box
-             * @param boundingBox The BoundingBox object to set
-             */
-            void setBoundingBox(const BoundingBox &boundingBox);
-
-            /**
-             * @brief Calculates a transformed bounding box based on position and rotation
-             * @param position The position vector in world space
-             * @param rotationDeg The rotation in degrees
-             * @return BoundingBox object transformed according to position and rotation
-             */
+            * @brief Calculates a transformed bounding box based on position and rotation
+            * @param position The position vector in world space
+            * @param rotationDeg The rotation in degrees
+            * @return BoundingBox object transformed according to position and rotation
+            */
             BoundingBox getTransformedBoundingBox(const Vector3 &position, float rotationDeg) const;
 
             /**
@@ -99,24 +92,90 @@ namespace Gui {
              * @return BoundingBox object suitable for collision detection
              */
             BoundingBox getBoundingBoxForCollision(const Vector3 &position, float rotationDeg) const;
-
+            
             /**
-             * @brief Gets the scale factor as a constant reference
-             * @return Constant reference to the scale factor
-             */
+            * @brief Gets the scale factor as a constant reference
+            * @return Constant reference to the scale factor
+            */
             const float &getScale() const;
-
-            /**
-             * @brief Sets the scale factor
-             * @param scale The new scale factor value
-             */
-            void setScale(float scale);
 
             /**
              * @brief Gets the dimensions as a constant reference
              * @return Constant reference to the Vector3 containing the model dimensions
              */
             const Vector3 &getDimensions() const;
+
+            /**
+             * @brief Gets the position as a constant reference
+             * @return Constant reference to the Vector3 containing position
+             */
+            const Vector3 &getPos() const;
+
+            /**
+             * @brief Gets the position as a mutable reference
+             * @return Reference to the Vector3 containing position
+             */
+            Vector3 &getPos();
+
+            /**
+             * @brief Aligns the model to a target height
+             * @param min The minimum Y value of the model
+             * @param target The target Y value to align to (default: 0.0f)
+             * @return The offset value needed for alignment
+             */
+            float getAligned(float min, float target = 0.0f);
+
+            /**
+             * @brief Gets the scaled width of the model
+             * @return The width of the model considering scale factor
+             */
+            float getWidth();
+
+            /**
+            * @brief Gets the scaled height of the model
+            * @return The height of the model considering scale factor
+            */
+            float getHeight();
+            
+            /**
+            * @brief Gets the scaled length of the model
+            * @return The length of the model considering scale factor
+            */
+            float getLength();
+
+            /**
+             * @brief Gets the ray collision information as a mutable reference
+             * @return Reference to the RayCollision object
+             */
+            RayCollision &getCollision();
+
+            /**
+             * @brief Gets the ray collision information as a constant reference
+             * @return Constant reference to the RayCollision object
+             */
+            const RayCollision &getCollision() const;
+
+
+
+            //////////////// Setters ///////////////////////////////////////////
+
+            /**
+             * @brief Sets the model
+             * @param model The Model object to set
+             */
+            void setModel(const Model &model);
+
+            /**
+            * @brief Sets the bounding box
+            * @param boundingBox The BoundingBox object to set
+            */
+            void setBoundingBox(const BoundingBox &boundingBox);
+
+            /**
+             * @brief Sets the scale factor
+             * @param scale The new scale factor value
+             */
+            void setScale(float scale);
 
             /**
              * @brief Sets the dimensions
@@ -137,34 +196,10 @@ namespace Gui {
             void setTextures(const std::vector<Texture2D> &textures);
 
             /**
-             * @brief Gets the ray collision information as a mutable reference
-             * @return Reference to the RayCollision object
-             */
-            RayCollision &getCollision();
-
-            /**
-             * @brief Gets the ray collision information as a constant reference
-             * @return Constant reference to the RayCollision object
-             */
-            const RayCollision &getCollision() const;
-
-            /**
              * @brief Sets the ray collision information
              * @param collision The RayCollision object to set
              */
             void setCollision(const RayCollision &collision);
-
-            /**
-             * @brief Gets the position as a constant reference
-             * @return Constant reference to the Vector3 containing position
-             */
-            const Vector3 &getPos() const;
-
-            /**
-             * @brief Gets the position as a mutable reference
-             * @return Reference to the Vector3 containing position
-             */
-            Vector3 &getPos();
 
             /**
              * @brief Sets the position
@@ -172,7 +207,10 @@ namespace Gui {
              */
             void setPos(const Vector3 &pos);
 
-            ////////////////////////////////////// UTILITY //////////////////////////////////////
+
+
+            //////////////// Main Methods //////////////////////////////////////
+
             /**
              * @brief Draws the model at the specified position with the given color
              * @param position The position vector in world space
@@ -207,48 +245,25 @@ namespace Gui {
             void applyRotationEffect(float angle = 0.0f, float speed = 1.0f);
 
             /**
-             * @brief Aligns the model to a target height
-             * @param min The minimum Y value of the model
-             * @param target The target Y value to align to (default: 0.0f)
-             * @return The offset value needed for alignment
-             */
-            float getAligned(float min, float target = 0.0f);
-
-            /**
-             * @brief Gets the scaled width of the model
-             * @return The width of the model considering scale factor
-             */
-            float getWidth();
-
-            /**
-             * @brief Gets the scaled height of the model
-             * @return The height of the model considering scale factor
-             */
-            float getHeight();
-
-            /**
-             * @brief Gets the scaled length of the model
-             * @return The length of the model considering scale factor
-             */
-            float getLength();
-
-            /**
              * @brief Updates the transformed bounding box based on current position
              */
             inline void updateTransformedBoundingBox();
 
+
+
         private:
-            Model _model;                       ///< The 3D model
-            BoundingBox _boundingBox;           ///< Original bounding box of the model
+
+            //////////////// Private Attributes ////////////////////////////////
+
+            Model _model;                        ///< The 3D model
+            BoundingBox _boundingBox;            ///< Original bounding box of the model
             BoundingBox _transformedBoundingBox; ///< Bounding box after transformations
-            float _scale;                       ///< Scale factor for the model
-            Vector3 _dimensions;                ///< Dimensions of the model
-            std::vector<Texture2D> _textures;   ///< Textures used by the model
-            RayCollision _collision;            ///< Ray collision information
-            Vector3 _pos;                       ///< Current position of the model
+            float _scale;                        ///< Scale factor for the model
+            Vector3 _dimensions;                 ///< Dimensions of the model
+            std::vector<Texture2D> _textures;    ///< Textures used by the model
+            RayCollision _collision;             ///< Ray collision information
+            Vector3 _pos;                        ///< Current position of the model
     };
-
-
 }
 
 #endif // MODELINFO_HPP

@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The remove_client.c
+** The file containing the function to remove a client
 */
 /**
  * @file remove_client.c
- * @brief The remove_client.c
- * @author Nicolas TORO
+ * @brief The file containing the function to remove a client
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"

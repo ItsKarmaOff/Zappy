@@ -1,17 +1,21 @@
 /*
 ** EPITECH PROJECT, 2025
-** MenuInfo.hpp
+** Zappy
 ** File description:
-** MenuInfo declaration
+** The MenuInfo class declaration
 */
+/**
+ * @file MenuInfo.hpp
+ * @brief The MenuInfo class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 
 #ifndef MENUINFO_HPP
     #define MENUINFO_HPP
 
     #include "Button.hpp"
-    #include <raylib.h>
-    #include <vector>
 
 /**
  * @file MenuInfo.hpp
@@ -19,9 +23,13 @@
  * @author Gianni TUERO
  */
 
-namespace Gui {
+namespace Gui
+{
     class MenuInfo {
         public:
+
+            //////////////// Enumerations //////////////////////////////////////
+
             enum ButtonIndex {
                 PLAY_BUTTON,
                 EXIT_BUTTON
@@ -29,17 +37,22 @@ namespace Gui {
             MenuInfo();
             ~MenuInfo() = default;
 
+
+            //////////////// Getters ///////////////////////////////////////////
             /**
              * @brief Gets the reference to the buttons in the menu
              * @return Reference to the vector of Button objects
              */
             std::vector<Button> &getButtons();
 
+
+
         private:
+
+            //////////////// Private Attributes ////////////////////////////////
+
             std::vector<Button> _buttons; ///< Vector containing all buttons in the menu
-
     };
-
 }
 
 #endif // GAMEINFO_HPP

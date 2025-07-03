@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The show_eggs.c
+** The file containing the function for the "show_eggs" option
 */
 /**
  * @file show_eggs.c
- * @brief The show_eggs.c
- * @author Nicolas TORO
+ * @brief The file containing the function for the "show_eggs" option
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "parsing.h"

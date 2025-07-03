@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The server_data_structures.h
+** The data structures used by the server
 */
 /**
  * @file server_data_structures.h
- * @brief The server_data_structures.h
- * @author Nicolas TORO
+ * @brief The data structures used by the server
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #ifndef SERVER_DATA_STRUCTURES_H_
@@ -97,7 +98,7 @@ typedef struct player_s {
     /** Whether the player is incanting */
     bool is_incanting;
     /** The last time the player ate */
-    time_t last_eat_time;
+    timespec_t last_eat_time;
     /** The inventory of the player */
     size_t inventory[RESOURCES_SIZE];
 
@@ -193,7 +194,7 @@ typedef struct game_s {
     /** The quantities of resources in the game */
     quantity_t resources[RESOURCES_SIZE];
     /** The last time resources were refilled */
-    time_t last_refill_time;
+    timespec_t last_refill_time;
     /** The team name of the winner */
     const char *winner_team_name;
 } game_t;
@@ -257,7 +258,7 @@ typedef struct client_s {
     /** The next action to execute */
     action_t next_action;
     /** The time of the last action */
-    time_t last_action_time;
+    timespec_t last_action_time;
 } client_t;
 
 /**

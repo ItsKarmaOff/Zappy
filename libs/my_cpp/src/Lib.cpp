@@ -7,7 +7,8 @@
 /**
  * @file Lib.cpp
  * @brief The Lib functions implementation
- * @author Christophe VANDEVOIR, Gianni TUERO and Nicolas TORO
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "Lib.hpp"

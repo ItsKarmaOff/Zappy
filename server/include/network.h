@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The network.h
+** The file containing the network functions
 */
 /**
  * @file network.h
- * @brief The network.h
- * @author Nicolas TORO
+ * @brief The file containing the network functions
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #ifndef NETWORK_H_
@@ -41,7 +42,7 @@ char *get_ip_address(void);
  * @param server The server containing the client
  * @param index The index of the client in the poll_fds array
  */
-void analyse_poll(server_t *server, size_t index);
+void analyze_poll(server_t *server, size_t index);
 
 
 

@@ -1,23 +1,18 @@
 /*
 ** EPITECH PROJECT, 2025
-** AssetsManager.cpp
+** Zappy
 ** File description:
-** AssetsManager in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical
+** The AssetsManager class implementation
 */
 /**
  * @file AssetsManager.cpp
- * @brief AssetsManager implementation for the GUI
+ * @brief The AssetsManager class implementation
  * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
  * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "AssetsManager.hpp"
 #include "Graphics.hpp"
-#include "Logs.hpp"
-#include "ModelInfo.hpp"
-#include <memory>
-#include <raylib.h>
-#include <tuple>
 
 namespace Gui
 {
@@ -34,10 +29,11 @@ namespace Gui
 
     void AssetsManager::loadAssets()
     {
+
+
         /* food */
         _models["food"] = std::make_shared<ModelInfo>("gui/assets/food.glb");
         _models["food"]->setScale(_models["food"]->scaleToSize(1.0f));
-
 
         /* linemate */
         _models["linemate"] = std::make_shared<ModelInfo>("gui/assets/linemate.glb");
@@ -120,6 +116,18 @@ namespace Gui
     std::unordered_map<std::string, std::shared_ptr<ModelInfo>> &AssetsManager::getModels(void)
     {
         return _models;
+    }
+
+    std::unordered_map<std::string, std::shared_ptr<Texture2D>> &AssetsManager::getTextures(void)
+    {
+        /* menu background */
+        static std::unordered_map<std::string, std::shared_ptr<Texture2D>> textures;
+        if (textures.empty()) {
+            textures["menu"] = std::make_shared<Texture2D>(LoadTexture("gui/assets/menu.jpg"));
+            textures["blur"] = std::make_shared<Texture2D>(LoadTexture("gui/assets/blur.png"));
+        }
+
+        return textures;
     }
 
     Texture2D AssetsManager::getResourceIcon(PlayerInfo::ResourceType Key)

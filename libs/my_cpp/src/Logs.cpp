@@ -7,7 +7,8 @@
 /**
  * @file Logs.cpp
  * @brief The Logs class implementation
- * @author Christophe VANDEVOIR, Gianni TUERO and Nicolas TORO
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "Logs.hpp"

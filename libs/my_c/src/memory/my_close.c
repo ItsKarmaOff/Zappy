@@ -1,12 +1,12 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Libmy
 ** File description:
-** The my_close.c
+** The file containing the my_close function
 */
 /**
  * @file my_close.c
- * @brief The my_close.c
+ * @brief The file containing the my_close function
  * @author Nicolas TORO
  */
 

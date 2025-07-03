@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The commandsai.h
+** The AI commands of the server
 */
 /**
  * @file commands_ai.h
- * @brief The commands_ai.h
- * @author Nicolas TORO
+ * @brief The AI commands of the server
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #ifndef COMMANDS_AI_H_

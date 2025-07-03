@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** jetpack
+** Libmy
 ** File description:
 ** The Socket.cpp
 */
 /**
  * @file Socket.cpp
  * @brief The Socket.cpp
- * @author Christophe VANDEVOIR, Guillaume LECOCQ and Nicolas TORO
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "Socket.hpp"

@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The parsing.h
+** The file containing the parsing functions
 */
 /**
  * @file parsing.h
- * @brief The parsing.h
- * @author Nicolas TORO
+ * @brief The file containing the parsing functions
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #ifndef PARSING_H_
@@ -49,6 +50,7 @@ typedef enum option_type_e {
     HEIGHT_OPTION = 1 << 2, ///< The option is a height option
     NAMES_OPTION = 1 << 3, ///< The option is a names option
     CLIENTS_OPTION = 1 << 4, ///< The option is a clients option
+    META_OPTION = 1 << 5, ///< The option is a meta option
 } option_type_t;
 
 /**

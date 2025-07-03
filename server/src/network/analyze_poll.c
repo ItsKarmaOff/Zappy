@@ -1,18 +1,19 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The analyse_poll.c
+** The file containing the function to analyze poll events
 */
 /**
- * @file analyse_poll.c
- * @brief The analyse_poll.c
- * @author Nicolas TORO
+ * @file analyze_poll.c
+ * @brief The file containing the function to analyze poll events
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"
 
-void analyse_poll(server_t *server, size_t index)
+void analyze_poll(server_t *server, size_t index)
 {
     if (server->poll_fds[index].fd != STDIN &&
     server->poll_fds[index].revents & (POLLERR | POLLHUP | POLLNVAL)) {

@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The debug_mode.c
+** The file containing the function for the "debug_mode" option
 */
 /**
  * @file debug_mode.c
- * @brief The debug_mode.c
- * @author Nicolas TORO
+ * @brief The file containing the function for the "debug_mode" option
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "parsing.h"

@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The send_message_to_gui.c
+** The file containing the function to send a message to GUI clients
 */
 /**
  * @file send_message_to_gui.c
- * @brief The send_message_to_gui.c
- * @author Nicolas TORO
+ * @brief The file containing the function to send a message to GUI clients
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "network.h"

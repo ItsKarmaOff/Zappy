@@ -88,6 +88,11 @@ typedef enum separator_type {
 
     /* Aliases */
 
+        /* Time */
+
+typedef struct timespec timespec_t;
+
+
         /* Network */
 
 typedef struct pollfd pollfd_t;

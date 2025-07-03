@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** zappy
+** Zappy
 ** File description:
-** The frequency.c
+** The file containing the function for the "frequency" option
 */
 /**
  * @file frequency.c
- * @brief The frequency.c
- * @author Nicolas TORO
+ * @brief The file containing the function for the "frequency" option
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
 #include "parsing.h"

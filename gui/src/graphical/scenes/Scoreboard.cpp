@@ -1,14 +1,15 @@
 /*
 ** EPITECH PROJECT, 2025
-** Scoreboard.cpp
+** Zappy
 ** File description:
-** Scoreboard in ~/Documents/EPITECH/TEK2/YEP/BYEP400_zappy/gui/src/graphical/scenes
+** The Scoreboard scene implementation
 */
+/**
+ * @file Scoreboard.cpp
+ * @brief The Scoreboard scene implementation
+ */
 
 #include "Graphics.hpp"
-#include "Logs.hpp"
-#include <raylib.h>
-#include <streambuf>
 
 namespace Gui {
     int titleSize = GetScreenHeight() / 10;
@@ -34,6 +35,9 @@ namespace Gui {
         titleSize = GetScreenHeight() / 10;
         tabSize = GetScreenHeight() / 20;
         textSize = GetScreenHeight() / 30;
+        if (!IsMusicStreamPlaying(SoundsManager::getInstance().getMusics()[SoundsManager::GAME_SONG]))
+            PlayMusicStream(SoundsManager::getInstance().getMusics()[SoundsManager::GAME_SONG]);
+        UpdateMusicStream(SoundsManager::getInstance().getMusics()[SoundsManager::GAME_SONG]);
         // UpdateCamera(&_game->getCamera(), CAMERA_FREE);
     }
 
@@ -47,8 +51,10 @@ namespace Gui {
 
         int i = 0;
         for (auto &[id, player] : _game->getPlayers()) {
+            if (player->getTeamName() == "UnknownTeam")
+                continue;
             std::stringstream str;
-            str << "Player" << id;
+            str << "Player#" << id;
             int y = titleSize + tabSize + i * textSize;
             DrawText(str.str().c_str(), 0, y, textSize, player->getColor());
             DrawText(std::to_string(player->getLevel()).c_str(), GetScreenWidth() / 4, y, textSize, player->getColor());

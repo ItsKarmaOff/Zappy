@@ -1,33 +1,30 @@
 /*
 ** EPITECH PROJECT, 2025
-** Graphics.hpp
+** Zappy
 ** File description:
-** Graphics declaration
+** The Graphics class declaration
 */
-
+/**
+ * @file Graphics.hpp
+ * @brief The Graphics class declaration
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #ifndef GRAPHICS_HPP
     #define GRAPHICS_HPP
-    #include <cstddef>
-    #include <memory>
-    #include <unordered_map>
-    #include "AssetsManager.hpp"
+
+    #include "EndInfo.hpp"
     #include "GameInfo.hpp"
     #include "MenuInfo.hpp"
-#include "PauseInfo.hpp"
-    #include "raylib.h"
-    #include <cstring>
+    #include "PauseInfo.hpp"
     #include "QueueManager.hpp"
     #include "Chatbox.hpp"
+    #include "VarManager.hpp"
+    #include "SoundsManager.hpp"
 
-
-/**
- * @file Graphics.hpp
- * @brief The Graphics class for managing the graphical interface
- * @author Gianni TUERO
- */
-
-namespace Gui {
+namespace Gui
+{
     constexpr size_t WINDOW_WIDTH = 1200;     ///< Default window width
     constexpr size_t WINDOW_HEIGHT = 600;     ///< Default window height
     constexpr float TILE_SIZE = 5.0;          ///< Size of each tile in the game world
@@ -38,6 +35,9 @@ namespace Gui {
      */
     class Graphics {
         public:
+
+            //////////////// Enumerations //////////////////////////////////////
+
             /**
              * @enum ConnectionState
              * @brief Represents the state of the connection to the server
@@ -56,8 +56,13 @@ namespace Gui {
                 GAME,           ///< Game play scene
                 SCOREBOARD,     ///< Scoreboard display scene
                 PAUSE,          ///< Pause menu scene
+                END,            ///< End of game scene
             };
-        public:
+
+
+
+            //////////////// Constructors and Destructor ///////////////////////
+
             /**
              * @brief Constructor for the Graphics class
              * @param queueManager Shared pointer to the QueueManager for communication
@@ -70,7 +75,10 @@ namespace Gui {
              */
             ~Graphics();
 
-        ////////////////////////////////////// GETTERS //////////////////////////////////////
+
+
+            //////////////// Getters ///////////////////////////////////////////
+
             /**
              * @brief Gets the reference to the current scene
              * @return Reference to the current Scene enum value
@@ -130,8 +138,16 @@ namespace Gui {
              */
             std::shared_ptr<PauseInfo> &getPause(void) { return _pause; }
 
+            /**
+             * @brief Gets the reference to the end scene information
+             * @return Shared pointer reference to the EndInfo object
+             */
+            std::shared_ptr<EndInfo> &getEndInfo(void) { return _end; }
 
-        ////////////////////////////////////// GRAPHIC //////////////////////////////////////
+
+
+            //////////////// Main Methods //////////////////////////////////////
+
             /**
              * @brief Initializes the graphics system
              * Sets up the window, frame rate, and callback mappings
@@ -144,7 +160,12 @@ namespace Gui {
              */
             void run(std::atomic<bool> &);
 
+
+
         private:
+
+            //////////////// MAIN LOOP /////////////////////////////////////////
+
             /**
              * @brief Handles all input events based on the current scene
              */
@@ -166,8 +187,10 @@ namespace Gui {
              */
             void switchToPause(Scene previousScene);
 
-        ////////////////////////////////////// MENU //////////////////////////////////////
-        private:
+
+
+            //////////////// MENU //////////////////////////////////////////////
+
             /**
              * @brief Handles input events for the menu scene
              */
@@ -183,8 +206,10 @@ namespace Gui {
              */
             void drawMenu(void);
 
-        ////////////////////////////////////// GAME //////////////////////////////////////
-        private:
+
+
+            //////////////// GAME //////////////////////////////////////////////
+
             /**
              * @brief Handles input events for the game scene
              */
@@ -233,8 +258,10 @@ namespace Gui {
              */
             void drawPlayerTag();
 
-        ////////////////////////////////////// SCOREBOARD //////////////////////////////////////
-        private:
+
+
+            //////////////// SCOREBOARD ////////////////////////////////////////
+
             /**
              * @brief Handles input events for the scoreboard scene
              */
@@ -255,8 +282,10 @@ namespace Gui {
              */
             void drawTabs();
 
-        ////////////////////////////////////// PAUSE //////////////////////////////////////
-        private:
+
+
+            //////////////// PAUSE /////////////////////////////////////////////
+
             /**
              * @brief Handles input events for the pause scene
              */
@@ -277,7 +306,29 @@ namespace Gui {
              */
             void switchToPreviousScene(void);
 
-        private:
+
+
+            //////////////// END ///////////////////////////////////////////////
+
+            /**
+             * @brief Handles input events for the end scene
+             */
+            void handleEventsEnd(void);
+
+            /**
+             * @brief Updates the end scene state
+             */
+            void updateEnd(void);
+
+            /**
+             * @brief Renders the end scene
+             */
+            void drawEnd(void);
+
+
+
+            //////////////// Private Attributes ////////////////////////////////
+
             std::shared_ptr<QueueManager> _queueManager;  ///< Queue manager for communication with server
             Scene _scene;                                 ///< Current active scene
             Scene _previousScene;                         ///< Scene to return to after pause
@@ -290,6 +341,7 @@ namespace Gui {
             std::shared_ptr<MenuInfo> _menu;        ///< Menu scene information
             std::shared_ptr<GameInfo> _game;        ///< Game scene information
             std::shared_ptr<PauseInfo> _pause;      ///< Pause scene information
+            std::shared_ptr<EndInfo> _end;          ///< End scene information
             std::shared_ptr<Chatbox> _chatbox;      ///< Chat display and messaging
 
             AssetsManager _assetsManager;           ///< Manager for game assets and resources
