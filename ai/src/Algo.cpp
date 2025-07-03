@@ -1,8 +1,9 @@
 /*
-** EPITECH PROJECT, 2024
+** EPITECH PROJECT, 2025
 ** Zappy
+** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** Algo.cpp
+** Algo implementation with lock file leader election
 */
 
 #include "Algo.hpp"
@@ -17,46 +18,121 @@
 #include <thread>
 #include <chrono>
 #include <cstring>
+#include <fstream>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <signal.h>
 
 Algo::Algo() 
     : _playerPtr(nullptr), _currentPhase(StrategyPhase::EXPLORATION),
       _currentLevel(1), _myFoodCount(10), _tilesExplored(0), _emptyTileCount(0),
       _currentPos(0, 0), _spiralRadius(1), _spiralSteps(1), _spiralCurrentSteps(0),
-      _spiralDirection(1), _spiralFirstDirection(true), _isLeader(true), _forkedPlayers(0)
+      _spiralDirection(1), _spiralFirstDirection(true), _isLeader(false), _forkedPlayers(0)
 {
     std::random_device rd;
     _rng.seed(rd());
     
-    // Détecter si c'est un enfant (spawné par fork)
     if (getenv("ZAPPY_IS_CHILD")) {
         _isLeader = false;
         _currentPhase = StrategyPhase::CHILD_SPAWNED;
         DEBUG << "👶 I am a CHILD - will collect food and wait";
     } else {
-        DEBUG << "👑 I am the LEADER - will explore and collect";
+        _isLeader = tryBecomeLeader();
+        
+        if (_isLeader) {
+            DEBUG << "👑 I am the LEADER - will explore and collect all resources";
+            _currentPhase = StrategyPhase::EXPLORATION;
+            initSpiralExploration();
+        } else {
+            DEBUG << "👶 I am a FOLLOWER - leader already exists, will collect food and wait";
+            _currentPhase = StrategyPhase::CHILD_SPAWNED;
+        }
     }
     
-    // Ressources nécessaires pour tous les niveaux (1->8)
-    // Ajusté pour les nouvelles quantités de food
-    _requiredResources[ResourceType::FOOD] = 200;        // 40 leader + 5×30 enfants = 190, donc 200 sécurité
-    _requiredResources[ResourceType::LINEMATE] = 15;     // Total nécessaire pour tous les niveaux
+    _requiredResources[ResourceType::FOOD] = 200;
+    _requiredResources[ResourceType::LINEMATE] = 15;
     _requiredResources[ResourceType::DERAUMERE] = 12;
     _requiredResources[ResourceType::SIBUR] = 15;
     _requiredResources[ResourceType::MENDIANE] = 8;
     _requiredResources[ResourceType::PHIRAS] = 10;
     _requiredResources[ResourceType::THYSTAME] = 3;
     
-    // Initialiser les ressources collectées
     for (const auto& res : _requiredResources) {
         _collectedResources[res.first] = 0;
     }
-    
+}
+
+Algo::~Algo() {
     if (_isLeader) {
-        initSpiralExploration();
+        cleanup();
+        killAllChildren();
     }
 }
 
-Algo::~Algo() {}
+bool Algo::tryBecomeLeader() {
+    const std::string lockFile = "zappy_leader.lock";
+    
+    struct stat buffer;
+    if (stat(lockFile.c_str(), &buffer) == 0) {
+        DEBUG << "🔒 Lock file exists - another leader is already active";
+        return false;
+    }
+    
+    std::ofstream file(lockFile);
+    if (file.is_open()) {
+        file << getpid() << std::endl;
+        file << std::time(nullptr) << std::endl;
+        file.close();
+        
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        
+        std::ifstream checkFile(lockFile);
+        if (checkFile.is_open()) {
+            pid_t filePid;
+            checkFile >> filePid;
+            checkFile.close();
+            
+            if (filePid == getpid()) {
+                DEBUG << "👑 Successfully acquired leadership lock - PID: " << getpid();
+                return true;
+            } else {
+                DEBUG << "🔒 Another process acquired the lock first - PID in file: " << filePid;
+                return false;
+            }
+        }
+    }
+    
+    DEBUG << "❌ Failed to create lock file";
+    return false;
+}
+
+void Algo::cleanup() {
+    const std::string lockFile = "zappy_leader.lock";
+    std::ifstream checkFile(lockFile);
+    if (checkFile.is_open()) {
+        pid_t filePid;
+        checkFile >> filePid;
+        checkFile.close();
+        
+        if (filePid == getpid()) {
+            if (remove(lockFile.c_str()) == 0) {
+                DEBUG << "🧹 Cleaned up leadership lock file";
+            } else {
+                DEBUG << "❌ Failed to remove lock file";
+            }
+        }
+    }
+}
+
+void Algo::killAllChildren() {
+    pid_t pgid = getpgrp();
+    DEBUG << "💀 Killing process group: " << pgid;
+    
+    kill(-pgid, SIGTERM);
+    
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    kill(-pgid, SIGKILL);
+}
 
 void Algo::setPlayer(std::shared_ptr<Player> player) {
     _player = player;
@@ -79,21 +155,7 @@ void Algo::run() {
     Player* player = getPlayer();
     if (!player) return;
 
-    // Utiliser la variable d'environnement que ton système met en place
-    const char* isFollower = getenv("ZAPPY_IS_FOLLOWER");
-    
-    if (isFollower && strcmp(isFollower, "1") == 0) {
-        // C'est un enfant (processus forké)
-        _isLeader = false;
-        _currentPhase = StrategyPhase::CHILD_SPAWNED;
-        DEBUG << "👶 I am a CHILD - ZAPPY_IS_FOLLOWER=1 detected, will collect food and wait";
-    } else {
-        // C'est le leader (processus principal)
-        _isLeader = true;
-        _currentPhase = StrategyPhase::EXPLORATION;
-        initSpiralExploration();
-        DEBUG << "👑 I am the LEADER - will explore and collect all resources";
-    }
+    DEBUG << "🚀 Starting with role: " << (_isLeader ? "LEADER" : "FOLLOWER");
     
     while (player->isAlive()) {
         executeMainStrategy(player);
@@ -103,16 +165,19 @@ void Algo::run() {
 void Algo::executeMainStrategy(Player* player) {
     switch (_currentPhase) {
         case StrategyPhase::EXPLORATION: {
-            // Vérifier les ressources ET la food réelle depuis l'inventaire
+            if (!_isLeader) {
+                DEBUG << "❌ Non-leader trying to explore - switching to follower mode";
+                _currentPhase = StrategyPhase::CHILD_SPAWNED;
+                return;
+            }
+            
             player->inventory();
             waitForResponse(player);
             
             int realFood = player->getItemCount(ResourceType::FOOD);
-            
-            // Vérifier toutes les autres ressources dans l'inventaire réel
             bool hasAllOtherResources = true;
             for (const auto& needed : _requiredResources) {
-                if (needed.first == ResourceType::FOOD) continue; // Skip food, on la vérifie séparément
+                if (needed.first == ResourceType::FOOD) continue;
                 
                 int realCount = player->getItemCount(needed.first);
                 if (realCount < needed.second) {
@@ -127,7 +192,7 @@ void Algo::executeMainStrategy(Player* player) {
                 DEBUG << "✅ LEADER: All resources collected! Tiles explored: " << _tilesExplored 
                       << " | Real food: " << realFood << " | All other resources: ✅";
                 broadcastResourcesCollected(player);
-                _currentPhase = StrategyPhase::PREPARATION;
+                _currentPhase = StrategyPhase::FORK_PHASE;
             } else {
                 DEBUG << "🔍 LEADER: Still collecting - Food: " << realFood << "/200, Other resources: " 
                       << (hasAllOtherResources ? "✅" : "❌");
@@ -136,19 +201,34 @@ void Algo::executeMainStrategy(Player* player) {
             break;
         }
             
-        case StrategyPhase::PREPARATION:
-            DEBUG << "📦 LEADER: Preparing for team - dropping resources";
-            prepareForIncantations(player);
-            _currentPhase = StrategyPhase::FORK_PHASE;
+        case StrategyPhase::FORK_PHASE:
+            if (!_isLeader) {
+                DEBUG << "❌ Non-leader trying to fork - switching to follower mode";
+                _currentPhase = StrategyPhase::CHILD_SPAWNED;
+                return;
+            }
+            DEBUG << "🥚 LEADER: Forking the full team FIRST";
+            forkAllPlayers(player);
+            _currentPhase = StrategyPhase::PREPARATION;
             break;
             
-        case StrategyPhase::FORK_PHASE:
-            DEBUG << "🥚 LEADER: Forking the full team";
-            forkAllPlayers(player);
+        case StrategyPhase::PREPARATION:
+            if (!_isLeader) {
+                DEBUG << "❌ Non-leader trying to prepare - switching to follower mode";
+                _currentPhase = StrategyPhase::CHILD_SPAWNED;
+                return;
+            }
+            DEBUG << "📦 LEADER: Preparing for team - dropping resources AFTER fork";
+            prepareForIncantations(player);
             _currentPhase = StrategyPhase::INCANTATION;
             break;
             
         case StrategyPhase::INCANTATION:
+            if (!_isLeader) {
+                DEBUG << "❌ Non-leader trying to incantate - switching to follower mode";
+                _currentPhase = StrategyPhase::CHILD_SPAWNED;
+                return;
+            }
             DEBUG << "🎭 LEADER: Performing incantations";
             performAllIncantations(player);
             break;
@@ -160,30 +240,18 @@ void Algo::executeMainStrategy(Player* player) {
 }
 
 void Algo::exploreAndCollect(Player* player) {
-    // Mettre à jour le food count réel depuis l'inventaire
     player->inventory();
     waitForResponse(player);
     _myFoodCount = player->getItemCount(ResourceType::FOOD);
-    
-    // Vérifier d'abord si on a assez de food pour survivre
     if (_myFoodCount <= 20) {
         DEBUG << "🚨 LOW FOOD: Prioritizing food collection (current: " << _myFoodCount << ")";
     }
-    
-    // Regarder la case actuelle
     player->look();
     waitForResponse(player);
-    
-    // Collecter tout ce qui est sur la case
     collectResourcesOnCurrentTile(player);
-    
-    // Passer à la case suivante
     moveInSpiral(player);
     _tilesExplored++;
-    
-    // Log périodique du progrès
     if (_tilesExplored % 50 == 0) {
-        // Vérifier la food réelle à chaque log
         player->inventory();
         waitForResponse(player);
         int realFood = player->getItemCount(ResourceType::FOOD);
@@ -199,28 +267,20 @@ void Algo::exploreAndCollect(Player* player) {
 void Algo::collectResourcesOnCurrentTile(Player* player) {
     std::vector<std::string> tiles = parseLookResponse(_lastLookResponse);
     if (tiles.empty()) return;
-    
     std::string currentTile = tiles[0];
-    
     bool foundSomething = true;
     while (foundSomething) {
         foundSomething = false;
-        
-        // Vérifier la food réelle dans l'inventaire (pas le compteur)
         player->inventory();
         waitForResponse(player);
         int realFood = player->getItemCount(ResourceType::FOOD);
-        
-        // Priorité 1: Food si on en a besoin (limite à 200 food réelle)
         if (currentTile.find("food") != std::string::npos && realFood < 200) {
             
             DEBUG << "🍖 LEADER: Taking food (real inventory: " << realFood << "/200)";
             player->take("food");
             waitForResponse(player);
-            _myFoodCount = realFood + 1; // Mettre à jour notre compteur
+            _myFoodCount = realFood + 1;
             foundSomething = true;
-            
-            // Re-regarder pour voir ce qui reste
             player->look();
             waitForResponse(player);
             tiles = parseLookResponse(_lastLookResponse);
@@ -229,7 +289,6 @@ void Algo::collectResourcesOnCurrentTile(Player* player) {
             continue;
         }
         
-        // Priorité 2: Collecter les autres ressources nécessaires
         for (const auto& needed : _requiredResources) {
             if (needed.first == ResourceType::FOOD) continue;
             
@@ -245,7 +304,6 @@ void Algo::collectResourcesOnCurrentTile(Player* player) {
                 _collectedResources[needed.first]++;
                 foundSomething = true;
                 
-                // Re-regarder
                 player->look();
                 waitForResponse(player);
                 tiles = parseLookResponse(_lastLookResponse);
@@ -259,43 +317,36 @@ void Algo::collectResourcesOnCurrentTile(Player* player) {
 
 void Algo::initSpiralExploration() {
     DEBUG << "🌀 LEADER: Initializing spiral exploration from center";
-    _currentPos = Position(0, 0);  // Start at center (relative position)
+    _currentPos = Position(0, 0);
     _spiralRadius = 1;
     _spiralSteps = 1;
     _spiralCurrentSteps = 0;
-    _spiralDirection = 1; // Start going East
+    _spiralDirection = 1;
     _spiralFirstDirection = true;
 }
 
 void Algo::moveInSpiral(Player* player) {
-    // Move forward in current direction
     moveForward(player);
     
-    // Update position based on direction
     switch(_spiralDirection) {
-        case 0: _currentPos.y++; break; // North
-        case 1: _currentPos.x++; break; // East  
-        case 2: _currentPos.y--; break; // South
-        case 3: _currentPos.x--; break; // West
+        case 0: _currentPos.y++; break;
+        case 1: _currentPos.x++; break; 
+        case 2: _currentPos.y--; break;
+        case 3: _currentPos.x--; break;
     }
     
     _spiralCurrentSteps++;
     
-    // Check if we need to turn
     if (_spiralCurrentSteps >= _spiralSteps) {
-        // Turn to next direction (clockwise spiral)
         int nextDirection = (_spiralDirection + 1) % 4;
         turnToDirection(player, nextDirection);
         _spiralDirection = nextDirection;
         
         _spiralCurrentSteps = 0;
-        
-        // In spiral: after every 2 turns, increase step count
-        // Pattern: 1 East, 1 South, 2 West, 2 North, 3 East, 3 South, etc.
         if (_spiralFirstDirection) {
-            _spiralFirstDirection = false; // Next direction will have same step count
+            _spiralFirstDirection = false;
         } else {
-            _spiralSteps++; // Increase steps for next pair of directions
+            _spiralSteps++;
             _spiralFirstDirection = true;
             _spiralRadius++;
             DEBUG << "🌀 LEADER: Expanding spiral to radius " << _spiralRadius;
@@ -305,58 +356,45 @@ void Algo::moveInSpiral(Player* player) {
 
 void Algo::turnToDirection(Player* player, int targetDirection) {
     int currentDir = getCurrentDirection();
-    
-    // Calculate shortest rotation
     int diff = (targetDirection - currentDir + 4) % 4;
-    
     if (diff == 1) {
-        // Turn right once
         player->right();
         waitForResponse(player);
     } else if (diff == 2) {
-        // Turn around (right twice)
         player->right();
         waitForResponse(player);
         player->right();
         waitForResponse(player);
     } else if (diff == 3) {
-        // Turn left once (equivalent to right 3 times)
         player->left();
         waitForResponse(player);
     }
-    // diff == 0 means already facing correct direction
 }
 
 int Algo::getCurrentDirection() const {
-    // This is a simplified version - in reality you'd need to track
-    // the player's actual facing direction from server responses
     return _spiralDirection;
 }
 
 void Algo::forkAllPlayers(Player* player) {
-    // Fork 5 joueurs pour avoir un total de 6 (leader + 5)
-    for (int i = 0; i < 5; i++) {
-        DEBUG << "🥚 LEADER: Forking player " << (i + 1) << "/5";
+    for (int i = 0; i < 6; i++) {
+        DEBUG << "🥚 LEADER: Forking player " << (i + 1) << "/6";
         player->fork();
         waitForResponse(player);
         _forkedPlayers++;
     }
-    DEBUG << "✅ LEADER: All 5 players forked successfully - team of 6 ready";
+    DEBUG << "✅ LEADER: All 6 players forked successfully - team of 7 ready";
 }
 
 void Algo::prepareForIncantations(Player* player) {
-    DEBUG << "📦 LEADER: Dropping all resources except 40 food for survival";
-    
-    // Garder 40 food pour le leader (au lieu de 25)
+    DEBUG << "📦 LEADER: Dropping all resources except 60 food for survival";
     int myFood = player->getItemCount(ResourceType::FOOD);
-    int foodToDrop = std::max(0, myFood - 40);
+    int foodToDrop = std::max(0, myFood - 60);
     for (int i = 0; i < foodToDrop; i++) {
         player->set("food");
         waitForResponse(player);
     }
-    DEBUG << "🍖 LEADER: Dropped " << foodToDrop << " food, keeping 40 for survival";
+    DEBUG << "🍖 LEADER: Dropped " << foodToDrop << " food, keeping 60 for survival";
     
-    // Déposer toutes les autres ressources
     std::vector<std::string> resources = {"linemate", "deraumere", "sibur", "mendiane", "phiras", "thystame"};
     for (const std::string& res : resources) {
         int count = player->getItemCount(stringToResourceType(res));
@@ -369,57 +407,37 @@ void Algo::prepareForIncantations(Player* player) {
         }
     }
     
-    DEBUG << "✅ LEADER: All resources prepared on ground, keeping 40 food for survival";
+    DEBUG << "✅ LEADER: All resources prepared on ground, keeping 60 food for survival";
 }
 
 void Algo::performAllIncantations(Player* player) {
-    // Ressources pour chaque niveau selon le PDF
-    std::vector<std::map<std::string, int>> levelRequirements = {
-        {}, // Level 1 (pas d'incantation)
-        {{"linemate", 1}}, // Level 2
-        {{"linemate", 1}, {"deraumere", 1}, {"sibur", 1}}, // Level 3
-        {{"linemate", 2}, {"sibur", 1}, {"phiras", 2}}, // Level 4
-        {{"linemate", 1}, {"deraumere", 1}, {"sibur", 2}, {"phiras", 1}}, // Level 5
-        {{"linemate", 1}, {"deraumere", 2}, {"sibur", 1}, {"mendiane", 3}}, // Level 6
-        {{"linemate", 1}, {"deraumere", 2}, {"sibur", 3}, {"phiras", 1}}, // Level 7
-        {{"linemate", 2}, {"deraumere", 2}, {"sibur", 2}, {"mendiane", 2}, {"phiras", 2}, {"thystame", 1}} // Level 8
-    };
+    DEBUG << "👑 LEADER: Starting incantations immediately (food already on ground)";
     
-    // Boucle infinie d'incantations
-    while (player->isAlive()) {
-        for (int level = 2; level <= 8; level++) {
-            DEBUG << "🎭 LEADER: Starting incantation for level " << level;
-            
-            // Placer les ressources nécessaires pour ce niveau
-            for (const auto& req : levelRequirements[level - 1]) {
-                for (int i = 0; i < req.second; i++) {
-                    player->take(req.first);
-                    waitForResponse(player);
-                }
-            }
-            
-            // Incanter
-            DEBUG << "✨ LEADER: Performing incantation for level " << level;
-            player->incantation();
-            waitForResponse(player);
-            
-            // Vérifier le niveau actuel
-            int realLevel = player->getLevel();
-            if (realLevel >= level) {
-                DEBUG << "✅ LEADER: Successfully reached level " << realLevel;
-                _currentLevel = realLevel;
-            }
-            
-            // Si on a atteint le niveau 8, recommencer le cycle
-            if (_currentLevel >= 8) {
-                DEBUG << "🎉 LEADER: Reached level 8! Restarting incantation cycle...";
-                break;
-            }
+    for (int level = 2; level <= 8; level++) {
+        DEBUG << "🎭 LEADER: Starting incantation for level " << level;
+        DEBUG << "✨ LEADER: Performing incantation for level " << level;
+        player->incantation();
+        waitForResponse(player);
+        int realLevel = player->getLevel();
+        if (realLevel >= level) {
+            DEBUG << "✅ LEADER: Successfully reached level " << realLevel;
+            _currentLevel = realLevel;
         }
         
-        // Petite pause avant de recommencer
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+        if (_currentLevel >= 8) {
+            DEBUG << "🎉 LEADER: Reached level 8! Mission accomplished!";
+            DEBUG << "💀 LEADER: Killing all child processes";
+            
+            cleanup();
+            DEBUG << "🏁 LEADER: Stopping client - mission complete";
+            player->setAlive(false);
+            return;
+        }
     }
+    
+    DEBUG << "❌ LEADER: Incantation cycle completed but didn't reach level 8";
+    cleanup();
+    player->setAlive(false);
 }
 
 void Algo::handleChildSpawned(Player* player) {
@@ -430,63 +448,45 @@ void Algo::handleChildSpawned(Player* player) {
         collectMyFoodShare(player);
         hasCollectedFood = true;
     } else {
-        DEBUG << "😴 CHILD: Waiting for leader's incantations...";
         waitAsChild(player);
     }
 }
 
 void Algo::collectMyFoodShare(Player* player) {
-    // Chaque enfant récupère 30 food exactement
     int targetFood = 30;
+    player->inventory();
+    waitForResponse(player);
     int currentFood = player->getItemCount(ResourceType::FOOD);
     
     DEBUG << "🍖 CHILD: Current food: " << currentFood << ", target: " << targetFood;
     
-    // Compter la food disponible au sol pour vérifier qu'on ne dépasse pas 200 total
-    player->look();
-    waitForResponse(player);
-    std::vector<std::string> tiles = parseLookResponse(_lastLookResponse);
-    int foodOnGround = 0;
-    if (!tiles.empty()) {
-        std::string currentTile = tiles[0];
-        size_t pos = 0;
-        while ((pos = currentTile.find("food", pos)) != std::string::npos) {
-            foodOnGround++;
-            pos += 4; // longueur de "food"
-        }
-    }
-    
-    DEBUG << "🍖 CHILD: Food visible on ground: " << foodOnGround;
-    
+    int searchSteps = 0;
     while (currentFood < targetFood && player->isAlive()) {
-        // Regarder ce qu'il y a sur la case
         player->look();
         waitForResponse(player);
-        
         std::vector<std::string> tiles = parseLookResponse(_lastLookResponse);
         if (!tiles.empty() && tiles[0].find("food") != std::string::npos) {
-            // Vérifier qu'on ne prend pas trop (limite globale de 200)
-            // Estimation: 5 enfants × 30 + leader 40 = 190, donc on peut prendre jusqu'à 200
             player->take("food");
             waitForResponse(player);
-            currentFood++;
+            player->inventory();
+            waitForResponse(player);
+            currentFood = player->getItemCount(ResourceType::FOOD);
+            
             DEBUG << "🍖 CHILD: Took food, now have " << currentFood << "/30";
         } else {
-            // Pas de food ici, chercher un peu autour mais pas trop loin
-            static int searchSteps = 0;
-            if (searchSteps < 2) {
-                player->forward();
-                waitForResponse(player);
-                searchSteps++;
-            } else {
-                // Arrêter la recherche si pas assez de food
-                DEBUG << "🍖 CHILD: Limited food available, stopping at " << currentFood << " food";
-                break;
-            }
+            player->forward();
+            waitForResponse(player);
+            searchSteps++;
+            DEBUG << "🍖 CHILD: Moving forward, step " << searchSteps;
         }
         
-        // Arrêt de sécurité : si on approche de la limite globale
-        if (currentFood >= 30) {
+        if (currentFood >= targetFood) {
+            DEBUG << "🍖 CHILD: Reached target food: " << currentFood;
+            break;
+        }
+        
+        if (searchSteps > 100) {
+            DEBUG << "🍖 CHILD: Search limit reached, stopping at " << currentFood << " food";
             break;
         }
     }
@@ -495,13 +495,8 @@ void Algo::collectMyFoodShare(Player* player) {
 }
 
 void Algo::waitAsChild(Player* player) {
-    // Les enfants attendent et participent aux incantations quand le leader les initie
-    // Ils restent sur place et suivent les incantations
-    
-    // Vérifier périodiquement le niveau
     static int lastCheck = 0;
     lastCheck++;
-    
     if (lastCheck % 100 == 0) {
         int currentLevel = player->getLevel();
         if (currentLevel > _currentLevel) {
@@ -509,22 +504,16 @@ void Algo::waitAsChild(Player* player) {
             DEBUG << "🎉 CHILD: Level up to " << _currentLevel;
         }
     }
-    
-    // Petite pause pour éviter le spam
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    for (int i = 0; i < 1000; ++i) {
+    }
 }
 
 bool Algo::hasAllRequiredResources() const {
-    // Cette fonction ne peut pas accéder au player, donc on doit vérifier dans executeMainStrategy
-    // On la laisse retourner true et on fait la vraie vérification ailleurs
     return true;
 }
 
 bool Algo::hasEnoughFood() const {
-    // Pour la food, on ne peut pas se fier au compteur _collectedResources
-    // car elle se consomme. On doit vérifier l'inventaire réel.
-    // Cette fonction sera appelée avec une vérification d'inventaire juste avant
-    return true; // On laisse la vérification se faire dans executeMainStrategy
+    return true;
 }
 
 void Algo::broadcastResourcesCollected(Player* player) {
@@ -532,6 +521,13 @@ void Algo::broadcastResourcesCollected(Player* player) {
     player->broadcast(message);
     waitForResponse(player);
     DEBUG << "📢 LEADER: Broadcasted that all resources are collected";
+}
+
+void Algo::broadcastMissionComplete(Player* player) {
+    std::string message = "MISSION_COMPLETE";
+    player->broadcast(message);
+    waitForResponse(player);
+    DEBUG << "📢 LEADER: Broadcasted mission complete - level 8 reached!";
 }
 
 void Algo::moveForward(Player* player) {
@@ -555,24 +551,19 @@ void Algo::processLookResponse(const std::string& response) {
 
 std::vector<std::string> Algo::parseLookResponse(const std::string& lookResponse) const {
     std::vector<std::string> tiles;
-    
     std::string content = lookResponse;
     if (content.front() == '[') content.erase(0, 1);
     if (content.back() == ']') content.pop_back();
-    
     std::stringstream ss(content);
     std::string tile;
-    
     while (std::getline(ss, tile, ',')) {
         size_t start = tile.find_first_not_of(" \t");
         size_t end = tile.find_last_not_of(" \t");
-        
         if (start != std::string::npos) {
             tile = tile.substr(start, end - start + 1);
         } else {
             tile = "";
         }
-        
         tiles.push_back(tile);
     }
     return tiles;
@@ -582,24 +573,17 @@ void Algo::waitForResponse(Player* player) {
     if (!player->getCommandsQueue()->hasPendingCommand()) {
         return;
     }
-    
     std::string expectedCommand = player->getCommandsQueue()->getCurrentPendingCommand();
-    
     while (player->isAlive()) {
         while (player->getCommandsQueue()->hasResponses()) {
             std::string response = player->getCommandsQueue()->popResponse();
-            
             if (response == "dead") {
                 ERROR << "Player died!";
                 return;
             }
-            
             DEBUG << "📨 " << response;
-            
             player->processResponse(response);
-            
             bool isResponseForCommand = false;
-            
             if (response == "ok" || response == "ko") {
                 isResponseForCommand = true;
             } else if (response.find("[") != std::string::npos) {
@@ -612,7 +596,6 @@ void Algo::waitForResponse(Player* player) {
                     isResponseForCommand = true;
                 }
             }
-            
             if (isResponseForCommand) {
                 player->getCommandsQueue()->popPendingCommand();
                 return;

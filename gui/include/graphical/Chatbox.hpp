@@ -18,7 +18,8 @@
     #include <raylib.h>
     #include <raymath.h>
 
-namespace Gui {
+namespace Gui
+{
     /**
      * @struct message
      * @brief Represents a message in the chatbox with content, sender information, timestamp, and color
@@ -38,6 +39,9 @@ namespace Gui {
      */
     class Chatbox {
         public:
+
+            //////////////// Constructors and Destructor ///////////////////////
+
             /**
              * @brief Default constructor
              * Initializes the chatbox with default settings and loads the font
@@ -48,6 +52,10 @@ namespace Gui {
              * @brief Default destructor
              */
             ~Chatbox() = default;
+
+
+
+            //////////////// Main Methods //////////////////////////////////////
 
             /**
              * @brief Adds a new message to the chatbox
@@ -73,7 +81,7 @@ namespace Gui {
              * @param size The size of the chatbox
              * @param fontSize The size of the font (default: scaled to screen height)
              */
-            void draw(Vector2 position, Vector2 size, int fontSize = GetScreenHeight() / 30);
+            void draw(Vector2 position, Vector2 size, int fontSize = GetScreenHeight() / 35);
 
 
 

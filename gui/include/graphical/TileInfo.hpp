@@ -22,28 +22,34 @@
  * @author Gianni TUERO
  */
 
-namespace Gui {
+namespace Gui
+{
     class TileInfo {
         public:
+
+            //////////////// Constructors and Destructor ///////////////////////
+
             TileInfo(const Vector3 &pos);
             TileInfo();
             ~TileInfo() = default;
 
 
 
-            ////////////////////////////////////// GETTERS //////////////////////////////////////
+            //////////////// Getters ///////////////////////////////////////////
 
             const Vector3 &getPos() const;
             void setPos(const Vector3 &pos);
-
             std::map<std::string, int> &getContent(void);
+
+
+
+            //////////////// Setters ///////////////////////////////////////////
 
             void setContent(const std::map<std::string, int> &cont);
 
 
 
-
-            ////////////////////////////////////// UTILITY //////////////////////////////////////
+            //////////////// Main Methods //////////////////////////////////////
 
             /**
              * @brief Draw the tile
@@ -55,6 +61,8 @@ namespace Gui {
              * @param assetsManager Reference to the AssetsManager
              */
             void drawContent(AssetsManager &assetsManager) const;
+
+
 
         private:
             Vector3 _pos; ///< Position of the tile in 3D space

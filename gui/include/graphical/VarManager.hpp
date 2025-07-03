@@ -16,25 +16,36 @@
 
     #include "Lib.hpp"
 
-namespace Gui {
+namespace Gui
+{
     class VarManager {
         public:
+
+            //////////////// Constructors and Destructor ///////////////////////
+
             VarManager() = default;
             ~VarManager() = default;
+
+
+
+            //////////////// Getters ///////////////////////////////////////////
 
             static VarManager &getInstance() {
                 static VarManager instance;
                 return instance;
             }
 
+
+            //////////////// Enumerations //////////////////////////////////////
             enum VarType {
                 DEBUG_VAR,
                 GAMEMODE_VAR,
             };
 
-            void setVar(VarType var, bool value) {
-                _vars[var] = value;
-            }
+
+
+            //////////////// Getters ///////////////////////////////////////////
+
             bool getVar(VarType var) const {
                 auto it = _vars.find(var);
                 if (it != _vars.end()) {
@@ -43,7 +54,18 @@ namespace Gui {
                 return false;
             }
 
+
+
+            //////////////// Setters ///////////////////////////////////////////
+
+            void setVar(VarType var, bool value) {
+                _vars[var] = value;
+            }
+
         private:
+
+            //////////////// Private Attributes ////////////////////////////////
+
             std::unordered_map<VarType, bool> _vars;
     };
 }

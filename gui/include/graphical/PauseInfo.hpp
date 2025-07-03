@@ -17,13 +17,17 @@
     #include "AssetsManager.hpp"
     #include "Button.hpp"
 
-namespace Gui {
+namespace Gui
+{
     /**
      * @class PauseInfo
      * @brief Manages the pause menu state, buttons, and interactions
      */
     class PauseInfo {
         public:
+
+            //////////////// Enumerations //////////////////////////////////////
+
             /**
              * @enum ButtonIndex
              * @brief Indices for the main pause menu buttons
@@ -55,6 +59,10 @@ namespace Gui {
                 VOLUME_BUTTON     ///< Slider button for adjusting volume
             };
 
+
+
+            //////////////// Constructors and Destructor ///////////////////////
+
             /**
              * @brief Default constructor
              * Initializes buttons and default values for the pause menu
@@ -66,6 +74,9 @@ namespace Gui {
              */
             ~PauseInfo();
 
+
+
+            //////////////// Main Methods //////////////////////////////////////
             /**
              * @brief Sets callbacks to update and draw the background behind the pause menu
              * @param updateCallback Function to update the background
@@ -81,7 +92,7 @@ namespace Gui {
 
 
 
-            ////////////////////////////////////// UPDATERS //////////////////////////////////////
+            //////////////// Update Methods ////////////////////////////////////
 
             /**
              * @brief Updates the pause menu state
@@ -102,7 +113,9 @@ namespace Gui {
             void updateSettingsButtons(std::vector<Button> &buttons);
 
 
-            ////////////////////////////////////// DRAWERS //////////////////////////////////////
+
+            //////////////// Draw Methods //////////////////////////////////////
+
             /**
              * @brief Draws the pause menu
              * Calls the background draw callback and draws the appropriate buttons
@@ -123,7 +136,7 @@ namespace Gui {
 
 
 
-            ////////////////////////////////////// GETTERS //////////////////////////////////////
+            //////////////////// Getters ///////////////////////////////////////////
 
             /**
              * @brief Gets the main pause menu buttons
@@ -144,16 +157,26 @@ namespace Gui {
             PauseSubscene getCurrentSubscene() const;
 
             /**
-             * @brief Sets the current subscene to display
-             * @param action The PauseSubscene to switch to
-             */
-            void setCurrentSubscene(PauseSubscene action);
-
-            /**
              * @brief Gets the current time unit value
              * @return Constant reference to the time unit value
              */
             const int &getTimeUnit() const;
+
+            /**
+             * @brief Gets the current volume level
+             * @return The current volume level
+             */
+            int getVolume() const;
+
+
+
+            //////////////// Setters ///////////////////////////////////////////
+
+            /**
+             * @brief Sets the current subscene to display
+             * @param action The PauseSubscene to switch to
+             */
+            void setCurrentSubscene(PauseSubscene action);
 
             /**
              * @brief Sets the time unit value
@@ -161,11 +184,6 @@ namespace Gui {
              */
             void setTimeUnit(int timeUnit);
 
-            /**
-             * @brief Gets the current volume level
-             * @return The current volume level
-             */
-            int getVolume() const;
             /**
              * @brief Sets the volume level
              * @param volume The new volume level
