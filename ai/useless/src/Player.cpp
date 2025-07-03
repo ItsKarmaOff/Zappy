@@ -11,7 +11,7 @@
  * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
  */
 
-#include "Player.hpp"
+#include "Algo.hpp"
 
 const std::map<int, std::map<ResourceType, int>> Player::EVOLUTION_REQUIREMENTS = {
     {2, {{ResourceType::LINEMATE, 1}}},

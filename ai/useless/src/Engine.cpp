@@ -170,18 +170,18 @@ void Engine::_sendIfCommand(Lib::Socket *socket)
 void Engine::_init()
 {
     DEBUG << "Initializing Engine";
-    DEBUG << "Init client: IP: " << _parser.getMachine() << " PORT: " << _parser.getPort();
+    DEBUG << "Init client: IP: " << _parser.getHostname() << " PORT: " << _parser.getPort();
 
     _socket = std::make_unique<Lib::Socket>(AF_INET, SOCK_STREAM, 0);
     _client.sin_family = AF_INET;
     _client.sin_port = htons(_parser.getPort());
-    _client.sin_addr.s_addr = inet_addr(_parser.getMachine().c_str());
+    _client.sin_addr.s_addr = inet_addr(_parser.getHostname().c_str());
     if (connect(_socket->getSocket(), (const struct sockaddr *)&_client, sizeof(_client)) == -1)
         throw Lib::Exceptions::Critical("Connect failed: " + std::string(strerror(errno)));
 
     if (getResponse(_socket.get()) != "WELCOME")
         throw Lib::Exceptions::Critical("Connection failed.");
-    DEBUG << "Connected to server: " << _parser.getMachine() << ":" << _parser.getPort() << " as " << _parser.getName();
+    DEBUG << "Connected to server: " << _parser.getHostname() << ":" << _parser.getPort() << " as " << _parser.getName();
     send(_socket->getSocket(), (_parser.getName() + "\n").c_str(), _parser.getName().size() + 1, 0);
 
     std::string response = getResponse(_socket.get());
@@ -245,7 +245,7 @@ void Engine::_createNewPlayer()
         _socket = std::make_unique<Lib::Socket>(AF_INET, SOCK_STREAM, 0);
         _client.sin_family = AF_INET;
         _client.sin_port = htons(_parser.getPort());
-        _client.sin_addr.s_addr = inet_addr(_parser.getMachine().c_str());
+        _client.sin_addr.s_addr = inet_addr(_parser.getHostname().c_str());
         if (connect(_socket->getSocket(), (const struct sockaddr *)&_client, sizeof(_client)) == -1)
             throw Lib::Exceptions::Critical("Connect failed: " + std::string(strerror(errno)));
 

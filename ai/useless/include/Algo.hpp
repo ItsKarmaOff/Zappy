@@ -14,7 +14,7 @@
 #ifndef ALGO_HPP_
     #define ALGO_HPP_
 
-    #include "ZappyTypes.hpp"
+    #include "Player.hpp"
 
 class Player;
 
