@@ -1,3 +1,4 @@
+#!/bin/python3
 from artificial_intelligence import *
 from color import *
 from parser import *
