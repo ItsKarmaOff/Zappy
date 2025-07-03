@@ -216,8 +216,8 @@ add_custom_target(tests_run
     COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/unit_tests --verbose
     COMMAND ${CMAKE_COMMAND} -E echo "Generating coverage report with gcovr..."
     COMMAND mkdir -p docs/tests
-    COMMAND gcovr --branch --html --html-details docs/tests/test.html
-    COMMAND gcovr
+    COMMAND gcovr --branch --html --html-details docs/tests/test.html --exclude libs --exclude tests
+    COMMAND gcovr --exclude libs --exclude tests
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     VERBATIM
 )

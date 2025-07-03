@@ -1199,6 +1199,8 @@ Test(set, test_set_command_valid, .init = redirect_all_std, .exit_code = 0)
     client.player->inventory[LINEMATE] = 1;
 
     handle_ai_command_set(server, &client, (char *[]){"set", "linemate", NULL});
+
+    handle_ai_command_set(server, &client, (char *[]){"set", "linemate", NULL});
 }
 
 Test(set, test_set_command_error, .init = redirect_all_std, .exit_code = 0)
