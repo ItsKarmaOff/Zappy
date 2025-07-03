@@ -73,13 +73,19 @@ target_compile_options(my_c PUBLIC -fPIC -Wall -Wextra -Werror -Wno-unused-resul
 
 ############################ AI ###############################################
 set(AI "zappy_ai")
-file(GLOB_RECURSE AI_SOURCES "ai/src/*.cpp")
+file(GLOB_RECURSE AI_SOURCES "ai/useless/src/*.cpp")
 add_executable(${AI} ${AI_SOURCES})
 target_include_directories(${AI} PUBLIC
-    ${CMAKE_SOURCE_DIR}/ai/include
+    ${CMAKE_SOURCE_DIR}/ai/useless/include
 )
 target_link_libraries(${AI} PUBLIC my_cpp)
 target_compile_options(${AI} PRIVATE -fPIC -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
+set_target_properties(${AI} PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/ai/useless
+)
+add_custom_command(TARGET ${AI} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/ai/zappy_ai ${CMAKE_SOURCE_DIR}/zappy_ai
+)
 ###############################################################################
 
 
@@ -170,7 +176,7 @@ function(create_unit_tests_target)
     endif()
 
     file(GLOB_RECURSE TEST_SOURCES "tests/*.c")
-    file(GLOB_RECURSE AI_TEST_SOURCES "tests/ai/*.cpp")
+    file(GLOB_RECURSE AI_TEST_SOURCES "tests/ai/useless/*.cpp")
     file(GLOB_RECURSE SERVER_TEST_SOURCES "tests/server/*.c")
 
     set(ALL_TEST_SOURCES ${TEST_SOURCES} ${AI_TEST_SOURCES} ${SERVER_TEST_SOURCES})
@@ -188,7 +194,7 @@ function(create_unit_tests_target)
 
     if(AI_LIB_SOURCES)
         target_include_directories(unit_tests PRIVATE
-                ${CMAKE_SOURCE_DIR}/ai/include
+                ${CMAKE_SOURCE_DIR}/ai/useless/include
         )
         list(APPEND TEST_LIBRARIES ai_lib)
     endif()
