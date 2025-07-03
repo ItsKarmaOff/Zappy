@@ -1,32 +1,57 @@
 /*
-** EPITECH PROJECT, 2024
-** zappy [WSL: Ubuntu]
+** EPITECH PROJECT, 2025
+** Zappy
+** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** ZappyTypes.hpp
+** ZappyTypes class implementation
 */
-
-#pragma once
+/**
+ * @file ZappyTypes.hpp
+ * @brief ZappyTypes class implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
+#ifndef ZAPPYTYPES_HPP_
+#define ZAPPYTYPES_HPP_
 
 #include <string>
 
+/**
+ * @enum ResourceType
+ * @brief Enumeration of all resource types in the Zappy game
+ */
 enum class ResourceType {
-    FOOD,
-    LINEMATE,
-    DERAUMERE,
-    SIBUR,
-    MENDIANE,
-    PHIRAS,
-    THYSTAME,
-    UNKNOWN
+    FOOD,       ///< Food resource for survival
+    LINEMATE,   ///< Linemate stone for evolution
+    DERAUMERE,  ///< Deraumere stone for evolution
+    SIBUR,      ///< Sibur stone for evolution
+    MENDIANE,   ///< Mendiane stone for evolution
+    PHIRAS,     ///< Phiras stone for evolution
+    THYSTAME,   ///< Thystame stone for evolution
+    UNKNOWN     ///< Unknown or invalid resource type
 };
 
+/**
+ * @struct InventoryItem
+ * @brief Represents an item in the player's inventory
+ */
 struct InventoryItem {
-    ResourceType type;
-    int quantity;
+    ResourceType type; ///< The type of resource
+    int quantity; ///< The quantity of this resource
     
+    /**
+     * @brief Constructor for InventoryItem
+     * @param t The resource type
+     * @param q The quantity
+     */
     InventoryItem(ResourceType t, int q) : type(t), quantity(q) {}
 };
 
+/**
+ * @brief Convert ResourceType to string representation
+ * @param type The ResourceType to convert
+ * @return String representation of the resource type
+ */
 inline std::string resourceTypeToString(ResourceType type) {
     switch (type) {
         case ResourceType::FOOD: return "food";
@@ -40,6 +65,11 @@ inline std::string resourceTypeToString(ResourceType type) {
     }
 }
 
+/**
+ * @brief Convert string to ResourceType
+ * @param str The string to convert
+ * @return The corresponding ResourceType
+ */
 inline ResourceType stringToResourceType(const std::string& str) {
     if (str == "food") return ResourceType::FOOD;
     if (str == "linemate") return ResourceType::LINEMATE;
@@ -50,3 +80,5 @@ inline ResourceType stringToResourceType(const std::string& str) {
     if (str == "thystame") return ResourceType::THYSTAME;
     return ResourceType::UNKNOWN;
 }
+
+#endif /* !ZAPPYTYPES_HPP_ */

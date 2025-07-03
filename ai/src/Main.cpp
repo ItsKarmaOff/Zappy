@@ -24,10 +24,6 @@ int main(int argc, char **argv)
         Lib::Logs::Error() << e.what();
         return 84;
     }
-    //} catch (const Lib::Exceptions::Critical &e) {
-    //    std::cout << e.what();
-    //    return 0;
-    //}
     try {
         Engine engine(parser);
         engine.run();

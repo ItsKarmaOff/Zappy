@@ -1,25 +1,29 @@
 /*
 ** EPITECH PROJECT, 2025
+** Zappy
 ** B-YEP-400-NCE-4-1-zappy-nicolas.toro [WSL: Ubuntu]
 ** File description:
-** Parser
+** Parser implementation
 */
+/**
+ * @file Parser.cpp
+ * @brief Parser implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
 #include "Parser.hpp"
 
-Parser::Parser()
-{
+Parser::Parser() {
     _port = 0;
     _name = "";
     _machine = "localhost";
 }
 
-Parser::~Parser()
-{
+Parser::~Parser() {
 }
 
-void Parser::parse(int argc, char **argv)
-{
+void Parser::parse(int argc, char **argv) {
     if (argc == 2 && (std::string(argv[1]) == "--help" || std::string(argv[1]) == "-h")) {
         throw Lib::Exceptions::Critical("USAGE: ./zappy_ai -p port -n name -h machine\n");
     }
@@ -60,4 +64,3 @@ void Parser::parse(int argc, char **argv)
         throw Lib::Exceptions::Critical("Name not specified.");
     }
 }
-//}
