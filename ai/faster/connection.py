@@ -111,6 +111,12 @@ class Connection:
         tmp = line.split(",")
         direction = int(tmp[0].split(" ")[1])
         message = tmp[1][1:]
+        if self.my_ai.encode:
+            try:
+                message = base64.b64decode(message).decode('utf-8')
+            except:
+                print(f"{RED}{self.my_ai.id}: Failed to decode message: {message}{RESET}")
+                return
 
         if message[:len(self.my_ai.team)] != self.my_ai.team:
             print(f"{YELLOW}{self.my_ai.id}: Received message from the wrong team: {message}{RESET}")

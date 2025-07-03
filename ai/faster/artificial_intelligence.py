@@ -1,3 +1,4 @@
+import base64
 import random
 import subprocess
 from color import *
@@ -39,11 +40,12 @@ class Step:
 
 
 class Ai:
-    def __init__(self, binary, hostname, port, team, child):
+    def __init__(self, binary, hostname, port, team, encode, child):
         self.binary = binary
         self.hostname = hostname
         self.port = port
         self.team = team
+        self.encode = encode
         self.is_child = child
 
         self.id = random.randint(100, 999)
@@ -97,6 +99,15 @@ class Ai:
     def algorithm(self):
         self.actions[self.step]()
 
+
+    def broadcast(self, message):
+        tmp = self.team + ":" + message
+        if self.encode:
+            self.to_send += "Broadcast " + base64.b64encode(tmp.encode('utf-8')).decode('utf-8')
+        else:
+            self.to_send += "Broadcast " + tmp
+
+
     def parse_look(self, line):
         tmp = line[1:-1].split(",")
         tmp = [item.lstrip() for item in tmp]
@@ -126,7 +137,7 @@ class Ai:
                 return
             self.step = Step.LOOK
             if int(nb_places) != 0:
-                subprocess.Popen(["python3", self.binary, "-h", self.hostname, "-p", str(self.port), "-n", self.team, '-c'])
+                subprocess.Popen(["python3", self.binary, "-h", self.hostname, "-p", str(self.port), "-n", self.team, '-c'] + ([] if self.encode else ["-e"]))
             if not self.is_child:
                 self.nb_players_to_fork = 6 - int(nb_places) - 1
                 self.step = Step.CREATE_PLAYERS
@@ -147,7 +158,7 @@ class Ai:
 
         elif self.waiting_response == True and len(self.response_queue) != 0:
             print("A new player has been created.")
-            subprocess.Popen(["python3", self.binary, "-h", self.hostname, "-p", str(self.port), "-n", self.team, '-c'])
+            subprocess.Popen(["python3", self.binary, "-h", self.hostname, "-p", str(self.port), "-n", self.team, '-c'] + ([] if self.encode else ["-e"]))
             self.response_queue.pop(0)
             self.waiting_response = False
 
@@ -223,7 +234,7 @@ class Ai:
 
     def inform(self):
         if not self.waiting_response:
-            self.to_send = f"Broadcast {self.team}:{self.last_collect}"
+            self.broadcast(self.last_collect)
             self.waiting_response = True
             return
 
@@ -259,7 +270,7 @@ class Ai:
             return
 
         elif not self.waiting_response:
-            self.to_send = f"Broadcast {self.team}:here"
+            self.broadcast("here")
             self.waiting_response = True
             return
 
@@ -270,7 +281,7 @@ class Ai:
             if self.last_look[0].count("player") >= 6:
                 print(f"{self.id}: All teammates are here, let's drop items!")
                 self.step = Step.DROP_ITEMS
-                self.to_send = f"Broadcast {self.team}:here"
+                self.broadcast("here")
                 self.waiting_response = True
             return
 
@@ -305,7 +316,7 @@ class Ai:
         next_item_to_drop = self.get_next_item_to_drop()
 
         if not self.waiting_response and next_item_to_drop is None and not self.ready:
-            self.to_send = f"Broadcast {self.team}:ready"
+            self.broadcast("ready")
             self.players_ready += 1
             self.ready = True
             self.waiting_response = True

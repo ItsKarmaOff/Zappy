@@ -33,6 +33,7 @@ class Parser:
             Option("h", "hostname", "machine", "The hostname of the server", OptionType.HOSTNAME_OPTION, self.__option_hostname),
             Option("p", "port", "port", "The port of the server", OptionType.PORT_OPTION, self.__option_port),
             Option("n", "name", "name", "The name of the team", OptionType.NAME_OPTION, self.__option_name),
+            Option("e", "encode", "", "Disable the broadcast encoding", OptionType.NOT_REQUIRED, self.__option_encode),
             Option("c", "child", "", "The AI is a child", OptionType.NOT_REQUIRED, self.__option_child),
             Option("H", "help", "", "Display this help message", OptionType.META_OPTION, self.__option_help),
             Option("V", "version", "", "Display the version of the program", OptionType.META_OPTION, self.__option_version),
@@ -42,6 +43,7 @@ class Parser:
         self._hostname = ""
         self._port = 0
         self._name = ""
+        self._encode = True
         self._child = False
 
         self.__parse()
@@ -78,6 +80,10 @@ class Parser:
 
     def get_name(self):
         return self._name
+
+
+    def get_encode(self):
+        return self._encode;
 
 
     def get_child(self):
@@ -132,6 +138,11 @@ class Parser:
 
     def __option_child(self, index):
         self._child = True
+        return index + 1
+
+
+    def __option_encode(self, index):
+        self._encode = False
         return index + 1
 
 
