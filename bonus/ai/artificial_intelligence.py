@@ -334,8 +334,8 @@ class Ai:
 
         elif self.waiting_response and len(self.response_queue) != 0:
             self.response_queue.pop(0)
-            #self.waiting_response = False
+            self.waiting_response = False
 
-        if self.level == 6 and not self.end_level:
+        if self.level == 8 and not self.end_level:
             print(f"{GREEN}{self.id}: You are level 8 !{RESET}")
             self.end_level = True

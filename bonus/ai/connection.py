@@ -47,15 +47,15 @@ class Connection:
         lines = self.buffer.split('\n')
         self.buffer = lines[-1]
         complete_lines = [line for line in lines[:-1] if line]
-        #if complete_lines:
-        #    print(f"{MAGENTA}{self.my_ai.id}: Received data: {complete_lines}{RESET}")
+        if complete_lines:
+            print(f"{MAGENTA}{self.my_ai.id}: Received data: {complete_lines}{RESET}")
         return complete_lines
 
 
     def send_data(self, data):
         data += '\n'
         self.socket.sendall(data.encode('utf-8'))
-        #print(f"{BLUE}{self.my_ai.id}: Sent data: [{data[:-1]}]{RESET}")
+        print(f"{BLUE}{self.my_ai.id}: Sent data: [{data[:-1]}]{RESET}")
 
 
     def poll(self):
@@ -131,7 +131,8 @@ class Connection:
                     self.my_ai.next_moves = ["Left"]
         elif message == self.my_ai.team + ":ready":
             self.my_ai.players_ready += 1
-            if self.my_ai.is_child == False and self.my_ai.players_ready == 6:
+            print(f"{GREEN}{self.my_ai.id}: Player is ready! Total ready players: {self.my_ai.players_ready}{RESET}")
+            if self.my_ai.is_child == False and self.my_ai.players_ready >= 6:
                 print(f"{GREEN}{self.my_ai.id}: All players are ready, starting the incantation!{RESET}")
                 self.my_ai.step = Step.INCANTATION
 
