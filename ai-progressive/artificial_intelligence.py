@@ -19,7 +19,7 @@ REQUIREMENTS = {
 }
 
 TOTAL_REQUIREMENTS = {
-    "food": 100,
+    "food": 200,
     "linemate": 9,
     "deraumere": 8,
     "sibur": 10,
@@ -155,7 +155,7 @@ class Ai:
             tmp = self.response_queue.pop(0).split(" ")
             self.map_size[0] = int(tmp[0])
             self.map_size[1] = int(tmp[1])
-            TOTAL_REQUIREMENTS["food"] = 100 * (self.map_size[0] * self.map_size[1]) / 100
+            TOTAL_REQUIREMENTS["food"] = 200 * (self.map_size[0] * self.map_size[1]) / 100
             self.waiting_response = False
 
 
