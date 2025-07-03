@@ -95,6 +95,7 @@ class Ai:
         self.players_ready = 0
         self.ready = False
         self.end_level = False
+        self.incantating = False
 
     def algorithm(self):
         self.actions[self.step]()
@@ -144,7 +145,7 @@ class Ai:
             tmp = self.response_queue.pop(0).split(" ")
             self.map_size[0] = int(tmp[0])
             self.map_size[1] = int(tmp[1])
-            TOTAL_REQUIREMENTS["food"] = 200 * (self.map_size[0] * self.map_size[1]) / 100
+            TOTAL_REQUIREMENTS["food"] = (40 * 6) * (self.map_size[0] * self.map_size[1]) / 100
             self.waiting_response = False
 
 
@@ -179,6 +180,8 @@ class Ai:
             self.step = Step.COLLECT
             if "food" in self.last_look[0]:
                 return
+            elif "food" in self.last_look[2] and "food" in self.last_look[3]:
+                self.next_moves = ["Forward", random.choice(["Left", "Right"]), "Forward"]
             elif "food" in self.last_look[2]:
                 self.next_moves = ["Forward"]
             elif "food" in self.last_look[1]:
@@ -205,6 +208,7 @@ class Ai:
                     break
             if all_find:
                 self.step = Step.WAIT_TEAMMATES
+                print(f"{GREEN}{self.id}: All items found, waiting for teammates!{RESET}")
 
         next_loot = self.get_next_loot()
         if next_loot is None and "food" in self.last_look[0]:
@@ -224,11 +228,14 @@ class Ai:
         elif self.waiting_response and len(self.response_queue) != 0:
             response = self.response_queue.pop(0)
             if response == "ok":
-                self.shared_inventory[self.last_collect] += 1
                 self.inventory[self.last_collect] += 1
-                #print(f"Collected {self.last_collect}, inventory: {self.inventory}")
-                #if self.last_collect != "food":
-                self.step = Step.INFORM
+                if self.last_collect != "food":
+                    self.shared_inventory[self.last_collect] += 1
+                    self.step = Step.INFORM
+                elif self.inventory["food"] == TOTAL_REQUIREMENTS["food"] / 6:
+                    self.shared_inventory["food"] += TOTAL_REQUIREMENTS["food"] / 6
+                    self.step = Step.INFORM
+                    print(f"{GREEN}{self.id}: Find all food, shared inventory updated!{RESET}")
             self.waiting_response = False
 
 
@@ -338,9 +345,10 @@ class Ai:
 
 
     def incantation(self):
-        if not self.is_child and not self.waiting_response:
+        if not self.is_child and not self.waiting_response and not self.incantating:
             self.to_send = "Incantation\n" * 6 + "Incantation"
             self.waiting_response = True
+            self.incantating = True
             return
 
         elif self.waiting_response and len(self.response_queue) != 0:

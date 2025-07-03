@@ -149,8 +149,10 @@ class Connection:
             print(f"{YELLOW}{self.my_ai.id}: Received message from the wrong team: {message}{RESET}")
         for loot in LOOTS:
             if loot == message[len(self.my_ai.team) + 1:]:
-                self.my_ai.shared_inventory[loot] += 1
-                #print(f"{GREEN}{self.my_ai.id}: Shared inventory updated: {loot} + 1{RESET}")
+                if loot != "food":
+                    self.my_ai.shared_inventory[loot] += 1
+                else:
+                    self.my_ai.shared_inventory[loot] += TOTAL_REQUIREMENTS[loot] / 6
                 return
         if message == self.my_ai.team + ":here":
             if self.my_ai.step != Step.DROP_ITEMS:
