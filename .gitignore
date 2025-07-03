@@ -35,6 +35,7 @@ vgcore.*
 .vscode
 .idea
 .cache
+__pycache__
 
 # Backup files
 *.old
@@ -45,3 +46,5 @@ zappy_gui.epitech
 zappy_server
 zappy_gui
 zappy_ai
+
+bonus/ai/ref

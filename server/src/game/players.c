@@ -85,6 +85,11 @@ static void player_eat(
         DEBUG(my_create_str("Player %zu died", player->id));
         dprintf(player->client->socket_fd, DEATH_MESSAGE);
         send_pdi_to_gui(server, NULL, player);
+        for (node_t *tmp = ACCESS_MAP(server->game.map, player)
+        .incantation_list; tmp != NULL; tmp = tmp->next)
+            my_delete_nodes((node_t **)&tmp->data, player, NULL);
+        my_delete_nodes(&ACCESS_MAP(server->game.map, player).player_list,
+            player, NULL);
         AL(FALSE, my_push_front, dead_players, player, UNKNOWN);
         player->client->player = NULL;
         remove_client(server, get_client_index(server, player->client));
