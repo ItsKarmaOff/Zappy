@@ -2,30 +2,28 @@
 ** EPITECH PROJECT, 2025
 ** Zappy
 ** File description:
-** Player.cpp - Improved with proper resource management
+** The Player class implementation
 */
+/**
+ * @file Player.cpp
+ * @brief The Player class implementation
+ * @author Christophe VANDEVOIR, Gianni TUERO, Lou PELLEGRINO,
+ * Nicolas TORO, Olivier POUECH and Raphael LAUNAY
+ */
 
-#include "Player.hpp"
 #include "Algo.hpp"
-#include "Lib.hpp"
-#include "ZappyTypes.hpp"
-#include <sstream>
-#include <algorithm>
-#include <regex>
 
-// Table des exigences pour l'évolution (depuis le PDF Zappy)
 const std::map<int, std::map<ResourceType, int>> Player::EVOLUTION_REQUIREMENTS = {
-    {2, {{ResourceType::LINEMATE, 1}}}, // 1->2
-    {3, {{ResourceType::LINEMATE, 1}, {ResourceType::DERAUMERE, 1}, {ResourceType::SIBUR, 1}}}, // 2->3
-    {4, {{ResourceType::LINEMATE, 2}, {ResourceType::SIBUR, 1}, {ResourceType::PHIRAS, 2}}}, // 3->4
-    {5, {{ResourceType::LINEMATE, 1}, {ResourceType::DERAUMERE, 1}, {ResourceType::SIBUR, 2}, {ResourceType::PHIRAS, 1}}}, // 4->5
-    {6, {{ResourceType::LINEMATE, 1}, {ResourceType::DERAUMERE, 2}, {ResourceType::SIBUR, 1}, {ResourceType::MENDIANE, 3}}}, // 5->6
-    {7, {{ResourceType::LINEMATE, 1}, {ResourceType::DERAUMERE, 2}, {ResourceType::SIBUR, 3}, {ResourceType::PHIRAS, 1}}}, // 6->7
-    {8, {{ResourceType::LINEMATE, 2}, {ResourceType::DERAUMERE, 2}, {ResourceType::SIBUR, 2}, {ResourceType::MENDIANE, 2}, {ResourceType::PHIRAS, 2}, {ResourceType::THYSTAME, 1}}} // 7->8
+    {2, {{ResourceType::LINEMATE, 1}}},
+    {3, {{ResourceType::LINEMATE, 1}, {ResourceType::DERAUMERE, 1}, {ResourceType::SIBUR, 1}}},
+    {4, {{ResourceType::LINEMATE, 2}, {ResourceType::SIBUR, 1}, {ResourceType::PHIRAS, 2}}},
+    {5, {{ResourceType::LINEMATE, 1}, {ResourceType::DERAUMERE, 1}, {ResourceType::SIBUR, 2}, {ResourceType::PHIRAS, 1}}},
+    {6, {{ResourceType::LINEMATE, 1}, {ResourceType::DERAUMERE, 2}, {ResourceType::SIBUR, 1}, {ResourceType::MENDIANE, 3}}},
+    {7, {{ResourceType::LINEMATE, 1}, {ResourceType::DERAUMERE, 2}, {ResourceType::SIBUR, 3}, {ResourceType::PHIRAS, 1}}},
+    {8, {{ResourceType::LINEMATE, 2}, {ResourceType::DERAUMERE, 2}, {ResourceType::SIBUR, 2}, {ResourceType::MENDIANE, 2}, {ResourceType::PHIRAS, 2}, {ResourceType::THYSTAME, 1}}}
 };
 
 Player::Player(std::string team) : _teamName(team), _alive(true), _waitingForTakeResponse(false) {
-    // Initialiser l'inventaire avec 10 unités de nourriture (selon le PDF)
     _inventory[ResourceType::FOOD] = 10;
     _inventory[ResourceType::LINEMATE] = 0;
     _inventory[ResourceType::DERAUMERE] = 0;
@@ -36,7 +34,6 @@ Player::Player(std::string team) : _teamName(team), _alive(true), _waitingForTak
 }
 
 Player::~Player() {
-    // S'assurer que le thread de communication se termine proprement
     if (_communicationThread.joinable()) {
         _communicationThread.join();
     }
@@ -61,21 +58,19 @@ void Player::eject() {
 }
 
 void Player::fork() {
-    DEBUG << "🔍 Player::fork() called";
+    DEBUG << "Player::fork() called";
     
-    // 1. Envoyer la commande au serveur
     std::string command = "Fork";
     _commandsQueue->pushCommand(command);
     _commandsQueue->pushPendingCommand(command);
-    DEBUG << "📤 Fork command sent to server";
+    DEBUG << "Fork command sent to server";
     
-    // 2. Vérifier si le callback existe
     if (_forkPlayerCallback) {
-        DEBUG << "🚀 Fork callback found, executing...";
+        DEBUG << "Fork callback found, executing...";
         _forkPlayerCallback();
-        DEBUG << "✅ Fork callback executed";
+        DEBUG << "Fork callback executed";
     } else {
-        DEBUG << "❌ No fork callback available!";
+        DEBUG << "No fork callback available!";
     }
 }
 
@@ -129,7 +124,6 @@ void Player::set(const std::string &item) {
     _commandsQueue->pushCommand(command);
     _commandsQueue->pushPendingCommand(command);
     
-    // Quand on pose un objet, le retirer de l'inventaire
     ResourceType type = stringToResourceType(item);
     if (type != ResourceType::UNKNOWN && _inventory[type] > 0) {
         _inventory[type]--;
@@ -212,18 +206,15 @@ void Player::processResponse(const std::string &response) {
         }
     }
     else if (response.find("Current level:") == 0) {
-    std::regex levelRegex(R"(Current level:\s*(\d+))");
-    std::smatch match;
+        std::regex levelRegex(R"(Current level:\s*(\d+))");
+        std::smatch match;
         if (std::regex_search(response, match, levelRegex)) {
             _level = std::stoi(match[1]);
-            DEBUG << "✅ Level confirmed: " << _level;
+            DEBUG << "Level confirmed: " << _level;
         }
     }
     else if (response == "Elevation underway") {
         DEBUG << "Incantation started!";
-    }
-    else if (response.find("Current level:") == 0) {
-        DEBUG << "Level up: " << response;
     }
     else if (response.find("message") == 0) {
         DEBUG << "Broadcast received: " << response;
@@ -283,36 +274,35 @@ void Player::addToInventory(ResourceType type, int quantity) {
 
 void Player::handleTakeSuccess(ResourceType type) {
     if (type != ResourceType::UNKNOWN) {
-        addToInventory(type, 1); // On prend 1 unité à la fois
+        addToInventory(type, 1);
         DEBUG << "Successfully took " << resourceTypeToString(type);
     }
 }
 
-// Supprimer les méthodes dupliquées à la fin du fichier
 ResourceType Player::stringToResourceType(const std::string &str) const {
-    return ::stringToResourceType(str); // Utiliser la fonction globale
+    return ::stringToResourceType(str);
 }
 
 std::string Player::resourceTypeToString(ResourceType type) const {
-    return ::resourceTypeToString(type); // Utiliser la fonction globale
+    return ::resourceTypeToString(type);
 }
 
 bool Player::hasPendingBroadcasts() const {
     bool hasBroadcasts = !_broadcastQueue.empty();
     if (hasBroadcasts) {
-        DEBUG << "📨 PLAYER: hasPendingBroadcasts() = TRUE, queue size: " << _broadcastQueue.size();
+        DEBUG << "hasPendingBroadcasts() = TRUE, queue size: " << _broadcastQueue.size();
     }
     return hasBroadcasts;
 }
 
 std::string Player::getNextBroadcast() {
     if (_broadcastQueue.empty()) {
-        DEBUG << "📨 PLAYER: getNextBroadcast() called but queue is EMPTY!";
+        DEBUG << "getNextBroadcast() called but queue is EMPTY!";
         return "";
     }
     
     std::string broadcast = _broadcastQueue.front();
     _broadcastQueue.pop();
-    DEBUG << "📨 PLAYER: Retrieved broadcast from queue: [" << broadcast << "] - Queue size now: " << _broadcastQueue.size();
+    DEBUG << "Retrieved broadcast from queue: [" << broadcast << "] - Queue size now: " << _broadcastQueue.size();
     return broadcast;
 }

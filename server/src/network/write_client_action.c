@@ -140,7 +140,7 @@ static bool set_next_action(server_t *server, size_t index,
     char *command, char **args)
 {
     const command_t *selected_commands = commands[
-        server->client_list[index - 1]->client_type];
+        server->client_list[index - 1]->client_type - 1];
 
     for (size_t cmd = 0; selected_commands[cmd].command != NULL; cmd++) {
         if (my_strcmp(args[0], selected_commands[cmd].command) == 0) {

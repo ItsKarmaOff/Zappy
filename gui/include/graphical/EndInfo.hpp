@@ -16,13 +16,17 @@
 
     #include "Button.hpp"
 
-namespace Gui {
+namespace Gui
+{
     /**
      * @class EndInfo
      * @brief Contains information and methods related to the end scene of the game
      */
     class EndInfo {
         public:
+
+            //////////////// Enumerations //////////////////////////////////////
+
             /**
              * @enum ButtonType
              * @brief Types of buttons available in the end scene
@@ -31,6 +35,10 @@ namespace Gui {
                 RESTART, ///< Button to restart the game
                 EXIT ///< Button to quit the game
             };
+
+
+
+            //////////////// Constructors and Destructor ///////////////////////
 
             /**
              * @brief Default constructor for EndInfo

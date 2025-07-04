@@ -13,13 +13,13 @@
  */
 
 #include "commands/commands_server.h"
+#include "server_data_structures.h"
 
 static void display_clients(server_t *server)
 {
     for (size_t index = 1; index < server->current_clients_number; index++) {
         printf(BOLD "- %zu:" RESET " %s", index,
-            server->client_list[index]->client_type
-            == CLIENT_AI ? "AI" : "GUI");
+            client_type_names[server->client_list[index]->client_type]);
         if (server->client_list[index]->player != NULL)
             printf(" -> Player #%zu (team: %s)\n",
                 server->client_list[index]->player->id,

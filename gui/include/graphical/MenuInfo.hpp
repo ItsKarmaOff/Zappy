@@ -23,9 +23,13 @@
  * @author Gianni TUERO
  */
 
-namespace Gui {
+namespace Gui
+{
     class MenuInfo {
         public:
+
+            //////////////// Enumerations //////////////////////////////////////
+
             enum ButtonIndex {
                 PLAY_BUTTON,
                 EXIT_BUTTON
@@ -33,13 +37,20 @@ namespace Gui {
             MenuInfo();
             ~MenuInfo() = default;
 
+
+            //////////////// Getters ///////////////////////////////////////////
             /**
              * @brief Gets the reference to the buttons in the menu
              * @return Reference to the vector of Button objects
              */
             std::vector<Button> &getButtons();
 
+
+
         private:
+
+            //////////////// Private Attributes ////////////////////////////////
+
             std::vector<Button> _buttons; ///< Vector containing all buttons in the menu
     };
 }

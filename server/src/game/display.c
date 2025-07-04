@@ -13,6 +13,13 @@
 
 #include "game.h"
 
+const char *client_type_names[] = {
+    "Unknown",
+    "AI",
+    "GUI",
+    "Server"
+};
+
 const char *orientation_names[] = {
     "None",
     "North",

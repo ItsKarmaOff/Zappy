@@ -23,7 +23,8 @@
     #include "VarManager.hpp"
     #include "SoundsManager.hpp"
 
-namespace Gui {
+namespace Gui
+{
     constexpr size_t WINDOW_WIDTH = 1200;     ///< Default window width
     constexpr size_t WINDOW_HEIGHT = 600;     ///< Default window height
     constexpr float TILE_SIZE = 5.0;          ///< Size of each tile in the game world
@@ -34,6 +35,9 @@ namespace Gui {
      */
     class Graphics {
         public:
+
+            //////////////// Enumerations //////////////////////////////////////
+
             /**
              * @enum ConnectionState
              * @brief Represents the state of the connection to the server
@@ -55,6 +59,10 @@ namespace Gui {
                 END,            ///< End of game scene
             };
 
+
+
+            //////////////// Constructors and Destructor ///////////////////////
+
             /**
              * @brief Constructor for the Graphics class
              * @param queueManager Shared pointer to the QueueManager for communication
@@ -69,7 +77,7 @@ namespace Gui {
 
 
 
-            //////////////// GETTERS ///////////////////////////////////////////
+            //////////////// Getters ///////////////////////////////////////////
 
             /**
              * @brief Gets the reference to the current scene
@@ -138,7 +146,7 @@ namespace Gui {
 
 
 
-            //////////////// GRAPHIC ///////////////////////////////////////////
+            //////////////// Main Methods //////////////////////////////////////
 
             /**
              * @brief Initializes the graphics system

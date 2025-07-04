@@ -73,13 +73,19 @@ target_compile_options(my_c PUBLIC -fPIC -Wall -Wextra -Werror -Wno-unused-resul
 
 ############################ AI ###############################################
 set(AI "zappy_ai")
-file(GLOB_RECURSE AI_SOURCES "ai/src/*.cpp")
+file(GLOB_RECURSE AI_SOURCES "ai/useless/src/*.cpp")
 add_executable(${AI} ${AI_SOURCES})
 target_include_directories(${AI} PUBLIC
-    ${CMAKE_SOURCE_DIR}/ai/include
+    ${CMAKE_SOURCE_DIR}/ai/useless/include
 )
 target_link_libraries(${AI} PUBLIC my_cpp)
 target_compile_options(${AI} PRIVATE -fPIC -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)
+set_target_properties(${AI} PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/ai/useless
+)
+add_custom_command(TARGET ${AI} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/ai/zappy_ai ${CMAKE_SOURCE_DIR}/zappy_ai
+)
 ###############################################################################
 
 
@@ -147,12 +153,12 @@ function(create_unit_tests_target)
     endif()
     pkg_check_modules(CRITERION REQUIRED criterion)
 
-    file(GLOB_RECURSE AI_LIB_SOURCES "ai/src/*.cpp")
+    file(GLOB_RECURSE AI_LIB_SOURCES "ai/useless/src/*.cpp")
     list(FILTER AI_LIB_SOURCES EXCLUDE REGEX ".*[Mm]ain\\.cpp$")
     if(AI_LIB_SOURCES)
         add_library(ai_lib ${AI_LIB_SOURCES})
         target_include_directories(ai_lib PUBLIC
-                ${CMAKE_SOURCE_DIR}/ai/include
+                ${CMAKE_SOURCE_DIR}/ai/useless/include
         )
         target_link_libraries(ai_lib PUBLIC my_cpp)
         target_compile_options(ai_lib PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function --coverage)
@@ -188,7 +194,7 @@ function(create_unit_tests_target)
 
     if(AI_LIB_SOURCES)
         target_include_directories(unit_tests PRIVATE
-                ${CMAKE_SOURCE_DIR}/ai/include
+                ${CMAKE_SOURCE_DIR}/ai/useless/include
         )
         list(APPEND TEST_LIBRARIES ai_lib)
     endif()
@@ -216,8 +222,8 @@ add_custom_target(tests_run
     COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/unit_tests --verbose
     COMMAND ${CMAKE_COMMAND} -E echo "Generating coverage report with gcovr..."
     COMMAND mkdir -p docs/tests
-    COMMAND gcovr --branch --html --html-details docs/tests/test.html
-    COMMAND gcovr
+    COMMAND gcovr --branch --html --html-details docs/tests/test.html --exclude libs --exclude tests
+    COMMAND gcovr --exclude libs --exclude tests
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     VERBATIM
 )

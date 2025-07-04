@@ -53,6 +53,7 @@
     #include <barrier>
     #include <sys/poll.h>
     #include <condition_variable>
+    #include <regex>
 
     #define    ENDL RESET "\n\r"
     #define    RESET "\033[0m"

@@ -34,6 +34,23 @@ typedef enum orientation_e {
 } orientation_t;
 
 /**
+ * @enum direction_e
+ * @brief The direction of the action
+ * @note Used for eject and broadcast commands
+ */
+typedef enum direction_e {
+    SAME = 0,         ///< The action come from the same direction
+    UP_CENTER = 1,    ///< The action come from up in the center
+    UP_LEFT = 2,      ///< The action come from up to the left
+    LEFT_CENTER = 3,  ///< The action come from left in the center
+    DOWN_LEFT = 4,    ///< The action come from down to the left
+    DOWN_CENTER = 5,  ///< The action come from down in the center
+    DOWN_RIGHT = 6,   ///< The action come from down to the right
+    RIGHT_CENTER = 7, ///< The action come from right in the center
+    UP_RIGHT = 8,     ///< The action come from up to the right
+} direction_t;
+
+/**
  * @enum resources_e
  * @brief The resources available in the game
  */
@@ -53,9 +70,10 @@ typedef enum resources_e {
  * @brief The type of client connected to the server
  */
 typedef enum client_type_e {
-    CLIENT_AI = 0, ///< The client is an AI client
-    CLIENT_GUI = 1, ///< The client is a GUI client
-    CLIENT_SERVER = 2 ///< The client is the server itself
+    CLIENT_UNKNOWN = 0, ///< The client is unknown
+    CLIENT_AI = 1, ///< The client is an AI client
+    CLIENT_GUI = 2, ///< The client is a GUI client
+    CLIENT_SERVER = 3 ///< The client is the server itself
 } client_type_t;
 
 
@@ -286,6 +304,14 @@ typedef struct server_s {
     game_t game;
 } server_t;
 
+
+
+    /* Client arrays */
+
+/**
+ * @brief The array of client types
+ */
+extern const char *client_type_names[];
 
 
    /* Server commands arrays */

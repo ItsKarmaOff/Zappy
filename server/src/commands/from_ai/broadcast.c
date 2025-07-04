@@ -13,43 +13,49 @@
  */
 
 #include "commands/commands_ai.h"
-#include <math.h>
 
-static double get_angle(server_t *server, client_t *current_client,
-    int dx, int dy)
+static vector2s_t get_shortest_vector(server_t *server,
+    vector2s_t *sender, vector2s_t *receiver)
 {
-    double angle = 0.0;
+    vector2s_t new_receiver = {0, 0};
 
-    if (dx > (int)server->game.game_settings.width / 2)
-        dx -= (int)server->game.game_settings.width;
-    if (dx < -(int)server->game.game_settings.width / 2)
-        dx += (int)server->game.game_settings.width;
-    if (dy > (int)server->game.game_settings.height / 2)
-        dy -= (int)server->game.game_settings.height;
-    if (dy < -(int)server->game.game_settings.height / 2)
-        dy += (int)server->game.game_settings.height;
-    angle = atan2(dx, - dy)
-        - ((current_client->player->orientation - 1) * M_PI) / 2.0;
-    while (angle < 0)
-        angle += 2 * M_PI;
-    while (angle >= 2 * M_PI)
-        angle -= 2 * M_PI;
-    return angle;
+    if (ABS(sender->x - receiver->x) <=
+    (ssize_t)server->game.game_settings.width / 2)
+        new_receiver.x = receiver->x;
+    else
+        new_receiver.x = -
+            (ssize_t)server->game.game_settings.width - receiver->x;
+    if (ABS(sender->y - receiver->y) <=
+    (ssize_t)server->game.game_settings.height / 2)
+        new_receiver.y = receiver->y;
+    else
+        new_receiver.y = -
+            (ssize_t)server->game.game_settings.height - receiver->y;
+    return new_receiver;
 }
 
-static void calculate_direction(server_t *server, client_t *current_client,
-    vector2u_t *target_position, char *message)
+static ssize_t calculate_direction(server_t *server,
+    vector2s_t *sender, vector2s_t *receiver, orientation_t orientation)
 {
-    int dx = (int)target_position->x - (int)current_client->player->position.x;
-    int dy = (int)target_position->y - (int)current_client->player->position.y;
-    double angle = 0.0;
+    vector2s_t new_receiver = get_shortest_vector(server, sender, receiver);
 
-    if (dx == 0 && dy == 0) {
-        message[8] = '0';
-        return;
-    }
-    message[8] = (char)((int)((get_angle(server, current_client, dx, dy)
-        + M_PI / 8.0) / (M_PI / 4.0)) % 8 + 1) + '0';
+    if (sender->x == new_receiver.x && sender->y < new_receiver.y)
+        return (UP_CENTER + 2 * (orientation - 1) - 1) % 8 + 1;
+    if (sender->x < new_receiver.x && sender->y < new_receiver.y)
+        return (UP_LEFT + 2 * (orientation - 1) - 1) % 8 + 1;
+    if (sender->x < new_receiver.x && sender->y == new_receiver.y)
+        return (LEFT_CENTER + 2 * (orientation - 1) - 1) % 8 + 1;
+    if (sender->x < new_receiver.x && sender->y > new_receiver.y)
+        return (DOWN_LEFT + 2 * (orientation - 1) - 1) % 8 + 1;
+    if (sender->x == new_receiver.x && sender->y > new_receiver.y)
+        return (DOWN_CENTER + 2 * (orientation - 1) - 1) % 8 + 1;
+    if (sender->x > new_receiver.x && sender->y > new_receiver.y)
+        return (DOWN_RIGHT + 2 * (orientation - 1) - 1) % 8 + 1;
+    if (sender->x > new_receiver.x && sender->y == new_receiver.y)
+        return (RIGHT_CENTER + 2 * (orientation - 1) - 1) % 8 + 1;
+    if (sender->x > new_receiver.x && sender->y < new_receiver.y)
+        return (UP_RIGHT + 2 * (orientation - 1) - 1) % 8 + 1;
+    return SAME;
 }
 
 static void send_broadcast(server_t *server, client_t *client, char *message)
@@ -61,8 +67,10 @@ static void send_broadcast(server_t *server, client_t *client, char *message)
         if (current_client == client
         || current_client->client_type != CLIENT_AI)
             continue;
-        calculate_direction(server, current_client, &client->player->position,
-            message);
+        message[8] = (char)calculate_direction(server,
+            (vector2s_t *) &client->player->position,
+            (vector2s_t *) &current_client->player->position,
+            current_client->player->orientation) + '0';
         dprintf(current_client->socket_fd, "%s", message);
     }
     send_pbc_to_gui(server, NULL, client->player,
