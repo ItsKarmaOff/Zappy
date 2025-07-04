@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "https://itskarmaoff.github.io/Zappy/static/js/main.356981c1.js",
+    "static/js/453.c319271a.chunk.js": "https://itskarmaoff.github.io/Zappy/static/js/453.c319271a.chunk.js",
+    "index.html": "https://itskarmaoff.github.io/Zappy/index.html",
+    "main.356981c1.js.map": "https://itskarmaoff.github.io/Zappy/static/js/main.356981c1.js.map",
+    "453.c319271a.chunk.js.map": "https://itskarmaoff.github.io/Zappy/static/js/453.c319271a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.356981c1.js"
+  ]
+}

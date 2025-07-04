@@ -1,0 +1,163 @@
+############################ CONFIGURATION ####################################
+name: Zappy
+
+on: [push, pull_request]
+
+env:
+    EXECUTABLE: zappy_server,zappy_gui,zappy_ai
+###############################################################################
+
+
+
+############################ JOBS #############################################
+jobs:
+
+    ######################## COMMIT ###########################################
+    protect_main_branch:
+        if: github.ref == 'refs/heads/main'
+        runs-on: self-hosted
+
+        #################### STEPS ############################################
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+
+            - name: Check if direct push to main
+              env:
+                  COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+                  PUSHER: ${{ github.event.pusher.name }}
+              run: |
+                echo "::notice::Commit message: $COMMIT_MESSAGE"
+                echo "::notice::Pusher: $PUSHER"
+                echo "::notice::Event: ${{ github.event_name }}"
+                
+                # Count commits in this push using git
+                COMMITS_COUNT=$(git rev-list --count HEAD^..HEAD 2>/dev/null || echo "1")
+                echo "::notice::Commits in push: $COMMITS_COUNT"
+                
+                # Check if it's a merge commit based on message patterns
+                if [[ "$COMMIT_MESSAGE" =~ ^Merge.* ]] || [[ "$COMMIT_MESSAGE" =~ ^MERGE:.* ]]; then
+                  if [[ "$COMMIT_MESSAGE" =~ .*dev.* ]] || [[ "$COMMIT_MESSAGE" =~ .*pull.request.* ]]; then
+                    echo "::notice title=Merge Commit::Merge from 'dev' to 'main' detected"
+                    exit 0
+                  else
+                    echo "::error title=Invalid Merge::Please merge only from 'dev' to 'main'"
+                    exit 1
+                  fi
+                fi
+                
+                # Check for direct commits
+                echo "::error title=Direct Commit::Direct commit to main branch is not allowed!"
+                echo "::error title=Direct Commit::Please create a branch from 'dev' and submit a Pull Request"
+                echo "::error title=Direct Commit::Commit message: $COMMIT_MESSAGE"
+                exit 1
+    ###########################################################################
+
+    ######################## COMMIT ###########################################
+    check_commit:
+        runs-on: self-hosted
+        #needs: protect_main_branch
+        #if: always() && (needs.protect-main.result == 'success' || needs.protect-main.result == 'skipped')
+
+        #################### STEPS ############################################
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+
+            - name: Launch commit name checker
+              run: |
+                COMMIT_MSG=$(git log --format="%s" -1)
+                .github/scripts/check_commit "$COMMIT_MSG"
+    ###########################################################################
+
+    ######################## CODING-STYLE #####################################
+    check_coding_style:
+        runs-on: self-hosted
+        container:
+            image: ghcr.io/epitech/coding-style-checker:latest
+        needs: check_commit
+
+        #################### STEPS ############################################
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+
+            - name: Launch coding style checker
+              run: check.sh $(pwd) $(pwd)
+            - name: Check coding style
+              run: |
+                cat coding-style-reports.log;
+                .github/scripts/display_coding_style
+    ###########################################################################
+
+
+    ######################## PROGRAM-CHECK ####################################
+    check_program_compilation:
+        runs-on: self-hosted
+        container:
+            image: epitechcontent/epitest-docker
+        needs: check_coding_style
+
+        #################### STEPS ############################################
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+
+            - name: Compile AI
+              run: cmake -B build -S . && make zappy_ai -s -C build
+              timeout-minutes: 2
+            - name: Compile GUI
+              run: cmake -B build -S . && make zappy_gui -s -C build
+              #timeout-minutes: 2
+            - name: Compile SERVER
+              run: cmake -B build -S . && make zappy_server -s -C build
+              timeout-minutes: 2
+
+            - name: Check program compilation
+              run: .github/scripts/check_program_compilation ${{ env.EXECUTABLE }}
+            - name: Clean all
+              run: cmake -B build -S . && make clean_all -C build
+
+            - name: Launch unit tests
+              run: cmake -B build -S . && make tests_run -s -C build -j
+              timeout-minutes: 2
+
+
+    ######################## GENERATE DOCUMENTATION ###########################
+    generate_documentation:
+        runs-on: self-hosted
+        container:
+            image: epitechcontent/epitest-docker
+        needs: [protect_main_branch, check_program_compilation]
+
+        #################### STEPS ############################################
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+              with:
+                fetch-depth: 0
+                token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Install doxygen
+              run: |
+                apt-get update
+                apt-get install -y cmake doxygen graphviz
+            - name: Generate documentation
+              run: |
+                cmake -B build -S . -DDOC_ONLY=ON && make doc -s -C build -j
+                cmake -B build -S . && make tests_run -s -C build -j
+                rm -rf docs/html/*~*
+
+            - name: Configure Git
+              run: |
+                git config --global user.email "action@github.com"
+                git config --global user.name "GitHub Actions"
+                git config --global --add safe.directory $(pwd)
+            - name: Commit and push documentation
+              run: |
+                git add -f docs/
+                git commit -m "DOCS: update documentation"
+                git push
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+###############################################################################
