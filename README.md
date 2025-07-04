@@ -217,5 +217,5 @@ For this project, we were a group of **6 people**. Here are the people in the gr
 - [Gianni TUERO](https://github.com/xJundo)
 - [Lou PELLEGRINO](https://github.com/DimitriLaPoudre)
 - [Nicolas TORO](https://github.com/toro-nicolas)
-- [Olivier POUECH]()
+- [Olivier POUECH](hhttps://github.com/Livoooo)
 - [Raphael LAUNAY](https://github.com/frenchkiwi)
