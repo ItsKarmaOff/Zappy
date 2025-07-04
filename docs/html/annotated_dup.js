@@ -1,5 +1,17 @@
 var annotated_dup =
 [
+    [ "artificial_intelligence", null, [
+      [ "Ai", "classartificial__intelligence_1_1Ai.html", "classartificial__intelligence_1_1Ai" ],
+      [ "Step", "classartificial__intelligence_1_1Step.html", null ]
+    ] ],
+    [ "connection", null, [
+      [ "Connection", "classconnection_1_1Connection.html", null ]
+    ] ],
+    [ "exceptions", null, [
+      [ "CriticalException", "classexceptions_1_1CriticalException.html", null ],
+      [ "SuccessException", "classexceptions_1_1SuccessException.html", null ],
+      [ "WarningException", "classexceptions_1_1WarningException.html", null ]
+    ] ],
     [ "Gui", null, [
       [ "AssetsManager", "classGui_1_1AssetsManager.html", "classGui_1_1AssetsManager" ],
       [ "Button", "classGui_1_1Button.html", "classGui_1_1Button" ],
@@ -32,11 +44,16 @@ var annotated_dup =
       [ "Exceptions", "classLib_1_1Exceptions.html", "classLib_1_1Exceptions" ],
       [ "Socket", "classLib_1_1Socket.html", "classLib_1_1Socket" ]
     ] ],
+    [ "parser", null, [
+      [ "Option", "classparser_1_1Option.html", null ],
+      [ "OptionType", "classparser_1_1OptionType.html", null ],
+      [ "Parser", "classparser_1_1Parser.html", null ]
+    ] ],
     [ "std", null, [
       [ "hash< Vector2 >", "structstd_1_1hash_3_01Vector2_01_4.html", null ]
     ] ],
     [ "action_s", "structaction__s.html", "structaction__s" ],
-    [ "Algo", "classAlgo.html", null ],
+    [ "Algo", "classAlgo.html", "classAlgo" ],
     [ "array_settings_s", "structarray__settings__s.html", "structarray__settings__s" ],
     [ "AudioStream", "structAudioStream.html", null ],
     [ "AutomationEvent", "structAutomationEvent.html", null ],
@@ -51,8 +68,8 @@ var annotated_dup =
     [ "color_rgb_u", "unioncolor__rgb__u.html", null ],
     [ "command_help_s", "structcommand__help__s.html", "structcommand__help__s" ],
     [ "command_s", "structcommand__s.html", "structcommand__s" ],
-    [ "CommandsQueue", "classCommandsQueue.html", null ],
-    [ "Engine", "classEngine.html", null ],
+    [ "CommandsQueue", "classCommandsQueue.html", "classCommandsQueue" ],
+    [ "Engine", "classEngine.html", "classEngine" ],
     [ "FilePathList", "structFilePathList.html", null ],
     [ "flag_s", "structflag__s.html", null ],
     [ "float16", "structfloat16.html", null ],
@@ -68,7 +85,7 @@ var annotated_dup =
     [ "Image", "structImage.html", null ],
     [ "incantation_s", "structincantation__s.html", "structincantation__s" ],
     [ "info_param_s", "structinfo__param__s.html", "structinfo__param__s" ],
-    [ "InventoryItem", "structInventoryItem.html", null ],
+    [ "InventoryItem", "structInventoryItem.html", "structInventoryItem" ],
     [ "Material", "structMaterial.html", null ],
     [ "MaterialMap", "structMaterialMap.html", null ],
     [ "Matrix", "structMatrix.html", null ],
@@ -82,11 +99,12 @@ var annotated_dup =
     [ "node_s", "structnode__s.html", "structnode__s" ],
     [ "NPatchInfo", "structNPatchInfo.html", null ],
     [ "number_settings_s", "structnumber__settings__s.html", "structnumber__settings__s" ],
+    [ "Option", "structOption.html", "structOption" ],
     [ "option_s", "structoption__s.html", "structoption__s" ],
     [ "option_t", "structoption__t.html", null ],
-    [ "Parser", "classParser.html", null ],
+    [ "Parser", "classParser.html", "classParser" ],
     [ "parsing_s", "structparsing__s.html", "structparsing__s" ],
-    [ "Player", "classPlayer.html", null ],
+    [ "Player", "classPlayer.html", "classPlayer" ],
     [ "player_s", "structplayer__s.html", "structplayer__s" ],
     [ "point_s", "structpoint__s.html", "structpoint__s" ],
     [ "quantity_s", "structquantity__s.html", "structquantity__s" ],

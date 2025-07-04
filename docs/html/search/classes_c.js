@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['parser_0',['Parser',['../classGui_1_1Parser.html',1,'Parser'],['../classParser.html',1,'Parser']]],
+  ['parser_0',['Parser',['../classGui_1_1Parser.html',1,'Parser'],['../classParser.html',1,'Parser'],['../classparser_1_1Parser.html',1,'Parser']]],
   ['parsing_5fs_1',['parsing_s',['../structparsing__s.html',1,'']]],
   ['pauseinfo_2',['PauseInfo',['../classGui_1_1PauseInfo.html',1,'Gui']]],
   ['player_3',['Player',['../classPlayer.html',1,'']]],

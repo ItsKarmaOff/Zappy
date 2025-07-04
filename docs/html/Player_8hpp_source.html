@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zappy documentation: ai/include/Player.hpp Source File</title>
+<title>Zappy documentation: ai/useless/include/Player.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,128 +85,178 @@ $(document).ready(function(){initNavTree('Player_8hpp_source.html',''); initResi
   <div class="headertitle"><div class="title">Player.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">** EPITECH PROJECT, 2024</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">** zappy [WSL: Ubuntu]</span></div>
+<a href="Player_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">** EPITECH PROJECT, 2025</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">** Zappy</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">** File description:</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">** Player.hpp</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">** Player class implementation</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef PLAYER_HPP_</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">    #define PLAYER_HPP_</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="Lib_8hpp.html">Lib.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;Algo.hpp&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;CommandsQueue.hpp&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;ZappyTypes.hpp&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef PLAYER_HPP_</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">    #define PLAYER_HPP_</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classPlayer.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="classPlayer.html">Player</a> {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="classPlayer.html">Player</a>(std::string team);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_class" href="classPlayer.html">~Player</a>();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">    #include &quot;<a class="code" href="CommandsQueue_8hpp.html">CommandsQueue.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">    #include &quot;<a class="code" href="ZappyTypes_8hpp.html">ZappyTypes.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">class </span><a class="code hl_class" href="classAlgo.html">Algo</a>;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="comment">// Actions de base</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> run();</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> broadcast(<span class="keyword">const</span> std::string &amp;message);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> eject();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> fork();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> inventory();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> look();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> forward();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> right();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> left();</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> connect_nbr();</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> take(<span class="keyword">const</span> std::string &amp;item);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> set(<span class="keyword">const</span> std::string &amp;item);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> incantation();</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    std::function&lt;void()&gt; getForkPlayerCallback()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _forkPlayerCallback; }</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">// Getters</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">bool</span> isAlive()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _alive; }</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    std::string getTeamName()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _teamName; }</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    std::shared_ptr&lt;CommandsQueue&gt; getCommandsQueue()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _commandsQueue; }</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">// Gestion inventaire améliorée</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">int</span> getItemCount(ResourceType type) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">int</span> getFoodCount()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> getItemCount(ResourceType::FOOD); }</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">const</span> std::map&lt;ResourceType, int&gt;&amp; getInventory()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _inventory; }</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// Vérifications pour l&#39;évolution</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">bool</span> canEvolveToLevel(<span class="keywordtype">int</span> targetLevel) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    std::map&lt;ResourceType, int&gt; getRequiredItemsForLevel(<span class="keywordtype">int</span> targetLevel) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">// Setters</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> setCommandsQueue(std::shared_ptr&lt;CommandsQueue&gt; queue) { _commandsQueue = queue; }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> setForkPlayerCallback(std::function&lt;<span class="keywordtype">void</span>()&gt; callback) { _forkPlayerCallback = callback; }</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> setAlive(<span class="keywordtype">bool</span> alive) { _alive = alive; }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">// Communication thread management (for Engine compatibility)</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> setCommunicationThread(std::thread&amp;&amp; thread) { _communicationThread = std::move(thread); }</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::thread&amp; getCommunicationThread() { <span class="keywordflow">return</span> _communicationThread; }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">// Broadcast management (for Engine compatibility)</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> addToBroadcastList(<span class="keyword">const</span> std::string&amp; broadcast) {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    _broadcastQueue.push(broadcast);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_define" href="macros_8h.html#ab94a24f0a37b3963eb64f201cebf60a9">DEBUG</a> &lt;&lt; <span class="stringliteral">&quot;📨 PLAYER: Added broadcast to queue: [&quot;</span> &lt;&lt; broadcast &lt;&lt; <span class="stringliteral">&quot;] - Queue size now: &quot;</span> &lt;&lt; _broadcastQueue.size();</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; getBroadcastMessages()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _broadcastMessages; }</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">// Processing</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> processResponse(<span class="keyword">const</span> std::string &amp;response);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">int</span> getLevel()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _level; }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">bool</span> hasPendingBroadcasts() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    std::string getNextBroadcast();</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">// Variables membres</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">int</span> _level = 1;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    std::string _teamName;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">bool</span> _alive;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    std::shared_ptr&lt;CommandsQueue&gt; _commandsQueue;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    std::function&lt;void()&gt; _forkPlayerCallback;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">// Inventaire avec types stricts</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    std::map&lt;ResourceType, int&gt; _inventory;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment">// Vue actuelle</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    std::vector&lt;std::string&gt; _view;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="comment">// État des commandes en cours</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    std::string _lastTakeCommand;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">bool</span> _waitingForTakeResponse;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="comment">// Communication thread (for Engine compatibility)</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    std::thread _communicationThread;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="comment">// Broadcast messages storage</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    std::vector&lt;std::string&gt; _broadcastMessages;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">// Méthodes utilitaires</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">void</span> parseViewResponse(<span class="keyword">const</span> std::string &amp;response);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">void</span> parseInventoryResponse(<span class="keyword">const</span> std::string &amp;response);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">void</span> addToInventory(ResourceType type, <span class="keywordtype">int</span> quantity);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> handleTakeSuccess(ResourceType type);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">// Conversion string &lt;-&gt; ResourceType</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    ResourceType stringToResourceType(<span class="keyword">const</span> std::string &amp;str) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    std::string resourceTypeToString(ResourceType type) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">// Tables de correspondance pour l&#39;évolution</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">static</span> <span class="keyword">const</span> std::map&lt;int, std::map&lt;ResourceType, int&gt;&gt; EVOLUTION_REQUIREMENTS;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    std::queue&lt;std::string&gt; _broadcastQueue;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>};</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classPlayer.html">   26</a></span><span class="keyword">class </span><a class="code hl_class" href="classPlayer.html">Player</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_function" href="classPlayer.html#ae2f3cb0879689a7966ab261a44e6b906">Player</a>(std::string team);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <a class="code hl_function" href="classPlayer.html#a0773d5762776e70ddee9d4896a8db776">~Player</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a13a43e6d814de94978c515cb084873b1">run</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a2374af032cda04a409e5cfad3d564ca4">broadcast</a>(<span class="keyword">const</span> std::string &amp;message);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#ad6991d0fe8b99a881ef4767f87166023">eject</a>();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a442631fabfd48d8ab4de00f66a311dff">fork</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a3c5cc3c2066b8a2b7d7e090e31f09cb7">inventory</a>();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a7a7c522fd726b5a34db60bd9e6389e34">look</a>();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a7de2a543986e45b9083c69f6138bf079">forward</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a13d543ef43bc20f64e5e4cb27a4d3369">right</a>();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a12ea22f00299ae04f0e81278f5dce0eb">left</a>();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#aea5a3edc389bafbb39d0d36c0b2e9d9a">connect_nbr</a>();</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a2a8dc4dfe81e374c9550ce6d8c9ef7d6">take</a>(<span class="keyword">const</span> std::string &amp;item);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a52894eb8e0936aeffe319d62c126aa37">set</a>(<span class="keyword">const</span> std::string &amp;item);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#aa42731681e35cdfb0c479e5c1cc3390f">incantation</a>();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classPlayer.html#a0865acd226ef929dad089c7d2e3fa3d4">  111</a></span>        std::function&lt;void()&gt; <a class="code hl_function" href="classPlayer.html#a0865acd226ef929dad089c7d2e3fa3d4">getForkPlayerCallback</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _forkPlayerCallback; }</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aLib_8hpp_html"><div class="ttname"><a href="Lib_8hpp.html">Lib.hpp</a></div><div class="ttdoc">The Lib functions declaration.</div></div>
-<div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdef"><b>Definition:</b> Player.hpp:17</div></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classPlayer.html#aa8999f3fb0d01bd0ec464856cc24dee6">  117</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classPlayer.html#aa8999f3fb0d01bd0ec464856cc24dee6">isAlive</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _alive; }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classPlayer.html#a3b0d174cb040c0234c349bceb0892661">  123</a></span>        std::string <a class="code hl_function" href="classPlayer.html#a3b0d174cb040c0234c349bceb0892661">getTeamName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _teamName; }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classPlayer.html#a4817fead3e1cb00d716efefc2ff0bf05">  129</a></span>        std::shared_ptr&lt;CommandsQueue&gt; <a class="code hl_function" href="classPlayer.html#a4817fead3e1cb00d716efefc2ff0bf05">getCommandsQueue</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _commandsQueue; }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="classPlayer.html#a63cfb9ef255ac2968030177bef9c6fd8">getItemCount</a>(<a class="code hl_enumeration" href="ZappyTypes_8hpp.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> type) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="classPlayer.html#ac464d9b02c5b60099cca299cad2b8fdf">  142</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="classPlayer.html#ac464d9b02c5b60099cca299cad2b8fdf">getFoodCount</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="classPlayer.html#a63cfb9ef255ac2968030177bef9c6fd8">getItemCount</a>(<a class="code hl_enumvalue" href="ZappyTypes_8hpp.html#a8571efa4409be32e28abf3ea74a0dbb1acc9284597026dcc021735c0970ca0c93">ResourceType::FOOD</a>); }</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="classPlayer.html#a1c646194ab19894d566e5a09cf451f0d">  148</a></span>        <span class="keyword">const</span> std::map&lt;ResourceType, int&gt;&amp; <a class="code hl_function" href="classPlayer.html#a1c646194ab19894d566e5a09cf451f0d">getInventory</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _inventory; }</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classPlayer.html#a70b0d85d40be8c42fbd7de9d770aeb41">canEvolveToLevel</a>(<span class="keywordtype">int</span> targetLevel) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        std::map&lt;ResourceType, int&gt; <a class="code hl_function" href="classPlayer.html#a7fd937fb40d6d1c755778442f67c72e3">getRequiredItemsForLevel</a>(<span class="keywordtype">int</span> targetLevel) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="classPlayer.html#a0b6267e10dab6f711c1e28ee869329c4">  168</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a0b6267e10dab6f711c1e28ee869329c4">setCommandsQueue</a>(std::shared_ptr&lt;CommandsQueue&gt; queue) { _commandsQueue = queue; }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classPlayer.html#aeaf1cbead556ebfaadf7b1121c31b644">  174</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#aeaf1cbead556ebfaadf7b1121c31b644">setForkPlayerCallback</a>(std::function&lt;<span class="keywordtype">void</span>()&gt; callback) { _forkPlayerCallback = callback; }</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="classPlayer.html#a2e0a8bc29b3751d4e0a2326599e8992e">  180</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a2e0a8bc29b3751d4e0a2326599e8992e">setAlive</a>(<span class="keywordtype">bool</span> alive) { _alive = alive; }</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="classPlayer.html#a86dd94730c711625908fe2fff98ab24f">  186</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a86dd94730c711625908fe2fff98ab24f">setCommunicationThread</a>(std::thread&amp;&amp; thread) { _communicationThread = std::move(thread); }</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="classPlayer.html#ab7bf434e77a1105e22f8669de6021ad3">  192</a></span>        std::thread&amp; <a class="code hl_function" href="classPlayer.html#ab7bf434e77a1105e22f8669de6021ad3">getCommunicationThread</a>() { <span class="keywordflow">return</span> _communicationThread; }</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="classPlayer.html#a1023f4f716f4b19f16ea1b65a2173375">  198</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a1023f4f716f4b19f16ea1b65a2173375">addToBroadcastList</a>(<span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classPlayer.html#a2374af032cda04a409e5cfad3d564ca4">broadcast</a>) {</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>            _broadcastQueue.push(<a class="code hl_function" href="classPlayer.html#a2374af032cda04a409e5cfad3d564ca4">broadcast</a>);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            <a class="code hl_define" href="macros_8h.html#ab94a24f0a37b3963eb64f201cebf60a9">DEBUG</a> &lt;&lt; <span class="stringliteral">&quot;Added broadcast to queue: [&quot;</span> &lt;&lt; <a class="code hl_function" href="classPlayer.html#a2374af032cda04a409e5cfad3d564ca4">broadcast</a> &lt;&lt; <span class="stringliteral">&quot;] - Queue size now: &quot;</span> &lt;&lt; _broadcastQueue.size();</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        }</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="classPlayer.html#abaf3e4bc26c9a870fc0f8ec0795ec520">  207</a></span>        <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; <a class="code hl_function" href="classPlayer.html#abaf3e4bc26c9a870fc0f8ec0795ec520">getBroadcastMessages</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _broadcastMessages; }</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a476feb40cded0197aa5b90a4bf45f552">processResponse</a>(<span class="keyword">const</span> std::string &amp;response);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno"><a class="line" href="classPlayer.html#a8f44f2787dedf1e0950319c4d06d094a">  219</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="classPlayer.html#a8f44f2787dedf1e0950319c4d06d094a">getLevel</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _level; }</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classPlayer.html#ac215a692102f89e4154928ffcbb2f931">hasPendingBroadcasts</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        std::string <a class="code hl_function" href="classPlayer.html#a0714c0a4df9801bbd5cc25f80a706d0c">getNextBroadcast</a>();</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordtype">int</span> _level = 1; </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        std::string _teamName; </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <span class="keywordtype">bool</span> _alive; </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        std::shared_ptr&lt;CommandsQueue&gt; _commandsQueue; </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        std::function&lt;void()&gt; _forkPlayerCallback; </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        std::map&lt;ResourceType, int&gt; _inventory; </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        std::vector&lt;std::string&gt; _view; </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        std::string _lastTakeCommand; </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        <span class="keywordtype">bool</span> _waitingForTakeResponse; </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        std::thread _communicationThread; </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        std::vector&lt;std::string&gt; _broadcastMessages; </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        std::queue&lt;std::string&gt; _broadcastQueue; </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keywordtype">void</span> parseViewResponse(<span class="keyword">const</span> std::string &amp;response);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keywordtype">void</span> parseInventoryResponse(<span class="keyword">const</span> std::string &amp;response);</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        <span class="keywordtype">void</span> addToInventory(<a class="code hl_enumeration" href="ZappyTypes_8hpp.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> type, <span class="keywordtype">int</span> quantity);</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        <span class="keywordtype">void</span> handleTakeSuccess(<a class="code hl_enumeration" href="ZappyTypes_8hpp.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> type);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        <a class="code hl_enumeration" href="ZappyTypes_8hpp.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> stringToResourceType(<span class="keyword">const</span> std::string &amp;str) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        std::string resourceTypeToString(<a class="code hl_enumeration" href="ZappyTypes_8hpp.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> type) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        <span class="keyword">static</span> <span class="keyword">const</span> std::map&lt;int, std::map&lt;ResourceType, int&gt;&gt; EVOLUTION_REQUIREMENTS; </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>};</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="preprocessor">#endif </span><span class="comment">/* !PLAYER_HPP_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aCommandsQueue_8hpp_html"><div class="ttname"><a href="CommandsQueue_8hpp.html">CommandsQueue.hpp</a></div><div class="ttdoc">The CommandsQueue class implementation.</div></div>
+<div class="ttc" id="aZappyTypes_8hpp_html"><div class="ttname"><a href="ZappyTypes_8hpp.html">ZappyTypes.hpp</a></div><div class="ttdoc">The types used in the Zappy.</div></div>
+<div class="ttc" id="aZappyTypes_8hpp_html_a8571efa4409be32e28abf3ea74a0dbb1"><div class="ttname"><a href="ZappyTypes_8hpp.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a></div><div class="ttdeci">ResourceType</div><div class="ttdoc">Enumeration of all resource types in the Zappy game.</div><div class="ttdef"><b>Definition:</b> ZappyTypes.hpp:23</div></div>
+<div class="ttc" id="aZappyTypes_8hpp_html_a8571efa4409be32e28abf3ea74a0dbb1acc9284597026dcc021735c0970ca0c93"><div class="ttname"><a href="ZappyTypes_8hpp.html#a8571efa4409be32e28abf3ea74a0dbb1acc9284597026dcc021735c0970ca0c93">ResourceType::FOOD</a></div><div class="ttdeci">@ FOOD</div><div class="ttdoc">Food resource for survival.</div></div>
+<div class="ttc" id="aclassAlgo_html"><div class="ttname"><a href="classAlgo.html">Algo</a></div><div class="ttdoc">The main AI algorithm class for the Zappy game with lock file leader election.</div><div class="ttdef"><b>Definition:</b> Algo.hpp:37</div></div>
+<div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdoc">Represents a player in the Zappy game with inventory and command management.</div><div class="ttdef"><b>Definition:</b> Player.hpp:26</div></div>
+<div class="ttc" id="aclassPlayer_html_a0714c0a4df9801bbd5cc25f80a706d0c"><div class="ttname"><a href="classPlayer.html#a0714c0a4df9801bbd5cc25f80a706d0c">Player::getNextBroadcast</a></div><div class="ttdeci">std::string getNextBroadcast()</div><div class="ttdoc">Get next broadcast from queue.</div><div class="ttdef"><b>Definition:</b> Player.cpp:298</div></div>
+<div class="ttc" id="aclassPlayer_html_a0773d5762776e70ddee9d4896a8db776"><div class="ttname"><a href="classPlayer.html#a0773d5762776e70ddee9d4896a8db776">Player::~Player</a></div><div class="ttdeci">~Player()</div><div class="ttdoc">Destructor for Player.</div><div class="ttdef"><b>Definition:</b> Player.cpp:36</div></div>
+<div class="ttc" id="aclassPlayer_html_a0865acd226ef929dad089c7d2e3fa3d4"><div class="ttname"><a href="classPlayer.html#a0865acd226ef929dad089c7d2e3fa3d4">Player::getForkPlayerCallback</a></div><div class="ttdeci">std::function&lt; void()&gt; getForkPlayerCallback() const</div><div class="ttdoc">Get the fork player callback function.</div><div class="ttdef"><b>Definition:</b> Player.hpp:111</div></div>
+<div class="ttc" id="aclassPlayer_html_a0b6267e10dab6f711c1e28ee869329c4"><div class="ttname"><a href="classPlayer.html#a0b6267e10dab6f711c1e28ee869329c4">Player::setCommandsQueue</a></div><div class="ttdeci">void setCommandsQueue(std::shared_ptr&lt; CommandsQueue &gt; queue)</div><div class="ttdoc">Set the commands queue.</div><div class="ttdef"><b>Definition:</b> Player.hpp:168</div></div>
+<div class="ttc" id="aclassPlayer_html_a1023f4f716f4b19f16ea1b65a2173375"><div class="ttname"><a href="classPlayer.html#a1023f4f716f4b19f16ea1b65a2173375">Player::addToBroadcastList</a></div><div class="ttdeci">void addToBroadcastList(const std::string &amp;broadcast)</div><div class="ttdoc">Add broadcast message to queue.</div><div class="ttdef"><b>Definition:</b> Player.hpp:198</div></div>
+<div class="ttc" id="aclassPlayer_html_a12ea22f00299ae04f0e81278f5dce0eb"><div class="ttname"><a href="classPlayer.html#a12ea22f00299ae04f0e81278f5dce0eb">Player::left</a></div><div class="ttdeci">void left()</div><div class="ttdoc">Turn left 90 degrees.</div><div class="ttdef"><b>Definition:</b> Player.cpp:101</div></div>
+<div class="ttc" id="aclassPlayer_html_a13a43e6d814de94978c515cb084873b1"><div class="ttname"><a href="classPlayer.html#a13a43e6d814de94978c515cb084873b1">Player::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Main execution loop for the player.</div><div class="ttdef"><b>Definition:</b> Player.cpp:42</div></div>
+<div class="ttc" id="aclassPlayer_html_a13d543ef43bc20f64e5e4cb27a4d3369"><div class="ttname"><a href="classPlayer.html#a13d543ef43bc20f64e5e4cb27a4d3369">Player::right</a></div><div class="ttdeci">void right()</div><div class="ttdoc">Turn right 90 degrees.</div><div class="ttdef"><b>Definition:</b> Player.cpp:95</div></div>
+<div class="ttc" id="aclassPlayer_html_a1c646194ab19894d566e5a09cf451f0d"><div class="ttname"><a href="classPlayer.html#a1c646194ab19894d566e5a09cf451f0d">Player::getInventory</a></div><div class="ttdeci">const std::map&lt; ResourceType, int &gt; &amp; getInventory() const</div><div class="ttdoc">Get the complete inventory.</div><div class="ttdef"><b>Definition:</b> Player.hpp:148</div></div>
+<div class="ttc" id="aclassPlayer_html_a2374af032cda04a409e5cfad3d564ca4"><div class="ttname"><a href="classPlayer.html#a2374af032cda04a409e5cfad3d564ca4">Player::broadcast</a></div><div class="ttdeci">void broadcast(const std::string &amp;message)</div><div class="ttdoc">Broadcast a message to all players.</div><div class="ttdef"><b>Definition:</b> Player.cpp:48</div></div>
+<div class="ttc" id="aclassPlayer_html_a2a8dc4dfe81e374c9550ce6d8c9ef7d6"><div class="ttname"><a href="classPlayer.html#a2a8dc4dfe81e374c9550ce6d8c9ef7d6">Player::take</a></div><div class="ttdeci">void take(const std::string &amp;item)</div><div class="ttdoc">Take an item from current tile.</div><div class="ttdef"><b>Definition:</b> Player.cpp:113</div></div>
+<div class="ttc" id="aclassPlayer_html_a2e0a8bc29b3751d4e0a2326599e8992e"><div class="ttname"><a href="classPlayer.html#a2e0a8bc29b3751d4e0a2326599e8992e">Player::setAlive</a></div><div class="ttdeci">void setAlive(bool alive)</div><div class="ttdoc">Set player alive status.</div><div class="ttdef"><b>Definition:</b> Player.hpp:180</div></div>
+<div class="ttc" id="aclassPlayer_html_a3b0d174cb040c0234c349bceb0892661"><div class="ttname"><a href="classPlayer.html#a3b0d174cb040c0234c349bceb0892661">Player::getTeamName</a></div><div class="ttdeci">std::string getTeamName() const</div><div class="ttdoc">Get the team name.</div><div class="ttdef"><b>Definition:</b> Player.hpp:123</div></div>
+<div class="ttc" id="aclassPlayer_html_a3c5cc3c2066b8a2b7d7e090e31f09cb7"><div class="ttname"><a href="classPlayer.html#a3c5cc3c2066b8a2b7d7e090e31f09cb7">Player::inventory</a></div><div class="ttdeci">void inventory()</div><div class="ttdoc">Check current inventory.</div><div class="ttdef"><b>Definition:</b> Player.cpp:77</div></div>
+<div class="ttc" id="aclassPlayer_html_a442631fabfd48d8ab4de00f66a311dff"><div class="ttname"><a href="classPlayer.html#a442631fabfd48d8ab4de00f66a311dff">Player::fork</a></div><div class="ttdeci">void fork()</div><div class="ttdoc">Fork a new player.</div><div class="ttdef"><b>Definition:</b> Player.cpp:60</div></div>
+<div class="ttc" id="aclassPlayer_html_a476feb40cded0197aa5b90a4bf45f552"><div class="ttname"><a href="classPlayer.html#a476feb40cded0197aa5b90a4bf45f552">Player::processResponse</a></div><div class="ttdeci">void processResponse(const std::string &amp;response)</div><div class="ttdoc">Process server response.</div><div class="ttdef"><b>Definition:</b> Player.cpp:168</div></div>
+<div class="ttc" id="aclassPlayer_html_a4817fead3e1cb00d716efefc2ff0bf05"><div class="ttname"><a href="classPlayer.html#a4817fead3e1cb00d716efefc2ff0bf05">Player::getCommandsQueue</a></div><div class="ttdeci">std::shared_ptr&lt; CommandsQueue &gt; getCommandsQueue() const</div><div class="ttdoc">Get the commands queue.</div><div class="ttdef"><b>Definition:</b> Player.hpp:129</div></div>
+<div class="ttc" id="aclassPlayer_html_a52894eb8e0936aeffe319d62c126aa37"><div class="ttname"><a href="classPlayer.html#a52894eb8e0936aeffe319d62c126aa37">Player::set</a></div><div class="ttdeci">void set(const std::string &amp;item)</div><div class="ttdoc">Set down an item on current tile.</div><div class="ttdef"><b>Definition:</b> Player.cpp:122</div></div>
+<div class="ttc" id="aclassPlayer_html_a63cfb9ef255ac2968030177bef9c6fd8"><div class="ttname"><a href="classPlayer.html#a63cfb9ef255ac2968030177bef9c6fd8">Player::getItemCount</a></div><div class="ttdeci">int getItemCount(ResourceType type) const</div><div class="ttdoc">Get count of specific resource type.</div><div class="ttdef"><b>Definition:</b> Player.cpp:140</div></div>
+<div class="ttc" id="aclassPlayer_html_a70b0d85d40be8c42fbd7de9d770aeb41"><div class="ttname"><a href="classPlayer.html#a70b0d85d40be8c42fbd7de9d770aeb41">Player::canEvolveToLevel</a></div><div class="ttdeci">bool canEvolveToLevel(int targetLevel) const</div><div class="ttdoc">Check if player can evolve to target level.</div><div class="ttdef"><b>Definition:</b> Player.cpp:145</div></div>
+<div class="ttc" id="aclassPlayer_html_a7a7c522fd726b5a34db60bd9e6389e34"><div class="ttname"><a href="classPlayer.html#a7a7c522fd726b5a34db60bd9e6389e34">Player::look</a></div><div class="ttdeci">void look()</div><div class="ttdoc">Look around the current position.</div><div class="ttdef"><b>Definition:</b> Player.cpp:83</div></div>
+<div class="ttc" id="aclassPlayer_html_a7de2a543986e45b9083c69f6138bf079"><div class="ttname"><a href="classPlayer.html#a7de2a543986e45b9083c69f6138bf079">Player::forward</a></div><div class="ttdeci">void forward()</div><div class="ttdoc">Move forward one tile.</div><div class="ttdef"><b>Definition:</b> Player.cpp:89</div></div>
+<div class="ttc" id="aclassPlayer_html_a7fd937fb40d6d1c755778442f67c72e3"><div class="ttname"><a href="classPlayer.html#a7fd937fb40d6d1c755778442f67c72e3">Player::getRequiredItemsForLevel</a></div><div class="ttdeci">std::map&lt; ResourceType, int &gt; getRequiredItemsForLevel(int targetLevel) const</div><div class="ttdoc">Get required items for specific level.</div><div class="ttdef"><b>Definition:</b> Player.cpp:161</div></div>
+<div class="ttc" id="aclassPlayer_html_a86dd94730c711625908fe2fff98ab24f"><div class="ttname"><a href="classPlayer.html#a86dd94730c711625908fe2fff98ab24f">Player::setCommunicationThread</a></div><div class="ttdeci">void setCommunicationThread(std::thread &amp;&amp;thread)</div><div class="ttdoc">Set communication thread for engine compatibility.</div><div class="ttdef"><b>Definition:</b> Player.hpp:186</div></div>
+<div class="ttc" id="aclassPlayer_html_a8f44f2787dedf1e0950319c4d06d094a"><div class="ttname"><a href="classPlayer.html#a8f44f2787dedf1e0950319c4d06d094a">Player::getLevel</a></div><div class="ttdeci">int getLevel() const</div><div class="ttdoc">Get current player level.</div><div class="ttdef"><b>Definition:</b> Player.hpp:219</div></div>
+<div class="ttc" id="aclassPlayer_html_aa42731681e35cdfb0c479e5c1cc3390f"><div class="ttname"><a href="classPlayer.html#aa42731681e35cdfb0c479e5c1cc3390f">Player::incantation</a></div><div class="ttdeci">void incantation()</div><div class="ttdoc">Start incantation for level up.</div><div class="ttdef"><b>Definition:</b> Player.cpp:134</div></div>
+<div class="ttc" id="aclassPlayer_html_aa8999f3fb0d01bd0ec464856cc24dee6"><div class="ttname"><a href="classPlayer.html#aa8999f3fb0d01bd0ec464856cc24dee6">Player::isAlive</a></div><div class="ttdeci">bool isAlive() const</div><div class="ttdoc">Check if player is alive.</div><div class="ttdef"><b>Definition:</b> Player.hpp:117</div></div>
+<div class="ttc" id="aclassPlayer_html_ab7bf434e77a1105e22f8669de6021ad3"><div class="ttname"><a href="classPlayer.html#ab7bf434e77a1105e22f8669de6021ad3">Player::getCommunicationThread</a></div><div class="ttdeci">std::thread &amp; getCommunicationThread()</div><div class="ttdoc">Get communication thread reference.</div><div class="ttdef"><b>Definition:</b> Player.hpp:192</div></div>
+<div class="ttc" id="aclassPlayer_html_abaf3e4bc26c9a870fc0f8ec0795ec520"><div class="ttname"><a href="classPlayer.html#abaf3e4bc26c9a870fc0f8ec0795ec520">Player::getBroadcastMessages</a></div><div class="ttdeci">const std::vector&lt; std::string &gt; &amp; getBroadcastMessages() const</div><div class="ttdoc">Get broadcast messages list.</div><div class="ttdef"><b>Definition:</b> Player.hpp:207</div></div>
+<div class="ttc" id="aclassPlayer_html_ac215a692102f89e4154928ffcbb2f931"><div class="ttname"><a href="classPlayer.html#ac215a692102f89e4154928ffcbb2f931">Player::hasPendingBroadcasts</a></div><div class="ttdeci">bool hasPendingBroadcasts() const</div><div class="ttdoc">Check if there are pending broadcasts.</div><div class="ttdef"><b>Definition:</b> Player.cpp:290</div></div>
+<div class="ttc" id="aclassPlayer_html_ac464d9b02c5b60099cca299cad2b8fdf"><div class="ttname"><a href="classPlayer.html#ac464d9b02c5b60099cca299cad2b8fdf">Player::getFoodCount</a></div><div class="ttdeci">int getFoodCount() const</div><div class="ttdoc">Get current food count.</div><div class="ttdef"><b>Definition:</b> Player.hpp:142</div></div>
+<div class="ttc" id="aclassPlayer_html_ad6991d0fe8b99a881ef4767f87166023"><div class="ttname"><a href="classPlayer.html#ad6991d0fe8b99a881ef4767f87166023">Player::eject</a></div><div class="ttdeci">void eject()</div><div class="ttdoc">Eject other players from current tile.</div><div class="ttdef"><b>Definition:</b> Player.cpp:54</div></div>
+<div class="ttc" id="aclassPlayer_html_ae2f3cb0879689a7966ab261a44e6b906"><div class="ttname"><a href="classPlayer.html#ae2f3cb0879689a7966ab261a44e6b906">Player::Player</a></div><div class="ttdeci">Player(std::string team)</div><div class="ttdoc">Constructor for Player.</div><div class="ttdef"><b>Definition:</b> Player.cpp:26</div></div>
+<div class="ttc" id="aclassPlayer_html_aea5a3edc389bafbb39d0d36c0b2e9d9a"><div class="ttname"><a href="classPlayer.html#aea5a3edc389bafbb39d0d36c0b2e9d9a">Player::connect_nbr</a></div><div class="ttdeci">void connect_nbr()</div><div class="ttdoc">Get number of available team slots.</div><div class="ttdef"><b>Definition:</b> Player.cpp:107</div></div>
+<div class="ttc" id="aclassPlayer_html_aeaf1cbead556ebfaadf7b1121c31b644"><div class="ttname"><a href="classPlayer.html#aeaf1cbead556ebfaadf7b1121c31b644">Player::setForkPlayerCallback</a></div><div class="ttdeci">void setForkPlayerCallback(std::function&lt; void()&gt; callback)</div><div class="ttdoc">Set the fork player callback.</div><div class="ttdef"><b>Definition:</b> Player.hpp:174</div></div>
 <div class="ttc" id="amacros_8h_html_ab94a24f0a37b3963eb64f201cebf60a9"><div class="ttname"><a href="macros_8h.html#ab94a24f0a37b3963eb64f201cebf60a9">DEBUG</a></div><div class="ttdeci">#define DEBUG(message)</div><div class="ttdoc">Prints a debug logs message.</div><div class="ttdef"><b>Definition:</b> macros.h:139</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_eb8cc02461988d7ac71e6ab0aa3c7205.html">ai</a></li><li class="navelem"><a class="el" href="dir_3f64d78ef5ae6b1a137103dded274cbd.html">include</a></li><li class="navelem"><b>Player.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_eb8cc02461988d7ac71e6ab0aa3c7205.html">ai</a></li><li class="navelem"><a class="el" href="dir_13970213d9dd28f40295b25175c8cdf2.html">useless</a></li><li class="navelem"><a class="el" href="dir_7f17b00fe2c64373d59f543ccd4ace43.html">include</a></li><li class="navelem"><a class="el" href="Player_8hpp.html">Player.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>

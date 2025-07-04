@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2025-07-01 22:31:07</td>
+      <td>2025-07-04 08:33:57</td>
     </tr>
   </table>
 </div>
@@ -81,7 +81,7 @@
         <a href="#l16">16</a>
       </td>
       <td>
-        <a href="#l16"> called 1 time</a>
+        <a href="#l16"> called 68 times</a>
       </td>
     </tr>
     <tr>
@@ -92,7 +92,7 @@
         <a href="#l37">37</a>
       </td>
       <td>
-        <a href="#l37"> called 1 time</a>
+        <a href="#l37"> called 68 times</a>
       </td>
     </tr>
   </table>
@@ -218,7 +218,7 @@
       <td class="lineno"><a id="l16" href="#l16">16</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">configure_server</span><span class="p">(</span><span class="n">server_t</span><span class="w"> </span><span class="o">*</span><span class="n">server</span><span class="p">)</span></td>
     </tr>
     <tr class="source-line">
@@ -232,28 +232,28 @@
       <td class="lineno"><a id="l18" href="#l18">18</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">address</span><span class="p">.</span><span class="n">sin_family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AF_INET</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l19" href="#l19">19</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">address</span><span class="p">.</span><span class="n">sin_addr</span><span class="p">.</span><span class="n">s_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INADDR_ANY</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l20" href="#l20">20</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">address</span><span class="p">.</span><span class="n">sin_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">htons</span><span class="p">(</span><span class="n">server</span><span class="o">-&gt;</span><span class="n">port</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l21" href="#l21">21</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">poll_fds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AL</span><span class="p">(</span><span class="n">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">my_calloc</span><span class="p">,</span></td>
     </tr>
     <tr class="source-line">
@@ -267,42 +267,42 @@
       <td class="lineno"><a id="l23" href="#l23">23</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">poll_fds</span><span class="p">[</span><span class="n">SERVER_POLL_INDEX</span><span class="p">].</span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l24" href="#l24">24</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">poll_fds</span><span class="p">[</span><span class="n">SERVER_POLL_INDEX</span><span class="p">].</span><span class="n">events</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">POLLIN</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l25" href="#l25">25</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">current_clients_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DEFAULT_NUMBER_OF_CLIENTS</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l26" href="#l26">26</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">poll_fds</span><span class="p">[</span><span class="n">STDIN_POLL_INDEX</span><span class="p">].</span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STDIN_FILENO</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l27" href="#l27">27</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">poll_fds</span><span class="p">[</span><span class="n">STDIN_POLL_INDEX</span><span class="p">].</span><span class="n">events</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">POLLIN</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l28" href="#l28">28</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">client_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AL</span><span class="p">(</span><span class="n">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">my_calloc</span><span class="p">,</span></td>
     </tr>
     <tr class="source-line">
@@ -316,7 +316,7 @@
       <td class="lineno"><a id="l30" href="#l30">30</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">client_list</span><span class="p">[</span><span class="n">STDIN_CLIENT_INDEX</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AL</span><span class="p">(</span><span class="n">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">my_calloc</span><span class="p">,</span></td>
     </tr>
     <tr class="source-line">
@@ -330,28 +330,28 @@
       <td class="lineno"><a id="l32" href="#l32">32</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">client_list</span><span class="p">[</span><span class="n">STDIN_CLIENT_INDEX</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">socket_fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STDIN_FILENO</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l33" href="#l33">33</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">client_list</span><span class="p">[</span><span class="n">STDIN_CLIENT_INDEX</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">client_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CLIENT_SERVER</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l34" href="#l34">34</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">client_list</span><span class="p">[</span><span class="n">STDIN_CLIENT_INDEX</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">is_authenticated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l35" href="#l35">35</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="p">}</span></td>
     </tr>
     <tr class="source-line">
@@ -365,7 +365,7 @@
       <td class="lineno"><a id="l37" href="#l37">37</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="kt">void</span><span class="w"> </span><span class="nf">start_server</span><span class="p">(</span><span class="n">server_t</span><span class="w"> </span><span class="o">*</span><span class="n">server</span><span class="p">)</span></td>
     </tr>
     <tr class="source-line">
@@ -379,14 +379,14 @@
       <td class="lineno"><a id="l39" href="#l39">39</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">configure_server</span><span class="p">(</span><span class="n">server</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l40" href="#l40">40</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">socket_fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="w"> </span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="w"> </span><span class="n">IPPROTO_TCP</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -396,11 +396,11 @@
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
           <div class="notTakenBranch">&cross; Branch 0 not taken.</div>
-          <div class="takenBranch">&check; Branch 1 taken 1 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 68 times.</div>
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">server</span><span class="o">-&gt;</span><span class="n">socket_fd</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span></td>
     </tr>
     <tr class="source-line">
@@ -421,14 +421,14 @@
       <td class="lineno"><a id="l44" href="#l44">44</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">my_add_to_garbage</span><span class="p">(</span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">server</span><span class="o">-&gt;</span><span class="n">socket_fd</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">my_close</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l45" href="#l45">45</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">poll_fds</span><span class="p">[</span><span class="n">SERVER_POLL_INDEX</span><span class="p">].</span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">socket_fd</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -438,11 +438,11 @@
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
           <div class="notTakenBranch">&cross; Branch 1 not taken.</div>
-          <div class="takenBranch">&check; Branch 2 taken 1 times.</div>
+          <div class="takenBranch">&check; Branch 2 taken 68 times.</div>
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bind</span><span class="p">(</span><span class="n">server</span><span class="o">-&gt;</span><span class="n">socket_fd</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">server</span><span class="o">-&gt;</span><span class="n">address</span><span class="p">,</span></td>
     </tr>
     <tr class="source-line">
@@ -466,11 +466,11 @@
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
           <div class="notTakenBranch">&cross; Branch 1 not taken.</div>
-          <div class="takenBranch">&check; Branch 2 taken 1 times.</div>
+          <div class="takenBranch">&check; Branch 2 taken 68 times.</div>
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">listen</span><span class="p">(</span><span class="n">server</span><span class="o">-&gt;</span><span class="n">socket_fd</span><span class="p">,</span><span class="w"> </span><span class="n">DEFAULT_LISTEN_BACKLOG</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span></td>
     </tr>
     <tr class="source-line">
@@ -484,7 +484,7 @@
       <td class="lineno"><a id="l51" href="#l51">51</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">68</td>
       <td class="src coveredLine"><span class="p">}</span></td>
     </tr>
     <tr class="source-line">

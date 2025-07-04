@@ -91,13 +91,68 @@ $(document).ready(function(){initNavTree('test__ai_8cpp.html',''); initResizable
 <p>The <a class="el" href="test__ai_8cpp.html" title="The test_ai.cpp.">test_ai.cpp</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="tests_8h_source.html">tests.h</a>&quot;</code><br />
-<code>#include &quot;Player.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="Player_8hpp_source.html">Player.hpp</a>&quot;</code><br />
+<code>#include &lt;criterion/criterion.h&gt;</code><br />
+<code>#include &lt;exception&gt;</code><br />
+<code>#include &quot;Parser.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="Algo_8hpp_source.html">Algo.hpp</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8a405c0fdc99a89fc8ca4500e5432333"><td class="memItemLeft" align="right" valign="top"><a id="a8a405c0fdc99a89fc8ca4500e5432333" name="a8a405c0fdc99a89fc8ca4500e5432333"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="game_2players_8c.html#a0ec01cf0bdc8f8c07d68bb6e4648eb10">create_player</a>, test_create_player,.init=redirect_all_std)</td></tr>
 <tr class="separator:a8a405c0fdc99a89fc8ca4500e5432333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a745833b8fa4cc7f990273926d244a0e3"><td class="memItemLeft" align="right" valign="top"><a id="a745833b8fa4cc7f990273926d244a0e3" name="a745833b8fa4cc7f990273926d244a0e3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classPlayer.html">Player</a>, team_name)</td></tr>
+<tr class="separator:a745833b8fa4cc7f990273926d244a0e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad395343450b2b879cd5ff4bf9f45bfe4"><td class="memItemLeft" align="right" valign="top"><a id="ad395343450b2b879cd5ff4bf9f45bfe4" name="ad395343450b2b879cd5ff4bf9f45bfe4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classPlayer.html">Player</a>, alive_status)</td></tr>
+<tr class="separator:ad395343450b2b879cd5ff4bf9f45bfe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a529bd150b80c235a53187c5ea6bcabba"><td class="memItemLeft" align="right" valign="top"><a id="a529bd150b80c235a53187c5ea6bcabba" name="a529bd150b80c235a53187c5ea6bcabba"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classPlayer.html">Player</a>, command_queue)</td></tr>
+<tr class="separator:a529bd150b80c235a53187c5ea6bcabba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60b64c1dacb5504a3c1b231c01cf9ced"><td class="memItemLeft" align="right" valign="top"><a id="a60b64c1dacb5504a3c1b231c01cf9ced" name="a60b64c1dacb5504a3c1b231c01cf9ced"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classCommandsQueue.html">CommandsQueue</a>, push_and_pop_multiple_commands)</td></tr>
+<tr class="separator:a60b64c1dacb5504a3c1b231c01cf9ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2cbeaa83b63ee7c19bdb02489760ac8"><td class="memItemLeft" align="right" valign="top"><a id="ad2cbeaa83b63ee7c19bdb02489760ac8" name="ad2cbeaa83b63ee7c19bdb02489760ac8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classCommandsQueue.html">CommandsQueue</a>, push_and_pop_response)</td></tr>
+<tr class="separator:ad2cbeaa83b63ee7c19bdb02489760ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a038adbe9d094546c309fb4d01cac569a"><td class="memItemLeft" align="right" valign="top"><a id="a038adbe9d094546c309fb4d01cac569a" name="a038adbe9d094546c309fb4d01cac569a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classPlayer.html">Player</a>, set_and_get_commands_queue)</td></tr>
+<tr class="separator:a038adbe9d094546c309fb4d01cac569a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5de78dde7f7c6805a1915e1178fd65f2"><td class="memItemLeft" align="right" valign="top"><a id="a5de78dde7f7c6805a1915e1178fd65f2" name="a5de78dde7f7c6805a1915e1178fd65f2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classCommandsQueue.html">CommandsQueue</a>, empty_queue_pop_returns_empty_string)</td></tr>
+<tr class="separator:a5de78dde7f7c6805a1915e1178fd65f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29ea1b7e8a930f75cb7b4e80ba3a33a3"><td class="memItemLeft" align="right" valign="top"><a id="a29ea1b7e8a930f75cb7b4e80ba3a33a3" name="a29ea1b7e8a930f75cb7b4e80ba3a33a3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classCommandsQueue.html">CommandsQueue</a>, interleaved_commands_and_responses)</td></tr>
+<tr class="separator:a29ea1b7e8a930f75cb7b4e80ba3a33a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b5eadd7493caa5e23963a117c9c273c"><td class="memItemLeft" align="right" valign="top"><a id="a3b5eadd7493caa5e23963a117c9c273c" name="a3b5eadd7493caa5e23963a117c9c273c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classPlayer.html">Player</a>, alive_status_toggle)</td></tr>
+<tr class="separator:a3b5eadd7493caa5e23963a117c9c273c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2820aa050c951c17168e46cb87224a7"><td class="memItemLeft" align="right" valign="top"><a id="ae2820aa050c951c17168e46cb87224a7" name="ae2820aa050c951c17168e46cb87224a7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classCommandsQueue.html">CommandsQueue</a>, stress_push_pop)</td></tr>
+<tr class="separator:ae2820aa050c951c17168e46cb87224a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7af1db62377eb897712344937bf8b394"><td class="memItemLeft" align="right" valign="top"><a id="a7af1db62377eb897712344937bf8b394" name="a7af1db62377eb897712344937bf8b394"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classParser.html">Parser</a>, parses_valid_arguments)</td></tr>
+<tr class="separator:a7af1db62377eb897712344937bf8b394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68e49b7866099a27b352ea126714ebcc"><td class="memItemLeft" align="right" valign="top"><a id="a68e49b7866099a27b352ea126714ebcc" name="a68e49b7866099a27b352ea126714ebcc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classParser.html">Parser</a>, throws_on_help)</td></tr>
+<tr class="separator:a68e49b7866099a27b352ea126714ebcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad84b7dceab23bbc22322c5f13edebdf7"><td class="memItemLeft" align="right" valign="top"><a id="ad84b7dceab23bbc22322c5f13edebdf7" name="ad84b7dceab23bbc22322c5f13edebdf7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classParser.html">Parser</a>, throws_on_missing_arguments)</td></tr>
+<tr class="separator:ad84b7dceab23bbc22322c5f13edebdf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a928df836a3da222b1d2b21ed057d3a66"><td class="memItemLeft" align="right" valign="top"><a id="a928df836a3da222b1d2b21ed057d3a66" name="a928df836a3da222b1d2b21ed057d3a66"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classParser.html">Parser</a>, throws_on_invalid_port)</td></tr>
+<tr class="separator:a928df836a3da222b1d2b21ed057d3a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a775316a56c7ca6f954f1f6c2e708d8e3"><td class="memItemLeft" align="right" valign="top"><a id="a775316a56c7ca6f954f1f6c2e708d8e3" name="a775316a56c7ca6f954f1f6c2e708d8e3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classParser.html">Parser</a>, throws_on_empty_name)</td></tr>
+<tr class="separator:a775316a56c7ca6f954f1f6c2e708d8e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a750eb931c6703d790e78cf313b7e53fd"><td class="memItemLeft" align="right" valign="top"><a id="a750eb931c6703d790e78cf313b7e53fd" name="a750eb931c6703d790e78cf313b7e53fd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classParser.html">Parser</a>, throws_on_empty_machine)</td></tr>
+<tr class="separator:a750eb931c6703d790e78cf313b7e53fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a30d95025796d17b2ae995d11e60ed4"><td class="memItemLeft" align="right" valign="top"><a id="a7a30d95025796d17b2ae995d11e60ed4" name="a7a30d95025796d17b2ae995d11e60ed4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b> (<a class="el" href="classParser.html">Parser</a>, throws_on_unknown_argument)</td></tr>
+<tr class="separator:a7a30d95025796d17b2ae995d11e60ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="test__ai_8cpp.html" title="The test_ai.cpp.">test_ai.cpp</a>. </p>

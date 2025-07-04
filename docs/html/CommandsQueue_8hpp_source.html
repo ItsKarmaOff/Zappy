@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zappy documentation: ai/include/CommandsQueue.hpp Source File</title>
+<title>Zappy documentation: ai/useless/include/CommandsQueue.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,55 +85,84 @@ $(document).ready(function(){initNavTree('CommandsQueue_8hpp_source.html',''); i
   <div class="headertitle"><div class="title">CommandsQueue.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<a href="CommandsQueue_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">** EPITECH PROJECT, 2025</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">** Zappy</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">** File description:</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">** CommandsQueue</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">** The CommandsQueue class implementation</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef COMMANDSQUEUE_HPP_</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define COMMANDSQUEUE_HPP_</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="Lib_8hpp.html">Lib.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classCommandsQueue.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classCommandsQueue.html">CommandsQueue</a> {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <a class="code hl_class" href="classCommandsQueue.html">CommandsQueue</a>();</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <a class="code hl_class" href="classCommandsQueue.html">~CommandsQueue</a>();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordtype">void</span> pushCommand(<span class="keyword">const</span> std::string &amp;command);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordtype">bool</span> hasCommands() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        std::string popCommand();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordtype">void</span> pushResponse(<span class="keyword">const</span> std::string &amp;response);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordtype">bool</span> hasResponses() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        std::string popResponse();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordtype">void</span> clearCommands();</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordtype">void</span> clearResponses();</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordtype">void</span> pushPendingCommand(<span class="keyword">const</span> std::string&amp; command);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        std::string getCurrentPendingCommand() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordtype">void</span> popPendingCommand();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">bool</span> hasPendingCommand() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordtype">void</span> clearPendingCommands();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        std::queue&lt;std::string&gt; _pendingCommands;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keyword">mutable</span> std::mutex _pendingMutex;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        std::queue&lt;std::string&gt; _commandsQueue;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        std::queue&lt;std::string&gt; _responsesQueue;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">mutable</span> std::mutex _commandsQueueMutex;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keyword">mutable</span> std::mutex _responsesQueueMutex;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef COMMANDSQUEUE_HPP_</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">    #define COMMANDSQUEUE_HPP_</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="Lib_8hpp.html">Lib.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classCommandsQueue.html">   23</a></span><span class="keyword">class </span><a class="code hl_class" href="classCommandsQueue.html">CommandsQueue</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <a class="code hl_function" href="classCommandsQueue.html#aa61fc0c891ff28165cfc00a0a26c23e1">CommandsQueue</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <a class="code hl_function" href="classCommandsQueue.html#a7c653c737ed00066e0b0fe702ed7aebb">~CommandsQueue</a>();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classCommandsQueue.html#a7a0b26d370dbe62c0ba70f0c3b44a505">pushCommand</a>(<span class="keyword">const</span> std::string &amp;command);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif </span><span class="comment">/* !COMMANDSQUEUE_HPP_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classCommandsQueue.html#a7c137a79ac51175222c86b1aea6d52e8">hasCommands</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        std::string <a class="code hl_function" href="classCommandsQueue.html#aff49645a4f83e68aa8e4442c4bcfc3fb">popCommand</a>();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classCommandsQueue.html#ad5295730bdab90e95262d867e6ea9ba9">pushResponse</a>(<span class="keyword">const</span> std::string &amp;response);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classCommandsQueue.html#a91ecde0590666ddb2fa52cc896cc8e18">hasResponses</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        std::string <a class="code hl_function" href="classCommandsQueue.html#a9970c19efc6a3e03a041a6bbf4e358ad">popResponse</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classCommandsQueue.html#ac2b35a99066d8e73d378024877a1bfb8">clearCommands</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classCommandsQueue.html#a009c9bd4ac9c39a0dd23649c1f7b29a3">clearResponses</a>();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classCommandsQueue.html#a825337c064ec1c067d2af0137e33b176">pushPendingCommand</a>(<span class="keyword">const</span> std::string&amp; command);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        std::string <a class="code hl_function" href="classCommandsQueue.html#a468f50ce2ff54166bcf098ab7c53c317">getCurrentPendingCommand</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classCommandsQueue.html#ad6e7a7527cc6363d81fcd744e72d68b7">popPendingCommand</a>();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classCommandsQueue.html#a0e65336c1b8975c0277c968a6f1cd854">hasPendingCommand</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classCommandsQueue.html#a5d6160d4d62c22cdfb539af76933f59c">clearPendingCommands</a>();</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        std::queue&lt;std::string&gt; _pendingCommands; </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keyword">mutable</span> std::mutex _pendingMutex; </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        std::queue&lt;std::string&gt; _commandsQueue; </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        std::queue&lt;std::string&gt; _responsesQueue; </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keyword">mutable</span> std::mutex _commandsQueueMutex; </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keyword">mutable</span> std::mutex _responsesQueueMutex; </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>};</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="preprocessor">#endif </span><span class="comment">/* !COMMANDSQUEUE_HPP_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aLib_8hpp_html"><div class="ttname"><a href="Lib_8hpp.html">Lib.hpp</a></div><div class="ttdoc">The Lib functions declaration.</div></div>
-<div class="ttc" id="aclassCommandsQueue_html"><div class="ttname"><a href="classCommandsQueue.html">CommandsQueue</a></div><div class="ttdef"><b>Definition:</b> CommandsQueue.hpp:13</div></div>
+<div class="ttc" id="aclassCommandsQueue_html"><div class="ttname"><a href="classCommandsQueue.html">CommandsQueue</a></div><div class="ttdoc">Thread-safe queue system for managing commands and responses.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.hpp:23</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_a009c9bd4ac9c39a0dd23649c1f7b29a3"><div class="ttname"><a href="classCommandsQueue.html#a009c9bd4ac9c39a0dd23649c1f7b29a3">CommandsQueue::clearResponses</a></div><div class="ttdeci">void clearResponses()</div><div class="ttdoc">Clear all responses from the responses queue.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:66</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_a0e65336c1b8975c0277c968a6f1cd854"><div class="ttname"><a href="classCommandsQueue.html#a0e65336c1b8975c0277c968a6f1cd854">CommandsQueue::hasPendingCommand</a></div><div class="ttdeci">bool hasPendingCommand() const</div><div class="ttdoc">Check if there are pending commands.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:90</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_a468f50ce2ff54166bcf098ab7c53c317"><div class="ttname"><a href="classCommandsQueue.html#a468f50ce2ff54166bcf098ab7c53c317">CommandsQueue::getCurrentPendingCommand</a></div><div class="ttdeci">std::string getCurrentPendingCommand() const</div><div class="ttdoc">Get the current pending command without removing it.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:77</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_a5d6160d4d62c22cdfb539af76933f59c"><div class="ttname"><a href="classCommandsQueue.html#a5d6160d4d62c22cdfb539af76933f59c">CommandsQueue::clearPendingCommands</a></div><div class="ttdeci">void clearPendingCommands()</div><div class="ttdoc">Clear all pending commands.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:95</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_a7a0b26d370dbe62c0ba70f0c3b44a505"><div class="ttname"><a href="classCommandsQueue.html#a7a0b26d370dbe62c0ba70f0c3b44a505">CommandsQueue::pushCommand</a></div><div class="ttdeci">void pushCommand(const std::string &amp;command)</div><div class="ttdoc">Push a command to the commands queue.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:22</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_a7c137a79ac51175222c86b1aea6d52e8"><div class="ttname"><a href="classCommandsQueue.html#a7c137a79ac51175222c86b1aea6d52e8">CommandsQueue::hasCommands</a></div><div class="ttdeci">bool hasCommands() const</div><div class="ttdoc">Check if there are commands in the queue.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:27</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_a7c653c737ed00066e0b0fe702ed7aebb"><div class="ttname"><a href="classCommandsQueue.html#a7c653c737ed00066e0b0fe702ed7aebb">CommandsQueue::~CommandsQueue</a></div><div class="ttdeci">~CommandsQueue()</div><div class="ttdoc">Destructor for CommandsQueue.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:19</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_a825337c064ec1c067d2af0137e33b176"><div class="ttname"><a href="classCommandsQueue.html#a825337c064ec1c067d2af0137e33b176">CommandsQueue::pushPendingCommand</a></div><div class="ttdeci">void pushPendingCommand(const std::string &amp;command)</div><div class="ttdoc">Push a command to the pending commands queue.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:72</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_a91ecde0590666ddb2fa52cc896cc8e18"><div class="ttname"><a href="classCommandsQueue.html#a91ecde0590666ddb2fa52cc896cc8e18">CommandsQueue::hasResponses</a></div><div class="ttdeci">bool hasResponses() const</div><div class="ttdoc">Check if there are responses in the queue.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:46</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_a9970c19efc6a3e03a041a6bbf4e358ad"><div class="ttname"><a href="classCommandsQueue.html#a9970c19efc6a3e03a041a6bbf4e358ad">CommandsQueue::popResponse</a></div><div class="ttdeci">std::string popResponse()</div><div class="ttdoc">Pop and return the next response from the queue.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:51</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_aa61fc0c891ff28165cfc00a0a26c23e1"><div class="ttname"><a href="classCommandsQueue.html#aa61fc0c891ff28165cfc00a0a26c23e1">CommandsQueue::CommandsQueue</a></div><div class="ttdeci">CommandsQueue()</div><div class="ttdoc">Constructor for CommandsQueue.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:16</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_ac2b35a99066d8e73d378024877a1bfb8"><div class="ttname"><a href="classCommandsQueue.html#ac2b35a99066d8e73d378024877a1bfb8">CommandsQueue::clearCommands</a></div><div class="ttdeci">void clearCommands()</div><div class="ttdoc">Clear all commands from the commands queue.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:60</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_ad5295730bdab90e95262d867e6ea9ba9"><div class="ttname"><a href="classCommandsQueue.html#ad5295730bdab90e95262d867e6ea9ba9">CommandsQueue::pushResponse</a></div><div class="ttdeci">void pushResponse(const std::string &amp;response)</div><div class="ttdoc">Push a response to the responses queue.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:41</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_ad6e7a7527cc6363d81fcd744e72d68b7"><div class="ttname"><a href="classCommandsQueue.html#ad6e7a7527cc6363d81fcd744e72d68b7">CommandsQueue::popPendingCommand</a></div><div class="ttdeci">void popPendingCommand()</div><div class="ttdoc">Remove the current pending command from the queue.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:84</div></div>
+<div class="ttc" id="aclassCommandsQueue_html_aff49645a4f83e68aa8e4442c4bcfc3fb"><div class="ttname"><a href="classCommandsQueue.html#aff49645a4f83e68aa8e4442c4bcfc3fb">CommandsQueue::popCommand</a></div><div class="ttdeci">std::string popCommand()</div><div class="ttdoc">Pop and return the next command from the queue.</div><div class="ttdef"><b>Definition:</b> CommandsQueue.cpp:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_eb8cc02461988d7ac71e6ab0aa3c7205.html">ai</a></li><li class="navelem"><a class="el" href="dir_3f64d78ef5ae6b1a137103dded274cbd.html">include</a></li><li class="navelem"><b>CommandsQueue.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_eb8cc02461988d7ac71e6ab0aa3c7205.html">ai</a></li><li class="navelem"><a class="el" href="dir_13970213d9dd28f40295b25175c8cdf2.html">useless</a></li><li class="navelem"><a class="el" href="dir_7f17b00fe2c64373d59f543ccd4ace43.html">include</a></li><li class="navelem"><a class="el" href="CommandsQueue_8hpp.html">CommandsQueue.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>

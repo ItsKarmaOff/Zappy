@@ -1,14 +1,9 @@
 var searchData=
 [
-  ['saved_5findex_0',['saved_index',['../structstr__to__array__s.html#a8c162b10e371c56341c41b5f78626f46',1,'str_to_array_s']]],
-  ['sender_1',['sender',['../structGui_1_1message.html#a9c7a9da7d72a287992d011823d5bc23b',1,'Gui::message']]],
-  ['separator_2',['separator',['../structarray__settings__s.html#a6a1328278a4c9d4f646b92363e288947',1,'array_settings_s']]],
-  ['settings_3',['settings',['../structstr__to__array__s.html#ad1b427c77c4b321ca6e030bf2b844bad',1,'str_to_array_s']]],
-  ['short_5fname_4',['short_name',['../structoption__s.html#afd812e28c64269f6665f751691cae314',1,'option_s']]],
-  ['shortname_5',['shortName',['../structGui_1_1Option.html#a008363c7dd972d08fc7e0f75972f5eaf',1,'Gui::Option']]],
-  ['show_5feggs_6',['show_eggs',['../structgame__settings__s.html#a140acb9db4fc091a0906946111bba15c',1,'game_settings_s']]],
-  ['socket_5ffd_7',['socket_fd',['../structclient__s.html#ad02424c03e4b1b3ddbdb78d829489ac3',1,'client_s::socket_fd()'],['../structserver__s.html#ad02424c03e4b1b3ddbdb78d829489ac3',1,'server_s::socket_fd()']]],
-  ['start_5fclients_5fper_5fteam_8',['start_clients_per_team',['../structgame__settings__s.html#a4eff910a1a090ee99b40b073d420c42e',1,'game_settings_s']]],
-  ['state_9',['state',['../classGui_1_1Graphics.html#a9fffcc05c79ffff0daf1f4d303058a8c',1,'Gui::Graphics']]],
-  ['str_10',['str',['../structinfo__param__s.html#ab50d783982593ef993ea0b68f7ad8b80',1,'info_param_s::str()'],['../structstr__to__array__s.html#af25d6dc49269fa2003ac7c7fa6f13915',1,'str_to_array_s::str()']]]
+  ['red_0',['red',['../unioncolor__argb__u.html#ad47d918910aaa51c73160ac85999d09c',1,'color_argb_u']]],
+  ['required_5fplayers_1',['required_players',['../structincantation__s.html#ae469b6811124ce5cef0610b091a66d66',1,'incantation_s']]],
+  ['required_5fresources_2',['required_resources',['../structincantation__s.html#a432ae2f5dcca45e9d59beba0ce2522c4',1,'incantation_s']]],
+  ['resources_3',['resources',['../structtile__s.html#a55633d06308171be32d0d140a5f84c75',1,'tile_s::resources()'],['../structgame__s.html#a172ab2e0b39e4ac9c4466a63ab9fdfa7',1,'game_s::resources()']]],
+  ['resources_5fdensities_4',['resources_densities',['../server__data__structures_8h.html#a19d1d00ccca0124f6828d566e8a6ac5e',1,'resources_densities():&#160;resource.c'],['../resource_8c.html#a19d1d00ccca0124f6828d566e8a6ac5e',1,'resources_densities():&#160;resource.c']]],
+  ['resources_5fnames_5',['resources_names',['../server__data__structures_8h.html#a81faea77ea06eda3508227d83f9f9b2c',1,'resources_names():&#160;resource.c'],['../resource_8c.html#a81faea77ea06eda3508227d83f9f9b2c',1,'resources_names():&#160;resource.c']]]
 ];

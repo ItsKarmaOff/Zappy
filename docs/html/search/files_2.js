@@ -11,8 +11,10 @@ var searchData=
   ['commands_5fai_2eh_8',['commands_ai.h',['../commands__ai_8h.html',1,'']]],
   ['commands_5fgui_2eh_9',['commands_gui.h',['../commands__gui_8h.html',1,'']]],
   ['commands_5fserver_2eh_10',['commands_server.h',['../commands__server_8h.html',1,'']]],
-  ['connect_5fnbr_2ec_11',['connect_nbr.c',['../connect__nbr_8c.html',1,'']]],
-  ['constants_2eh_12',['constants.h',['../constants_8h.html',1,'']]],
-  ['core_2ecpp_13',['Core.cpp',['../Core_8cpp.html',1,'']]],
-  ['core_2ehpp_14',['Core.hpp',['../Core_8hpp.html',1,'']]]
+  ['commandsqueue_2ecpp_11',['CommandsQueue.cpp',['../CommandsQueue_8cpp.html',1,'']]],
+  ['commandsqueue_2ehpp_12',['CommandsQueue.hpp',['../CommandsQueue_8hpp.html',1,'']]],
+  ['connect_5fnbr_2ec_13',['connect_nbr.c',['../connect__nbr_8c.html',1,'']]],
+  ['constants_2eh_14',['constants.h',['../constants_8h.html',1,'']]],
+  ['core_2ecpp_15',['Core.cpp',['../Core_8cpp.html',1,'']]],
+  ['core_2ehpp_16',['Core.hpp',['../Core_8hpp.html',1,'']]]
 ];

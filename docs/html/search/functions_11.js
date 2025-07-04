@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['warning_0',['Warning',['../classLib_1_1Exceptions_1_1Warning.html#a60d6f2cdf751b44dbf0fcb0945cdb8f8',1,'Lib::Exceptions::Warning::Warning()'],['../classLib_1_1Logs_1_1Warning.html#aff4f00f5cf9a7d4daddef1a42ac8ddb1',1,'Lib::Logs::Warning::Warning()']]],
-  ['what_1',['what',['../classLib_1_1Exceptions_1_1Critical.html#abf843cbb29dec939d0731e491bab6f70',1,'Lib::Exceptions::Critical::what()'],['../classLib_1_1Exceptions_1_1Warning.html#abf843cbb29dec939d0731e491bab6f70',1,'Lib::Exceptions::Warning::what()'],['../classLib_1_1Exceptions_1_1Success.html#abf843cbb29dec939d0731e491bab6f70',1,'Lib::Exceptions::Success::what()']]],
-  ['wraptext_2',['wrapText',['../classGui_1_1Chatbox.html#a686ff403201aae9a27044c4537491933',1,'Gui::Chatbox']]],
-  ['write_5fclient_5faction_3',['write_client_action',['../network_8h.html#ace09bba3aaf850ac20d6bc1dd6c1a703',1,'write_client_action(server_t *server, size_t index):&#160;write_client_action.c'],['../write__client__action_8c.html#ace09bba3aaf850ac20d6bc1dd6c1a703',1,'write_client_action(server_t *server, size_t index):&#160;write_client_action.c']]]
+  ['unloadassets_0',['unloadAssets',['../classGui_1_1AssetsManager.html#a279658d228d1cb778389b29740c4382f',1,'Gui::AssetsManager']]],
+  ['update_1',['update',['../classGui_1_1PauseInfo.html#ac5c54df7ed3b930268c8d7752c101725',1,'Gui::PauseInfo']]],
+  ['update_5fgame_2',['update_game',['../game_8h.html#a0506714c51062ff04c267a57d6dfb56d',1,'update_game(server_t *server):&#160;game.c'],['../game_8c.html#a0506714c51062ff04c267a57d6dfb56d',1,'update_game(server_t *server):&#160;game.c']]],
+  ['update_5fplayer_3',['update_player',['../game_8h.html#a91cd566d959621c4d232c2c385896b64',1,'update_player(server_t *server, player_t *player, node_t **dead_players):&#160;players.c'],['../game_2players_8c.html#a91cd566d959621c4d232c2c385896b64',1,'update_player(server_t *server, player_t *player, node_t **dead_players):&#160;players.c']]],
+  ['update_5fsign_5fattributes_4',['update_sign_attributes',['../functions_8h.html#a0569090e01428560567ba02702232d9c',1,'update_sign_attributes(format_t *str_struct, long double nb):&#160;attributes.c'],['../attributes_8c.html#a0569090e01428560567ba02702232d9c',1,'update_sign_attributes(format_t *str_struct, long double nb):&#160;attributes.c']]],
+  ['updatebuttons_5',['updateButtons',['../classGui_1_1PauseInfo.html#a165fbf5419908c28e2e2b4defd1abcb9',1,'Gui::PauseInfo']]],
+  ['updatesettingsbuttons_6',['updateSettingsButtons',['../classGui_1_1PauseInfo.html#a6e1f706ab6215c78c75c5d5ed25c2802',1,'Gui::PauseInfo']]],
+  ['updatetransformedboundingbox_7',['updateTransformedBoundingBox',['../classGui_1_1ModelInfo.html#a0b6158f0cc477b5960ca884b748a24c2',1,'Gui::ModelInfo']]]
 ];

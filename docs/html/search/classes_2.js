@@ -11,6 +11,8 @@ var searchData=
   ['command_5fs_8',['command_s',['../structcommand__s.html',1,'']]],
   ['commands_9',['Commands',['../classGui_1_1Commands.html',1,'Gui']]],
   ['commandsqueue_10',['CommandsQueue',['../classCommandsQueue.html',1,'']]],
-  ['core_11',['Core',['../classGui_1_1Core.html',1,'Gui']]],
-  ['critical_12',['Critical',['../classLib_1_1Exceptions_1_1Critical.html',1,'Lib::Exceptions']]]
+  ['connection_11',['Connection',['../classconnection_1_1Connection.html',1,'connection']]],
+  ['core_12',['Core',['../classGui_1_1Core.html',1,'Gui']]],
+  ['critical_13',['Critical',['../classLib_1_1Exceptions_1_1Critical.html',1,'Lib::Exceptions']]],
+  ['criticalexception_14',['CriticalException',['../classexceptions_1_1CriticalException.html',1,'exceptions']]]
 ];

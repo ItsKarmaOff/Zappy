@@ -87,52 +87,270 @@ $(document).ready(function(){initNavTree('classCommandsQueue.html',''); initResi
   <div class="headertitle"><div class="title">CommandsQueue Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Thread-safe queue system for managing commands and responses.  
+ <a href="classCommandsQueue.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="CommandsQueue_8hpp_source.html">CommandsQueue.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7a0b26d370dbe62c0ba70f0c3b44a505"><td class="memItemLeft" align="right" valign="top"><a id="a7a0b26d370dbe62c0ba70f0c3b44a505" name="a7a0b26d370dbe62c0ba70f0c3b44a505"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pushCommand</b> (const std::string &amp;command)</td></tr>
+<tr class="memitem:aa61fc0c891ff28165cfc00a0a26c23e1"><td class="memItemLeft" align="right" valign="top"><a id="aa61fc0c891ff28165cfc00a0a26c23e1" name="aa61fc0c891ff28165cfc00a0a26c23e1"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CommandsQueue</b> ()</td></tr>
+<tr class="memdesc:aa61fc0c891ff28165cfc00a0a26c23e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classCommandsQueue.html" title="Thread-safe queue system for managing commands and responses.">CommandsQueue</a>. <br /></td></tr>
+<tr class="separator:aa61fc0c891ff28165cfc00a0a26c23e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c653c737ed00066e0b0fe702ed7aebb"><td class="memItemLeft" align="right" valign="top"><a id="a7c653c737ed00066e0b0fe702ed7aebb" name="a7c653c737ed00066e0b0fe702ed7aebb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~CommandsQueue</b> ()</td></tr>
+<tr class="memdesc:a7c653c737ed00066e0b0fe702ed7aebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classCommandsQueue.html" title="Thread-safe queue system for managing commands and responses.">CommandsQueue</a>. <br /></td></tr>
+<tr class="separator:a7c653c737ed00066e0b0fe702ed7aebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a0b26d370dbe62c0ba70f0c3b44a505"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommandsQueue.html#a7a0b26d370dbe62c0ba70f0c3b44a505">pushCommand</a> (const std::string &amp;command)</td></tr>
+<tr class="memdesc:a7a0b26d370dbe62c0ba70f0c3b44a505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a command to the commands queue.  <a href="classCommandsQueue.html#a7a0b26d370dbe62c0ba70f0c3b44a505">More...</a><br /></td></tr>
 <tr class="separator:a7a0b26d370dbe62c0ba70f0c3b44a505"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c137a79ac51175222c86b1aea6d52e8"><td class="memItemLeft" align="right" valign="top"><a id="a7c137a79ac51175222c86b1aea6d52e8" name="a7c137a79ac51175222c86b1aea6d52e8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasCommands</b> () const</td></tr>
+<tr class="memitem:a7c137a79ac51175222c86b1aea6d52e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommandsQueue.html#a7c137a79ac51175222c86b1aea6d52e8">hasCommands</a> () const</td></tr>
+<tr class="memdesc:a7c137a79ac51175222c86b1aea6d52e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if there are commands in the queue.  <a href="classCommandsQueue.html#a7c137a79ac51175222c86b1aea6d52e8">More...</a><br /></td></tr>
 <tr class="separator:a7c137a79ac51175222c86b1aea6d52e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff49645a4f83e68aa8e4442c4bcfc3fb"><td class="memItemLeft" align="right" valign="top"><a id="aff49645a4f83e68aa8e4442c4bcfc3fb" name="aff49645a4f83e68aa8e4442c4bcfc3fb"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>popCommand</b> ()</td></tr>
+<tr class="memitem:aff49645a4f83e68aa8e4442c4bcfc3fb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommandsQueue.html#aff49645a4f83e68aa8e4442c4bcfc3fb">popCommand</a> ()</td></tr>
+<tr class="memdesc:aff49645a4f83e68aa8e4442c4bcfc3fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pop and return the next command from the queue.  <a href="classCommandsQueue.html#aff49645a4f83e68aa8e4442c4bcfc3fb">More...</a><br /></td></tr>
 <tr class="separator:aff49645a4f83e68aa8e4442c4bcfc3fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5295730bdab90e95262d867e6ea9ba9"><td class="memItemLeft" align="right" valign="top"><a id="ad5295730bdab90e95262d867e6ea9ba9" name="ad5295730bdab90e95262d867e6ea9ba9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pushResponse</b> (const std::string &amp;response)</td></tr>
+<tr class="memitem:ad5295730bdab90e95262d867e6ea9ba9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommandsQueue.html#ad5295730bdab90e95262d867e6ea9ba9">pushResponse</a> (const std::string &amp;response)</td></tr>
+<tr class="memdesc:ad5295730bdab90e95262d867e6ea9ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a response to the responses queue.  <a href="classCommandsQueue.html#ad5295730bdab90e95262d867e6ea9ba9">More...</a><br /></td></tr>
 <tr class="separator:ad5295730bdab90e95262d867e6ea9ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91ecde0590666ddb2fa52cc896cc8e18"><td class="memItemLeft" align="right" valign="top"><a id="a91ecde0590666ddb2fa52cc896cc8e18" name="a91ecde0590666ddb2fa52cc896cc8e18"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasResponses</b> () const</td></tr>
+<tr class="memitem:a91ecde0590666ddb2fa52cc896cc8e18"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommandsQueue.html#a91ecde0590666ddb2fa52cc896cc8e18">hasResponses</a> () const</td></tr>
+<tr class="memdesc:a91ecde0590666ddb2fa52cc896cc8e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if there are responses in the queue.  <a href="classCommandsQueue.html#a91ecde0590666ddb2fa52cc896cc8e18">More...</a><br /></td></tr>
 <tr class="separator:a91ecde0590666ddb2fa52cc896cc8e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9970c19efc6a3e03a041a6bbf4e358ad"><td class="memItemLeft" align="right" valign="top"><a id="a9970c19efc6a3e03a041a6bbf4e358ad" name="a9970c19efc6a3e03a041a6bbf4e358ad"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>popResponse</b> ()</td></tr>
+<tr class="memitem:a9970c19efc6a3e03a041a6bbf4e358ad"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommandsQueue.html#a9970c19efc6a3e03a041a6bbf4e358ad">popResponse</a> ()</td></tr>
+<tr class="memdesc:a9970c19efc6a3e03a041a6bbf4e358ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pop and return the next response from the queue.  <a href="classCommandsQueue.html#a9970c19efc6a3e03a041a6bbf4e358ad">More...</a><br /></td></tr>
 <tr class="separator:a9970c19efc6a3e03a041a6bbf4e358ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2b35a99066d8e73d378024877a1bfb8"><td class="memItemLeft" align="right" valign="top"><a id="ac2b35a99066d8e73d378024877a1bfb8" name="ac2b35a99066d8e73d378024877a1bfb8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>clearCommands</b> ()</td></tr>
+<tr class="memdesc:ac2b35a99066d8e73d378024877a1bfb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all commands from the commands queue. <br /></td></tr>
 <tr class="separator:ac2b35a99066d8e73d378024877a1bfb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a009c9bd4ac9c39a0dd23649c1f7b29a3"><td class="memItemLeft" align="right" valign="top"><a id="a009c9bd4ac9c39a0dd23649c1f7b29a3" name="a009c9bd4ac9c39a0dd23649c1f7b29a3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>clearResponses</b> ()</td></tr>
+<tr class="memdesc:a009c9bd4ac9c39a0dd23649c1f7b29a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all responses from the responses queue. <br /></td></tr>
 <tr class="separator:a009c9bd4ac9c39a0dd23649c1f7b29a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a825337c064ec1c067d2af0137e33b176"><td class="memItemLeft" align="right" valign="top"><a id="a825337c064ec1c067d2af0137e33b176" name="a825337c064ec1c067d2af0137e33b176"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pushPendingCommand</b> (const std::string &amp;command)</td></tr>
+<tr class="memitem:a825337c064ec1c067d2af0137e33b176"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommandsQueue.html#a825337c064ec1c067d2af0137e33b176">pushPendingCommand</a> (const std::string &amp;command)</td></tr>
+<tr class="memdesc:a825337c064ec1c067d2af0137e33b176"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a command to the pending commands queue.  <a href="classCommandsQueue.html#a825337c064ec1c067d2af0137e33b176">More...</a><br /></td></tr>
 <tr class="separator:a825337c064ec1c067d2af0137e33b176"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a468f50ce2ff54166bcf098ab7c53c317"><td class="memItemLeft" align="right" valign="top"><a id="a468f50ce2ff54166bcf098ab7c53c317" name="a468f50ce2ff54166bcf098ab7c53c317"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getCurrentPendingCommand</b> () const</td></tr>
+<tr class="memitem:a468f50ce2ff54166bcf098ab7c53c317"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommandsQueue.html#a468f50ce2ff54166bcf098ab7c53c317">getCurrentPendingCommand</a> () const</td></tr>
+<tr class="memdesc:a468f50ce2ff54166bcf098ab7c53c317"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current pending command without removing it.  <a href="classCommandsQueue.html#a468f50ce2ff54166bcf098ab7c53c317">More...</a><br /></td></tr>
 <tr class="separator:a468f50ce2ff54166bcf098ab7c53c317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6e7a7527cc6363d81fcd744e72d68b7"><td class="memItemLeft" align="right" valign="top"><a id="ad6e7a7527cc6363d81fcd744e72d68b7" name="ad6e7a7527cc6363d81fcd744e72d68b7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>popPendingCommand</b> ()</td></tr>
+<tr class="memdesc:ad6e7a7527cc6363d81fcd744e72d68b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the current pending command from the queue. <br /></td></tr>
 <tr class="separator:ad6e7a7527cc6363d81fcd744e72d68b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e65336c1b8975c0277c968a6f1cd854"><td class="memItemLeft" align="right" valign="top"><a id="a0e65336c1b8975c0277c968a6f1cd854" name="a0e65336c1b8975c0277c968a6f1cd854"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasPendingCommand</b> () const</td></tr>
+<tr class="memitem:a0e65336c1b8975c0277c968a6f1cd854"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommandsQueue.html#a0e65336c1b8975c0277c968a6f1cd854">hasPendingCommand</a> () const</td></tr>
+<tr class="memdesc:a0e65336c1b8975c0277c968a6f1cd854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if there are pending commands.  <a href="classCommandsQueue.html#a0e65336c1b8975c0277c968a6f1cd854">More...</a><br /></td></tr>
 <tr class="separator:a0e65336c1b8975c0277c968a6f1cd854"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d6160d4d62c22cdfb539af76933f59c"><td class="memItemLeft" align="right" valign="top"><a id="a5d6160d4d62c22cdfb539af76933f59c" name="a5d6160d4d62c22cdfb539af76933f59c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>clearPendingCommands</b> ()</td></tr>
+<tr class="memdesc:a5d6160d4d62c22cdfb539af76933f59c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all pending commands. <br /></td></tr>
 <tr class="separator:a5d6160d4d62c22cdfb539af76933f59c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Thread-safe queue system for managing commands and responses. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a468f50ce2ff54166bcf098ab7c53c317" name="a468f50ce2ff54166bcf098ab7c53c317"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a468f50ce2ff54166bcf098ab7c53c317">&#9670;&nbsp;</a></span>getCurrentPendingCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string getCurrentPendingCommand </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the current pending command without removing it. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current pending command string, empty if none </dd></dl>
+
+</div>
+</div>
+<a id="a7c137a79ac51175222c86b1aea6d52e8" name="a7c137a79ac51175222c86b1aea6d52e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c137a79ac51175222c86b1aea6d52e8">&#9670;&nbsp;</a></span>hasCommands()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hasCommands </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if there are commands in the queue. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if commands are available </dd></dl>
+
+</div>
+</div>
+<a id="a0e65336c1b8975c0277c968a6f1cd854" name="a0e65336c1b8975c0277c968a6f1cd854"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e65336c1b8975c0277c968a6f1cd854">&#9670;&nbsp;</a></span>hasPendingCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hasPendingCommand </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if there are pending commands. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if pending commands exist </dd></dl>
+
+</div>
+</div>
+<a id="a91ecde0590666ddb2fa52cc896cc8e18" name="a91ecde0590666ddb2fa52cc896cc8e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91ecde0590666ddb2fa52cc896cc8e18">&#9670;&nbsp;</a></span>hasResponses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hasResponses </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if there are responses in the queue. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if responses are available </dd></dl>
+
+</div>
+</div>
+<a id="aff49645a4f83e68aa8e4442c4bcfc3fb" name="aff49645a4f83e68aa8e4442c4bcfc3fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff49645a4f83e68aa8e4442c4bcfc3fb">&#9670;&nbsp;</a></span>popCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string popCommand </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pop and return the next command from the queue. </p>
+<dl class="section return"><dt>Returns</dt><dd>The next command string, empty if none available </dd></dl>
+
+</div>
+</div>
+<a id="a9970c19efc6a3e03a041a6bbf4e358ad" name="a9970c19efc6a3e03a041a6bbf4e358ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9970c19efc6a3e03a041a6bbf4e358ad">&#9670;&nbsp;</a></span>popResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string popResponse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pop and return the next response from the queue. </p>
+<dl class="section return"><dt>Returns</dt><dd>The next response string, empty if none available </dd></dl>
+
+</div>
+</div>
+<a id="a7a0b26d370dbe62c0ba70f0c3b44a505" name="a7a0b26d370dbe62c0ba70f0c3b44a505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a0b26d370dbe62c0ba70f0c3b44a505">&#9670;&nbsp;</a></span>pushCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pushCommand </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Push a command to the commands queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>The command string to push </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a825337c064ec1c067d2af0137e33b176" name="a825337c064ec1c067d2af0137e33b176"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a825337c064ec1c067d2af0137e33b176">&#9670;&nbsp;</a></span>pushPendingCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pushPendingCommand </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Push a command to the pending commands queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>The command string to mark as pending </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad5295730bdab90e95262d867e6ea9ba9" name="ad5295730bdab90e95262d867e6ea9ba9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5295730bdab90e95262d867e6ea9ba9">&#9670;&nbsp;</a></span>pushResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pushResponse </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>response</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Push a response to the responses queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">response</td><td>The response string to push </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>ai/include/<a class="el" href="CommandsQueue_8hpp_source.html">CommandsQueue.hpp</a></li>
-<li>ai/src/CommandsQueue.cpp</li>
+<li>ai/useless/include/<a class="el" href="CommandsQueue_8hpp_source.html">CommandsQueue.hpp</a></li>
+<li>ai/useless/src/<a class="el" href="CommandsQueue_8cpp.html">CommandsQueue.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['parser_2ecpp_0',['Parser.cpp',['../gui_2src_2core_2Parser_8cpp.html',1,'']]],
-  ['parser_2ehpp_1',['Parser.hpp',['../gui_2include_2core_2Parser_8hpp.html',1,'']]],
+  ['parser_2ecpp_0',['Parser.cpp',['../ai_2useless_2src_2Parser_8cpp.html',1,'(Global Namespace)'],['../gui_2src_2core_2Parser_8cpp.html',1,'(Global Namespace)']]],
+  ['parser_2ehpp_1',['Parser.hpp',['../gui_2include_2core_2Parser_8hpp.html',1,'(Global Namespace)'],['../ai_2useless_2include_2Parser_8hpp.html',1,'(Global Namespace)']]],
   ['parsing_2ec_2',['parsing.c',['../parsing_8c.html',1,'']]],
   ['parsing_2eh_3',['parsing.h',['../parsing_8h.html',1,'']]],
   ['pause_2ec_4',['pause.c',['../pause_8c.html',1,'']]],
@@ -18,11 +18,13 @@ var searchData=
   ['pie_2ec_15',['pie.c',['../pie_8c.html',1,'']]],
   ['pin_2ec_16',['pin.c',['../to__gui_2pin_8c.html',1,'(Global Namespace)'],['../from__gui_2pin_8c.html',1,'(Global Namespace)']]],
   ['player_2ec_17',['player.c',['../player_8c.html',1,'']]],
-  ['playerinfo_2ecpp_18',['PlayerInfo.cpp',['../PlayerInfo_8cpp.html',1,'']]],
-  ['playerinfo_2ehpp_19',['PlayerInfo.hpp',['../PlayerInfo_8hpp.html',1,'']]],
-  ['players_2ec_20',['players.c',['../game_2players_8c.html',1,'(Global Namespace)'],['../commands_2from__server_2players_8c.html',1,'(Global Namespace)']]],
-  ['plv_2ec_21',['plv.c',['../from__gui_2plv_8c.html',1,'(Global Namespace)'],['../to__gui_2plv_8c.html',1,'(Global Namespace)']]],
-  ['pnw_2ec_22',['pnw.c',['../pnw_8c.html',1,'']]],
-  ['port_2ec_23',['port.c',['../port_8c.html',1,'']]],
-  ['ppo_2ec_24',['ppo.c',['../from__gui_2ppo_8c.html',1,'(Global Namespace)'],['../to__gui_2ppo_8c.html',1,'(Global Namespace)']]]
+  ['player_2ecpp_18',['Player.cpp',['../Player_8cpp.html',1,'']]],
+  ['player_2ehpp_19',['Player.hpp',['../Player_8hpp.html',1,'']]],
+  ['playerinfo_2ecpp_20',['PlayerInfo.cpp',['../PlayerInfo_8cpp.html',1,'']]],
+  ['playerinfo_2ehpp_21',['PlayerInfo.hpp',['../PlayerInfo_8hpp.html',1,'']]],
+  ['players_2ec_22',['players.c',['../game_2players_8c.html',1,'(Global Namespace)'],['../commands_2from__server_2players_8c.html',1,'(Global Namespace)']]],
+  ['plv_2ec_23',['plv.c',['../from__gui_2plv_8c.html',1,'(Global Namespace)'],['../to__gui_2plv_8c.html',1,'(Global Namespace)']]],
+  ['pnw_2ec_24',['pnw.c',['../pnw_8c.html',1,'']]],
+  ['port_2ec_25',['port.c',['../port_8c.html',1,'']]],
+  ['ppo_2ec_26',['ppo.c',['../from__gui_2ppo_8c.html',1,'(Global Namespace)'],['../to__gui_2ppo_8c.html',1,'(Global Namespace)']]]
 ];

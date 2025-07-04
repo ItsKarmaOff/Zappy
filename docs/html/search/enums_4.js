@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['resources_5fe_0',['resources_e',['../server__data__structures_8h.html#aae2b3328e62fb75c902bda5a9d257c01',1,'server_data_structures.h']]],
-  ['resourcetype_1',['ResourceType',['../classGui_1_1PlayerInfo.html#a8571efa4409be32e28abf3ea74a0dbb1',1,'Gui::PlayerInfo']]]
+  ['pausesubscene_0',['PauseSubscene',['../classGui_1_1PauseInfo.html#af5db75f8f4ae500b4601eabcee4b2f0e',1,'Gui::PauseInfo']]],
+  ['playerstate_1',['PlayerState',['../classGui_1_1PlayerInfo.html#a3c730f37b1b3a893159bada67637fdb1',1,'Gui::PlayerInfo']]]
 ];

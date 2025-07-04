@@ -87,22 +87,89 @@ $(document).ready(function(){initNavTree('classEngine.html',''); initResizable()
   <div class="headertitle"><div class="title">Engine Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Main engine class for managing the Zappy AI client.  
+ <a href="classEngine.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Engine_8hpp_source.html">Engine.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0a2dcada039b84d02f18bfde1c45d1dc"><td class="memItemLeft" align="right" valign="top"><a id="a0a2dcada039b84d02f18bfde1c45d1dc" name="a0a2dcada039b84d02f18bfde1c45d1dc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Engine</b> (<a class="el" href="classParser.html">Parser</a> &amp;parser)</td></tr>
+<tr class="memitem:a0a2dcada039b84d02f18bfde1c45d1dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a0a2dcada039b84d02f18bfde1c45d1dc">Engine</a> (<a class="el" href="classParser.html">Parser</a> &amp;parser)</td></tr>
+<tr class="memdesc:a0a2dcada039b84d02f18bfde1c45d1dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classEngine.html" title="Main engine class for managing the Zappy AI client.">Engine</a>.  <a href="classEngine.html#a0a2dcada039b84d02f18bfde1c45d1dc">More...</a><br /></td></tr>
 <tr class="separator:a0a2dcada039b84d02f18bfde1c45d1dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45936cce93ebf1bfdfd7ba305e03e864"><td class="memItemLeft" align="right" valign="top"><a id="a45936cce93ebf1bfdfd7ba305e03e864" name="a45936cce93ebf1bfdfd7ba305e03e864"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~Engine</b> ()</td></tr>
+<tr class="memdesc:a45936cce93ebf1bfdfd7ba305e03e864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classEngine.html" title="Main engine class for managing the Zappy AI client.">Engine</a>. <br /></td></tr>
+<tr class="separator:a45936cce93ebf1bfdfd7ba305e03e864"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13a43e6d814de94978c515cb084873b1"><td class="memItemLeft" align="right" valign="top"><a id="a13a43e6d814de94978c515cb084873b1" name="a13a43e6d814de94978c515cb084873b1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()</td></tr>
+<tr class="memdesc:a13a43e6d814de94978c515cb084873b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main execution loop for the engine. <br /></td></tr>
 <tr class="separator:a13a43e6d814de94978c515cb084873b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf0f46bbdb9074aba3c8aa16400355a7"><td class="memItemLeft" align="right" valign="top"><a id="abf0f46bbdb9074aba3c8aa16400355a7" name="abf0f46bbdb9074aba3c8aa16400355a7"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getResponse</b> (<a class="el" href="classLib_1_1Socket.html">Lib::Socket</a> *socket)</td></tr>
+<tr class="memitem:abf0f46bbdb9074aba3c8aa16400355a7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#abf0f46bbdb9074aba3c8aa16400355a7">getResponse</a> (<a class="el" href="classLib_1_1Socket.html">Lib::Socket</a> *socket)</td></tr>
+<tr class="memdesc:abf0f46bbdb9074aba3c8aa16400355a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get response from the server socket.  <a href="classEngine.html#abf0f46bbdb9074aba3c8aa16400355a7">More...</a><br /></td></tr>
 <tr class="separator:abf0f46bbdb9074aba3c8aa16400355a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Main engine class for managing the Zappy AI client. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0a2dcada039b84d02f18bfde1c45d1dc" name="a0a2dcada039b84d02f18bfde1c45d1dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a2dcada039b84d02f18bfde1c45d1dc">&#9670;&nbsp;</a></span>Engine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEngine.html">Engine</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classParser.html">Parser</a> &amp;&#160;</td>
+          <td class="paramname"><em>parser</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for <a class="el" href="classEngine.html" title="Main engine class for managing the Zappy AI client.">Engine</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parser</td><td>Reference to the parser containing configuration </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="abf0f46bbdb9074aba3c8aa16400355a7" name="abf0f46bbdb9074aba3c8aa16400355a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf0f46bbdb9074aba3c8aa16400355a7">&#9670;&nbsp;</a></span>getResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string getResponse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classLib_1_1Socket.html">Lib::Socket</a> *&#160;</td>
+          <td class="paramname"><em>socket</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get response from the server socket. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket</td><td>Pointer to the socket to read from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The response string from the server </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>ai/include/<a class="el" href="Engine_8hpp_source.html">Engine.hpp</a></li>
-<li>ai/src/Engine.cpp</li>
+<li>ai/useless/include/<a class="el" href="Engine_8hpp_source.html">Engine.hpp</a></li>
+<li>ai/useless/src/<a class="el" href="Engine_8cpp.html">Engine.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

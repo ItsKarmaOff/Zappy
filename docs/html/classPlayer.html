@@ -87,115 +87,811 @@ $(document).ready(function(){initNavTree('classPlayer.html',''); initResizable()
   <div class="headertitle"><div class="title">Player Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a player in the Zappy game with inventory and command management.  
+ <a href="classPlayer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Player_8hpp_source.html">Player.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae2f3cb0879689a7966ab261a44e6b906"><td class="memItemLeft" align="right" valign="top"><a id="ae2f3cb0879689a7966ab261a44e6b906" name="ae2f3cb0879689a7966ab261a44e6b906"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Player</b> (std::string team)</td></tr>
+<tr class="memitem:ae2f3cb0879689a7966ab261a44e6b906"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ae2f3cb0879689a7966ab261a44e6b906">Player</a> (std::string team)</td></tr>
+<tr class="memdesc:ae2f3cb0879689a7966ab261a44e6b906"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classPlayer.html" title="Represents a player in the Zappy game with inventory and command management.">Player</a>.  <a href="classPlayer.html#ae2f3cb0879689a7966ab261a44e6b906">More...</a><br /></td></tr>
 <tr class="separator:ae2f3cb0879689a7966ab261a44e6b906"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0773d5762776e70ddee9d4896a8db776"><td class="memItemLeft" align="right" valign="top"><a id="a0773d5762776e70ddee9d4896a8db776" name="a0773d5762776e70ddee9d4896a8db776"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~Player</b> ()</td></tr>
+<tr class="memdesc:a0773d5762776e70ddee9d4896a8db776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classPlayer.html" title="Represents a player in the Zappy game with inventory and command management.">Player</a>. <br /></td></tr>
+<tr class="separator:a0773d5762776e70ddee9d4896a8db776"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13a43e6d814de94978c515cb084873b1"><td class="memItemLeft" align="right" valign="top"><a id="a13a43e6d814de94978c515cb084873b1" name="a13a43e6d814de94978c515cb084873b1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()</td></tr>
+<tr class="memdesc:a13a43e6d814de94978c515cb084873b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main execution loop for the player. <br /></td></tr>
 <tr class="separator:a13a43e6d814de94978c515cb084873b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2374af032cda04a409e5cfad3d564ca4"><td class="memItemLeft" align="right" valign="top"><a id="a2374af032cda04a409e5cfad3d564ca4" name="a2374af032cda04a409e5cfad3d564ca4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>broadcast</b> (const std::string &amp;message)</td></tr>
+<tr class="memitem:a2374af032cda04a409e5cfad3d564ca4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a2374af032cda04a409e5cfad3d564ca4">broadcast</a> (const std::string &amp;message)</td></tr>
+<tr class="memdesc:a2374af032cda04a409e5cfad3d564ca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcast a message to all players.  <a href="classPlayer.html#a2374af032cda04a409e5cfad3d564ca4">More...</a><br /></td></tr>
 <tr class="separator:a2374af032cda04a409e5cfad3d564ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6991d0fe8b99a881ef4767f87166023"><td class="memItemLeft" align="right" valign="top"><a id="ad6991d0fe8b99a881ef4767f87166023" name="ad6991d0fe8b99a881ef4767f87166023"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>eject</b> ()</td></tr>
+<tr class="memdesc:ad6991d0fe8b99a881ef4767f87166023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Eject other players from current tile. <br /></td></tr>
 <tr class="separator:ad6991d0fe8b99a881ef4767f87166023"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a442631fabfd48d8ab4de00f66a311dff"><td class="memItemLeft" align="right" valign="top"><a id="a442631fabfd48d8ab4de00f66a311dff" name="a442631fabfd48d8ab4de00f66a311dff"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>fork</b> ()</td></tr>
+<tr class="memdesc:a442631fabfd48d8ab4de00f66a311dff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fork a new player. <br /></td></tr>
 <tr class="separator:a442631fabfd48d8ab4de00f66a311dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c5cc3c2066b8a2b7d7e090e31f09cb7"><td class="memItemLeft" align="right" valign="top"><a id="a3c5cc3c2066b8a2b7d7e090e31f09cb7" name="a3c5cc3c2066b8a2b7d7e090e31f09cb7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>inventory</b> ()</td></tr>
+<tr class="memdesc:a3c5cc3c2066b8a2b7d7e090e31f09cb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check current inventory. <br /></td></tr>
 <tr class="separator:a3c5cc3c2066b8a2b7d7e090e31f09cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a7c522fd726b5a34db60bd9e6389e34"><td class="memItemLeft" align="right" valign="top"><a id="a7a7c522fd726b5a34db60bd9e6389e34" name="a7a7c522fd726b5a34db60bd9e6389e34"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>look</b> ()</td></tr>
+<tr class="memdesc:a7a7c522fd726b5a34db60bd9e6389e34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Look around the current position. <br /></td></tr>
 <tr class="separator:a7a7c522fd726b5a34db60bd9e6389e34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7de2a543986e45b9083c69f6138bf079"><td class="memItemLeft" align="right" valign="top"><a id="a7de2a543986e45b9083c69f6138bf079" name="a7de2a543986e45b9083c69f6138bf079"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>forward</b> ()</td></tr>
+<tr class="memdesc:a7de2a543986e45b9083c69f6138bf079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move forward one tile. <br /></td></tr>
 <tr class="separator:a7de2a543986e45b9083c69f6138bf079"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13d543ef43bc20f64e5e4cb27a4d3369"><td class="memItemLeft" align="right" valign="top"><a id="a13d543ef43bc20f64e5e4cb27a4d3369" name="a13d543ef43bc20f64e5e4cb27a4d3369"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>right</b> ()</td></tr>
+<tr class="memdesc:a13d543ef43bc20f64e5e4cb27a4d3369"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn right 90 degrees. <br /></td></tr>
 <tr class="separator:a13d543ef43bc20f64e5e4cb27a4d3369"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12ea22f00299ae04f0e81278f5dce0eb"><td class="memItemLeft" align="right" valign="top"><a id="a12ea22f00299ae04f0e81278f5dce0eb" name="a12ea22f00299ae04f0e81278f5dce0eb"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>left</b> ()</td></tr>
+<tr class="memdesc:a12ea22f00299ae04f0e81278f5dce0eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn left 90 degrees. <br /></td></tr>
 <tr class="separator:a12ea22f00299ae04f0e81278f5dce0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea5a3edc389bafbb39d0d36c0b2e9d9a"><td class="memItemLeft" align="right" valign="top"><a id="aea5a3edc389bafbb39d0d36c0b2e9d9a" name="aea5a3edc389bafbb39d0d36c0b2e9d9a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>connect_nbr</b> ()</td></tr>
+<tr class="memdesc:aea5a3edc389bafbb39d0d36c0b2e9d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get number of available team slots. <br /></td></tr>
 <tr class="separator:aea5a3edc389bafbb39d0d36c0b2e9d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a8dc4dfe81e374c9550ce6d8c9ef7d6"><td class="memItemLeft" align="right" valign="top"><a id="a2a8dc4dfe81e374c9550ce6d8c9ef7d6" name="a2a8dc4dfe81e374c9550ce6d8c9ef7d6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>take</b> (const std::string &amp;item)</td></tr>
+<tr class="memitem:a2a8dc4dfe81e374c9550ce6d8c9ef7d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a2a8dc4dfe81e374c9550ce6d8c9ef7d6">take</a> (const std::string &amp;item)</td></tr>
+<tr class="memdesc:a2a8dc4dfe81e374c9550ce6d8c9ef7d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take an item from current tile.  <a href="classPlayer.html#a2a8dc4dfe81e374c9550ce6d8c9ef7d6">More...</a><br /></td></tr>
 <tr class="separator:a2a8dc4dfe81e374c9550ce6d8c9ef7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52894eb8e0936aeffe319d62c126aa37"><td class="memItemLeft" align="right" valign="top"><a id="a52894eb8e0936aeffe319d62c126aa37" name="a52894eb8e0936aeffe319d62c126aa37"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (const std::string &amp;item)</td></tr>
+<tr class="memitem:a52894eb8e0936aeffe319d62c126aa37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a52894eb8e0936aeffe319d62c126aa37">set</a> (const std::string &amp;item)</td></tr>
+<tr class="memdesc:a52894eb8e0936aeffe319d62c126aa37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set down an item on current tile.  <a href="classPlayer.html#a52894eb8e0936aeffe319d62c126aa37">More...</a><br /></td></tr>
 <tr class="separator:a52894eb8e0936aeffe319d62c126aa37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa42731681e35cdfb0c479e5c1cc3390f"><td class="memItemLeft" align="right" valign="top"><a id="aa42731681e35cdfb0c479e5c1cc3390f" name="aa42731681e35cdfb0c479e5c1cc3390f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>incantation</b> ()</td></tr>
+<tr class="memdesc:aa42731681e35cdfb0c479e5c1cc3390f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start incantation for level up. <br /></td></tr>
 <tr class="separator:aa42731681e35cdfb0c479e5c1cc3390f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0865acd226ef929dad089c7d2e3fa3d4"><td class="memItemLeft" align="right" valign="top"><a id="a0865acd226ef929dad089c7d2e3fa3d4" name="a0865acd226ef929dad089c7d2e3fa3d4"></a>
-std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getForkPlayerCallback</b> () const</td></tr>
+<tr class="memitem:a0865acd226ef929dad089c7d2e3fa3d4"><td class="memItemLeft" align="right" valign="top">std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a0865acd226ef929dad089c7d2e3fa3d4">getForkPlayerCallback</a> () const</td></tr>
+<tr class="memdesc:a0865acd226ef929dad089c7d2e3fa3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the fork player callback function.  <a href="classPlayer.html#a0865acd226ef929dad089c7d2e3fa3d4">More...</a><br /></td></tr>
 <tr class="separator:a0865acd226ef929dad089c7d2e3fa3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8999f3fb0d01bd0ec464856cc24dee6"><td class="memItemLeft" align="right" valign="top"><a id="aa8999f3fb0d01bd0ec464856cc24dee6" name="aa8999f3fb0d01bd0ec464856cc24dee6"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isAlive</b> () const</td></tr>
+<tr class="memitem:aa8999f3fb0d01bd0ec464856cc24dee6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#aa8999f3fb0d01bd0ec464856cc24dee6">isAlive</a> () const</td></tr>
+<tr class="memdesc:aa8999f3fb0d01bd0ec464856cc24dee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if player is alive.  <a href="classPlayer.html#aa8999f3fb0d01bd0ec464856cc24dee6">More...</a><br /></td></tr>
 <tr class="separator:aa8999f3fb0d01bd0ec464856cc24dee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b0d174cb040c0234c349bceb0892661"><td class="memItemLeft" align="right" valign="top"><a id="a3b0d174cb040c0234c349bceb0892661" name="a3b0d174cb040c0234c349bceb0892661"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getTeamName</b> () const</td></tr>
+<tr class="memitem:a3b0d174cb040c0234c349bceb0892661"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a3b0d174cb040c0234c349bceb0892661">getTeamName</a> () const</td></tr>
+<tr class="memdesc:a3b0d174cb040c0234c349bceb0892661"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the team name.  <a href="classPlayer.html#a3b0d174cb040c0234c349bceb0892661">More...</a><br /></td></tr>
 <tr class="separator:a3b0d174cb040c0234c349bceb0892661"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4817fead3e1cb00d716efefc2ff0bf05"><td class="memItemLeft" align="right" valign="top"><a id="a4817fead3e1cb00d716efefc2ff0bf05" name="a4817fead3e1cb00d716efefc2ff0bf05"></a>
-std::shared_ptr&lt; <a class="el" href="classCommandsQueue.html">CommandsQueue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCommandsQueue</b> () const</td></tr>
+<tr class="memitem:a4817fead3e1cb00d716efefc2ff0bf05"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classCommandsQueue.html">CommandsQueue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a4817fead3e1cb00d716efefc2ff0bf05">getCommandsQueue</a> () const</td></tr>
+<tr class="memdesc:a4817fead3e1cb00d716efefc2ff0bf05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the commands queue.  <a href="classPlayer.html#a4817fead3e1cb00d716efefc2ff0bf05">More...</a><br /></td></tr>
 <tr class="separator:a4817fead3e1cb00d716efefc2ff0bf05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63cfb9ef255ac2968030177bef9c6fd8"><td class="memItemLeft" align="right" valign="top"><a id="a63cfb9ef255ac2968030177bef9c6fd8" name="a63cfb9ef255ac2968030177bef9c6fd8"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getItemCount</b> (ResourceType type) const</td></tr>
+<tr class="memitem:a63cfb9ef255ac2968030177bef9c6fd8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a63cfb9ef255ac2968030177bef9c6fd8">getItemCount</a> (<a class="el" href="ZappyTypes_8hpp.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> type) const</td></tr>
+<tr class="memdesc:a63cfb9ef255ac2968030177bef9c6fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get count of specific resource type.  <a href="classPlayer.html#a63cfb9ef255ac2968030177bef9c6fd8">More...</a><br /></td></tr>
 <tr class="separator:a63cfb9ef255ac2968030177bef9c6fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac464d9b02c5b60099cca299cad2b8fdf"><td class="memItemLeft" align="right" valign="top"><a id="ac464d9b02c5b60099cca299cad2b8fdf" name="ac464d9b02c5b60099cca299cad2b8fdf"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getFoodCount</b> () const</td></tr>
+<tr class="memitem:ac464d9b02c5b60099cca299cad2b8fdf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ac464d9b02c5b60099cca299cad2b8fdf">getFoodCount</a> () const</td></tr>
+<tr class="memdesc:ac464d9b02c5b60099cca299cad2b8fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current food count.  <a href="classPlayer.html#ac464d9b02c5b60099cca299cad2b8fdf">More...</a><br /></td></tr>
 <tr class="separator:ac464d9b02c5b60099cca299cad2b8fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c646194ab19894d566e5a09cf451f0d"><td class="memItemLeft" align="right" valign="top"><a id="a1c646194ab19894d566e5a09cf451f0d" name="a1c646194ab19894d566e5a09cf451f0d"></a>
-const std::map&lt; ResourceType, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInventory</b> () const</td></tr>
+<tr class="memitem:a1c646194ab19894d566e5a09cf451f0d"><td class="memItemLeft" align="right" valign="top">const std::map&lt; <a class="el" href="ZappyTypes_8hpp.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a1c646194ab19894d566e5a09cf451f0d">getInventory</a> () const</td></tr>
+<tr class="memdesc:a1c646194ab19894d566e5a09cf451f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the complete inventory.  <a href="classPlayer.html#a1c646194ab19894d566e5a09cf451f0d">More...</a><br /></td></tr>
 <tr class="separator:a1c646194ab19894d566e5a09cf451f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70b0d85d40be8c42fbd7de9d770aeb41"><td class="memItemLeft" align="right" valign="top"><a id="a70b0d85d40be8c42fbd7de9d770aeb41" name="a70b0d85d40be8c42fbd7de9d770aeb41"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>canEvolveToLevel</b> (int targetLevel) const</td></tr>
+<tr class="memitem:a70b0d85d40be8c42fbd7de9d770aeb41"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a70b0d85d40be8c42fbd7de9d770aeb41">canEvolveToLevel</a> (int targetLevel) const</td></tr>
+<tr class="memdesc:a70b0d85d40be8c42fbd7de9d770aeb41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if player can evolve to target level.  <a href="classPlayer.html#a70b0d85d40be8c42fbd7de9d770aeb41">More...</a><br /></td></tr>
 <tr class="separator:a70b0d85d40be8c42fbd7de9d770aeb41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fd937fb40d6d1c755778442f67c72e3"><td class="memItemLeft" align="right" valign="top"><a id="a7fd937fb40d6d1c755778442f67c72e3" name="a7fd937fb40d6d1c755778442f67c72e3"></a>
-std::map&lt; ResourceType, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getRequiredItemsForLevel</b> (int targetLevel) const</td></tr>
+<tr class="memitem:a7fd937fb40d6d1c755778442f67c72e3"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="ZappyTypes_8hpp.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a7fd937fb40d6d1c755778442f67c72e3">getRequiredItemsForLevel</a> (int targetLevel) const</td></tr>
+<tr class="memdesc:a7fd937fb40d6d1c755778442f67c72e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get required items for specific level.  <a href="classPlayer.html#a7fd937fb40d6d1c755778442f67c72e3">More...</a><br /></td></tr>
 <tr class="separator:a7fd937fb40d6d1c755778442f67c72e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b6267e10dab6f711c1e28ee869329c4"><td class="memItemLeft" align="right" valign="top"><a id="a0b6267e10dab6f711c1e28ee869329c4" name="a0b6267e10dab6f711c1e28ee869329c4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCommandsQueue</b> (std::shared_ptr&lt; <a class="el" href="classCommandsQueue.html">CommandsQueue</a> &gt; queue)</td></tr>
+<tr class="memitem:a0b6267e10dab6f711c1e28ee869329c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a0b6267e10dab6f711c1e28ee869329c4">setCommandsQueue</a> (std::shared_ptr&lt; <a class="el" href="classCommandsQueue.html">CommandsQueue</a> &gt; queue)</td></tr>
+<tr class="memdesc:a0b6267e10dab6f711c1e28ee869329c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the commands queue.  <a href="classPlayer.html#a0b6267e10dab6f711c1e28ee869329c4">More...</a><br /></td></tr>
 <tr class="separator:a0b6267e10dab6f711c1e28ee869329c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaf1cbead556ebfaadf7b1121c31b644"><td class="memItemLeft" align="right" valign="top"><a id="aeaf1cbead556ebfaadf7b1121c31b644" name="aeaf1cbead556ebfaadf7b1121c31b644"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setForkPlayerCallback</b> (std::function&lt; void()&gt; callback)</td></tr>
+<tr class="memitem:aeaf1cbead556ebfaadf7b1121c31b644"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#aeaf1cbead556ebfaadf7b1121c31b644">setForkPlayerCallback</a> (std::function&lt; void()&gt; callback)</td></tr>
+<tr class="memdesc:aeaf1cbead556ebfaadf7b1121c31b644"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the fork player callback.  <a href="classPlayer.html#aeaf1cbead556ebfaadf7b1121c31b644">More...</a><br /></td></tr>
 <tr class="separator:aeaf1cbead556ebfaadf7b1121c31b644"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e0a8bc29b3751d4e0a2326599e8992e"><td class="memItemLeft" align="right" valign="top"><a id="a2e0a8bc29b3751d4e0a2326599e8992e" name="a2e0a8bc29b3751d4e0a2326599e8992e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setAlive</b> (bool alive)</td></tr>
+<tr class="memitem:a2e0a8bc29b3751d4e0a2326599e8992e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a2e0a8bc29b3751d4e0a2326599e8992e">setAlive</a> (bool alive)</td></tr>
+<tr class="memdesc:a2e0a8bc29b3751d4e0a2326599e8992e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set player alive status.  <a href="classPlayer.html#a2e0a8bc29b3751d4e0a2326599e8992e">More...</a><br /></td></tr>
 <tr class="separator:a2e0a8bc29b3751d4e0a2326599e8992e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86dd94730c711625908fe2fff98ab24f"><td class="memItemLeft" align="right" valign="top"><a id="a86dd94730c711625908fe2fff98ab24f" name="a86dd94730c711625908fe2fff98ab24f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCommunicationThread</b> (std::thread &amp;&amp;thread)</td></tr>
+<tr class="memitem:a86dd94730c711625908fe2fff98ab24f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a86dd94730c711625908fe2fff98ab24f">setCommunicationThread</a> (std::thread &amp;&amp;thread)</td></tr>
+<tr class="memdesc:a86dd94730c711625908fe2fff98ab24f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set communication thread for engine compatibility.  <a href="classPlayer.html#a86dd94730c711625908fe2fff98ab24f">More...</a><br /></td></tr>
 <tr class="separator:a86dd94730c711625908fe2fff98ab24f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7bf434e77a1105e22f8669de6021ad3"><td class="memItemLeft" align="right" valign="top"><a id="ab7bf434e77a1105e22f8669de6021ad3" name="ab7bf434e77a1105e22f8669de6021ad3"></a>
-std::thread &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getCommunicationThread</b> ()</td></tr>
+<tr class="memitem:ab7bf434e77a1105e22f8669de6021ad3"><td class="memItemLeft" align="right" valign="top">std::thread &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ab7bf434e77a1105e22f8669de6021ad3">getCommunicationThread</a> ()</td></tr>
+<tr class="memdesc:ab7bf434e77a1105e22f8669de6021ad3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get communication thread reference.  <a href="classPlayer.html#ab7bf434e77a1105e22f8669de6021ad3">More...</a><br /></td></tr>
 <tr class="separator:ab7bf434e77a1105e22f8669de6021ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1023f4f716f4b19f16ea1b65a2173375"><td class="memItemLeft" align="right" valign="top"><a id="a1023f4f716f4b19f16ea1b65a2173375" name="a1023f4f716f4b19f16ea1b65a2173375"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addToBroadcastList</b> (const std::string &amp;broadcast)</td></tr>
+<tr class="memitem:a1023f4f716f4b19f16ea1b65a2173375"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a1023f4f716f4b19f16ea1b65a2173375">addToBroadcastList</a> (const std::string &amp;<a class="el" href="classPlayer.html#a2374af032cda04a409e5cfad3d564ca4">broadcast</a>)</td></tr>
+<tr class="memdesc:a1023f4f716f4b19f16ea1b65a2173375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add broadcast message to queue.  <a href="classPlayer.html#a1023f4f716f4b19f16ea1b65a2173375">More...</a><br /></td></tr>
 <tr class="separator:a1023f4f716f4b19f16ea1b65a2173375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abaf3e4bc26c9a870fc0f8ec0795ec520"><td class="memItemLeft" align="right" valign="top"><a id="abaf3e4bc26c9a870fc0f8ec0795ec520" name="abaf3e4bc26c9a870fc0f8ec0795ec520"></a>
-const std::vector&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getBroadcastMessages</b> () const</td></tr>
+<tr class="memitem:abaf3e4bc26c9a870fc0f8ec0795ec520"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#abaf3e4bc26c9a870fc0f8ec0795ec520">getBroadcastMessages</a> () const</td></tr>
+<tr class="memdesc:abaf3e4bc26c9a870fc0f8ec0795ec520"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get broadcast messages list.  <a href="classPlayer.html#abaf3e4bc26c9a870fc0f8ec0795ec520">More...</a><br /></td></tr>
 <tr class="separator:abaf3e4bc26c9a870fc0f8ec0795ec520"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a476feb40cded0197aa5b90a4bf45f552"><td class="memItemLeft" align="right" valign="top"><a id="a476feb40cded0197aa5b90a4bf45f552" name="a476feb40cded0197aa5b90a4bf45f552"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>processResponse</b> (const std::string &amp;response)</td></tr>
+<tr class="memitem:a476feb40cded0197aa5b90a4bf45f552"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a476feb40cded0197aa5b90a4bf45f552">processResponse</a> (const std::string &amp;response)</td></tr>
+<tr class="memdesc:a476feb40cded0197aa5b90a4bf45f552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process server response.  <a href="classPlayer.html#a476feb40cded0197aa5b90a4bf45f552">More...</a><br /></td></tr>
 <tr class="separator:a476feb40cded0197aa5b90a4bf45f552"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f44f2787dedf1e0950319c4d06d094a"><td class="memItemLeft" align="right" valign="top"><a id="a8f44f2787dedf1e0950319c4d06d094a" name="a8f44f2787dedf1e0950319c4d06d094a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getLevel</b> () const</td></tr>
+<tr class="memitem:a8f44f2787dedf1e0950319c4d06d094a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a8f44f2787dedf1e0950319c4d06d094a">getLevel</a> () const</td></tr>
+<tr class="memdesc:a8f44f2787dedf1e0950319c4d06d094a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current player level.  <a href="classPlayer.html#a8f44f2787dedf1e0950319c4d06d094a">More...</a><br /></td></tr>
 <tr class="separator:a8f44f2787dedf1e0950319c4d06d094a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac215a692102f89e4154928ffcbb2f931"><td class="memItemLeft" align="right" valign="top"><a id="ac215a692102f89e4154928ffcbb2f931" name="ac215a692102f89e4154928ffcbb2f931"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasPendingBroadcasts</b> () const</td></tr>
+<tr class="memitem:ac215a692102f89e4154928ffcbb2f931"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ac215a692102f89e4154928ffcbb2f931">hasPendingBroadcasts</a> () const</td></tr>
+<tr class="memdesc:ac215a692102f89e4154928ffcbb2f931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if there are pending broadcasts.  <a href="classPlayer.html#ac215a692102f89e4154928ffcbb2f931">More...</a><br /></td></tr>
 <tr class="separator:ac215a692102f89e4154928ffcbb2f931"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0714c0a4df9801bbd5cc25f80a706d0c"><td class="memItemLeft" align="right" valign="top"><a id="a0714c0a4df9801bbd5cc25f80a706d0c" name="a0714c0a4df9801bbd5cc25f80a706d0c"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getNextBroadcast</b> ()</td></tr>
+<tr class="memitem:a0714c0a4df9801bbd5cc25f80a706d0c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a0714c0a4df9801bbd5cc25f80a706d0c">getNextBroadcast</a> ()</td></tr>
+<tr class="memdesc:a0714c0a4df9801bbd5cc25f80a706d0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get next broadcast from queue.  <a href="classPlayer.html#a0714c0a4df9801bbd5cc25f80a706d0c">More...</a><br /></td></tr>
 <tr class="separator:a0714c0a4df9801bbd5cc25f80a706d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Represents a player in the Zappy game with inventory and command management. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae2f3cb0879689a7966ab261a44e6b906" name="ae2f3cb0879689a7966ab261a44e6b906"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2f3cb0879689a7966ab261a44e6b906">&#9670;&nbsp;</a></span>Player()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPlayer.html">Player</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>team</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for <a class="el" href="classPlayer.html" title="Represents a player in the Zappy game with inventory and command management.">Player</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">team</td><td>The team name for this player </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1023f4f716f4b19f16ea1b65a2173375" name="a1023f4f716f4b19f16ea1b65a2173375"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1023f4f716f4b19f16ea1b65a2173375">&#9670;&nbsp;</a></span>addToBroadcastList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addToBroadcastList </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>broadcast</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add broadcast message to queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">broadcast</td><td>The broadcast message to add </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2374af032cda04a409e5cfad3d564ca4" name="a2374af032cda04a409e5cfad3d564ca4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2374af032cda04a409e5cfad3d564ca4">&#9670;&nbsp;</a></span>broadcast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void broadcast </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Broadcast a message to all players. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message to broadcast </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a70b0d85d40be8c42fbd7de9d770aeb41" name="a70b0d85d40be8c42fbd7de9d770aeb41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70b0d85d40be8c42fbd7de9d770aeb41">&#9670;&nbsp;</a></span>canEvolveToLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool canEvolveToLevel </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>targetLevel</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if player can evolve to target level. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targetLevel</td><td>The target level to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if evolution is possible </dd></dl>
+
+</div>
+</div>
+<a id="abaf3e4bc26c9a870fc0f8ec0795ec520" name="abaf3e4bc26c9a870fc0f8ec0795ec520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaf3e4bc26c9a870fc0f8ec0795ec520">&#9670;&nbsp;</a></span>getBroadcastMessages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; std::string &gt; &amp; getBroadcastMessages </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get broadcast messages list. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to broadcast messages vector </dd></dl>
+
+</div>
+</div>
+<a id="a4817fead3e1cb00d716efefc2ff0bf05" name="a4817fead3e1cb00d716efefc2ff0bf05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4817fead3e1cb00d716efefc2ff0bf05">&#9670;&nbsp;</a></span>getCommandsQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classCommandsQueue.html">CommandsQueue</a> &gt; getCommandsQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the commands queue. </p>
+<dl class="section return"><dt>Returns</dt><dd>Shared pointer to the commands queue </dd></dl>
+
+</div>
+</div>
+<a id="ab7bf434e77a1105e22f8669de6021ad3" name="ab7bf434e77a1105e22f8669de6021ad3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7bf434e77a1105e22f8669de6021ad3">&#9670;&nbsp;</a></span>getCommunicationThread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::thread &amp; getCommunicationThread </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get communication thread reference. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the communication thread </dd></dl>
+
+</div>
+</div>
+<a id="ac464d9b02c5b60099cca299cad2b8fdf" name="ac464d9b02c5b60099cca299cad2b8fdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac464d9b02c5b60099cca299cad2b8fdf">&#9670;&nbsp;</a></span>getFoodCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getFoodCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get current food count. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of food units </dd></dl>
+
+</div>
+</div>
+<a id="a0865acd226ef929dad089c7d2e3fa3d4" name="a0865acd226ef929dad089c7d2e3fa3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0865acd226ef929dad089c7d2e3fa3d4">&#9670;&nbsp;</a></span>getForkPlayerCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt; void()&gt; getForkPlayerCallback </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the fork player callback function. </p>
+<dl class="section return"><dt>Returns</dt><dd>The fork callback function </dd></dl>
+
+</div>
+</div>
+<a id="a1c646194ab19894d566e5a09cf451f0d" name="a1c646194ab19894d566e5a09cf451f0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c646194ab19894d566e5a09cf451f0d">&#9670;&nbsp;</a></span>getInventory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::map&lt; <a class="el" href="ZappyTypes_8hpp.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>, int &gt; &amp; getInventory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the complete inventory. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the inventory map </dd></dl>
+
+</div>
+</div>
+<a id="a63cfb9ef255ac2968030177bef9c6fd8" name="a63cfb9ef255ac2968030177bef9c6fd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63cfb9ef255ac2968030177bef9c6fd8">&#9670;&nbsp;</a></span>getItemCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getItemCount </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ZappyTypes_8hpp.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get count of specific resource type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The resource type to count </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of items of that type </dd></dl>
+
+</div>
+</div>
+<a id="a8f44f2787dedf1e0950319c4d06d094a" name="a8f44f2787dedf1e0950319c4d06d094a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f44f2787dedf1e0950319c4d06d094a">&#9670;&nbsp;</a></span>getLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getLevel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get current player level. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current level </dd></dl>
+
+</div>
+</div>
+<a id="a0714c0a4df9801bbd5cc25f80a706d0c" name="a0714c0a4df9801bbd5cc25f80a706d0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0714c0a4df9801bbd5cc25f80a706d0c">&#9670;&nbsp;</a></span>getNextBroadcast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string getNextBroadcast </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get next broadcast from queue. </p>
+<dl class="section return"><dt>Returns</dt><dd>The next broadcast message </dd></dl>
+
+</div>
+</div>
+<a id="a7fd937fb40d6d1c755778442f67c72e3" name="a7fd937fb40d6d1c755778442f67c72e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fd937fb40d6d1c755778442f67c72e3">&#9670;&nbsp;</a></span>getRequiredItemsForLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; <a class="el" href="ZappyTypes_8hpp.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>, int &gt; getRequiredItemsForLevel </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>targetLevel</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get required items for specific level. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targetLevel</td><td>The target level </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Map of required resources and quantities </dd></dl>
+
+</div>
+</div>
+<a id="a3b0d174cb040c0234c349bceb0892661" name="a3b0d174cb040c0234c349bceb0892661"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b0d174cb040c0234c349bceb0892661">&#9670;&nbsp;</a></span>getTeamName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string getTeamName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the team name. </p>
+<dl class="section return"><dt>Returns</dt><dd>The team name </dd></dl>
+
+</div>
+</div>
+<a id="ac215a692102f89e4154928ffcbb2f931" name="ac215a692102f89e4154928ffcbb2f931"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac215a692102f89e4154928ffcbb2f931">&#9670;&nbsp;</a></span>hasPendingBroadcasts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hasPendingBroadcasts </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if there are pending broadcasts. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if broadcasts are pending </dd></dl>
+
+</div>
+</div>
+<a id="aa8999f3fb0d01bd0ec464856cc24dee6" name="aa8999f3fb0d01bd0ec464856cc24dee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8999f3fb0d01bd0ec464856cc24dee6">&#9670;&nbsp;</a></span>isAlive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isAlive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if player is alive. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if player is alive </dd></dl>
+
+</div>
+</div>
+<a id="a476feb40cded0197aa5b90a4bf45f552" name="a476feb40cded0197aa5b90a4bf45f552"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a476feb40cded0197aa5b90a4bf45f552">&#9670;&nbsp;</a></span>processResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void processResponse </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>response</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Process server response. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">response</td><td>The response string from server </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a52894eb8e0936aeffe319d62c126aa37" name="a52894eb8e0936aeffe319d62c126aa37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52894eb8e0936aeffe319d62c126aa37">&#9670;&nbsp;</a></span>set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set down an item on current tile. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>The item name to set down </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2e0a8bc29b3751d4e0a2326599e8992e" name="a2e0a8bc29b3751d4e0a2326599e8992e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e0a8bc29b3751d4e0a2326599e8992e">&#9670;&nbsp;</a></span>setAlive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setAlive </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>alive</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set player alive status. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alive</td><td>The alive status </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0b6267e10dab6f711c1e28ee869329c4" name="a0b6267e10dab6f711c1e28ee869329c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b6267e10dab6f711c1e28ee869329c4">&#9670;&nbsp;</a></span>setCommandsQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setCommandsQueue </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classCommandsQueue.html">CommandsQueue</a> &gt;&#160;</td>
+          <td class="paramname"><em>queue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the commands queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>Shared pointer to the commands queue </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a86dd94730c711625908fe2fff98ab24f" name="a86dd94730c711625908fe2fff98ab24f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86dd94730c711625908fe2fff98ab24f">&#9670;&nbsp;</a></span>setCommunicationThread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setCommunicationThread </td>
+          <td>(</td>
+          <td class="paramtype">std::thread &amp;&amp;&#160;</td>
+          <td class="paramname"><em>thread</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set communication thread for engine compatibility. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thread</td><td>The communication thread </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeaf1cbead556ebfaadf7b1121c31b644" name="aeaf1cbead556ebfaadf7b1121c31b644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaf1cbead556ebfaadf7b1121c31b644">&#9670;&nbsp;</a></span>setForkPlayerCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setForkPlayerCallback </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the fork player callback. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>The callback function for forking </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2a8dc4dfe81e374c9550ce6d8c9ef7d6" name="a2a8dc4dfe81e374c9550ce6d8c9ef7d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a8dc4dfe81e374c9550ce6d8c9ef7d6">&#9670;&nbsp;</a></span>take()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void take </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Take an item from current tile. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>The item name to take </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>ai/include/<a class="el" href="Player_8hpp_source.html">Player.hpp</a></li>
-<li>ai/src/Player.cpp</li>
+<li>ai/useless/include/<a class="el" href="Player_8hpp_source.html">Player.hpp</a></li>
+<li>ai/useless/src/<a class="el" href="Player_8cpp.html">Player.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
