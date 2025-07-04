@@ -20,6 +20,6 @@ if __name__ == "__main__":
         sys.exit(84)
     except KeyboardInterrupt:
         print(f"{RED}Stopping with CTRL+C{RESET}")
-    #except Exception as e:
-    #    print(f"{RED}Unexpected error: {e}{RESET}", file=sys.stderr)
-    #    sys.exit(84)
+    except Exception as e:
+        print(f"{RED}Unexpected error: {e}{RESET}", file=sys.stderr)
+        sys.exit(84)

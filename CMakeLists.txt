@@ -153,12 +153,12 @@ function(create_unit_tests_target)
     endif()
     pkg_check_modules(CRITERION REQUIRED criterion)
 
-    file(GLOB_RECURSE AI_LIB_SOURCES "ai/src/*.cpp")
+    file(GLOB_RECURSE AI_LIB_SOURCES "ai/useless/src/*.cpp")
     list(FILTER AI_LIB_SOURCES EXCLUDE REGEX ".*[Mm]ain\\.cpp$")
     if(AI_LIB_SOURCES)
         add_library(ai_lib ${AI_LIB_SOURCES})
         target_include_directories(ai_lib PUBLIC
-                ${CMAKE_SOURCE_DIR}/ai/include
+                ${CMAKE_SOURCE_DIR}/ai/useless/include
         )
         target_link_libraries(ai_lib PUBLIC my_cpp)
         target_compile_options(ai_lib PRIVATE -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function --coverage)
@@ -176,7 +176,7 @@ function(create_unit_tests_target)
     endif()
 
     file(GLOB_RECURSE TEST_SOURCES "tests/*.c")
-    file(GLOB_RECURSE AI_TEST_SOURCES "tests/ai/useless/*.cpp")
+    file(GLOB_RECURSE AI_TEST_SOURCES "tests/ai/*.cpp")
     file(GLOB_RECURSE SERVER_TEST_SOURCES "tests/server/*.c")
 
     set(ALL_TEST_SOURCES ${TEST_SOURCES} ${AI_TEST_SOURCES} ${SERVER_TEST_SOURCES})

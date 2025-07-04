@@ -13,6 +13,7 @@
 #include "tests.h"
 #include "Player.hpp"
 #include <criterion/criterion.h>
+#include <exception>
 #include "Parser.hpp"
 #include "Algo.hpp"
 
@@ -124,52 +125,94 @@ Test(CommandsQueue, stress_push_pop)
 
 Test(Parser, parses_valid_arguments)
 {
-    Parser parser;
+    std::unique_ptr<Parser> parser = nullptr;
     const char *argv[] = {"./zappy_ai", "-p", "4242", "-n", "team", "-h", "127.0.0.1"};
-    cr_assert_no_throw(parser.parse(7, const_cast<char **>(argv)));
-    cr_assert_eq(parser.getPort(), 4242, "Port should be 4242");
-    cr_assert_eq(parser.getName(), "team", "Name should be 'team'");
-    cr_assert_eq(parser.getMachine(), "127.0.0.1", "Machine should be '127.0.0.1'");
+
+    try {
+        parser = std::make_unique<Parser>(7, const_cast<char **>(argv));
+    } catch (const Lib::Exceptions::Success &e) {
+    } catch (...) {
+        cr_assert_fail("Invalid exception thrown during parser construction");
+    }
+    cr_assert_eq(parser->getPort(), 4242, "Port should be 4242");
+    cr_assert_eq(parser->getName(), "team", "Name should be 'team'");
+    cr_assert_eq(parser->getHostname(), "127.0.0.1", "Machine should be '127.0.0.1'");
 }
 
 Test(Parser, throws_on_help)
 {
-    Parser parser;
+    std::unique_ptr<Parser> parser = nullptr;
     const char *argv[] = {"./zappy_ai", "--help"};
-    cr_assert_throw(parser.parse(2, const_cast<char **>(argv)), Lib::Exceptions::Critical);
+
+    try {
+        parser = std::make_unique<Parser>(2, const_cast<char **>(argv));
+    } catch (const Lib::Exceptions::Success &e) {
+    } catch (...) {
+        cr_assert_fail("Invalid exception thrown during parser construction");
+    }
 }
 
 Test(Parser, throws_on_missing_arguments)
 {
-    Parser parser;
+    std::unique_ptr<Parser> parser = nullptr;
     const char *argv[] = {"./zappy_ai", "-p", "4242", "-n", "team"};
-    cr_assert_throw(parser.parse(5, const_cast<char **>(argv)), Lib::Exceptions::Critical);
+
+    try {
+        parser = std::make_unique<Parser>(5, const_cast<char **>(argv));
+    } catch (const Lib::Exceptions::Critical &e) {
+    } catch (...) {
+        cr_assert_fail("Invalid exception thrown during parser construction");
+    }
 }
 
 Test(Parser, throws_on_invalid_port)
 {
-    Parser parser;
+    std::unique_ptr<Parser> parser = nullptr;
     const char *argv[] = {"./zappy_ai", "-p", "0", "-n", "team", "-h", "localhost"};
-    cr_assert_throw(parser.parse(7, const_cast<char **>(argv)), Lib::Exceptions::Critical);
+
+    try {
+        parser = std::make_unique<Parser>(7, const_cast<char **>(argv));
+    } catch (const Lib::Exceptions::Critical &e) {
+    } catch (...) {
+        cr_assert_fail("Invalid exception thrown during parser construction");
+    }
 }
 
 Test(Parser, throws_on_empty_name)
 {
-    Parser parser;
+    std::unique_ptr<Parser> parser = nullptr;
     const char *argv[] = {"./zappy_ai", "-p", "4242", "-n", "", "-h", "localhost"};
-    cr_assert_throw(parser.parse(7, const_cast<char **>(argv)), Lib::Exceptions::Critical);
+
+    try {
+        parser = std::make_unique<Parser>(7, const_cast<char **>(argv));
+    } catch (const Lib::Exceptions::Critical &e) {
+    } catch (...) {
+        cr_assert_fail("Invalid exception thrown during parser construction");
+    }
 }
 
 Test(Parser, throws_on_empty_machine)
 {
-    Parser parser;
+    std::unique_ptr<Parser> parser = nullptr;
     const char *argv[] = {"./zappy_ai", "-p", "4242", "-n", "team", "-h", ""};
-    cr_assert_throw(parser.parse(7, const_cast<char **>(argv)), Lib::Exceptions::Critical);
+
+    try {
+        parser = std::make_unique<Parser>(7, const_cast<char **>(argv));
+    } catch (const Lib::Exceptions::Critical &e) {
+    } catch (...) {
+        cr_assert_fail("Invalid exception thrown during parser construction");
+    }
 }
 
 Test(Parser, throws_on_unknown_argument)
 {
-    Parser parser;
+    std::unique_ptr<Parser> parser = nullptr;
     const char *argv[] = {"./zappy_ai", "-p", "4242", "-n", "team", "-x", "foo"};
-    cr_assert_throw(parser.parse(7, const_cast<char **>(argv)), Lib::Exceptions::Critical);
+
+    try {
+        parser = std::make_unique<Parser>(7, const_cast<char **>(argv));
+    } catch (const Lib::Exceptions::Critical &e) {
+    } catch (...) {
+        cr_assert_fail("Invalid exception thrown during parser construction");
+    }
 }
